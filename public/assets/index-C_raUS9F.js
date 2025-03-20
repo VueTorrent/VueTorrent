@@ -1,7 +1,7 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Dashboard-CTeZdRBs.js","./vue-DYKWomr6.js","./ColoredChip.vue_vue_type_script_setup_true_lang-Uqe5zhED.js","./vuetify-CPVtP65z.js","./TagFormDialog.vue_vue_type_script_setup_true_lang-B3ypSdF7.js","./Dashboard-DYNPPe4U.css","./Settings-w_VcJYkR.js","./PasswordField.vue_vue_type_script_setup_true_lang-Dtc2FGko.js","./Settings-DQiwVX2O.css","./RssArticles-NsKpGpn7.js","./RssArticles-9vWSa0z4.css","./Logs-IgDCI6dR.js","./SearchEngine-DjlarhO9.js","./SearchEngine-D9tNU7S0.css","./TorrentCreator-DX3y3Yyb.js","./TorrentDetail-rQSw82Ik.js","./TorrentDetail-4TPpwKlZ.css","./MagnetHandler-Duxvxh87.js","./Login-CVA7yyc-.js"])))=>i.map(i=>d[i]);
-import { w as he, aa as Yx, o as va, a as T, a6 as We, s as de, O as Rt, v as Zs, ab as X, d as G, ac as qx, g as Qs, ad as ib, f as Tt, u as U, b as zt, ae as ih, r as Pa, z as ra, a0 as ya, a7 as dr, R as el, af as Kx, Q as gt, ag as Xx, ah as hi, a1 as Ci, e as bm, q as pa, P as tl, W as yr, t as Ai, ai as Jx, m as y, aj as Fm, ak as Jr, j as Nn, n as Q, H as Lr, A as nt, a4 as dt, al as Ua, F as Ae, a5 as wa, p as Kt, k as Zx, am as Qx, an as ew, a3 as ob, J as Fe, l as Wt, ao as tw, x as aw, ap as rw, I as Ee, h as Et, Z as nw, _ as sb, B as Ie, D as fe, E as iw, G as z, $ as ow, c as al, N as Ze, aq as sw, M as bt, T as km, X as br, Y as lb, ar as ub, V as xm, S as at, L as lo, as as lw, at as uw, au as cw, av as dw, aw as hw, ax as mw, ay as pw, az as fw } from "./vue-DYKWomr6.js";
-import { u as rl, a as Ra, g as te, p as Y, b as _t, d as wm, i as af, c as gw, e as nl, f as vw, h as Ir, j as yw, k as ke, l as it, m as bw, n as ne, o as Qe, q as xe, I as Be, r as Fw, S as Sm, s as La, E as ta, t as Pe, v as Ca, w as Sa, x as il, y as rf, z as rn, A as Dt, B as bi, C as Gt, D as Ot, F as ol, G as vn, H as kw, J as uo, K as xw, L as cb, M as Cm, N as Ba, O as Zt, P as nn, Q as ww, R as Fr, T as Sw, U as qt, V as On, W as Ts, X as nf, Y as on, Z as xr, _ as Cw, $ as db, a0 as Ut, a1 as gi, a2 as Aw, a3 as oh, a4 as su, a5 as lu, a6 as of, a7 as Es, a8 as uu, a9 as sf, aa as lf, ab as Yt, ac as Dw, ad as Tw, ae as sh, af as Ew, ag as _w, ah as hb, ai as Am, aj as Pw, ak as Bw, al as Mw, am as Rw, an as Dm, ao as Fi, ap as mb, aq as Lw, ar as sl, as as uf, at as pb, au as Hn, av as Vn, aw as Iw, ax as zw, ay as fb, az as gb, aA as vb, aB as Nw, aC as Ow, aD as Hw, aE as yb, aF as Vw, aG as bb, aH as ll, aI as Fb, aJ as as, aK as cf, aL as Yr, aM as lh, aN as df, aO as kb, aP as Ww, aQ as Gw, aR as _s, aS as rs, aT as $w, aU as jw, aV as hf, aW as To, aX as Uw, aY as Yw, aZ as qw, a_ as Kw, a$ as Xw, b0 as Jw, b1 as Zw, b2 as Qw, b3 as eS } from "./vuetify-CPVtP65z.js";
-let Te, Oh, Gs, Xn, Gn, Fl, Ei, Sr, E1, TR, $s, Ll, tt, Nh, Rs, v6, Tz, Vp, ea, Qr, Mt, Ml, Ea, Ya, zW, oa, yh, Fo, _e, Vv, Az, De, Pm, KN, Lx, NW, JD, WW, H1, Ws, dS, hS, cS, uS, lS, nS, rS, iS, xb, aS, tS, no, io, oS, sS, $n, Nt, _M, bn, Vt, Eh, AM, Os, d0, CM, EG, Hv, vW, Db, Kr, M1, c0, Ab, Nz, _l, XD, Td, GW, BM, vr, K0, Bb, ki, yW, O4, x6, NR, bl, VN, X0, mr, wb, Sb, qm, zn, Rn, Mn, Ym, UW, ul, pN, hN, Io, M4, YW, EM, Zm, H4, bh, $m, jm, v2, LF, IF, Is, Me, ap, to, Xe, zr, Al, VW, ci, DD, Dr, OW, gN, Cb, KD, jW, $W, HW, gl, ei, Hi, Qn, Bk, _0, Oi, cn, Re, _n, Qm, h0, ba, ch, je, _a, Je, Pr, aa, Rr, er, hm, v1, g1;
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Dashboard-Dp8MhaUX.js","./vue-DQy84xYo.js","./ColoredChip.vue_vue_type_script_setup_true_lang-brfrFhxQ.js","./vuetify-BD3Y_TZC.js","./TagFormDialog.vue_vue_type_script_setup_true_lang-n7VVe39z.js","./Dashboard-DYNPPe4U.css","./Settings-590VAayp.js","./PasswordField.vue_vue_type_script_setup_true_lang-CBzpCUBq.js","./Settings-DQiwVX2O.css","./RssArticles-CmVJjcmo.js","./RssArticles-9vWSa0z4.css","./Logs-DfPqHb_u.js","./SearchEngine-a-4bjgLp.js","./SearchEngine-D9tNU7S0.css","./TorrentCreator-C8C6Hdli.js","./TorrentDetail-9sy4nL2F.js","./TorrentDetail-BeZJnkuc.css","./MagnetHandler-Dm7jl4JZ.js","./Login-BdiCExNs.js"])))=>i.map(i=>d[i]);
+import { w as he, ab as qx, o as va, a as T, a6 as We, s as de, O as Rt, v as Zs, ac as X, d as G, ad as Kx, g as Qs, ae as ib, f as Tt, u as U, b as zt, af as ih, r as Pa, z as ra, a0 as ya, a7 as dr, R as el, ag as Xx, Q as gt, ah as Jx, ai as hi, a1 as Ci, e as bm, q as pa, P as tl, W as yr, t as Ai, aj as Zx, m as y, ak as Fm, al as Jr, j as Nn, n as Q, H as Lr, A as nt, a4 as dt, am as Ua, F as Ae, a5 as wa, p as Kt, k as Qx, an as ew, ao as tw, a3 as ob, J as Fe, l as Wt, ap as aw, x as rw, aq as nw, I as Ee, h as Et, Z as iw, _ as sb, B as Ie, D as fe, E as ow, G as z, $ as sw, c as al, N as Ze, ar as lw, M as bt, T as km, X as br, Y as lb, as as ub, V as xm, S as at, L as lo, at as uw, au as cw, av as dw, aw as hw, ax as mw, ay as pw, az as fw, aA as gw } from "./vue-DQy84xYo.js";
+import { u as rl, a as Ra, g as te, p as Y, b as _t, d as wm, i as af, c as vw, e as nl, f as yw, h as Ir, j as bw, k as ke, l as it, m as Fw, n as ne, o as Qe, q as xe, I as Be, r as kw, S as Sm, s as La, E as ta, t as Pe, v as Ca, w as Sa, x as il, y as rf, z as rn, A as Dt, B as bi, C as Gt, D as Ot, F as ol, G as vn, H as xw, J as uo, K as ww, L as cb, M as Cm, N as Ba, O as Zt, P as nn, Q as Sw, R as Fr, T as Cw, U as qt, V as On, W as Ts, X as nf, Y as on, Z as xr, _ as Aw, $ as db, a0 as Ut, a1 as gi, a2 as Dw, a3 as oh, a4 as su, a5 as lu, a6 as of, a7 as Es, a8 as uu, a9 as sf, aa as lf, ab as Yt, ac as Tw, ad as Ew, ae as sh, af as _w, ag as Pw, ah as hb, ai as Am, aj as Bw, ak as Mw, al as Rw, am as Lw, an as Dm, ao as Fi, ap as mb, aq as Iw, ar as sl, as as uf, at as pb, au as Hn, av as Vn, aw as zw, ax as Nw, ay as fb, az as gb, aA as vb, aB as Ow, aC as Hw, aD as Vw, aE as yb, aF as Ww, aG as bb, aH as ll, aI as Fb, aJ as as, aK as cf, aL as Yr, aM as lh, aN as df, aO as kb, aP as Gw, aQ as $w, aR as _s, aS as rs, aT as jw, aU as Uw, aV as hf, aW as To, aX as Yw, aY as qw, aZ as Kw, a_ as Xw, a$ as Jw, b0 as Zw, b1 as Qw, b2 as eS, b3 as tS } from "./vuetify-BD3Y_TZC.js";
+let yh, Oh, Gs, Xn, Gn, Fl, Ei, Sr, _1, MR, $s, Ll, tt, Nh, Rs, x6, Mz, Vp, ea, $W, Mt, Qr, Ea, Ml, Ya, WW, oa, Fo, _e, Hv, Te, Pz, De, Pm, eO, Ix, GW, e2, YW, V1, Sb, hS, mS, dS, cS, uS, iS, nS, oS, xb, rS, aS, no, io, sS, lS, $n, Nt, LM, bn, Vt, Eh, PM, Os, h0, _M, RG, Ws, xW, Db, Kr, R1, d0, Ab, Gz, _l, QD, Td, qW, zM, vr, X0, Bb, ki, wW, $4, D6, GR, bl, UN, J0, mr, wb, qm, Vv, zn, Rn, Mn, Ym, JW, ul, bN, vN, Io, XW, KW, jW, ZW, RM, N4, Zm, j4, bh, $m, jm, F2, IF, zF, Is, Me, ap, to, Xe, zr, Al, UW, ci, TD, Dr, k2, x2, DF, kN, Cb, ZD, gl, ei, Hi, Qn, Mk, P0, Oi, cn, Re, _n, Qm, m0, ba, ch, je, _a, Je, Pr, aa, Rr, er, hm, y1, v1;
 let __tla = (async ()=>{
     (function() {
         const e = document.createElement("link").relList;
@@ -35,23 +35,23 @@ line: ` + a + i;
         sessionStorage.getItem("vuetorrent_mounted") === "true" ? console.error(o) : alert(o);
     };
     let Va, Tb, wt;
-    tS = ((t)=>(t[t.NEVER = 0] = "NEVER", t[t.IF_ADDED = 1] = "IF_ADDED", t[t.ALWAYS = 2] = "ALWAYS", t))(tS || {});
-    aS = ((t)=>(t[t.TCP_uTP = 0] = "TCP_uTP", t[t.TCP = 1] = "TCP", t[t.uTP = 2] = "uTP", t))(aS || {});
+    aS = ((t)=>(t[t.NEVER = 0] = "NEVER", t[t.IF_ADDED = 1] = "IF_ADDED", t[t.ALWAYS = 2] = "ALWAYS", t))(aS || {});
+    rS = ((t)=>(t[t.TCP_uTP = 0] = "TCP_uTP", t[t.TCP = 1] = "TCP", t[t.uTP = 2] = "uTP", t))(rS || {});
     no = ((t)=>(t.ORIGINAL = "Original", t.SUBFOLDER = "Subfolder", t.NO_SUBFOLDER = "NoSubfolder", t))(no || {});
-    rS = ((t)=>(t[t.PREFER_ENCRYPTION = 0] = "PREFER_ENCRYPTION", t[t.FORCE_ON = 1] = "FORCE_ON", t[t.FORCE_OFF = 2] = "FORCE_OFF", t))(rS || {});
-    nS = ((t)=>(t[t.DAYS = 0] = "DAYS", t[t.MONTHS = 1] = "MONTHS", t[t.YEARS = 2] = "YEARS", t))(nS || {});
-    iS = ((t)=>(t[t.DEFAULT = -1] = "DEFAULT", t[t.STOP_TORRENT = 0] = "STOP_TORRENT", t[t.REMOVE_TORRENT = 1] = "REMOVE_TORRENT", t[t.ENABLE_SUPERSEEDING = 2] = "ENABLE_SUPERSEEDING", t[t.REMOVE_TORRENT_AND_FILES = 3] = "REMOVE_TORRENT_AND_FILES", t))(iS || {});
+    nS = ((t)=>(t[t.PREFER_ENCRYPTION = 0] = "PREFER_ENCRYPTION", t[t.FORCE_ON = 1] = "FORCE_ON", t[t.FORCE_OFF = 2] = "FORCE_OFF", t))(nS || {});
+    iS = ((t)=>(t[t.DAYS = 0] = "DAYS", t[t.MONTHS = 1] = "MONTHS", t[t.YEARS = 2] = "YEARS", t))(iS || {});
+    oS = ((t)=>(t[t.DEFAULT = -1] = "DEFAULT", t[t.STOP_TORRENT = 0] = "STOP_TORRENT", t[t.REMOVE_TORRENT = 1] = "REMOVE_TORRENT", t[t.ENABLE_SUPERSEEDING = 2] = "ENABLE_SUPERSEEDING", t[t.REMOVE_TORRENT_AND_FILES = 3] = "REMOVE_TORRENT_AND_FILES", t))(oS || {});
     xb = ((t)=>(t.NONE = "None", t.SOCKS4 = "SOCKS4", t.SOCKS5 = "SOCKS5", t.HTTP = "HTTP", t))(xb || {});
     wb = ((t)=>(t.LEGACY = "Legacy", t.SQLITE = "SQLite", t))(wb || {});
-    oS = ((t)=>(t[t.MONITORED_FOLDER = 0] = "MONITORED_FOLDER", t[t.DEFAULT_SAVE_PATH = 1] = "DEFAULT_SAVE_PATH", t))(oS || {});
-    sS = ((t)=>(t[t.EVERY_DAY = 0] = "EVERY_DAY", t[t.EVERY_WEEKDAY = 1] = "EVERY_WEEKDAY", t[t.EVERY_WEEKEND = 2] = "EVERY_WEEKEND", t[t.EVERY_MONDAY = 3] = "EVERY_MONDAY", t[t.EVERY_TUESDAY = 4] = "EVERY_TUESDAY", t[t.EVERY_WEDNESDAY = 5] = "EVERY_WEDNESDAY", t[t.EVERY_THURSDAY = 6] = "EVERY_THURSDAY", t[t.EVERY_FRIDAY = 7] = "EVERY_FRIDAY", t[t.EVERY_SATURDAY = 8] = "EVERY_SATURDAY", t[t.EVERY_SUNDAY = 9] = "EVERY_SUNDAY", t))(sS || {});
+    sS = ((t)=>(t[t.MONITORED_FOLDER = 0] = "MONITORED_FOLDER", t[t.DEFAULT_SAVE_PATH = 1] = "DEFAULT_SAVE_PATH", t))(sS || {});
+    lS = ((t)=>(t[t.EVERY_DAY = 0] = "EVERY_DAY", t[t.EVERY_WEEKDAY = 1] = "EVERY_WEEKDAY", t[t.EVERY_WEEKEND = 2] = "EVERY_WEEKEND", t[t.EVERY_MONDAY = 3] = "EVERY_MONDAY", t[t.EVERY_TUESDAY = 4] = "EVERY_TUESDAY", t[t.EVERY_WEDNESDAY = 5] = "EVERY_WEDNESDAY", t[t.EVERY_THURSDAY = 6] = "EVERY_THURSDAY", t[t.EVERY_FRIDAY = 7] = "EVERY_FRIDAY", t[t.EVERY_SATURDAY = 8] = "EVERY_SATURDAY", t[t.EVERY_SUNDAY = 9] = "EVERY_SUNDAY", t))(lS || {});
     io = ((t)=>(t.NONE = "None", t.METADATA_RECEIVED = "MetadataReceived", t.FILES_CHECKED = "FilesChecked", t))(io || {});
     Sb = ((t)=>(t.DELETE = "Delete", t.MOVE_TO_TRASH = "MoveToTrash", t))(Sb || {});
-    lS = ((t)=>(t[t.ROUND_ROBIN = 0] = "ROUND_ROBIN", t[t.FASTEST_UPLOAD = 1] = "FASTEST_UPLOAD", t[t.ANTI_LEECH = 2] = "ANTI_LEECH", t))(lS || {});
-    uS = ((t)=>(t[t.FIXED_SLOTS = 0] = "FIXED_SLOTS", t[t.UPLOAD_RATE_BASED = 1] = "UPLOAD_RATE_BASED", t))(uS || {});
-    cS = ((t)=>(t[t.PREFER_TCP = 0] = "PREFER_TCP", t[t.PEER_PROPORTIONAL = 1] = "PEER_PROPORTIONAL", t))(cS || {});
-    dS = ((t)=>(t[t.DEFAULT = 0] = "DEFAULT", t[t.MEMORY_MAPPED_FILES = 1] = "MEMORY_MAPPED_FILES", t[t.POSIX_COMPLIANT = 2] = "POSIX_COMPLIANT", t[t.SIMPLE_PREAD_PWRITE = 3] = "SIMPLE_PREAD_PWRITE", t))(dS || {});
-    hS = ((t)=>(t[t.DISABLE_OS_CACHE = 0] = "DISABLE_OS_CACHE", t[t.ENABLE_OS_CACHE = 1] = "ENABLE_OS_CACHE", t[t.WRITE_THROUGH = 2] = "WRITE_THROUGH", t))(hS || {});
+    uS = ((t)=>(t[t.ROUND_ROBIN = 0] = "ROUND_ROBIN", t[t.FASTEST_UPLOAD = 1] = "FASTEST_UPLOAD", t[t.ANTI_LEECH = 2] = "ANTI_LEECH", t))(uS || {});
+    cS = ((t)=>(t[t.FIXED_SLOTS = 0] = "FIXED_SLOTS", t[t.UPLOAD_RATE_BASED = 1] = "UPLOAD_RATE_BASED", t))(cS || {});
+    dS = ((t)=>(t[t.PREFER_TCP = 0] = "PREFER_TCP", t[t.PEER_PROPORTIONAL = 1] = "PEER_PROPORTIONAL", t))(dS || {});
+    hS = ((t)=>(t[t.DEFAULT = 0] = "DEFAULT", t[t.MEMORY_MAPPED_FILES = 1] = "MEMORY_MAPPED_FILES", t[t.POSIX_COMPLIANT = 2] = "POSIX_COMPLIANT", t[t.SIMPLE_PREAD_PWRITE = 3] = "SIMPLE_PREAD_PWRITE", t))(hS || {});
+    mS = ((t)=>(t[t.DISABLE_OS_CACHE = 0] = "DISABLE_OS_CACHE", t[t.ENABLE_OS_CACHE = 1] = "ENABLE_OS_CACHE", t[t.WRITE_THROUGH = 2] = "WRITE_THROUGH", t))(mS || {});
     Va = ((t)=>(t.CONNECTED = "connected", t.FIREWALLED = "firewalled", t.DISCONNECTED = "disconnected", t.UNKNOWN = "unknown", t))(Va || {});
     ci = ((t)=>(t[t.MIXED = -1] = "MIXED", t[t.DO_NOT_DOWNLOAD = 0] = "DO_NOT_DOWNLOAD", t[t.NORMAL = 1] = "NORMAL", t[t.HIGH = 6] = "HIGH", t[t.MAXIMAL = 7] = "MAXIMAL", t))(ci || {});
     tt = ((t)=>(t[t.NONE = 0] = "NONE", t[t.NORMAL = 1] = "NORMAL", t[t.INFO = 2] = "INFO", t[t.WARNING = 4] = "WARNING", t[t.CRITICAL = 8] = "CRITICAL", t[t.ALL = 15] = "ALL", t))(tt || {});
@@ -125,20 +125,20 @@ line: ` + a + i;
         upspeed: (t, e, a)=>De.numeric.compare(t.upspeed, e.upspeed, a)
     };
     function uh(t) {
-        return Yx() ? (va(t), !0) : !1;
+        return qx() ? (va(t), !0) : !1;
     }
-    const cu = new WeakMap, mS = (...t)=>{
+    const cu = new WeakMap, pS = (...t)=>{
         var e;
         const a = t[0], r = (e = Qs()) == null ? void 0 : e.proxy;
         if (r == null && !ib()) throw new Error("injectLocal must be called in setup");
         return r && cu.has(r) && a in cu.get(r) ? cu.get(r)[a] : Tt(...t);
     }, Ps = typeof window < "u" && typeof document < "u";
     typeof WorkerGlobalScope < "u" && globalThis instanceof WorkerGlobalScope;
-    const pS = Object.prototype.toString, fS = (t)=>pS.call(t) === "[object Object]", du = (t, e, a)=>Math.min(a, Math.max(e, t)), vi = ()=>{};
-    function gS(...t) {
+    const fS = Object.prototype.toString, gS = (t)=>fS.call(t) === "[object Object]", du = (t, e, a)=>Math.min(a, Math.max(e, t)), vi = ()=>{};
+    function vS(...t) {
         if (t.length !== 1) return X(...t);
         const e = t[0];
-        return typeof e == "function" ? Zs(qx(()=>({
+        return typeof e == "function" ? Zs(Kx(()=>({
                 get: e,
                 set: vi
             }))) : G(e);
@@ -156,7 +156,7 @@ line: ` + a + i;
         return a;
     }
     const _b = (t)=>t();
-    function vS(t, e = {}) {
+    function yS(t, e = {}) {
         let a, r, n = vi;
         const i = (l)=>{
             clearTimeout(l), n(), n = vi;
@@ -173,8 +173,8 @@ line: ` + a + i;
             });
         };
     }
-    function yS(t = _b, e = {}) {
-        const { initialState: a = "active" } = e, r = gS(a === "active");
+    function bS(t = _b, e = {}) {
+        const { initialState: a = "active" } = e, r = vS(a === "active");
         function n() {
             r.value = !1;
         }
@@ -199,19 +199,19 @@ line: ` + a + i;
             t
         ];
     }
-    vW = function(t, e = 200, a = {}) {
-        return Eb(vS(e, a), t);
+    xW = function(t, e = 200, a = {}) {
+        return Eb(yS(e, a), t);
     };
-    function bS(t, e, a = {}) {
+    function FS(t, e, a = {}) {
         const { eventFilter: r = _b, ...n } = a;
         return he(t, Eb(r, e), n);
     }
     function ff(t, e, a = {}) {
-        const { eventFilter: r, initialState: n = "active", ...i } = a, { eventFilter: o, pause: s, resume: l, isActive: u } = yS(r, {
+        const { eventFilter: r, initialState: n = "active", ...i } = a, { eventFilter: o, pause: s, resume: l, isActive: u } = bS(r, {
             initialState: n
         });
         return {
-            stop: bS(t, e, {
+            stop: FS(t, e, {
                 ...i,
                 eventFilter: o
             }),
@@ -238,16 +238,16 @@ line: ` + a + i;
             l.forEach((h)=>h.stop());
         };
     }
-    function FS(t, e) {
+    function kS(t, e) {
         return T(()=>We(t).map((a)=>We(a)).filter(e));
     }
-    function kS(t) {
+    function xS(t) {
         return Array.from(new Set(t));
     }
-    yW = function(t, e) {
+    wW = function(t, e) {
         return T(()=>{
             const a = We(t).map((r)=>We(r));
-            return kS(a);
+            return xS(a);
         });
     };
     ch = function(t, e = 1e3, a = {}) {
@@ -276,7 +276,7 @@ line: ` + a + i;
             resume: u
         };
     };
-    function xS(t, e, a) {
+    function wS(t, e, a) {
         return he(t, e, {
             ...a,
             immediate: !0
@@ -291,7 +291,7 @@ line: ` + a + i;
         });
     }
     const Pb = Ps ? window : void 0;
-    function wS(t) {
+    function SS(t) {
         var e;
         const a = We(t);
         return (e = a?.$el) != null ? e : a;
@@ -302,10 +302,10 @@ line: ` + a + i;
         }, r = (s, l, u, c)=>(s.addEventListener(l, u, c), ()=>s.removeEventListener(l, u, c)), n = T(()=>{
             const s = hu(We(t[0])).filter((l)=>l != null);
             return s.every((l)=>typeof l != "string") ? s : void 0;
-        }), i = xS(()=>{
+        }), i = wS(()=>{
             var s, l;
             return [
-                (l = (s = n.value) == null ? void 0 : s.map((u)=>wS(u))) != null ? l : [
+                (l = (s = n.value) == null ? void 0 : s.map((u)=>SS(u))) != null ? l : [
                     Pb
                 ].filter((u)=>u != null),
                 hu(We(n.value ? t[1] : t[0])),
@@ -314,7 +314,7 @@ line: ` + a + i;
             ];
         }, ([s, l, u, c])=>{
             if (a(), !s?.length || !l?.length || !u?.length) return;
-            const d = fS(c) ? {
+            const d = gS(c) ? {
                 ...c
             } : c;
             e.push(...s.flatMap((h)=>l.flatMap((m)=>u.map((p)=>r(h, m, p, d)))));
@@ -325,23 +325,23 @@ line: ` + a + i;
         };
         return uh(a), o;
     }
-    function SS() {
+    function CS() {
         const t = de(!1), e = Qs();
         return e && ra(()=>{
             t.value = !0;
         }, e), t;
     }
-    function CS(t) {
-        const e = SS();
+    function AS(t) {
+        const e = CS();
         return T(()=>(e.value, !!t()));
     }
-    const AS = Symbol("vueuse-ssr-width");
-    function DS() {
-        const t = ib() ? mS(AS, null) : null;
+    const DS = Symbol("vueuse-ssr-width");
+    function TS() {
+        const t = ib() ? pS(DS, null) : null;
         return typeof t == "number" ? t : void 0;
     }
-    function TS(t, e = {}) {
-        const { window: a = Pb, ssrWidth: r = DS() } = e, n = CS(()=>a && "matchMedia" in a && typeof a.matchMedia == "function"), i = de(typeof r == "number"), o = de(), s = de(!1), l = (u)=>{
+    function ES(t, e = {}) {
+        const { window: a = Pb, ssrWidth: r = TS() } = e, n = AS(()=>a && "matchMedia" in a && typeof a.matchMedia == "function"), i = de(typeof r == "number"), o = de(), s = de(!1), l = (u)=>{
             s.value = u.matches;
         };
         return zt(()=>{
@@ -422,7 +422,7 @@ line: ` + a + i;
             }
         });
     }
-    function ES(t) {
+    function _S(t) {
         const { total: e = Number.POSITIVE_INFINITY, pageSize: a = 10, page: r = 1, onPageChange: n = vi, onPageSizeChange: i = vi, onPageCountChange: o = vi } = t, s = vf(a, 1, Number.POSITIVE_INFINITY), l = T(()=>Math.max(1, Math.ceil(We(e) / We(s)))), u = vf(r, 1, l), c = T(()=>u.value === 1), d = T(()=>u.value === l.value);
         Rt(r) && gf(r, u, {
             direction: ih(r) ? "ltr" : "both"
@@ -452,13 +452,13 @@ line: ` + a + i;
             o(Pa(p));
         }), p;
     }
-    const _S = (t, e)=>t.sort(e), ns = (t, e)=>t - e;
+    const PS = (t, e)=>t.sort(e), ns = (t, e)=>t - e;
     ul = function(...t) {
         var e, a, r, n;
         const [i] = t;
         let o = ns, s = {};
         t.length === 2 ? typeof t[1] == "object" ? (s = t[1], o = (e = s.compareFn) != null ? e : ns) : o = (a = t[1]) != null ? a : ns : t.length > 2 && (o = (r = t[1]) != null ? r : ns, s = (n = t[2]) != null ? n : {});
-        const { dirty: l = !1, sortFn: u = _S } = s;
+        const { dirty: l = !1, sortFn: u = PS } = s;
         return l ? (zt(()=>{
             const c = u(We(i), o);
             Rt(i) ? i.value = c : i.splice(0, i.length, ...c);
@@ -467,7 +467,7 @@ line: ` + a + i;
             ], o));
     };
     Bb = function(t, e, a = 1) {
-        const { currentPage: r, currentPageSize: n, pageCount: i, isFirstPage: o, isLastPage: s, next: l, prev: u } = ES({
+        const { currentPage: r, currentPageSize: n, pageCount: i, isFirstPage: o, isLastPage: s, next: l, prev: u } = _S({
             total: ()=>We(t).length,
             page: a,
             pageSize: ()=>We(e) === -1 ? We(t).length : We(e)
@@ -491,31 +491,31 @@ line: ` + a + i;
             return t.apply(e, arguments);
         };
     }
-    const { toString: PS } = Object.prototype, { getPrototypeOf: Tm } = Object, cl = ((t)=>(e)=>{
-            const a = PS.call(e);
+    const { toString: BS } = Object.prototype, { getPrototypeOf: Tm } = Object, cl = ((t)=>(e)=>{
+            const a = BS.call(e);
             return t[a] || (t[a] = a.slice(8, -1).toLowerCase());
         })(Object.create(null)), pr = (t)=>(t = t.toLowerCase(), (e)=>cl(e) === t), dl = (t)=>(e)=>typeof e === t, { isArray: Di } = Array, co = dl("undefined");
-    function BS(t) {
+    function MS(t) {
         return t !== null && !co(t) && t.constructor !== null && !co(t.constructor) && $a(t.constructor.isBuffer) && t.constructor.isBuffer(t);
     }
     const Rb = pr("ArrayBuffer");
-    function MS(t) {
+    function RS(t) {
         let e;
         return typeof ArrayBuffer < "u" && ArrayBuffer.isView ? e = ArrayBuffer.isView(t) : e = t && t.buffer && Rb(t.buffer), e;
     }
-    const RS = dl("string"), $a = dl("function"), Lb = dl("number"), hl = (t)=>t !== null && typeof t == "object", LS = (t)=>t === !0 || t === !1, fs = (t)=>{
+    const LS = dl("string"), $a = dl("function"), Lb = dl("number"), hl = (t)=>t !== null && typeof t == "object", IS = (t)=>t === !0 || t === !1, fs = (t)=>{
         if (cl(t) !== "object") return !1;
         const e = Tm(t);
         return (e === null || e === Object.prototype || Object.getPrototypeOf(e) === null) && !(Symbol.toStringTag in t) && !(Symbol.iterator in t);
-    }, IS = pr("Date"), zS = pr("File"), NS = pr("Blob"), OS = pr("FileList"), HS = (t)=>hl(t) && $a(t.pipe), VS = (t)=>{
+    }, zS = pr("Date"), NS = pr("File"), OS = pr("Blob"), HS = pr("FileList"), VS = (t)=>hl(t) && $a(t.pipe), WS = (t)=>{
         let e;
         return t && (typeof FormData == "function" && t instanceof FormData || $a(t.append) && ((e = cl(t)) === "formdata" || e === "object" && $a(t.toString) && t.toString() === "[object FormData]"));
-    }, WS = pr("URLSearchParams"), [GS, $S, jS, US] = [
+    }, GS = pr("URLSearchParams"), [$S, jS, US, YS] = [
         "ReadableStream",
         "Request",
         "Response",
         "Headers"
-    ].map(pr), YS = (t)=>t.trim ? t.trim() : t.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
+    ].map(pr), qS = (t)=>t.trim ? t.trim() : t.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
     function Eo(t, e, { allOwnKeys: a = !1 } = {}) {
         if (t === null || typeof t > "u") return;
         let r, n;
@@ -544,15 +544,15 @@ line: ` + a + i;
         for(let r = 0, n = arguments.length; r < n; r++)arguments[r] && Eo(arguments[r], a);
         return e;
     }
-    const qS = (t, e, a, { allOwnKeys: r } = {})=>(Eo(e, (n, i)=>{
+    const KS = (t, e, a, { allOwnKeys: r } = {})=>(Eo(e, (n, i)=>{
             a && $a(n) ? t[i] = Mb(n, a) : t[i] = n;
         }, {
             allOwnKeys: r
-        }), t), KS = (t)=>(t.charCodeAt(0) === 65279 && (t = t.slice(1)), t), XS = (t, e, a, r)=>{
+        }), t), XS = (t)=>(t.charCodeAt(0) === 65279 && (t = t.slice(1)), t), JS = (t, e, a, r)=>{
         t.prototype = Object.create(e.prototype, r), t.prototype.constructor = t, Object.defineProperty(t, "super", {
             value: e.prototype
         }), a && Object.assign(t.prototype, a);
-    }, JS = (t, e, a, r)=>{
+    }, ZS = (t, e, a, r)=>{
         let n, i, o;
         const s = {};
         if (e = e || {}, t == null) return e;
@@ -561,11 +561,11 @@ line: ` + a + i;
             t = a !== !1 && Tm(t);
         }while (t && (!a || a(t, e)) && t !== Object.prototype);
         return e;
-    }, ZS = (t, e, a)=>{
+    }, QS = (t, e, a)=>{
         t = String(t), (a === void 0 || a > t.length) && (a = t.length), a -= e.length;
         const r = t.indexOf(e, a);
         return r !== -1 && r === a;
-    }, QS = (t)=>{
+    }, eC = (t)=>{
         if (!t) return null;
         if (Di(t)) return t;
         let e = t.length;
@@ -573,27 +573,27 @@ line: ` + a + i;
         const a = new Array(e);
         for(; e-- > 0;)a[e] = t[e];
         return a;
-    }, eC = ((t)=>(e)=>t && e instanceof t)(typeof Uint8Array < "u" && Tm(Uint8Array)), tC = (t, e)=>{
+    }, tC = ((t)=>(e)=>t && e instanceof t)(typeof Uint8Array < "u" && Tm(Uint8Array)), aC = (t, e)=>{
         const r = (t && t[Symbol.iterator]).call(t);
         let n;
         for(; (n = r.next()) && !n.done;){
             const i = n.value;
             e.call(t, i[0], i[1]);
         }
-    }, aC = (t, e)=>{
+    }, rC = (t, e)=>{
         let a;
         const r = [];
         for(; (a = t.exec(e)) !== null;)r.push(a);
         return r;
-    }, rC = pr("HTMLFormElement"), nC = (t)=>t.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function(a, r, n) {
+    }, nC = pr("HTMLFormElement"), iC = (t)=>t.toLowerCase().replace(/[-_\s]([a-z\d])(\w*)/g, function(a, r, n) {
             return r.toUpperCase() + n;
-        }), yf = (({ hasOwnProperty: t })=>(e, a)=>t.call(e, a))(Object.prototype), iC = pr("RegExp"), Nb = (t, e)=>{
+        }), yf = (({ hasOwnProperty: t })=>(e, a)=>t.call(e, a))(Object.prototype), oC = pr("RegExp"), Nb = (t, e)=>{
         const a = Object.getOwnPropertyDescriptors(t), r = {};
         Eo(a, (n, i)=>{
             let o;
             (o = e(n, i, t)) !== !1 && (r[i] = o || n);
         }), Object.defineProperties(t, r);
-    }, oC = (t)=>{
+    }, sC = (t)=>{
         Nb(t, (e, a)=>{
             if ($a(t) && [
                 "arguments",
@@ -611,18 +611,18 @@ line: ` + a + i;
                 });
             }
         });
-    }, sC = (t, e)=>{
+    }, lC = (t, e)=>{
         const a = {}, r = (n)=>{
             n.forEach((i)=>{
                 a[i] = !0;
             });
         };
         return Di(t) ? r(t) : r(String(t).split(e)), a;
-    }, lC = ()=>{}, uC = (t, e)=>t != null && Number.isFinite(t = +t) ? t : e;
-    function cC(t) {
+    }, uC = ()=>{}, cC = (t, e)=>t != null && Number.isFinite(t = +t) ? t : e;
+    function dC(t) {
         return !!(t && $a(t.append) && t[Symbol.toStringTag] === "FormData" && t[Symbol.iterator]);
     }
-    const dC = (t)=>{
+    const hC = (t)=>{
         const e = new Array(10), a = (r, n)=>{
             if (hl(r)) {
                 if (e.indexOf(r) >= 0) return;
@@ -638,66 +638,66 @@ line: ` + a + i;
             return r;
         };
         return a(t, 0);
-    }, hC = pr("AsyncFunction"), mC = (t)=>t && (hl(t) || $a(t)) && $a(t.then) && $a(t.catch), Ob = ((t, e)=>t ? setImmediate : e ? ((a, r)=>(yn.addEventListener("message", ({ source: n, data: i })=>{
+    }, mC = pr("AsyncFunction"), pC = (t)=>t && (hl(t) || $a(t)) && $a(t.then) && $a(t.catch), Ob = ((t, e)=>t ? setImmediate : e ? ((a, r)=>(yn.addEventListener("message", ({ source: n, data: i })=>{
                 n === yn && i === a && r.length && r.shift()();
             }, !1), (n)=>{
                 r.push(n), yn.postMessage(a, "*");
-            }))(`axios@${Math.random()}`, []) : (a)=>setTimeout(a))(typeof setImmediate == "function", $a(yn.postMessage)), pC = typeof queueMicrotask < "u" ? queueMicrotask.bind(yn) : typeof process < "u" && process.nextTick || Ob, ie = {
+            }))(`axios@${Math.random()}`, []) : (a)=>setTimeout(a))(typeof setImmediate == "function", $a(yn.postMessage)), fC = typeof queueMicrotask < "u" ? queueMicrotask.bind(yn) : typeof process < "u" && process.nextTick || Ob, ie = {
         isArray: Di,
         isArrayBuffer: Rb,
-        isBuffer: BS,
-        isFormData: VS,
-        isArrayBufferView: MS,
-        isString: RS,
+        isBuffer: MS,
+        isFormData: WS,
+        isArrayBufferView: RS,
+        isString: LS,
         isNumber: Lb,
-        isBoolean: LS,
+        isBoolean: IS,
         isObject: hl,
         isPlainObject: fs,
-        isReadableStream: GS,
-        isRequest: $S,
-        isResponse: jS,
-        isHeaders: US,
+        isReadableStream: $S,
+        isRequest: jS,
+        isResponse: US,
+        isHeaders: YS,
         isUndefined: co,
-        isDate: IS,
-        isFile: zS,
-        isBlob: NS,
-        isRegExp: iC,
+        isDate: zS,
+        isFile: NS,
+        isBlob: OS,
+        isRegExp: oC,
         isFunction: $a,
-        isStream: HS,
-        isURLSearchParams: WS,
-        isTypedArray: eC,
-        isFileList: OS,
+        isStream: VS,
+        isURLSearchParams: GS,
+        isTypedArray: tC,
+        isFileList: HS,
         forEach: Eo,
         merge: dh,
-        extend: qS,
-        trim: YS,
-        stripBOM: KS,
-        inherits: XS,
-        toFlatObject: JS,
+        extend: KS,
+        trim: qS,
+        stripBOM: XS,
+        inherits: JS,
+        toFlatObject: ZS,
         kindOf: cl,
         kindOfTest: pr,
-        endsWith: ZS,
-        toArray: QS,
-        forEachEntry: tC,
-        matchAll: aC,
-        isHTMLForm: rC,
+        endsWith: QS,
+        toArray: eC,
+        forEachEntry: aC,
+        matchAll: rC,
+        isHTMLForm: nC,
         hasOwnProperty: yf,
         hasOwnProp: yf,
         reduceDescriptors: Nb,
-        freezeMethods: oC,
-        toObjectSet: sC,
-        toCamelCase: nC,
-        noop: lC,
-        toFiniteNumber: uC,
+        freezeMethods: sC,
+        toObjectSet: lC,
+        toCamelCase: iC,
+        noop: uC,
+        toFiniteNumber: cC,
         findKey: Ib,
         global: yn,
         isContextDefined: zb,
-        isSpecCompliantForm: cC,
-        toJSONObject: dC,
-        isAsyncFn: hC,
-        isThenable: mC,
+        isSpecCompliantForm: dC,
+        toJSONObject: hC,
+        isAsyncFn: mC,
+        isThenable: pC,
         setImmediate: Ob,
-        asap: pC
+        asap: fC
     };
     function Ye(t, e, a, r, n) {
         Error.call(this), Error.captureStackTrace ? Error.captureStackTrace(this, this.constructor) : this.stack = new Error().stack, this.message = t, this.name = "AxiosError", e && (this.code = e), a && (this.config = a), r && (this.request = r), n && (this.response = n, this.status = n.status ? n.status : null);
@@ -748,7 +748,7 @@ line: ` + a + i;
             return l !== Error.prototype;
         }, (s)=>s !== "isAxiosError"), Ye.call(o, t.message, e, a, r, n), o.cause = t, o.name = t.name, i && Object.assign(o, i), o;
     };
-    const fC = null;
+    const gC = null;
     function hh(t) {
         return ie.isPlainObject(t) || ie.isArray(t);
     }
@@ -760,10 +760,10 @@ line: ` + a + i;
             return n = Wb(n), !a && i ? "[" + n + "]" : n;
         }).join(a ? "." : "") : e;
     }
-    function gC(t) {
+    function vC(t) {
         return ie.isArray(t) && !t.some(hh);
     }
-    const vC = ie.toFlatObject(ie, {}, null, function(e) {
+    const yC = ie.toFlatObject(ie, {}, null, function(e) {
         return /^is[A-Z]/.test(e);
     });
     function ml(t, e, a) {
@@ -789,7 +789,7 @@ line: ` + a + i;
             let v = p;
             if (p && !g && typeof p == "object") {
                 if (ie.endsWith(f, "{}")) f = r ? f : f.slice(0, -2), p = JSON.stringify(p);
-                else if (ie.isArray(p) && gC(p) || (ie.isFileList(p) || ie.endsWith(f, "[]")) && (v = ie.toArray(p))) return f = Wb(f), v.forEach(function(x, C) {
+                else if (ie.isArray(p) && vC(p) || (ie.isFileList(p) || ie.endsWith(f, "[]")) && (v = ie.toArray(p))) return f = Wb(f), v.forEach(function(x, C) {
                     !(ie.isUndefined(x) || x === null) && e.append(o === !0 ? bf([
                         f
                     ], C, i) : o === null ? f : f + "[]", u(x));
@@ -797,7 +797,7 @@ line: ` + a + i;
             }
             return hh(p) ? !0 : (e.append(bf(g, f, i), u(p)), !1);
         }
-        const d = [], h = Object.assign(vC, {
+        const d = [], h = Object.assign(yC, {
             defaultVisitor: c,
             convertValue: u,
             isVisitable: hh
@@ -847,12 +847,12 @@ line: ` + a + i;
             return a(n[0]) + "=" + a(n[1]);
         }, "").join("&");
     };
-    function yC(t) {
+    function bC(t) {
         return encodeURIComponent(t).replace(/%3A/gi, ":").replace(/%24/g, "$").replace(/%2C/gi, ",").replace(/%20/g, "+").replace(/%5B/gi, "[").replace(/%5D/gi, "]");
     }
     function $b(t, e, a) {
         if (!e) return t;
-        const r = a && a.encode || yC;
+        const r = a && a.encode || bC;
         ie.isFunction(a) && (a = {
             serialize: a
         });
@@ -892,12 +892,12 @@ line: ` + a + i;
         silentJSONParsing: !0,
         forcedJSONParsing: !0,
         clarifyTimeoutError: !1
-    }, bC = typeof URLSearchParams < "u" ? URLSearchParams : Em, FC = typeof FormData < "u" ? FormData : null, kC = typeof Blob < "u" ? Blob : null, xC = {
+    }, FC = typeof URLSearchParams < "u" ? URLSearchParams : Em, kC = typeof FormData < "u" ? FormData : null, xC = typeof Blob < "u" ? Blob : null, wC = {
         isBrowser: !0,
         classes: {
-            URLSearchParams: bC,
-            FormData: FC,
-            Blob: kC
+            URLSearchParams: FC,
+            FormData: kC,
+            Blob: xC
         },
         protocols: [
             "http",
@@ -907,34 +907,34 @@ line: ` + a + i;
             "url",
             "data"
         ]
-    }, _m = typeof window < "u" && typeof document < "u", mh = typeof navigator == "object" && navigator || void 0, wC = _m && (!mh || [
+    }, _m = typeof window < "u" && typeof document < "u", mh = typeof navigator == "object" && navigator || void 0, SC = _m && (!mh || [
         "ReactNative",
         "NativeScript",
         "NS"
-    ].indexOf(mh.product) < 0), SC = typeof WorkerGlobalScope < "u" && self instanceof WorkerGlobalScope && typeof self.importScripts == "function", CC = _m && window.location.href || "http://localhost", AC = Object.freeze(Object.defineProperty({
+    ].indexOf(mh.product) < 0), CC = typeof WorkerGlobalScope < "u" && self instanceof WorkerGlobalScope && typeof self.importScripts == "function", AC = _m && window.location.href || "http://localhost", DC = Object.freeze(Object.defineProperty({
         __proto__: null,
         hasBrowserEnv: _m,
-        hasStandardBrowserEnv: wC,
-        hasStandardBrowserWebWorkerEnv: SC,
+        hasStandardBrowserEnv: SC,
+        hasStandardBrowserWebWorkerEnv: CC,
         navigator: mh,
-        origin: CC
+        origin: AC
     }, Symbol.toStringTag, {
         value: "Module"
     })), fa = {
-        ...AC,
-        ...xC
+        ...DC,
+        ...wC
     };
-    function DC(t, e) {
+    function TC(t, e) {
         return ml(t, new fa.classes.URLSearchParams, Object.assign({
             visitor: function(a, r, n, i) {
                 return fa.isNode && ie.isBuffer(a) ? (this.append(r, a.toString("base64")), !1) : i.defaultVisitor.apply(this, arguments);
             }
         }, e));
     }
-    function TC(t) {
+    function EC(t) {
         return ie.matchAll(/\w+|\[(\w*)]/g, t).map((e)=>e[0] === "[]" ? "" : e[1] || e[0]);
     }
-    function EC(t) {
+    function _C(t) {
         const e = {}, a = Object.keys(t);
         let r;
         const n = a.length;
@@ -950,17 +950,17 @@ line: ` + a + i;
             return o = !o && ie.isArray(n) ? n.length : o, l ? (ie.hasOwnProp(n, o) ? n[o] = [
                 n[o],
                 r
-            ] : n[o] = r, !s) : ((!n[o] || !ie.isObject(n[o])) && (n[o] = []), e(a, r, n[o], i) && ie.isArray(n[o]) && (n[o] = EC(n[o])), !s);
+            ] : n[o] = r, !s) : ((!n[o] || !ie.isObject(n[o])) && (n[o] = []), e(a, r, n[o], i) && ie.isArray(n[o]) && (n[o] = _C(n[o])), !s);
         }
         if (ie.isFormData(t) && ie.isFunction(t.entries)) {
             const a = {};
             return ie.forEachEntry(t, (r, n)=>{
-                e(TC(r), n, a, 0);
+                e(EC(r), n, a, 0);
             }), a;
         }
         return null;
     }
-    function _C(t, e, a) {
+    function PC(t, e, a) {
         if (ie.isString(t)) try {
             return (e || JSON.parse)(t), ie.trim(t);
         } catch (r) {
@@ -984,7 +984,7 @@ line: ` + a + i;
                 if (ie.isURLSearchParams(e)) return a.setContentType("application/x-www-form-urlencoded;charset=utf-8", !1), e.toString();
                 let s;
                 if (i) {
-                    if (r.indexOf("application/x-www-form-urlencoded") > -1) return DC(e, this.formSerializer).toString();
+                    if (r.indexOf("application/x-www-form-urlencoded") > -1) return TC(e, this.formSerializer).toString();
                     if ((s = ie.isFileList(e)) || r.indexOf("multipart/form-data") > -1) {
                         const l = this.env && this.env.FormData;
                         return ml(s ? {
@@ -992,7 +992,7 @@ line: ` + a + i;
                         } : e, l && new l, this.formSerializer);
                     }
                 }
-                return i || n ? (a.setContentType("application/json", !1), _C(e)) : e;
+                return i || n ? (a.setContentType("application/json", !1), PC(e)) : e;
             }
         ],
         transformResponse: [
@@ -1039,7 +1039,7 @@ line: ` + a + i;
     ], (t)=>{
         _o.headers[t] = {};
     });
-    const PC = ie.toObjectSet([
+    const BC = ie.toObjectSet([
         "age",
         "authorization",
         "content-length",
@@ -1057,12 +1057,12 @@ line: ` + a + i;
         "referer",
         "retry-after",
         "user-agent"
-    ]), BC = (t)=>{
+    ]), MC = (t)=>{
         const e = {};
         let a, r, n;
         return t && t.split(`
 `).forEach(function(o) {
-            n = o.indexOf(":"), a = o.substring(0, n).trim().toLowerCase(), r = o.substring(n + 1).trim(), !(!a || e[a] && PC[a]) && (a === "set-cookie" ? e[a] ? e[a].push(r) : e[a] = [
+            n = o.indexOf(":"), a = o.substring(0, n).trim().toLowerCase(), r = o.substring(n + 1).trim(), !(!a || e[a] && BC[a]) && (a === "set-cookie" ? e[a] ? e[a].push(r) : e[a] = [
                 r
             ] : e[a] = e[a] ? e[a] + ", " + r : r);
         }), e;
@@ -1073,13 +1073,13 @@ line: ` + a + i;
     function gs(t) {
         return t === !1 || t == null ? t : ie.isArray(t) ? t.map(gs) : String(t);
     }
-    function MC(t) {
+    function RC(t) {
         const e = Object.create(null), a = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;
         let r;
         for(; r = a.exec(t);)e[r[1]] = r[2];
         return e;
     }
-    const RC = (t)=>/^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(t.trim());
+    const LC = (t)=>/^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(t.trim());
     function pu(t, e, a, r, n) {
         if (ie.isFunction(r)) return r.call(this, e, a);
         if (n && (e = a), !!ie.isString(e)) {
@@ -1087,10 +1087,10 @@ line: ` + a + i;
             if (ie.isRegExp(r)) return r.test(e);
         }
     }
-    function LC(t) {
+    function IC(t) {
         return t.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (e, a, r)=>a.toUpperCase() + r);
     }
-    function IC(t, e) {
+    function zC(t, e) {
         const a = ie.toCamelCase(" " + e);
         [
             "get",
@@ -1119,7 +1119,7 @@ line: ` + a + i;
             }
             const o = (s, l)=>ie.forEach(s, (u, c)=>i(u, c, l));
             if (ie.isPlainObject(e) || e instanceof this.constructor) o(e, a);
-            else if (ie.isString(e) && (e = e.trim()) && !RC(e)) o(BC(e), a);
+            else if (ie.isString(e) && (e = e.trim()) && !LC(e)) o(MC(e), a);
             else if (ie.isHeaders(e)) for (const [s, l] of e.entries())i(l, s, r);
             else e != null && i(a, e, r);
             return this;
@@ -1130,7 +1130,7 @@ line: ` + a + i;
                 if (r) {
                     const n = this[r];
                     if (!a) return n;
-                    if (a === !0) return MC(n);
+                    if (a === !0) return RC(n);
                     if (ie.isFunction(a)) return a.call(this, n, r);
                     if (ie.isRegExp(a)) return a.exec(n);
                     throw new TypeError("parser must be boolean|regexp|function");
@@ -1172,7 +1172,7 @@ line: ` + a + i;
                     a[o] = gs(n), delete a[i];
                     return;
                 }
-                const s = e ? LC(i) : String(i).trim();
+                const s = e ? IC(i) : String(i).trim();
                 s !== i && delete a[i], a[s] = gs(n), r[s] = !0;
             }), this;
         }
@@ -1208,7 +1208,7 @@ line: ` + a + i;
             }).accessors, n = this.prototype;
             function i(o) {
                 const s = qi(o);
-                r[s] || (IC(n, o), r[s] = !0);
+                r[s] || (zC(n, o), r[s] = !0);
             }
             return ie.isArray(e) ? e.forEach(i) : i(e), this;
         }
@@ -1254,11 +1254,11 @@ line: ` + a + i;
             Ye.ERR_BAD_RESPONSE
         ][Math.floor(a.status / 100) - 4], a.config, a.request, a));
     }
-    function zC(t) {
+    function NC(t) {
         const e = /^([-+\w]{1,25})(:?\/\/|:)/.exec(t);
         return e && e[1] || "";
     }
-    function NC(t, e) {
+    function OC(t, e) {
         t = t || 10;
         const a = new Array(t), r = new Array(t);
         let n = 0, i = 0, o;
@@ -1272,7 +1272,7 @@ line: ` + a + i;
             return m ? Math.round(h * 1e3 / m) : void 0;
         };
     }
-    function OC(t, e) {
+    function HC(t, e) {
         let a = 0, r = 1e3 / e, n, i;
         const o = (u, c = Date.now())=>{
             a = c, n = null, i && (clearTimeout(i), i = null), t.apply(null, u);
@@ -1289,8 +1289,8 @@ line: ` + a + i;
     }
     const Bs = (t, e, a = 3)=>{
         let r = 0;
-        const n = NC(50, 250);
-        return OC((i)=>{
+        const n = OC(50, 250);
+        return HC((i)=>{
             const o = i.loaded, s = i.lengthComputable ? i.total : void 0, l = o - r, u = n(l), c = o <= s;
             r = o;
             const d = {
@@ -1316,7 +1316,7 @@ line: ` + a + i;
                 }),
             e[1]
         ];
-    }, Sf = (t)=>(...e)=>ie.asap(()=>t(...e)), HC = fa.hasStandardBrowserEnv ? ((t, e)=>(a)=>(a = new URL(a, fa.origin), t.protocol === a.protocol && t.host === a.host && (e || t.port === a.port)))(new URL(fa.origin), fa.navigator && /(msie|trident)/i.test(fa.navigator.userAgent)) : ()=>!0, VC = fa.hasStandardBrowserEnv ? {
+    }, Sf = (t)=>(...e)=>ie.asap(()=>t(...e)), VC = fa.hasStandardBrowserEnv ? ((t, e)=>(a)=>(a = new URL(a, fa.origin), t.protocol === a.protocol && t.host === a.host && (e || t.port === a.port)))(new URL(fa.origin), fa.navigator && /(msie|trident)/i.test(fa.navigator.userAgent)) : ()=>!0, WC = fa.hasStandardBrowserEnv ? {
         write (t, e, a, r, n, i) {
             const o = [
                 t + "=" + encodeURIComponent(e)
@@ -1337,15 +1337,15 @@ line: ` + a + i;
         },
         remove () {}
     };
-    function WC(t) {
+    function GC(t) {
         return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(t);
     }
-    function GC(t, e) {
+    function $C(t, e) {
         return e ? t.replace(/\/?\/$/, "") + "/" + e.replace(/^\/+/, "") : t;
     }
     function Kb(t, e, a) {
-        let r = !WC(e);
-        return t && r || a == !1 ? GC(t, e) : e;
+        let r = !GC(e);
+        return t && r || a == !1 ? $C(t, e) : e;
     }
     const Cf = (t)=>t instanceof Ma ? {
             ...t
@@ -1426,12 +1426,12 @@ line: ` + a + i;
                 ].join("; "));
             }
         }
-        if (fa.hasStandardBrowserEnv && (r && ie.isFunction(r) && (r = r(e)), r || r !== !1 && HC(e.url))) {
-            const u = n && i && VC.read(i);
+        if (fa.hasStandardBrowserEnv && (r && ie.isFunction(r) && (r = r(e)), r || r !== !1 && VC(e.url))) {
+            const u = n && i && WC.read(i);
             u && o.set(n, u);
         }
         return e;
-    }, $C = typeof XMLHttpRequest < "u", jC = $C && function(t) {
+    }, jC = typeof XMLHttpRequest < "u", UC = jC && function(t) {
         return new Promise(function(a, r) {
             const n = Xb(t);
             let i = n.data;
@@ -1473,14 +1473,14 @@ line: ` + a + i;
             }), ie.isUndefined(n.withCredentials) || (g.withCredentials = !!n.withCredentials), s && s !== "json" && (g.responseType = n.responseType), u && ([h, p] = Bs(u, !0), g.addEventListener("progress", h)), l && g.upload && ([d, m] = Bs(l), g.upload.addEventListener("progress", d), g.upload.addEventListener("loadend", m)), (n.cancelToken || n.signal) && (c = (x)=>{
                 g && (r(!x || x.type ? new Ti(null, t, g) : x), g.abort(), g = null);
             }, n.cancelToken && n.cancelToken.subscribe(c), n.signal && (n.signal.aborted ? c() : n.signal.addEventListener("abort", c)));
-            const b = zC(n.url);
+            const b = NC(n.url);
             if (b && fa.protocols.indexOf(b) === -1) {
                 r(new Ye("Unsupported protocol " + b + ":", Ye.ERR_BAD_REQUEST, t));
                 return;
             }
             g.send(i || null);
         });
-    }, UC = (t, e)=>{
+    }, YC = (t, e)=>{
         const { length: a } = t = t ? t.filter(Boolean) : [];
         if (e || a) {
             let r = new AbortController, n;
@@ -1503,7 +1503,7 @@ line: ` + a + i;
             const { signal: l } = r;
             return l.unsubscribe = ()=>ie.asap(s), l;
         }
-    }, YC = function*(t, e) {
+    }, qC = function*(t, e) {
         let a = t.byteLength;
         if (a < e) {
             yield t;
@@ -1511,9 +1511,9 @@ line: ` + a + i;
         }
         let r = 0, n;
         for(; r < a;)n = r + e, yield t.slice(r, n), r = n;
-    }, qC = async function*(t, e) {
-        for await (const a of KC(t))yield* YC(a, e);
-    }, KC = async function*(t) {
+    }, KC = async function*(t, e) {
+        for await (const a of XC(t))yield* qC(a, e);
+    }, XC = async function*(t) {
         if (t[Symbol.asyncIterator]) {
             yield* t;
             return;
@@ -1529,7 +1529,7 @@ line: ` + a + i;
             await e.cancel();
         }
     }, Af = (t, e, a, r)=>{
-        const n = qC(t, e);
+        const n = KC(t, e);
         let i = 0, o, s = (l)=>{
             o || (o = !0, r && r(l));
         };
@@ -1557,13 +1557,13 @@ line: ` + a + i;
         }, {
             highWaterMark: 2
         });
-    }, pl = typeof fetch == "function" && typeof Request == "function" && typeof Response == "function", Jb = pl && typeof ReadableStream == "function", XC = pl && (typeof TextEncoder == "function" ? ((t)=>(e)=>t.encode(e))(new TextEncoder) : async (t)=>new Uint8Array(await new Response(t).arrayBuffer())), Zb = (t, ...e)=>{
+    }, pl = typeof fetch == "function" && typeof Request == "function" && typeof Response == "function", Jb = pl && typeof ReadableStream == "function", JC = pl && (typeof TextEncoder == "function" ? ((t)=>(e)=>t.encode(e))(new TextEncoder) : async (t)=>new Uint8Array(await new Response(t).arrayBuffer())), Zb = (t, ...e)=>{
         try {
             return !!t(...e);
         } catch  {
             return !1;
         }
-    }, JC = Jb && Zb(()=>{
+    }, ZC = Jb && Zb(()=>{
         let t = !1;
         const e = new Request(fa.origin, {
             body: new ReadableStream,
@@ -1589,7 +1589,7 @@ line: ` + a + i;
             });
         });
     })(new Response);
-    const ZC = async (t)=>{
+    const QC = async (t)=>{
         if (t == null) return 0;
         if (ie.isBlob(t)) return t.size;
         if (ie.isSpecCompliantForm(t)) return (await new Request(fa.origin, {
@@ -1597,14 +1597,14 @@ line: ` + a + i;
             body: t
         }).arrayBuffer()).byteLength;
         if (ie.isArrayBufferView(t) || ie.isArrayBuffer(t)) return t.byteLength;
-        if (ie.isURLSearchParams(t) && (t = t + ""), ie.isString(t)) return (await XC(t)).byteLength;
-    }, QC = async (t, e)=>{
+        if (ie.isURLSearchParams(t) && (t = t + ""), ie.isString(t)) return (await JC(t)).byteLength;
+    }, eA = async (t, e)=>{
         const a = ie.toFiniteNumber(t.getContentLength());
-        return a ?? ZC(e);
-    }, eA = pl && (async (t)=>{
+        return a ?? QC(e);
+    }, tA = pl && (async (t)=>{
         let { url: e, method: a, data: r, signal: n, cancelToken: i, timeout: o, onDownloadProgress: s, onUploadProgress: l, responseType: u, headers: c, withCredentials: d = "same-origin", fetchOptions: h } = Xb(t);
         u = u ? (u + "").toLowerCase() : "text";
-        let m = UC([
+        let m = YC([
             n,
             i && i.toAbortSignal()
         ], o), p;
@@ -1613,7 +1613,7 @@ line: ` + a + i;
         });
         let g;
         try {
-            if (l && JC && a !== "get" && a !== "head" && (g = await QC(c, r)) !== 0) {
+            if (l && ZC && a !== "get" && a !== "head" && (g = await eA(c, r)) !== 0) {
                 let k = new Request(e, {
                     method: "POST",
                     body: r,
@@ -1669,9 +1669,9 @@ line: ` + a + i;
             }) : Ye.from(v, v && v.code, t, p);
         }
     }), fh = {
-        http: fC,
-        xhr: jC,
-        fetch: eA
+        http: gC,
+        xhr: UC,
+        fetch: tA
     };
     ie.forEach(fh, (t, e)=>{
         if (t) {
@@ -1685,7 +1685,7 @@ line: ` + a + i;
             });
         }
     });
-    const Tf = (t)=>`- ${t}`, tA = (t)=>ie.isFunction(t) || t === null || t === !1, Qb = {
+    const Tf = (t)=>`- ${t}`, aA = (t)=>ie.isFunction(t) || t === null || t === !1, Qb = {
         getAdapter: (t)=>{
             t = ie.isArray(t) ? t : [
                 t
@@ -1696,7 +1696,7 @@ line: ` + a + i;
             for(let i = 0; i < e; i++){
                 a = t[i];
                 let o;
-                if (r = a, !tA(a) && (r = fh[(o = String(a)).toLowerCase()], r === void 0)) throw new Ye(`Unknown adapter '${o}'`);
+                if (r = a, !aA(a) && (r = fh[(o = String(a)).toLowerCase()], r === void 0)) throw new Ye(`Unknown adapter '${o}'`);
                 if (r) break;
                 n[o || "#" + i] = r;
             }
@@ -1751,7 +1751,7 @@ line: ` + a + i;
     fl.spelling = function(e) {
         return (a, r)=>(console.warn(`${r} is likely a misspelling of ${e}`), !0);
     };
-    function aA(t, e, a) {
+    function rA(t, e, a) {
         if (typeof t != "object") throw new Ye("options must be an object", Ye.ERR_BAD_OPTION_VALUE);
         const r = Object.keys(t);
         let n = r.length;
@@ -1766,7 +1766,7 @@ line: ` + a + i;
         }
     }
     const vs = {
-        assertOptions: aA,
+        assertOptions: rA,
         validators: fl
     }, gr = vs.validators;
     let Sn = class {
@@ -1896,7 +1896,7 @@ line: ` + a + i;
         }
         Sn.prototype[e] = a(), Sn.prototype[e + "Form"] = a(!0);
     });
-    let rA = class tF {
+    let nA = class tF {
         constructor(e){
             if (typeof e != "function") throw new TypeError("executor must be a function.");
             let a;
@@ -1954,12 +1954,12 @@ line: ` + a + i;
             };
         }
     };
-    function nA(t) {
+    function iA(t) {
         return function(a) {
             return t.apply(null, a);
         };
     }
-    function iA(t) {
+    function oA(t) {
         return ie.isObject(t) && t.isAxiosError === !0;
     }
     const gh = {
@@ -2043,7 +2043,7 @@ line: ` + a + i;
     Nt = aF(_o);
     Nt.Axios = Sn;
     Nt.CanceledError = Ti;
-    Nt.CancelToken = rA;
+    Nt.CancelToken = nA;
     Nt.isCancel = Yb;
     Nt.VERSION = eF;
     Nt.toFormData = ml;
@@ -2052,16 +2052,16 @@ line: ` + a + i;
     Nt.all = function(e) {
         return Promise.all(e);
     };
-    Nt.spread = nA;
-    Nt.isAxiosError = iA;
+    Nt.spread = iA;
+    Nt.isAxiosError = oA;
     Nt.mergeConfig = Dn;
     Nt.AxiosHeaders = Ma;
     Nt.formToJSON = (t)=>Ub(ie.isHTMLForm(t) ? new FormData(t) : t);
     Nt.getAdapter = Qb.getAdapter;
     Nt.HttpStatusCode = gh;
     Nt.default = Nt;
-    const { Axios: kW, AxiosError: xW, CanceledError: wW, isCancel: SW, CancelToken: CW, VERSION: AW, all: DW, Cancel: TW, isAxiosError: EW, spread: _W, toFormData: PW, AxiosHeaders: BW, HttpStatusCode: MW, formToJSON: RW, getAdapter: LW, mergeConfig: IW } = Nt;
-    class oA {
+    const { Axios: AW, AxiosError: DW, CanceledError: TW, isCancel: EW, CancelToken: _W, VERSION: PW, all: BW, Cancel: MW, isAxiosError: RW, spread: LW, toFormData: IW, AxiosHeaders: zW, HttpStatusCode: NW, formToJSON: OW, getAdapter: HW, mergeConfig: VW } = Nt;
+    class sA {
         axios;
         up = !1;
         constructor(){
@@ -2097,7 +2097,7 @@ line: ` + a + i;
             return this.axios.get("/update");
         }
     }
-    const vh = new oA;
+    const vh = new sA;
     function vu(t, e, a = {}) {
         const r = de(()=>{}), n = de({});
         function i(c) {
@@ -2115,7 +2115,7 @@ line: ` + a + i;
             const c = {};
             Object.entries(t.$state).forEach(([d, h])=>{
                 i(d) && (c[d] = h);
-            }), MF(c, n.value) || await vh.set(e, JSON.stringify(c)) && (n.value = JSON.parse(JSON.stringify(c)));
+            }), RF(c, n.value) || await vh.set(e, JSON.stringify(c)) && (n.value = JSON.parse(JSON.stringify(c)));
         }
         function l() {
             r.value = t.$subscribe(()=>{
@@ -2134,27 +2134,27 @@ line: ` + a + i;
     }
     const ia = [];
     for(let t = 0; t < 256; ++t)ia.push((t + 256).toString(16).slice(1));
-    function sA(t, e = 0) {
+    function lA(t, e = 0) {
         return (ia[t[e + 0]] + ia[t[e + 1]] + ia[t[e + 2]] + ia[t[e + 3]] + "-" + ia[t[e + 4]] + ia[t[e + 5]] + "-" + ia[t[e + 6]] + ia[t[e + 7]] + "-" + ia[t[e + 8]] + ia[t[e + 9]] + "-" + ia[t[e + 10]] + ia[t[e + 11]] + ia[t[e + 12]] + ia[t[e + 13]] + ia[t[e + 14]] + ia[t[e + 15]]).toLowerCase();
     }
     let yu;
-    const lA = new Uint8Array(16);
-    function uA() {
+    const uA = new Uint8Array(16);
+    function cA() {
         if (!yu) {
             if (typeof crypto > "u" || !crypto.getRandomValues) throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
             yu = crypto.getRandomValues.bind(crypto);
         }
-        return yu(lA);
+        return yu(uA);
     }
-    const cA = typeof crypto < "u" && crypto.randomUUID && crypto.randomUUID.bind(crypto), Pf = {
-        randomUUID: cA
+    const dA = typeof crypto < "u" && crypto.randomUUID && crypto.randomUUID.bind(crypto), Pf = {
+        randomUUID: dA
     };
     yh = function(t, e, a) {
         if (Pf.randomUUID && !t) return Pf.randomUUID();
         t = t || {};
-        const r = t.random ?? t.rng?.() ?? uA();
+        const r = t.random ?? t.rng?.() ?? cA();
         if (r.length < 16) throw new Error("Random bytes length must be >= 16");
-        return r[6] = r[6] & 15 | 64, r[8] = r[8] & 63 | 128, sA(r);
+        return r[6] = r[6] & 15 | 64, r[8] = r[8] & 63 | 128, lA(r);
     };
     Ei = ya("dialogs", ()=>{
         const t = de(new Map), e = T(()=>t.value.size > 0);
@@ -2200,11 +2200,11 @@ line: ` + a + i;
         };
     };
     aa = function() {
-        const t = Kx(), { useEmojiState: e } = gt(ba());
+        const t = Xx(), { useEmojiState: e } = gt(ba());
         function a(r) {
-            const n = t.t(`torrent.state.${BF(r)}`);
+            const n = t.t(`torrent.state.${MF(r)}`);
             return e.value ? [
-                TD[r],
+                PD[r],
                 n
             ].join(" ") : n;
         }
@@ -2238,7 +2238,7 @@ line: ` + a + i;
             results: n
         };
     };
-    function dA() {
+    function hA() {
         function t(e) {
             return {
                 added_on: e.added_on,
@@ -2286,7 +2286,7 @@ line: ` + a + i;
                 seen_complete: e.seen_complete,
                 seq_dl: e.seq_dl,
                 size: e.size,
-                state: ED(e.state),
+                state: BD(e.state),
                 super_seeding: e.super_seeding,
                 tags: e.tags.length > 0 ? e.tags.split(", ").map((a)=>a.trim()) : [],
                 time_active: e.time_active,
@@ -2321,7 +2321,7 @@ line: ` + a + i;
                     return this.downloaded + this.uploaded;
                 },
                 get trackerDomain () {
-                    return b2(this.tracker);
+                    return S2(this.tracker);
                 },
                 get truncated_hash () {
                     return this.hash.slice(0, 8);
@@ -2343,7 +2343,7 @@ line: ` + a + i;
         }, bu;
     }
     var Fu, Mf;
-    function hA() {
+    function mA() {
         if (Mf) return Fu;
         Mf = 1;
         var t;
@@ -2419,12 +2419,12 @@ line: ` + a + i;
         return Fu = t, Fu;
     }
     var ku, Rf;
-    function mA() {
+    function pA() {
         if (Rf) return ku;
         Rf = 1;
         var t = Array.prototype.slice, e = rF(), a = Object.keys, r = a ? function(o) {
             return a(o);
-        } : hA(), n = Object.keys;
+        } : mA(), n = Object.keys;
         return r.shim = function() {
             if (Object.keys) {
                 var o = function() {
@@ -2461,14 +2461,14 @@ line: ` + a + i;
         return zf || (zf = 1, Su = TypeError), Su;
     }
     var Cu, Nf;
-    function pA() {
+    function fA() {
         return Nf || (Nf = 1, Cu = Object.getOwnPropertyDescriptor), Cu;
     }
     var Au, Of;
     function _i() {
         if (Of) return Au;
         Of = 1;
-        var t = pA();
+        var t = fA();
         if (t) try {
             t([], "length");
         } catch  {
@@ -2521,7 +2521,7 @@ line: ` + a + i;
     function Mo() {
         if (Wf) return Eu;
         Wf = 1;
-        var t = mA(), e = typeof Symbol == "function" && typeof Symbol("foo") == "symbol", a = Object.prototype.toString, r = Array.prototype.concat, n = Bm(), i = function(u) {
+        var t = pA(), e = typeof Symbol == "function" && typeof Symbol("foo") == "symbol", a = Object.prototype.toString, r = Array.prototype.concat, n = Bm(), i = function(u) {
             return typeof u == "function" && a.call(u) === "[object Function]";
         }, o = vl()(), s = function(u, c, d, h) {
             if (c in u) {
@@ -2544,11 +2544,11 @@ line: ` + a + i;
         return Gf || (Gf = 1, Pu = Object), Pu;
     }
     var Bu, $f;
-    function fA() {
+    function gA() {
         return $f || ($f = 1, Bu = Error), Bu;
     }
     var Mu, jf;
-    function gA() {
+    function vA() {
         return jf || (jf = 1, Mu = EvalError), Mu;
     }
     var Ru, Uf;
@@ -2556,11 +2556,11 @@ line: ` + a + i;
         return Uf || (Uf = 1, Ru = RangeError), Ru;
     }
     var Lu, Yf;
-    function vA() {
+    function yA() {
         return Yf || (Yf = 1, Lu = ReferenceError), Lu;
     }
     var Iu, qf;
-    function yA() {
+    function bA() {
         return qf || (qf = 1, Iu = URIError), Iu;
     }
     var zu, Kf;
@@ -2572,7 +2572,7 @@ line: ` + a + i;
         return Xf || (Xf = 1, Nu = Math.floor), Nu;
     }
     var Ou, Jf;
-    function bA() {
+    function FA() {
         return Jf || (Jf = 1, Ou = Math.max), Ou;
     }
     var Hu, Zf;
@@ -2580,7 +2580,7 @@ line: ` + a + i;
         return Zf || (Zf = 1, Hu = Math.min), Hu;
     }
     var Vu, Qf;
-    function FA() {
+    function kA() {
         return Qf || (Qf = 1, Vu = Math.pow), Vu;
     }
     var Wu, eg;
@@ -2613,7 +2613,7 @@ line: ` + a + i;
         }, Gu;
     }
     var $u, ag;
-    function kA() {
+    function xA() {
         if (ag) return $u;
         ag = 1;
         var t = "Function.prototype.bind called on incompatible ", e = Object.prototype.toString, a = Math.max, r = "[object Function]", n = function(l, u) {
@@ -2648,7 +2648,7 @@ line: ` + a + i;
     function Ro() {
         if (rg) return ju;
         rg = 1;
-        var t = kA();
+        var t = xA();
         return ju = Function.prototype.bind || t, ju;
     }
     var Uu, ng;
@@ -2660,14 +2660,14 @@ line: ` + a + i;
         return ig || (ig = 1, Yu = Function.prototype.apply), Yu;
     }
     var qu, og;
-    function xA() {
+    function wA() {
         return og || (og = 1, qu = typeof Reflect < "u" && Reflect && Reflect.apply), qu;
     }
     var Ku, sg;
     function cF() {
         if (sg) return Ku;
         sg = 1;
-        var t = Ro(), e = Lm(), a = Rm(), r = xA();
+        var t = Ro(), e = Lm(), a = Rm(), r = wA();
         return Ku = r || t.call(a, e), Ku;
     }
     var Xu, lg;
@@ -2681,7 +2681,7 @@ line: ` + a + i;
         }, Xu;
     }
     var Ju, ug;
-    function wA() {
+    function SA() {
         if (ug) return Ju;
         ug = 1;
         var t = Im(), e = _i(), a;
@@ -2708,7 +2708,7 @@ line: ` + a + i;
     function nr() {
         if (dg) return Qu;
         dg = 1;
-        var t, e = nF(), a = fA(), r = gA(), n = iF(), i = vA(), o = Bo(), s = st(), l = yA(), u = oF(), c = Mm(), d = bA(), h = sF(), m = FA(), p = Function, f = function($) {
+        var t, e = nF(), a = gA(), r = vA(), n = iF(), i = yA(), o = Bo(), s = st(), l = bA(), u = oF(), c = Mm(), d = FA(), h = sF(), m = kA(), p = Function, f = function($) {
             try {
                 return p('"use strict"; return (' + $ + ").constructor;")();
             } catch  {}
@@ -2724,7 +2724,7 @@ line: ` + a + i;
                     return b;
                 }
             }
-        }() : b, C = uF()(), k = wA(), S = typeof Reflect == "function" && Reflect.getPrototypeOf || e.getPrototypeOf || k, w = Lm(), F = Rm(), A = {}, E = typeof Uint8Array > "u" || !S ? t : S(Uint8Array), D = {
+        }() : b, C = uF()(), k = SA(), S = typeof Reflect == "function" && Reflect.getPrototypeOf || e.getPrototypeOf || k, w = Lm(), F = Rm(), A = {}, E = typeof Uint8Array > "u" || !S ? t : S(Uint8Array), D = {
             __proto__: null,
             "%AggregateError%": typeof AggregateError > "u" ? t : AggregateError,
             "%Array%": Array,
@@ -3086,7 +3086,7 @@ line: ` + a + i;
         }, Qu;
     }
     var ec, hg;
-    function SA() {
+    function CA() {
         if (hg) return ec;
         hg = 1;
         var t = nr(), e = Bm(), a = vl()(), r = _i(), n = st(), i = t("%Math.floor%");
@@ -3102,7 +3102,7 @@ line: ` + a + i;
         }, ec;
     }
     var tc, mg;
-    function CA() {
+    function AA() {
         if (mg) return tc;
         mg = 1;
         var t = Ro(), e = Lm(), a = cF();
@@ -3113,7 +3113,7 @@ line: ` + a + i;
     var pg;
     function zm() {
         return pg || (pg = 1, function(t) {
-            var e = SA(), a = Po(), r = Im(), n = CA();
+            var e = CA(), a = Po(), r = Im(), n = AA();
             t.exports = function(o) {
                 var s = r(arguments), l = o.length - (arguments.length - 1);
                 return e(s, 1 + (l > 0 ? l : 0), !0);
@@ -3149,11 +3149,11 @@ line: ` + a + i;
         }, nc;
     }
     var ic, yg;
-    function AA() {
+    function DA() {
         return yg || (yg = 1, ic = 4294967295), ic;
     }
     var oc, bg;
-    function DA() {
+    function TA() {
         if (bg) return oc;
         bg = 1;
         var t = {
@@ -3167,10 +3167,10 @@ line: ` + a + i;
         }, oc;
     }
     var sc, Fg;
-    function TA() {
+    function EA() {
         if (Fg) return sc;
         Fg = 1;
-        var t = nr(), e = t("%Array.prototype%"), a = iF(), r = Bo(), n = st(), i = hF(), o = AA(), s = DA()(), l = t("%Object.setPrototypeOf%", !0) || (s ? function(u, c) {
+        var t = nr(), e = t("%Array.prototype%"), a = iF(), r = Bo(), n = st(), i = hF(), o = DA(), s = TA()(), l = t("%Object.setPrototypeOf%", !0) || (s ? function(u, c) {
             return u.__proto__ = c, u;
         } : null);
         return sc = function(c) {
@@ -3208,14 +3208,14 @@ line: ` + a + i;
         }, uc;
     }
     var cc, wg;
-    function EA() {
+    function _A() {
         return wg || (wg = 1, cc = mF()), cc;
     }
     var dc, Sg;
-    function _A() {
+    function PA() {
         if (Sg) return dc;
         Sg = 1;
-        var t = nr(), e = ir(), a = st(), r = EA(), n = t("%Reflect.apply%", !0) || e("Function.prototype.apply");
+        var t = nr(), e = ir(), a = st(), r = _A(), n = t("%Reflect.apply%", !0) || e("Function.prototype.apply");
         return dc = function(o, s) {
             var l = arguments.length > 2 ? arguments[2] : [];
             if (!r(l)) throw new a("Assertion failed: optional `argumentsList`, if provided, must be a List");
@@ -3223,7 +3223,7 @@ line: ` + a + i;
         }, dc;
     }
     var hc, Cg;
-    function PA() {
+    function BA() {
         if (Cg) return hc;
         Cg = 1;
         var t = nr(), e = t("%BigInt%", !0), a = st(), r = Bo();
@@ -3244,7 +3244,7 @@ line: ` + a + i;
         }), mc;
     }
     var pc, Dg;
-    function BA() {
+    function MA() {
         return Dg || (Dg = 1, pc = function(e) {
             return e === null || typeof e != "function" && typeof e != "object";
         }), pc;
@@ -3322,7 +3322,7 @@ line: ` + a + i;
         }, gc;
     }
     var vc, _g;
-    function MA() {
+    function RA() {
         if (_g) return vc;
         _g = 1;
         var t = ir(), e = t("Date.prototype.getDay"), a = function(s) {
@@ -3339,7 +3339,7 @@ line: ` + a + i;
     var is = {
         exports: {}
     }, yc, Pg;
-    function RA() {
+    function LA() {
         if (Pg) return yc;
         Pg = 1;
         var t = ir(), e = pF()(), a = sn(), r = _i(), n;
@@ -3372,7 +3372,7 @@ line: ` + a + i;
     function fF() {
         if (Bg) return bc;
         Bg = 1;
-        var t = ir(), e = RA(), a = t("RegExp.prototype.exec"), r = st();
+        var t = ir(), e = LA(), a = t("RegExp.prototype.exec"), r = st();
         return bc = function(i) {
             if (!e(i)) throw new r("`regex` must be a RegExp");
             return function(s) {
@@ -3381,7 +3381,7 @@ line: ` + a + i;
         }, bc;
     }
     var Mg;
-    function LA() {
+    function IA() {
         if (Mg) return is.exports;
         Mg = 1;
         var t = ir(), e = t("Object.prototype.toString"), a = uF()(), r = fF();
@@ -3404,10 +3404,10 @@ line: ` + a + i;
         return is.exports;
     }
     var Fc, Rg;
-    function IA() {
+    function zA() {
         if (Rg) return Fc;
         Rg = 1;
-        var t = typeof Symbol == "function" && typeof Symbol.iterator == "symbol", e = BA(), a = Om(), r = MA(), n = LA(), i = function(l, u) {
+        var t = typeof Symbol == "function" && typeof Symbol.iterator == "symbol", e = MA(), a = Om(), r = RA(), n = IA(), i = function(l, u) {
             if (typeof l > "u" || l === null) throw new TypeError("Cannot call method on " + l);
             if (typeof u != "string" || u !== "number" && u !== "string") throw new TypeError('hint must be "string" or "number"');
             var c = u === "string" ? [
@@ -3443,7 +3443,7 @@ line: ` + a + i;
     function Hm() {
         if (Lg) return kc;
         Lg = 1;
-        var t = IA();
+        var t = zA();
         return kc = function(a) {
             return arguments.length > 1 ? t(a, arguments[1]) : t(a);
         }, kc;
@@ -3488,7 +3488,7 @@ line: ` + a + i;
         }, Cc;
     }
     var Ac, Hg;
-    function zA() {
+    function NA() {
         if (Hg) return Ac;
         Hg = 1;
         var t = vl()(), e = Bm(), a = vF();
@@ -3498,10 +3498,10 @@ line: ` + a + i;
         }, Ac;
     }
     var Dc, Vg;
-    function NA() {
+    function OA() {
         if (Vg) return Dc;
         Vg = 1;
-        var t = zm(), e = Mo(), a = Vm(), r = gF(), n = vF(), i = zA(), o = t(n()), s = function(u) {
+        var t = zm(), e = Mo(), a = Vm(), r = gF(), n = vF(), i = NA(), o = t(n()), s = function(u) {
             return a(u), o(u);
         };
         return e(s, {
@@ -3511,14 +3511,14 @@ line: ` + a + i;
         }), Dc = s, Dc;
     }
     var Tc, Wg;
-    function OA() {
+    function HA() {
         if (Wg) return Tc;
         Wg = 1;
         var t = nr(), e = t("%RegExp%"), a = st(), r = t("%parseInt%"), n = ir(), i = fF(), o = n("String.prototype.slice"), s = i(/^0b[01]+$/i), l = i(/^0o[0-7]+$/i), u = i(/^[-+]0x[0-9a-f]+$/i), c = [
             "",
             "​",
             "￾"
-        ].join(""), d = new e("[" + c + "]", "g"), h = i(d), m = NA();
+        ].join(""), d = new e("[" + c + "]", "g"), h = i(d), m = OA();
         return Tc = function p(f) {
             if (typeof f != "string") throw new a("Assertion failed: `argument` is not a String");
             if (s(f)) return +r(o(f, 2), 2);
@@ -3532,7 +3532,7 @@ line: ` + a + i;
     function Wm() {
         if (Gg) return Ec;
         Gg = 1;
-        var t = nr(), e = st(), a = t("%Number%"), r = Nm(), n = Hm(), i = OA();
+        var t = nr(), e = st(), a = t("%Number%"), r = Nm(), n = Hm(), i = HA();
         return Ec = function(s) {
             var l = r(s) ? s : n(s, a);
             if (typeof l == "symbol") throw new e("Cannot convert a Symbol value to a number");
@@ -3541,7 +3541,7 @@ line: ` + a + i;
         }, Ec;
     }
     var _c, $g;
-    function HA() {
+    function VA() {
         if ($g) return _c;
         $g = 1;
         var t = nr(), e = t("%Number%"), a = Nm(), r = Hm(), n = Wm();
@@ -3551,7 +3551,7 @@ line: ` + a + i;
         }, _c;
     }
     var Pc, jg;
-    function VA() {
+    function WA() {
         if (jg) return Pc;
         jg = 1;
         var t = st();
@@ -3561,26 +3561,26 @@ line: ` + a + i;
         }, Pc;
     }
     var Bc, Ug;
-    function WA() {
+    function GA() {
         return Ug || (Ug = 1, Bc = Number.isNaN || function(e) {
             return e !== e;
         }), Bc;
     }
     var Mc, Yg;
-    function GA() {
+    function $A() {
         if (Yg) return Mc;
         Yg = 1;
-        var t = st(), e = WA();
+        var t = st(), e = GA();
         return Mc = function(r, n) {
             if (typeof r != "number" || typeof n != "number") throw new t("Assertion failed: `x` and `y` arguments must be Numbers");
             if (!(e(r) || e(n))) return r < n;
         }, Mc;
     }
     var Rc, qg;
-    function $A() {
+    function jA() {
         if (qg) return Rc;
         qg = 1;
-        var t = nr(), e = t("%Number%"), a = st(), r = sF(), n = Pi(), i = ir()("String.prototype.charCodeAt"), o = PA(), s = HA(), l = Hm(), u = VA(), c = GA();
+        var t = nr(), e = t("%Number%"), a = st(), r = sF(), n = Pi(), i = ir()("String.prototype.charCodeAt"), o = BA(), s = VA(), l = Hm(), u = WA(), c = $A();
         return Rc = function(h, m, p) {
             if (typeof p != "boolean") throw new a("Assertion failed: LeftFirst argument must be a Boolean");
             var f, g;
@@ -3600,10 +3600,10 @@ line: ` + a + i;
         }, Rc;
     }
     var Lc, Kg;
-    function jA() {
+    function UA() {
         if (Kg) return Lc;
         Kg = 1;
-        var t = st(), e = _A(), a = $A(), r = Wm(), n = yl(), i = Pi();
+        var t = st(), e = PA(), a = jA(), r = Wm(), n = yl(), i = Pi();
         return Lc = function(s, l, u) {
             if (typeof u != "function" && typeof u < "u") throw new t("Assertion failed: `compareFn` must be a function or undefined");
             if (typeof s > "u" && typeof l > "u") return 0;
@@ -3661,7 +3661,7 @@ line: ` + a + i;
         }, Nc;
     }
     var Oc, Qg;
-    function UA() {
+    function YA() {
         if (Qg) return Oc;
         Qg = 1;
         var t = nr(), e = t("%Object.preventExtensions%", !0), a = t("%Object.isExtensible%", !0), r = Nm();
@@ -3676,7 +3676,7 @@ line: ` + a + i;
         return ev || (ev = 1, Hc = Om()), Hc;
     }
     var Vc, tv;
-    function YA() {
+    function qA() {
         return tv || (tv = 1, Vc = function(e) {
             return !!e;
         }), Vc;
@@ -3688,10 +3688,10 @@ line: ` + a + i;
         }), Wc;
     }
     var Gc, rv;
-    function qA() {
+    function KA() {
         if (rv) return Gc;
         rv = 1;
-        var t = sn(), e = st(), a = yF(), r = YA(), n = wr();
+        var t = sn(), e = st(), a = yF(), r = qA(), n = wr();
         return Gc = function(o) {
             if (!n(o)) throw new e("ToPropertyDescriptor requires an object");
             var s = {};
@@ -3719,7 +3719,7 @@ line: ` + a + i;
         }, $c;
     }
     var jc, iv;
-    function KA() {
+    function XA() {
         if (iv) return jc;
         iv = 1;
         var t = vl(), e = Po(), a = t.hasArrayLengthDefineBug(), r = a && mF(), n = ir(), i = n("Object.prototype.propertyIsEnumerable");
@@ -3733,7 +3733,7 @@ line: ` + a + i;
         }, jc;
     }
     var Uc, ov;
-    function XA() {
+    function JA() {
         if (ov) return Uc;
         ov = 1;
         var t = Wn();
@@ -3742,7 +3742,7 @@ line: ` + a + i;
         }, Uc;
     }
     var Yc, sv;
-    function JA() {
+    function ZA() {
         return sv || (sv = 1, Yc = function(e) {
             if (typeof e > "u") return e;
             var a = {};
@@ -3750,10 +3750,10 @@ line: ` + a + i;
         }), Yc;
     }
     var qc, lv;
-    function ZA() {
+    function QA() {
         if (lv) return qc;
         lv = 1;
-        var t = st(), e = Wn(), a = JA();
+        var t = st(), e = Wn(), a = ZA();
         return qc = function(n) {
             if (typeof n < "u" && !e(n)) throw new t("Assertion failed: `Desc` must be a Property Descriptor");
             return a(n);
@@ -3771,7 +3771,7 @@ line: ` + a + i;
         }, Kc;
     }
     var Xc, cv;
-    function QA() {
+    function eD() {
         if (cv) return Xc;
         cv = 1;
         var t = st(), e = Gm(), a = FF(), r = Wn();
@@ -3782,7 +3782,7 @@ line: ` + a + i;
         }, Xc;
     }
     var Jc, dv;
-    function eD() {
+    function tD() {
         if (dv) return Jc;
         dv = 1;
         var t = wr();
@@ -3796,19 +3796,19 @@ line: ` + a + i;
         }, Jc;
     }
     var Zc, hv;
-    function tD() {
+    function aD() {
         if (hv) return Zc;
         hv = 1;
-        var t = eD();
+        var t = tD();
         return Zc = function(a) {
             return typeof a == "symbol" ? "Symbol" : typeof a == "bigint" ? "BigInt" : t(a);
         }, Zc;
     }
     var Qc, mv;
-    function aD() {
+    function rD() {
         if (mv) return Qc;
         mv = 1;
-        var t = st(), e = KA(), a = XA(), r = Wn(), n = ZA(), i = Gm(), o = FF(), s = QA(), l = Bi(), u = bF(), c = tD(), d = wr();
+        var t = st(), e = XA(), a = JA(), r = Wn(), n = QA(), i = Gm(), o = FF(), s = eD(), l = Bi(), u = bF(), c = aD(), d = wr();
         return Qc = function(m, p, f, g, v) {
             var b = c(m);
             if (typeof m < "u" && !d(m)) throw new t("Assertion failed: O must be undefined or an Object");
@@ -3850,10 +3850,10 @@ line: ` + a + i;
         }, Qc;
     }
     var ed, pv;
-    function rD() {
+    function nD() {
         if (pv) return ed;
         pv = 1;
-        var t = _i(), e = Bo(), a = st(), r = Wn(), n = Gm(), i = UA(), o = Bi(), s = qA(), l = bF(), u = aD(), c = wr();
+        var t = _i(), e = Bo(), a = st(), r = Wn(), n = Gm(), i = YA(), o = Bi(), s = KA(), l = bF(), u = rD(), c = wr();
         return ed = function(h, m, p) {
             if (!c(h)) throw new a("Assertion failed: O must be an Object");
             if (!o(m)) throw new a("Assertion failed: P must be a Property Key");
@@ -3869,10 +3869,10 @@ line: ` + a + i;
         }, ed;
     }
     var td, fv;
-    function nD() {
+    function iD() {
         if (fv) return td;
         fv = 1;
-        var t = st(), e = Bi(), a = rD(), r = wr();
+        var t = st(), e = Bi(), a = nD(), r = wr();
         return td = function(i, o, s) {
             if (!r(i)) throw new t("Assertion failed: Type(O) is not Object");
             if (!e(o)) throw new t("Assertion failed: P is not a Property Key");
@@ -3886,10 +3886,10 @@ line: ` + a + i;
         }, td;
     }
     var ad, gv;
-    function iD() {
+    function oD() {
         if (gv) return ad;
         gv = 1;
-        var t = st(), e = nD(), a = wr(), r = Bi();
+        var t = st(), e = iD(), a = wr(), r = Bi();
         return ad = function(i, o, s) {
             if (!a(i)) throw new t("Assertion failed: Type(O) is not Object");
             if (!r(o)) throw new t("Assertion failed: P is not a Property Key");
@@ -3897,14 +3897,14 @@ line: ` + a + i;
             if (!l) throw new t("unable to create data property");
         }, ad;
     }
-    const oD = {}, sD = Object.freeze(Object.defineProperty({
+    const sD = {}, lD = Object.freeze(Object.defineProperty({
         __proto__: null,
-        default: oD
+        default: sD
     }, Symbol.toStringTag, {
         value: "Module"
-    })), lD = Xx(sD);
+    })), uD = Jx(lD);
     var rd, vv;
-    function uD() {
+    function cD() {
         if (vv) return rd;
         vv = 1;
         var t = typeof Map == "function" && Map.prototype, e = Object.getOwnPropertyDescriptor && t ? Object.getOwnPropertyDescriptor(Map.prototype, "size") : null, a = t && e && typeof e.get == "function" ? e.get : null, r = t && Map.prototype.forEach, n = typeof Set == "function" && Set.prototype, i = Object.getOwnPropertyDescriptor && n ? Object.getOwnPropertyDescriptor(Set.prototype, "size") : null, o = n && i && typeof i.get == "function" ? i.get : null, s = n && Set.prototype.forEach, l = typeof WeakMap == "function" && WeakMap.prototype, u = l ? WeakMap.prototype.has : null, c = typeof WeakSet == "function" && WeakSet.prototype, d = c ? WeakSet.prototype.has : null, h = typeof WeakRef == "function" && WeakRef.prototype, m = h ? WeakRef.prototype.deref : null, p = Boolean.prototype.valueOf, f = Object.prototype.toString, g = Function.prototype.toString, v = String.prototype.match, b = String.prototype.slice, x = String.prototype.replace, C = String.prototype.toUpperCase, k = String.prototype.toLowerCase, S = RegExp.prototype.test, w = Array.prototype.concat, F = Array.prototype.join, A = Array.prototype.slice, E = Math.floor, D = typeof BigInt == "function" ? BigInt.prototype.valueOf : null, _ = Object.getOwnPropertySymbols, B = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? Symbol.prototype.toString : null, P = typeof Symbol == "function" && typeof Symbol.iterator == "object", M = typeof Symbol == "function" && Symbol.toStringTag && (typeof Symbol.toStringTag === P || !0) ? Symbol.toStringTag : null, R = Object.prototype.propertyIsEnumerable, O = (typeof Reflect == "function" ? Reflect.getPrototypeOf : Object.getPrototypeOf) || ([].__proto__ === Array.prototype ? function(Z) {
@@ -3922,7 +3922,7 @@ line: ` + a + i;
             }
             return x.call(ae, lt, "$&_");
         }
-        var H = lD, I = H.custom, L = ge(I) ? I : null, q = {
+        var H = uD, I = H.custom, L = ge(I) ? I : null, q = {
             __proto__: null,
             double: '"',
             single: "'"
@@ -3955,11 +3955,11 @@ line: ` + a + i;
             }
             var eu = typeof Ke.depth > "u" ? 5 : Ke.depth;
             if (typeof xt > "u" && (xt = 0), xt >= eu && eu > 0 && typeof ae == "object") return $(ae) ? "[Array]" : "[Object]";
-            var ai = $x(Ke, xt);
+            var ai = jx(Ke, xt);
             if (typeof At > "u") At = [];
             else if (Ft(At, ae) >= 0) return "[Circular]";
-            function lr(ri, ts, Ux) {
-                if (ts && (At = A.call(At), At.push(ts)), Ux) {
+            function lr(ri, ts, Yx) {
+                if (ts && (At = A.call(At), At.push(ts)), Yx) {
                     var tf = {
                         depth: Ke.depth
                     };
@@ -3975,14 +3975,14 @@ line: ` + a + i;
                 var Xp = P ? x.call(String(ae), /^(Symbol\(.*\))_[^)]*$/, "$1") : B.call(ae);
                 return typeof ae == "object" && !P ? Ui(Xp) : Xp;
             }
-            if (Vx(ae)) {
+            if (Wx(ae)) {
                 for(var Yi = "<" + k.call(String(ae.nodeName)), tu = ae.attributes || [], es = 0; es < tu.length; es++)Yi += " " + tu[es].name + "=" + J(me(tu[es].value), "double", Ke);
                 return Yi += ">", ae.childNodes && ae.childNodes.length && (Yi += "..."), Yi += "</" + k.call(String(ae.nodeName)) + ">", Yi;
             }
             if ($(ae)) {
                 if (ae.length === 0) return "[]";
                 var au = Qo(ae, lr);
-                return ai && !Gx(au) ? "[" + Ql(au, ai) + "]" : "[ " + F.call(au, ", ") + " ]";
+                return ai && !$x(au) ? "[" + Ql(au, ai) + "]" : "[ " + F.call(au, ", ") + " ]";
             }
             if (be(ae)) {
                 var ru = Qo(ae, lr);
@@ -4016,7 +4016,7 @@ line: ` + a + i;
             if (typeof window < "u" && ae === window) return "{ [object Window] }";
             if (typeof globalThis < "u" && ae === globalThis || typeof hi < "u" && ae === hi) return "{ [object globalThis] }";
             if (!V(ae) && !oe(ae)) {
-                var nu = Qo(ae, lr), Qp = O ? O(ae) === Object.prototype : ae instanceof Object || ae.constructor === Object, iu = ae instanceof Object ? "" : "null prototype", ef = !Qp && M && Object(ae) === ae && M in ae ? b.call(ze(ae), 8, -1) : iu ? "Object" : "", jx = Qp || typeof ae.constructor != "function" ? "" : ae.constructor.name ? ae.constructor.name + " " : "", ou = jx + (ef || iu ? "[" + F.call(w.call([], ef || [], iu || []), ": ") + "] " : "");
+                var nu = Qo(ae, lr), Qp = O ? O(ae) === Object.prototype : ae instanceof Object || ae.constructor === Object, iu = ae instanceof Object ? "" : "null prototype", ef = !Qp && M && Object(ae) === ae && M in ae ? b.call(ze(ae), 8, -1) : iu ? "Object" : "", Ux = Qp || typeof ae.constructor != "function" ? "" : ae.constructor.name ? ae.constructor.name + " " : "", ou = Ux + (ef || iu ? "[" + F.call(w.call([], ef || [], iu || []), ": ") + "] " : "");
                 return nu.length === 0 ? ou + "{}" : ai ? ou + "{" + Ql(nu, ai) + "}" : ou + "{ " + F.call(nu, ", ") + " }";
             }
             return String(ae);
@@ -4143,7 +4143,7 @@ line: ` + a + i;
             } catch  {}
             return !1;
         }
-        function Vx(Z) {
+        function Wx(Z) {
             return !Z || typeof Z != "object" ? !1 : typeof HTMLElement < "u" && Z instanceof HTMLElement ? !0 : typeof Z.nodeName == "string" && typeof Z.getAttribute == "function";
         }
         function Up(Z, ae) {
@@ -4153,10 +4153,10 @@ line: ` + a + i;
             }
             var At = ee[ae.quoteStyle || "single"];
             At.lastIndex = 0;
-            var Ke = x.call(x.call(Z, At, "\\$1"), /[\x00-\x1f]/g, Wx);
+            var Ke = x.call(x.call(Z, At, "\\$1"), /[\x00-\x1f]/g, Gx);
             return J(Ke, "single", ae);
         }
-        function Wx(Z) {
+        function Gx(Z) {
             var ae = Z.charCodeAt(0), lt = {
                 8: "b",
                 9: "t",
@@ -4176,12 +4176,12 @@ line: ` + a + i;
             var At = xt ? Ql(lt, xt) : F.call(lt, ", ");
             return Z + " (" + ae + ") {" + At + "}";
         }
-        function Gx(Z) {
+        function $x(Z) {
             for(var ae = 0; ae < Z.length; ae++)if (Ft(Z[ae], `
 `) >= 0) return !1;
             return !0;
         }
-        function $x(Z, ae) {
+        function jx(Z, ae) {
             var lt;
             if (Z.indent === "	") lt = "	";
             else if (typeof Z.indent == "number" && Z.indent > 0) lt = F.call(Array(Z.indent + 1), " ");
@@ -4219,7 +4219,7 @@ line: ` + a + i;
     function kF() {
         if (yv) return nd;
         yv = 1;
-        var t = st(), e = uD(), a = wr(), r = Bi();
+        var t = st(), e = cD(), a = wr(), r = Bi();
         return nd = function(i, o) {
             if (!a(i)) throw new t("Assertion failed: Type(O) is not Object");
             if (!r(o)) throw new t("Assertion failed: P is not a Property Key, got " + e(o));
@@ -4227,11 +4227,11 @@ line: ` + a + i;
         }, nd;
     }
     var id, bv;
-    function cD() {
+    function dD() {
         return bv || (bv = 1, id = Number.MAX_SAFE_INTEGER || 9007199254740991), id;
     }
     var od, Fv;
-    function dD() {
+    function hD() {
         if (Fv) return od;
         Fv = 1;
         var t = Mm();
@@ -4240,10 +4240,10 @@ line: ` + a + i;
         }, od;
     }
     var sd, kv;
-    function hD() {
+    function mD() {
         if (kv) return sd;
         kv = 1;
-        var t = dD(), e = st();
+        var t = hD(), e = st();
         return sd = function(r) {
             if (typeof r != "number" && typeof r != "bigint") throw new e("argument must be a Number or a BigInt");
             var n = r < 0 ? -t(-r) : t(r);
@@ -4251,37 +4251,37 @@ line: ` + a + i;
         }, sd;
     }
     var ld, xv;
-    function mD() {
+    function pD() {
         if (xv) return ld;
         xv = 1;
-        var t = Wm(), e = hD(), a = Pi(), r = dF();
+        var t = Wm(), e = mD(), a = Pi(), r = dF();
         return ld = function(i) {
             var o = t(i);
             return a(o) || o === 0 ? 0 : r(o) ? e(o) : o;
         }, ld;
     }
     var ud, wv;
-    function pD() {
+    function fD() {
         if (wv) return ud;
         wv = 1;
-        var t = cD(), e = mD();
+        var t = dD(), e = pD();
         return ud = function(r) {
             var n = e(r);
             return n <= 0 ? 0 : n > t ? t : n;
         }, ud;
     }
     var cd, Sv;
-    function fD() {
+    function gD() {
         if (Sv) return cd;
         Sv = 1;
-        var t = st(), e = kF(), a = pD(), r = wr();
+        var t = st(), e = kF(), a = fD(), r = wr();
         return cd = function(i) {
             if (!r(i)) throw new t("Assertion failed: `obj` must be an Object");
             return a(e(i, "length"));
         }, cd;
     }
     var dd, Cv;
-    function gD() {
+    function vD() {
         if (Cv) return dd;
         Cv = 1;
         var t = st(), e = wr(), a = Bi();
@@ -4357,7 +4357,7 @@ line: ` + a + i;
         }, pd;
     }
     var fd, Ev;
-    function vD() {
+    function yD() {
         if (Ev) return fd;
         Ev = 1;
         var t = Mo().supportsDescriptors, e = xF()(), a = SF(), r = Object.defineProperty, n = TypeError;
@@ -4382,10 +4382,10 @@ line: ` + a + i;
         }, fd;
     }
     var gd, _v;
-    function yD() {
+    function bD() {
         if (_v) return gd;
         _v = 1;
-        var t = Mo(), e = zm(), a = wF(), r = SF(), n = vD(), i = e(a);
+        var t = Mo(), e = zm(), a = wF(), r = SF(), n = yD(), i = e(a);
         return t(i, {
             getPolyfill: r,
             implementation: a,
@@ -4393,19 +4393,19 @@ line: ` + a + i;
         }), gd = i, gd;
     }
     var vd, Pv;
-    function bD() {
+    function FD() {
         if (Pv) return vd;
         Pv = 1;
-        var t = yD(), e = t(function() {});
+        var t = bD(), e = t(function() {});
         return vd = function(r) {
             return typeof r == "function" && (!r.prototype || t(r) === e);
         }, vd;
     }
     var yd, Bv;
-    function FD() {
+    function kD() {
         if (Bv) return yd;
         Bv = 1;
-        var t = st(), e = ir(), a = hF(), r = kF(), n = gD(), i = yl(), o = bD(), s = wr(), l = e("Array.prototype.push"), u = e("Array.prototype.sort");
+        var t = st(), e = ir(), a = hF(), r = kF(), n = vD(), i = yl(), o = FD(), s = wr(), l = e("Array.prototype.push"), u = e("Array.prototype.sort");
         return yd = function(d, h, m, p) {
             if (!s(d)) throw new t("Assertion failed: Type(obj) is not Object");
             if (!a(h) || h < 0) throw new t("Assertion failed: `len` must be an integer >= 0");
@@ -4423,7 +4423,7 @@ line: ` + a + i;
         }, yd;
     }
     var bd, Mv;
-    function kD() {
+    function xD() {
         if (Mv) return bd;
         Mv = 1;
         var t = nF(), e = Vm();
@@ -4432,14 +4432,14 @@ line: ` + a + i;
         }, bd;
     }
     var Fd, Rv;
-    function xD() {
-        return Rv || (Rv = 1, Fd = kD()), Fd;
+    function wD() {
+        return Rv || (Rv = 1, Fd = xD()), Fd;
     }
     var kd, Lv;
     function CF() {
         if (Lv) return kd;
         Lv = 1;
-        var t = TA(), e = jA(), a = iD(), r = yF(), n = fD(), i = FD(), o = xD(), s = yl(), l = st();
+        var t = EA(), e = UA(), a = oD(), r = yF(), n = gD(), i = kD(), o = wD(), s = yl(), l = st();
         return kd = function(c) {
             if (typeof c < "u" && !r(c)) throw new l("`comparefn` must be a function");
             for(var d = o(this), h = n(d), m = t(h), p = function(v, b) {
@@ -4458,7 +4458,7 @@ line: ` + a + i;
         }, xd;
     }
     var wd, zv;
-    function wD() {
+    function SD() {
         if (zv) return wd;
         zv = 1;
         var t = sn(), e = typeof Symbol == "function" && typeof Symbol.unscopables == "symbol", a = e && Array.prototype[Symbol.unscopables], r = TypeError;
@@ -4469,10 +4469,10 @@ line: ` + a + i;
         }, wd;
     }
     var Sd, Nv;
-    function SD() {
+    function CD() {
         if (Nv) return Sd;
         Nv = 1;
-        var t = Mo(), e = wD(), a = AF();
+        var t = Mo(), e = SD(), a = AF();
         return Sd = function() {
             var n = a();
             return t(Array.prototype, {
@@ -4485,18 +4485,18 @@ line: ` + a + i;
         }, Sd;
     }
     var Cd, Ov;
-    function CD() {
+    function AD() {
         if (Ov) return Cd;
         Ov = 1;
-        var t = Mo(), e = zm(), a = CF(), r = AF(), n = r(), i = SD(), o = e(n);
+        var t = Mo(), e = zm(), a = CF(), r = AF(), n = r(), i = CD(), o = e(n);
         return t(o, {
             getPolyfill: r,
             implementation: a,
             shim: i
         }), Cd = o, Cd;
     }
-    var AD = CD();
-    DD = Ci(AD);
+    var DD = AD();
+    TD = Ci(DD);
     let le;
     le = ((t)=>(t.ADDED_ON = "added_on", t.AMOUNT_LEFT = "amount_left", t.AUTO_TMM = "auto_tmm", t.AVAILABILITY = "availability", t.AVG_DOWNLOAD_SPEED = "avg_download_speed", t.AVG_UPLOAD_SPEED = "avg_upload_speed", t.BASENAME_CONTENT_PATH = "basename_content_path", t.BASENAME_DOWNLOAD_PATH = "basename_download_path", t.BASENAME_SAVE_PATH = "basename_save_path", t.CATEGORY = "category", t.COMMENT = "comment", t.COMPLETED_ON = "completed_on", t.CONTENT_PATH = "content_path", t.DOWNLOAD_LIMIT = "download_limit", t.DOWNLOAD_PATH = "download_path", t.DOWNLOAD_SPEED = "download_speed", t.DOWNLOADED = "downloaded", t.DOWNLOADED_SESSION = "downloaded_session", t.ETA = "eta", t.FIRST_LAST_PIECE_PRIORITY = "f_l_piece_prio", t.FORCED = "forced", t.GLOBAL_SPEED = "global_speed", t.GLOBAL_VOLUME = "global_volume", t.HAS_METADATA = "has_metadata", t.HASH = "hash", t.INACTIVE_SEEDING_TIME_LIMIT = "inactive_seeding_time_limit", t.INFOHASH_V1 = "infohash_v1", t.INFOHASH_V2 = "infohash_v2", t.LAST_ACTIVITY = "last_activity", t.MAGNET = "magnet", t.PEERS = "peers", t.POPULARITY = "popularity", t.PRIORITY = "priority", t.PRIVATE = "private", t.PROGRESS = "progress", t.RATIO = "ratio", t.RATIO_LIMIT = "ratio_limit", t.REANNOUNCE = "reannounce", t.ROOT_PATH = "root_path", t.SAVE_PATH = "save_path", t.SEEDING_TIME = "seeding_time", t.SEEDING_TIME_LIMIT = "seeding_time_limit", t.SEEDS = "seeds", t.SEEN_COMPLETE = "seen_complete", t.SEQUENTIAL_DOWNLOADS = "seq_dl", t.SIZE = "size", t.STATE = "state", t.SUPER_SEEDING = "super_seeding", t.TAGS = "tags", t.TIME_ACTIVE = "time_active", t.TOTAL_SIZE = "total_size", t.TRACKER = "tracker", t.TRACKERS_COUNT = "trackers_count", t.TRUNCATED_HASH = "truncated_hash", t.UPLOAD_LIMIT = "upload_limit", t.UPLOAD_SPEED = "upload_speed", t.UPLOADED = "uploaded", t.UPLOADED_SESSION = "uploaded_session", t))(le || {});
     Me = ((t)=>(t.AMOUNT = "amount", t.BOOLEAN = "boolean", t.CHIP = "chip", t.DATA = "data", t.DATETIME = "datetime", t.DURATION = "duration", t.PERCENT = "percent", t.RELATIVE = "relative", t.SPEED = "speed", t.TEXT = "text", t))(Me || {});
@@ -4897,7 +4897,7 @@ line: ` + a + i;
         [le.ETA]: {
             props: {
                 titleKey: "torrent.properties.eta",
-                value: (t)=>f2(t.eta, t.forced)
+                value: (t)=>y2(t.eta, t.forced)
             },
             sortKey: "eta",
             type: Me.TEXT
@@ -5042,7 +5042,7 @@ line: ` + a + i;
                 value: (t)=>t.ratio.toString(),
                 color: (t)=>{
                     const { enableRatioColors: e } = gt(ba());
-                    return e.value ? KD(t.ratio) : "";
+                    return e.value ? ZD(t.ratio) : "";
                 }
             },
             sortKey: "ratio",
@@ -5063,7 +5063,7 @@ line: ` + a + i;
             qbitVersion: "5.0.0",
             props: {
                 titleKey: "torrent.properties.reannounce",
-                value: (t)=>t.reannounce ? v2(t.reannounce, "s", "mm:ss").toString() : "???"
+                value: (t)=>t.reannounce ? F2(t.reannounce, "s", "mm:ss").toString() : "???"
             },
             sortKey: "reannounce",
             type: Me.TEXT
@@ -5249,14 +5249,110 @@ line: ` + a + i;
             type: Me.DATA
         }
     };
-    let Ta;
     bh = ((t)=>(t.LIST = "list", t.GRID = "grid", t.TABLE = "table", t))(bh || {});
+    DF = ((t)=>(t.ARCHIVE = "archive", t.AUDIO = "audio", t.BOOK = "book", t.DOCUMENT = "document", t.EXECUTABLE = "executable", t.IMAGE = "image", t.INFORMATION = "information", t.SCRIPT = "script", t.SUBTITLE = "subtitle", t.VIDEO = "video", t.UNKNOWN = "unknown", t))(DF || {});
+    const ED = {
+        archive: "mdi-zip-box-outline",
+        audio: "mdi-audio",
+        book: "mdi-book-open-blank-variant",
+        document: "mdi-file-document",
+        executable: "mdi-application-brackets",
+        image: "mdi-file-image",
+        information: "mdi-information-variant-box",
+        script: "mdi-script-text",
+        subtitle: "mdi-subtitles",
+        video: "mdi-movie",
+        unknown: "mdi-file"
+    }, _D = {
+        "7z": "archive",
+        bz2: "archive",
+        cab: "archive",
+        gz: "archive",
+        iso: "archive",
+        rar: "archive",
+        sfx: "archive",
+        tar: "archive",
+        tgz: "archive",
+        xz: "archive",
+        zip: "archive",
+        alac: "audio",
+        flac: "audio",
+        mp3: "audio",
+        ogg: "audio",
+        wav: "audio",
+        wma: "audio",
+        cb7: "book",
+        cbr: "book",
+        cbt: "book",
+        cbz: "book",
+        epub: "book",
+        mobi: "book",
+        doc: "document",
+        docx: "document",
+        htm: "document",
+        html: "document",
+        pdf: "document",
+        rtf: "document",
+        txt: "document",
+        xhtml: "document",
+        apk: "executable",
+        app: "executable",
+        bin: "executable",
+        deb: "executable",
+        dmg: "executable",
+        exe: "executable",
+        jar: "executable",
+        msi: "executable",
+        avif: "image",
+        bmp: "image",
+        gif: "image",
+        heif: "image",
+        jfif: "image",
+        jpeg: "image",
+        jpg: "image",
+        png: "image",
+        svg: "image",
+        tiff: "image",
+        webp: "image",
+        nfo: "information",
+        bat: "script",
+        c: "script",
+        cmd: "script",
+        com: "script",
+        cpp: "script",
+        cs: "script",
+        css: "script",
+        h: "script",
+        hpp: "script",
+        java: "script",
+        js: "script",
+        py: "script",
+        vbs: "script",
+        idx: "subtitle",
+        srt: "subtitle",
+        sub: "subtitle",
+        "3gp": "video",
+        avi: "video",
+        flv: "video",
+        gifv: "video",
+        m2ts: "video",
+        m4v: "video",
+        mkv: "video",
+        mov: "video",
+        mp4: "video",
+        mpeg: "video",
+        mpg: "video",
+        mts: "video",
+        ts: "video",
+        wmv: "video"
+    };
+    let Ta;
     Vt = ((t)=>(t[t.CONJUNCTIVE = 0] = "CONJUNCTIVE", t[t.DISJUNCTIVE = 1] = "DISJUNCTIVE", t))(Vt || {});
     Rs = ((t)=>(t.COOKIE = "cookie", t.SEARCH_ENGINE_QUERY = "searchEngineQuery", t.TORRENT_PATH = "torrentPath", t.BULK_RENAME_REGEXP = "bulkRenameRegexp", t.BULK_RENAME_TARGET = "bulkRenameTarget", t))(Rs || {});
     Ta = ((t)=>(t.LIGHT = "light", t.DARK = "dark", t.SYSTEM = "system", t))(Ta || {});
     bn = ((t)=>(t[t.DEFAULT = 0] = "DEFAULT", t[t.GLOBAL_SPEED = 1] = "GLOBAL_SPEED", t[t.FIRST_TORRENT_STATUS = 2] = "FIRST_TORRENT_STATUS", t[t.CUSTOM = 3] = "CUSTOM", t))(bn || {});
     Xe = ((t)=>(t[t.UNKNOWN = 0] = "UNKNOWN", t[t.ERROR = 1] = "ERROR", t[t.MISSING_FILES = 2] = "MISSING_FILES", t[t.DL_STOPPED = 3] = "DL_STOPPED", t[t.UL_STOPPED = 4] = "UL_STOPPED", t[t.META_DOWNLOAD = 5] = "META_DOWNLOAD", t[t.FORCED_META_DOWNLOAD = 6] = "FORCED_META_DOWNLOAD", t[t.UL_QUEUED = 7] = "UL_QUEUED", t[t.DL_QUEUED = 8] = "DL_QUEUED", t[t.UL_STALLED = 9] = "UL_STALLED", t[t.DL_STALLED = 10] = "DL_STALLED", t[t.UPLOADING = 11] = "UPLOADING", t[t.UL_FORCED = 12] = "UL_FORCED", t[t.DOWNLOADING = 13] = "DOWNLOADING", t[t.DL_FORCED = 14] = "DL_FORCED", t[t.CHECKING_DISK = 15] = "CHECKING_DISK", t[t.CHECKING_RESUME_DATA = 16] = "CHECKING_RESUME_DATA", t[t.MOVING = 17] = "MOVING", t))(Xe || {});
-    const TD = {
+    const PD = {
         15: "🔍",
         16: "🔍",
         14: "📥",
@@ -5276,7 +5372,7 @@ line: ` + a + i;
         0: "❓",
         11: "📤"
     };
-    function ED(t) {
+    function BD(t) {
         switch(t){
             case wt.META_DL:
                 return 5;
@@ -5325,20 +5421,20 @@ line: ` + a + i;
     Hv = "YYYY-MM-DD HH:mm:ss";
     Vv = "Y[Y] M[M] D[d] H[h] m[m] s[s]";
     function ca(t, e) {
-        _D(t) && (t = "100%");
-        const a = PD(t);
+        MD(t) && (t = "100%");
+        const a = RD(t);
         return t = e === 360 ? t : Math.min(e, Math.max(0, parseFloat(t))), a && (t = parseInt(String(t * e), 10) / 100), Math.abs(t - e) < 1e-6 ? 1 : (e === 360 ? t = (t < 0 ? t % e + e : t % e) / parseFloat(String(e)) : t = t % e / parseFloat(String(e)), t);
     }
     function os(t) {
         return Math.min(1, Math.max(0, t));
     }
-    function _D(t) {
+    function MD(t) {
         return typeof t == "string" && t.indexOf(".") !== -1 && parseFloat(t) === 1;
     }
-    function PD(t) {
+    function RD(t) {
         return typeof t == "string" && t.indexOf("%") !== -1;
     }
-    function DF(t) {
+    function TF(t) {
         return t = parseFloat(t), (isNaN(t) || t < 0 || t > 1) && (t = 1), t;
     }
     function ss(t) {
@@ -5347,7 +5443,7 @@ line: ` + a + i;
     function Fn(t) {
         return t.length === 1 ? "0" + t : String(t);
     }
-    function BD(t, e, a) {
+    function LD(t, e, a) {
         return {
             r: ca(t, 255) * 255,
             g: ca(e, 255) * 255,
@@ -5384,7 +5480,7 @@ line: ` + a + i;
     function Ad(t, e, a) {
         return a < 0 && (a += 1), a > 1 && (a -= 1), a < 1 / 6 ? t + (e - t) * (6 * a) : a < 1 / 2 ? e : a < 2 / 3 ? t + (e - t) * (2 / 3 - a) * 6 : t;
     }
-    function MD(t, e, a) {
+    function ID(t, e, a) {
         let r, n, i;
         if (t = ca(t, 360), e = ca(e, 100), a = ca(a, 100), e === 0) n = a, i = a, r = a;
         else {
@@ -5423,7 +5519,7 @@ line: ` + a + i;
             v: o
         };
     }
-    function RD(t, e, a) {
+    function zD(t, e, a) {
         t = ca(t, 360) * 6, e = ca(e, 100), a = ca(a, 100);
         const r = Math.floor(t), n = t - r, i = a * (1 - e), o = a * (1 - n * e), s = a * (1 - (1 - n) * e), l = r % 6, u = [
             a,
@@ -5461,16 +5557,16 @@ line: ` + a + i;
         ];
         return r && n[0].startsWith(n[0].charAt(1)) && n[1].startsWith(n[1].charAt(1)) && n[2].startsWith(n[2].charAt(1)) ? n[0].charAt(0) + n[1].charAt(0) + n[2].charAt(0) : n.join("");
     }
-    function LD(t, e, a, r, n) {
+    function ND(t, e, a, r, n) {
         const i = [
             Fn(Math.round(t).toString(16)),
             Fn(Math.round(e).toString(16)),
             Fn(Math.round(a).toString(16)),
-            Fn(zD(r))
+            Fn(HD(r))
         ];
         return n && i[0].startsWith(i[0].charAt(1)) && i[1].startsWith(i[1].charAt(1)) && i[2].startsWith(i[2].charAt(1)) && i[3].startsWith(i[3].charAt(1)) ? i[0].charAt(0) + i[1].charAt(0) + i[2].charAt(0) + i[3].charAt(0) : i.join("");
     }
-    function ID(t, e, a, r) {
+    function OD(t, e, a, r) {
         const n = t / 100, i = e / 100, o = a / 100, s = r / 100, l = 255 * (1 - n) * (1 - s), u = 255 * (1 - i) * (1 - s), c = 255 * (1 - o) * (1 - s);
         return {
             r: l,
@@ -5487,7 +5583,7 @@ line: ` + a + i;
             k: Math.round(o)
         };
     }
-    function zD(t) {
+    function HD(t) {
         return Math.round(parseFloat(t) * 255).toString(16);
     }
     function Uv(t) {
@@ -5496,7 +5592,7 @@ line: ` + a + i;
     function Ha(t) {
         return parseInt(t, 16);
     }
-    function ND(t) {
+    function VD(t) {
         return {
             r: t >> 16,
             g: (t & 65280) >> 8,
@@ -5653,13 +5749,13 @@ line: ` + a + i;
         yellow: "#ffff00",
         yellowgreen: "#9acd32"
     };
-    function OD(t) {
+    function WD(t) {
         let e = {
             r: 0,
             g: 0,
             b: 0
         }, a = 1, r = null, n = null, i = null, o = !1, s = !1;
-        return typeof t == "string" && (t = WD(t)), typeof t == "object" && (Na(t.r) && Na(t.g) && Na(t.b) ? (e = BD(t.r, t.g, t.b), o = !0, s = String(t.r).substr(-1) === "%" ? "prgb" : "rgb") : Na(t.h) && Na(t.s) && Na(t.v) ? (r = ss(t.s), n = ss(t.v), e = RD(t.h, r, n), o = !0, s = "hsv") : Na(t.h) && Na(t.s) && Na(t.l) ? (r = ss(t.s), i = ss(t.l), e = MD(t.h, r, i), o = !0, s = "hsl") : Na(t.c) && Na(t.m) && Na(t.y) && Na(t.k) && (e = ID(t.c, t.m, t.y, t.k), o = !0, s = "cmyk"), Object.prototype.hasOwnProperty.call(t, "a") && (a = t.a)), a = DF(a), {
+        return typeof t == "string" && (t = jD(t)), typeof t == "object" && (Na(t.r) && Na(t.g) && Na(t.b) ? (e = LD(t.r, t.g, t.b), o = !0, s = String(t.r).substr(-1) === "%" ? "prgb" : "rgb") : Na(t.h) && Na(t.s) && Na(t.v) ? (r = ss(t.s), n = ss(t.v), e = zD(t.h, r, n), o = !0, s = "hsv") : Na(t.h) && Na(t.s) && Na(t.l) ? (r = ss(t.s), i = ss(t.l), e = ID(t.h, r, i), o = !0, s = "hsl") : Na(t.c) && Na(t.m) && Na(t.y) && Na(t.k) && (e = OD(t.c, t.m, t.y, t.k), o = !0, s = "cmyk"), Object.prototype.hasOwnProperty.call(t, "a") && (a = t.a)), a = TF(a), {
             ok: o,
             format: t.format || s,
             r: Math.min(255, Math.max(e.r, 0)),
@@ -5668,7 +5764,7 @@ line: ` + a + i;
             a
         };
     }
-    const HD = "[-\\+]?\\d+%?", VD = "[-\\+]?\\d*\\.\\d+%?", qr = "(?:" + VD + ")|(?:" + HD + ")", Dd = "[\\s|\\(]+(" + qr + ")[,|\\s]+(" + qr + ")[,|\\s]+(" + qr + ")\\s*\\)?", ls = "[\\s|\\(]+(" + qr + ")[,|\\s]+(" + qr + ")[,|\\s]+(" + qr + ")[,|\\s]+(" + qr + ")\\s*\\)?", Za = {
+    const GD = "[-\\+]?\\d+%?", $D = "[-\\+]?\\d*\\.\\d+%?", qr = "(?:" + $D + ")|(?:" + GD + ")", Dd = "[\\s|\\(]+(" + qr + ")[,|\\s]+(" + qr + ")[,|\\s]+(" + qr + ")\\s*\\)?", ls = "[\\s|\\(]+(" + qr + ")[,|\\s]+(" + qr + ")[,|\\s]+(" + qr + ")[,|\\s]+(" + qr + ")\\s*\\)?", Za = {
         CSS_UNIT: new RegExp(qr),
         rgb: new RegExp("rgb" + Dd),
         rgba: new RegExp("rgba" + ls),
@@ -5682,7 +5778,7 @@ line: ` + a + i;
         hex4: /^#?([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})([0-9a-fA-F]{1})$/,
         hex8: /^#?([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})([0-9a-fA-F]{2})$/
     };
-    function WD(t) {
+    function jD(t) {
         if (t = t.trim().toLowerCase(), t.length === 0) return !1;
         let e = !1;
         if (Fh[t]) t = Fh[t], e = !0;
@@ -5756,8 +5852,8 @@ line: ` + a + i;
     Mt = class {
         constructor(e = "", a = {}){
             if (e instanceof Mt) return e;
-            typeof e == "number" && (e = ND(e)), this.originalInput = e;
-            const r = OD(e);
+            typeof e == "number" && (e = VD(e)), this.originalInput = e;
+            const r = WD(e);
             this.originalInput = e, this.r = r.r, this.g = r.g, this.b = r.b, this.a = r.a, this.roundA = Math.round(100 * this.a) / 100, this.format = a.format ?? r.format, this.gradientType = a.gradientType, this.r < 1 && (this.r = Math.round(this.r)), this.g < 1 && (this.g = Math.round(this.g)), this.b < 1 && (this.b = Math.round(this.b)), this.isValid = r.ok;
         }
         isDark() {
@@ -5780,7 +5876,7 @@ line: ` + a + i;
             return this.a;
         }
         setAlpha(e) {
-            return this.a = DF(e), this.roundA = Math.round(100 * this.a) / 100, this;
+            return this.a = TF(e), this.roundA = Math.round(100 * this.a) / 100, this;
         }
         isMonochrome() {
             const { s: e } = this.toHsl();
@@ -5819,7 +5915,7 @@ line: ` + a + i;
             return "#" + this.toHex(e);
         }
         toHex8(e = !1) {
-            return LD(this.r, this.g, this.b, this.a, e);
+            return ND(this.r, this.g, this.b, this.a, e);
         }
         toHex8String(e = !1) {
             return "#" + this.toHex8(e);
@@ -5992,31 +6088,31 @@ line: ` + a + i;
             return this.format === "cmyk" || a.format === "cmyk" ? this.toCmykString() === a.toCmykString() : this.toRgbString() === a.toRgbString();
         }
     };
-    function TF(t = {}) {
+    function EF(t = {}) {
         if (t.count !== void 0 && t.count !== null) {
             const i = t.count, o = [];
-            for(t.count = void 0; i > o.length;)t.count = null, t.seed && (t.seed += 1), o.push(TF(t));
+            for(t.count = void 0; i > o.length;)t.count = null, t.seed && (t.seed += 1), o.push(EF(t));
             return t.count = i, o;
         }
-        const e = GD(t.hue, t.seed), a = $D(e, t), r = jD(e, a, t), n = {
+        const e = UD(t.hue, t.seed), a = YD(e, t), r = qD(e, a, t), n = {
             h: e,
             s: a,
             v: r
         };
         return t.alpha !== void 0 && (n.a = t.alpha), new Mt(n);
     }
-    function GD(t, e) {
-        const a = YD(t);
+    function UD(t, e) {
+        const a = XD(t);
         let r = Ls(a, e);
         return r < 0 && (r = 360 + r), r;
     }
-    function $D(t, e) {
+    function YD(t, e) {
         if (e.hue === "monochrome") return 0;
         if (e.luminosity === "random") return Ls([
             0,
             100
         ], e.seed);
-        const { saturationRange: a } = EF(t);
+        const { saturationRange: a } = _F(t);
         let r = a[0], n = a[1];
         switch(e.luminosity){
             case "bright":
@@ -6034,8 +6130,8 @@ line: ` + a + i;
             n
         ], e.seed);
     }
-    function jD(t, e, a) {
-        let r = UD(t, e), n = 100;
+    function qD(t, e, a) {
+        let r = KD(t, e), n = 100;
         switch(a.luminosity){
             case "dark":
                 n = r + 20;
@@ -6052,8 +6148,8 @@ line: ` + a + i;
             n
         ], a.seed);
     }
-    function UD(t, e) {
-        const { lowerBounds: a } = EF(t);
+    function KD(t, e) {
+        const { lowerBounds: a } = _F(t);
         for(let r = 0; r < a.length - 1; r++){
             const n = a[r][0], i = a[r][1], o = a[r + 1][0], s = a[r + 1][1];
             if (e >= n && e <= o) {
@@ -6063,16 +6159,16 @@ line: ` + a + i;
         }
         return 0;
     }
-    function YD(t) {
+    function XD(t) {
         const e = parseInt(t, 10);
         if (!Number.isNaN(e) && e < 360 && e > 0) return [
             e,
             e
         ];
         if (typeof t == "string") {
-            const a = PF.find((n)=>n.name === t);
+            const a = BF.find((n)=>n.name === t);
             if (a) {
-                const n = _F(a);
+                const n = PF(a);
                 if (n.hueRange) return n.hueRange;
             }
             const r = new Mt(t);
@@ -6089,10 +6185,10 @@ line: ` + a + i;
             360
         ];
     }
-    function EF(t) {
+    function _F(t) {
         t >= 334 && t <= 360 && (t -= 360);
-        for (const e of PF){
-            const a = _F(e);
+        for (const e of BF){
+            const a = PF(e);
             if (a.hueRange && t >= a.hueRange[0] && t <= a.hueRange[1]) return a;
         }
         throw Error("Color not found");
@@ -6104,7 +6200,7 @@ line: ` + a + i;
         const n = e / 233280;
         return Math.floor(r + n * (a - r));
     }
-    function _F(t) {
+    function PF(t) {
         const e = t.lowerBounds[0][0], a = t.lowerBounds[t.lowerBounds.length - 1][0], r = t.lowerBounds[t.lowerBounds.length - 1][1], n = t.lowerBounds[0][1];
         return {
             name: t.name,
@@ -6120,7 +6216,7 @@ line: ` + a + i;
             ]
         };
     }
-    const PF = [
+    const BF = [
         {
             name: "monochrome",
             hueRange: null,
@@ -6427,25 +6523,25 @@ line: ` + a + i;
             ]
         }
     ];
-    function qD(t) {
+    function JD(t) {
         let e = 5381;
         for(let a = 0; a < t.length; a++)e = e * 33 ^ t.charCodeAt(a);
         return e >>> 0;
     }
-    zW = function(t, e) {
-        const a = TF({
-            seed: qD(t)
+    WW = function(t, e) {
+        const a = EF({
+            seed: JD(t)
         });
         return e ? e(a).toHexString() : a.toHexString();
     };
-    KD = function(t) {
+    ZD = function(t) {
         return t < .5 ? "text-ratio-bad" : t < 1 ? "text-ratio-almost" : t < 5 ? "text-ratio-good" : "text-ratio-best";
     };
-    function BF(t) {
+    function MF(t) {
         return Xe[t].toLowerCase();
     }
     Is = function(t) {
-        return `torrent-${BF(t)}`;
+        return `torrent-${MF(t)}`;
     };
     class ni {
         asc;
@@ -6457,12 +6553,12 @@ line: ` + a + i;
             return r ? this.asc(e, a) : this.desc(e, a);
         }
     }
-    function MF(t, e) {
+    function RF(t, e) {
         if (typeof t != "object" && typeof e != "object" && t === e) return !0;
         if (t === null || e === null || typeof t != "object" || typeof e != "object") return !1;
         const a = Object.keys(t), r = Object.keys(e);
         if (a.length !== r.length) return !1;
-        for (const n of a)if (!Object.prototype.hasOwnProperty.call(e, n) || !MF(t[n], e[n])) return !1;
+        for (const n of a)if (!Object.prototype.hasOwnProperty.call(e, n) || !RF(t[n], e[n])) return !1;
         return !0;
     }
     De = {
@@ -6486,7 +6582,7 @@ line: ` + a + i;
             return t.length - e.length;
         })
     };
-    function RF(t, e) {
+    function LF(t, e) {
         if (t >= 10 ** e) return Math.floor(t).toString();
         const a = t.toFixed(e);
         if (a.length < Math.floor(Math.log10(t)) + 1) return a;
@@ -6495,8 +6591,8 @@ line: ` + a + i;
             return r.endsWith(".") ? r.slice(0, -1) : r;
         }
     }
-    XD = function(t) {
-        return `${RF(t * 100, 3)} %`;
+    QD = function(t) {
+        return `${LF(t * 100, 3)} %`;
     };
     const kh = [
         "",
@@ -6514,7 +6610,7 @@ line: ` + a + i;
         if (!t || t === 0) return "0";
         let n = 1;
         for(; t >= r ** n && n < kh.length;)n++;
-        return RF(t / r ** (n - 1), a ?? (n > 1 ? 3 : 1));
+        return LF(t / r ** (n - 1), a ?? (n > 1 ? 3 : 1));
     };
     jm = function(t, e) {
         const a = e ? 1024 : 1e3;
@@ -6522,17 +6618,17 @@ line: ` + a + i;
         for(; t >= a ** r && r < kh.length;)r++;
         return `${kh[r - 1]}${e && r > 1 ? "i" : ""}B`;
     };
-    JD = function(t, e, a) {
+    e2 = function(t, e, a) {
         return `${$m(t, e, a)} ${jm(t, e)}`;
     };
     var ys = {
         exports: {}
-    }, ZD = ys.exports, Yv;
-    function QD() {
+    }, t2 = ys.exports, Yv;
+    function a2() {
         return Yv || (Yv = 1, function(t, e) {
             (function(a, r) {
                 t.exports = r();
-            })(ZD, function() {
+            })(t2, function() {
                 var a = 1e3, r = 6e4, n = 36e5, i = "millisecond", o = "second", s = "minute", l = "hour", u = "day", c = "week", d = "month", h = "quarter", m = "year", p = "date", f = "Invalid Date", g = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, v = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, b = {
                     name: "en",
                     weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),
@@ -6881,16 +6977,16 @@ line: ` + a + i;
             });
         }(ys)), ys.exports;
     }
-    var e2 = QD();
-    Gn = Ci(e2);
+    var r2 = a2();
+    Gn = Ci(r2);
     var bs = {
         exports: {}
-    }, t2 = bs.exports, qv;
-    function a2() {
+    }, n2 = bs.exports, qv;
+    function i2() {
         return qv || (qv = 1, function(t, e) {
             (function(a, r) {
                 t.exports = r();
-            })(t2, function() {
+            })(n2, function() {
                 var a, r, n = 1e3, i = 6e4, o = 36e5, s = 864e5, l = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, u = 31536e6, c = 2628e6, d = /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/, h = {
                     years: u,
                     months: c,
@@ -7052,16 +7148,16 @@ line: ` + a + i;
             });
         }(bs)), bs.exports;
     }
-    var r2 = a2();
-    const n2 = Ci(r2);
+    var o2 = i2();
+    const s2 = Ci(o2);
     var Fs = {
         exports: {}
-    }, i2 = Fs.exports, Kv;
-    function o2() {
+    }, l2 = Fs.exports, Kv;
+    function u2() {
         return Kv || (Kv = 1, function(t, e) {
             (function(a, r) {
                 t.exports = r();
-            })(i2, function() {
+            })(l2, function() {
                 return function(a, r, n) {
                     a = a || {};
                     var i = r.prototype, o = {
@@ -7164,16 +7260,16 @@ line: ` + a + i;
             });
         }(Fs)), Fs.exports;
     }
-    var s2 = o2();
-    const l2 = Ci(s2);
+    var c2 = u2();
+    const d2 = Ci(c2);
     var ks = {
         exports: {}
-    }, u2 = ks.exports, Xv;
-    function c2() {
+    }, h2 = ks.exports, Xv;
+    function m2() {
         return Xv || (Xv = 1, function(t, e) {
             (function(a, r) {
                 t.exports = r();
-            })(u2, function() {
+            })(h2, function() {
                 return function(a, r, n) {
                     n.updateLocale = function(i, o) {
                         var s = n.Ls[i];
@@ -7185,8 +7281,8 @@ line: ` + a + i;
             });
         }(ks)), ks.exports;
     }
-    var d2 = c2();
-    const h2 = Ci(d2), m2 = {
+    var p2 = m2();
+    const f2 = Ci(p2), g2 = {
         thresholds: [
             {
                 l: "s",
@@ -7244,9 +7340,9 @@ line: ` + a + i;
         ],
         rounding: Math.floor
     };
-    Gn.extend(n2);
-    Gn.extend(l2, m2);
-    Gn.extend(h2);
+    Gn.extend(s2);
+    Gn.extend(d2, g2);
+    Gn.extend(f2);
     Gn.updateLocale("en", {
         relativeTime: {
             future: "in %s",
@@ -7265,9 +7361,9 @@ line: ` + a + i;
             yy: "%d years"
         }
     });
-    const zs = 864e4, p2 = "∞";
-    function f2(t, e = !1) {
-        if (t >= zs || e && t === 0) return p2;
+    const zs = 864e4, v2 = "∞";
+    function y2(t, e = !1) {
+        if (t >= zs || e && t === 0) return v2;
         const r = 60, n = r * 60, i = n * 24, s = [
             i * 365,
             i,
@@ -7288,13 +7384,13 @@ line: ` + a + i;
         }
         return d.length ? d.join(" ") : "0" + l[s.length - 1];
     }
-    function g2(t, e) {
+    function b2(t, e) {
         return Gn(t).format(e);
     }
-    NW = function(t, e) {
-        return g2(t * 1e3, e);
+    GW = function(t, e) {
+        return b2(t * 1e3, e);
     };
-    v2 = function(t, e, a) {
+    F2 = function(t, e, a) {
         return Gn.duration(t, e).format(a);
     };
     Td = function(t) {
@@ -7302,7 +7398,7 @@ line: ` + a + i;
         const e = t.replace(/\\/g, "/");
         return e.indexOf("/") === -1 ? "" : e.split("/").reverse()[0];
     };
-    OW = function(t) {
+    k2 = function(t) {
         if (!t) return [
             "",
             ""
@@ -7318,25 +7414,31 @@ line: ` + a + i;
             r
         ];
     };
-    LF = function(t, e) {
-        return e && (t *= 8), $m(t, !1);
+    x2 = function(t) {
+        return _D[t] || DF.UNKNOWN;
+    };
+    $W = function(t) {
+        return ED[x2(k2(t)[1])];
     };
     IF = function(t, e) {
+        return e && (t *= 8), $m(t, !1);
+    };
+    zF = function(t, e) {
         return e && (t *= 8), `${jm(t, !1).slice(0, -1)}${e ? "bps" : "B/s"}`;
     };
     to = function(t, e) {
-        return `${LF(t, e)} ${IF(t, e)}`;
+        return `${IF(t, e)} ${zF(t, e)}`;
     };
-    let y2;
-    HW = window.navigator.userAgent.toLowerCase().includes("windows");
-    y2 = window.navigator.userAgent.toLowerCase().includes("mac");
-    VW = function(t) {
-        return y2 ? t.metaKey : t.ctrlKey;
+    let w2;
+    jW = window.navigator.userAgent.toLowerCase().includes("windows");
+    w2 = window.navigator.userAgent.toLowerCase().includes("mac");
+    UW = function(t) {
+        return w2 ? t.metaKey : t.ctrlKey;
     };
-    WW = function(t) {
+    YW = function(t) {
         window.open(t, "_blank", "noreferrer");
     };
-    GW = function(t, e) {
+    qW = function(t, e) {
         const a = window.URL.createObjectURL(e), r = Object.assign(document.createElement("a"), {
             href: a,
             download: t,
@@ -7350,13 +7452,13 @@ line: ` + a + i;
         const e = t.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
         return e != null && e.length > 2 && typeof e[2] == "string" && e[2].length > 0 ? e[2] : "";
     }
-    function b2(t) {
+    function S2(t) {
         const e = t.match(/:\/\/([^\/]+\.)?([^\/.]+)\.[^\/.:]+/i);
         return e != null && e.length > 2 && typeof e[2] == "string" && e[2].length > 0 ? e[2] : "";
     }
-    const zF = ()=>new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi);
-    $W = function(t) {
-        const e = t.match(zF());
+    const NF = ()=>new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi);
+    KW = function(t) {
+        const e = t.match(NF());
         let a = [];
         return e ? e.forEach(function(r) {
             let n;
@@ -7366,10 +7468,10 @@ line: ` + a + i;
             ];
         }) : a[0] = t, a = a.filter((r)=>r !== ""), a;
     };
-    jW = function(t) {
-        return zF().test(t);
+    XW = function(t) {
+        return NF().test(t);
     };
-    UW = function(t, e = [
+    JW = function(t, e = [
         "http:",
         "https:",
         "udp:"
@@ -7381,7 +7483,7 @@ line: ` + a + i;
             return !1;
         }
     };
-    YW = function(t) {
+    ZW = function(t) {
         t = t.toUpperCase();
         const a = [
             ...t
@@ -7391,7 +7493,7 @@ line: ` + a + i;
             url: n
         };
     };
-    var F2 = [
+    var C2 = [
         {
             name: "Aegean Airlines",
             iataCode: "A3"
@@ -7892,7 +7994,7 @@ line: ` + a + i;
             name: "Wizz Air",
             iataCode: "W6"
         }
-    ], k2 = [
+    ], A2 = [
         {
             name: "Aerospatiale/BAC Concorde",
             iataTypeCode: "SSC"
@@ -8513,7 +8615,7 @@ line: ` + a + i;
             name: "Yakovlev Yak-42",
             iataTypeCode: "YK2"
         }
-    ], x2 = [
+    ], D2 = [
         {
             name: "Adelaide International Airport",
             iataCode: "ADL"
@@ -8986,11 +9088,11 @@ line: ` + a + i;
             name: "Zurich Airport",
             iataCode: "ZRH"
         }
-    ], w2 = {
-        airline: F2,
-        airplane: k2,
-        airport: x2
-    }, S2 = w2, C2 = [
+    ], T2 = {
+        airline: C2,
+        airplane: A2,
+        airport: D2
+    }, E2 = T2, _2 = [
         "American black bear",
         "Asian black bear",
         "Brown bear",
@@ -8999,7 +9101,7 @@ line: ` + a + i;
         "Sloth bear",
         "Spectacled bear",
         "Sun bear"
-    ], A2 = [
+    ], P2 = [
         "Abert's Towhee",
         "Acadian Flycatcher",
         "Acorn Woodpecker",
@@ -9914,7 +10016,7 @@ line: ` + a + i;
         "Yucatan Vireo",
         "Zenaida Dove",
         "Zone-tailed Hawk"
-    ], D2 = [
+    ], B2 = [
         "Abyssinian",
         "American Bobtail",
         "American Curl",
@@ -9970,7 +10072,7 @@ line: ` + a + i;
         "Toyger",
         "Turkish Angora",
         "Turkish Van"
-    ], T2 = [
+    ], M2 = [
         "Amazon River Dolphin",
         "Arnoux's Beaked Whale",
         "Atlantic Humpbacked Dolphin",
@@ -10025,7 +10127,7 @@ line: ` + a + i;
         "Striped Dolphin",
         "Tucuxi",
         "White-Beaked Dolphin"
-    ], E2 = [
+    ], R2 = [
         "Aberdeen Angus",
         "Abergele",
         "Abigar",
@@ -10496,7 +10598,7 @@ line: ` + a + i;
         "Zebu",
         "Évolène cattle",
         "Żubroń"
-    ], _2 = [
+    ], L2 = [
         "African Slender-snouted Crocodile",
         "Alligator mississippiensis",
         "American Crocodile",
@@ -10521,7 +10623,7 @@ line: ` + a + i;
         "Tomistoma",
         "West African Crocodile",
         "Yacare Caiman"
-    ], P2 = [
+    ], I2 = [
         "Affenpinscher",
         "Afghan Hound",
         "Aidi",
@@ -11019,7 +11121,7 @@ line: ` + a + i;
         "Yakutian Laika",
         "Yorkshire Terrier",
         "Šarplaninac"
-    ], B2 = [
+    ], z2 = [
         "Alaska pollock",
         "Albacore",
         "Amur catfish",
@@ -11115,7 +11217,7 @@ line: ` + a + i;
         "Yellowfin tuna",
         "Yellowhead catfish",
         "Yellowstripe scad"
-    ], M2 = [
+    ], N2 = [
         "Abaco Barb",
         "Abtenauer",
         "Abyssinian",
@@ -11461,7 +11563,7 @@ line: ` + a + i;
         "Zhemaichu",
         "Zweibrücker",
         "Žemaitukas"
-    ], R2 = [
+    ], O2 = [
         "Acacia-ants",
         "Acorn-plum gall",
         "Aerial yellowjacket",
@@ -11591,7 +11693,7 @@ line: ` + a + i;
         "Yellow Crazy Ant",
         "Yellow and black potter wasp",
         "Yellow-horned horntail"
-    ], L2 = [
+    ], H2 = [
         "Asiatic Lion",
         "Barbary Lion",
         "Cape lion",
@@ -11599,7 +11701,7 @@ line: ` + a + i;
         "Northeast Congo Lion",
         "Transvaal lion",
         "West African Lion"
-    ], I2 = [
+    ], V2 = [
         "Ace",
         "Archie",
         "Bailey",
@@ -11642,7 +11744,7 @@ line: ` + a + i;
         "Stella",
         "Teddy",
         "Tuffy"
-    ], z2 = [
+    ], W2 = [
         "American",
         "American Chinchilla",
         "American Fuzzy Lop",
@@ -11692,7 +11794,7 @@ line: ` + a + i;
         "Standard Chinchilla",
         "Tan",
         "Thrianta"
-    ], N2 = [
+    ], G2 = [
         "Abrocoma",
         "Abrocoma schistacea",
         "Aconaemys",
@@ -11878,7 +11980,7 @@ line: ` + a + i;
         "Uspallata chinchilla rat",
         "White-toothed tuco-tuco",
         "Wolffsohn's viscacha"
-    ], O2 = [
+    ], $2 = [
         "Abaco Island boa",
         "Aesculapian snake",
         "African beaked snake",
@@ -12455,7 +12557,7 @@ line: ` + a + i;
         "Yunnan keelback",
         "Zebra snake",
         "Zebra spitting cobra"
-    ], H2 = [
+    ], j2 = [
         "bat",
         "bear",
         "bee",
@@ -12500,27 +12602,27 @@ line: ` + a + i;
         "whale",
         "wolf",
         "zebra"
-    ], V2 = {
-        bear: C2,
-        bird: A2,
-        cat: D2,
-        cetacean: T2,
-        cow: E2,
-        crocodilia: _2,
-        dog: P2,
-        fish: B2,
-        horse: M2,
-        insect: R2,
-        lion: L2,
-        pet_name: I2,
-        rabbit: z2,
-        rodent: N2,
-        snake: O2,
-        type: H2
-    }, W2 = V2, G2 = [
+    ], U2 = {
+        bear: _2,
+        bird: P2,
+        cat: B2,
+        cetacean: M2,
+        cow: R2,
+        crocodilia: L2,
+        dog: I2,
+        fish: z2,
+        horse: N2,
+        insect: O2,
+        lion: H2,
+        pet_name: V2,
+        rabbit: W2,
+        rodent: G2,
+        snake: $2,
+        type: j2
+    }, Y2 = U2, q2 = [
         "{{person.name}}",
         "{{company.name}}"
-    ], $2 = [
+    ], K2 = [
         "Redhold",
         "Treeflex",
         "Trippledex",
@@ -12583,17 +12685,17 @@ line: ` + a + i;
         "Zathin",
         "Duobam",
         "Keylex"
-    ], j2 = [
+    ], X2 = [
         "0.#.#",
         "0.##",
         "#.##",
         "#.#",
         "#.#.#"
-    ], U2 = {
-        author: G2,
-        name: $2,
-        version: j2
-    }, Y2 = U2, q2 = [
+    ], J2 = {
+        author: q2,
+        name: K2,
+        version: X2
+    }, Z2 = J2, Q2 = [
         "A.A. Milne",
         "Agatha Christie",
         "Alan Moore and Dave Gibbons",
@@ -12821,12 +12923,12 @@ line: ` + a + i;
         "William Makepeace Thackeray",
         "William Shakespeare",
         "Zadie Smith"
-    ], K2 = [
+    ], eT = [
         "Audiobook",
         "Ebook",
         "Hardcover",
         "Paperback"
-    ], X2 = [
+    ], tT = [
         "Adventure",
         "Biography",
         "Business",
@@ -12852,7 +12954,7 @@ line: ` + a + i;
         "Thriller",
         "Western",
         "Young Adult"
-    ], J2 = [
+    ], aT = [
         "Academic Press",
         "Ace Books",
         "Addison-Wesley",
@@ -13113,7 +13215,7 @@ line: ` + a + i;
         "Zed Books",
         "Ziff Davis Media",
         "Zondervan"
-    ], Z2 = [
+    ], rT = [
         "A Song of Ice and Fire",
         "Anna Karenina",
         "Colonel Race",
@@ -13148,7 +13250,7 @@ line: ` + a + i;
         "Thursday Next Series",
         "Twilight",
         "War and Peace"
-    ], Q2 = [
+    ], nT = [
         "1984",
         "20,000 Leagues Under the Sea",
         "A Bend in the River",
@@ -13390,21 +13492,21 @@ line: ` + a + i;
         "Watchmen",
         "Winnie-the-Pooh",
         "Wuthering Heights"
-    ], eT = {
-        author: q2,
-        format: K2,
-        genre: X2,
-        publisher: J2,
-        series: Z2,
-        title: Q2
-    }, tT = eT, aT = [
+    ], iT = {
+        author: Q2,
+        format: eT,
+        genre: tT,
+        publisher: aT,
+        series: rT,
+        title: nT
+    }, oT = iT, sT = [
         "###-###-####",
         "(###) ###-####",
         "1-###-###-####",
         "###.###.####"
-    ], rT = {
-        formats: aT
-    }, nT = rT, iT = [
+    ], lT = {
+        formats: sT
+    }, uT = lT, cT = [
         "azure",
         "black",
         "blue",
@@ -13436,9 +13538,9 @@ line: ` + a + i;
         "violet",
         "white",
         "yellow"
-    ], oT = {
-        human: iT
-    }, sT = oT, lT = [
+    ], dT = {
+        human: cT
+    }, hT = dT, mT = [
         "Automotive",
         "Baby",
         "Beauty",
@@ -13461,7 +13563,7 @@ line: ` + a + i;
         "Sports",
         "Tools",
         "Toys"
-    ], uT = [
+    ], pT = [
         "Discover the {{animal.type}}-like agility of our {{commerce.product}}, perfect for {{word.adjective}} users",
         "Discover the {{word.adjective}} new {{commerce.product}} with an exciting mix of {{commerce.productMaterial}} ingredients",
         "Ergonomic {{commerce.product}} made with {{commerce.productMaterial}} for all-day {{word.adjective}} support",
@@ -13482,7 +13584,7 @@ line: ` + a + i;
         "The {{person.firstName}} {{commerce.product}} is the latest in a series of {{word.adjective}} products from {{company.name}}",
         "{{commerce.productAdjective}} {{commerce.product}} designed with {{commerce.productMaterial}} for {{word.adjective}} performance",
         "{{company.name}}'s most advanced {{commerce.product}} technology increases {{word.adjective}} capabilities"
-    ], cT = {
+    ], fT = {
         adjective: [
             "Awesome",
             "Bespoke",
@@ -13555,11 +13657,11 @@ line: ` + a + i;
             "Towels",
             "Tuna"
         ]
-    }, dT = {
-        department: lT,
-        product_description: uT,
-        product_name: cT
-    }, hT = dT, mT = [
+    }, gT = {
+        department: mT,
+        product_description: pT,
+        product_name: fT
+    }, vT = gT, yT = [
         "AI-driven",
         "Adaptive",
         "Advanced",
@@ -13641,7 +13743,7 @@ line: ` + a + i;
         "Versatile",
         "Virtual",
         "Visionary"
-    ], pT = [
+    ], bT = [
         "24/7",
         "AI-driven",
         "B2B",
@@ -13706,7 +13808,7 @@ line: ` + a + i;
         "virtual",
         "visionary",
         "world-class"
-    ], fT = [
+    ], FT = [
         "AI",
         "ROI",
         "applications",
@@ -13745,7 +13847,7 @@ line: ` + a + i;
         "technologies",
         "users",
         "web services"
-    ], gT = [
+    ], kT = [
         "aggregate",
         "architect",
         "benchmark",
@@ -13802,7 +13904,7 @@ line: ` + a + i;
         "utilize",
         "visualize",
         "whiteboard"
-    ], vT = [
+    ], xT = [
         "24 hour",
         "24/7",
         "AI-powered",
@@ -13892,16 +13994,16 @@ line: ` + a + i;
         "zero defect",
         "zero tolerance",
         "zero trust"
-    ], yT = [
+    ], wT = [
         "Group",
         "Inc",
         "LLC",
         "and Sons"
-    ], bT = [
+    ], ST = [
         "{{person.last_name.generic}} - {{person.last_name.generic}}",
         "{{person.last_name.generic}} {{company.legal_entity_type}}",
         "{{person.last_name.generic}}, {{person.last_name.generic}} and {{person.last_name.generic}}"
-    ], FT = [
+    ], CT = [
         "ability",
         "access",
         "adapter",
@@ -14000,16 +14102,16 @@ line: ` + a + i;
         "utilisation",
         "website",
         "workforce"
-    ], kT = {
-        adjective: mT,
-        buzz_adjective: pT,
-        buzz_noun: fT,
-        buzz_verb: gT,
-        descriptor: vT,
-        legal_entity_type: yT,
-        name_pattern: bT,
-        noun: FT
-    }, xT = kT, wT = [
+    ], AT = {
+        adjective: yT,
+        buzz_adjective: bT,
+        buzz_noun: FT,
+        buzz_verb: kT,
+        descriptor: xT,
+        legal_entity_type: wT,
+        name_pattern: ST,
+        noun: CT
+    }, DT = AT, TT = [
         "avatar",
         "category",
         "comment",
@@ -14024,9 +14126,9 @@ line: ` + a + i;
         "title",
         "token",
         "updatedAt"
-    ], ST = {
-        column: wT
-    }, CT = ST, AT = {
+    ], ET = {
+        column: TT
+    }, _T = ET, PT = {
         wide: [
             "April",
             "August",
@@ -14055,7 +14157,7 @@ line: ` + a + i;
             "Oct",
             "Sep"
         ]
-    }, DT = {
+    }, BT = {
         wide: [
             "Friday",
             "Monday",
@@ -14074,10 +14176,10 @@ line: ` + a + i;
             "Tue",
             "Wed"
         ]
-    }, TT = {
-        month: AT,
-        weekday: DT
-    }, ET = TT, _T = [
+    }, MT = {
+        month: PT,
+        weekday: BT
+    }, RT = MT, LT = [
         "Auto Loan",
         "Checking",
         "Credit Card",
@@ -14086,35 +14188,35 @@ line: ` + a + i;
         "Money Market",
         "Personal Loan",
         "Savings"
-    ], PT = [
+    ], IT = [
         "34##-######-####L",
         "37##-######-####L"
-    ], BT = [
+    ], zT = [
         "30[0-5]#-######-###L",
         "36##-######-###L",
         "54##-####-####-###L"
-    ], MT = [
+    ], NT = [
         "6011-####-####-###L",
         "64[4-9]#-####-####-###L",
         "65##-####-####-###L"
-    ], RT = [
+    ], OT = [
         "3528-####-####-###L",
         "3529-####-####-###L",
         "35[3-8]#-####-####-###L"
-    ], LT = [
+    ], HT = [
         "2[221-720]-####-####-###L",
         "5[1-5]##-####-####-###L"
-    ], IT = [
+    ], VT = [
         "4###########L",
         "4###-####-####-###L"
-    ], zT = {
-        american_express: PT,
-        diners_club: BT,
-        discover: MT,
-        jcb: RT,
-        mastercard: LT,
-        visa: IT
-    }, NT = zT, OT = [
+    ], WT = {
+        american_express: IT,
+        diners_club: zT,
+        discover: NT,
+        jcb: OT,
+        mastercard: HT,
+        visa: VT
+    }, GT = WT, $T = [
         {
             name: "UAE Dirham",
             code: "AED",
@@ -15039,7 +15141,7 @@ line: ` + a + i;
             symbol: "",
             numericCode: "932"
         }
-    ], HT = [
+    ], jT = [
         "A {{finance.transactionType}} for {{finance.currencyCode}} {{finance.amount}} was made at {{company.name}} via card ending ****{{string.numeric(4)}} on account ***{{string.numeric(4)}}.",
         "A {{finance.transactionType}} of {{finance.currencyCode}} {{finance.amount}} occurred at {{company.name}} using a card ending in ****{{string.numeric(4)}} for account ***{{string.numeric(4)}}.",
         "Payment of {{finance.currencyCode}} {{finance.amount}} for {{finance.transactionType}} at {{company.name}}, processed with card ending ****{{string.numeric(4)}} linked to account ***{{string.numeric(4)}}.",
@@ -15051,18 +15153,18 @@ line: ` + a + i;
         "{{finance.transactionType}} of {{finance.currencyCode}} {{finance.amount}} at {{company.name}} charged to account ending in {{string.numeric(4)}} using card ending in ****{{string.numeric(4)}}.",
         "{{finance.transactionType}} processed at {{company.name}} for {{finance.currencyCode}} {{finance.amount}}, using card ending ****{{string.numeric(4)}}. Account: ***{{string.numeric(4)}}.",
         "{{finance.transactionType}} transaction at {{company.name}} using card ending with ****{{string.numeric(4)}} for {{finance.currencyCode}} {{finance.amount}} in account ***{{string.numeric(4)}}."
-    ], VT = [
+    ], UT = [
         "deposit",
         "invoice",
         "payment",
         "withdrawal"
-    ], WT = {
-        account_type: _T,
-        credit_card: NT,
-        currency: OT,
-        transaction_description_pattern: HT,
-        transaction_type: VT
-    }, GT = WT, $T = [
+    ], YT = {
+        account_type: LT,
+        credit_card: GT,
+        currency: $T,
+        transaction_description_pattern: jT,
+        transaction_type: UT
+    }, qT = YT, KT = [
         "bitter",
         "creamy",
         "crispy",
@@ -15083,7 +15185,7 @@ line: ` + a + i;
         "tangy",
         "tender",
         "zesty"
-    ], jT = [
+    ], XT = [
         "A classic pie filled with delicious {{food.meat}} and {{food.adjective}} {{food.ingredient}}, baked in a {{food.adjective}} pastry crust and topped with a golden-brown lattice.",
         "A delightful tart combining {{food.adjective}} {{food.vegetable}} and sweet {{food.fruit}}, set in a buttery pastry shell and finished with a hint of {{food.spice}}.",
         "A heartwarming {{food.ethnic_category}} soup, featuring fresh {{food.ingredient}} and an aromatic blend of traditional spices.",
@@ -15105,7 +15207,7 @@ line: ` + a + i;
         "Tenderly braised {{food.meat}} in a rich {{food.spice}} and {{food.vegetable}} sauce, served with a side of creamy {{food.vegetable}}.",
         "Three {{food.ingredient}} with {{food.vegetable}}, {{food.vegetable}}, {{food.vegetable}}, {{food.vegetable}} and {{food.ingredient}}. With a side of baked {{food.fruit}}, and your choice of {{food.ingredient}} or {{food.ingredient}}.",
         '{{number.int({"min":1, "max":99})}}-day aged {{food.meat}} steak, with choice of {{number.int({"min":2, "max":4})}} sides.'
-    ], UT = [
+    ], JT = [
         "California maki",
         "Peking duck",
         "Philadelphia maki",
@@ -15160,7 +15262,7 @@ line: ` + a + i;
         "tiramisù",
         "tuna sashimi",
         "vegetable soup"
-    ], YT = [
+    ], ZT = [
         "{{food.adjective}} {{food.ethnic_category}} stew",
         "{{food.adjective}} {{food.meat}} with {{food.vegetable}}",
         "{{food.ethnic_category}} {{food.ingredient}} soup",
@@ -15176,7 +15278,7 @@ line: ` + a + i;
         "{{food.spice}}-rubbed {{food.meat}} salad",
         "{{food.vegetable}} salad",
         "{{person.first_name.generic}}'s special {{food.ingredient}}"
-    ], qT = [
+    ], QT = [
         "Ainu",
         "Albanian",
         "American",
@@ -15295,7 +15397,7 @@ line: ` + a + i;
         "Yamal",
         "Zambian",
         "Zanzibari"
-    ], KT = [
+    ], eE = [
         "apple",
         "apricot",
         "aubergine",
@@ -15365,7 +15467,7 @@ line: ` + a + i;
         "tangelo",
         "tomato",
         "watermelon"
-    ], XT = [
+    ], tE = [
         "achacha",
         "adzuki beans",
         "agar",
@@ -15852,7 +15954,7 @@ line: ` + a + i;
         "yoghurt",
         "yogurt",
         "zucchini"
-    ], JT = [
+    ], aE = [
         "beef",
         "chicken",
         "crocodile",
@@ -15869,7 +15971,7 @@ line: ` + a + i;
         "salmon",
         "turkey",
         "venison"
-    ], ZT = [
+    ], rE = [
         "achiote seed",
         "ajwain seed",
         "ajwan seed",
@@ -15968,7 +16070,7 @@ line: ` + a + i;
         "turmeric",
         "vanilla",
         "zahtar"
-    ], QT = [
+    ], nE = [
         "artichoke",
         "arugula",
         "asian greens",
@@ -16033,18 +16135,18 @@ line: ` + a + i;
         "swiss chard",
         "turnips",
         "zucchini"
-    ], eE = {
-        adjective: $T,
-        description_pattern: jT,
-        dish: UT,
-        dish_pattern: YT,
-        ethnic_category: qT,
-        fruit: KT,
-        ingredient: XT,
-        meat: JT,
-        spice: ZT,
-        vegetable: QT
-    }, tE = eE, aE = [
+    ], iE = {
+        adjective: KT,
+        description_pattern: XT,
+        dish: JT,
+        dish_pattern: ZT,
+        ethnic_category: QT,
+        fruit: eE,
+        ingredient: tE,
+        meat: aE,
+        spice: rE,
+        vegetable: nE
+    }, oE = iE, sE = [
         "1080p",
         "auxiliary",
         "back-end",
@@ -16063,7 +16165,7 @@ line: ` + a + i;
         "solid state",
         "virtual",
         "wireless"
-    ], rE = [
+    ], lE = [
         "backing up",
         "bypassing",
         "calculating",
@@ -16080,7 +16182,7 @@ line: ` + a + i;
         "quantifying",
         "synthesizing",
         "transmitting"
-    ], nE = [
+    ], uE = [
         "alarm",
         "application",
         "array",
@@ -16105,7 +16207,7 @@ line: ` + a + i;
         "sensor",
         "system",
         "transmitter"
-    ], iE = [
+    ], cE = [
         "I'll {{verb}} the {{adjective}} {{abbreviation}} {{noun}}, that should {{noun}} the {{abbreviation}} {{noun}}!",
         "If we {{verb}} the {{noun}}, we can get to the {{abbreviation}} {{noun}} through the {{adjective}} {{abbreviation}} {{noun}}!",
         "The {{abbreviation}} {{noun}} is down, {{verb}} the {{adjective}} {{noun}} so we can {{verb}} the {{abbreviation}} {{noun}}!",
@@ -16114,7 +16216,7 @@ line: ` + a + i;
         "We need to {{verb}} the {{adjective}} {{abbreviation}} {{noun}}!",
         "You can't {{verb}} the {{noun}} without {{ingverb}} the {{adjective}} {{abbreviation}} {{noun}}!",
         "{{ingverb}} the {{noun}} won't do anything, we need to {{verb}} the {{adjective}} {{abbreviation}} {{noun}}!"
-    ], oE = [
+    ], dE = [
         "back up",
         "bypass",
         "calculate",
@@ -16133,36 +16235,36 @@ line: ` + a + i;
         "reboot",
         "synthesize",
         "transmit"
-    ], sE = {
-        adjective: aE,
-        ingverb: rE,
-        noun: nE,
-        phrase: iE,
-        verb: oE
-    }, lE = sE, uE = [
+    ], hE = {
+        adjective: sE,
+        ingverb: lE,
+        noun: uE,
+        phrase: cE,
+        verb: dE
+    }, mE = hE, pE = [
         "com",
         "biz",
         "info",
         "name",
         "net",
         "org"
-    ], cE = [
+    ], fE = [
         "example.org",
         "example.com",
         "example.net"
-    ], dE = [
+    ], gE = [
         "gmail.com",
         "yahoo.com",
         "hotmail.com"
-    ], hE = {
-        domain_suffix: uE,
-        example_email: cE,
-        free_email: dE
-    }, mE = hE, pE = [
+    ], vE = {
+        domain_suffix: pE,
+        example_email: fE,
+        free_email: gE
+    }, yE = vE, bE = [
         "#####",
         "####",
         "###"
-    ], fE = [
+    ], FE = [
         "Abilene",
         "Akron",
         "Alafaya",
@@ -17090,13 +17192,13 @@ line: ` + a + i;
         "Yuba City",
         "Yucaipa",
         "Yuma"
-    ], gE = [
+    ], kE = [
         "{{location.city_prefix}} {{person.first_name.generic}}{{location.city_suffix}}",
         "{{location.city_prefix}} {{person.first_name.generic}}",
         "{{person.first_name.generic}}{{location.city_suffix}}",
         "{{person.last_name.generic}}{{location.city_suffix}}",
         "{{location.city_name}}"
-    ], vE = [
+    ], xE = [
         "North",
         "East",
         "West",
@@ -17105,7 +17207,7 @@ line: ` + a + i;
         "Lake",
         "Port",
         "Fort"
-    ], yE = [
+    ], wE = [
         "town",
         "ton",
         "land",
@@ -17129,7 +17231,7 @@ line: ` + a + i;
         "side",
         "shire",
         "worth"
-    ], bE = [
+    ], SE = [
         "Africa",
         "Antarctica",
         "Asia",
@@ -17137,7 +17239,7 @@ line: ` + a + i;
         "Europe",
         "North America",
         "South America"
-    ], FE = [
+    ], CE = [
         "Afghanistan",
         "Aland Islands",
         "Albania",
@@ -17387,7 +17489,7 @@ line: ` + a + i;
         "Yemen",
         "Zambia",
         "Zimbabwe"
-    ], kE = [
+    ], AE = [
         "Adams County",
         "Calhoun County",
         "Carroll County",
@@ -17494,7 +17596,7 @@ line: ` + a + i;
         "West Yorkshire",
         "Wiltshire",
         "Worcestershire"
-    ], xE = {
+    ], DE = {
         cardinal: [
             "North",
             "East",
@@ -17519,7 +17621,7 @@ line: ` + a + i;
             "SE",
             "SW"
         ]
-    }, wE = [
+    }, TE = [
         {
             name: "Afrikaans",
             alpha2: "af",
@@ -17875,13 +17977,13 @@ line: ` + a + i;
             alpha2: "zu",
             alpha3: "zul"
         }
-    ], SE = [
+    ], EE = [
         "#####",
         "#####-####"
-    ], CE = [
+    ], _E = [
         "Apt. ###",
         "Suite ###"
-    ], AE = [
+    ], PE = [
         "Alabama",
         "Alaska",
         "Arizona",
@@ -17932,7 +18034,7 @@ line: ` + a + i;
         "West Virginia",
         "Wisconsin",
         "Wyoming"
-    ], DE = [
+    ], BE = [
         "AL",
         "AK",
         "AZ",
@@ -17983,10 +18085,10 @@ line: ` + a + i;
         "WV",
         "WI",
         "WY"
-    ], TE = {
+    ], ME = {
         normal: "{{location.buildingNumber}} {{location.street}}",
         full: "{{location.buildingNumber}} {{location.street}} {{location.secondaryAddress}}"
-    }, EE = [
+    }, RE = [
         "10th Street",
         "11th Street",
         "12th Street",
@@ -18736,11 +18838,11 @@ line: ` + a + i;
         "Yew Tree Close",
         "York Road",
         "York Street"
-    ], _E = [
+    ], LE = [
         "{{person.first_name.generic}} {{location.street_suffix}}",
         "{{person.last_name.generic}} {{location.street_suffix}}",
         "{{location.street_name}}"
-    ], PE = [
+    ], IE = [
         "Alley",
         "Avenue",
         "Branch",
@@ -18936,26 +19038,26 @@ line: ` + a + i;
         "Ways",
         "Well",
         "Wells"
-    ], BE = {
-        building_number: pE,
-        city_name: fE,
-        city_pattern: gE,
-        city_prefix: vE,
-        city_suffix: yE,
-        continent: bE,
-        country: FE,
-        county: kE,
-        direction: xE,
-        language: wE,
-        postcode: SE,
-        secondary_address: CE,
-        state: AE,
-        state_abbr: DE,
-        street_address: TE,
-        street_name: EE,
-        street_pattern: _E,
-        street_suffix: PE
-    }, ME = BE, RE = [
+    ], zE = {
+        building_number: bE,
+        city_name: FE,
+        city_pattern: kE,
+        city_prefix: xE,
+        city_suffix: wE,
+        continent: SE,
+        country: CE,
+        county: AE,
+        direction: DE,
+        language: TE,
+        postcode: EE,
+        secondary_address: _E,
+        state: PE,
+        state_abbr: BE,
+        street_address: ME,
+        street_name: RE,
+        street_pattern: LE,
+        street_suffix: IE
+    }, NE = zE, OE = [
         "a",
         "ab",
         "abbas",
@@ -19955,16 +20057,16 @@ line: ` + a + i;
         "vulpes",
         "vulticulus",
         "xiphias"
-    ], LE = {
-        word: RE
-    }, IE = LE, zE = {
+    ], HE = {
+        word: OE
+    }, VE = HE, WE = {
         title: "English",
         code: "en",
         language: "en",
         endonym: "English",
         dir: "ltr",
         script: "Latn"
-    }, NE = zE, OE = [
+    }, GE = WE, $E = [
         '"Awaken, My Love!"',
         "(What's The Story) Morning Glory?",
         "- Tragedy +",
@@ -20889,7 +20991,7 @@ line: ` + a + i;
         "Youngblood",
         "Younger Now",
         "Youth"
-    ], HE = [
+    ], jE = [
         "$NOT",
         "$uicideboy$",
         "(G)I-DLE",
@@ -21874,7 +21976,7 @@ line: ` + a + i;
         "gnash",
         "iann dior",
         "will.i.am"
-    ], VE = [
+    ], UE = [
         "Acid House",
         "Acid Jazz",
         "Acid Rock",
@@ -22144,7 +22246,7 @@ line: ` + a + i;
         "World",
         "Worldbeat",
         "Zydeco"
-    ], WE = [
+    ], YE = [
         "(Everything I Do) I Do it For You",
         "(Ghost) Riders in the Sky",
         "(I Can't Get No) Satisfaction",
@@ -23128,12 +23230,12 @@ line: ` + a + i;
         "You've Lost That Lovin' Feelin'",
         "Your Cheatin' Heart",
         "Your Song"
-    ], GE = {
-        album: OE,
-        artist: HE,
-        genre: VE,
-        song_name: WE
-    }, $E = GE, jE = [
+    ], qE = {
+        album: $E,
+        artist: jE,
+        genre: UE,
+        song_name: YE
+    }, KE = qE, XE = [
         "activist",
         "artist",
         "author",
@@ -23175,7 +23277,7 @@ line: ` + a + i;
         "traveler",
         "veteran",
         "writer"
-    ], UE = [
+    ], JE = [
         "{{person.bio_part}}",
         "{{person.bio_part}}, {{person.bio_part}}",
         "{{person.bio_part}}, {{person.bio_part}}, {{person.bio_part}}",
@@ -23184,7 +23286,7 @@ line: ` + a + i;
         "{{word.noun}} {{person.bio_supporter}}  {{internet.emoji}}",
         "{{word.noun}} {{person.bio_supporter}}, {{person.bio_part}}",
         "{{word.noun}} {{person.bio_supporter}}, {{person.bio_part}} {{internet.emoji}}"
-    ], YE = [
+    ], ZE = [
         "advocate",
         "devotee",
         "enthusiast",
@@ -23192,7 +23294,7 @@ line: ` + a + i;
         "junkie",
         "lover",
         "supporter"
-    ], qE = {
+    ], QE = {
         generic: [
             "Aaliyah",
             "Aaron",
@@ -27204,7 +27306,7 @@ line: ` + a + i;
             "Woodrow",
             "Zachary"
         ]
-    }, KE = [
+    }, e_ = [
         "Agender",
         "Androgyne",
         "Androgynous",
@@ -27281,7 +27383,7 @@ line: ` + a + i;
         "Two-spirit",
         "Woman",
         "Xenogender"
-    ], XE = [
+    ], t_ = [
         "Solutions",
         "Program",
         "Brand",
@@ -27319,7 +27421,7 @@ line: ` + a + i;
         "Factors",
         "Usability",
         "Metrics"
-    ], JE = [
+    ], a_ = [
         "Lead",
         "Senior",
         "Direct",
@@ -27341,9 +27443,9 @@ line: ` + a + i;
         "Human",
         "Chief",
         "Principal"
-    ], ZE = [
+    ], r_ = [
         "{{person.jobDescriptor}} {{person.jobArea}} {{person.jobType}}"
-    ], QE = [
+    ], n_ = [
         "Supervisor",
         "Associate",
         "Executive",
@@ -27369,7 +27471,7 @@ line: ` + a + i;
         "Agent",
         "Representative",
         "Strategist"
-    ], e_ = {
+    ], i_ = {
         generic: [
             "Abbott",
             "Abernathy",
@@ -27845,7 +27947,7 @@ line: ` + a + i;
             "Zieme",
             "Zulauf"
         ]
-    }, t_ = {
+    }, o_ = {
         generic: [
             {
                 value: "{{person.last_name.generic}}",
@@ -27856,7 +27958,7 @@ line: ` + a + i;
                 weight: 5
             }
         ]
-    }, a_ = {
+    }, s_ = {
         generic: [
             "Addison",
             "Alex",
@@ -28233,7 +28335,7 @@ line: ` + a + i;
             "Ziggy",
             "Zyair"
         ]
-    }, r_ = [
+    }, l_ = [
         {
             value: "{{person.firstName}} {{person.lastName}}",
             weight: 49
@@ -28250,7 +28352,7 @@ line: ` + a + i;
             value: "{{person.prefix}} {{person.firstName}} {{person.lastName}} {{person.suffix}}",
             weight: 1
         }
-    ], n_ = {
+    ], u_ = {
         generic: [
             "Dr.",
             "Miss",
@@ -28268,10 +28370,10 @@ line: ` + a + i;
             "Dr.",
             "Mr."
         ]
-    }, i_ = [
+    }, c_ = [
         "female",
         "male"
-    ], o_ = [
+    ], d_ = [
         "Jr.",
         "Sr.",
         "I",
@@ -28283,7 +28385,7 @@ line: ` + a + i;
         "DDS",
         "PhD",
         "DVM"
-    ], s_ = [
+    ], h_ = [
         "Aquarius",
         "Pisces",
         "Aries",
@@ -28296,25 +28398,25 @@ line: ` + a + i;
         "Scorpio",
         "Sagittarius",
         "Capricorn"
-    ], l_ = {
-        bio_part: jE,
-        bio_pattern: UE,
-        bio_supporter: YE,
-        first_name: qE,
-        gender: KE,
-        job_area: XE,
-        job_descriptor: JE,
-        job_title_pattern: ZE,
-        job_type: QE,
-        last_name: e_,
-        last_name_pattern: t_,
-        middle_name: a_,
-        name: r_,
-        prefix: n_,
-        sex: i_,
-        suffix: o_,
-        western_zodiac_sign: s_
-    }, u_ = l_, c_ = [
+    ], m_ = {
+        bio_part: XE,
+        bio_pattern: JE,
+        bio_supporter: ZE,
+        first_name: QE,
+        gender: e_,
+        job_area: t_,
+        job_descriptor: a_,
+        job_title_pattern: r_,
+        job_type: n_,
+        last_name: i_,
+        last_name_pattern: o_,
+        middle_name: s_,
+        name: l_,
+        prefix: u_,
+        sex: c_,
+        suffix: d_,
+        western_zodiac_sign: h_
+    }, p_ = m_, f_ = [
         "!##-!##-####",
         "(!##) !##-####",
         "1-!##-!##-####",
@@ -28331,17 +28433,17 @@ line: ` + a + i;
         "(!##) !##-#### x#####",
         "1-!##-!##-#### x#####",
         "!##.!##.#### x#####"
-    ], d_ = [
+    ], g_ = [
         "+1!##!######"
-    ], h_ = [
+    ], v_ = [
         "(!##) !##-####"
-    ], m_ = {
-        human: c_,
-        international: d_,
-        national: h_
-    }, p_ = m_, f_ = {
-        format: p_
-    }, g_ = f_, v_ = [
+    ], y_ = {
+        human: f_,
+        international: g_,
+        national: v_
+    }, b_ = y_, F_ = {
+        format: b_
+    }, k_ = F_, x_ = [
         {
             symbol: "H",
             name: "Hydrogen",
@@ -28932,7 +29034,7 @@ line: ` + a + i;
             name: "Oganesson",
             atomicNumber: 118
         }
-    ], y_ = [
+    ], w_ = [
         {
             name: "meter",
             symbol: "m"
@@ -29049,10 +29151,10 @@ line: ` + a + i;
             name: "katal",
             symbol: "kat"
         }
-    ], b_ = {
-        chemical_element: v_,
-        unit: y_
-    }, F_ = b_, k_ = [
+    ], S_ = {
+        chemical_element: x_,
+        unit: w_
+    }, C_ = S_, A_ = [
         "ants",
         "bats",
         "bears",
@@ -29120,12 +29222,12 @@ line: ` + a + i;
         "worshipers",
         "zombies",
         "druids"
-    ], x_ = [
+    ], D_ = [
         "{{location.state}} {{team.creature}}"
-    ], w_ = {
-        creature: k_,
-        name: x_
-    }, S_ = w_, C_ = [
+    ], T_ = {
+        creature: A_,
+        name: D_
+    }, E_ = T_, __ = [
         "Adventure Road Bicycle",
         "BMX Bicycle",
         "City Bicycle",
@@ -29144,12 +29246,12 @@ line: ` + a + i;
         "Track/Fixed-Gear Bicycle",
         "Triathlon/Time Trial Bicycle",
         "Tricycle"
-    ], A_ = [
+    ], P_ = [
         "Diesel",
         "Electric",
         "Gasoline",
         "Hybrid"
-    ], D_ = [
+    ], B_ = [
         "Aston Martin",
         "Audi",
         "BMW",
@@ -29197,7 +29299,7 @@ line: ` + a + i;
         "Vauxhall",
         "Volkswagen",
         "Volvo"
-    ], T_ = [
+    ], M_ = [
         "1",
         "2",
         "911",
@@ -29258,7 +29360,7 @@ line: ` + a + i;
         "Wrangler",
         "XC90",
         "XTS"
-    ], E_ = [
+    ], R_ = [
         "Cargo Van",
         "Convertible",
         "Coupe",
@@ -29270,13 +29372,13 @@ line: ` + a + i;
         "SUV",
         "Sedan",
         "Wagon"
-    ], __ = {
-        bicycle_type: C_,
-        fuel: A_,
-        manufacturer: D_,
-        model: T_,
-        type: E_
-    }, P_ = __, B_ = [
+    ], L_ = {
+        bicycle_type: __,
+        fuel: P_,
+        manufacturer: B_,
+        model: M_,
+        type: R_
+    }, I_ = L_, z_ = [
         "abandoned",
         "able",
         "acceptable",
@@ -30277,7 +30379,7 @@ line: ` + a + i;
         "zany",
         "zealous",
         "zesty"
-    ], M_ = [
+    ], N_ = [
         "abnormally",
         "absentmindedly",
         "accidentally",
@@ -30603,7 +30705,7 @@ line: ` + a + i;
         "yesterday",
         "yieldingly",
         "youthfully"
-    ], R_ = [
+    ], O_ = [
         "after",
         "although",
         "and",
@@ -30655,7 +30757,7 @@ line: ` + a + i;
         "whose",
         "why",
         "yet"
-    ], L_ = [
+    ], H_ = [
         "yuck",
         "oh",
         "phooey",
@@ -30702,7 +30804,7 @@ line: ` + a + i;
         "ick",
         "oof",
         "um"
-    ], I_ = [
+    ], V_ = [
         "CD",
         "SUV",
         "abacus",
@@ -31703,7 +31805,7 @@ line: ` + a + i;
         "yogurt",
         "zebra",
         "zen"
-    ], z_ = [
+    ], W_ = [
         "a",
         "abaft",
         "aboard",
@@ -31813,7 +31915,7 @@ line: ` + a + i;
         "within",
         "without",
         "worth"
-    ], N_ = [
+    ], G_ = [
         "abnegate",
         "abscond",
         "abseil",
@@ -32814,42 +32916,42 @@ line: ` + a + i;
         "yawn",
         "yearn",
         "yuppify"
-    ], O_ = {
-        adjective: B_,
-        adverb: M_,
-        conjunction: R_,
-        interjection: L_,
-        noun: I_,
-        preposition: z_,
-        verb: N_
-    }, H_ = O_, V_ = {
-        airline: S2,
-        animal: W2,
-        app: Y2,
-        book: tT,
-        cell_phone: nT,
-        color: sT,
-        commerce: hT,
-        company: xT,
-        database: CT,
-        date: ET,
-        finance: GT,
-        food: tE,
-        hacker: lE,
-        internet: mE,
-        location: ME,
-        lorem: IE,
-        metadata: NE,
-        music: $E,
-        person: u_,
-        phone_number: g_,
-        science: F_,
-        team: S_,
-        vehicle: P_,
-        word: H_
-    }, W_ = V_, He = class extends Error {
+    ], $_ = {
+        adjective: z_,
+        adverb: N_,
+        conjunction: O_,
+        interjection: H_,
+        noun: V_,
+        preposition: W_,
+        verb: G_
+    }, j_ = $_, U_ = {
+        airline: E2,
+        animal: Y2,
+        app: Z2,
+        book: oT,
+        cell_phone: uT,
+        color: hT,
+        commerce: vT,
+        company: DT,
+        database: _T,
+        date: RT,
+        finance: qT,
+        food: oE,
+        hacker: mE,
+        internet: yE,
+        location: NE,
+        lorem: VE,
+        metadata: GE,
+        music: KE,
+        person: p_,
+        phone_number: k_,
+        science: C_,
+        team: E_,
+        vehicle: I_,
+        word: j_
+    }, Y_ = U_, He = class extends Error {
     };
-    function G_(t) {
+    function q_(t) {
         let e = Object.getPrototypeOf(t);
         do {
             for (let a of Object.getOwnPropertyNames(e))typeof t[a] == "function" && a !== "constructor" && (t[a] = t[a].bind(t));
@@ -32858,13 +32960,13 @@ line: ` + a + i;
     }
     var Mi = class {
         constructor(e){
-            this.faker = e, G_(this);
+            this.faker = e, q_(this);
         }
     }, Ht = class extends Mi {
         constructor(e){
             super(e), this.faker = e;
         }
-    }, NF = ((t)=>(t.Narrowbody = "narrowbody", t.Regional = "regional", t.Widebody = "widebody", t))(NF || {}), $_ = [
+    }, OF = ((t)=>(t.Narrowbody = "narrowbody", t.Regional = "regional", t.Widebody = "widebody", t))(OF || {}), K_ = [
         "0",
         "1",
         "2",
@@ -32875,17 +32977,17 @@ line: ` + a + i;
         "7",
         "8",
         "9"
-    ], j_ = [
+    ], X_ = [
         "0",
         "O",
         "1",
         "I",
         "L"
-    ], U_ = {
+    ], J_ = {
         regional: 20,
         narrowbody: 35,
         widebody: 60
-    }, Y_ = {
+    }, Z_ = {
         regional: [
             "A",
             "B",
@@ -32912,7 +33014,7 @@ line: ` + a + i;
             "J",
             "K"
         ]
-    }, q_ = class extends Ht {
+    }, Q_ = class extends Ht {
         airport() {
             return this.faker.helpers.arrayElement(this.faker.definitions.airline.airport);
         }
@@ -32924,21 +33026,21 @@ line: ` + a + i;
         }
         recordLocator(e = {}) {
             let { allowNumerics: a = !1, allowVisuallySimilarCharacters: r = !1 } = e, n = [];
-            return a || n.push(...$_), r || n.push(...j_), this.faker.string.alphanumeric({
+            return a || n.push(...K_), r || n.push(...X_), this.faker.string.alphanumeric({
                 length: 6,
                 casing: "upper",
                 exclude: n
             });
         }
         seat(e = {}) {
-            let { aircraftType: a = "narrowbody" } = e, r = U_[a], n = Y_[a], i = this.faker.number.int({
+            let { aircraftType: a = "narrowbody" } = e, r = J_[a], n = Z_[a], i = this.faker.number.int({
                 min: 1,
                 max: r
             }), o = this.faker.helpers.arrayElement(n);
             return `${i}${o}`;
         }
         aircraftType() {
-            return this.faker.helpers.enumValue(NF);
+            return this.faker.helpers.enumValue(OF);
         }
         flightNumber(e = {}) {
             let { length: a = {
@@ -32950,8 +33052,8 @@ line: ` + a + i;
             });
             return r ? n.padStart(4, "0") : n;
         }
-    }, OF = ((t)=>(t.SRGB = "sRGB", t.DisplayP3 = "display-p3", t.REC2020 = "rec2020", t.A98RGB = "a98-rgb", t.ProphotoRGB = "prophoto-rgb", t))(OF || {}), HF = ((t)=>(t.RGB = "rgb", t.RGBA = "rgba", t.HSL = "hsl", t.HSLA = "hsla", t.HWB = "hwb", t.CMYK = "cmyk", t.LAB = "lab", t.LCH = "lch", t.COLOR = "color", t))(HF || {});
-    function K_(t, e) {
+    }, HF = ((t)=>(t.SRGB = "sRGB", t.DisplayP3 = "display-p3", t.REC2020 = "rec2020", t.A98RGB = "a98-rgb", t.ProphotoRGB = "prophoto-rgb", t))(HF || {}), VF = ((t)=>(t.RGB = "rgb", t.RGBA = "rgba", t.HSL = "hsl", t.HSLA = "hsla", t.HWB = "hwb", t.CMYK = "cmyk", t.LAB = "lab", t.LCH = "lch", t.COLOR = "color", t))(VF || {});
+    function eP(t, e) {
         let { prefix: a, casing: r } = e;
         switch(r){
             case "upper":
@@ -32967,13 +33069,13 @@ line: ` + a + i;
         }
         return a && (t = a + t), t;
     }
-    function VF(t) {
+    function WF(t) {
         return t.map((e)=>{
             if (e % 1 !== 0) {
                 let a = new ArrayBuffer(4);
                 new DataView(a).setFloat32(0, e);
                 let r = new Uint8Array(a);
-                return VF([
+                return WF([
                     ...r
                 ]).replaceAll(" ", "");
             }
@@ -32983,7 +33085,7 @@ line: ` + a + i;
     function Oa(t) {
         return Math.round(t * 100);
     }
-    function X_(t, e = "rgb", a = "sRGB") {
+    function tP(t, e = "rgb", a = "sRGB") {
         switch(e){
             case "rgba":
                 return `rgba(${t[0]}, ${t[1]}, ${t[2]}, ${t[3]})`;
@@ -33008,14 +33110,14 @@ line: ` + a + i;
     function hn(t, e, a = "rgb", r = "sRGB") {
         switch(e){
             case "css":
-                return X_(t, a, r);
+                return tP(t, a, r);
             case "binary":
-                return VF(t);
+                return WF(t);
             case "decimal":
                 return t;
         }
     }
-    var J_ = class extends Ht {
+    var aP = class extends Ht {
         human() {
             return this.faker.helpers.arrayElement(this.faker.definitions.color.human);
         }
@@ -33023,17 +33125,17 @@ line: ` + a + i;
             return this.faker.helpers.arrayElement(this.faker.definitions.color.space);
         }
         cssSupportedFunction() {
-            return this.faker.helpers.enumValue(HF);
+            return this.faker.helpers.enumValue(VF);
         }
         cssSupportedSpace() {
-            return this.faker.helpers.enumValue(OF);
+            return this.faker.helpers.enumValue(HF);
         }
         rgb(e = {}) {
             let { format: a = "hex", includeAlpha: r = !1, prefix: n = "#", casing: i = "lower" } = e, o, s = "rgb";
             return a === "hex" ? (o = this.faker.string.hexadecimal({
                 length: r ? 8 : 6,
                 prefix: ""
-            }), o = K_(o, {
+            }), o = eP(o, {
                 prefix: n,
                 casing: i
             }), o) : (o = Array.from({
@@ -33101,7 +33203,7 @@ line: ` + a + i;
                 }));
             return hn(n, a, "color", r);
         }
-    }, WF = ((t)=>(t.Legacy = "legacy", t.Segwit = "segwit", t.Bech32 = "bech32", t.Taproot = "taproot", t))(WF || {}), Z_ = ((t)=>(t.Mainnet = "mainnet", t.Testnet = "testnet", t))(Z_ || {}), Q_ = {
+    }, GF = ((t)=>(t.Legacy = "legacy", t.Segwit = "segwit", t.Bech32 = "bech32", t.Taproot = "taproot", t))(GF || {}), rP = ((t)=>(t.Mainnet = "mainnet", t.Testnet = "testnet", t))(rP || {}), nP = {
         legacy: {
             prefix: {
                 mainnet: "1",
@@ -33150,11 +33252,11 @@ line: ` + a + i;
             casing: "lower",
             exclude: "1bBiIoO"
         }
-    }, GF = typeof Buffer > "u" || !$F("base64") ? (t)=>{
+    }, $F = typeof Buffer > "u" || !jF("base64") ? (t)=>{
         let e = new TextEncoder().encode(t), a = Array.from(e, (r)=>String.fromCodePoint(r)).join("");
         return btoa(a);
-    } : (t)=>Buffer.from(t).toString("base64"), Zv = typeof Buffer > "u" || !$F("base64url") ? (t)=>GF(t).replaceAll("+", "-").replaceAll("/", "_").replaceAll(/=+$/g, "") : (t)=>Buffer.from(t).toString("base64url");
-    function $F(t) {
+    } : (t)=>Buffer.from(t).toString("base64"), Zv = typeof Buffer > "u" || !jF("base64url") ? (t)=>$F(t).replaceAll("+", "-").replaceAll("/", "_").replaceAll(/=+$/g, "") : (t)=>Buffer.from(t).toString("base64url");
+    function jF(t) {
         try {
             return typeof Buffer.from("test").toString(t) == "string";
         } catch  {
@@ -33165,7 +33267,7 @@ line: ` + a + i;
         let { deprecated: e, since: a, until: r, proposed: n } = t, i = `[@faker-js/faker]: ${e} is deprecated`;
         a && (i += ` since v${a}`), r && (i += ` and will be removed in v${r}`), n && (i += `. Please use ${n} instead`), console.warn(`${i}.`);
     }
-    var eP = Object.fromEntries([
+    var iP = Object.fromEntries([
         [
             "А",
             "A"
@@ -33462,7 +33564,7 @@ line: ` + a + i;
             "я",
             "ya"
         ]
-    ]), tP = Object.fromEntries([
+    ]), oP = Object.fromEntries([
         [
             "α",
             "a"
@@ -33739,7 +33841,7 @@ line: ` + a + i;
             "Ϋ",
             "Y"
         ]
-    ]), aP = Object.fromEntries([
+    ]), sP = Object.fromEntries([
         [
             "ء",
             "e"
@@ -33900,7 +34002,7 @@ line: ` + a + i;
             "ِ‎",
             "i"
         ]
-    ]), rP = Object.fromEntries([
+    ]), lP = Object.fromEntries([
         [
             "ա",
             "a"
@@ -34213,7 +34315,7 @@ line: ` + a + i;
             "և",
             "yev"
         ]
-    ]), nP = Object.fromEntries([
+    ]), uP = Object.fromEntries([
         [
             "چ",
             "ch"
@@ -34238,7 +34340,7 @@ line: ` + a + i;
             "ی",
             "y"
         ]
-    ]), iP = Object.fromEntries([
+    ]), cP = Object.fromEntries([
         [
             "א",
             "a"
@@ -34352,13 +34454,13 @@ line: ` + a + i;
             "v"
         ]
     ]), Qv = {
-        ...eP,
-        ...tP,
-        ...aP,
-        ...nP,
-        ...rP,
-        ...iP
-    }, oP = ((t)=>(t.Any = "any", t.Loopback = "loopback", t.PrivateA = "private-a", t.PrivateB = "private-b", t.PrivateC = "private-c", t.TestNet1 = "test-net-1", t.TestNet2 = "test-net-2", t.TestNet3 = "test-net-3", t.LinkLocal = "link-local", t.Multicast = "multicast", t))(oP || {}), sP = {
+        ...iP,
+        ...oP,
+        ...sP,
+        ...uP,
+        ...lP,
+        ...cP
+    }, dP = ((t)=>(t.Any = "any", t.Loopback = "loopback", t.PrivateA = "private-a", t.PrivateB = "private-b", t.PrivateC = "private-c", t.TestNet1 = "test-net-1", t.TestNet2 = "test-net-2", t.TestNet3 = "test-net-3", t.LinkLocal = "link-local", t.Multicast = "multicast", t))(dP || {}), hP = {
         any: "0.0.0.0/0",
         loopback: "127.0.0.0/8",
         "private-a": "10.0.0.0/8",
@@ -34388,7 +34490,7 @@ line: ` + a + i;
     function Ed(t, e) {
         return Math.floor((t.number.int(256) + e) / 2).toString(16).padStart(2, "0");
     }
-    var lP = class extends Ht {
+    var mP = class extends Ht {
         email(e = {}) {
             let { firstName: a, lastName: r, provider: n = this.faker.helpers.arrayElement(this.faker.definitions.internet.free_email), allowSpecialCharacters: i = !1 } = e, o = this.username({
                 firstName: a,
@@ -34489,7 +34591,7 @@ line: ` + a + i;
             return this.faker.datatype.boolean() ? this.ipv4() : this.ipv6();
         }
         ipv4(e = {}) {
-            let { network: a = "any", cidrBlock: r = sP[a] } = e;
+            let { network: a = "any", cidrBlock: r = hP[a] } = e;
             if (!/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}$/.test(r)) throw new He(`Invalid CIDR block provided: ${r}. Must be in the format x.x.x.x/y.`);
             let [n, i] = r.split("/"), o = 4294967295 >>> Number.parseInt(i), [s, l, u, c] = n.split(".").map(Number), d = (s << 24 | l << 16 | u << 8 | c) & ~o, h = this.faker.number.int(o), m = d | h;
             return [
@@ -34573,7 +34675,7 @@ line: ` + a + i;
             } } = e, o = Zv(JSON.stringify(n)), s = Zv(JSON.stringify(i)), l = this.faker.string.alphanumeric(64);
             return `${o}.${s}.${l}`;
         }
-    }, jF = ((t)=>(t.Female = "female", t.Male = "male", t))(jF || {});
+    }, UF = ((t)=>(t.Female = "female", t.Male = "male", t))(UF || {});
     function Xi(t, e, a) {
         let { generic: r, female: n, male: i } = a;
         switch(e){
@@ -34588,7 +34690,7 @@ line: ` + a + i;
                 ]) ?? [];
         }
     }
-    var uP = class extends Ht {
+    var pP = class extends Ht {
         firstName(e) {
             return this.faker.helpers.arrayElement(Xi(this.faker, e, this.faker.definitions.person.first_name));
         }
@@ -34622,7 +34724,7 @@ line: ` + a + i;
             return this.faker.helpers.arrayElement(this.faker.definitions.person.sex);
         }
         sexType() {
-            return this.faker.helpers.enumValue(jF);
+            return this.faker.helpers.enumValue(UF);
         }
         bio() {
             let { bio_pattern: e } = this.faker.definitions.person;
@@ -34649,11 +34751,11 @@ line: ` + a + i;
         zodiacSign() {
             return this.faker.helpers.arrayElement(this.faker.definitions.person.western_zodiac_sign);
         }
-    }, cP = 23283064365386963e-26, dP = 1 / 9007199254740992, { imul: xh, trunc: wh } = Math;
+    }, fP = 23283064365386963e-26, gP = 1 / 9007199254740992, { imul: xh, trunc: wh } = Math;
     function ay(t) {
-        return typeof t == "number" ? UF(t) : hP(t);
+        return typeof t == "number" ? YF(t) : vP(t);
     }
-    function UF(t) {
+    function YF(t) {
         let e = Array.from({
             length: 624
         });
@@ -34664,8 +34766,8 @@ line: ` + a + i;
         }
         return e;
     }
-    function hP(t) {
-        let e = UF(19650218), a = 1, r = 0;
+    function vP(t) {
+        let e = YF(19650218), a = 1, r = 0;
         for(let n = Math.max(624, t.length); n !== 0; --n){
             let i = e[a - 1] ^ e[a - 1] >>> 30;
             e[a] = wh((e[a] ^ xh(i, 1664525)) + t[r] + r), a++, r++, a >= 624 && (e[0] = e[623], a = 1), r >= t.length && (r = 0);
@@ -34685,7 +34787,7 @@ line: ` + a + i;
         let e = (t[623] & 2147483648) + (t[0] & 2147483647);
         return t[623] = t[396] ^ e >>> 1 ^ -(e & 1) & 2567483615, t;
     }
-    var mP = class {
+    var yP = class {
         constructor(e = Math.random() * Number.MAX_SAFE_INTEGER, a = _d(ay(e)), r = 0){
             this.states = a, this.index = r;
         }
@@ -34694,24 +34796,24 @@ line: ` + a + i;
             return e ^= this.states[this.index] >>> 11, e ^= e << 7 & 2636928640, e ^= e << 15 & 4022730752, e ^= e >>> 18, ++this.index >= 624 && (this.states = _d(this.states), this.index = 0), e >>> 0;
         }
         nextF32() {
-            return this.nextU32() * cP;
+            return this.nextU32() * fP;
         }
         nextU53() {
             let e = this.nextU32() >>> 5, a = this.nextU32() >>> 6;
             return e * 67108864 + a;
         }
         nextF53() {
-            return this.nextU53() * dP;
+            return this.nextU53() * gP;
         }
         seed(e) {
             this.states = _d(ay(e)), this.index = 0;
         }
     };
-    function YF() {
+    function qF() {
         return Math.ceil(Math.random() * Number.MAX_SAFE_INTEGER);
     }
-    function pP(t = YF()) {
-        let e = new mP(t);
+    function bP(t = qF()) {
+        let e = new yP(t);
         return {
             next () {
                 return e.nextF53();
@@ -34721,7 +34823,7 @@ line: ` + a + i;
             }
         };
     }
-    var fP = class extends Mi {
+    var FP = class extends Mi {
         boolean(e = {}) {
             typeof e == "number" && (e = {
                 probability: e
@@ -34738,14 +34840,14 @@ line: ` + a + i;
     var Ns = ()=>{
         throw new He("You cannot edit the locale data on the faker instance");
     };
-    function gP(t) {
+    function kP(t) {
         let e = {};
         return new Proxy(t, {
             has () {
                 return !0;
             },
             get (a, r) {
-                return typeof r == "symbol" || r === "nodeType" ? a[r] : r in e ? e[r] : e[r] = vP(r, a[r]);
+                return typeof r == "symbol" || r === "nodeType" ? a[r] : r in e ? e[r] : e[r] = xP(r, a[r]);
             },
             set: Ns,
             deleteProperty: Ns
@@ -34759,7 +34861,7 @@ line: ` + a + i;
   Please contribute the missing data to the project or use a locale/Faker instance that has these data.
   For more information see https://fakerjs.dev/guide/localization.html`);
     }
-    function vP(t, e = {}) {
+    function xP(t, e = {}) {
         return new Proxy(e, {
             has (a, r) {
                 return a[r] != null;
@@ -34772,7 +34874,7 @@ line: ` + a + i;
             deleteProperty: Ns
         });
     }
-    var qF = class extends Mi {
+    var KF = class extends Mi {
         anytime(e = {}) {
             let { refDate: a = this.faker.defaultRefDate() } = e, r = Tr(a).getTime();
             return this.between({
@@ -34864,7 +34966,7 @@ line: ` + a + i;
                     }
             }
         }
-    }, yP = class extends qF {
+    }, wP = class extends KF {
         constructor(e){
             super(e), this.faker = e;
         }
@@ -34883,8 +34985,8 @@ line: ` + a + i;
         timeZone() {
             return this.faker.helpers.arrayElement(this.faker.definitions.date.time_zone);
         }
-    }, bP = /\.|\(/;
-    function FP(t, e, a = [
+    }, SP = /\.|\(/;
+    function CP(t, e, a = [
         e,
         e.rawDefinitions
     ]) {
@@ -34893,14 +34995,14 @@ line: ` + a + i;
         let r = a, n = t;
         do {
             let o;
-            n.startsWith("(") ? [o, r] = kP(n, r, t) : [o, r] = wP(n, r), n = n.substring(o), r = r.filter((s)=>s != null).map((s)=>Array.isArray(s) ? e.helpers.arrayElement(s) : s);
+            n.startsWith("(") ? [o, r] = AP(n, r, t) : [o, r] = TP(n, r), n = n.substring(o), r = r.filter((s)=>s != null).map((s)=>Array.isArray(s) ? e.helpers.arrayElement(s) : s);
         }while (n.length > 0 && r.length > 0);
         if (r.length === 0) throw new He(`Cannot resolve expression '${t}'`);
         let i = r[0];
         return typeof i == "function" ? i() : i;
     }
-    function kP(t, e, a) {
-        let [r, n] = xP(t), i = t[r + 1];
+    function AP(t, e, a) {
+        let [r, n] = DP(t), i = t[r + 1];
         switch(i){
             case ".":
             case "(":
@@ -34917,7 +35019,7 @@ ${a}
 ${" ".repeat(a.length - t.length)}^`), o))
         ];
     }
-    function xP(t) {
+    function DP(t) {
         let e = t.indexOf(")", 1);
         if (e === -1) throw new He(`Missing closing parenthesis in '${t}'`);
         for(; e !== -1;){
@@ -34946,17 +35048,17 @@ ${" ".repeat(a.length - t.length)}^`), o))
             ]
         ];
     }
-    function wP(t, e) {
-        let a = bP.exec(t), r = (a?.[0] ?? "") === ".", n = a?.index ?? t.length, i = t.substring(0, n);
+    function TP(t, e) {
+        let a = SP.exec(t), r = (a?.[0] ?? "") === ".", n = a?.index ?? t.length, i = t.substring(0, n);
         if (i.length === 0) throw new He(`Expression parts cannot be empty in '${t}'`);
         let o = t[n + 1];
         if (r && (o == null || o === "." || o === "(")) throw new He(`Found dot without property name in '${t}'`);
         return [
             n + (r ? 1 : 0),
-            e.map((s)=>SP(s, i))
+            e.map((s)=>EP(s, i))
         ];
     }
-    function SP(t, e) {
+    function EP(t, e) {
         switch(typeof t){
             case "function":
                 {
@@ -34973,11 +35075,11 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 return;
         }
     }
-    function CP(t) {
-        let e = AP(t.replace(/L?$/, "0"));
+    function _P(t) {
+        let e = PP(t.replace(/L?$/, "0"));
         return e === 0 ? 0 : 10 - e;
     }
-    function AP(t) {
+    function PP(t) {
         t = t.replaceAll(/[\s-]/g, "");
         let e = 0, a = !1;
         for(let r = t.length - 1; r >= 0; r--){
@@ -35023,7 +35125,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         }) : a != null && r == null && (n = Number.parseInt(a));
         return n;
     }
-    function DP(t, e = "") {
+    function BP(t, e = "") {
         let a = /(.)\{(\d+),(\d+)\}/, r = /(.)\{(\d+)\}/, n = /\[(\d+)-(\d+)\]/, i, o, s, l, u = a.exec(e);
         for(; u != null;)i = Number.parseInt(u[2]), o = Number.parseInt(u[3]), i > o && (s = o, o = i, i = s), l = t.number.int({
             min: i,
@@ -35036,7 +35138,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         }).toString() + e.slice(u.index + u[0].length), u = n.exec(e);
         return e;
     }
-    function KF(t, e = "", a = "#") {
+    function XF(t, e = "", a = "#") {
         let r = "";
         for(let n = 0; n < e.length; n++)e.charAt(n) === a ? r += t.number.int(9) : e.charAt(n) === "!" ? r += t.number.int({
             min: 2,
@@ -35044,7 +35146,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         }) : r += e.charAt(n);
         return r;
     }
-    var XF = class extends Mi {
+    var JF = class extends Mi {
         slugify(e = "") {
             return e.normalize("NFKD").replaceAll(/[\u0300-\u036F]/g, "").replaceAll(" ", "-").replaceAll(/[^\w.-]+/g, "");
         }
@@ -35081,8 +35183,8 @@ ${" ".repeat(a.length - t.length)}^`), o))
             return r;
         }
         replaceCreditCardSymbols(e = "6453-####-####-####-###L", a = "#") {
-            e = DP(this.faker, e), e = KF(this.faker, e, a);
-            let r = CP(e);
+            e = BP(this.faker, e), e = XF(this.faker, e, a);
+            let r = _P(e);
             return e.replace("L", String(r));
         }
         fromRegExp(e) {
@@ -35255,7 +35357,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 length: r
             }, e);
         }
-    }, TP = class extends XF {
+    }, MP = class extends JF {
         constructor(e){
             super(e), this.faker = e;
         }
@@ -35263,10 +35365,10 @@ ${" ".repeat(a.length - t.length)}^`), o))
             e = typeof e == "string" ? e : this.arrayElement(e);
             let a = e.search(/{{[a-z]/), r = e.indexOf("}}", a);
             if (a === -1 || r === -1) return e;
-            let n = e.substring(a + 2, r + 2).replace("}}", "").replace("{{", ""), i = FP(n, this.faker), o = String(i), s = e.substring(0, a) + o + e.substring(r + 2);
+            let n = e.substring(a + 2, r + 2).replace("}}", "").replace("{{", ""), i = CP(n, this.faker), o = String(i), s = e.substring(0, a) + o + e.substring(r + 2);
             return this.fake(s);
         }
-    }, EP = class extends Mi {
+    }, RP = class extends Mi {
         int(e = {}) {
             typeof e == "number" && (e = {
                 max: e
@@ -35415,12 +35517,12 @@ ${" ".repeat(a.length - t.length)}^`), o))
             for (let [s, l] of i)o += s.repeat(Math.floor(n / l)), n %= l;
             return o;
         }
-    }, JF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
-    function _P(t) {
+    }, ZF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+    function LP(t) {
         let e = t.valueOf(), a = "";
         for(let r = 10; r > 0; r--){
             let n = e % 32;
-            a = JF[n] + a, e = (e - n) / 32;
+            a = ZF[n] + a, e = (e - n) / 32;
         }
         return a;
     }
@@ -35430,7 +35532,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         ..."abcdefghijklmnopqrstuvwxyz"
     ], ny = [
         ..."0123456789"
-    ], PP = class extends Mi {
+    ], IP = class extends Mi {
         fromCharacters(e, a = 1) {
             if (a = this.faker.helpers.rangeToNumber(a), a <= 0) return "";
             if (typeof e == "string" && (e = [
@@ -35593,7 +35695,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         }
         ulid(e = {}) {
             let { refDate: a = this.faker.defaultRefDate() } = e, r = Tr(a);
-            return _P(r) + this.fromCharacters(JF, 16);
+            return LP(r) + this.fromCharacters(ZF, 16);
         }
         nanoid(e = 21) {
             if (e = this.faker.helpers.rangeToNumber(e), e <= 0) return "";
@@ -35652,7 +35754,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 "~"
             ], e);
         }
-    }, ZF = class {
+    }, QF = class {
         _defaultRefDate = ()=>new Date;
         get defaultRefDate() {
             return this._defaultRefDate;
@@ -35661,21 +35763,21 @@ ${" ".repeat(a.length - t.length)}^`), o))
             typeof e == "function" ? this._defaultRefDate = e : this._defaultRefDate = ()=>new Date(e);
         }
         _randomizer;
-        datatype = new fP(this);
-        date = new qF(this);
-        helpers = new XF(this);
-        number = new EP(this);
-        string = new PP(this);
+        datatype = new FP(this);
+        date = new KF(this);
+        helpers = new JF(this);
+        number = new RP(this);
+        string = new IP(this);
         constructor(e = {}){
             let { randomizer: a, seed: r } = e;
-            a != null && r != null && a.seed(r), this._randomizer = a ?? pP(r);
+            a != null && r != null && a.seed(r), this._randomizer = a ?? bP(r);
         }
-        seed(e = YF()) {
+        seed(e = qF()) {
             return this._randomizer.seed(e), e;
         }
     };
-    new ZF;
-    function BP(t) {
+    new QF;
+    function zP(t) {
         let e = {};
         for (let a of t)for(let r in a){
             let n = a[r];
@@ -35688,7 +35790,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         }
         return e;
     }
-    var MP = class extends Ht {
+    var NP = class extends Ht {
         dog() {
             return this.faker.helpers.arrayElement(this.faker.definitions.animal.dog);
         }
@@ -35737,7 +35839,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         petName() {
             return this.faker.helpers.arrayElement(this.faker.definitions.animal.pet_name);
         }
-    }, RP = class extends Ht {
+    }, OP = class extends Ht {
         author() {
             return this.faker.helpers.arrayElement(this.faker.definitions.book.author);
         }
@@ -35756,7 +35858,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         title() {
             return this.faker.helpers.arrayElement(this.faker.definitions.book.title);
         }
-    }, LP = {
+    }, HP = {
         0: [
             [
                 1999999,
@@ -36009,7 +36111,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 7
             ]
         ]
-    }, IP = class extends Ht {
+    }, VP = class extends Ht {
         department() {
             return this.faker.helpers.arrayElement(this.faker.definitions.commerce.department);
         }
@@ -36065,7 +36167,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             typeof e == "number" && (e = {
                 variant: e
             });
-            let { variant: a = 13, separator: r = "-" } = e, n = "978", [i, o] = this.faker.helpers.objectEntry(LP), s = this.faker.string.numeric(8), l = Number.parseInt(s.slice(0, -1)), u = o.find(([f])=>l <= f)?.[1];
+            let { variant: a = 13, separator: r = "-" } = e, n = "978", [i, o] = this.faker.helpers.objectEntry(HP), s = this.faker.string.numeric(8), l = Number.parseInt(s.slice(0, -1)), u = o.find(([f])=>l <= f)?.[1];
             if (!u) throw new He(`Unable to find a registrant length for the group ${i}`);
             let c = s.slice(0, u), d = s.slice(u), h = [
                 n,
@@ -36081,7 +36183,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             }
             return p = a === 10 ? p % 11 : (10 - p % 10) % 10, h.push(p === 10 ? "X" : p.toString()), h.join(r);
         }
-    }, zP = class extends Ht {
+    }, WP = class extends Ht {
         name() {
             return this.faker.helpers.fake(this.faker.definitions.company.name_pattern);
         }
@@ -36117,7 +36219,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         buzzNoun() {
             return this.faker.helpers.arrayElement(this.faker.definitions.company.buzz_noun);
         }
-    }, NP = class extends Ht {
+    }, GP = class extends Ht {
         column() {
             return this.faker.helpers.arrayElement(this.faker.definitions.database.column);
         }
@@ -36137,7 +36239,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 prefix: ""
             });
         }
-    }, OP = {
+    }, $P = {
         alpha: [
             "A",
             "B",
@@ -37540,13 +37642,13 @@ ${" ".repeat(a.length - t.length)}^`), o))
             "009"
         ],
         toDigitString: (t)=>t.replaceAll(/[A-Z]/gi, (e)=>String((e.toUpperCase().codePointAt(0) ?? Number.NaN) - 55))
-    }, Ar = OP;
-    function HP(t) {
+    }, Ar = $P;
+    function jP(t) {
         let e = "";
         for(let a = 0; a < t.length; a += 4)e += `${t.substring(a, a + 4)} `;
         return e.trimEnd();
     }
-    var VP = class extends Ht {
+    var UP = class extends Ht {
         accountNumber(e = {}) {
             typeof e == "number" && (e = {
                 length: e
@@ -37617,7 +37719,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             return this.currency().numericCode;
         }
         bitcoinAddress(e = {}) {
-            let { type: a = this.faker.helpers.enumValue(WF), network: r = "mainnet" } = e, n = Q_[a], i = n.prefix[r], o = this.faker.number.int(n.length), s = this.faker.string.alphanumeric({
+            let { type: a = this.faker.helpers.enumValue(GF), network: r = "mainnet" } = e, n = nP[a], i = n.prefix[r], o = this.faker.number.int(n.length), s = this.faker.string.alphanumeric({
                 length: o - i.length,
                 casing: n.casing,
                 exclude: n.exclude
@@ -37682,7 +37784,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             let s = 98 - Ar.mod97(Ar.toDigitString(`${i}${n.country}00`));
             s < 10 && (s = `0${s}`);
             let l = `${n.country}${s}${i}`;
-            return r ? HP(l) : l;
+            return r ? jP(l) : l;
         }
         bic(e = {}) {
             let { includeBranchCode: a = this.faker.datatype.boolean() } = e, r = this.faker.string.alpha({
@@ -37704,7 +37806,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
     function iy(t) {
         return t.split(" ").map((e)=>e.charAt(0).toUpperCase() + e.slice(1)).join(" ");
     }
-    var WP = class extends Ht {
+    var YP = class extends Ht {
         adjective() {
             return this.faker.helpers.arrayElement(this.faker.definitions.food.adjective);
         }
@@ -37732,7 +37834,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         vegetable() {
             return this.faker.helpers.arrayElement(this.faker.definitions.food.vegetable);
         }
-    }, GP = " ", $P = class extends Ht {
+    }, qP = " ", KP = class extends Ht {
         branch() {
             let e = this.faker.hacker.noun().replace(" ", "-"), a = this.faker.hacker.verb().replace(" ", "-");
             return `${e}-${a}`;
@@ -37763,7 +37865,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             });
             c = c.replaceAll(/^[.,:;"\\']|[<>\n]|[.,:;"\\']$/g, ""), i.push(`Author: ${c} <${d}>`, `Date: ${this.commitDate({
                 refDate: n
-            })}`, "", `${GP.repeat(4)}${this.commitMessage()}`, "");
+            })}`, "", `${qP.repeat(4)}${this.commitMessage()}`, "");
             let h = r === "CRLF" ? `\r
 ` : `
 `;
@@ -37811,7 +37913,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 prefix: ""
             });
         }
-    }, jP = class extends Ht {
+    }, XP = class extends Ht {
         abbreviation() {
             return this.faker.helpers.arrayElement(this.faker.definitions.hacker.abbreviation);
         }
@@ -37837,7 +37939,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             }, a = this.faker.helpers.arrayElement(this.faker.definitions.hacker.phrase);
             return this.faker.helpers.mustache(a, e);
         }
-    }, UP = class extends Ht {
+    }, JP = class extends Ht {
         avatar() {
             return this.faker.helpers.arrayElement([
                 this.personPortrait,
@@ -37949,9 +38051,9 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 "svg-uri",
                 "svg-base64"
             ]) } = e, o = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="${a}" height="${r}"><rect width="100%" height="100%" fill="${n}"/><text x="${a / 2}" y="${r / 2}" font-size="20" alignment-baseline="middle" text-anchor="middle" fill="white">${a}x${r}</text></svg>`;
-            return i === "svg-uri" ? `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(o)}` : `data:image/svg+xml;base64,${GF(o)}`;
+            return i === "svg-uri" ? `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(o)}` : `data:image/svg+xml;base64,${$F(o)}`;
         }
-    }, YP = class extends Ht {
+    }, ZP = class extends Ht {
         zipCode(e = {}) {
             typeof e == "string" && (e = {
                 format: e
@@ -38083,7 +38185,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             return this.faker.helpers.arrayElement(this.faker.definitions.location.language);
         }
     };
-    function qP(t, e, a = (r)=>r) {
+    function QP(t, e, a = (r)=>r) {
         let r = {};
         for (let n of t){
             let i = e(n);
@@ -38096,7 +38198,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             throw new He("No words found that match the given length.");
         },
         closest: (t, e)=>{
-            let a = qP(t, (s)=>s.length), r = Object.keys(a).map(Number), n = Math.min(...r), i = Math.max(...r), o = Math.min(e.min - n, i - e.max);
+            let a = QP(t, (s)=>s.length), r = Object.keys(a).map(Number), n = Math.min(...r), i = Math.max(...r), o = Math.min(e.min - n, i - e.max);
             return t.filter((s)=>s.length === e.min - o || s.length === e.max + o);
         },
         shortest: (t)=>{
@@ -38124,7 +38226,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             ...e
         ];
     }
-    var KP = class extends Ht {
+    var eB = class extends Ht {
         word(e = {}) {
             return typeof e == "number" && (e = {
                 length: e
@@ -38183,7 +38285,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             return this.sentences(e, `
 `);
         }
-    }, XP = class extends Ht {
+    }, tB = class extends Ht {
         album() {
             return this.faker.helpers.arrayElement(this.faker.definitions.music.album);
         }
@@ -38196,30 +38298,30 @@ ${" ".repeat(a.length - t.length)}^`), o))
         songName() {
             return this.faker.helpers.arrayElement(this.faker.definitions.music.song_name);
         }
-    }, JP = class extends Ht {
+    }, aB = class extends Ht {
         number(e = {}) {
             let { style: a = "human" } = e, r = this.faker.definitions.phone_number.format[a];
             if (!r) throw new Error(`No definitions for ${a} in this locale`);
             let n = this.faker.helpers.arrayElement(r);
-            return KF(this.faker, n);
+            return XF(this.faker, n);
         }
         imei() {
             return this.faker.helpers.replaceCreditCardSymbols("##-######-######-L", "#");
         }
-    }, ZP = class extends Ht {
+    }, rB = class extends Ht {
         chemicalElement() {
             return this.faker.helpers.arrayElement(this.faker.definitions.science.chemical_element);
         }
         unit() {
             return this.faker.helpers.arrayElement(this.faker.definitions.science.unit);
         }
-    }, QP = [
+    }, nB = [
         "video",
         "audio",
         "image",
         "text",
         "application"
-    ], eB = [
+    ], iB = [
         "application/pdf",
         "audio/mpeg",
         "audio/wav",
@@ -38229,7 +38331,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "video/mp4",
         "video/mpeg",
         "text/html"
-    ], tB = [
+    ], oB = [
         "en",
         "wl",
         "ww"
@@ -38238,7 +38340,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         slot: "s",
         mac: "x",
         pci: "p"
-    }, aB = [
+    }, sB = [
         "SUN",
         "MON",
         "TUE",
@@ -38246,7 +38348,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "THU",
         "FRI",
         "SAT"
-    ], rB = class extends Ht {
+    ], lB = class extends Ht {
         fileName(e = {}) {
             let { extensionCount: a = 1 } = e, r = this.faker.word.words().toLowerCase().replaceAll(/\W/g, "_"), n = this.faker.helpers.multiple(()=>this.fileExt(), {
                 count: a
@@ -38263,10 +38365,10 @@ ${" ".repeat(a.length - t.length)}^`), o))
             return this.faker.helpers.arrayElement(e);
         }
         commonFileType() {
-            return this.faker.helpers.arrayElement(QP);
+            return this.faker.helpers.arrayElement(nB);
         }
         commonFileExt() {
-            return this.fileExt(this.faker.helpers.arrayElement(eB));
+            return this.fileExt(this.faker.helpers.arrayElement(iB));
         }
         fileType() {
             let e = this.faker.definitions.system.mime_type, a = new Set(Object.keys(e).map((r)=>r.split("/")[0]));
@@ -38297,7 +38399,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             ].join(".");
         }
         networkInterface(e = {}) {
-            let { interfaceType: a = this.faker.helpers.arrayElement(tB), interfaceSchema: r = this.faker.helpers.objectKey(oy) } = e, n, i = "";
+            let { interfaceType: a = this.faker.helpers.arrayElement(oB), interfaceSchema: r = this.faker.helpers.objectKey(oy) } = e, n, i = "";
             switch(r){
                 case "index":
                     {
@@ -38344,7 +38446,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 "*"
             ], l = [
                 this.faker.number.int(6),
-                this.faker.helpers.arrayElement(aB),
+                this.faker.helpers.arrayElement(sB),
                 "*",
                 "?"
             ], u = [
@@ -38366,7 +38468,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             ];
             return !r || this.faker.datatype.boolean() ? g : this.faker.helpers.arrayElement(v);
         }
-    }, nB = class extends Ht {
+    }, uB = class extends Ht {
         vehicle() {
             return `${this.manufacturer()} ${this.model()}`;
         }
@@ -38426,7 +38528,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         bicycle() {
             return this.faker.helpers.arrayElement(this.faker.definitions.vehicle.bicycle_type);
         }
-    }, iB = class extends Ht {
+    }, cB = class extends Ht {
         adjective(e = {}) {
             return typeof e == "number" && (e = {
                 length: e
@@ -38512,33 +38614,33 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 count: a
             }).join(" ");
         }
-    }, oB = class extends ZF {
+    }, dB = class extends QF {
         rawDefinitions;
         definitions;
-        airline = new q_(this);
-        animal = new MP(this);
-        book = new RP(this);
-        color = new J_(this);
-        commerce = new IP(this);
-        company = new zP(this);
-        database = new NP(this);
-        date = new yP(this);
-        finance = new VP(this);
-        food = new WP(this);
-        git = new $P(this);
-        hacker = new jP(this);
-        helpers = new TP(this);
-        image = new UP(this);
-        internet = new lP(this);
-        location = new YP(this);
-        lorem = new KP(this);
-        music = new XP(this);
-        person = new uP(this);
-        phone = new JP(this);
-        science = new ZP(this);
-        system = new rB(this);
-        vehicle = new nB(this);
-        word = new iB(this);
+        airline = new Q_(this);
+        animal = new NP(this);
+        book = new OP(this);
+        color = new aP(this);
+        commerce = new VP(this);
+        company = new WP(this);
+        database = new GP(this);
+        date = new wP(this);
+        finance = new UP(this);
+        food = new YP(this);
+        git = new KP(this);
+        hacker = new XP(this);
+        helpers = new MP(this);
+        image = new JP(this);
+        internet = new mP(this);
+        location = new ZP(this);
+        lorem = new eB(this);
+        music = new tB(this);
+        person = new pP(this);
+        phone = new aB(this);
+        science = new rB(this);
+        system = new lB(this);
+        vehicle = new uB(this);
+        word = new cB(this);
         get address() {
             return Tn({
                 deprecated: "faker.address",
@@ -38563,14 +38665,14 @@ ${" ".repeat(a.length - t.length)}^`), o))
             let { locale: a } = e;
             if (Array.isArray(a)) {
                 if (a.length === 0) throw new He("The locale option must contain at least one locale definition.");
-                a = BP(a);
+                a = zP(a);
             }
-            this.rawDefinitions = a, this.definitions = gP(this.rawDefinitions);
+            this.rawDefinitions = a, this.definitions = kP(this.rawDefinitions);
         }
         getMetadata() {
             return this.rawDefinitions.metadata ?? {};
         }
-    }, sB = [
+    }, hB = [
         "Academy Color Encoding System (ACES)",
         "Adobe RGB",
         "Adobe Wide Gamut RGB",
@@ -38612,9 +38714,9 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "sYCC",
         "scRGB",
         "xvYCC"
-    ], lB = {
-        space: sB
-    }, uB = lB, cB = [
+    ], mB = {
+        space: hB
+    }, pB = mB, fB = [
         "ascii_bin",
         "ascii_general_ci",
         "cp1250_bin",
@@ -38622,14 +38724,14 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "utf8_bin",
         "utf8_general_ci",
         "utf8_unicode_ci"
-    ], dB = [
+    ], gB = [
         "ARCHIVE",
         "BLACKHOLE",
         "CSV",
         "InnoDB",
         "MEMORY",
         "MyISAM"
-    ], hB = [
+    ], vB = [
         "bigint",
         "binary",
         "bit",
@@ -38654,11 +38756,11 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "timestamp",
         "tinyint",
         "varchar"
-    ], mB = {
-        collation: cB,
-        engine: dB,
-        type: hB
-    }, pB = mB, QF = [
+    ], yB = {
+        collation: fB,
+        engine: gB,
+        type: vB
+    }, bB = yB, e0 = [
         "Africa/Abidjan",
         "Africa/Accra",
         "Africa/Addis_Ababa",
@@ -39078,9 +39180,9 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "Pacific/Tongatapu",
         "Pacific/Wake",
         "Pacific/Wallis"
-    ], fB = {
-        time_zone: QF
-    }, gB = fB, vB = [
+    ], FB = {
+        time_zone: e0
+    }, kB = FB, xB = [
         "ADP",
         "AGP",
         "AI",
@@ -39123,9 +39225,9 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "VGA",
         "XML",
         "XSS"
-    ], yB = {
-        abbreviation: vB
-    }, bB = yB, FB = {
+    ], wB = {
+        abbreviation: xB
+    }, SB = wB, CB = {
         smiley: [
             "😀",
             "😃",
@@ -42655,7 +42757,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             "🇿🇲",
             "🇿🇼"
         ]
-    }, kB = {
+    }, AB = {
         informational: [
             100,
             101,
@@ -42729,7 +42831,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
             510,
             511
         ]
-    }, xB = [
+    }, DB = [
         "HS256",
         "HS384",
         "HS512",
@@ -42743,7 +42845,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "PS384",
         "PS512",
         "none"
-    ], wB = [
+    ], TB = [
         'Mozilla/5.0 (compatible; MSIE {{number.int({"min":6,"max":10})}}.0; Windows NT {{helpers.arrayElement(["5.1","5.2","6.0","6.1","6.2","6.3","10.0"])}}; Trident/{{number.int({"min":4,"max":7})}}.0)',
         'Mozilla/5.0 (Windows NT {{helpers.arrayElement(["5.1","5.2","6.0","6.1","6.2","6.3","10.0"])}}; Win64; x64) AppleWebKit/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}} (KHTML, like Gecko) Chrome/{{number.int({"min":55,"max":131})}}.{{system.semver}} Safari/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}} Edg/{{number.int({"min":110,"max":131})}}.{{system.semver}}',
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}}.{{number.int({"min":0,"max":99})}} (KHTML, like Gecko) Version/16.1 Safari/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}}.{{number.int({"min":0,"max":99})}}',
@@ -42754,12 +42856,12 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "Googlebot/2.1 (+http://www.google.com/bot.html)",
         'Mozilla/5.0 (iPhone; CPU iPhone OS {{number.int({"min":10,"max":18})}}_{{number.int({"min":0,"max":4})}} like Mac OS X) AppleWebKit/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}}.{{number.int({"min":0,"max":99})}} (KHTML, like Gecko) Version/{{number.int({"min":10,"max":18})}}_{{number.int({"min":0,"max":4})}} Mobile/15E148 Safari/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}}',
         'Mozilla/5.0 (Linux; Android {{number.int({"min":5,"max":13})}}; {{helpers.arrayElement(["SM-G998U","SM-G998B","SM-G998N","SM-G998P","SM-T800"])}}) AppleWebKit/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}} (KHTML, like Gecko) Chrome/{{number.int({"min":55,"max":131})}}.{{system.semver}} Mobile Safari/{{number.int({"min":536,"max":605})}}.{{number.int({"min":0,"max":99})}}'
-    ], SB = {
-        emoji: FB,
-        http_status_code: kB,
-        jwt_algorithm: xB,
-        user_agent_pattern: wB
-    }, CB = SB, AB = [
+    ], EB = {
+        emoji: CB,
+        http_status_code: AB,
+        jwt_algorithm: DB,
+        user_agent_pattern: TB
+    }, _B = EB, PB = [
         {
             alpha2: "AD",
             alpha3: "AND",
@@ -44005,13 +44107,13 @@ ${" ".repeat(a.length - t.length)}^`), o))
             alpha3: "ZWE",
             numeric: "716"
         }
-    ], DB = {
-        country_code: AB,
-        time_zone: QF
-    }, TB = DB, EB = {
+    ], BB = {
+        country_code: PB,
+        time_zone: e0
+    }, MB = BB, RB = {
         title: "Base",
         code: "base"
-    }, _B = EB, PB = [
+    }, LB = RB, IB = [
         "/Applications",
         "/bin",
         "/boot",
@@ -44072,7 +44174,7 @@ ${" ".repeat(a.length - t.length)}^`), o))
         "/var/spool",
         "/var/tmp",
         "/var/yp"
-    ], BB = {
+    ], zB = {
         "application/epub+zip": {
             extensions: [
                 "epub"
@@ -44506,22 +44608,22 @@ ${" ".repeat(a.length - t.length)}^`), o))
                 "avi"
             ]
         }
-    }, MB = {
-        directory_path: PB,
-        mime_type: BB
-    }, RB = MB, LB = {
-        color: uB,
-        database: pB,
-        date: gB,
-        hacker: bB,
-        internet: CB,
-        location: TB,
-        metadata: _B,
-        system: RB
-    }, IB = LB, ye = new oB({
+    }, NB = {
+        directory_path: IB,
+        mime_type: zB
+    }, OB = NB, HB = {
+        color: pB,
+        database: bB,
+        date: kB,
+        hacker: SB,
+        internet: _B,
+        location: MB,
+        metadata: LB,
+        system: OB
+    }, VB = HB, ye = new dB({
         locale: [
-            W_,
-            IB
+            Y_,
+            VB
         ]
     });
     class Er {
@@ -46784,7 +46886,7 @@ P = μTP`,
             return this.post("/transfer/banPeers", a).then((r)=>r.data);
         }
     }
-    let zB, NB, sy;
+    let WB, GB, sy;
     Te = Um.getInstance();
     bl = ya("preferences", ()=>{
         const t = G();
@@ -46996,7 +47098,7 @@ P = μTP`,
             Xe.CHECKING_DISK,
             Xe.CHECKING_RESUME_DATA,
             Xe.MOVING
-        ], e = Sr(), { buildFromQbit: a } = dA(), r = Ym(), n = de(new Map), i = T(()=>Array.from(n.value.entries()).map(([K, re])=>a({
+        ], e = Sr(), { buildFromQbit: a } = hA(), r = Ym(), n = de(new Map), i = T(()=>Array.from(n.value.entries()).map(([K, re])=>a({
                     ...re,
                     hash: K
                 }))), o = G(Vt.CONJUNCTIVE), s = de(!0), l = G("");
@@ -47044,7 +47146,7 @@ P = μTP`,
                 case Vt.DISJUNCTIVE:
                     return b.value.some(we);
             }
-        }, E = FS(i, (K)=>{
+        }, E = kS(i, (K)=>{
             const re = [];
             if (c.value.length > 0 && u.value && re.push(S(K)), m.value.length > 0 && h.value && re.push(w(K)), f.value.length > 0 && p.value && re.push(F(K)), b.value.length > 0 && v.value && re.push(A(K)), re.length === 0) return !0;
             switch(o.value){
@@ -47267,8 +47369,8 @@ P = μTP`,
             }
         };
     });
-    zB = "modulepreload";
-    NB = function(t, e) {
+    WB = "modulepreload";
+    GB = function(t, e) {
         return new URL(t, e).href;
     };
     sy = {};
@@ -47277,7 +47379,7 @@ P = μTP`,
         if (a && a.length > 0) {
             const o = document.getElementsByTagName("link"), s = document.querySelector("meta[property=csp-nonce]"), l = s?.nonce || s?.getAttribute("nonce");
             n = Promise.allSettled(a.map((u)=>{
-                if (u = NB(u, r), u in sy) return;
+                if (u = GB(u, r), u in sy) return;
                 sy[u] = !0;
                 const c = u.endsWith(".css"), d = c ? '[rel="stylesheet"]' : "";
                 if (!!r) for(let p = o.length - 1; p >= 0; p--){
@@ -47286,7 +47388,7 @@ P = μTP`,
                 }
                 else if (document.querySelector(`link[href="${u}"]${d}`)) return;
                 const m = document.createElement("link");
-                if (m.rel = c ? "stylesheet" : zB, c || (m.as = "script"), m.crossOrigin = "", m.href = u, l && m.setAttribute("nonce", l), document.head.appendChild(m), c) return new Promise((p, f)=>{
+                if (m.rel = c ? "stylesheet" : WB, c || (m.as = "script"), m.crossOrigin = "", m.href = u, l && m.setAttribute("nonce", l), document.head.appendChild(m), c) return new Promise((p, f)=>{
                     m.addEventListener("load", p), m.addEventListener("error", ()=>f(new Error(`Unable to preload CSS for ${u}`)));
                 });
             }));
@@ -47302,7 +47404,7 @@ P = μTP`,
             return e().catch(i);
         });
     };
-    const _r = Symbol("Cleanup Function"), Km = Symbol("Timeout Token"), mi = Symbol("Signal Reason"), sa = Symbol("Unset"), [xs, OB] = function() {
+    const _r = Symbol("Cleanup Function"), Km = Symbol("Timeout Token"), mi = Symbol("Signal Reason"), sa = Symbol("Unset"), [xs, $B] = function() {
         var e = new AbortController, a = !!Object.getOwnPropertyDescriptor(Object.getPrototypeOf(e.signal), "reason");
         try {
             e.abort();
@@ -47342,9 +47444,9 @@ P = μTP`,
         }
     }
     function Lo(t) {
-        return t && t.aborted ? xs && OB ? Jm(t.reason) ? sa : t.reason : mi in t ? t[mi] : sa : sa;
+        return t && t.aborted ? xs && $B ? Jm(t.reason) ? sa : t.reason : mi in t ? t[mi] : sa : sa;
     }
-    function e0(t) {
+    function t0(t) {
         if (t.pr) return t.pr;
         var e, a = new Promise(function(n, i) {
             e = ()=>{
@@ -47365,7 +47467,7 @@ P = μTP`,
         return {
             tokenOrSignal: t,
             signal: e,
-            signalPr: e0(e)
+            signalPr: t0(e)
         };
     }
     function Ch() {
@@ -47378,7 +47480,7 @@ P = μTP`,
     function mn(t) {
         return typeof t == "function";
     }
-    function HB(t) {
+    function jB(t) {
         return t && typeof t == "object" && typeof t.then == "function";
     }
     function Jm(t) {
@@ -47387,15 +47489,15 @@ P = μTP`,
     function kl(t, e) {
         Jm(e) || e === sa ? t.abort() : t.abort(e);
     }
-    const Ah = Object.assign(VB, {
+    const Ah = Object.assign(UB, {
         cancelToken: En,
-        delay: t0,
-        timeout: WB,
-        signalRace: GB,
-        signalAll: $B,
-        tokenCycle: jB
+        delay: a0,
+        timeout: YB,
+        signalRace: qB,
+        signalAll: KB,
+        tokenCycle: XB
     });
-    function VB(t) {
+    function UB(t) {
         return function(a, ...r) {
             var n, i;
             if ({ tokenOrSignal: a, signal: n, signalPr: i } = Xm(a), n.aborted) return i;
@@ -47408,7 +47510,7 @@ P = μTP`,
                 } finally{
                     s = l = o = u = null;
                 }
-            }), { it: s, result: l } = UB.call(this, t, n, ...r), u = Promise.race([
+            }), { it: s, result: l } = JB.call(this, t, n, ...r), u = Promise.race([
                 l,
                 o
             ]);
@@ -47421,7 +47523,7 @@ P = μTP`,
             return r = null, u;
         };
     }
-    function t0(t, e) {
+    function a0(t, e) {
         var a, r;
         return typeof t == "number" && typeof e != "number" && ([e, t] = [
             t,
@@ -47438,10 +47540,10 @@ P = μTP`,
             }, e);
         });
     }
-    function WB(t, e = "Timeout") {
+    function YB(t, e = "Timeout") {
         t = Number(t) || 0;
         var a = new En;
-        return t0(a.signal, t).then(()=>r(e), r), Object.defineProperty(a, Km, {
+        return a0(a.signal, t).then(()=>r(e), r), Object.defineProperty(a, Km, {
             value: !0,
             writable: !1,
             enumerable: !1,
@@ -47451,16 +47553,16 @@ P = μTP`,
             kl(a, n.length > 0 ? n[0] : sa), a.discard(), a = null;
         }
     }
-    function a0(t) {
+    function r0(t) {
         return t.reduce(function(a, r) {
-            var n = e0(r);
+            var n = t0(r);
             return a[0].push(n), r.pr || a[1].push(n), a;
         }, [
             [],
             []
         ]);
     }
-    function r0(t, e, a) {
+    function n0(t, e, a) {
         t.then(function(n) {
             kl(e, n), e.discard(), e = null;
         }).then(function() {
@@ -47468,24 +47570,24 @@ P = μTP`,
             a = null;
         });
     }
-    function n0(t) {
+    function i0(t) {
         return t.catch((e)=>e);
     }
-    function GB(t) {
-        var e = new En, [a, r] = a0(t);
-        return r0(n0(Promise.race(a)), e, r), e.signal;
+    function qB(t) {
+        var e = new En, [a, r] = r0(t);
+        return n0(i0(Promise.race(a)), e, r), e.signal;
     }
-    function $B(t) {
-        var e = new En, [a, r] = a0(t);
-        return r0(Promise.all(a.map(n0)), e, r), e.signal;
+    function KB(t) {
+        var e = new En, [a, r] = r0(t);
+        return n0(Promise.all(a.map(i0)), e, r), e.signal;
     }
-    function jB() {
+    function XB() {
         var t;
         return function(...a) {
             return t && (kl(t, a.length > 0 ? a[0] : sa), t.discard()), t = new En;
         };
     }
-    function UB(t, ...e) {
+    function JB(t, ...e) {
         var a = t.apply(this, e);
         return t = e = null, {
             it: a,
@@ -47508,23 +47610,23 @@ P = μTP`,
         };
     }
     Th = Ah(Th);
-    Object.assign(o0, {
-        onEvent: s0,
+    Object.assign(s0, {
+        onEvent: l0,
         onceEvent: Th
     });
     var Dh = new WeakSet;
-    const Bd = Symbol("unset"), i0 = Symbol("returned"), ly = Symbol("canceled");
-    function o0(t) {
+    const Bd = Symbol("unset"), o0 = Symbol("returned"), ly = Symbol("canceled");
+    function s0(t) {
         return function(a, ...r) {
             var n, i;
             if ({ tokenOrSignal: a, signal: n, signalPr: i } = Xm(a), n.aborted) {
                 let d = Lo(n);
                 throw d = d !== sa ? d : "Aborted", d;
             }
-            var o = Ch(), { it: s, ait: l } = qB(t, o.pr, c, n, ...r), u = l.return;
+            var o = Ch(), { it: s, ait: l } = QB(t, o.pr, c, n, ...r), u = l.return;
             return l.return = function(h) {
                 try {
-                    return o.pr.resolved = !0, o.resolve(i0), Promise.resolve(s.return(h));
+                    return o.pr.resolved = !0, o.resolve(o0), Promise.resolve(s.return(h));
                 } finally{
                     u.call(l), c();
                 }
@@ -47534,8 +47636,8 @@ P = μTP`,
             }
         };
     }
-    function s0(t, e, a, r = !1) {
-        var n, i, o = !1, s = o0(function*({ pwait: d }) {
+    function l0(t, e, a, r = !1) {
+        var n, i, o = !1, s = s0(function*({ pwait: d }) {
             o || l();
             try {
                 for(;;){
@@ -47563,20 +47665,20 @@ P = μTP`,
     }
     function* Th(t, e, a, r = !1) {
         try {
-            var n = s0(t, e, a, r);
+            var n = l0(t, e, a, r);
             return (yield n.next()).value;
         } finally{
             n.return();
         }
     }
-    function YB(t) {
+    function ZB(t) {
         var e = Promise.resolve(t);
         return Dh.add(e), e;
     }
-    function qB(t, e, a, r, ...n) {
+    function QB(t, e, a, r, ...n) {
         var i = t.call(this, {
             signal: r,
-            pwait: YB
+            pwait: ZB
         }, ...n);
         t = n = null;
         var o = r.pr.catch((s)=>{
@@ -47590,14 +47692,14 @@ P = μTP`,
             ait: async function*() {
                 var l, u = Bd;
                 try {
-                    for(; !e.resolved;)if (u !== Bd ? (l = u, u = Bd, l = i.throw(l)) : l = i.next(l), HB(l.value)) if (Dh.has(l.value)) {
+                    for(; !e.resolved;)if (u !== Bd ? (l = u, u = Bd, l = i.throw(l)) : l = i.next(l), jB(l.value)) if (Dh.has(l.value)) {
                         Dh.delete(l.value);
                         try {
                             if ((l = await Promise.race([
                                 e,
                                 o,
                                 l.value
-                            ])) === i0) return;
+                            ])) === o0) return;
                         } catch (c) {
                             if (c[ly]) {
                                 let d = i.return();
@@ -47616,21 +47718,21 @@ P = μTP`,
             }()
         };
     }
-    const KB = (t)=>t._runningInstances.length >= t._maxConcurrency, XB = (t)=>{
+    const eM = (t)=>t._runningInstances.length >= t._maxConcurrency, tM = (t)=>{
         const e = t._activeInstances[0];
         e && e.cancel();
-    }, JB = (t)=>{
+    }, aM = (t)=>{
         t._enqueuedInstances.forEach((e)=>{
             e.isEnqueued = !1, e.isDropped = !0;
         });
     };
     function Ji(t, e) {
-        return e ? ZB(()=>t()._instances, e) : T(()=>[]);
+        return e ? rM(()=>t()._instances, e) : T(()=>[]);
     }
-    function ZB(t, e, a) {
+    function rM(t, e, a) {
         return T(()=>t().filter((r)=>r[e]));
     }
-    function QB(t) {
+    function nM(t) {
         return T(()=>t().length);
     }
     function uy(t) {
@@ -47639,21 +47741,21 @@ P = μTP`,
             return e[e.length - 1];
         });
     }
-    function eM(t) {
+    function iM(t) {
         return T(()=>t()[0]);
     }
-    const l0 = (t)=>t;
-    function u0(t) {
+    const u0 = (t)=>t;
+    function c0(t) {
         return Pa(t);
     }
-    function tM() {
+    function oM() {
         const t = {}, e = new Promise((a, r)=>{
             t.resolve = a, t.reject = r;
         });
         return t.promise = e, t;
     }
-    function aM(t, e, a) {
-        const r = l0({
+    function sM(t, e, a) {
+        const r = u0({
             id: a.id,
             isDropped: !1,
             isEnqueued: !1,
@@ -47718,10 +47820,10 @@ P = μTP`,
                 }), n;
             },
             _run () {
-                rM(n, t, e, a);
+                lM(n, t, e, a);
             },
             _handled: !0,
-            _deferredObject: tM(),
+            _deferredObject: oM(),
             _shouldThrow: !1,
             _canAbort: !0,
             then (o, s) {
@@ -47733,10 +47835,10 @@ P = μTP`,
             finally (o) {
                 return n._shouldThrow = !0, n._deferredObject.promise.finally(o);
             }
-        }), n = u0(r), { modifiers: i } = a;
+        }), n = c0(r), { modifiers: i } = a;
         return i.drop ? n.isDropped = !0 : i.enqueue ? n.isEnqueued = !0 : n._run(), n;
     }
-    function rM(t, e, a, r) {
+    function lM(t, e, a, r) {
         const n = new Ah.cancelToken, i = Ah(e, n);
         t.token = n, t.hasStarted = !0, t.isRunning = !0, t.isEnqueued = !1;
         function o() {
@@ -47748,10 +47850,10 @@ P = μTP`,
             s !== "cancel" && (t.error = s), o(), t._shouldThrow && t._deferredObject.reject(s), r.onFinish(t);
         });
     }
-    c0 = function(t, e = {
+    d0 = function(t, e = {
         cancelOnUnmount: !0
     }) {
-        const a = bm(), r = l0({
+        const a = bm(), r = u0({
             _isRestartable: !1,
             _isDropping: !1,
             _isEnqueuing: !1,
@@ -47767,10 +47869,10 @@ P = μTP`,
             _enqueuedInstances: Ji(()=>n, "isEnqueued"),
             _notDroppedInstances: Ji(()=>n, "isNotDropped"),
             _activeInstances: Ji(()=>n, "isActive"),
-            performCount: QB(()=>n._instances),
+            performCount: nM(()=>n._instances),
             last: uy(()=>n._notDroppedInstances),
             lastSuccessful: uy(()=>n._successfulInstances),
-            firstEnqueued: eM(()=>n._enqueuedInstances),
+            firstEnqueued: iM(()=>n._enqueuedInstances),
             cancelAll ({ force: i } = {
                 force: !1
             }) {
@@ -47789,8 +47891,8 @@ P = μTP`,
                     enqueue: !1,
                     drop: !1
                 };
-                n._hasConcurrency && KB(n) && (n._isDropping && (o.drop = !0), n._isRestartable && XB(n), n._isKeepingLatest && JB(n), (n._isEnqueuing || n._isKeepingLatest) && (o.enqueue = !0));
-                const s = ()=>nM(n), l = ()=>aM(t, i, {
+                n._hasConcurrency && eM(n) && (n._isDropping && (o.drop = !0), n._isRestartable && tM(n), n._isKeepingLatest && aM(n), (n._isEnqueuing || n._isKeepingLatest) && (o.enqueue = !0));
+                const s = ()=>uM(n), l = ()=>sM(t, i, {
                         modifiers: o,
                         onFinish: s,
                         scope: a,
@@ -47827,19 +47929,19 @@ P = μTP`,
             maxConcurrency (i) {
                 return n._maxConcurrency = i, n;
             }
-        }), n = u0(r);
+        }), n = c0(r);
         return e.cancelOnUnmount && Qs() && pa(()=>{
             n._instances && n.destroy();
         }), n;
     };
-    function nM(t) {
+    function uM(t) {
         if (t._isEnqueuing || t._isKeepingLatest) {
             const { firstEnqueued: e } = t;
             e && e._run();
         }
     }
-    let iM, oM, sM, lM, uM, cM, dM, hM, mM, pM, fM, gM, vM, yM, bM, FM, kM, xM, wM, SM, Oe, ii, xl, DM, TM;
-    iM = {
+    let cM, dM, hM, mM, pM, fM, gM, vM, yM, bM, FM, kM, xM, wM, SM, CM, AM, DM, TM, EM, Oe, ii, xl, BM, MM;
+    cM = {
         base: "#f44336",
         lighten5: "#ffebee",
         lighten4: "#ffcdd2",
@@ -47855,7 +47957,7 @@ P = μTP`,
         accent3: "#ff1744",
         accent4: "#d50000"
     };
-    oM = {
+    dM = {
         base: "#e91e63",
         lighten5: "#fce4ec",
         lighten4: "#f8bbd0",
@@ -47871,7 +47973,7 @@ P = μTP`,
         accent3: "#f50057",
         accent4: "#c51162"
     };
-    sM = {
+    hM = {
         base: "#9c27b0",
         lighten5: "#f3e5f5",
         lighten4: "#e1bee7",
@@ -47887,7 +47989,7 @@ P = μTP`,
         accent3: "#d500f9",
         accent4: "#aa00ff"
     };
-    lM = {
+    mM = {
         base: "#673ab7",
         lighten5: "#ede7f6",
         lighten4: "#d1c4e9",
@@ -47903,7 +48005,7 @@ P = μTP`,
         accent3: "#651fff",
         accent4: "#6200ea"
     };
-    uM = {
+    pM = {
         base: "#3f51b5",
         lighten5: "#e8eaf6",
         lighten4: "#c5cae9",
@@ -47919,7 +48021,7 @@ P = μTP`,
         accent3: "#3d5afe",
         accent4: "#304ffe"
     };
-    cM = {
+    fM = {
         base: "#2196f3",
         lighten5: "#e3f2fd",
         lighten4: "#bbdefb",
@@ -47935,7 +48037,7 @@ P = μTP`,
         accent3: "#2979ff",
         accent4: "#2962ff"
     };
-    dM = {
+    gM = {
         base: "#03a9f4",
         lighten5: "#e1f5fe",
         lighten4: "#b3e5fc",
@@ -47951,7 +48053,7 @@ P = μTP`,
         accent3: "#00b0ff",
         accent4: "#0091ea"
     };
-    hM = {
+    vM = {
         base: "#00bcd4",
         lighten5: "#e0f7fa",
         lighten4: "#b2ebf2",
@@ -47967,7 +48069,7 @@ P = μTP`,
         accent3: "#00e5ff",
         accent4: "#00b8d4"
     };
-    mM = {
+    yM = {
         base: "#009688",
         lighten5: "#e0f2f1",
         lighten4: "#b2dfdb",
@@ -47983,7 +48085,7 @@ P = μTP`,
         accent3: "#1de9b6",
         accent4: "#00bfa5"
     };
-    pM = {
+    bM = {
         base: "#4caf50",
         lighten5: "#e8f5e9",
         lighten4: "#c8e6c9",
@@ -47999,7 +48101,7 @@ P = μTP`,
         accent3: "#00e676",
         accent4: "#00c853"
     };
-    fM = {
+    FM = {
         base: "#8bc34a",
         lighten5: "#f1f8e9",
         lighten4: "#dcedc8",
@@ -48015,7 +48117,7 @@ P = μTP`,
         accent3: "#76ff03",
         accent4: "#64dd17"
     };
-    gM = {
+    kM = {
         base: "#cddc39",
         lighten5: "#f9fbe7",
         lighten4: "#f0f4c3",
@@ -48031,7 +48133,7 @@ P = μTP`,
         accent3: "#c6ff00",
         accent4: "#aeea00"
     };
-    vM = {
+    xM = {
         base: "#ffeb3b",
         lighten5: "#fffde7",
         lighten4: "#fff9c4",
@@ -48047,7 +48149,7 @@ P = μTP`,
         accent3: "#ffea00",
         accent4: "#ffd600"
     };
-    yM = {
+    wM = {
         base: "#ffc107",
         lighten5: "#fff8e1",
         lighten4: "#ffecb3",
@@ -48063,7 +48165,7 @@ P = μTP`,
         accent3: "#ffc400",
         accent4: "#ffab00"
     };
-    bM = {
+    SM = {
         base: "#ff9800",
         lighten5: "#fff3e0",
         lighten4: "#ffe0b2",
@@ -48079,7 +48181,7 @@ P = μTP`,
         accent3: "#ff9100",
         accent4: "#ff6d00"
     };
-    FM = {
+    CM = {
         base: "#ff5722",
         lighten5: "#fbe9e7",
         lighten4: "#ffccbc",
@@ -48095,7 +48197,7 @@ P = μTP`,
         accent3: "#ff3d00",
         accent4: "#dd2c00"
     };
-    kM = {
+    AM = {
         base: "#795548",
         lighten5: "#efebe9",
         lighten4: "#d7ccc8",
@@ -48107,7 +48209,7 @@ P = μTP`,
         darken3: "#4e342e",
         darken4: "#3e2723"
     };
-    xM = {
+    DM = {
         base: "#607d8b",
         lighten5: "#eceff1",
         lighten4: "#cfd8dc",
@@ -48119,7 +48221,7 @@ P = μTP`,
         darken3: "#37474f",
         darken4: "#263238"
     };
-    wM = {
+    TM = {
         base: "#9e9e9e",
         lighten5: "#fafafa",
         lighten4: "#f5f5f5",
@@ -48131,32 +48233,32 @@ P = μTP`,
         darken3: "#424242",
         darken4: "#212121"
     };
-    SM = {
+    EM = {
         black: "#000000",
         white: "#ffffff",
         transparent: "#ffffff00"
     };
     Oe = {
-        red: iM,
-        pink: oM,
-        purple: sM,
-        deepPurple: lM,
-        indigo: uM,
-        blue: cM,
-        lightBlue: dM,
-        cyan: hM,
-        teal: mM,
-        green: pM,
-        lightGreen: fM,
-        lime: gM,
-        yellow: vM,
-        amber: yM,
-        orange: bM,
-        deepOrange: FM,
-        brown: kM,
-        blueGrey: xM,
-        grey: wM,
-        shades: SM
+        red: cM,
+        pink: dM,
+        purple: hM,
+        deepPurple: mM,
+        indigo: pM,
+        blue: fM,
+        lightBlue: gM,
+        cyan: vM,
+        teal: yM,
+        green: bM,
+        lightGreen: FM,
+        lime: kM,
+        yellow: xM,
+        amber: wM,
+        orange: SM,
+        deepOrange: CM,
+        brown: AM,
+        blueGrey: DM,
+        grey: TM,
+        shades: EM
     };
     ii = {
         enabled: "#4F738D",
@@ -48205,7 +48307,7 @@ P = μTP`,
             "torrent-unknown": t ? Oe.grey.darken3 : Oe.grey.lighten2,
             "torrent-uploading": t ? Oe.indigo.darken2 : Oe.lightBlue.lighten1
         });
-    d0 = {
+    h0 = {
         id: "dark-redesigned",
         theme: {
             dark: !0,
@@ -48237,7 +48339,7 @@ P = μTP`,
             }
         }
     };
-    CM = {
+    _M = {
         id: "dark-oled",
         theme: {
             dark: !0,
@@ -48248,7 +48350,7 @@ P = μTP`,
             }
         }
     };
-    AM = {
+    PM = {
         id: "light-redesigned",
         theme: {
             dark: !1,
@@ -48280,14 +48382,14 @@ P = μTP`,
             }
         }
     };
-    DM = [
+    BM = [
         Os,
-        d0,
-        CM,
+        h0,
+        _M,
         Eh,
-        AM
+        PM
     ];
-    TM = DM.reduce((t, e)=>(t[e.id] = e.theme, t), {});
+    MM = BM.reduce((t, e)=>(t[e.id] = e.theme, t), {});
     ba = ya("vuetorrent", ()=>{
         const t = G("en"), e = Pa({
             mode: Ta.SYSTEM,
@@ -48335,7 +48437,7 @@ P = μTP`,
             return $e;
         }), { locale: J } = aa(), me = tl(), { global: $ } = rl();
         he(t, oe);
-        const V = TS("(prefers-color-scheme: dark)");
+        const V = ES("(prefers-color-scheme: dark)");
         he(V, be);
         function oe($e) {
             J.value = $e;
@@ -48490,7 +48592,7 @@ P = μTP`,
                 return i("dashboard.selectedTorrentsCount", {
                     count: a.value.length,
                     total: s.value.length,
-                    size: JD(w, c.value)
+                    size: e2(w, c.value)
                 });
             } else return i("dashboard.torrentsCount", s.value.length);
         });
@@ -48560,7 +48662,7 @@ P = μTP`,
             ]
         }
     });
-    EM = ya("global", ()=>{
+    RM = ya("global", ()=>{
         const t = G(yh());
         function e() {
             t.value = yh();
@@ -48573,7 +48675,7 @@ P = μTP`,
             }
         };
     });
-    _M = ya("history", ()=>{
+    LM = ya("history", ()=>{
         const t = Pa({}), e = G(3);
         function a(n, i) {
             if (!i) return;
@@ -48604,13 +48706,13 @@ P = μTP`,
             ]
         }
     });
-    h0 = ya("logs", ()=>{
+    m0 = ya("logs", ()=>{
         const { fetchExternalIpInfo: t } = gt(ba()), e = G([]), a = G(), r = G(), n = G(null), i = G(null), o = G(!1), s = G([
             tt.NORMAL,
             tt.INFO,
             tt.WARNING,
             tt.CRITICAL
-        ]), l = G(""), u = G(!1), c = T(()=>e.value.filter((C)=>s.value.includes(C.type))), { results: d } = Pm(c, l, (C)=>C.message), { paginatedResults: h, currentPage: m, pageCount: p } = Bb(()=>DD(d.value, (C, k)=>De.numeric.compare(C.id, k.id, !o.value)), 30), f = c0(function*(C, k) {
+        ]), l = G(""), u = G(!1), c = T(()=>e.value.filter((C)=>s.value.includes(C.type))), { results: d } = Pm(c, l, (C)=>C.message), { paginatedResults: h, currentPage: m, pageCount: p } = Bb(()=>TD(d.value, (C, k)=>De.numeric.compare(C.id, k.id, !o.value)), 30), f = d0(function*(C, k) {
             yield g(k);
         }).drop();
         async function g(C) {
@@ -48674,10 +48776,10 @@ P = μTP`,
             ]
         }
     });
-    function PM(t) {
+    function IM(t) {
         return "full_update" in t && t.full_update;
     }
-    let oi, MM, Ue;
+    let oi, NM, Ue;
     oi = 15;
     Zm = ya("navbar", ()=>{
         const { mobile: t } = Ra({
@@ -48780,7 +48882,7 @@ P = μTP`,
         };
     });
     $n = ya("maindata", ()=>{
-        const t = G(), e = de(), a = Sr(), r = qm(), n = Io(), i = Zm(), o = Qm(), s = Ya(), { processedTorrents: l } = gt(s), u = Ym(), c = ba(), { refreshInterval: d } = gt(c), h = c0(function*() {
+        const t = G(), e = de(), a = Sr(), r = qm(), n = Io(), i = Zm(), o = Qm(), s = Ya(), { processedTorrents: l } = gt(s), u = Ym(), c = ba(), { refreshInterval: d } = gt(c), h = d0(function*() {
             yield g();
         }).drop(), { resume: m, pause: p } = ch(h.perform, d, {
             immediate: !1,
@@ -48795,7 +48897,7 @@ P = μTP`,
         async function g() {
             try {
                 const w = await Te.getMaindata(t.value);
-                if (t.value = w.rid, PM(w)) {
+                if (t.value = w.rid, IM(w)) {
                     f(!0, w.server_state), r.syncFromMaindata(!0, Object.entries(w.categories ?? {})), o.syncFromMaindata(!0, w.tags ?? []), s.syncFromMaindata(!0, Object.entries(w.torrents ?? {})), u.syncFromMaindata(!0, Object.entries(w.trackers ?? {}));
                     return;
                 }
@@ -48845,7 +48947,7 @@ P = μTP`,
             }
         };
     });
-    BM = ya("rss", ()=>{
+    zM = ya("rss", ()=>{
         const t = G([]), e = G([]), a = G([]), r = G({}), n = G("feeds"), i = Pa({
             title: "",
             unread: !1
@@ -48981,7 +49083,7 @@ P = μTP`,
             ]
         }
     });
-    MM = Y({
+    NM = Y({
         defaults: Object,
         disabled: Boolean,
         reset: [
@@ -48996,7 +49098,7 @@ P = μTP`,
     }, "VDefaultsProvider");
     Ue = te(!1)({
         name: "VDefaultsProvider",
-        props: MM(),
+        props: NM(),
         setup (t, e) {
             let { slots: a } = e;
             const { defaults: r, disabled: n, reset: i, root: o, scoped: s } = Ai(t);
@@ -49012,10 +49114,10 @@ P = μTP`,
         return wm(()=>{
             const e = [], a = {};
             if (t.value.background) if (af(t.value.background)) {
-                if (a.backgroundColor = t.value.background, !t.value.text && gw(t.value.background)) {
+                if (a.backgroundColor = t.value.background, !t.value.text && vw(t.value.background)) {
                     const r = nl(t.value.background);
                     if (r.a == null || r.a === 1) {
-                        const n = vw(r);
+                        const n = yw(r);
                         a.color = n, a.caretColor = n;
                     }
                 }
@@ -49044,7 +49146,7 @@ P = μTP`,
             backgroundColorStyles: n
         };
     }
-    const RM = [
+    const OM = [
         "x-small",
         "small",
         "default",
@@ -49063,7 +49165,7 @@ P = μTP`,
         let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ir();
         return wm(()=>{
             let a, r;
-            return yw(RM, t.size) ? a = `${e}--size-${t.size}` : t.size && (r = {
+            return bw(OM, t.size) ? a = `${e}--size-${t.size}` : t.size && (r = {
                 width: ke(t.size),
                 height: ke(t.size)
             }), {
@@ -49072,14 +49174,14 @@ P = μTP`,
             };
         });
     }
-    let Ve, LM, $t;
+    let Ve, HM, $t;
     Ve = Y({
         tag: {
             type: String,
             default: "div"
         }
     }, "tag");
-    LM = Y({
+    HM = Y({
         color: String,
         disabled: Boolean,
         start: Boolean,
@@ -49094,13 +49196,13 @@ P = μTP`,
     }, "VIcon");
     _e = te()({
         name: "VIcon",
-        props: LM(),
+        props: HM(),
         setup (t, e) {
             let { attrs: a, slots: r } = e;
-            const n = G(), { themeClasses: i } = it(t), { iconData: o } = bw(T(()=>n.value || t.icon)), { sizeClasses: s } = Ri(t), { textColorClasses: l, textColorStyles: u } = da(X(t, "color"));
+            const n = G(), { themeClasses: i } = it(t), { iconData: o } = Fw(T(()=>n.value || t.icon)), { sizeClasses: s } = Ri(t), { textColorClasses: l, textColorStyles: u } = da(X(t, "color"));
             return ne(()=>{
                 const c = r.default?.();
-                c && (n.value = Fw(c).filter((h)=>h.type === Jx && h.children && typeof h.children == "string")[0]?.children);
+                c && (n.value = kw(c).filter((h)=>h.type === Zx && h.children && typeof h.children == "string")[0]?.children);
                 const d = !!(a.onClick || a.onClickOnce);
                 return y(o.value.component, {
                     tag: t.tag,
@@ -49173,7 +49275,7 @@ P = μTP`,
             })
         };
     }
-    function IM(t) {
+    function VM(t) {
         return {
             aspectStyles: T(()=>{
                 const e = Number(t.aspectRatio);
@@ -49183,7 +49285,7 @@ P = μTP`,
             })
         };
     }
-    const m0 = Y({
+    const p0 = Y({
         aspectRatio: [
             String,
             Number
@@ -49194,10 +49296,10 @@ P = μTP`,
         ...$t()
     }, "VResponsive"), _h = te()({
         name: "VResponsive",
-        props: m0(),
+        props: p0(),
         setup (t, e) {
             let { slots: a } = e;
-            const { aspectStyles: r } = IM(t), { dimensionStyles: n } = jt(t);
+            const { aspectStyles: r } = VM(t), { dimensionStyles: n } = jt(t);
             return ne(()=>y("div", {
                     class: [
                         "v-responsive",
@@ -49272,7 +49374,7 @@ P = μTP`,
             return d !== void 0;
         })), o), a);
     };
-    function zM(t, e) {
+    function WM(t, e) {
         if (!Sm) return;
         const a = e.modifiers || {}, r = e.value, { handler: n, options: i } = typeof r == "object" ? r : {
             handler: r,
@@ -49282,21 +49384,21 @@ P = μTP`,
             const u = t._observe?.[e.instance.$.uid];
             if (!u) return;
             const c = s.some((d)=>d.isIntersecting);
-            n && (!a.quiet || u.init) && (!a.once || c || u.init) && n(c, s, l), c && a.once ? p0(t, e) : u.init = !0;
+            n && (!a.quiet || u.init) && (!a.once || c || u.init) && n(c, s, l), c && a.once ? f0(t, e) : u.init = !0;
         }, i);
         t._observe = Object(t._observe), t._observe[e.instance.$.uid] = {
             init: !1,
             observer: o
         }, o.observe(t);
     }
-    function p0(t, e) {
+    function f0(t, e) {
         const a = t._observe?.[e.instance.$.uid];
         a && (a.observer.unobserve(t), delete t._observe[e.instance.$.uid]);
     }
     const zo = {
-        mounted: zM,
-        unmounted: p0
-    }, f0 = Y({
+        mounted: WM,
+        unmounted: f0
+    }, g0 = Y({
         absolute: Boolean,
         alt: String,
         cover: Boolean,
@@ -49331,7 +49433,7 @@ P = μTP`,
         referrerpolicy: String,
         srcset: String,
         position: String,
-        ...m0(),
+        ...p0(),
         ...xe(),
         ...Ct(),
         ...fr()
@@ -49340,7 +49442,7 @@ P = μTP`,
         directives: {
             intersect: zo
         },
-        props: f0(),
+        props: g0(),
         emits: {
             loadstart: (t)=>!0,
             load: (t)=>!0,
@@ -49574,7 +49676,7 @@ P = μTP`,
             })
         };
     }
-    const NM = [
+    const GM = [
         null,
         "default",
         "comfortable",
@@ -49583,7 +49685,7 @@ P = μTP`,
         density: {
             type: String,
             default: "default",
-            validator: (t)=>NM.includes(t)
+            validator: (t)=>GM.includes(t)
         }
     }, "density");
     function Fa(t) {
@@ -49592,7 +49694,7 @@ P = μTP`,
             densityClasses: T(()=>`${e}--density-${t.density}`)
         };
     }
-    const OM = [
+    const $M = [
         "elevated",
         "flat",
         "tonal",
@@ -49617,7 +49719,7 @@ P = μTP`,
         variant: {
             type: String,
             default: "elevated",
-            validator: (t)=>OM.includes(t)
+            validator: (t)=>$M.includes(t)
         }
     }, "variant");
     function jn(t) {
@@ -49640,7 +49742,7 @@ P = μTP`,
             variantClasses: a
         };
     }
-    const HM = Y({
+    const jM = Y({
         start: Boolean,
         end: Boolean,
         icon: Be,
@@ -49658,7 +49760,7 @@ P = μTP`,
         })
     }, "VAvatar"), rr = te()({
         name: "VAvatar",
-        props: HM(),
+        props: jM(),
         setup (t, e) {
             let { slots: a } = e;
             const { themeClasses: r } = it(t), { borderClasses: n } = qa(t), { colorClasses: i, colorStyles: o, variantClasses: s } = jn(t), { densityClasses: l } = Fa(t), { roundedClasses: u } = Pt(t), { sizeClasses: c, sizeStyles: d } = Ri(t);
@@ -49713,14 +49815,14 @@ P = μTP`,
                         ]
                 })), {};
         }
-    }), VM = Y({
+    }), UM = Y({
         text: String,
         onClick: ta(),
         ...xe(),
         ...Qe()
     }, "VLabel"), Li = te()({
         name: "VLabel",
-        props: VM(),
+        props: UM(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y("label", {
@@ -49738,7 +49840,7 @@ P = μTP`,
                     a.default?.()
                 ])), {};
         }
-    }), g0 = Symbol.for("vuetify:selection-control-group"), tp = Y({
+    }), v0 = Symbol.for("vuetify:selection-control-group"), tp = Y({
         color: String,
         disabled: {
             type: Boolean,
@@ -49775,20 +49877,20 @@ P = μTP`,
         ...xe(),
         ...Qt(),
         ...Qe()
-    }, "SelectionControlGroup"), WM = Y({
+    }, "SelectionControlGroup"), YM = Y({
         ...tp({
             defaultsTarget: "VSelectionControl"
         })
-    }, "VSelectionControlGroup"), v0 = te()({
+    }, "VSelectionControlGroup"), y0 = te()({
         name: "VSelectionControlGroup",
-        props: WM(),
+        props: YM(),
         emits: {
             "update:modelValue": (t)=>!0
         },
         setup (t, e) {
             let { slots: a } = e;
             const r = Pe(t, "modelValue"), n = Ca(), i = T(()=>t.id || `v-selection-control-group-${n}`), o = T(()=>t.name || i.value), s = new Set;
-            return Kt(g0, {
+            return Kt(v0, {
                 modelValue: r,
                 forceUpdate: ()=>{
                     s.forEach((l)=>l());
@@ -49829,19 +49931,19 @@ P = μTP`,
                     a.default?.()
                 ])), {};
         }
-    }), Ph = Symbol("rippleStop"), GM = 80;
+    }), Ph = Symbol("rippleStop"), qM = 80;
     function cy(t, e) {
         t.style.transform = e, t.style.webkitTransform = e;
     }
     function Bh(t) {
         return t.constructor.name === "TouchEvent";
     }
-    function y0(t) {
+    function b0(t) {
         return t.constructor.name === "KeyboardEvent";
     }
-    const $M = function(t, e) {
+    const KM = function(t, e) {
         let a = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, r = 0, n = 0;
-        if (!y0(t)) {
+        if (!b0(t)) {
             const d = e.getBoundingClientRect(), h = Bh(t) ? t.touches[t.touches.length - 1] : t;
             r = h.clientX - d.left, n = h.clientY - d.top;
         }
@@ -49862,7 +49964,7 @@ P = μTP`,
             if (!e?._ripple?.enabled) return;
             const r = document.createElement("span"), n = document.createElement("span");
             r.appendChild(n), r.className = "v-ripple__container", a.class && (r.className += ` ${a.class}`);
-            const { radius: i, scale: o, x: s, y: l, centerX: u, centerY: c } = $M(t, e, a), d = `${i * 2}px`;
+            const { radius: i, scale: o, x: s, y: l, centerX: u, centerY: c } = KM(t, e, a), d = `${i * 2}px`;
             n.className = "v-ripple__animation", n.style.width = d, n.style.height = d, e.appendChild(r);
             const h = window.getComputedStyle(e);
             h && h.position === "static" && (e.style.position = "relative", e.dataset.previousPosition = "static"), n.classList.add("v-ripple__animation--enter"), n.classList.add("v-ripple__animation--visible"), cy(n, `translate(${s}, ${l}) scale3d(${o},${o},${o})`), n.dataset.activated = String(performance.now()), requestAnimationFrame(()=>{
@@ -49886,7 +49988,7 @@ P = μTP`,
             }, n);
         }
     };
-    function b0(t) {
+    function F0(t) {
         return typeof t > "u" || !!t;
     }
     function ho(t) {
@@ -49894,13 +49996,13 @@ P = μTP`,
         if (!(!a?._ripple || a._ripple.touched || t[Ph])) {
             if (t[Ph] = !0, Bh(t)) a._ripple.touched = !0, a._ripple.isTouch = !0;
             else if (a._ripple.isTouch) return;
-            if (e.center = a._ripple.centered || y0(t), a._ripple.class && (e.class = a._ripple.class), Bh(t)) {
+            if (e.center = a._ripple.centered || b0(t), a._ripple.class && (e.class = a._ripple.class), Bh(t)) {
                 if (a._ripple.showTimerCommit) return;
                 a._ripple.showTimerCommit = ()=>{
                     Hs.show(t, a, e);
                 }, a._ripple.showTimer = window.setTimeout(()=>{
                     a?._ripple?.showTimerCommit && (a._ripple.showTimerCommit(), a._ripple.showTimerCommit = null);
-                }, GM);
+                }, qM);
             } else Hs.show(t, a, e);
         }
     }
@@ -49921,22 +50023,22 @@ P = μTP`,
             }), Hs.hide(e);
         }
     }
-    function F0(t) {
+    function k0(t) {
         const e = t.currentTarget;
         e?._ripple && (e._ripple.showTimerCommit && (e._ripple.showTimerCommit = null), window.clearTimeout(e._ripple.showTimer));
     }
     let mo = !1;
-    function k0(t) {
+    function x0(t) {
         !mo && (t.keyCode === rf.enter || t.keyCode === rf.space) && (mo = !0, ho(t));
     }
-    function x0(t) {
+    function w0(t) {
         mo = !1, Ga(t);
     }
-    function w0(t) {
+    function S0(t) {
         mo && (mo = !1, Ga(t));
     }
-    function S0(t, e, a) {
-        const { value: r, modifiers: n } = e, i = b0(r);
+    function C0(t, e, a) {
+        const { value: r, modifiers: n } = e, i = F0(r);
         if (i || Hs.hide(t), t._ripple = t._ripple ?? {}, t._ripple.enabled = i, t._ripple.centered = n.center, t._ripple.circle = n.circle, il(r) && r.class && (t._ripple.class = r.class), i && !a) {
             if (n.stop) {
                 t.addEventListener("touchstart", dy, {
@@ -49948,32 +50050,32 @@ P = μTP`,
                 passive: !0
             }), t.addEventListener("touchend", Ga, {
                 passive: !0
-            }), t.addEventListener("touchmove", F0, {
+            }), t.addEventListener("touchmove", k0, {
                 passive: !0
-            }), t.addEventListener("touchcancel", Ga), t.addEventListener("mousedown", ho), t.addEventListener("mouseup", Ga), t.addEventListener("mouseleave", Ga), t.addEventListener("keydown", k0), t.addEventListener("keyup", x0), t.addEventListener("blur", w0), t.addEventListener("dragstart", Ga, {
+            }), t.addEventListener("touchcancel", Ga), t.addEventListener("mousedown", ho), t.addEventListener("mouseup", Ga), t.addEventListener("mouseleave", Ga), t.addEventListener("keydown", x0), t.addEventListener("keyup", w0), t.addEventListener("blur", S0), t.addEventListener("dragstart", Ga, {
                 passive: !0
             });
-        } else !i && a && C0(t);
+        } else !i && a && A0(t);
     }
-    function C0(t) {
-        t.removeEventListener("mousedown", ho), t.removeEventListener("touchstart", ho), t.removeEventListener("touchend", Ga), t.removeEventListener("touchmove", F0), t.removeEventListener("touchcancel", Ga), t.removeEventListener("mouseup", Ga), t.removeEventListener("mouseleave", Ga), t.removeEventListener("keydown", k0), t.removeEventListener("keyup", x0), t.removeEventListener("dragstart", Ga), t.removeEventListener("blur", w0);
+    function A0(t) {
+        t.removeEventListener("mousedown", ho), t.removeEventListener("touchstart", ho), t.removeEventListener("touchend", Ga), t.removeEventListener("touchmove", k0), t.removeEventListener("touchcancel", Ga), t.removeEventListener("mouseup", Ga), t.removeEventListener("mouseleave", Ga), t.removeEventListener("keydown", x0), t.removeEventListener("keyup", w0), t.removeEventListener("dragstart", Ga), t.removeEventListener("blur", S0);
     }
-    function jM(t, e) {
-        S0(t, e, !1);
+    function XM(t, e) {
+        C0(t, e, !1);
     }
-    function UM(t) {
-        delete t._ripple, C0(t);
+    function JM(t) {
+        delete t._ripple, A0(t);
     }
-    function YM(t, e) {
+    function ZM(t, e) {
         if (e.value === e.oldValue) return;
-        const a = b0(e.oldValue);
-        S0(t, e, a);
+        const a = F0(e.oldValue);
+        C0(t, e, a);
     }
     let wl;
     zr = {
-        mounted: jM,
-        unmounted: UM,
-        updated: YM
+        mounted: XM,
+        unmounted: JM,
+        updated: ZM
     };
     wl = Y({
         label: String,
@@ -49984,8 +50086,8 @@ P = μTP`,
         ...xe(),
         ...tp()
     }, "VSelectionControl");
-    function qM(t) {
-        const e = Tt(g0, void 0), { densityClasses: a } = Fa(t), r = Pe(t, "modelValue"), n = T(()=>t.trueValue !== void 0 ? t.trueValue : t.value !== void 0 ? t.value : !0), i = T(()=>t.falseValue !== void 0 ? t.falseValue : !1), o = T(()=>!!t.multiple || t.multiple == null && Array.isArray(r.value)), s = T({
+    function QM(t) {
+        const e = Tt(v0, void 0), { densityClasses: a } = Fa(t), r = Pe(t, "modelValue"), n = T(()=>t.trueValue !== void 0 ? t.trueValue : t.value !== void 0 ? t.value : !0), i = T(()=>t.falseValue !== void 0 ? t.falseValue : !1), o = T(()=>!!t.multiple || t.multiple == null && Array.isArray(r.value)), s = T({
             get () {
                 const m = e ? e.modelValue.value : r.value;
                 return o.value ? Dt(m).some((p)=>t.valueComparator(p, n.value)) : t.valueComparator(m, n.value);
@@ -50015,7 +50117,7 @@ P = μTP`,
             icon: h
         };
     }
-    let Zr, A0;
+    let Zr, D0;
     Zr = te()({
         name: "VSelectionControl",
         directives: {
@@ -50028,7 +50130,7 @@ P = μTP`,
         },
         setup (t, e) {
             let { attrs: a, slots: r } = e;
-            const { group: n, densityClasses: i, icon: o, model: s, textColorClasses: l, textColorStyles: u, backgroundColorClasses: c, backgroundColorStyles: d, trueValue: h } = qM(t), m = Ca(), p = de(!1), f = de(!1), g = G(), v = T(()=>t.id || `input-${m}`), b = T(()=>!t.disabled && !t.readonly);
+            const { group: n, densityClasses: i, icon: o, model: s, textColorClasses: l, textColorStyles: u, backgroundColorClasses: c, backgroundColorStyles: d, trueValue: h } = QM(t), m = Ca(), p = de(!1), f = de(!1), g = G(), v = T(()=>t.id || `input-${m}`), b = T(()=>!t.disabled && !t.readonly);
             n?.onForceUpdate(()=>{
                 g.value && (g.value.checked = s.value);
             });
@@ -50151,7 +50253,7 @@ P = μTP`,
             };
         }
     });
-    A0 = Y({
+    D0 = Y({
         indeterminate: Boolean,
         indeterminateIcon: {
             type: Be,
@@ -50164,7 +50266,7 @@ P = μTP`,
     }, "VCheckboxBtn");
     Rr = te()({
         name: "VCheckboxBtn",
-        props: A0(),
+        props: D0(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:indeterminate": (t)=>!0
@@ -50199,7 +50301,7 @@ P = μTP`,
             }), {};
         }
     });
-    function D0(t) {
+    function T0(t) {
         const { t: e } = Ot();
         function a(r) {
             let { name: n } = r;
@@ -50225,7 +50327,7 @@ P = μTP`,
             InputIcon: a
         };
     }
-    const KM = Y({
+    const e3 = Y({
         disabled: Boolean,
         group: Boolean,
         hideOnLeave: Boolean,
@@ -50236,7 +50338,7 @@ P = μTP`,
     function Ka(t, e, a) {
         return te()({
             name: t,
-            props: KM({
+            props: e3({
                 mode: a,
                 origin: e
             }),
@@ -50280,7 +50382,7 @@ P = μTP`,
             }
         });
     }
-    function T0(t, e) {
+    function E0(t, e) {
         let a = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "in-out";
         return te()({
             name: t,
@@ -50303,9 +50405,9 @@ P = μTP`,
             }
         });
     }
-    function E0() {
+    function _0() {
         let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "";
-        const a = (arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1) ? "width" : "height", r = Zx(`offset-${a}`);
+        const a = (arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1) ? "width" : "height", r = Qx(`offset-${a}`);
         return {
             onBeforeEnter (o) {
                 o._parent = o.parentNode, o._initialStyle = {
@@ -50344,14 +50446,14 @@ P = μTP`,
             o.style.overflow = o._initialStyle.overflow, s != null && (o.style[a] = s), delete o._initialStyle;
         }
     }
-    const XM = Y({
+    const t3 = Y({
         target: [
             Object,
             Array
         ]
     }, "v-dialog-transition"), Sl = te()({
         name: "VDialogTransition",
-        props: XM(),
+        props: t3(),
         setup (t, e) {
             let { slots: a } = e;
             const r = {
@@ -50368,7 +50470,7 @@ P = μTP`,
                         {}
                     ], {
                         duration: 225 * c,
-                        easing: xw
+                        easing: ww
                     });
                     hy(n)?.forEach((h)=>{
                         vn(h, [
@@ -50403,7 +50505,7 @@ P = μTP`,
                         }
                     ], {
                         duration: 125 * c,
-                        easing: kw
+                        easing: xw
                     }).finished.then(()=>i()), hy(n)?.forEach((h)=>{
                         vn(h, [
                             {},
@@ -50454,23 +50556,23 @@ P = μTP`,
             speed: g
         };
     }
-    let JM, ZM, QM, po, fo, e3, t3, a3, P0, r3, Cl, n3, i3, B0, No;
-    JM = Ka("fab-transition", "center center", "out-in");
-    ZM = Ka("dialog-bottom-transition");
-    QM = Ka("dialog-top-transition");
+    let a3, r3, n3, po, fo, i3, o3, s3, B0, l3, Cl, u3, c3, M0, No;
+    a3 = Ka("fab-transition", "center center", "out-in");
+    r3 = Ka("dialog-bottom-transition");
+    n3 = Ka("dialog-top-transition");
     po = Ka("fade-transition");
     fo = Ka("scale-transition");
-    _0 = Ka("scroll-x-transition");
-    e3 = Ka("scroll-x-reverse-transition");
-    t3 = Ka("scroll-y-transition");
-    a3 = Ka("scroll-y-reverse-transition");
-    P0 = Ka("slide-x-transition");
-    r3 = Ka("slide-x-reverse-transition");
+    P0 = Ka("scroll-x-transition");
+    i3 = Ka("scroll-x-reverse-transition");
+    o3 = Ka("scroll-y-transition");
+    s3 = Ka("scroll-y-reverse-transition");
+    B0 = Ka("slide-x-transition");
+    l3 = Ka("slide-x-reverse-transition");
     Cl = Ka("slide-y-transition");
-    n3 = Ka("slide-y-reverse-transition");
-    Al = T0("expand-transition", E0());
-    ap = T0("expand-x-transition", E0("", !0));
-    i3 = Y({
+    u3 = Ka("slide-y-reverse-transition");
+    Al = E0("expand-transition", _0());
+    ap = E0("expand-x-transition", _0("", !0));
+    c3 = Y({
         active: Boolean,
         color: String,
         messages: {
@@ -50489,9 +50591,9 @@ P = μTP`,
             }
         })
     }, "VMessages");
-    B0 = te()({
+    M0 = te()({
         name: "VMessages",
-        props: i3(),
+        props: c3(),
         setup (t, e) {
             let { slots: a } = e;
             const r = T(()=>Dt(t.messages)), { textColorClasses: n, textColorStyles: i } = da(T(()=>t.color));
@@ -50543,7 +50645,7 @@ P = μTP`,
             blur: i
         };
     }
-    const M0 = Symbol.for("vuetify:form"), o3 = Y({
+    const R0 = Symbol.for("vuetify:form"), d3 = Y({
         disabled: Boolean,
         fastFail: Boolean,
         readonly: Boolean,
@@ -50556,7 +50658,7 @@ P = μTP`,
             default: "input"
         }
     }, "form");
-    function s3(t) {
+    function h3(t) {
         const e = Pe(t, "modelValue"), a = T(()=>t.disabled), r = T(()=>t.readonly), n = de(!1), i = G([]), o = G([]);
         async function s() {
             const c = [];
@@ -50591,7 +50693,7 @@ P = μTP`,
         }, {
             deep: !0,
             flush: "post"
-        }), Kt(M0, {
+        }), Kt(R0, {
             register: (c)=>{
                 let { id: d, vm: h, validate: m, reset: p, resetValidation: f } = c;
                 i.value.some((g)=>g.id === d), i.value.push({
@@ -50599,7 +50701,7 @@ P = μTP`,
                     validate: m,
                     reset: p,
                     resetValidation: f,
-                    vm: Qx(h),
+                    vm: ew(h),
                     isValid: null,
                     errorMessages: []
                 });
@@ -50630,14 +50732,14 @@ P = μTP`,
         };
     }
     function Dl(t) {
-        const e = Tt(M0, null);
+        const e = Tt(R0, null);
         return {
             ...e,
             isReadonly: T(()=>!!(t?.readonly ?? e?.isReadonly.value)),
             isDisabled: T(()=>!!(t?.disabled ?? e?.isDisabled.value))
         };
     }
-    const R0 = Y({
+    const L0 = Y({
         disabled: {
             type: Boolean,
             default: null
@@ -50672,7 +50774,7 @@ P = μTP`,
         validationValue: null,
         ...No()
     }, "validation");
-    function L0(t) {
+    function I0(t) {
         let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : Ir(), a = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Ca();
         const r = Pe(t, "modelValue"), n = T(()=>t.validationValue === void 0 ? r.value : t.validationValue), i = Dl(t), o = G([]), s = de(!0), l = T(()=>!!(Dt(r.value === "" ? null : r.value).length || Dt(n.value === "" ? null : n.value).length)), u = T(()=>t.errorMessages?.length ? Dt(t.errorMessages).concat(o.value).slice(0, Math.max(0, Number(t.maxErrors))) : o.value), c = T(()=>{
             let x = (t.validateOn ?? i.validateOn?.value) || "input";
@@ -50759,7 +50861,7 @@ P = μTP`,
             validationClasses: m
         };
     }
-    let Or, ha, l3, Un, Yn;
+    let Or, ha, m3, Un, Yn;
     Or = Y({
         id: String,
         appendIcon: Be,
@@ -50800,7 +50902,7 @@ P = μTP`,
             "width"
         ]),
         ...Qe(),
-        ...R0()
+        ...L0()
     }, "VInput");
     ha = te()({
         name: "VInput",
@@ -50812,7 +50914,7 @@ P = μTP`,
         },
         setup (t, e) {
             let { attrs: a, slots: r, emit: n } = e;
-            const { densityClasses: i } = Fa(t), { dimensionStyles: o } = jt(t), { themeClasses: s } = it(t), { rtlClasses: l } = Zt(), { InputIcon: u } = D0(t), c = Ca(), d = T(()=>t.id || `input-${c}`), h = T(()=>`${d.value}-messages`), { errorMessages: m, isDirty: p, isDisabled: f, isReadonly: g, isPristine: v, isValid: b, isValidating: x, reset: C, resetValidation: k, validate: S, validationClasses: w } = L0(t, "v-input", d), F = T(()=>({
+            const { densityClasses: i } = Fa(t), { dimensionStyles: o } = jt(t), { themeClasses: s } = it(t), { rtlClasses: l } = Zt(), { InputIcon: u } = T0(t), c = Ca(), d = T(()=>t.id || `input-${c}`), h = T(()=>`${d.value}-messages`), { errorMessages: m, isDirty: p, isDisabled: f, isReadonly: g, isPristine: v, isValid: b, isValidating: x, reset: C, resetValidation: k, validate: S, validationClasses: w } = I0(t, "v-input", d), F = T(()=>({
                     id: d,
                     messagesId: h,
                     isDirty: p,
@@ -50877,7 +50979,7 @@ P = μTP`,
                         role: "alert",
                         "aria-live": "polite"
                     }, [
-                        y(B0, {
+                        y(M0, {
                             active: _,
                             messages: A.value
                         }, {
@@ -50895,16 +50997,16 @@ P = μTP`,
             };
         }
     });
-    l3 = Y({
+    m3 = Y({
         ...Or(),
-        ...Gt(A0(), [
+        ...Gt(D0(), [
             "inline"
         ])
     }, "VCheckbox");
     Kr = te()({
         name: "VCheckbox",
         inheritAttrs: !1,
-        props: l3(),
+        props: m3(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:focused": (t)=>!0
@@ -51009,12 +51111,12 @@ P = μTP`,
     }
     function un(t, e) {
         let a = !1;
-        const r = Pa([]), n = Pe(t, "modelValue", [], (h)=>h == null ? [] : I0(r, Dt(h)), (h)=>{
-            const m = c3(r, h);
+        const r = Pa([]), n = Pe(t, "modelValue", [], (h)=>h == null ? [] : z0(r, Dt(h)), (h)=>{
+            const m = f3(r, h);
             return t.multiple ? m : m[0];
         }), i = La("useGroup");
         function o(h, m) {
-            const p = h, f = Symbol.for(`${e.description}:id`), v = ww(f, i?.vnode).indexOf(m);
+            const p = h, f = Symbol.for(`${e.description}:id`), v = Sw(f, i?.vnode).indexOf(m);
             U(p.value) == null && (p.value = v, p.useIndexAsValue = !0), v > -1 ? r.splice(v, 0, p) : r.push(p);
         }
         function s(h) {
@@ -51033,7 +51135,7 @@ P = μTP`,
             l();
         }), pa(()=>{
             a = !0;
-        }), ew(()=>{
+        }), tw(()=>{
             for(let h = 0; h < r.length; h++)r[h].useIndexAsValue && (r[h].value = h);
         });
         function u(h, m) {
@@ -51077,24 +51179,24 @@ P = μTP`,
             isSelected: (h)=>n.value.includes(h),
             selectedClass: T(()=>t.selectedClass),
             items: T(()=>r),
-            getItemIndex: (h)=>u3(r, h)
+            getItemIndex: (h)=>p3(r, h)
         };
         return Kt(e, d), d;
     }
-    function u3(t, e) {
-        const a = I0(t, [
+    function p3(t, e) {
+        const a = z0(t, [
             e
         ]);
         return a.length ? t.findIndex((r)=>r.id === a[0]) : -1;
     }
-    function I0(t, e) {
+    function z0(t, e) {
         const a = [];
         return e.forEach((r)=>{
             const n = t.find((o)=>Sa(r, o.value)), i = t[r];
             n?.value != null ? a.push(n.id) : i != null && a.push(i.id);
         }), a;
     }
-    function c3(t, e) {
+    function f3(t, e) {
         const a = [];
         return e.forEach((r)=>{
             const n = t.findIndex((i)=>i.id === r);
@@ -51104,23 +51206,23 @@ P = μTP`,
             }
         }), a;
     }
-    function d3(t) {
+    function g3(t) {
         let { selectedElement: e, containerElement: a, isRtl: r, isHorizontal: n } = t;
-        const i = go(n, a), o = z0(n, r, a), s = go(n, e), l = N0(n, e), u = s * .4;
+        const i = go(n, a), o = N0(n, r, a), s = go(n, e), l = O0(n, e), u = s * .4;
         return o > l ? l - u : o + i < l + s ? l - i + s + u : o;
     }
-    function h3(t) {
+    function v3(t) {
         let { selectedElement: e, containerElement: a, isHorizontal: r } = t;
-        const n = go(r, a), i = N0(r, e), o = go(r, e);
+        const n = go(r, a), i = O0(r, e), o = go(r, e);
         return i - n / 2 + o / 2;
     }
     function py(t, e) {
         return e?.[t ? "scrollWidth" : "scrollHeight"] || 0;
     }
-    function m3(t, e) {
+    function y3(t, e) {
         return e?.[t ? "clientWidth" : "clientHeight"] || 0;
     }
-    function z0(t, e, a) {
+    function N0(t, e, a) {
         if (!a) return 0;
         const { scrollLeft: r, offsetWidth: n, scrollWidth: i } = a;
         return t ? e ? i - n + r : r : a.scrollTop;
@@ -51128,10 +51230,10 @@ P = μTP`,
     function go(t, e) {
         return e?.[t ? "offsetWidth" : "offsetHeight"] || 0;
     }
-    function N0(t, e) {
+    function O0(t, e) {
         return e?.[t ? "offsetLeft" : "offsetTop"] || 0;
     }
-    const O0 = Symbol.for("vuetify:v-slide-group"), rp = Y({
+    const H0 = Symbol.for("vuetify:v-slide-group"), rp = Y({
         centerActive: Boolean,
         direction: {
             type: String,
@@ -51139,7 +51241,7 @@ P = μTP`,
         },
         symbol: {
             type: null,
-            default: O0
+            default: H0
         },
         nextIcon: {
             type: Be,
@@ -51176,7 +51278,7 @@ P = μTP`,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const { isRtl: r } = Zt(), { displayClasses: n, mobile: i } = Ra(t), o = un(t, t.symbol), s = de(!1), l = de(0), u = de(0), c = de(0), d = T(()=>t.direction === "horizontal"), { resizeRef: h, contentRect: m } = Fr(), { resizeRef: p, contentRect: f } = Fr(), g = Sw(), v = T(()=>({
+            const { isRtl: r } = Zt(), { displayClasses: n, mobile: i } = Ra(t), o = un(t, t.symbol), s = de(!1), l = de(0), u = de(0), c = de(0), d = T(()=>t.direction === "horizontal"), { resizeRef: h, contentRect: m } = Fr(), { resizeRef: p, contentRect: f } = Fr(), g = Cw(), v = T(()=>({
                     container: h.el,
                     duration: 200,
                     easing: "easeOutQuart"
@@ -51204,11 +51306,11 @@ P = μTP`,
             const C = de(!1);
             function k(L, q) {
                 let ee = 0;
-                q ? ee = h3({
+                q ? ee = v3({
                     containerElement: h.el,
                     isHorizontal: d.value,
                     selectedElement: L
-                }) : ee = d3({
+                }) : ee = g3({
                     containerElement: h.el,
                     isHorizontal: d.value,
                     isRtl: r.value,
@@ -51217,7 +51319,7 @@ P = μTP`,
             }
             function S(L) {
                 if (!qt || !h.el) return;
-                const q = go(d.value, h.el), ee = z0(d.value, r.value, h.el);
+                const q = go(d.value, h.el), ee = N0(d.value, r.value, h.el);
                 if (!(py(d.value, h.el) <= q || Math.abs(L - ee) < 16)) {
                     if (d.value && r.value && h.el) {
                         const { scrollWidth: me, offsetWidth: $ } = h.el;
@@ -51304,7 +51406,7 @@ P = μTP`,
                 }
             }), H = T(()=>Math.abs(l.value) > 1), I = T(()=>{
                 if (!h.value) return !1;
-                const L = py(d.value, h.el), q = m3(d.value, h.el);
+                const L = py(d.value, h.el), q = y3(d.value, h.el);
                 return L - q - Math.abs(l.value) > 1;
             });
             return ne(()=>y(t.tag, {
@@ -51387,7 +51489,7 @@ P = μTP`,
                 hasNext: I
             };
         }
-    }), H0 = Symbol.for("vuetify:v-chip-group"), p3 = Y({
+    }), V0 = Symbol.for("vuetify:v-chip-group"), b3 = Y({
         column: Boolean,
         filter: Boolean,
         valueComparator: {
@@ -51404,15 +51506,15 @@ P = μTP`,
         ...or({
             variant: "tonal"
         })
-    }, "VChipGroup"), f3 = te()({
+    }, "VChipGroup"), F3 = te()({
         name: "VChipGroup",
-        props: p3(),
+        props: b3(),
         emits: {
             "update:modelValue": (t)=>!0
         },
         setup (t, e) {
             let { slots: a } = e;
-            const { themeClasses: r } = it(t), { isSelected: n, select: i, next: o, prev: s, selected: l } = un(t, H0);
+            const { themeClasses: r } = it(t), { isSelected: n, select: i, next: o, prev: s, selected: l } = un(t, V0);
             return _t({
                 VChip: {
                     color: X(t, "color"),
@@ -51465,11 +51567,11 @@ P = μTP`,
             })
         };
     }
-    function g3() {
+    function k3() {
         const t = La("useRoute");
         return T(()=>t?.proxy?.$route);
     }
-    function V0() {
+    function W0() {
         return La("useRouter")?.proxy?.$router;
     }
     function Oo(t, e) {
@@ -51488,7 +51590,7 @@ P = μTP`,
         const i = T(()=>({
                 ...t,
                 to: X(()=>t.to || "")
-            })), o = a.useLink(i.value), s = T(()=>t.to ? o : void 0), l = g3(), u = T(()=>s.value ? t.exact ? l.value ? s.value.isExactActive?.value && Sa(s.value.route.value.query, l.value.query) : s.value.isExactActive?.value ?? !1 : s.value.isActive?.value ?? !1 : !1), c = T(()=>t.to ? s.value?.route.value.href : t.href);
+            })), o = a.useLink(i.value), s = T(()=>t.to ? o : void 0), l = k3(), u = T(()=>s.value ? t.exact ? l.value ? s.value.isExactActive?.value && Sa(s.value.route.value.query, l.value.query) : s.value.isExactActive?.value ?? !1 : s.value.isActive?.value ?? !1 : !1), c = T(()=>t.to ? s.value?.route.value.href : t.href);
         return {
             isLink: r,
             isClickable: n,
@@ -51512,7 +51614,7 @@ P = μTP`,
         exact: Boolean
     }, "router");
     let Md = !1;
-    function v3(t, e) {
+    function x3(t, e) {
         let a = !1, r, n;
         qt && t?.beforeEach && (nt(()=>{
             window.addEventListener("popstate", i), r = t.beforeEach((o, s, l)=>{
@@ -51527,8 +51629,8 @@ P = μTP`,
             o.state?.replaced || (a = !0, setTimeout(()=>a = !1));
         }
     }
-    let y3, Mh;
-    y3 = Y({
+    let w3, Mh;
+    w3 = Y({
         activeClass: String,
         appendAvatar: String,
         appendIcon: Be,
@@ -51597,7 +51699,7 @@ P = μTP`,
         directives: {
             Ripple: zr
         },
-        props: y3(),
+        props: w3(),
         emits: {
             "click:close": (t)=>!0,
             "update:modelValue": (t)=>!0,
@@ -51606,7 +51708,7 @@ P = μTP`,
         },
         setup (t, e) {
             let { attrs: a, emit: r, slots: n } = e;
-            const { t: i } = Ot(), { borderClasses: o } = qa(t), { colorClasses: s, colorStyles: l, variantClasses: u } = jn(t), { densityClasses: c } = Fa(t), { elevationClasses: d } = na(t), { roundedClasses: h } = Pt(t), { sizeClasses: m } = Ri(t), { themeClasses: p } = it(t), f = Pe(t, "modelValue"), g = qn(t, H0, !1), v = Oo(t, a), b = T(()=>t.link !== !1 && v.isLink.value), x = T(()=>!t.disabled && t.link !== !1 && (!!g || t.link || v.isClickable.value)), C = T(()=>({
+            const { t: i } = Ot(), { borderClasses: o } = qa(t), { colorClasses: s, colorStyles: l, variantClasses: u } = jn(t), { densityClasses: c } = Fa(t), { elevationClasses: d } = na(t), { roundedClasses: h } = Pt(t), { sizeClasses: m } = Ri(t), { themeClasses: p } = it(t), f = Pe(t, "modelValue"), g = qn(t, V0, !1), v = Oo(t, a), b = T(()=>t.link !== !1 && v.isLink.value), x = T(()=>!t.disabled && t.link !== !1 && (!!g || t.link || v.isClickable.value)), C = T(()=>({
                     "aria-label": i(t.closeLabel),
                     onClick (w) {
                         w.preventDefault(), w.stopPropagation(), f.value = !1, r("click:close", w);
@@ -51786,7 +51888,7 @@ P = μTP`,
         }
     });
     Mh = Symbol.for("vuetify:list");
-    function W0() {
+    function G0() {
         const t = Tt(Mh, {
             hasPrepend: de(!1),
             updateHasPrepend: ()=>null
@@ -51798,7 +51900,7 @@ P = μTP`,
         };
         return Kt(Mh, e), t;
     }
-    function G0() {
+    function $0() {
         return Tt(Mh, null);
     }
     const np = (t)=>{
@@ -51821,7 +51923,7 @@ P = μTP`,
             out: (a)=>Array.from(a)
         };
         return e;
-    }, $0 = (t)=>{
+    }, j0 = (t)=>{
         const e = np(t);
         return {
             activate: (r)=>{
@@ -51846,7 +51948,7 @@ P = μTP`,
             },
             out: (r, n, i)=>e.out(r, n, i)
         };
-    }, b3 = (t)=>{
+    }, S3 = (t)=>{
         const e = np(t);
         return {
             activate: (r)=>{
@@ -51861,8 +51963,8 @@ P = μTP`,
             in: e.in,
             out: e.out
         };
-    }, F3 = (t)=>{
-        const e = $0(t);
+    }, C3 = (t)=>{
+        const e = j0(t);
         return {
             activate: (r)=>{
                 let { id: n, activated: i, children: o, ...s } = r;
@@ -51876,7 +51978,7 @@ P = μTP`,
             in: e.in,
             out: e.out
         };
-    }, k3 = {
+    }, A3 = {
         open: (t)=>{
             let { id: e, value: a, opened: r, parents: n } = t;
             if (a) {
@@ -51888,7 +51990,7 @@ P = μTP`,
             } else return r.delete(e), r;
         },
         select: ()=>null
-    }, j0 = {
+    }, U0 = {
         open: (t)=>{
             let { id: e, value: a, opened: r, parents: n } = t;
             if (a) {
@@ -51899,8 +52001,8 @@ P = μTP`,
             return r;
         },
         select: ()=>null
-    }, x3 = {
-        open: j0.open,
+    }, D3 = {
+        open: U0.open,
         select: (t)=>{
             let { id: e, value: a, opened: r, parents: n } = t;
             if (!a) return r;
@@ -51940,7 +52042,7 @@ P = μTP`,
             }
         };
         return e;
-    }, U0 = (t)=>{
+    }, Y0 = (t)=>{
         const e = ip(t);
         return {
             select: (r)=>{
@@ -51961,7 +52063,7 @@ P = μTP`,
             in: (r, n, i)=>r?.length ? e.in(r.slice(0, 1), n, i) : new Map,
             out: (r, n, i)=>e.out(r, n, i)
         };
-    }, w3 = (t)=>{
+    }, T3 = (t)=>{
         const e = ip(t);
         return {
             select: (r)=>{
@@ -51976,8 +52078,8 @@ P = μTP`,
             in: e.in,
             out: e.out
         };
-    }, S3 = (t)=>{
-        const e = U0(t);
+    }, E3 = (t)=>{
+        const e = Y0(t);
         return {
             select: (r)=>{
                 let { id: n, selected: i, children: o, ...s } = r;
@@ -51991,7 +52093,7 @@ P = μTP`,
             in: e.in,
             out: e.out
         };
-    }, C3 = (t)=>{
+    }, _3 = (t)=>{
         const e = {
             select: (a)=>{
                 let { id: r, value: n, selected: i, children: o, parents: s } = a;
@@ -52031,7 +52133,7 @@ P = μTP`,
             }
         };
         return e;
-    }, yo = Symbol.for("vuetify:nested"), Y0 = {
+    }, yo = Symbol.for("vuetify:nested"), q0 = {
         id: de(),
         root: {
             register: ()=>null,
@@ -52050,7 +52152,7 @@ P = μTP`,
             selectedValues: G([]),
             getPath: ()=>[]
         }
-    }, A3 = Y({
+    }, P3 = Y({
         activatable: Boolean,
         selectable: Boolean,
         activeStrategy: [
@@ -52071,7 +52173,7 @@ P = μTP`,
         activated: null,
         selected: null,
         mandatory: Boolean
-    }, "nested"), D3 = (t)=>{
+    }, "nested"), B3 = (t)=>{
         let e = !1;
         const a = G(new Map), r = G(new Map), n = Pe(t, "opened", t.opened, (p)=>new Set(p), (p)=>[
                 ...p.values()
@@ -52080,41 +52182,41 @@ P = μTP`,
             if (typeof t.activeStrategy == "function") return t.activeStrategy(t.mandatory);
             switch(t.activeStrategy){
                 case "leaf":
-                    return b3(t.mandatory);
+                    return S3(t.mandatory);
                 case "single-leaf":
-                    return F3(t.mandatory);
+                    return C3(t.mandatory);
                 case "independent":
                     return np(t.mandatory);
                 case "single-independent":
                 default:
-                    return $0(t.mandatory);
+                    return j0(t.mandatory);
             }
         }), o = T(()=>{
             if (typeof t.selectStrategy == "object") return t.selectStrategy;
             if (typeof t.selectStrategy == "function") return t.selectStrategy(t.mandatory);
             switch(t.selectStrategy){
                 case "single-leaf":
-                    return S3(t.mandatory);
+                    return E3(t.mandatory);
                 case "leaf":
-                    return w3(t.mandatory);
+                    return T3(t.mandatory);
                 case "independent":
                     return ip(t.mandatory);
                 case "single-independent":
-                    return U0(t.mandatory);
+                    return Y0(t.mandatory);
                 case "classic":
                 default:
-                    return C3(t.mandatory);
+                    return _3(t.mandatory);
             }
         }), s = T(()=>{
             if (typeof t.openStrategy == "object") return t.openStrategy;
             switch(t.openStrategy){
                 case "list":
-                    return x3;
+                    return D3;
                 case "single":
-                    return k3;
+                    return A3;
                 case "multiple":
                 default:
-                    return j0;
+                    return U0;
             }
         }), l = Pe(t, "activated", t.activated, (p)=>i.value.in(p, a.value, r.value), (p)=>i.value.out(p, a.value, r.value)), u = Pe(t, "selected", t.selected, (p)=>o.value.in(p, a.value, r.value), (p)=>o.value.out(p, a.value, r.value));
         pa(()=>{
@@ -52239,8 +52341,8 @@ P = μTP`,
             }
         };
         return Kt(yo, m), m.root;
-    }, q0 = (t, e)=>{
-        const a = Tt(yo, Y0), r = Symbol(Ca()), n = T(()=>t.value !== void 0 ? t.value : r), i = {
+    }, K0 = (t, e)=>{
+        const a = Tt(yo, q0), r = Symbol(Ca()), n = T(()=>t.value !== void 0 ? t.value : r), i = {
             ...a,
             id: n,
             open: (o, s)=>a.root.open(n.value, o, s),
@@ -52260,8 +52362,8 @@ P = μTP`,
         }), pa(()=>{
             !a.isGroupActivator && a.root.unregister(n.value);
         }), e && Kt(yo, i), i;
-    }, T3 = ()=>{
-        const t = Tt(yo, Y0);
+    }, M3 = ()=>{
+        const t = Tt(yo, q0);
         Kt(yo, {
             ...t,
             isGroupActivator: !0
@@ -52280,15 +52382,15 @@ P = μTP`,
             isBooted: Zs(t)
         };
     }
-    let E3, _3, Rh, P3, B3, M3, R3, L3, J0, Z0;
-    E3 = on({
+    let R3, L3, Rh, I3, z3, N3, O3, H3, Z0, Q0;
+    R3 = on({
         name: "VListGroupActivator",
         setup (t, e) {
             let { slots: a } = e;
-            return T3(), ()=>a.default?.();
+            return M3(), ()=>a.default?.();
         }
     });
-    _3 = Y({
+    L3 = Y({
         activeColor: String,
         baseColor: String,
         color: String,
@@ -52311,10 +52413,10 @@ P = μTP`,
     }, "VListGroup");
     Rh = te()({
         name: "VListGroup",
-        props: _3(),
+        props: L3(),
         setup (t, e) {
             let { slots: a } = e;
-            const { isOpen: r, open: n, id: i } = q0(X(t, "value"), !0), o = T(()=>`v-list-group--id-${String(i.value)}`), s = G0(), { isBooted: l } = Kn();
+            const { isOpen: r, open: n, id: i } = K0(X(t, "value"), !0), o = T(()=>`v-list-group--id-${String(i.value)}`), s = $0(), { isBooted: l } = Kn();
             function u(m) {
                 m.stopPropagation(), n(!r.value, m);
             }
@@ -52352,7 +52454,7 @@ P = μTP`,
                                 defaults: h.value
                             }, {
                                 default: ()=>[
-                                        y(E3, null, {
+                                        y(R3, null, {
                                             default: ()=>[
                                                     a.activator({
                                                         props: c.value,
@@ -52389,7 +52491,7 @@ P = μTP`,
             };
         }
     });
-    P3 = Y({
+    I3 = Y({
         opacity: [
             Number,
             String
@@ -52397,9 +52499,9 @@ P = μTP`,
         ...xe(),
         ...Ve()
     }, "VListItemSubtitle");
-    K0 = te()({
+    X0 = te()({
         name: "VListItemSubtitle",
-        props: P3(),
+        props: I3(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(t.tag, {
@@ -52417,7 +52519,7 @@ P = μTP`,
         }
     });
     vr = xr("v-list-item-title");
-    B3 = Y({
+    z3 = Y({
         active: {
             type: Boolean,
             default: void 0
@@ -52484,13 +52586,13 @@ P = μTP`,
         directives: {
             Ripple: zr
         },
-        props: B3(),
+        props: z3(),
         emits: {
             click: (t)=>!0
         },
         setup (t, e) {
             let { attrs: a, slots: r, emit: n } = e;
-            const i = Oo(t, a), o = T(()=>t.value === void 0 ? i.href.value : t.value), { activate: s, isActivated: l, select: u, isOpen: c, isSelected: d, isIndeterminate: h, isGroupActivator: m, root: p, parent: f, openOnSelect: g, id: v } = q0(o, !1), b = G0(), x = T(()=>t.active !== !1 && (t.active || i.isActive?.value || (p.activatable.value ? l.value : d.value))), C = T(()=>t.link !== !1 && i.isLink.value), k = T(()=>!!b && (p.selectable.value || p.activatable.value || t.value != null)), S = T(()=>!t.disabled && t.link !== !1 && (t.link || i.isClickable.value || k.value)), w = T(()=>t.rounded || t.nav), F = T(()=>t.color ?? t.activeColor), A = T(()=>({
+            const i = Oo(t, a), o = T(()=>t.value === void 0 ? i.href.value : t.value), { activate: s, isActivated: l, select: u, isOpen: c, isSelected: d, isIndeterminate: h, isGroupActivator: m, root: p, parent: f, openOnSelect: g, id: v } = K0(o, !1), b = $0(), x = T(()=>t.active !== !1 && (t.active || i.isActive?.value || (p.activatable.value ? l.value : d.value))), C = T(()=>t.link !== !1 && i.isLink.value), k = T(()=>!!b && (p.selectable.value || p.activatable.value || t.value != null)), S = T(()=>!t.disabled && t.link !== !1 && (t.link || i.isClickable.value || k.value)), w = T(()=>t.rounded || t.nav), F = T(()=>t.color ?? t.activeColor), A = T(()=>({
                     color: x.value ? F.value ?? t.baseColor : t.baseColor,
                     variant: t.variant
                 }));
@@ -52521,7 +52623,7 @@ P = μTP`,
             }
             return ne(()=>{
                 const J = C.value ? "a" : t.tag, me = r.title || t.title != null, $ = r.subtitle || t.subtitle != null, V = !!(t.appendAvatar || t.appendIcon), oe = !!(V || r.append), be = !!(t.prependAvatar || t.prependIcon), pe = !!(be || r.prepend);
-                return b?.updateHasPrepend(pe), t.activeColor && Cw("active-color", [
+                return b?.updateHasPrepend(pe), t.activeColor && Aw("active-color", [
                     "color",
                     "base-color"
                 ]), dt(y(J, Q({
@@ -52611,7 +52713,7 @@ P = μTP`,
                                             }) ?? Fe(t.title)
                                         ]
                                 }),
-                                $ && y(K0, {
+                                $ && y(X0, {
                                     key: "subtitle"
                                 }, {
                                     default: ()=>[
@@ -52682,7 +52784,7 @@ P = μTP`,
             };
         }
     });
-    M3 = Y({
+    N3 = Y({
         color: String,
         inset: Boolean,
         sticky: Boolean,
@@ -52690,9 +52792,9 @@ P = μTP`,
         ...xe(),
         ...Ve()
     }, "VListSubheader");
-    X0 = te()({
+    J0 = te()({
         name: "VListSubheader",
-        props: M3(),
+        props: N3(),
         setup (t, e) {
             let { slots: a } = e;
             const { textColorClasses: r, textColorStyles: n } = da(X(t, "color"));
@@ -52726,7 +52828,7 @@ P = μTP`,
             }), {};
         }
     });
-    R3 = Y({
+    O3 = Y({
         color: String,
         inset: Boolean,
         length: [
@@ -52747,7 +52849,7 @@ P = μTP`,
     }, "VDivider");
     er = te()({
         name: "VDivider",
-        props: R3(),
+        props: O3(),
         setup (t, e) {
             let { attrs: a, slots: r } = e;
             const { themeClasses: n } = it(t), { textColorClasses: i, textColorStyles: o } = da(X(t, "color")), s = T(()=>{
@@ -52797,23 +52899,23 @@ P = μTP`,
             }), {};
         }
     });
-    L3 = Y({
+    H3 = Y({
         items: Array,
         returnObject: Boolean
     }, "VListChildren");
-    J0 = te()({
+    Z0 = te()({
         name: "VListChildren",
-        props: L3(),
+        props: H3(),
         setup (t, e) {
             let { slots: a } = e;
-            return W0(), ()=>a.default?.() ?? t.items?.map((r)=>{
+            return G0(), ()=>a.default?.() ?? t.items?.map((r)=>{
                     let { children: n, props: i, type: o, raw: s } = r;
                     if (o === "divider") return a.divider?.({
                         props: i
                     }) ?? y(er, i, null);
                     if (o === "subheader") return a.subheader?.({
                         props: i
-                    }) ?? y(X0, i, null);
+                    }) ?? y(J0, i, null);
                     const l = {
                         subtitle: a.subtitle ? (c)=>a.subtitle?.({
                                 ...c,
@@ -52846,7 +52948,7 @@ P = μTP`,
                                 props: h
                             }) : y(Je, h, l);
                         },
-                        default: ()=>y(J0, {
+                        default: ()=>y(Z0, {
                                 items: n,
                                 returnObject: t.returnObject
                             }, a)
@@ -52858,7 +52960,7 @@ P = μTP`,
                 });
         }
     });
-    Z0 = Y({
+    Q0 = Y({
         items: {
             type: Array,
             default: ()=>[]
@@ -52912,11 +53014,11 @@ P = μTP`,
             title: String(o.title ?? ""),
             value: o.value,
             props: o,
-            children: Array.isArray(n) ? Q0(t, n) : void 0,
+            children: Array.isArray(n) ? e1(t, n) : void 0,
             raw: e
         };
     }
-    function Q0(t, e) {
+    function e1(t, e) {
         const a = nn(t, [
             "itemTitle",
             "itemValue",
@@ -52929,7 +53031,7 @@ P = μTP`,
         return r;
     }
     function op(t) {
-        const e = T(()=>Q0(t, t.items)), a = T(()=>e.value.some((s)=>s.value === null)), r = de(new Map), n = de([]);
+        const e = T(()=>e1(t, t.items)), a = T(()=>e.value.some((s)=>s.value === null)), r = de(new Map), n = de([]);
         zt(()=>{
             const s = e.value, l = new Map, u = [];
             for(let c = 0; c < s.length; c++){
@@ -52984,7 +53086,7 @@ P = μTP`,
             transformOut: o
         };
     }
-    function I3(t, e) {
+    function V3(t, e) {
         const a = Ut(e, t.itemType, "item"), r = db(e) ? e : Ut(e, t.itemTitle), n = Ut(e, t.itemValue, void 0), i = Ut(e, t.itemChildren), o = t.itemProps === !0 ? Gt(e, [
             "children"
         ]) : Ut(e, t.itemProps), s = {
@@ -52997,22 +53099,22 @@ P = μTP`,
             title: s.title,
             value: s.value,
             props: s,
-            children: a === "item" && i ? e1(t, i) : void 0,
+            children: a === "item" && i ? t1(t, i) : void 0,
             raw: e
         };
     }
-    function e1(t, e) {
+    function t1(t, e) {
         const a = [];
-        for (const r of e)a.push(I3(t, r));
+        for (const r of e)a.push(V3(t, r));
         return a;
     }
-    function z3(t) {
+    function W3(t) {
         return {
-            items: T(()=>e1(t, t.items))
+            items: T(()=>t1(t, t.items))
         };
     }
-    let N3, O3, H3, V3, W3, G3;
-    N3 = Y({
+    let G3, $3, j3, U3, Y3, q3;
+    G3 = Y({
         baseColor: String,
         activeColor: String,
         activeClass: String,
@@ -53032,7 +53134,7 @@ P = μTP`,
         "onClick:open": ta(),
         "onClick:select": ta(),
         "onUpdate:opened": ta(),
-        ...A3({
+        ...P3({
             selectStrategy: "single-leaf",
             openStrategy: "list"
         }),
@@ -53045,7 +53147,7 @@ P = μTP`,
             type: String,
             default: "type"
         },
-        ...Z0(),
+        ...Q0(),
         ...Ct(),
         ...Ve(),
         ...Qe(),
@@ -53055,7 +53157,7 @@ P = μTP`,
     }, "VList");
     Xn = te()({
         name: "VList",
-        props: N3(),
+        props: G3(),
         emits: {
             "update:selected": (t)=>!0,
             "update:activated": (t)=>!0,
@@ -53066,8 +53168,8 @@ P = μTP`,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const { items: r } = z3(t), { themeClasses: n } = it(t), { backgroundColorClasses: i, backgroundColorStyles: o } = ht(X(t, "bgColor")), { borderClasses: s } = qa(t), { densityClasses: l } = Fa(t), { dimensionStyles: u } = jt(t), { elevationClasses: c } = na(t), { roundedClasses: d } = Pt(t), { children: h, open: m, parents: p, select: f, getPath: g } = D3(t), v = T(()=>t.lines ? `v-list--${t.lines}-line` : void 0), b = X(t, "activeColor"), x = X(t, "baseColor"), C = X(t, "color");
-            W0(), _t({
+            const { items: r } = W3(t), { themeClasses: n } = it(t), { backgroundColorClasses: i, backgroundColorStyles: o } = ht(X(t, "bgColor")), { borderClasses: s } = qa(t), { densityClasses: l } = Fa(t), { dimensionStyles: u } = jt(t), { elevationClasses: c } = na(t), { roundedClasses: d } = Pt(t), { children: h, open: m, parents: p, select: f, getPath: g } = B3(t), v = T(()=>t.lines ? `v-list--${t.lines}-line` : void 0), b = X(t, "activeColor"), x = X(t, "baseColor"), C = X(t, "color");
+            G0(), _t({
                 VListGroup: {
                     activeColor: b,
                     baseColor: x,
@@ -53151,7 +53253,7 @@ P = μTP`,
                     onMousedown: D
                 }, {
                     default: ()=>[
-                            y(J0, {
+                            y(Z0, {
                                 items: r.value,
                                 returnObject: t.returnObject
                             }, a)
@@ -53166,16 +53268,16 @@ P = μTP`,
             };
         }
     });
-    O3 = xr("v-list-img");
-    H3 = Y({
+    $3 = xr("v-list-img");
+    j3 = Y({
         start: Boolean,
         end: Boolean,
         ...xe(),
         ...Ve()
     }, "VListItemAction");
-    V3 = te()({
+    U3 = te()({
         name: "VListItemAction",
-        props: H3(),
+        props: j3(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(t.tag, {
@@ -53191,15 +53293,15 @@ P = μTP`,
                 }, a)), {};
         }
     });
-    W3 = Y({
+    Y3 = Y({
         start: Boolean,
         end: Boolean,
         ...xe(),
         ...Ve()
     }, "VListItemMedia");
-    G3 = te()({
+    q3 = te()({
         name: "VListItemMedia",
-        props: W3(),
+        props: Y3(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(t.tag, {
@@ -53221,7 +53323,7 @@ P = μTP`,
             y: t.y + e.y
         };
     }
-    function $3(t, e) {
+    function K3(t, e) {
         return {
             x: t.x - e.x,
             y: t.y - e.y
@@ -53246,17 +53348,17 @@ P = μTP`,
             y: e.height / 2
         }, e);
     }
-    const t1 = {
-        static: Y3,
-        connected: K3
-    }, j3 = Y({
+    const a1 = {
+        static: Z3,
+        connected: eR
+    }, X3 = Y({
         locationStrategy: {
             type: [
                 String,
                 Function
             ],
             default: "static",
-            validator: (t)=>typeof t == "function" || t in t1
+            validator: (t)=>typeof t == "function" || t in a1
         },
         location: {
             type: String,
@@ -53272,14 +53374,14 @@ P = μTP`,
             Array
         ]
     }, "VOverlay-location-strategies");
-    function U3(t, e) {
+    function J3(t, e) {
         const a = G({}), r = G();
         qt && Ba(()=>!!(e.isActive.value && t.locationStrategy), (i)=>{
             he(()=>t.locationStrategy, i), va(()=>{
                 window.removeEventListener("resize", n), r.value = void 0;
             }), window.addEventListener("resize", n, {
                 passive: !0
-            }), typeof t.locationStrategy == "function" ? r.value = t.locationStrategy(e, t, a)?.updateLocation : r.value = t1[t.locationStrategy](e, t, a)?.updateLocation;
+            }), typeof t.locationStrategy == "function" ? r.value = t.locationStrategy(e, t, a)?.updateLocation : r.value = a1[t.locationStrategy](e, t, a)?.updateLocation;
         });
         function n(i) {
             r.value?.(i);
@@ -53289,13 +53391,13 @@ P = μTP`,
             updateLocation: r
         };
     }
-    function Y3() {}
-    function q3(t, e) {
+    function Z3() {}
+    function Q3(t, e) {
         const a = Cm(t);
         return e ? a.x += parseFloat(t.style.right || 0) : a.x -= parseFloat(t.style.left || 0), a.y -= parseFloat(t.style.top || 0), a;
     }
-    function K3(t, e, a) {
-        (Array.isArray(t.target.value) || Aw(t.target.value)) && Object.assign(a.value, {
+    function eR(t, e, a) {
+        (Array.isArray(t.target.value) || Dw(t.target.value)) && Object.assign(a.value, {
             position: "fixed",
             top: 0,
             [t.isRtl.value ? "right" : "left"]: 0
@@ -53348,7 +53450,7 @@ P = μTP`,
         });
         function m() {
             if (d = !1, requestAnimationFrame(()=>d = !0), !t.target.value || !t.contentEl.value) return;
-            const p = cb(t.target.value), f = q3(t.contentEl.value, t.isRtl.value), g = Es(t.contentEl.value), v = 12;
+            const p = cb(t.target.value), f = Q3(t.contentEl.value, t.isRtl.value), g = Es(t.contentEl.value), v = 12;
             g.length || (g.push(document.documentElement), t.contentEl.value.style.top && t.contentEl.value.style.left || (f.x -= parseFloat(document.documentElement.style.getPropertyValue("--v-body-scroll-x") || 0), f.y -= parseFloat(document.documentElement.style.getPropertyValue("--v-body-scroll-y") || 0)));
             const b = g.reduce((D, _)=>{
                 const B = _.getBoundingClientRect(), P = new uu({
@@ -53371,7 +53473,7 @@ P = μTP`,
             };
             function C(D) {
                 const _ = new uu(f), B = fy(D.anchor, p), P = fy(D.origin, _);
-                let { x: M, y: R } = $3(B, P);
+                let { x: M, y: R } = K3(B, P);
                 switch(D.anchor.side){
                     case "top":
                         R -= c.value[0];
@@ -53491,7 +53593,7 @@ P = μTP`,
     }
     let Lh = !0;
     const Vs = [];
-    function X3(t) {
+    function tR(t) {
         !Lh || Vs.length ? (Vs.push(t), Ih()) : (Lh = !1, t(), Ih());
     }
     let vy = -1;
@@ -53501,45 +53603,45 @@ P = μTP`,
             t && t(), Vs.length ? Ih() : Lh = !0;
         });
     }
-    const a1 = {
+    const r1 = {
         none: null,
-        close: Q3,
-        block: eR,
-        reposition: tR
-    }, J3 = Y({
+        close: nR,
+        block: iR,
+        reposition: oR
+    }, aR = Y({
         scrollStrategy: {
             type: [
                 String,
                 Function
             ],
             default: "block",
-            validator: (t)=>typeof t == "function" || t in a1
+            validator: (t)=>typeof t == "function" || t in r1
         }
     }, "VOverlay-scroll-strategies");
-    function Z3(t, e) {
+    function rR(t, e) {
         if (!qt) return;
         let a;
         zt(async ()=>{
             a?.stop(), e.isActive.value && t.scrollStrategy && (a = bm(), await new Promise((r)=>setTimeout(r)), a.active && a.run(()=>{
-                typeof t.scrollStrategy == "function" ? t.scrollStrategy(e, t, a) : a1[t.scrollStrategy]?.(e, t, a);
+                typeof t.scrollStrategy == "function" ? t.scrollStrategy(e, t, a) : r1[t.scrollStrategy]?.(e, t, a);
             }));
         }), va(()=>{
             a?.stop();
         });
     }
-    function Q3(t) {
+    function nR(t) {
         function e(a) {
             t.isActive.value = !1;
         }
-        r1(t.targetEl.value ?? t.contentEl.value, e);
+        n1(t.targetEl.value ?? t.contentEl.value, e);
     }
-    function eR(t, e) {
+    function iR(t, e) {
         const a = t.root.value?.offsetParent, r = [
             ...new Set([
                 ...Es(t.targetEl.value, e.contained ? a : void 0),
                 ...Es(t.contentEl.value, e.contained ? a : void 0)
             ])
-        ].filter((o)=>!o.classList.contains("v-overlay-scroll-blocked")), n = window.innerWidth - document.documentElement.offsetWidth, i = ((o)=>Dw(o) && o)(a || document.documentElement);
+        ].filter((o)=>!o.classList.contains("v-overlay-scroll-blocked")), n = window.innerWidth - document.documentElement.offsetWidth, i = ((o)=>Tw(o) && o)(a || document.documentElement);
         i && t.root.value.classList.add("v-overlay--scroll-blocked"), r.forEach((o, s)=>{
             o.style.setProperty("--v-body-scroll-x", ke(-o.scrollLeft)), o.style.setProperty("--v-body-scroll-y", ke(-o.scrollTop)), o !== document.documentElement && o.style.setProperty("--v-scrollbar-offset", ke(n)), o.classList.add("v-overlay-scroll-blocked");
         }), va(()=>{
@@ -53549,17 +53651,17 @@ P = μTP`,
             }), i && t.root.value.classList.remove("v-overlay--scroll-blocked");
         });
     }
-    function tR(t, e, a) {
+    function oR(t, e, a) {
         let r = !1, n = -1, i = -1;
         function o(s) {
-            X3(()=>{
+            tR(()=>{
                 const l = performance.now();
                 t.updateLocation.value?.(s), r = (performance.now() - l) / (1e3 / 60) > 2;
             });
         }
         i = (typeof requestIdleCallback > "u" ? (s)=>s() : requestIdleCallback)(()=>{
             a.run(()=>{
-                r1(t.targetEl.value ?? t.contentEl.value, (s)=>{
+                n1(t.targetEl.value ?? t.contentEl.value, (s)=>{
                     r ? (cancelAnimationFrame(n), n = requestAnimationFrame(()=>{
                         n = requestAnimationFrame(()=>{
                             o(s);
@@ -53571,7 +53673,7 @@ P = μTP`,
             typeof cancelIdleCallback < "u" && cancelIdleCallback(i), cancelAnimationFrame(n);
         });
     }
-    function r1(t, e) {
+    function n1(t, e) {
         const a = [
             document,
             ...Es(t)
@@ -53602,7 +53704,7 @@ P = μTP`,
             a?.();
             const s = Number(o ? t.openDelay : t.closeDelay);
             return new Promise((l)=>{
-                a = Tw(s, ()=>{
+                a = Ew(s, ()=>{
                     e?.(o), l(o);
                 });
             });
@@ -53619,7 +53721,7 @@ P = μTP`,
             runCloseDelay: i
         };
     }
-    const aR = Y({
+    const sR = Y({
         target: [
             String,
             Object
@@ -53644,7 +53746,7 @@ P = μTP`,
         closeOnContentClick: Boolean,
         ...sp()
     }, "VOverlay-activator");
-    function rR(t, e) {
+    function lR(t, e) {
         let { isActive: a, isTop: r, contentEl: n } = e;
         const i = La("useActivator"), o = G();
         let s = !1, l = !1, u = !0;
@@ -53712,11 +53814,11 @@ P = μTP`,
                 o.value = x.el;
             });
         });
-        const C = sh(), k = T(()=>t.target === "cursor" && p.value ? p.value : C.value ? C.el : n1(t.target, i) || o.value), S = T(()=>Array.isArray(k.value) ? void 0 : k.value);
+        const C = sh(), k = T(()=>t.target === "cursor" && p.value ? p.value : C.value ? C.el : i1(t.target, i) || o.value), S = T(()=>Array.isArray(k.value) ? void 0 : k.value);
         let w;
         return he(()=>!!t.activator, (F)=>{
             F && qt ? (w = bm(), w.run(()=>{
-                nR(t, i, {
+                uR(t, i, {
                     activatorEl: o,
                     activatorEvents: g
                 });
@@ -53737,7 +53839,7 @@ P = μTP`,
             scrimEvents: b
         };
     }
-    function nR(t, e, a) {
+    function uR(t, e, a) {
         let { activatorEl: r, activatorEvents: n } = a;
         he(()=>t.activator, (l, u)=>{
             if (u && l !== u) {
@@ -53754,19 +53856,19 @@ P = μTP`,
         });
         function i() {
             let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : s(), u = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t.activatorProps;
-            l && Ew(l, Q(n.value, u));
+            l && _w(l, Q(n.value, u));
         }
         function o() {
             let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : s(), u = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t.activatorProps;
-            l && _w(l, Q(n.value, u));
+            l && Pw(l, Q(n.value, u));
         }
         function s() {
             let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : t.activator;
-            const u = n1(l, e);
+            const u = i1(l, e);
             return r.value = u?.nodeType === Node.ELEMENT_NODE ? u : void 0, r.value;
         }
     }
-    function n1(t, e) {
+    function i1(t, e) {
         if (!t) return;
         let a;
         if (t === "parent") {
@@ -53776,7 +53878,7 @@ P = μTP`,
         } else typeof t == "string" ? a = document.querySelector(t) : "$el" in t ? a = t.$el : a = t;
         return a;
     }
-    function i1() {
+    function o1() {
         if (!qt) return de(!1);
         const { ssr: t } = Ra();
         if (t) {
@@ -53810,7 +53912,7 @@ P = μTP`,
         };
     }
     const yy = Symbol.for("vuetify:stack"), Zi = Pa([]);
-    function iR(t, e, a) {
+    function cR(t, e, a) {
         const r = La("useStack"), n = !a, i = Tt(yy, void 0), o = Pa({
             activeChildren: new Set
         });
@@ -53843,7 +53945,7 @@ P = μTP`,
                 }))
         };
     }
-    function oR(t) {
+    function dR(t) {
         return {
             teleportTarget: T(()=>{
                 const a = t();
@@ -53857,33 +53959,33 @@ P = μTP`,
             })
         };
     }
-    function sR() {
+    function hR() {
         return !0;
     }
-    function o1(t, e, a) {
-        if (!t || s1(t, a) === !1) return !1;
+    function s1(t, e, a) {
+        if (!t || l1(t, a) === !1) return !1;
         const r = hb(e);
         if (typeof ShadowRoot < "u" && r instanceof ShadowRoot && r.host === t.target) return !1;
         const n = (typeof a.value == "object" && a.value.include || (()=>[]))();
         return n.push(e), !n.some((i)=>i?.contains(t.target));
     }
-    function s1(t, e) {
-        return (typeof e.value == "object" && e.value.closeConditional || sR)(t);
+    function l1(t, e) {
+        return (typeof e.value == "object" && e.value.closeConditional || hR)(t);
     }
-    function lR(t, e, a) {
+    function mR(t, e, a) {
         const r = typeof a.value == "function" ? a.value : a.value.handler;
-        t.shadowTarget = t.target, e._clickOutside.lastMousedownWasOutside && o1(t, e, a) && setTimeout(()=>{
-            s1(t, a) && r && r(t);
+        t.shadowTarget = t.target, e._clickOutside.lastMousedownWasOutside && s1(t, e, a) && setTimeout(()=>{
+            l1(t, a) && r && r(t);
         }, 0);
     }
     function by(t, e) {
         const a = hb(t);
         e(document), typeof ShadowRoot < "u" && a instanceof ShadowRoot && e(a);
     }
-    const l1 = {
+    const u1 = {
         mounted (t, e) {
-            const a = (n)=>lR(n, t, e), r = (n)=>{
-                t._clickOutside.lastMousedownWasOutside = o1(n, t, e);
+            const a = (n)=>mR(n, t, e), r = (n)=>{
+                t._clickOutside.lastMousedownWasOutside = s1(n, t, e);
             };
             by(t, (n)=>{
                 n.addEventListener("click", a, !0), n.addEventListener("mousedown", r, !0);
@@ -53902,7 +54004,7 @@ P = μTP`,
             }), delete t._clickOutside[e.instance.$.uid]);
         }
     };
-    function uR(t) {
+    function pR(t) {
         const { modelValue: e, color: a, ...r } = t;
         return y(Jr, {
             name: "fade-transition",
@@ -53955,18 +54057,18 @@ P = μTP`,
             ],
             default: 2e3
         },
-        ...aR(),
+        ...sR(),
         ...xe(),
         ...$t(),
         ...up(),
-        ...j3(),
-        ...J3(),
+        ...X3(),
+        ...aR(),
         ...Qe(),
         ...fr()
     }, "VOverlay"), kr = te()({
         name: "VOverlay",
         directives: {
-            ClickOutside: l1
+            ClickOutside: u1
         },
         inheritAttrs: !1,
         props: {
@@ -53987,26 +54089,26 @@ P = μTP`,
                 set: (V)=>{
                     V && t.disabled || (u.value = V);
                 }
-            }), { themeClasses: d } = it(t), { rtlClasses: h, isRtl: m } = Zt(), { hasContent: p, onAfterLeave: f } = cp(t, c), g = ht(T(()=>typeof t.scrim == "string" ? t.scrim : null)), { globalTop: v, localTop: b, stackStyles: x } = iR(c, X(t, "zIndex"), t._disableGlobalStack), { activatorEl: C, activatorRef: k, target: S, targetEl: w, targetRef: F, activatorEvents: A, contentEvents: E, scrimEvents: D } = rR(t, {
+            }), { themeClasses: d } = it(t), { rtlClasses: h, isRtl: m } = Zt(), { hasContent: p, onAfterLeave: f } = cp(t, c), g = ht(T(()=>typeof t.scrim == "string" ? t.scrim : null)), { globalTop: v, localTop: b, stackStyles: x } = cR(c, X(t, "zIndex"), t._disableGlobalStack), { activatorEl: C, activatorRef: k, target: S, targetEl: w, targetRef: F, activatorEvents: A, contentEvents: E, scrimEvents: D } = lR(t, {
                 isActive: c,
                 isTop: b,
                 contentEl: l
-            }), { teleportTarget: _ } = oR(()=>{
+            }), { teleportTarget: _ } = dR(()=>{
                 const V = t.attach || t.contained;
                 if (V) return V;
                 const oe = C?.value?.getRootNode() || i.proxy?.$el?.getRootNode();
                 return oe instanceof ShadowRoot ? oe : !1;
-            }), { dimensionStyles: B } = jt(t), P = i1(), { scopeId: M } = Jn();
+            }), { dimensionStyles: B } = jt(t), P = o1(), { scopeId: M } = Jn();
             he(()=>t.disabled, (V)=>{
                 V && (c.value = !1);
             });
-            const { contentStyles: R, updateLocation: O } = U3(t, {
+            const { contentStyles: R, updateLocation: O } = J3(t, {
                 isRtl: m,
                 contentEl: l,
                 target: S,
                 isActive: c
             });
-            Z3(t, {
+            rR(t, {
                 root: o,
                 contentEl: l,
                 targetEl: w,
@@ -54032,9 +54134,9 @@ P = μTP`,
             function L(V) {
                 V.key === "Escape" && !v.value || n("keydown", V);
             }
-            const q = V0();
+            const q = W0();
             Ba(()=>t.closeOnBack, ()=>{
-                v3(q, (V)=>{
+                x3(q, (V)=>{
                     v.value && c.value ? (V(!1), t.persistent ? J() : c.value = !1) : V();
                 });
             });
@@ -54075,7 +54177,7 @@ P = μTP`,
                             ref: k
                         }, A.value, t.activatorProps)
                     }),
-                    P.value && p.value && y(tw, {
+                    P.value && p.value && y(aw, {
                         disabled: !_.value,
                         to: _.value
                     }, {
@@ -54103,7 +54205,7 @@ P = μTP`,
                                     ref: o,
                                     onKeydown: L
                                 }, M, r), [
-                                    y(uR, Q({
+                                    y(pR, Q({
                                         color: g,
                                         modelValue: c.value && !!t.scrim,
                                         ref: s
@@ -54220,8 +54322,8 @@ P = μTP`,
             }
         });
     }
-    let u1, cR, Tl, dR, ao;
-    u1 = Y({
+    let c1, fR, Tl, gR, ao;
+    c1 = Y({
         id: String,
         submenu: Boolean,
         ...Gt(Vo({
@@ -54241,7 +54343,7 @@ P = μTP`,
     }, "VMenu");
     Qr = te()({
         name: "VMenu",
-        props: u1(),
+        props: c1(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -54257,12 +54359,12 @@ P = μTP`,
                 },
                 closeParents (g) {
                     setTimeout(()=>{
-                        !c.value.size && !t.persistent && (g == null || l.value?.contentEl && !Bw(g, l.value.contentEl)) && (r.value = !1, u?.closeParents());
+                        !c.value.size && !t.persistent && (g == null || l.value?.contentEl && !Mw(g, l.value.contentEl)) && (r.value = !1, u?.closeParents());
                     }, 40);
                 }
             }), pa(()=>{
                 u?.unregister(), document.removeEventListener("focusin", d);
-            }), aw(()=>r.value = !1);
+            }), rw(()=>r.value = !1);
             async function d(g) {
                 const v = g.relatedTarget, b = g.target;
                 await nt(), r.value && v !== b && l.value?.contentEl && l.value?.globalTop && ![
@@ -54283,7 +54385,7 @@ P = μTP`,
             function m(g) {
                 if (!t.disabled) if (g.key === "Tab" || g.key === "Enter" && !t.closeOnContentClick) {
                     if (g.key === "Enter" && (g.target instanceof HTMLTextAreaElement || g.target instanceof HTMLInputElement && g.target.closest("form"))) return;
-                    g.key === "Enter" && g.preventDefault(), Pw(Ts(l.value?.contentEl, !1), g.shiftKey ? "prev" : "next", (b)=>b.tabIndex >= 0) || (r.value = !1, l.value?.activatorEl?.focus());
+                    g.key === "Enter" && g.preventDefault(), Bw(Ts(l.value?.contentEl, !1), g.shiftKey ? "prev" : "next", (b)=>b.tabIndex >= 0) || (r.value = !1, l.value?.activatorEl?.focus());
                 } else t.submenu && g.key === (i.value ? "ArrowRight" : "ArrowLeft") && (r.value = !1, l.value?.activatorEl?.focus());
             }
             function p(g) {
@@ -54337,7 +54439,7 @@ P = μTP`,
             }, l);
         }
     });
-    cR = Y({
+    fR = Y({
         active: Boolean,
         disabled: Boolean,
         max: [
@@ -54361,7 +54463,7 @@ P = μTP`,
     Tl = te()({
         name: "VCounter",
         functional: !0,
-        props: cR(),
+        props: fR(),
         setup (t, e) {
             let { slots: a } = e;
             const r = T(()=>t.max ? `${t.value} / ${t.max}` : String(t.value));
@@ -54394,13 +54496,13 @@ P = μTP`,
                 })), {};
         }
     });
-    dR = Y({
+    gR = Y({
         floating: Boolean,
         ...xe()
     }, "VFieldLabel");
     ao = te()({
         name: "VFieldLabel",
-        props: dR(),
+        props: gR(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(Li, {
@@ -54470,8 +54572,8 @@ P = μTP`,
             })
         };
     }
-    let hR, Pl;
-    hR = Y({
+    let vR, Pl;
+    vR = Y({
         absolute: Boolean,
         active: {
             type: Boolean,
@@ -54536,7 +54638,7 @@ P = μTP`,
     }, "VProgressLinear");
     _l = te()({
         name: "VProgressLinear",
-        props: hR(),
+        props: vR(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -54701,7 +54803,7 @@ P = μTP`,
             }, null)
         ]);
     }
-    const mR = [
+    const yR = [
         "underlined",
         "outlined",
         "filled",
@@ -54739,7 +54841,7 @@ P = μTP`,
         variant: {
             type: String,
             default: "filled",
-            validator: (t)=>mR.includes(t)
+            validator: (t)=>yR.includes(t)
         },
         "onClick:clear": ta(),
         "onClick:appendInner": ta(),
@@ -54762,7 +54864,7 @@ P = μTP`,
         },
         setup (t, e) {
             let { attrs: a, emit: r, slots: n } = e;
-            const { themeClasses: i } = it(t), { loaderClasses: o } = Wo(t), { focusClasses: s, isFocused: l, focus: u, blur: c } = Nr(t), { InputIcon: d } = D0(t), { roundedClasses: h } = Pt(t), { rtlClasses: m } = Zt(), p = T(()=>t.dirty || t.active), f = T(()=>!!(t.label || n.label)), g = T(()=>!t.singleLine && f.value), v = Ca(), b = T(()=>t.id || `input-${v}`), x = T(()=>`${b.value}-messages`), C = G(), k = G(), S = G(), w = T(()=>[
+            const { themeClasses: i } = it(t), { loaderClasses: o } = Wo(t), { focusClasses: s, isFocused: l, focus: u, blur: c } = Nr(t), { InputIcon: d } = T0(t), { roundedClasses: h } = Pt(t), { rtlClasses: m } = Zt(), p = T(()=>t.dirty || t.active), f = T(()=>!!(t.label || n.label)), g = T(()=>!t.singleLine && f.value), v = Ca(), b = T(()=>t.id || `input-${v}`), x = T(()=>`${b.value}-messages`), C = G(), k = G(), S = G(), w = T(()=>[
                     "plain",
                     "underlined"
                 ].includes(t.variant)), { backgroundColorClasses: F, backgroundColorStyles: A } = ht(X(t, "bgColor")), { textColorClasses: E, textColorStyles: D } = da(T(()=>t.error || t.disabled ? void 0 : p.value && l.value ? t.color : t.baseColor));
@@ -54998,11 +55100,11 @@ P = μTP`,
         }
     });
     function dp(t) {
-        const e = Object.keys(Ii.props).filter((a)=>!Mw(a) && a !== "class" && a !== "style");
+        const e = Object.keys(Ii.props).filter((a)=>!Rw(a) && a !== "class" && a !== "style");
         return nn(t, e);
     }
-    let pR, Bl, fR, c1, gR, vR, Nd, d1;
-    pR = [
+    let bR, Bl, FR, d1, kR, xR, Nd, h1;
+    bR = [
         "color",
         "file",
         "time",
@@ -55061,7 +55163,7 @@ P = μTP`,
             function h(S, w) {
                 !t.autofocus || !S || w[0].target?.focus?.();
             }
-            const m = G(), p = G(), f = G(), g = T(()=>pR.includes(t.type) || t.persistentPlaceholder || o.value || t.active);
+            const m = G(), p = G(), f = G(), g = T(()=>bR.includes(t.type) || t.persistentPlaceholder || o.value || t.active);
             function v() {
                 f.value !== document.activeElement && f.value?.focus(), o.value || s();
             }
@@ -55177,7 +55279,7 @@ P = μTP`,
                                     }, [
                                         n.default(),
                                         q
-                                    ]) : rw(q, {
+                                    ]) : nw(q, {
                                         class: I
                                     }),
                                     t.suffix && y("span", {
@@ -55209,14 +55311,14 @@ P = μTP`,
             }), sr({}, m, p, f);
         }
     });
-    fR = Y({
+    FR = Y({
         renderless: Boolean,
         ...xe()
     }, "VVirtualScrollItem");
-    c1 = te()({
+    d1 = te()({
         name: "VVirtualScrollItem",
         inheritAttrs: !1,
-        props: fR(),
+        props: FR(),
         emits: {
             "update:height": (t)=>!0
         },
@@ -55241,10 +55343,10 @@ P = μTP`,
                 ]));
         }
     });
-    gR = -1;
-    vR = 1;
+    kR = -1;
+    xR = 1;
     Nd = 100;
-    d1 = Y({
+    h1 = Y({
         itemHeight: {
             type: [
                 Number,
@@ -55257,7 +55359,7 @@ P = μTP`,
             String
         ]
     }, "virtual");
-    function h1(t, e) {
+    function m1(t, e) {
         const a = Ra(), r = de(0);
         zt(()=>{
             r.value = parseFloat(t.itemHeight || 0);
@@ -55279,7 +55381,7 @@ P = μTP`,
         function x(I) {
             return f[I] || r.value;
         }
-        const C = Rw(()=>{
+        const C = Lw(()=>{
             const I = performance.now();
             g[0] = 0;
             const L = e.value.length;
@@ -55303,7 +55405,7 @@ P = μTP`,
             return I = Yt(I, 0, e.value.length - 1), g[I] || 0;
         }
         function F(I) {
-            return yR(g, I);
+            return wR(g, I);
         }
         let A = 0, E = 0, D = 0;
         he(m, (I, L)=>{
@@ -55327,7 +55429,7 @@ P = μTP`,
         function O() {
             if (!l.value || !m.value) return;
             const I = A - c, L = Math.sign(E), q = Math.max(0, I - Nd), ee = Yt(F(q), 0, e.value.length), J = I + m.value + Nd, me = Yt(F(J) + 1, ee + 1, e.value.length);
-            if ((L !== gR || ee < n.value) && (L !== vR || me > i.value)) {
+            if ((L !== kR || ee < n.value) && (L !== xR || me > i.value)) {
                 const $ = w(n.value) - w(ee), V = w(me) - w(i.value);
                 Math.max($, V) > Nd ? (n.value = ee, i.value = me) : (ee <= 0 && (n.value = ee), me >= e.value.length && (i.value = me));
             }
@@ -55363,7 +55465,7 @@ P = μTP`,
             handleItemResize: S
         };
     }
-    function yR(t, e) {
+    function wR(t, e) {
         let a = t.length - 1, r = 0, n = 0, i = null, o = -1;
         if (t[a] < e) return a;
         for(; r <= a;)if (n = r + a >> 1, i = t[n], i > e) a = n - 1;
@@ -55371,23 +55473,23 @@ P = μTP`,
         else return i === e ? n : r;
         return o;
     }
-    let bR;
-    bR = Y({
+    let SR;
+    SR = Y({
         items: {
             type: Array,
             default: ()=>[]
         },
         renderless: Boolean,
-        ...d1(),
+        ...h1(),
         ...xe(),
         ...$t()
     }, "VVirtualScroll");
     Ml = te()({
         name: "VVirtualScroll",
-        props: bR(),
+        props: SR(),
         setup (t, e) {
             let { slots: a } = e;
-            const r = La("VVirtualScroll"), { dimensionStyles: n } = jt(t), { calculateVisibleItems: i, containerRef: o, markerRef: s, handleScroll: l, handleScrollend: u, handleItemResize: c, scrollToIndex: d, paddingTop: h, paddingBottom: m, computedItems: p } = h1(t, X(t, "items"));
+            const r = La("VVirtualScroll"), { dimensionStyles: n } = jt(t), { calculateVisibleItems: i, containerRef: o, markerRef: s, handleScroll: l, handleScrollend: u, handleItemResize: c, scrollToIndex: d, paddingTop: h, paddingBottom: m, computedItems: p } = m1(t, X(t, "items"));
             return Ba(()=>t.renderless, ()=>{
                 function f() {
                     const v = (arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !1) ? "addEventListener" : "removeEventListener";
@@ -55401,7 +55503,7 @@ P = μTP`,
                     o.value = Am(r.vnode.el, !0), f(!0);
                 }), va(f);
             }), ne(()=>{
-                const f = p.value.map((g)=>y(c1, {
+                const f = p.value.map((g)=>y(d1, {
                         key: g.key,
                         renderless: t.renderless,
                         "onUpdate:height": (v)=>c(g.index, v)
@@ -55511,7 +55613,7 @@ P = μTP`,
             onKeydown: o
         };
     }
-    let mp, FR, kR, jo;
+    let mp, CR, AR, jo;
     mp = Y({
         chips: Boolean,
         closableChips: Boolean,
@@ -55544,11 +55646,11 @@ P = μTP`,
         },
         openOnClear: Boolean,
         itemColor: String,
-        ...Z0({
+        ...Q0({
             itemChildren: !1
         })
     }, "Select");
-    FR = Y({
+    CR = Y({
         ...mp(),
         ...Gt(Bl({
             modelValue: null,
@@ -55566,7 +55668,7 @@ P = μTP`,
     }, "VSelect");
     Pr = te()({
         name: "VSelect",
-        props: FR(),
+        props: CR(),
         emits: {
             "update:focused": (t)=>!0,
             "update:modelValue": (t)=>!0,
@@ -55875,7 +55977,7 @@ P = μTP`,
             }, n);
         }
     });
-    kR = (t, e, a)=>t == null || e == null ? -1 : t.toString().toLocaleLowerCase().indexOf(e.toString().toLocaleLowerCase());
+    AR = (t, e, a)=>t == null || e == null ? -1 : t.toString().toLocaleLowerCase().indexOf(e.toString().toLocaleLowerCase());
     jo = Y({
         customFilter: Function,
         customKeyFilter: Object,
@@ -55889,8 +55991,8 @@ P = μTP`,
         },
         noFilter: Boolean
     }, "filter");
-    function xR(t, e, a) {
-        const r = [], n = a?.default ?? kR, i = a?.filterKeys ? Dt(a.filterKeys) : !1, o = Object.keys(a?.customKeyFilter ?? {}).length;
+    function DR(t, e, a) {
+        const r = [], n = a?.default ?? AR, i = a?.filterKeys ? Dt(a.filterKeys) : !1, o = Object.keys(a?.customKeyFilter ?? {}).length;
         if (!t?.length) return r;
         e: for(let s = 0; s < t.length; s++){
             const [l, u = l] = Dt(t[s]), c = {}, d = {};
@@ -55923,7 +56025,7 @@ P = μTP`,
                     r.transform(l)
                 ]) : U(e));
         zt(()=>{
-            const l = typeof a == "function" ? a() : U(a), u = typeof l != "string" && typeof l != "number" ? "" : String(l), c = xR(o.value, u, {
+            const l = typeof a == "function" ? a() : U(a), u = typeof l != "string" && typeof l != "number" ? "" : String(l), c = DR(o.value, u, {
                 customKeyFilter: {
                     ...t.customKeyFilter,
                     ...U(r?.customKeyFilter)
@@ -55948,7 +56050,7 @@ P = μTP`,
             getMatches: s
         };
     }
-    function wR(t, e, a) {
+    function TR(t, e, a) {
         if (e == null) return t;
         if (Array.isArray(e)) throw new Error("Multiple matches is not implemented");
         return typeof e == "number" && ~e ? y(Ae, null, [
@@ -55969,8 +56071,8 @@ P = μTP`,
             ])
         ]) : t;
     }
-    let SR, bo, m1, p1, f1, CR, AR, DR, y1, b1, F1, ky;
-    SR = Y({
+    let ER, bo, p1, f1, g1, _R, PR, BR, b1, F1, k1, ky;
+    ER = Y({
         autoSelectFirst: {
             type: [
                 Boolean,
@@ -56005,7 +56107,7 @@ P = μTP`,
     }, "VCombobox");
     Ws = te()({
         name: "VCombobox",
-        props: SR(),
+        props: ER(),
         emits: {
             "update:focused": (t)=>!0,
             "update:modelValue": (t)=>!0,
@@ -56057,7 +56159,7 @@ P = μTP`,
                 se.key !== " " && Fi(se) && i.value?.focus();
             }
             function me(se) {
-                if (Lw(se) || w.isReadonly.value) return;
+                if (Iw(se) || w.isReadonly.value) return;
                 const ge = i.value.selectionStart, K = S.value.length;
                 if ([
                     "Enter",
@@ -56270,7 +56372,7 @@ P = μTP`,
                                                                         }, null)
                                                                     ]);
                                                                 },
-                                                                title: ()=>s.value ? we.title : wR(we.title, P(we)?.title, D.value?.length ?? 0)
+                                                                title: ()=>s.value ? we.title : TR(we.title, P(we)?.title, D.value?.length ?? 0)
                                                             });
                                                         }
                                                     }),
@@ -56373,7 +56475,7 @@ P = μTP`,
     });
     Nh = Et({
         __name: "HistoryField",
-        props: nw({
+        props: iw({
             historyKey: {}
         }, {
             modelValue: {
@@ -56385,7 +56487,7 @@ P = μTP`,
             "update:modelValue"
         ],
         setup (t, { expose: e }) {
-            const a = t, r = sb(t, "modelValue"), n = _M(), i = G(), o = T(()=>n.getHistory(a.historyKey));
+            const a = t, r = sb(t, "modelValue"), n = LM(), i = G(), o = T(()=>n.getHistory(a.historyKey));
             function s() {
                 n.pushValueToHistory(a.historyKey, r.value ?? "");
             }
@@ -56398,13 +56500,13 @@ P = μTP`,
                     ref_key: "field",
                     ref: i,
                     items: o.value
-                }, iw({
+                }, ow({
                     _: 2
                 }, [
                     l.$slots.prepend ? {
                         name: "prepend",
                         fn: z(()=>[
-                                ow(l.$slots, "prepend")
+                                sw(l.$slots, "prepend")
                             ]),
                         key: "0"
                     } : void 0
@@ -56415,13 +56517,13 @@ P = μTP`,
         }
     });
     bo = Symbol.for("vuetify:v-expansion-panel");
-    m1 = Y({
+    p1 = Y({
         ...xe(),
         ...up()
     }, "VExpansionPanelText");
     Gs = te()({
         name: "VExpansionPanelText",
-        props: m1(),
+        props: p1(),
         setup (t, e) {
             let { slots: a } = e;
             const r = Tt(bo);
@@ -56453,7 +56555,7 @@ P = μTP`,
                 })), {};
         }
     });
-    p1 = Y({
+    f1 = Y({
         color: String,
         expandIcon: {
             type: Be,
@@ -56482,7 +56584,7 @@ P = μTP`,
         directives: {
             Ripple: zr
         },
-        props: p1(),
+        props: f1(),
         setup (t, e) {
             let { slots: a } = e;
             const r = Tt(bo);
@@ -56543,7 +56645,7 @@ P = μTP`,
                 ])), {};
         }
     });
-    f1 = Y({
+    g1 = Y({
         title: String,
         text: String,
         bgColor: String,
@@ -56551,12 +56653,12 @@ P = μTP`,
         ...Yn(),
         ...Ct(),
         ...Ve(),
-        ...p1(),
-        ...m1()
+        ...f1(),
+        ...p1()
     }, "VExpansionPanel");
-    g1 = te()({
+    v1 = te()({
         name: "VExpansionPanel",
-        props: f1(),
+        props: g1(),
         emits: {
             "group:selected": (t)=>!0
         },
@@ -56631,16 +56733,16 @@ P = μTP`,
             };
         }
     });
-    CR = [
+    _R = [
         "default",
         "accordion",
         "inset",
         "popout"
     ];
-    AR = Y({
+    PR = Y({
         flat: Boolean,
         ...Un(),
-        ...nn(f1(), [
+        ...nn(g1(), [
             "bgColor",
             "collapseIcon",
             "color",
@@ -56661,12 +56763,12 @@ P = μTP`,
         variant: {
             type: String,
             default: "default",
-            validator: (t)=>CR.includes(t)
+            validator: (t)=>_R.includes(t)
         }
     }, "VExpansionPanels");
-    v1 = te()({
+    y1 = te()({
         name: "VExpansionPanels",
-        props: AR(),
+        props: PR(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -56713,7 +56815,7 @@ P = μTP`,
             };
         }
     });
-    DR = Y({
+    BR = Y({
         fluid: {
             type: Boolean,
             default: !1
@@ -56722,9 +56824,9 @@ P = μTP`,
         ...$t(),
         ...Ve()
     }, "VContainer");
-    TR = te()({
+    MR = te()({
         name: "VContainer",
-        props: DR(),
+        props: BR(),
         setup (t, e) {
             let { slots: a } = e;
             const { rtlClasses: r } = Zt(), { dimensionStyles: n } = jt(t);
@@ -56744,7 +56846,7 @@ P = μTP`,
                 }, a)), {};
         }
     });
-    y1 = sl.reduce((t, e)=>(t[e] = {
+    b1 = sl.reduce((t, e)=>(t[e] = {
             type: [
                 Boolean,
                 String,
@@ -56752,7 +56854,7 @@ P = μTP`,
             ],
             default: !1
         }, t), {});
-    b1 = sl.reduce((t, e)=>{
+    F1 = sl.reduce((t, e)=>{
         const a = "offset" + al(e);
         return t[a] = {
             type: [
@@ -56762,7 +56864,7 @@ P = μTP`,
             default: null
         }, t;
     }, {});
-    F1 = sl.reduce((t, e)=>{
+    k1 = sl.reduce((t, e)=>{
         const a = "order" + al(e);
         return t[a] = {
             type: [
@@ -56773,11 +56875,11 @@ P = μTP`,
         }, t;
     }, {});
     ky = {
-        col: Object.keys(y1),
-        offset: Object.keys(b1),
-        order: Object.keys(F1)
+        col: Object.keys(b1),
+        offset: Object.keys(F1),
+        order: Object.keys(k1)
     };
-    function ER(t, e, a) {
+    function RR(t, e, a) {
         let r = t;
         if (!(a == null || a === !1)) {
             if (e) {
@@ -56787,8 +56889,8 @@ P = μTP`,
             return t === "col" && (r = "v-" + r), t === "col" && (a === "" || a === !0) || (r += `-${a}`), r.toLowerCase();
         }
     }
-    let _R, PR, pp, k1;
-    _R = [
+    let LR, IR, pp, x1;
+    LR = [
         "auto",
         "start",
         "end",
@@ -56796,7 +56898,7 @@ P = μTP`,
         "baseline",
         "stretch"
     ];
-    PR = Y({
+    IR = Y({
         cols: {
             type: [
                 Boolean,
@@ -56805,7 +56907,7 @@ P = μTP`,
             ],
             default: !1
         },
-        ...y1,
+        ...b1,
         offset: {
             type: [
                 String,
@@ -56813,7 +56915,7 @@ P = μTP`,
             ],
             default: null
         },
-        ...b1,
+        ...F1,
         order: {
             type: [
                 String,
@@ -56821,25 +56923,25 @@ P = μTP`,
             ],
             default: null
         },
-        ...F1,
+        ...k1,
         alignSelf: {
             type: String,
             default: null,
-            validator: (t)=>_R.includes(t)
+            validator: (t)=>LR.includes(t)
         },
         ...xe(),
         ...Ve()
     }, "VCol");
     je = te()({
         name: "VCol",
-        props: PR(),
+        props: IR(),
         setup (t, e) {
             let { slots: a } = e;
             const r = T(()=>{
                 const n = [];
                 let i;
                 for(i in ky)ky[i].forEach((s)=>{
-                    const l = t[s], u = ER(i, s, l);
+                    const l = t[s], u = RR(i, s, l);
                     u && n.push(u);
                 });
                 const o = n.some((s)=>s.startsWith("v-col-"));
@@ -56865,7 +56967,7 @@ P = μTP`,
         "end",
         "center"
     ];
-    k1 = [
+    x1 = [
         "space-between",
         "space-around",
         "space-evenly"
@@ -56876,40 +56978,40 @@ P = μTP`,
             return a[n] = e(), a;
         }, {});
     }
-    const BR = [
+    const zR = [
         ...pp,
         "baseline",
         "stretch"
-    ], x1 = (t)=>BR.includes(t), w1 = fp("align", ()=>({
+    ], w1 = (t)=>zR.includes(t), S1 = fp("align", ()=>({
             type: String,
             default: null,
-            validator: x1
-        })), MR = [
+            validator: w1
+        })), NR = [
         ...pp,
-        ...k1
-    ], S1 = (t)=>MR.includes(t), C1 = fp("justify", ()=>({
+        ...x1
+    ], C1 = (t)=>NR.includes(t), A1 = fp("justify", ()=>({
             type: String,
             default: null,
-            validator: S1
-        })), RR = [
+            validator: C1
+        })), OR = [
         ...pp,
-        ...k1,
+        ...x1,
         "stretch"
-    ], A1 = (t)=>RR.includes(t), D1 = fp("alignContent", ()=>({
+    ], D1 = (t)=>OR.includes(t), T1 = fp("alignContent", ()=>({
             type: String,
             default: null,
-            validator: A1
+            validator: D1
         })), xy = {
-        align: Object.keys(w1),
-        justify: Object.keys(C1),
-        alignContent: Object.keys(D1)
-    }, LR = {
+        align: Object.keys(S1),
+        justify: Object.keys(A1),
+        alignContent: Object.keys(T1)
+    }, HR = {
         align: "align",
         justify: "justify",
         alignContent: "align-content"
     };
-    function IR(t, e, a) {
-        let r = LR[t];
+    function VR(t, e, a) {
+        let r = HR[t];
         if (a != null) {
             if (e) {
                 const n = e.replace(t, "");
@@ -56918,41 +57020,41 @@ P = μTP`,
             return r += `-${a}`, r.toLowerCase();
         }
     }
-    let zR, T1, Hh, gp, OR, HR, VR, WR, zi;
-    zR = Y({
+    let WR, E1, Hh, gp, $R, jR, UR, YR, zi;
+    WR = Y({
         dense: Boolean,
         noGutters: Boolean,
         align: {
             type: String,
             default: null,
-            validator: x1
+            validator: w1
         },
-        ...w1,
+        ...S1,
         justify: {
             type: String,
             default: null,
-            validator: S1
+            validator: C1
         },
-        ...C1,
+        ...A1,
         alignContent: {
             type: String,
             default: null,
-            validator: A1
+            validator: D1
         },
-        ...D1,
+        ...T1,
         ...xe(),
         ...Ve()
     }, "VRow");
     _a = te()({
         name: "VRow",
-        props: zR(),
+        props: WR(),
         setup (t, e) {
             let { slots: a } = e;
             const r = T(()=>{
                 const n = [];
                 let i;
                 for(i in xy)xy[i].forEach((o)=>{
-                    const s = t[o], l = IR(i, o, s);
+                    const s = t[o], l = VR(i, o, s);
                     l && n.push(l);
                 });
                 return n.push({
@@ -56974,7 +57076,7 @@ P = μTP`,
         }
     });
     cn = xr("v-spacer", "div", "VSpacer");
-    NR = Et({
+    GR = Et({
         __name: "AddTorrentParamsForm",
         props: {
             modelValue: {
@@ -57400,9 +57502,9 @@ P = μTP`,
                                     cols: "12"
                                 }, {
                                     default: z(()=>[
-                                            y(v1, null, {
+                                            y(y1, null, {
                                                 default: z(()=>[
-                                                        y(g1, {
+                                                        y(v1, {
                                                             color: "primary",
                                                             title: F.$t("dialogs.add.params.limit_collapse")
                                                         }, {
@@ -57572,7 +57674,7 @@ P = μTP`,
                 ], 64));
         }
     });
-    T1 = Y({
+    E1 = Y({
         baseColor: String,
         divided: Boolean,
         ...Ia(),
@@ -57586,7 +57688,7 @@ P = μTP`,
     }, "VBtnGroup");
     Hh = te()({
         name: "VBtnGroup",
-        props: T1(),
+        props: E1(),
         setup (t, e) {
             let { slots: a } = e;
             const { themeClasses: r } = it(t), { densityClasses: n } = Fa(t), { borderClasses: i } = qa(t), { elevationClasses: o } = na(t), { roundedClasses: s } = Pt(t);
@@ -57617,13 +57719,13 @@ P = μTP`,
         }
     });
     gp = Symbol.for("vuetify:v-btn-toggle");
-    OR = Y({
-        ...T1(),
+    $R = Y({
+        ...E1(),
         ...Un()
     }, "VBtnToggle");
-    HR = te()({
+    jR = te()({
         name: "VBtnToggle",
-        props: OR(),
+        props: $R(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -57657,7 +57759,7 @@ P = μTP`,
             };
         }
     });
-    VR = Y({
+    UR = Y({
         bgColor: String,
         color: String,
         indeterminate: [
@@ -57694,7 +57796,7 @@ P = μTP`,
     }, "VProgressCircular");
     ki = te()({
         name: "VProgressCircular",
-        props: VR(),
+        props: UR(),
         setup (t, e) {
             let { slots: a } = e;
             const r = 20, n = 2 * Math.PI * r, i = G(), { themeClasses: o } = it(t), { sizeClasses: s, sizeStyles: l } = Ri(t), { textColorClasses: u, textColorStyles: c } = da(X(t, "color")), { textColorClasses: d, textColorStyles: h } = da(X(t, "bgColor")), { intersectionRef: m, isIntersecting: p } = El(), { resizeRef: f, contentRect: g } = Fr(), v = T(()=>Math.max(0, Math.min(100, parseFloat(t.modelValue)))), b = T(()=>Number(t.width)), x = T(()=>l.value ? Number(t.size) : g.value ? g.value.width : Math.max(b.value, 32)), C = T(()=>r / (1 - b.value / x.value) * 2), k = T(()=>b.value / x.value * C.value), S = T(()=>ke((100 - v.value) / 100 * n));
@@ -57768,7 +57870,7 @@ P = μTP`,
                 })), {};
         }
     });
-    WR = [
+    YR = [
         "static",
         "relative",
         "fixed",
@@ -57778,7 +57880,7 @@ P = μTP`,
     zi = Y({
         position: {
             type: String,
-            validator: (t)=>WR.includes(t)
+            validator: (t)=>YR.includes(t)
         }
     }, "position");
     function Ni(t) {
@@ -57787,7 +57889,7 @@ P = μTP`,
             positionClasses: T(()=>t.position ? `${e}--${t.position}` : void 0)
         };
     }
-    function GR(t, e) {
+    function qR(t, e) {
         he(()=>t.isActive?.value, (a)=>{
             t.isLink.value && a && e && nt(()=>{
                 e(!0);
@@ -57796,7 +57898,7 @@ P = μTP`,
             immediate: !0
         });
     }
-    let Rl, $R, jR, _1, UR, YR, P1, qR, B1, KR, R1, XR, L1, JR, ZR, QR, Od;
+    let Rl, KR, XR, P1, JR, ZR, B1, QR, M1, eL, L1, tL, I1, aL, rL, nL, Od;
     Rl = Y({
         active: {
             type: Boolean,
@@ -57873,7 +57975,7 @@ P = μTP`,
             function E(D) {
                 w.value || g.isLink.value && (D.metaKey || D.ctrlKey || D.shiftKey || D.button !== 0 || a.target === "_blank") || (g.navigate?.(D), f?.toggle());
             }
-            return GR(g, f?.select), ne(()=>{
+            return qR(g, f?.select), ne(()=>{
                 const D = g.isLink.value ? "a" : t.tag, _ = !!(t.prependIcon || r.prepend), B = !!(t.appendIcon || r.append), P = !!(t.icon && t.icon !== !0);
                 return dt(y(D, Q({
                     type: D === "a" ? void 0 : "button",
@@ -58021,7 +58123,7 @@ P = μTP`,
                 ])), {};
         }
     });
-    $R = Y({
+    KR = Y({
         opacity: [
             Number,
             String
@@ -58029,9 +58131,9 @@ P = μTP`,
         ...xe(),
         ...Ve()
     }, "VCardSubtitle");
-    E1 = te()({
+    _1 = te()({
         name: "VCardSubtitle",
-        props: $R(),
+        props: KR(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(t.tag, {
@@ -58049,7 +58151,7 @@ P = μTP`,
         }
     });
     Hi = xr("v-card-title");
-    jR = Y({
+    XR = Y({
         appendAvatar: String,
         appendIcon: Be,
         prependAvatar: String,
@@ -58073,9 +58175,9 @@ P = μTP`,
         ...xe(),
         ...Qt()
     }, "VCardItem");
-    _1 = te()({
+    P1 = te()({
         name: "VCardItem",
-        props: jR(),
+        props: XR(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>{
@@ -58127,7 +58229,7 @@ P = μTP`,
                                     a.title?.() ?? Fe(t.title)
                                 ]
                         }),
-                        l && y(E1, {
+                        l && y(_1, {
                             key: "subtitle"
                         }, {
                             default: ()=>[
@@ -58170,7 +58272,7 @@ P = μTP`,
             }), {};
         }
     });
-    UR = Y({
+    JR = Y({
         opacity: [
             Number,
             String
@@ -58180,7 +58282,7 @@ P = μTP`,
     }, "VCardText");
     Qn = te()({
         name: "VCardText",
-        props: UR(),
+        props: JR(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(t.tag, {
@@ -58197,7 +58299,7 @@ P = μTP`,
                 }, a)), {};
         }
     });
-    YR = Y({
+    ZR = Y({
         appendAvatar: String,
         appendIcon: Be,
         disabled: Boolean,
@@ -58262,7 +58364,7 @@ P = μTP`,
         directives: {
             Ripple: zr
         },
-        props: YR(),
+        props: ZR(),
         setup (t, e) {
             let { attrs: a, slots: r } = e;
             const { themeClasses: n } = it(t), { borderClasses: i } = qa(t), { colorClasses: o, colorStyles: s, variantClasses: l } = jn(t), { densityClasses: u } = Fa(t), { dimensionStyles: c } = jt(t), { elevationClasses: d } = na(t), { loaderClasses: h } = Wo(t), { locationStyles: m } = Zn(t), { positionClasses: p } = Ni(t), { roundedClasses: f } = Pt(t), g = Oo(t, a), v = T(()=>t.link !== !1 && g.isLink.value), b = T(()=>!t.disabled && t.link !== !1 && (t.link || g.isClickable.value));
@@ -58324,7 +58426,7 @@ P = μTP`,
                             }, {
                                 default: r.loader
                             }),
-                            E && y(_1, {
+                            E && y(P1, {
                                 key: "item",
                                 prependAvatar: t.prependAvatar,
                                 prependIcon: t.prependIcon,
@@ -58361,7 +58463,7 @@ P = μTP`,
             }), {};
         }
     });
-    P1 = Y({
+    B1 = Y({
         fullscreen: Boolean,
         retainFocus: {
             type: Boolean,
@@ -58379,7 +58481,7 @@ P = μTP`,
     }, "VDialog");
     _n = te()({
         name: "VDialog",
-        props: P1(),
+        props: B1(),
         emits: {
             "update:modelValue": (t)=>!0,
             afterEnter: ()=>!0,
@@ -58465,7 +58567,7 @@ P = μTP`,
             }), sr({}, o);
         }
     });
-    qR = Y({
+    QR = Y({
         chips: Boolean,
         counter: Boolean,
         counterSizeString: {
@@ -58505,10 +58607,10 @@ P = μTP`,
             clearable: !0
         })
     }, "VFileInput");
-    B1 = te()({
+    M1 = te()({
         name: "VFileInput",
         inheritAttrs: !1,
-        props: qR(),
+        props: QR(),
         emits: {
             "click:control": (t)=>!0,
             "mousedown:control": (t)=>!0,
@@ -58654,7 +58756,7 @@ P = μTP`,
             }), sr({}, f, g, v);
         }
     });
-    KR = Y({
+    eL = Y({
         autoGrow: Boolean,
         autofocus: Boolean,
         counter: [
@@ -58688,13 +58790,13 @@ P = μTP`,
         ...Or(),
         ...$o()
     }, "VTextarea");
-    M1 = te()({
+    R1 = te()({
         name: "VTextarea",
         directives: {
             Intersect: zo
         },
         inheritAttrs: !1,
-        props: KR(),
+        props: eL(),
         emits: {
             "click:control": (t)=>!0,
             "mousedown:control": (t)=>!0,
@@ -58849,7 +58951,7 @@ P = μTP`,
                                         "aria-hidden": "true"
                                     }, null), [
                                         [
-                                            sw,
+                                            lw,
                                             i.value
                                         ]
                                     ]),
@@ -58878,14 +58980,14 @@ P = μTP`,
             }), sr({}, h, m, f);
         }
     });
-    R1 = Y({
+    L1 = Y({
         text: String,
         ...xe(),
         ...Ve()
     }, "VToolbarTitle");
     Ll = te()({
         name: "VToolbarTitle",
-        props: R1(),
+        props: L1(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>{
@@ -58909,21 +59011,21 @@ P = μTP`,
             }), {};
         }
     });
-    XR = [
+    tL = [
         null,
         "prominent",
         "default",
         "comfortable",
         "compact"
     ];
-    L1 = Y({
+    I1 = Y({
         absolute: Boolean,
         collapse: Boolean,
         color: String,
         density: {
             type: String,
             default: "default",
-            validator: (t)=>XR.includes(t)
+            validator: (t)=>tL.includes(t)
         },
         extended: Boolean,
         extensionHeight: {
@@ -58955,7 +59057,7 @@ P = μTP`,
     }, "VToolbar");
     $s = te()({
         name: "VToolbar",
-        props: L1(),
+        props: I1(),
         setup (t, e) {
             let { slots: a } = e;
             const { backgroundColorClasses: r, backgroundColorStyles: n } = ht(X(t, "color")), { borderClasses: i } = qa(t), { elevationClasses: o } = na(t), { roundedClasses: s } = Pt(t), { themeClasses: l } = it(t), { rtlClasses: u } = Zt(), c = de(!!(t.extended || a.extension?.())), d = T(()=>parseInt(Number(t.height) + (t.density === "prominent" ? Number(t.height) : 0) - (t.density === "comfortable" ? 8 : 0) - (t.density === "compact" ? 16 : 0), 10)), h = T(()=>c.value ? parseInt(Number(t.extensionHeight) + (t.density === "prominent" ? Number(t.extensionHeight) : 0) - (t.density === "comfortable" ? 4 : 0) - (t.density === "compact" ? 8 : 0), 10) : 0);
@@ -59072,15 +59174,15 @@ P = μTP`,
             };
         }
     });
-    JR = Y({
+    aL = Y({
         ...xe(),
         ...or({
             variant: "text"
         })
     }, "VToolbarItems");
-    ZR = te()({
+    rL = te()({
         name: "VToolbarItems",
-        props: JR(),
+        props: aL(),
         setup (t, e) {
             let { slots: a } = e;
             return _t({
@@ -59100,7 +59202,7 @@ P = μTP`,
                 ])), {};
         }
     });
-    QR = {
+    nL = {
         key: 0,
         class: "text-overline text-grey-darken-2 ml-2"
     };
@@ -59206,7 +59308,7 @@ P = μTP`,
                                                                     cols: "12"
                                                                 }, {
                                                                     default: z(()=>[
-                                                                            y(B1, {
+                                                                            y(M1, {
                                                                                 modelValue: U(o),
                                                                                 "onUpdate:modelValue": x[0] || (x[0] = (C)=>Rt(o) ? o.value = C : null),
                                                                                 label: U(r)("dialogs.add.files"),
@@ -59244,7 +59346,7 @@ P = μTP`,
                                                                                                     _: 2
                                                                                                 }, 1024)) : bt("", !0)
                                                                                             ], 64))), 256)),
-                                                                                        C.length === Od + 1 ? (fe(), Ze("span", QR, Fe(U(r)("dialogs.add.file_overflow", C.length - Od)), 1)) : bt("", !0)
+                                                                                        C.length === Od + 1 ? (fe(), Ze("span", nL, Fe(U(r)("dialogs.add.file_overflow", C.length - Od)), 1)) : bt("", !0)
                                                                                     ]),
                                                                                 _: 1
                                                                             }, 8, [
@@ -59252,7 +59354,7 @@ P = μTP`,
                                                                                 "label",
                                                                                 "show-size"
                                                                             ]),
-                                                                            y(M1, {
+                                                                            y(R1, {
                                                                                 modelValue: U(i),
                                                                                 "onUpdate:modelValue": x[1] || (x[1] = (C)=>Rt(i) ? i.value = C : null),
                                                                                 label: U(r)("dialogs.add.links"),
@@ -59379,7 +59481,7 @@ P = μTP`,
                                                             ]),
                                                         _: 1
                                                     }),
-                                                    y(NR, {
+                                                    y(GR, {
                                                         modelValue: U(l),
                                                         "onUpdate:modelValue": x[6] || (x[6] = (C)=>Rt(l) ? l.value = C : null),
                                                         ref_key: "addTorrentParamsForm",
@@ -59438,7 +59540,7 @@ P = μTP`,
                 ]));
         }
     });
-    function eL(t, e) {
+    function iL(t, e) {
         const a = e.modifiers || {}, r = e.value, { once: n, immediate: i, ...o } = a, s = !Object.keys(o).length, { handler: l, options: u } = typeof r == "object" ? r : {
             handler: r,
             options: {
@@ -59449,20 +59551,20 @@ P = μTP`,
             }
         }, c = new MutationObserver(function() {
             let d = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : [], h = arguments.length > 1 ? arguments[1] : void 0;
-            l?.(d, h), n && I1(t, e);
+            l?.(d, h), n && z1(t, e);
         });
         i && l?.([], c), t._mutate = Object(t._mutate), t._mutate[e.instance.$.uid] = {
             observer: c
         }, c.observe(t, u);
     }
-    function I1(t, e) {
+    function z1(t, e) {
         t._mutate?.[e.instance.$.uid] && (t._mutate[e.instance.$.uid].observer.disconnect(), delete t._mutate[e.instance.$.uid]);
     }
-    const tL = {
-        mounted: eL,
-        unmounted: I1
+    const oL = {
+        mounted: iL,
+        unmounted: z1
     };
-    function aL(t, e) {
+    function sL(t, e) {
         const a = e.value, r = {
             passive: !e.modifiers?.active
         };
@@ -59471,16 +59573,16 @@ P = μTP`,
             options: r
         }, e.modifiers?.quiet || a();
     }
-    function rL(t, e) {
+    function lL(t, e) {
         if (!t._onResize?.[e.instance.$.uid]) return;
         const { handler: a, options: r } = t._onResize[e.instance.$.uid];
         window.removeEventListener("resize", a, r), delete t._onResize[e.instance.$.uid];
     }
-    const nL = {
-        mounted: aL,
-        unmounted: rL
+    const uL = {
+        mounted: sL,
+        unmounted: lL
     };
-    function z1(t, e) {
+    function N1(t, e) {
         const { self: a = !1 } = e.modifiers ?? {}, r = e.value, n = typeof r == "object" && r.options || {
             passive: !0
         }, i = typeof r == "function" || "handleEvent" in r ? r : r.handler, o = a ? t : e.arg ? document.querySelector(e.arg) : window;
@@ -59490,44 +59592,44 @@ P = μTP`,
             target: a ? void 0 : o
         });
     }
-    function N1(t, e) {
+    function O1(t, e) {
         if (!t._onScroll?.[e.instance.$.uid]) return;
         const { handler: a, options: r, target: n = t } = t._onScroll[e.instance.$.uid];
         n.removeEventListener("scroll", a, r), delete t._onScroll[e.instance.$.uid];
     }
-    function iL(t, e) {
-        e.value !== e.oldValue && (N1(t, e), z1(t, e));
+    function cL(t, e) {
+        e.value !== e.oldValue && (O1(t, e), N1(t, e));
     }
-    const oL = {
-        mounted: z1,
-        unmounted: N1,
-        updated: iL
-    }, sL = (t)=>{
+    const dL = {
+        mounted: N1,
+        unmounted: O1,
+        updated: cL
+    }, hL = (t)=>{
         const { touchstartX: e, touchendX: a, touchstartY: r, touchendY: n } = t, i = .5, o = 16;
         t.offsetX = a - e, t.offsetY = n - r, Math.abs(t.offsetY) < i * Math.abs(t.offsetX) && (t.left && a < e - o && t.left(t), t.right && a > e + o && t.right(t)), Math.abs(t.offsetX) < i * Math.abs(t.offsetY) && (t.up && n < r - o && t.up(t), t.down && n > r + o && t.down(t));
     };
-    function lL(t, e) {
+    function mL(t, e) {
         const a = t.changedTouches[0];
         e.touchstartX = a.clientX, e.touchstartY = a.clientY, e.start?.({
             originalEvent: t,
             ...e
         });
     }
-    function uL(t, e) {
+    function pL(t, e) {
         const a = t.changedTouches[0];
         e.touchendX = a.clientX, e.touchendY = a.clientY, e.end?.({
             originalEvent: t,
             ...e
-        }), sL(e);
+        }), hL(e);
     }
-    function cL(t, e) {
+    function fL(t, e) {
         const a = t.changedTouches[0];
         e.touchmoveX = a.clientX, e.touchmoveY = a.clientY, e.move?.({
             originalEvent: t,
             ...e
         });
     }
-    function dL() {
+    function gL() {
         let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
         const e = {
             touchstartX: 0,
@@ -59547,22 +59649,22 @@ P = μTP`,
             end: t.end
         };
         return {
-            touchstart: (a)=>lL(a, e),
-            touchend: (a)=>uL(a, e),
-            touchmove: (a)=>cL(a, e)
+            touchstart: (a)=>mL(a, e),
+            touchend: (a)=>pL(a, e),
+            touchmove: (a)=>fL(a, e)
         };
     }
-    function hL(t, e) {
+    function vL(t, e) {
         const a = e.value, r = a?.parent ? t.parentElement : t, n = a?.options ?? {
             passive: !0
         }, i = e.instance?.$.uid;
         if (!r || !i) return;
-        const o = dL(e.value);
+        const o = gL(e.value);
         r._touchHandlers = r._touchHandlers ?? Object.create(null), r._touchHandlers[i] = o, pb(o).forEach((s)=>{
             r.addEventListener(s, o[s], n);
         });
     }
-    function mL(t, e) {
+    function yL(t, e) {
         const a = e.value?.parent ? t.parentElement : t, r = e.instance?.$.uid;
         if (!a?._touchHandlers || !r) return;
         const n = a._touchHandlers[r];
@@ -59570,12 +59672,12 @@ P = μTP`,
             a.removeEventListener(i, n[i]);
         }), delete a._touchHandlers[r];
     }
-    let Il, pL;
+    let Il, bL;
     Il = {
-        mounted: hL,
-        unmounted: mL
+        mounted: vL,
+        unmounted: yL
     };
-    pL = Y({
+    bL = Y({
         id: String,
         text: String,
         ...Gt(Vo({
@@ -59598,7 +59700,7 @@ P = μTP`,
     }, "VTooltip");
     ea = te()({
         name: "VTooltip",
-        props: pL(),
+        props: bL(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -59638,8 +59740,8 @@ P = μTP`,
             }), sr({}, s);
         }
     });
-    function fL(t, e) {
-        const a = typeof t == "string" ? lb(t) : t, r = gL(a, e);
+    function FL(t, e) {
+        const a = typeof t == "string" ? lb(t) : t, r = kL(a, e);
         return {
             mounted: r,
             updated: r,
@@ -59648,15 +59750,15 @@ P = μTP`,
             }
         };
     }
-    function gL(t, e) {
+    function kL(t, e) {
         return function(a, r, n) {
-            const i = typeof e == "function" ? e(r) : e, o = r.value?.text ?? r.value ?? i?.text, s = il(r.value) ? r.value : {}, l = ()=>o ?? a.textContent, u = (n.ctx === r.instance.$ ? vL(n, r.instance.$)?.provides : n.ctx?.provides) ?? r.instance.$.provides, c = Nn(t, Q(i, s), l);
+            const i = typeof e == "function" ? e(r) : e, o = r.value?.text ?? r.value ?? i?.text, s = il(r.value) ? r.value : {}, l = ()=>o ?? a.textContent, u = (n.ctx === r.instance.$ ? xL(n, r.instance.$)?.provides : n.ctx?.provides) ?? r.instance.$.provides, c = Nn(t, Q(i, s), l);
             c.appContext = Object.assign(Object.create(null), r.instance.$.appContext, {
                 provides: u
             }), ub(c, a);
         };
     }
-    function vL(t, e) {
+    function xL(t, e) {
         const a = new Set, r = (i)=>{
             for (const o of i){
                 if (!o) continue;
@@ -59679,26 +59781,26 @@ P = μTP`,
         for (const i of n)if (i.component) return i.component;
         return e;
     }
-    let yL, bL, FL, O1, kL, xL, wL, SL, CL, AL, DL, TL, EL, _L, PL, BL, ML, RL, LL, IL, zL, NL, OL, HL, VL, WL, GL, zl, ds, $L, jL, UL, YL, qL, KL, XL, JL, ZL, QL, eI, tI, Vh, aI;
-    yL = fL(ea, (t)=>({
+    let wL, SL, CL, H1, AL, DL, TL, EL, _L, PL, BL, ML, RL, LL, IL, zL, NL, OL, HL, VL, WL, GL, $L, jL, UL, YL, qL, zl, ds, KL, XL, JL, ZL, QL, eI, tI, aI, rI, nI, iI, oI, Vh, sI;
+    wL = FL(ea, (t)=>({
             activator: "parent",
             location: t.arg?.replace("-", " "),
             text: typeof t.value == "boolean" ? void 0 : t.value
         }));
-    bL = Object.freeze(Object.defineProperty({
+    SL = Object.freeze(Object.defineProperty({
         __proto__: null,
-        ClickOutside: l1,
+        ClickOutside: u1,
         Intersect: zo,
-        Mutate: tL,
-        Resize: nL,
+        Mutate: oL,
+        Resize: uL,
         Ripple: zr,
-        Scroll: oL,
-        Tooltip: yL,
+        Scroll: dL,
+        Tooltip: wL,
         Touch: Il
     }, Symbol.toStringTag, {
         value: "Module"
     }));
-    FL = Y({
+    CL = Y({
         baseColor: String,
         bgColor: String,
         color: String,
@@ -59737,9 +59839,9 @@ P = μTP`,
         }),
         ...Qe()
     }, "VBottomNavigation");
-    O1 = te()({
+    H1 = te()({
         name: "VBottomNavigation",
-        props: FL(),
+        props: CL(),
         emits: {
             "update:active": (t)=>!0,
             "update:modelValue": (t)=>!0
@@ -59801,14 +59903,14 @@ P = μTP`,
                 })), {};
         }
     });
-    kL = Et({
+    AL = Et({
         __name: "AddPanel",
         setup (t) {
             const e = Fl(), a = Ei();
             function r() {
                 a.createDialog(Fo);
             }
-            return (n, i)=>dt((fe(), Ie(O1, {
+            return (n, i)=>dt((fe(), Ie(H1, {
                     active: U(e).pendingTorrentsCount > 0,
                     class: "cursor-pointer",
                     onClick: r
@@ -59842,19 +59944,19 @@ P = μTP`,
                 ]);
         }
     });
-    xL = {
+    DL = {
         class: "d-flex align-center justify-center h-100"
     };
-    wL = {
+    TL = {
         class: "d-flex flex-column align-center justify-center dnd-zone-border text-accent"
     };
-    SL = {
+    EL = {
         class: "d-flex align-center justify-center h-100"
     };
-    CL = {
+    _L = {
         class: "d-flex flex-column align-center justify-center dnd-zone-border text-accent"
     };
-    AL = Et({
+    PL = Et({
         __name: "DnDZone",
         setup (t) {
             const { t: e } = aa(), a = xm(), r = Fl(), n = Sr(), i = Ei(), o = Ya(), s = G(), l = G(), u = G(), { isOverDropZone: c } = mu(s), { isOverDropZone: d } = mu(l, {
@@ -59935,8 +60037,8 @@ P = μTP`,
                                         U(d) ? "dnd-bg-active" : "dnd-bg"
                                     ])
                                 }, [
-                                    at("div", xL, [
-                                        at("div", wL, [
+                                    at("div", DL, [
+                                        at("div", TL, [
                                             y(_e, {
                                                 size: "75"
                                             }, {
@@ -59967,8 +60069,8 @@ P = μTP`,
                                         U(h) ? "dnd-bg-active" : "dnd-bg"
                                     ])
                                 }, [
-                                    at("div", SL, [
-                                        at("div", CL, [
+                                    at("div", EL, [
+                                        at("div", _L, [
                                             y(_e, {
                                                 size: "75"
                                             }, {
@@ -59997,18 +60099,18 @@ P = μTP`,
                 ]);
         }
     });
-    H1 = (t, e)=>{
+    V1 = (t, e)=>{
         const a = t.__vccOpts || t;
         for (const [r, n] of e)a[r] = n;
         return a;
     };
-    DL = H1(AL, [
+    BL = V1(PL, [
         [
             "__scopeId",
             "data-v-85067a26"
         ]
     ]);
-    TL = Et({
+    ML = Et({
         __name: "ConfirmShutdownDialog",
         props: {
             guid: {}
@@ -60071,59 +60173,59 @@ P = μTP`,
                 ]));
         }
     });
-    EL = {
-        class: "ml-2"
-    };
-    _L = {
-        key: 0
-    };
-    PL = {
-        key: 1,
-        class: "text-warning"
-    };
-    BL = {
-        class: "ml-2"
-    };
-    ML = {
-        class: "ml-2"
-    };
     RL = {
         class: "ml-2"
     };
     LL = {
-        key: 0,
-        class: "text-grey"
+        key: 0
     };
     IL = {
         key: 1,
-        class: "text-info"
+        class: "text-warning"
     };
     zL = {
-        key: 2,
-        class: "text-warning"
+        class: "ml-2"
     };
     NL = {
         class: "ml-2"
     };
     OL = {
+        class: "ml-2"
+    };
+    HL = {
         key: 0,
         class: "text-grey"
     };
-    HL = {
+    VL = {
         key: 1,
         class: "text-info"
     };
-    VL = {
+    WL = {
         key: 2,
         class: "text-warning"
     };
-    WL = Et({
+    GL = {
+        class: "ml-2"
+    };
+    $L = {
+        key: 0,
+        class: "text-grey"
+    };
+    jL = {
+        key: 1,
+        class: "text-info"
+    };
+    UL = {
+        key: 2,
+        class: "text-warning"
+    };
+    YL = Et({
         __name: "ConnectionStatusDialog",
         props: {
             guid: {}
         },
         setup (t) {
-            const e = t, { isOpened: a } = gl(e.guid), r = h0(), n = $n(), i = ba(), o = T(()=>{
+            const e = t, { isOpened: a } = gl(e.guid), r = m0(), n = $n(), i = ba(), o = T(()=>{
                 switch(n.serverState?.connection_status){
                     case Va.CONNECTED:
                         return "text-success";
@@ -60171,8 +60273,8 @@ P = μTP`,
                                                                 }, {
                                                                     default: z(()=>[
                                                                             at("div", null, Fe(l.$t("dialogs.connectionStatus.externalIp")), 1),
-                                                                            at("div", EL, [
-                                                                                U(r).externalIp ? (fe(), Ze("span", _L, Fe(U(r).externalIp), 1)) : (fe(), Ze("span", PL, Fe(l.$t("dialogs.connectionStatus.noExternalIp")), 1))
+                                                                            at("div", RL, [
+                                                                                U(r).externalIp ? (fe(), Ze("span", LL, Fe(U(r).externalIp), 1)) : (fe(), Ze("span", IL, Fe(l.$t("dialogs.connectionStatus.noExternalIp")), 1))
                                                                             ])
                                                                         ]),
                                                                     _: 1
@@ -60184,7 +60286,7 @@ P = μTP`,
                                                                 }, {
                                                                     default: z(()=>[
                                                                             at("div", null, Fe(l.$t("dialogs.connectionStatus.dht_nodes")), 1),
-                                                                            at("div", BL, Fe(U(n).serverState?.dht_nodes), 1)
+                                                                            at("div", zL, Fe(U(n).serverState?.dht_nodes), 1)
                                                                         ]),
                                                                     _: 1
                                                                 }),
@@ -60195,7 +60297,7 @@ P = μTP`,
                                                                 }, {
                                                                     default: z(()=>[
                                                                             at("div", null, Fe(l.$t("dialogs.connectionStatus.total_peer_connections")), 1),
-                                                                            at("div", ML, Fe(U(n).serverState?.total_peer_connections), 1)
+                                                                            at("div", NL, Fe(U(n).serverState?.total_peer_connections), 1)
                                                                         ]),
                                                                     _: 1
                                                                 }),
@@ -60206,8 +60308,8 @@ P = μTP`,
                                                                 }, {
                                                                     default: z(()=>[
                                                                             at("div", null, Fe(l.$t("dialogs.connectionStatus.isp_details")), 1),
-                                                                            at("div", RL, [
-                                                                                U(i).fetchExternalIpInfo ? U(r).ispDetails ? (fe(), Ze("span", IL, Fe(U(r).ispDetails), 1)) : (fe(), Ze("span", zL, Fe(l.$t("dialogs.connectionStatus.fetch_isp_failed")), 1)) : (fe(), Ze("span", LL, Fe(l.$t("dialogs.connectionStatus.fetch_disabled")), 1))
+                                                                            at("div", OL, [
+                                                                                U(i).fetchExternalIpInfo ? U(r).ispDetails ? (fe(), Ze("span", VL, Fe(U(r).ispDetails), 1)) : (fe(), Ze("span", WL, Fe(l.$t("dialogs.connectionStatus.fetch_isp_failed")), 1)) : (fe(), Ze("span", HL, Fe(l.$t("dialogs.connectionStatus.fetch_disabled")), 1))
                                                                             ])
                                                                         ]),
                                                                     _: 1
@@ -60219,8 +60321,8 @@ P = μTP`,
                                                                 }, {
                                                                     default: z(()=>[
                                                                             at("div", null, Fe(l.$t("dialogs.connectionStatus.geo_details")), 1),
-                                                                            at("div", NL, [
-                                                                                U(i).fetchExternalIpInfo ? U(r).geoDetails ? (fe(), Ze("span", HL, Fe(U(r).geoDetails), 1)) : (fe(), Ze("span", VL, Fe(l.$t("dialogs.connectionStatus.fetch_geo_failed")), 1)) : (fe(), Ze("span", OL, Fe(l.$t("dialogs.connectionStatus.fetch_disabled")), 1))
+                                                                            at("div", GL, [
+                                                                                U(i).fetchExternalIpInfo ? U(r).geoDetails ? (fe(), Ze("span", jL, Fe(U(r).geoDetails), 1)) : (fe(), Ze("span", UL, Fe(l.$t("dialogs.connectionStatus.fetch_geo_failed")), 1)) : (fe(), Ze("span", $L, Fe(l.$t("dialogs.connectionStatus.fetch_disabled")), 1))
                                                                             ])
                                                                         ]),
                                                                     _: 1
@@ -60256,7 +60358,7 @@ P = μTP`,
                 ]));
         }
     });
-    GL = Et({
+    qL = Et({
         __name: "BottomActions",
         setup (t) {
             const { t: e } = aa(), a = Sr(), r = Ei(), n = $n(), i = ba(), o = T(()=>!!n.serverState?.use_alt_speed_limits), s = T(()=>{
@@ -60301,10 +60403,10 @@ P = μTP`,
                 a.toggleAlternativeMode();
             };
             function h() {
-                r.createDialog(WL);
+                r.createDialog(YL);
             }
             function m() {
-                r.createDialog(TL);
+                r.createDialog(ML);
             }
             return (p, f)=>(fe(), Ze(Ae, null, [
                     y(_a, {
@@ -60557,12 +60659,12 @@ P = μTP`,
                                                     at("div", null, [
                                                         at("span", {
                                                             class: br(`text-subtitle-1 font-weight-bold text-select text-${a.color}`)
-                                                        }, Fe(U(LF)(a.value, U(e).useBitSpeed)), 3)
+                                                        }, Fe(U(IF)(a.value, U(e).useBitSpeed)), 3)
                                                     ]),
                                                     at("div", null, [
                                                         at("span", {
                                                             class: br(`text-caption text-${a.color}`)
-                                                        }, Fe(U(IF)(a.value, U(e).useBitSpeed)), 3)
+                                                        }, Fe(U(zF)(a.value, U(e).useBitSpeed)), 3)
                                                     ])
                                                 ]),
                                             _: 1
@@ -60578,7 +60680,7 @@ P = μTP`,
                 ]));
         }
     });
-    $L = Et({
+    KL = Et({
         __name: "CurrentSpeed",
         setup (t) {
             const { t: e } = aa(), { serverState: a } = gt($n()), { displayGraphLimits: r } = gt(ba()), { statusFilter: n } = gt(Ya()), i = [
@@ -60715,39 +60817,39 @@ P = μTP`,
                 }));
         }
     });
-    jL = {
-        key: 0,
-        class: "text-accent"
-    };
-    UL = {
-        key: 1,
-        class: "text-accent"
-    };
-    YL = {
-        key: 0,
-        class: "text-accent"
-    };
-    qL = {
-        key: 1,
-        class: "text-accent"
-    };
-    KL = {
-        key: 0,
-        class: "text-accent"
-    };
     XL = {
-        key: 1,
+        key: 0,
         class: "text-accent"
     };
     JL = {
-        key: 0,
-        class: "text-accent"
-    };
-    ZL = {
         key: 1,
         class: "text-accent"
     };
-    QL = Et({
+    ZL = {
+        key: 0,
+        class: "text-accent"
+    };
+    QL = {
+        key: 1,
+        class: "text-accent"
+    };
+    eI = {
+        key: 0,
+        class: "text-accent"
+    };
+    tI = {
+        key: 1,
+        class: "text-accent"
+    };
+    aI = {
+        key: 0,
+        class: "text-accent"
+    };
+    rI = {
+        key: 1,
+        class: "text-accent"
+    };
+    nI = Et({
         __name: "FilterSelect",
         setup (t) {
             const { t: e, getTorrentStateString: a } = aa(), { categories: r, torrentsByCategory: n } = gt(qm()), { tags: i, torrentsByTag: o } = gt(Qm()), { torrents: s, torrentsByStatus: l, statusFilter: u, categoryFilter: c, tagFilter: d, tagFilterType: h, torrentsByTracker: m, trackerFilter: p, trackerFilterType: f } = gt(Ya()), { hostnameTrackers: g } = gt(Ym()), v = T(()=>Object.values(Xe).filter((L)=>typeof L == "number").map((L)=>({
@@ -60902,7 +61004,7 @@ P = μTP`,
                                                     y(er)
                                                 ]),
                                             selection: z(({ item: ee, index: J })=>[
-                                                    J === 0 && U(u).length === 1 ? (fe(), Ze("span", jL, Fe(ee.title), 1)) : J === 0 ? (fe(), Ze("span", UL, Fe(U(e)("navbar.side.filters.activeFilter", U(u).length)), 1)) : bt("", !0)
+                                                    J === 0 && U(u).length === 1 ? (fe(), Ze("span", XL, Fe(ee.title), 1)) : J === 0 ? (fe(), Ze("span", JL, Fe(U(e)("navbar.side.filters.activeFilter", U(u).length)), 1)) : bt("", !0)
                                                 ]),
                                             _: 1
                                         }, 8, [
@@ -60947,7 +61049,7 @@ P = μTP`,
                                                     y(er)
                                                 ]),
                                             selection: z(({ item: ee, index: J })=>[
-                                                    J === 0 && U(c).length === 1 ? (fe(), Ze("span", YL, Fe(ee.props.title), 1)) : J === 0 ? (fe(), Ze("span", qL, Fe(U(e)("navbar.side.filters.activeFilter", U(c).length)), 1)) : bt("", !0)
+                                                    J === 0 && U(c).length === 1 ? (fe(), Ze("span", ZL, Fe(ee.props.title), 1)) : J === 0 ? (fe(), Ze("span", QL, Fe(U(e)("navbar.side.filters.activeFilter", U(c).length)), 1)) : bt("", !0)
                                                 ]),
                                             _: 1
                                         }, 8, [
@@ -61010,7 +61112,7 @@ P = μTP`,
                                                     y(er)
                                                 ]),
                                             selection: z(({ item: ee, index: J })=>[
-                                                    J === 0 && U(d).length === 1 ? (fe(), Ze("span", KL, Fe(ee.props.title), 1)) : J === 0 ? (fe(), Ze("span", XL, Fe(U(e)("navbar.side.filters.activeFilter", U(d).length)), 1)) : bt("", !0)
+                                                    J === 0 && U(d).length === 1 ? (fe(), Ze("span", eI, Fe(ee.props.title), 1)) : J === 0 ? (fe(), Ze("span", tI, Fe(U(e)("navbar.side.filters.activeFilter", U(d).length)), 1)) : bt("", !0)
                                                 ]),
                                             _: 1
                                         }, 8, [
@@ -61073,7 +61175,7 @@ P = μTP`,
                                                     y(er)
                                                 ]),
                                             selection: z(({ item: ee, index: J })=>[
-                                                    J === 0 && U(p).length === 1 ? (fe(), Ze("span", JL, Fe(ee.props.title), 1)) : J === 0 ? (fe(), Ze("span", ZL, Fe(U(e)("navbar.side.filters.activeFilter", U(p).length)), 1)) : bt("", !0)
+                                                    J === 0 && U(p).length === 1 ? (fe(), Ze("span", aI, Fe(ee.props.title), 1)) : J === 0 ? (fe(), Ze("span", rI, Fe(U(e)("navbar.side.filters.activeFilter", U(p).length)), 1)) : bt("", !0)
                                                 ]),
                                             _: 1
                                         }, 8, [
@@ -61089,11 +61191,11 @@ P = μTP`,
                 }));
         }
     });
-    eI = {
+    iI = {
         "data-testid": "card-value",
         class: "text-subtitle-1 font-weight-bold"
     };
-    tI = {
+    oI = {
         "data-testid": "card-unit",
         class: "font-weight-light text-caption ml-1 text-subtitle-1"
     };
@@ -61132,8 +61234,8 @@ P = μTP`,
                                             class: ""
                                         }, {
                                             default: z(()=>[
-                                                    at("span", eI, Fe(U($m)(a.value, U(e).useBinarySize)), 1),
-                                                    at("span", tI, Fe(U(jm)(a.value, U(e).useBinarySize)), 1)
+                                                    at("span", iI, Fe(U($m)(a.value, U(e).useBinarySize)), 1),
+                                                    at("span", oI, Fe(U(jm)(a.value, U(e).useBinarySize)), 1)
                                                 ]),
                                             _: 1
                                         })
@@ -61147,7 +61249,7 @@ P = μTP`,
                 }));
         }
     });
-    aI = Et({
+    sI = Et({
         __name: "FreeSpace",
         setup (t) {
             const e = $n();
@@ -61166,7 +61268,7 @@ P = μTP`,
         for(var a = 0, r = Array(e); a < e; a++)r[a] = t[a];
         return r;
     }
-    function V1(t) {
+    function W1(t) {
         if (t === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
         return t;
     }
@@ -61176,7 +61278,7 @@ P = μTP`,
     function wy(t, e) {
         for(var a = 0; a < e.length; a++){
             var r = e[a];
-            r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(t, $1(r.key), r);
+            r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(t, j1(r.key), r);
         }
     }
     function Ce(t, e, a) {
@@ -61231,7 +61333,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         };
     }
     function Yo(t) {
-        var e = W1();
+        var e = G1();
         return function() {
             var a, r = Us(t);
             if (e) {
@@ -61241,12 +61343,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return function(i, o) {
                 if (o && (typeof o == "object" || typeof o == "function")) return o;
                 if (o !== void 0) throw new TypeError("Derived constructors may only return object or undefined");
-                return V1(i);
+                return W1(i);
             }(this, a);
         };
     }
     function js(t, e, a) {
-        return (e = $1(e)) in t ? Object.defineProperty(t, e, {
+        return (e = j1(e)) in t ? Object.defineProperty(t, e, {
             value: a,
             enumerable: !0,
             configurable: !0,
@@ -61270,11 +61372,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             writable: !1
         }), e && Gh(t, e);
     }
-    function W1() {
+    function G1() {
         try {
             var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
         } catch  {}
-        return (W1 = function() {
+        return (G1 = function() {
             return !!t;
         })();
     }
@@ -61304,7 +61406,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return a.__proto__ = r, a;
         }, Gh(t, e);
     }
-    function G1(t, e) {
+    function $1(t, e) {
         return function(a) {
             if (Array.isArray(a)) return a;
         }(t) || function(a, r) {
@@ -61342,7 +61444,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
         }();
     }
-    function $1(t) {
+    function j1(t) {
         var e = function(a, r) {
             if (typeof a != "object" || !a) return a;
             var n = a[Symbol.toPrimitive];
@@ -61767,17 +61869,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             }
         ]), t;
     }();
-    const $h = {}, j1 = [];
+    const $h = {}, U1 = [];
     function qe(t, e) {
         if (Array.isArray(t)) for (const a of t)qe(a, e);
-        else if (typeof t != "object") U1(Object.getOwnPropertyNames(e)), $h[t] = Object.assign($h[t] || {}, e);
+        else if (typeof t != "object") Y1(Object.getOwnPropertyNames(e)), $h[t] = Object.assign($h[t] || {}, e);
         else for(const a in t)qe(a, t[a]);
     }
     function Da(t) {
         return $h[t] || {};
     }
-    function U1(t) {
-        j1.push(...t);
+    function Y1(t) {
+        U1.push(...t);
     }
     function yp(t, e) {
         let a;
@@ -61817,11 +61919,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             n
         ];
     }
-    const rI = new Set([
+    const lI = new Set([
         "desc",
         "metadata",
         "title"
-    ]), Uh = (t)=>rI.has(t.nodeName), Y1 = (t, e, a = {})=>{
+    ]), Uh = (t)=>lI.has(t.nodeName), q1 = (t, e, a = {})=>{
         const r = {
             ...e
         };
@@ -61860,15 +61962,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
     let Wd = Qa;
     function ot(t, e = t.name, a = !1) {
-        return Cn[e] = t, a && (Cn[kp] = t), U1(Object.getOwnPropertyNames(t.prototype)), t;
+        return Cn[e] = t, a && (Cn[kp] = t), Y1(Object.getOwnPropertyNames(t.prototype)), t;
     }
-    let nI = 1e3;
-    function q1(t) {
-        return "Svgjs" + Wi(t) + nI++;
-    }
+    let uI = 1e3;
     function K1(t) {
-        for(let e = t.children.length - 1; e >= 0; e--)K1(t.children[e]);
-        return t.id && (t.id = q1(t.nodeName)), t;
+        return "Svgjs" + Wi(t) + uI++;
+    }
+    function X1(t) {
+        for(let e = t.children.length - 1; e >= 0; e--)X1(t.children[e]);
+        return t.id && (t.id = K1(t.nodeName)), t;
     }
     function Ne(t, e) {
         let a, r;
@@ -61926,8 +62028,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return (t = xa(t)).after(this), this;
         }
     });
-    const X1 = /^([+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?)([a-z%]*)$/i, iI = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i, oI = /rgb\((\d+),(\d+),(\d+)\)/, sI = /(#[a-z_][a-z0-9\-_]*)/i, lI = /\)\s*,?\s*/, uI = /\s/g, Cy = /^#[a-f0-9]{3}$|^#[a-f0-9]{6}$/i, Ay = /^rgb\(/, Dy = /^(\s+)?$/, Ty = /^[+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, cI = /\.(jpg|jpeg|png|gif|svg)(\?[^=]+.*)?/i, Vr = /[\s,]+/, xp = /[MLHVCSQTAZ]/i;
-    function dI(t) {
+    const J1 = /^([+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?)([a-z%]*)$/i, cI = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i, dI = /rgb\((\d+),(\d+),(\d+)\)/, hI = /(#[a-z_][a-z0-9\-_]*)/i, mI = /\)\s*,?\s*/, pI = /\s/g, Cy = /^#[a-f0-9]{3}$|^#[a-f0-9]{6}$/i, Ay = /^rgb\(/, Dy = /^(\s+)?$/, Ty = /^[+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i, fI = /\.(jpg|jpeg|png|gif|svg)(\?[^=]+.*)?/i, Vr = /[\s,]+/, xp = /[MLHVCSQTAZ]/i;
+    function gI(t) {
         const e = Math.round(t), a = Math.max(0, Math.min(255, e)).toString(16);
         return a.length === 1 ? "0" + a : a;
     }
@@ -62156,7 +62258,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }(e, a);
                 Object.assign(this, d);
             } else if (typeof e == "string") if (Ay.test(e)) {
-                const d = e.replace(uI, ""), [h, m, p] = oI.exec(d).slice(1, 4).map((f)=>parseInt(f));
+                const d = e.replace(pI, ""), [h, m, p] = dI.exec(d).slice(1, 4).map((f)=>parseInt(f));
                 Object.assign(this, {
                     _a: h,
                     _b: m,
@@ -62167,7 +62269,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             } else {
                 if (!Cy.test(e)) throw Error("Unsupported string format, can't construct Color");
                 {
-                    const d = (f)=>parseInt(f, 16), [, h, m, p] = iI.exec(function(f) {
+                    const d = (f)=>parseInt(f, 16), [, h, m, p] = cI.exec(function(f) {
                         return f.length === 4 ? [
                             "#",
                             f.substring(1, 2),
@@ -62264,7 +62366,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             ];
         }
         toHex() {
-            const [e, a, r] = this._clamped().map(dI);
+            const [e, a, r] = this._clamped().map(gI);
             return `#${e}${a}${r}`;
         }
         toRgb() {
@@ -62541,7 +62643,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }
         return Ur.nodes;
     }
-    function J1(t) {
+    function Z1(t) {
         return !(t.width || t.height || t.x || t.y);
     }
     ot(Le, "Matrix");
@@ -62566,7 +62668,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             ], this.x = e[0] || 0, this.y = e[1] || 0, this.width = this.w = e[2] || 0, this.height = this.h = e[3] || 0, this.x2 = this.x + this.w, this.y2 = this.y + this.h, this.cx = this.x + this.w / 2, this.cy = this.y + this.h / 2, this;
         }
         isNulled() {
-            return J1(this);
+            return Z1(this);
         }
         merge(e) {
             const a = Math.min(this.x, e.x), r = Math.min(this.y, e.y), n = Math.max(this.x + this.width, e.x + e.width) - a, i = Math.max(this.y + this.height, e.y + e.height) - r;
@@ -62599,7 +62701,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     function Ey(t, e, a) {
         let r;
         try {
-            if (r = e(t.node), J1(r) && (n = t.node) !== rt.document && !(rt.document.documentElement.contains || function(i) {
+            if (r = e(t.node), Z1(r) && (n = t.node) !== rt.document && !(rt.document.documentElement.contains || function(i) {
                 for(; i.parentNode;)i = i.parentNode;
                 return i === rt.document;
             }).call(rt.document.documentElement, n)) throw new Error("Element not in the dom");
@@ -62648,7 +62750,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return Array.prototype.concat.apply([], this);
         }
     });
-    const hI = [
+    const vI = [
         "toArray",
         "constructor",
         "each"
@@ -62659,30 +62761,30 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }));
     }
     Pn.extend = function(t) {
-        t = t.reduce((e, a)=>(hI.includes(a) || a[0] === "_" || (a in Array.prototype && (e["$" + a] = Array.prototype[a]), e[a] = function(...r) {
+        t = t.reduce((e, a)=>(vI.includes(a) || a[0] === "_" || (a in Array.prototype && (e["$" + a] = Array.prototype[a]), e[a] = function(...r) {
                 return this.each(a, ...r);
             }), e), {}), Ne([
             Pn
         ], t);
     };
-    let mI = 0;
-    const Z1 = {};
-    function Q1(t) {
+    let yI = 0;
+    const Q1 = {};
+    function ek(t) {
         let e = t.getEventHolder();
-        return e === rt.window && (e = Z1), e.events || (e.events = {}), e.events;
+        return e === rt.window && (e = Q1), e.events || (e.events = {}), e.events;
     }
     function wp(t) {
         return t.getEventTarget();
     }
     function Br(t, e, a, r, n) {
-        const i = a.bind(r || t), o = xa(t), s = Q1(o), l = wp(o);
-        e = Array.isArray(e) ? e : e.split(Vr), a._svgjsListenerId || (a._svgjsListenerId = ++mI), e.forEach(function(u) {
+        const i = a.bind(r || t), o = xa(t), s = ek(o), l = wp(o);
+        e = Array.isArray(e) ? e : e.split(Vr), a._svgjsListenerId || (a._svgjsListenerId = ++yI), e.forEach(function(u) {
             const c = u.split(".")[0], d = u.split(".")[1] || "*";
             s[c] = s[c] || {}, s[c][d] = s[c][d] || {}, s[c][d][a._svgjsListenerId] = i, l.addEventListener(c, i, n || !1);
         });
     }
     function tr(t, e, a, r) {
-        const n = xa(t), i = Q1(n), o = wp(n);
+        const n = xa(t), i = ek(n), o = wp(n);
         (typeof a != "function" || (a = a._svgjsListenerId)) && (e = Array.isArray(e) ? e : (e || "").split(Vr)).forEach(function(s) {
             const l = s && s.split(".")[0], u = s && s.split(".")[1];
             let c, d;
@@ -62711,7 +62813,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 for(s in i)tr(o, s);
                 (function(h) {
                     let m = h.getEventHolder();
-                    m === rt.window && (m = Z1), m.events && (m.events = {});
+                    m === rt.window && (m = Q1), m.events && (m.events = {});
                 })(n);
             }
         });
@@ -62754,7 +62856,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
     function _y() {}
     ot(Xo, "EventTarget");
-    const $d = 400, pI = ">", fI = 0, gI = {
+    const $d = 400, bI = ">", FI = 0, kI = {
         "fill-opacity": 1,
         "stroke-opacity": 1,
         "stroke-width": 0,
@@ -62815,7 +62917,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return e = new Ge(e), new Ge(this / e, this.unit || e.unit);
         }
         init(e, a) {
-            return a = Array.isArray(e) ? e[1] : a, e = Array.isArray(e) ? e[0] : e, this.value = 0, this.unit = a || "", typeof e == "number" ? this.value = isNaN(e) ? 0 : isFinite(e) ? e : e < 0 ? -34e37 : 34e37 : typeof e == "string" ? (a = e.match(X1)) && (this.value = parseFloat(a[1]), a[5] === "%" ? this.value /= 100 : a[5] === "s" && (this.value *= 1e3), this.unit = a[5]) : e instanceof Ge && (this.value = e.valueOf(), this.unit = e.unit), this;
+            return a = Array.isArray(e) ? e[1] : a, e = Array.isArray(e) ? e[0] : e, this.value = 0, this.unit = a || "", typeof e == "number" ? this.value = isNaN(e) ? 0 : isFinite(e) ? e : e < 0 ? -34e37 : 34e37 : typeof e == "string" ? (a = e.match(J1)) && (this.value = parseFloat(a[1]), a[5] === "%" ? this.value /= 100 : a[5] === "s" && (this.value *= 1e3), this.unit = a[5]) : e instanceof Ge && (this.value = e.valueOf(), this.unit = e.unit), this;
         }
         minus(e) {
             return e = new Ge(e), new Ge(this - e, this.unit || e.unit);
@@ -62842,7 +62944,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.value;
         }
     }
-    const vI = new Set([
+    const xI = new Set([
         "fill",
         "stroke",
         "color",
@@ -62850,7 +62952,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         "stop-color",
         "flood-color",
         "lighting-color"
-    ]), ek = [];
+    ]), tk = [];
     class en extends Xo {
         constructor(e, a){
             super(), this.node = e, this.type = e.nodeName, a && e !== a && this.attr(a);
@@ -62873,7 +62975,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         clone(e = !0, a = !0) {
             this.writeDataToDom();
             let r = this.node.cloneNode(e);
-            return a && (r = K1(r)), new this.constructor(r);
+            return a && (r = X1(r)), new this.constructor(r);
         }
         each(e, a) {
             const r = this.children();
@@ -62906,7 +63008,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.xml(e, a, "http://www.w3.org/1999/xhtml");
         }
         id(e) {
-            return e !== void 0 || this.node.id || (this.node.id = q1(this.type)), this.attr("id", e);
+            return e !== void 0 || this.node.id || (this.node.id = K1(this.type)), this.attr("id", e);
         }
         index(e) {
             return [].slice.call(this.node.childNodes).indexOf(e.node);
@@ -63001,8 +63103,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             if (typeof t == "object" && t.constructor === Object) for(e in t)this.attr(e, t[e]);
             else if (e === null) this.node.removeAttribute(t);
             else {
-                if (e == null) return (e = this.node.getAttribute(t)) == null ? gI[t] : Ty.test(e) ? parseFloat(e) : e;
-                typeof (e = ek.reduce((r, n)=>n(t, r, this), e)) == "number" ? e = new Ge(e) : vI.has(t) && pt.isColor(e) ? e = new pt(e) : e.constructor === Array && (e = new Bn(e)), t === "leading" ? this.leading && this.leading(e) : typeof a == "string" ? this.node.setAttributeNS(a, t, e.toString()) : this.node.setAttribute(t, e.toString()), !this.rebuild || t !== "font-size" && t !== "x" || this.rebuild();
+                if (e == null) return (e = this.node.getAttribute(t)) == null ? kI[t] : Ty.test(e) ? parseFloat(e) : e;
+                typeof (e = tk.reduce((r, n)=>n(t, r, this), e)) == "number" ? e = new Ge(e) : xI.has(t) && pt.isColor(e) ? e = new pt(e) : e.constructor === Array && (e = new Bn(e)), t === "leading" ? this.leading && this.leading(e) : typeof a == "string" ? this.node.setAttributeNS(a, t, e.toString()) : this.node.setAttribute(t, e.toString()), !this.rebuild || t !== "font-size" && t !== "x" || this.rebuild();
             }
             return this;
         },
@@ -63058,7 +63160,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }
         reference(t) {
             if (!(t = this.attr(t))) return null;
-            const e = (t + "").match(sI);
+            const e = (t + "").match(hI);
             return e ? xa(e[1]) : null;
         }
         root() {
@@ -63078,7 +63180,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.attr("width", t);
         }
         writeDataToDom() {
-            return Y1(this, this.dom), super.writeDataToDom();
+            return q1(this, this.dom), super.writeDataToDom();
         }
         x(t) {
             return this.attr("x", t);
@@ -63290,7 +63392,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.attr("transform", null);
         },
         matrixify: function() {
-            return (this.attr("transform") || "").split(lI).slice(0, -1).map(function(e) {
+            return (this.attr("transform") || "").split(mI).slice(0, -1).map(function(e) {
                 const a = e.trim().split("(");
                 return [
                     a[0],
@@ -63357,35 +63459,35 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     function Cp(t) {
         return this.attr("ry", t);
     }
-    function tk(t) {
+    function ak(t) {
         return t == null ? this.cx() - this.rx() : this.cx(t + this.rx());
     }
-    function ak(t) {
+    function rk(t) {
         return t == null ? this.cy() - this.ry() : this.cy(t + this.ry());
     }
-    function rk(t) {
+    function nk(t) {
         return this.attr("cx", t);
     }
-    function nk(t) {
+    function ik(t) {
         return this.attr("cy", t);
     }
-    function ik(t) {
+    function ok(t) {
         return t == null ? 2 * this.rx() : this.rx(new Ge(t).divide(2));
     }
-    function ok(t) {
+    function sk(t) {
         return t == null ? 2 * this.ry() : this.ry(new Ge(t).divide(2));
     }
     ot(Xa, "Shape");
-    var yI = Object.freeze({
+    var wI = Object.freeze({
         __proto__: null,
-        cx: rk,
-        cy: nk,
-        height: ok,
+        cx: nk,
+        cy: ik,
+        height: sk,
         rx: Sp,
         ry: Cp,
-        width: ik,
-        x: tk,
-        y: ak
+        width: ok,
+        x: ak,
+        y: rk
     });
     class ws extends Xa {
         constructor(e, a = e){
@@ -63396,12 +63498,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.rx(new Ge(r.width).divide(2)).ry(new Ge(r.height).divide(2));
         }
     }
-    Ne(ws, yI), qe("Container", {
+    Ne(ws, wI), qe("Container", {
         ellipse: vt(function(t = 0, e = t) {
             return this.put(new ws).size(t, e).move(0, 0);
         })
     }), ot(ws, "Ellipse");
-    class sk extends en {
+    class lk extends en {
         constructor(e = rt.document.createDocumentFragment()){
             super(e);
         }
@@ -63413,7 +63515,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return super.xml(e, !1, r);
         }
     }
-    function lk(t, e) {
+    function uk(t, e) {
         return (this._element || this).type === "radialGradient" ? this.attr({
             fx: new Ge(t),
             fy: new Ge(e)
@@ -63422,7 +63524,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             y1: new Ge(e)
         });
     }
-    function uk(t, e) {
+    function ck(t, e) {
         return (this._element || this).type === "radialGradient" ? this.attr({
             cx: new Ge(t),
             cy: new Ge(e)
@@ -63431,11 +63533,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             y2: new Ge(e)
         });
     }
-    ot(sk, "Fragment");
-    var bI = Object.freeze({
+    ot(lk, "Fragment");
+    var SI = Object.freeze({
         __proto__: null,
-        from: lk,
-        to: uk
+        from: uk,
+        to: ck
     });
     class oo extends Aa {
         constructor(e, a){
@@ -63460,7 +63562,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return "url(#" + this.id() + ")";
         }
     }
-    Ne(oo, bI), qe({
+    Ne(oo, SI), qe({
         Container: {
             gradient (...t) {
                 return this.defs().gradient(...t);
@@ -63530,10 +63632,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     };
     var Py;
     Py = function(t, e, a) {
-        return t !== "fill" && t !== "stroke" || cI.test(e) && (e = a.root().defs().image(e)), e instanceof Ss && (e = a.root().defs().pattern(0, 0, (r)=>{
+        return t !== "fill" && t !== "stroke" || fI.test(e) && (e = a.root().defs().image(e)), e instanceof Ss && (e = a.root().defs().pattern(0, 0, (r)=>{
             r.add(e);
         })), e;
-    }, ek.push(Py), qe({
+    }, tk.push(Py), qe({
         Container: {
             image: vt(function(t, e) {
                 return this.put(new Ss).size(0, 0).load(t, e);
@@ -63598,10 +63700,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this;
         }
     }
-    const FI = tn;
+    const CI = tn;
     var Ap = Object.freeze({
         __proto__: null,
-        MorphArray: FI,
+        MorphArray: CI,
         height: function(t) {
             const e = this.bbox();
             return t == null ? e.height : this.size(e.width, t);
@@ -63709,7 +63811,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             }
         }
     }), ot(Cs, "Marker");
-    const kI = {
+    const AI = {
         "-": function(t) {
             return t;
         },
@@ -63743,8 +63845,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }
     }
     class Yh extends Dp {
-        constructor(e = pI){
-            super(), this.ease = kI[e] || e;
+        constructor(e = bI){
+            super(), this.ease = AI[e] || e;
         }
         step(e, a, r) {
             return typeof e != "number" ? r < 1 ? e : a : e + (a - e) * this.ease(r);
@@ -63800,7 +63902,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         i: pi("I"),
         d: pi("D")
     });
-    const xI = {
+    const DI = {
         M: 2,
         L: 2,
         H: 1,
@@ -63902,9 +64004,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         };
     }(jd[t].toUpperCase());
     function Kh(t) {
-        return t.segment.length && t.segment.length - 1 === xI[t.segment[0].toUpperCase()];
+        return t.segment.length && t.segment.length - 1 === DI[t.segment[0].toUpperCase()];
     }
-    function wI(t, e) {
+    function TI(t, e) {
         t.inNumber && pn(t, !1);
         const a = xp.test(e);
         if (a) t.segment = [
@@ -63928,15 +64030,15 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return qh[a](e.segment.slice(1), e.p, e.p0);
         }(t)), t.segments.push(t.segment);
     }
-    function SI(t) {
+    function EI(t) {
         if (!t.segment.length) return !1;
         const e = t.segment[0].toUpperCase() === "A", a = t.segment.length;
         return e && (a === 4 || a === 5);
     }
-    function CI(t) {
+    function _I(t) {
         return t.lastToken.toUpperCase() === "E";
     }
-    const AI = new Set([
+    const PI = new Set([
         " ",
         ",",
         "	",
@@ -63970,7 +64072,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     p0: new ut,
                     p: new ut
                 };
-                for(; o.lastToken = i, i = a.charAt(n++);)if (o.inSegment || !wI(o, i)) if (i !== ".") if (isNaN(parseInt(i))) if (AI.has(i)) o.inNumber && pn(o, !1);
+                for(; o.lastToken = i, i = a.charAt(n++);)if (o.inSegment || !TI(o, i)) if (i !== ".") if (isNaN(parseInt(i))) if (PI.has(i)) o.inNumber && pn(o, !1);
                 else if (i !== "-" && i !== "+") if (i.toUpperCase() !== "E") {
                     if (xp.test(i)) {
                         if (o.inNumber) pn(o, !1);
@@ -63982,14 +64084,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     }
                 } else o.number += i, o.hasExponent = !0;
                 else {
-                    if (o.inNumber && !CI(o)) {
+                    if (o.inNumber && !_I(o)) {
                         pn(o, !1), --n;
                         continue;
                     }
                     o.number += i, o.inNumber = !0;
                 }
                 else {
-                    if (o.number === "0" || SI(o)) {
+                    if (o.number === "0" || EI(o)) {
                         o.inNumber = !0, o.number = i, pn(o, !0);
                         continue;
                     }
@@ -64019,9 +64121,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             }(this);
         }
     }
-    const ck = (t)=>{
+    const dk = (t)=>{
         const e = typeof t;
-        return e === "number" ? Ge : e === "string" ? pt.isColor(t) ? pt : Vr.test(t) ? xp.test(t) ? ur : Bn : X1.test(t) ? Ge : Jh : Zh.indexOf(t.constructor) > -1 ? t.constructor : Array.isArray(t) ? Bn : e === "object" ? wo : Jh;
+        return e === "number" ? Ge : e === "string" ? pt.isColor(t) ? pt : Vr.test(t) ? xp.test(t) ? ur : Bn : J1.test(t) ? Ge : Jh : Zh.indexOf(t.constructor) > -1 ? t.constructor : Array.isArray(t) ? Bn : e === "object" ? wo : Jh;
     };
     class fn {
         constructor(e){
@@ -64048,7 +64150,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return e == null ? this._type : (this._type = e, this);
         }
         _set(e) {
-            this._type || this.type(ck(e));
+            this._type || this.type(dk(e));
             let a = new this._type(e);
             return this._type === pt && (a = this._to ? a[this._to[4]]() : this._from ? a[this._from[4]]() : a), this._type === wo && (a = this._to ? a.align(this._to) : this._from ? a.align(this._from) : a), a = a.toConsumable(), this._morphObj = this._morphObj || new this._type, this._context = this._context || Array.apply(null, Array(a.length)).map(Object).map(function(r) {
                 return r.done = !0, r;
@@ -64111,7 +64213,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         originX: 0,
         originY: 0
     };
-    const DI = (t, e)=>t[0] < e[0] ? -1 : t[0] > e[0] ? 1 : 0;
+    const BI = (t, e)=>t[0] < e[0] ? -1 : t[0] > e[0] ? 1 : 0;
     class wo {
         constructor(...e){
             this.init(...e);
@@ -64138,7 +64240,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             e = e || {};
             const a = [];
             for(const r in e){
-                const n = ck(e[r]), i = new n(e[r]).toArray();
+                const n = dk(e[r]), i = new n(e[r]).toArray();
                 a.push([
                     r,
                     n,
@@ -64146,7 +64248,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     ...i
                 ]);
             }
-            return a.sort(DI), this.values = a.reduce((r, n)=>r.concat(n), []), this;
+            return a.sort(BI), this.values = a.reduce((r, n)=>r.concat(n), []), this;
         }
         toArray() {
             return this.values;
@@ -64205,7 +64307,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             })
         }
     }), ot(yi, "Path");
-    var dk = Object.freeze({
+    var hk = Object.freeze({
         __proto__: null,
         array: function() {
             return this._array || (this._array = new tn(this.attr("points")));
@@ -64235,7 +64337,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 return this.put(new xn).plot(t || new tn);
             })
         }
-    }), Ne(xn, Ap), Ne(xn, dk), ot(xn, "Polygon");
+    }), Ne(xn, Ap), Ne(xn, hk), ot(xn, "Polygon");
     class wn extends Xa {
         constructor(e, a = e){
             super(yt("polyline", e), a);
@@ -64247,7 +64349,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 return this.put(new wn).plot(t || new tn);
             })
         }
-    }), Ne(wn, Ap), Ne(wn, dk), ot(wn, "Polyline");
+    }), Ne(wn, Ap), Ne(wn, hk), ot(wn, "Polyline");
     class As extends Xa {
         constructor(e, a = e){
             super(yt("rect", e), a);
@@ -64334,7 +64436,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             for(; i = ct.immediates.shift();)i();
             ct.nextDraw = ct.timeouts.first() || ct.frames.first() ? rt.window.requestAnimationFrame(ct._draw) : null;
         }
-    }, TI = function(t) {
+    }, MI = function(t) {
         const e = t.start, a = t.runner.duration();
         return {
             start: e,
@@ -64342,12 +64444,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             end: e + a,
             runner: t.runner
         };
-    }, EI = function() {
+    }, RI = function() {
         const t = rt.window;
         return (t.performance || t.Date).now();
     };
-    class hk extends Xo {
-        constructor(e = EI){
+    class mk extends Xo {
+        constructor(e = RI){
             super(), this._timeSource = e, this.terminate();
         }
         active() {
@@ -64386,7 +64488,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.speed(e ? -r : r);
         }
         schedule(e, a, r) {
-            if (e == null) return this._runners.map(TI);
+            if (e == null) return this._runners.map(MI);
             let n = 0;
             const i = this.getEndTime();
             if (a = a || 0, r == null || r === "last" || r === "after") n = i;
@@ -64465,7 +64567,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     qe({
         Element: {
             timeline: function(t) {
-                return t == null ? (this._timeline = this._timeline || new hk, this._timeline) : (this._timeline = t, this);
+                return t == null ? (this._timeline = this._timeline || new mk, this._timeline) : (this._timeline = t, this);
             }
         }
     });
@@ -64475,7 +64577,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }
         static sanitise(e, a, r) {
             let n = 1, i = !1, o = 0;
-            return a = a ?? fI, r = r || "last", typeof (e = e ?? $d) != "object" || e instanceof Dp || (a = e.delay ?? a, r = e.when ?? r, i = e.swing || i, n = e.times ?? n, o = e.wait ?? o, e = e.duration ?? $d), {
+            return a = a ?? FI, r = r || "last", typeof (e = e ?? $d) != "object" || e instanceof Dp || (a = e.delay ?? a, r = e.when ?? r, i = e.swing || i, n = e.times ?? n, o = e.wait ?? o, e = e.duration ?? $d), {
                 duration: e,
                 delay: a,
                 swing: i,
@@ -64569,7 +64671,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this._reverse = e ?? !this._reverse, this;
         }
         schedule(e, a, r) {
-            if (e instanceof hk || (r = a, a = e, e = this.timeline()), !e) throw Error("Runner cannot be scheduled without timeline");
+            if (e instanceof mk || (r = a, a = e, e = this.timeline()), !e) throw Error("Runner cannot be scheduled without timeline");
             return e.schedule(this, a, r), this;
         }
         step(e) {
@@ -64647,12 +64749,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return new qs(t.transforms.lmultiply(this.transforms), t.id);
         }
     });
-    const mk = (t, e)=>t.lmultiplyO(e), pk = (t)=>t.transforms;
-    function _I() {
-        const t = this._transformationRunners.runners.map(pk).reduce(mk, new Le);
+    const pk = (t, e)=>t.lmultiplyO(e), fk = (t)=>t.transforms;
+    function LI() {
+        const t = this._transformationRunners.runners.map(fk).reduce(pk, new Le);
         this.transform(t), this._transformationRunners.merge(), this._transformationRunners.length() === 1 && (this._frameId = null);
     }
-    class PI {
+    class II {
         constructor(){
             this.runners = [], this.ids = [];
         }
@@ -64705,13 +64807,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 this._transformationRunners.clearBefore(t.id);
             },
             _currentTransform (t) {
-                return this._transformationRunners.runners.filter((e)=>e.id <= t.id).map(pk).reduce(mk, new Le);
+                return this._transformationRunners.runners.filter((e)=>e.id <= t.id).map(fk).reduce(pk, new Le);
             },
             _addRunner (t) {
-                this._transformationRunners.add(t), ct.cancelImmediate(this._frameId), this._frameId = ct.immediate(_I.bind(this));
+                this._transformationRunners.add(t), ct.cancelImmediate(this._frameId), this._frameId = ct.immediate(LI.bind(this));
             },
             _prepareRunner () {
-                this._frameId == null && (this._transformationRunners = new PI().add(new qs(new Le(this))));
+                this._frameId == null && (this._transformationRunners = new II().add(new qs(new Le(this))));
             }
         }
     });
@@ -64893,8 +64995,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }), Ne(ja, {
         rx: Sp,
         ry: Cp,
-        from: lk,
-        to: uk
+        from: uk,
+        to: ck
     }), ot(ja, "Runner");
     class Qh extends Aa {
         constructor(e, a = e){
@@ -64941,7 +65043,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             })
         }
     }), ot(em, "Symbol");
-    var fk = Object.freeze({
+    var gk = Object.freeze({
         __proto__: null,
         amove: function(t, e) {
             return this.ax(t).ay(e);
@@ -65005,7 +65107,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.dom = e, this.dom.leading = new Ge(e.leading || 1.3), this;
         }
         writeDataToDom() {
-            return Y1(this, this.dom, {
+            return q1(this, this.dom, {
                 leading: 1.3
             }), this;
         }
@@ -65024,7 +65126,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.build(!1).rebuild();
         }
     }
-    Ne(cr, fk), qe({
+    Ne(cr, gk), qe({
         Container: {
             text: vt(function(t = "") {
                 return this.put(new cr).text(t);
@@ -65056,7 +65158,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 ` : "") : (typeof e == "function" ? (this.clear().build(!0), e.call(this, this), this.build(!1)) : this.plain(e), this);
         }
     }
-    Ne(Ds, fk), qe({
+    Ne(Ds, gk), qe({
         Tspan: {
             tspan: vt(function(t = "") {
                 const e = new Ds;
@@ -65087,12 +65189,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }
     }
     Ne(Yd, {
-        x: tk,
-        y: ak,
-        cx: rk,
-        cy: nk,
-        width: ik,
-        height: ok
+        x: ak,
+        y: rk,
+        cx: nk,
+        cy: ik,
+        width: ok,
+        height: sk
     }), qe({
         Container: {
             circle: vt(function(t = 0) {
@@ -65144,7 +65246,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             })
         }
     }), ot(My, "ForeignObject");
-    var gk = Object.freeze({
+    var vk = Object.freeze({
         __proto__: null,
         dmove: function(t, e) {
             return this.children().forEach((a)=>{
@@ -65198,7 +65300,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             super(yt("g", e), a);
         }
     }
-    Ne(Xr, gk), qe({
+    Ne(Xr, vk), qe({
         Container: {
             group: vt(function() {
                 return this.put(new Xr);
@@ -65216,7 +65318,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.attr("href", e, $i);
         }
     }
-    Ne(hs, gk), qe({
+    Ne(hs, vk), qe({
         Container: {
             link: vt(function(t) {
                 return this.put(new hs).to(t);
@@ -65384,7 +65486,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             })
         }
     }), ot(Ly, "Use");
-    const BI = xa;
+    const zI = xa;
     Ne([
         Qh,
         em,
@@ -65406,9 +65508,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         ja
     ], Da("radius")), Ne(Xo, Da("EventTarget")), Ne(en, Da("Dom")), Ne(ma, Da("Element")), Ne(Xa, Da("Shape")), Ne([
         Aa,
-        sk
+        lk
     ], Da("Container")), Ne(oo, Da("Gradient")), Ne(ja, Da("Runner")), Pn.extend([
-        ...new Set(j1)
+        ...new Set(U1)
     ]), function(t = []) {
         Zh.push(...[].concat(t));
     }([
@@ -65473,7 +65575,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
     const Ja = (t)=>function(...e) {
             for(let a = t.length; a--;)e[a] != null && this.attr(t[a], e[a]);
-        }, MI = {
+        }, NI = {
         blend: Ja([
             "in",
             "in2",
@@ -65566,7 +65668,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         "tile",
         "turbulence"
     ].forEach((t)=>{
-        const e = Wi(t), a = MI[t];
+        const e = Wi(t), a = NI[t];
         St[e + "Effect"] = class extends Tp {
             constructor(r){
                 super(yt("fe" + e, r), r);
@@ -65662,7 +65764,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.reference("filter");
         }
     });
-    const RI = {
+    const OI = {
         blend: function(t, e) {
             return this.parent() && this.parent().blend(this, t, e);
         },
@@ -65717,7 +65819,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return this.parent() && this.parent().turbulence(t, e, a, r, n).in(this);
         }
     };
-    Ne(Tp, RI), Ne(St.MergeEffect, {
+    Ne(Tp, OI), Ne(St.MergeEffect, {
         in: function(t) {
             return t instanceof St.MergeNode ? this.add(t, 0) : this.add(new St.MergeNode().in(t), 0), this;
         }
@@ -66841,7 +66943,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), LI = function() {
+    }(), HI = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.annoCtx = e, this.invertAxis = this.annoCtx.invertAxis, this.helpers = new Ol(this.annoCtx);
         }
@@ -67264,7 +67366,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), II = function() {
+    }(), VI = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.annoCtx = e, this.helpers = new Ol(this.annoCtx), this.axesUtils = new an(this.annoCtx);
         }
@@ -67327,7 +67429,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), zI = function() {
+    }(), WI = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.annoCtx = e, this.helpers = new Ol(this.annoCtx);
         }
@@ -67397,7 +67499,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), vk = {
+    }(), yk = {
         name: "en",
         options: {
             months: [
@@ -67727,7 +67829,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             },
                             background: "",
                             locales: [
-                                vk
+                                yk
                             ],
                             defaultLocale: "en",
                             dropShadow: {
@@ -68608,9 +68710,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), NI = function() {
+    }(), GI = function() {
         function t(e) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.graphics = new ce(this.ctx), this.w.globals.isBarHorizontal && (this.invertAxis = !0), this.helpers = new Ol(this), this.xAxisAnnotations = new LI(this), this.yAxisAnnotations = new II(this), this.pointsAnnotations = new zI(this), this.w.globals.isBarHorizontal && this.w.config.yaxis[0].reversed && (this.inversedReversedAxis = !0), this.xDivision = this.w.globals.gridWidth / this.w.globals.dataPoints;
+            Se(this, t), this.ctx = e, this.w = e.w, this.graphics = new ce(this.ctx), this.w.globals.isBarHorizontal && (this.invertAxis = !0), this.helpers = new Ol(this), this.xAxisAnnotations = new HI(this), this.yAxisAnnotations = new VI(this), this.pointsAnnotations = new WI(this), this.w.globals.isBarHorizontal && this.w.config.yaxis[0].reversed && (this.inversedReversedAxis = !0), this.xDivision = this.w.globals.gridWidth / this.w.globals.dataPoints;
         }
         return Ce(t, [
             {
@@ -69984,7 +70086,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), yk = function() {
+    }(), bk = function() {
         function t() {
             Se(this, t);
         }
@@ -70193,7 +70295,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), OI = function() {
+    }(), $I = function() {
         function t(e) {
             Se(this, t), this.opts = e;
         }
@@ -70206,7 +70308,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     });
                     return {
                         config: e,
-                        globals: new yk().init(e)
+                        globals: new bk().init(e)
                     };
                 }
             }
@@ -70456,7 +70558,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), bk = function() {
+    }(), Fk = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w, this.initialAnim = this.w.config.chart.animations.enabled;
         }
@@ -70580,7 +70682,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                 w: c
                             });
                         };
-                        c.config.chart.type === "bubble" ? (x = C(b = c.globals.seriesZ[i][f]), p = n.y[v], p = new bk(this.ctx).centerTextInBubble(p, i, f).y) : b !== void 0 && (x = C(b));
+                        c.config.chart.type === "bubble" ? (x = C(b = c.globals.seriesZ[i][f]), p = n.y[v], p = new Fk(this.ctx).centerTextInBubble(p, i, f).y) : b !== void 0 && (x = C(b));
                         var k = c.config.dataLabels.textAnchor;
                         c.globals.isSlopeChart && (k = f === 0 ? "end" : f === c.config.series[i].data.length - 1 ? "start" : "middle"), this.plotDataLabelsText({
                             x: m,
@@ -71622,7 +71724,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), Fk = function() {
+    }(), kk = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
             var a = this.w;
@@ -71854,7 +71956,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), kk = function() {
+    }(), xk = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w, this.coreUtils = new It(this.ctx);
         }
@@ -72065,7 +72167,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         ]), t;
     }(), tm = function() {
         function t(e) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.scales = new kk(e);
+            Se(this, t), this.ctx = e, this.w = e.w, this.scales = new xk(e);
         }
         return Ce(t, [
             {
@@ -72268,7 +72370,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                 }
                             });
                         }), Object.entries(n).forEach(function(o) {
-                            var s = G1(o, 1)[0];
+                            var s = $1(o, 1)[0];
                             n[s].forEach(function(l, u) {
                                 a.maxY = Math.max(a.maxY, n[s][u]), a.minY = Math.min(a.minY, i[s][u]);
                             });
@@ -72503,7 +72605,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), HI = function() {
+    }(), jI = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w, this.documentEvent = W.bind(this.documentEvent, this);
         }
@@ -72575,7 +72677,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), VI = function() {
+    }(), UI = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -72589,12 +72691,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         return i.name === e;
                     })[0];
                     if (!r) throw new Error("Wrong locale name provided. Please make sure you set the correct locale name in options");
-                    var n = W.extend(vk, r);
+                    var n = W.extend(yk, r);
                     this.w.globals.locale = n.options;
                 }
             }
         ]), t;
-    }(), WI = function() {
+    }(), YI = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -72668,7 +72770,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), GI = function() {
+    }(), qI = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -72708,7 +72810,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), $I = function() {
+    }(), KI = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w, this.colors = [], this.isColorFn = !1, this.isHeatmapDistributed = this.checkHeatmapDistributed(), this.isBarDistributed = this.checkBarDistributed();
         }
@@ -72915,7 +73017,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), jI = function() {
+    }(), XI = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -72947,7 +73049,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), UI = function() {
+    }(), JI = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.dCtx = e;
         }
@@ -73021,7 +73123,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), YI = function() {
+    }(), ZI = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.dCtx = e;
         }
@@ -73146,7 +73248,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), qI = function() {
+    }(), QI = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.dCtx = e;
         }
@@ -73222,7 +73324,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), KI = function() {
+    }(), e4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.dCtx = e;
         }
@@ -73278,7 +73380,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         ]), t;
     }(), Ks = function() {
         function t(e) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.lgRect = {}, this.yAxisWidth = 0, this.yAxisWidthLeft = 0, this.yAxisWidthRight = 0, this.xAxisHeight = 0, this.isSparkline = this.w.config.chart.sparkline.enabled, this.dimHelpers = new UI(this), this.dimYAxis = new qI(this), this.dimXAxis = new YI(this), this.dimGrid = new KI(this), this.lgWidthForSideLegends = 0, this.gridPad = this.w.config.grid.padding, this.xPadRight = 0, this.xPadLeft = 0;
+            Se(this, t), this.ctx = e, this.w = e.w, this.lgRect = {}, this.yAxisWidth = 0, this.yAxisWidthLeft = 0, this.yAxisWidthRight = 0, this.xAxisHeight = 0, this.isSparkline = this.w.config.chart.sparkline.enabled, this.dimHelpers = new JI(this), this.dimYAxis = new QI(this), this.dimXAxis = new ZI(this), this.dimGrid = new e4(this), this.lgWidthForSideLegends = 0, this.gridPad = this.w.config.grid.padding, this.xPadRight = 0, this.xPadLeft = 0;
         }
         return Ce(t, [
             {
@@ -73291,7 +73393,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     };
                     var n = Array.isArray(a.config.stroke.width) ? Math.max.apply(Math, Jt(a.config.stroke.width)) : a.config.stroke.width;
                     this.isSparkline && ((a.config.markers.discrete.length > 0 || a.config.markers.size > 0) && Object.entries(this.gridPad).forEach(function(o) {
-                        var s = G1(o, 2), l = s[0], u = s[1];
+                        var s = $1(o, 2), l = s[0], u = s[1];
                         e.gridPad[l] = Math.max(u, e.w.globals.markers.largestSize / 1.5);
                     }), this.gridPad.top = Math.max(n / 2, this.gridPad.top), this.gridPad.bottom = Math.max(n / 2, this.gridPad.bottom)), r.axisCharts ? this.setDimensionsForAxisCharts() : this.setDimensionsForNonAxisCharts(), this.dimGrid.gridPadFortitleSubtitle(), r.gridHeight = r.gridHeight - this.gridPad.top - this.gridPad.bottom, r.gridWidth = r.gridWidth - this.gridPad.left - this.gridPad.right - this.xPadRight - this.xPadLeft;
                     var i = this.dimGrid.gridPadForColumnsInNumericAxis(r.gridWidth);
@@ -73383,7 +73485,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), XI = function() {
+    }(), t4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.lgCtx = e;
         }
@@ -73577,9 +73679,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), xk = function() {
+    }(), wk = function() {
         function t(e) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.onLegendClick = this.onLegendClick.bind(this), this.onLegendHovered = this.onLegendHovered.bind(this), this.isBarsDistributed = this.w.config.chart.type === "bar" && this.w.config.plotOptions.bar.distributed && this.w.config.series.length === 1, this.legendHelpers = new XI(this);
+            Se(this, t), this.ctx = e, this.w = e.w, this.onLegendClick = this.onLegendClick.bind(this), this.onLegendHovered = this.onLegendHovered.bind(this), this.isBarsDistributed = this.w.config.chart.type === "bar" && this.w.config.plotOptions.bar.distributed && this.w.config.series.length === 1, this.legendHelpers = new t4(this);
         }
         return Ce(t, [
             {
@@ -73742,7 +73844,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), wk = function() {
+    }(), Sk = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
             var a = this.w;
@@ -74029,8 +74131,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), JI = function(t) {
-        qo(a, wk);
+    }(), a4 = function(t) {
+        qo(a, Sk);
         var e = Yo(a);
         function a(r) {
             var n;
@@ -74410,7 +74512,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), a;
-    }(), Sk = function() {
+    }(), Ck = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.ttCtx = e, this.ctx = e.ctx;
         }
@@ -74578,9 +74680,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), ZI = function() {
+    }(), r4 = function() {
         function t(e) {
-            Se(this, t), this.w = e.w, this.ctx = e.ctx, this.ttCtx = e, this.tooltipUtil = new Sk(e);
+            Se(this, t), this.w = e.w, this.ctx = e.ctx, this.ttCtx = e, this.tooltipUtil = new Ck(e);
         }
         return Ce(t, [
             {
@@ -74810,7 +74912,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), Ck = function() {
+    }(), Ak = function() {
         function t(e) {
             Se(this, t), this.ttCtx = e, this.ctx = e.ctx, this.w = e.w;
         }
@@ -74946,9 +75048,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), QI = function() {
+    }(), n4 = function() {
         function t(e) {
-            Se(this, t), this.w = e.w, this.ttCtx = e, this.ctx = e.ctx, this.tooltipPosition = new Ck(e);
+            Se(this, t), this.w = e.w, this.ttCtx = e, this.ctx = e.ctx, this.tooltipPosition = new Ak(e);
         }
         return Ce(t, [
             {
@@ -75034,7 +75136,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), e4 = function() {
+    }(), i4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w;
             var a = this.w;
@@ -75155,7 +75257,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), t4 = function() {
+    }(), o4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.ttCtx = e;
         }
@@ -75230,7 +75332,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
             var a = this.w;
-            this.tConfig = a.config.tooltip, this.tooltipUtil = new Sk(this), this.tooltipLabels = new ZI(this), this.tooltipPosition = new Ck(this), this.marker = new QI(this), this.intersect = new e4(this), this.axesTooltip = new t4(this), this.showOnIntersect = this.tConfig.intersect, this.showTooltipTitle = this.tConfig.x.show, this.fixedTooltip = this.tConfig.fixed.enabled, this.xaxisTooltip = null, this.yaxisTTEls = null, this.isBarShared = !a.globals.isBarHorizontal && this.tConfig.shared, this.lastHoverTime = Date.now();
+            this.tConfig = a.config.tooltip, this.tooltipUtil = new Ck(this), this.tooltipLabels = new r4(this), this.tooltipPosition = new Ak(this), this.marker = new n4(this), this.intersect = new i4(this), this.axesTooltip = new o4(this), this.showOnIntersect = this.tConfig.intersect, this.showTooltipTitle = this.tConfig.x.show, this.fixedTooltip = this.tConfig.fixed.enabled, this.xaxisTooltip = null, this.yaxisTTEls = null, this.isBarShared = !a.globals.isBarHorizontal && this.tConfig.shared, this.lastHoverTime = Date.now();
         }
         return Ce(t, [
             {
@@ -75624,7 +75726,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), a4 = function() {
+    }(), s4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.barCtx = e, this.totalFormatter = this.w.config.plotOptions.bar.dataLabels.total.formatter, this.totalFormatter || (this.totalFormatter = this.w.config.dataLabels.formatter);
         }
@@ -75870,7 +75972,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), r4 = function() {
+    }(), l4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.barCtx = e;
         }
@@ -76212,7 +76314,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 return i.indexOf(l) === -1 ? l : -1;
             }).filter(function(s) {
                 return s !== -1;
-            })), this.barHelpers = new r4(this);
+            })), this.barHelpers = new l4(this);
         }
         return Ce(t, [
             {
@@ -76359,7 +76461,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     M.attr("clip-path", "url(#gridRectBarMask".concat(D.globals.cuid, ")"));
                     var R = D.config.forecastDataPoints;
                     R.count > 0 && i >= D.globals.dataPoints - R.count && (M.node.setAttribute("stroke-dasharray", R.dashArray), M.node.setAttribute("stroke-width", R.strokeWidth), M.node.setAttribute("fill-opacity", R.fillOpacity)), p !== void 0 && f !== void 0 && (M.attr("data-range-y1", p), M.attr("data-range-y2", f)), new ua(this.ctx).setSelectionFilter(M, a, i), d.add(M);
-                    var O = new a4(this).handleBarDataLabels({
+                    var O = new s4(this).handleBarDataLabels({
                         x: h,
                         y: m,
                         y1: p,
@@ -76921,7 +77023,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), a;
-    }(), Ak = function() {
+    }(), Dk = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -77007,9 +77109,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), n4 = function() {
+    }(), u4 = function() {
         function t(e, a) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.xRatio = a.xRatio, this.yRatio = a.yRatio, this.dynamicAnim = this.w.config.chart.animations.dynamicAnimation, this.helpers = new Ak(e), this.rectRadius = this.w.config.plotOptions.heatmap.radius, this.strokeWidth = this.w.config.stroke.show ? this.w.config.stroke.width : 0;
+            Se(this, t), this.ctx = e, this.w = e.w, this.xRatio = a.xRatio, this.yRatio = a.yRatio, this.dynamicAnim = this.w.config.chart.animations.dynamicAnimation, this.helpers = new Dk(e), this.rectRadius = this.w.config.plotOptions.heatmap.radius, this.strokeWidth = this.w.config.stroke.show ? this.w.config.stroke.width : 0;
         }
         return Ce(t, [
             {
@@ -77123,7 +77225,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), Dk = function() {
+    }(), Tk = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -77144,7 +77246,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), Tk = function() {
+    }(), Ek = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
             var a = this.w;
@@ -77438,7 +77540,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             {
                 key: "drawPolarElements",
                 value: function(e) {
-                    var a = this.w, r = new kk(this.ctx), n = new ce(this.ctx), i = new Dk(this.ctx), o = n.group(), s = n.group(), l = r.niceScale(0, Math.ceil(this.maxY), 0), u = l.result.reverse(), c = l.result.length;
+                    var a = this.w, r = new xk(this.ctx), n = new ce(this.ctx), i = new Tk(this.ctx), o = n.group(), s = n.group(), l = r.niceScale(0, Math.ceil(this.maxY), 0), u = l.result.reverse(), c = l.result.length;
                     this.maxY = l.niceMax;
                     for(var d = a.globals.radialSize, h = d / (c - 1), m = 0; m < c - 1; m++){
                         var p = n.drawCircle(d);
@@ -77545,7 +77647,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), i4 = function() {
+    }(), c4 = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w, this.chartType = this.w.config.chart.type, this.initialAnim = this.w.config.chart.animations.enabled, this.dynamicAnim = this.initialAnim && this.w.config.chart.animations.dynamicAnimation.enabled, this.animDur = 0;
             var a = this.w;
@@ -77673,7 +77775,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             {
                 key: "drawPolygons",
                 value: function(e) {
-                    for(var a = this, r = this.w, n = e.parent, i = new Dk(this.ctx), o = r.globals.yAxisScale[0].result.reverse(), s = o.length, l = [], u = this.size / (s - 1), c = 0; c < s; c++)l[c] = u * c;
+                    for(var a = this, r = this.w, n = e.parent, i = new Tk(this.ctx), o = r.globals.yAxisScale[0].result.reverse(), s = o.length, l = [], u = this.size / (s - 1), c = 0; c < s; c++)l[c] = u * c;
                     l.reverse();
                     var d = [], h = [];
                     l.forEach(function(m, p) {
@@ -77799,8 +77901,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), o4 = function(t) {
-        qo(a, Tk);
+    }(), d4 = function(t) {
+        qo(a, Ek);
         var e = Yo(a);
         function a(r) {
             var n;
@@ -77808,7 +77910,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 0
             ], n.animDur = 0;
             var i = n.w;
-            return n.startAngle = i.config.plotOptions.radialBar.startAngle, n.endAngle = i.config.plotOptions.radialBar.endAngle, n.totalAngle = Math.abs(i.config.plotOptions.radialBar.endAngle - i.config.plotOptions.radialBar.startAngle), n.trackStartAngle = i.config.plotOptions.radialBar.track.startAngle, n.trackEndAngle = i.config.plotOptions.radialBar.track.endAngle, n.barLabels = n.w.config.plotOptions.radialBar.barLabels, n.donutDataLabels = n.w.config.plotOptions.radialBar.dataLabels, n.radialDataLabels = n.donutDataLabels, n.trackStartAngle || (n.trackStartAngle = n.startAngle), n.trackEndAngle || (n.trackEndAngle = n.endAngle), n.endAngle === 360 && (n.endAngle = 359.99), n.margin = parseInt(i.config.plotOptions.radialBar.track.margin, 10), n.onBarLabelClick = n.onBarLabelClick.bind(V1(n)), n;
+            return n.startAngle = i.config.plotOptions.radialBar.startAngle, n.endAngle = i.config.plotOptions.radialBar.endAngle, n.totalAngle = Math.abs(i.config.plotOptions.radialBar.endAngle - i.config.plotOptions.radialBar.startAngle), n.trackStartAngle = i.config.plotOptions.radialBar.track.startAngle, n.trackEndAngle = i.config.plotOptions.radialBar.track.endAngle, n.barLabels = n.w.config.plotOptions.radialBar.barLabels, n.donutDataLabels = n.w.config.plotOptions.radialBar.dataLabels, n.radialDataLabels = n.donutDataLabels, n.trackStartAngle || (n.trackStartAngle = n.startAngle), n.trackEndAngle || (n.trackEndAngle = n.endAngle), n.endAngle === 360 && (n.endAngle = 359.99), n.margin = parseInt(i.config.plotOptions.radialBar.track.margin, 10), n.onBarLabelClick = n.onBarLabelClick.bind(W1(n)), n;
         }
         return Ce(a, [
             {
@@ -78072,7 +78174,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), a;
-    }(), s4 = function(t) {
+    }(), h4 = function(t) {
         qo(a, Si);
         var e = Yo(a);
         function a() {
@@ -78304,7 +78406,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), a;
-    }(), l4 = function() {
+    }(), m4 = function() {
         function t(e) {
             Se(this, t), this.w = e.w, this.lineCtx = e;
         }
@@ -78361,7 +78463,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), u4 = function(t) {
+    }(), p4 = function(t) {
         for(var e, a, r, n, i = function(c) {
             for(var d = [], h = c[0], m = c[1], p = d[0] = th(h, m), f = 1, g = c.length - 1; f < g; f++)h = m, m = c[f + 1], d[f] = .5 * (p + (p = th(h, m)));
             return d[f] = p, d;
@@ -78371,8 +78473,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             i[u] * n || 0
         ]);
         return s;
-    }, c4 = function(t) {
-        var e = u4(t), a = t[1], r = t[0], n = [], i = e[1], o = e[0];
+    }, f4 = function(t) {
+        var e = p4(t), a = t[1], r = t[0], n = [], i = e[1], o = e[0];
         n.push(r, [
             r[0] + o[0],
             r[1] + o[1],
@@ -78391,7 +78493,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             ]);
         }
         return n;
-    }, d4 = function(t, e, a) {
+    }, g4 = function(t, e, a) {
         var r = t.slice(e, a);
         if (e) {
             if (a - e > 1 && r[1].length < 6) {
@@ -78410,7 +78512,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
     var ah = function() {
         function t(e, a, r) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.xyRatios = a, this.pointsChart = !(this.w.config.chart.type !== "bubble" && this.w.config.chart.type !== "scatter") || r, this.scatter = new bk(this.ctx), this.noNegatives = this.w.globals.minX === Number.MAX_VALUE, this.lineHelpers = new l4(this), this.markers = new ji(this.ctx), this.prevSeriesY = [], this.categoryAxisCorrection = 0, this.yaxisIndex = 0;
+            Se(this, t), this.ctx = e, this.w = e.w, this.xyRatios = a, this.pointsChart = !(this.w.config.chart.type !== "bubble" && this.w.config.chart.type !== "scatter") || r, this.scatter = new Fk(this.ctx), this.noNegatives = this.w.globals.minX === Number.MAX_VALUE, this.lineHelpers = new m4(this), this.markers = new ji(this.ctx), this.prevSeriesY = [], this.categoryAxisCorrection = 0, this.yaxisIndex = 0;
         }
         return Ce(t, [
             {
@@ -78783,7 +78885,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                         ];
                                     }).filter(function($) {
                                         return $[1] !== null;
-                                    })), M = P.length > 1 ? c4(P) : P, R = [];
+                                    })), M = P.length > 1 ? f4(P) : P, R = [];
                                     A && (E ? C = P : R = C.reverse());
                                     var O = 0, N = 0;
                                     if (function($, V) {
@@ -78792,7 +78894,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                                             return se.forEach(function(re) {
                                                 re !== null ? K++ : K > 0 && (ge.push(K), K = 0);
                                             }), K > 0 && ge.push(K), ge;
-                                        }($), be = [], pe = 0, ue = 0; pe < oe.length; ue += oe[pe++])be[pe] = d4(V, ue, ue + oe[pe]);
+                                        }($), be = [], pe = 0, ue = 0; pe < oe.length; ue += oe[pe++])be[pe] = g4(V, ue, ue + oe[pe]);
                                         return be;
                                     }(B, M).forEach(function($) {
                                         O++;
@@ -78987,9 +79089,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             return g;
         };
     }();
-    var h4 = function() {
+    var v4 = function() {
         function t(e, a) {
-            Se(this, t), this.ctx = e, this.w = e.w, this.strokeWidth = this.w.config.stroke.width, this.helpers = new Ak(e), this.dynamicAnim = this.w.config.chart.animations.dynamicAnimation, this.labels = [];
+            Se(this, t), this.ctx = e, this.w = e.w, this.strokeWidth = this.w.config.stroke.width, this.helpers = new Dk(e), this.dynamicAnim = this.w.config.chart.animations.dynamicAnimation, this.labels = [];
         }
         return Ce(t, [
             {
@@ -79161,7 +79263,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), Ek = 86400, m4 = 10 / Ek, p4 = function() {
+    }(), _k = 86400, y4 = 10 / _k, b4 = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w, this.timeScaleArray = [], this.utc = this.w.config.xaxis.labels.datetimeUTC;
         }
@@ -79172,8 +79274,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     var r = this, n = this.w;
                     if (n.globals.allSeriesCollapsed) return n.globals.labels = [], n.globals.timescaleLabels = [], [];
                     var i = new la(this.ctx), o = (a - e) / 864e5;
-                    this.determineInterval(o), n.globals.disableZoomIn = !1, n.globals.disableZoomOut = !1, o < m4 ? n.globals.disableZoomIn = !0 : o > 5e4 && (n.globals.disableZoomOut = !0);
-                    var s = i.getTimeUnitsfromTimestamp(e, a, this.utc), l = n.globals.gridWidth / o, u = l / 24, c = u / 60, d = c / 60, h = Math.floor(24 * o), m = Math.floor(1440 * o), p = Math.floor(o * Ek), f = Math.floor(o), g = Math.floor(o / 30), v = Math.floor(o / 365), b = {
+                    this.determineInterval(o), n.globals.disableZoomIn = !1, n.globals.disableZoomOut = !1, o < y4 ? n.globals.disableZoomIn = !0 : o > 5e4 && (n.globals.disableZoomOut = !0);
+                    var s = i.getTimeUnitsfromTimestamp(e, a, this.utc), l = n.globals.gridWidth / o, u = l / 24, c = u / 60, d = c / 60, h = Math.floor(24 * o), m = Math.floor(1440 * o), p = Math.floor(o * _k), f = Math.floor(o), g = Math.floor(o / 30), v = Math.floor(o / 365), b = {
                         minMillisecond: s.minMillisecond,
                         minSecond: s.minSecond,
                         minMinute: s.minMinute,
@@ -79567,7 +79669,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), f4 = function() {
+    }(), F4 = function() {
         function t(e, a) {
             Se(this, t), this.ctx = a, this.w = a.w, this.el = e;
         }
@@ -79681,10 +79783,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         i: []
                     }, console.warn("Horizontal bars are not supported in a mixed/combo chart. Please turn off `plotOptions.bar.horizontal`"))), o.comboCharts || (o.comboCharts = c > 0);
                     var d = new ah(n, a), h = new eh(n, a);
-                    n.pie = new Tk(n);
-                    var m = new o4(n);
-                    n.rangeBar = new s4(n, a);
-                    var p = new i4(n), f = [];
+                    n.pie = new Ek(n);
+                    var m = new d4(n);
+                    n.rangeBar = new h4(n, a);
+                    var p = new c4(n), f = [];
                     if (o.comboCharts) {
                         var g, v, b = new It(n);
                         if (s.area.series.length > 0 && (g = f).push.apply(g, Jt(b.drawSeriesByGroup(s.area, o.areaGroups, "area", d))), s.bar.series.length > 0) if (i.chart.stacked) {
@@ -79722,10 +79824,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                             f = d.draw(o.seriesRangeStart, "rangeArea", void 0, o.seriesRangeEnd);
                             break;
                         case "heatmap":
-                            f = new n4(n, a).draw(o.series);
+                            f = new u4(n, a).draw(o.series);
                             break;
                         case "treemap":
-                            f = new h4(n, a).draw(o.series);
+                            f = new v4(n, a).draw(o.series);
                             break;
                         case "pie":
                         case "donut":
@@ -79783,7 +79885,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     n += e.config.grid.padding.bottom, [
                         "top",
                         "bottom"
-                    ].includes(e.config.legend.position) && e.config.legend.show && !e.config.legend.floating && (r = new xk(this.ctx).legendHelpers.getLegendDimensions().clwh + 7);
+                    ].includes(e.config.legend.position) && e.config.legend.show && !e.config.legend.floating && (r = new wk(this.ctx).legendHelpers.getLegendDimensions().clwh + 7);
                     var i = e.globals.dom.baseEl.querySelector(".apexcharts-radialbar, .apexcharts-pie"), o = 2.05 * e.globals.radialSize;
                     if (i && !e.config.chart.sparkline.enabled && e.config.plotOptions.radialBar.startAngle !== 0) {
                         var s = W.getBoundingClientRect(i);
@@ -79810,7 +79912,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         return e.w.config.series.map(function() {
                             return [];
                         });
-                    }, r = new yk, n = this.w.globals;
+                    }, r = new bk, n = this.w.globals;
                     r.initGlobalVars(n), n.seriesXvalues = a(), n.seriesYvalues = a();
                 }
             },
@@ -79826,7 +79928,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                     var e = this.w, a = null;
                     if (e.globals.axisCharts) {
                         if (e.config.xaxis.crosshairs.position === "back" && new am(this.ctx).drawXCrosshairs(), e.config.yaxis[0].crosshairs.position === "back" && new am(this.ctx).drawYCrosshairs(), e.config.xaxis.type === "datetime" && e.config.xaxis.labels.formatter === void 0) {
-                            this.ctx.timeScale = new p4(this.ctx);
+                            this.ctx.timeScale = new b4(this.ctx);
                             var r = [];
                             isFinite(e.globals.minX) && isFinite(e.globals.maxX) && !e.globals.isBarHorizontal ? r = this.ctx.timeScale.calculateTimeScaleTicks(e.globals.minX, e.globals.maxX) : e.globals.isBarHorizontal && (r = this.ctx.timeScale.calculateTimeScaleTicks(e.globals.minY, e.globals.maxY)), this.ctx.timeScale.recalcDimensionsBasedOnFormat(r);
                         }
@@ -79879,7 +79981,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 }
             }
         ]), t;
-    }(), g4 = function() {
+    }(), k4 = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
         }
@@ -80167,7 +80269,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             x: t.clientX,
             y: t.clientY
         });
-    class v4 {
+    class x4 {
         constructor(e){
             e.remember("_draggable", this), this.el = e, this.drag = this.drag.bind(this), this.startDrag = this.startDrag.bind(this), this.endDrag = this.endDrag.bind(this);
         }
@@ -80236,10 +80338,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }
     Ne(ma, {
         draggable (t = !0) {
-            return (this.remember("_draggable") || new v4(this)).init(t), this;
+            return (this.remember("_draggable") || new x4(this)).init(t), this;
         }
     });
-    let _k = class {
+    let Pk = class {
         constructor(t){
             this.el = t, t.remember("_selectHandler", this), this.selection = new Xr, this.order = [
                 "lt",
@@ -80385,7 +80487,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     const Oy = (t)=>function(e = !0, a = {}) {
             typeof e == "object" && (a = e, e = !0);
             let r = this.remember("_" + t.name);
-            return r || (e.prototype instanceof _k ? (r = new e(this), e = !0) : r = new t(this), this.remember("_" + t.name, r)), r.active(e, a), this;
+            return r || (e.prototype instanceof Pk ? (r = new e(this), e = !0) : r = new t(this), this.remember("_" + t.name, r)), r.active(e, a), this;
         };
     function im(t, e, a, r = null) {
         return function(n) {
@@ -80407,7 +80509,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         ];
     }
     Ne(ma, {
-        select: Oy(_k)
+        select: Oy(Pk)
     }), Ne([
         xn,
         wn,
@@ -80469,7 +80571,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             }
         })
     });
-    class Pk {
+    class Bk {
         constructor(e){
             this.el = e, e.remember("_selectHandler", this), this.selection = new Xr, this.order = [
                 "lt",
@@ -80615,10 +80717,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     const Hy = (t)=>function(e = !0, a = {}) {
             typeof e == "object" && (a = e, e = !0);
             let r = this.remember("_" + t.name);
-            return r || (e.prototype instanceof Pk ? (r = new e(this), e = !0) : r = new t(this), this.remember("_" + t.name, r)), r.active(e, a), this;
+            return r || (e.prototype instanceof Bk ? (r = new e(this), e = !0) : r = new t(this), this.remember("_" + t.name, r)), r.active(e, a), this;
         };
     Ne(ma, {
-        select: Hy(Pk)
+        select: Hy(Bk)
     }), Ne([
         xn,
         wn,
@@ -80824,7 +80926,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
             let a = this.remember("_ResizeHandler");
             return a || (t.prototype instanceof Wy ? (a = new t(this), t = !0) : a = new Wy(this), this.remember("_resizeHandler", a)), a.active(t, e), this;
         }
-    }), window.SVG === void 0 && (window.SVG = BI), window.Apex === void 0 && (window.Apex = {});
+    }), window.SVG === void 0 && (window.SVG = zI), window.Apex === void 0 && (window.Apex = {});
     var Gy = function() {
         function t(e) {
             Se(this, t), this.ctx = e, this.w = e.w;
@@ -80866,7 +80968,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                         "touchleave",
                         "mouseup",
                         "touchend"
-                    ], this.ctx.animations = new Vi(this.ctx), this.ctx.axes = new WI(this.ctx), this.ctx.core = new f4(this.ctx.el, this.ctx), this.ctx.config = new Co({}), this.ctx.data = new Ep(this.ctx), this.ctx.grid = new Fk(this.ctx), this.ctx.graphics = new ce(this.ctx), this.ctx.coreUtils = new It(this.ctx), this.ctx.crosshairs = new am(this.ctx), this.ctx.events = new HI(this.ctx), this.ctx.exports = new so(this.ctx), this.ctx.fill = new hr(this.ctx), this.ctx.localization = new VI(this.ctx), this.ctx.options = new gn, this.ctx.responsive = new GI(this.ctx), this.ctx.series = new ar(this.ctx), this.ctx.theme = new $I(this.ctx), this.ctx.formatters = new Zo(this.ctx), this.ctx.titleSubtitle = new jI(this.ctx), this.ctx.legend = new xk(this.ctx), this.ctx.toolbar = new wk(this.ctx), this.ctx.tooltip = new Iy(this.ctx), this.ctx.dimensions = new Ks(this.ctx), this.ctx.updateHelpers = new g4(this.ctx), this.ctx.zoomPanSelection = new JI(this.ctx), this.ctx.w.globals.tooltip = new Iy(this.ctx);
+                    ], this.ctx.animations = new Vi(this.ctx), this.ctx.axes = new YI(this.ctx), this.ctx.core = new F4(this.ctx.el, this.ctx), this.ctx.config = new Co({}), this.ctx.data = new Ep(this.ctx), this.ctx.grid = new kk(this.ctx), this.ctx.graphics = new ce(this.ctx), this.ctx.coreUtils = new It(this.ctx), this.ctx.crosshairs = new am(this.ctx), this.ctx.events = new jI(this.ctx), this.ctx.exports = new so(this.ctx), this.ctx.fill = new hr(this.ctx), this.ctx.localization = new UI(this.ctx), this.ctx.options = new gn, this.ctx.responsive = new qI(this.ctx), this.ctx.series = new ar(this.ctx), this.ctx.theme = new KI(this.ctx), this.ctx.formatters = new Zo(this.ctx), this.ctx.titleSubtitle = new XI(this.ctx), this.ctx.legend = new wk(this.ctx), this.ctx.toolbar = new Sk(this.ctx), this.ctx.tooltip = new Iy(this.ctx), this.ctx.dimensions = new Ks(this.ctx), this.ctx.updateHelpers = new k4(this.ctx), this.ctx.zoomPanSelection = new a4(this.ctx), this.ctx.w.globals.tooltip = new Iy(this.ctx);
                 }
             }
         ]), t;
@@ -80909,7 +81011,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         ]), t;
     }(), rh = new WeakMap, jy = function() {
         function t(e, a) {
-            Se(this, t), this.opts = a, this.ctx = this, this.w = new OI(a).init(), this.el = e, this.w.globals.cuid = W.randomId(), this.w.globals.chartID = this.w.config.chart.id ? W.escapeString(this.w.config.chart.id) : this.w.globals.cuid, new Gy(this).initModules(), this.create = W.bind(this.create, this), this.windowResizeHandler = this._windowResizeHandler.bind(this), this.parentResizeHandler = this._parentResizeCallback.bind(this);
+            Se(this, t), this.opts = a, this.ctx = this, this.w = new $I(a).init(), this.el = e, this.w.globals.cuid = W.randomId(), this.w.globals.chartID = this.w.config.chart.id ? W.escapeString(this.w.config.chart.id) : this.w.globals.cuid, new Gy(this).initModules(), this.create = W.bind(this.create, this), this.windowResizeHandler = this._windowResizeHandler.bind(this), this.parentResizeHandler = this._parentResizeCallback.bind(this);
         }
         return Ce(t, [
             {
@@ -81749,9 +81851,9 @@ rect.legend-mouseover-inactive,
                     var e = this, a = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : null, r = this, n = r.w;
                     return new Promise(function(i, o) {
                         if (r.el === null) return o(new Error("Not enough data to display or target element not found"));
-                        (a === null || n.globals.allSeriesCollapsed) && r.series.handleNoData(), r.grid = new Fk(r);
+                        (a === null || n.globals.allSeriesCollapsed) && r.series.handleNoData(), r.grid = new kk(r);
                         var s, l, u = r.grid.drawGrid();
-                        if (r.annotations = new NI(r), r.annotations.drawImageAnnos(), r.annotations.drawTextAnnos(), n.config.grid.position === "back" && (u && n.globals.dom.elGraphical.add(u.el), u != null && (s = u.elGridBorders) !== null && s !== void 0 && s.node && n.globals.dom.elGraphical.add(u.elGridBorders)), Array.isArray(a.elGraph)) for(var c = 0; c < a.elGraph.length; c++)n.globals.dom.elGraphical.add(a.elGraph[c]);
+                        if (r.annotations = new GI(r), r.annotations.drawImageAnnos(), r.annotations.drawTextAnnos(), n.config.grid.position === "back" && (u && n.globals.dom.elGraphical.add(u.el), u != null && (s = u.elGridBorders) !== null && s !== void 0 && s.node && n.globals.dom.elGraphical.add(u.elGridBorders)), Array.isArray(a.elGraph)) for(var c = 0; c < a.elGraph.length; c++)n.globals.dom.elGraphical.add(a.elGraph[c]);
                         else n.globals.dom.elGraphical.add(a.elGraph);
                         n.config.grid.position === "front" && (u && n.globals.dom.elGraphical.add(u.el), u != null && (l = u.elGridBorders) !== null && l !== void 0 && l.node && n.globals.dom.elGraphical.add(u.elGridBorders)), n.config.xaxis.crosshairs.position === "front" && r.crosshairs.drawXCrosshairs(), n.config.yaxis[0].crosshairs.position === "front" && r.crosshairs.drawYCrosshairs(), n.config.chart.type !== "treemap" && r.axes.drawAxis(n.config.chart.type, u);
                         var d = new Ao(e.ctx, u), h = new _p(e.ctx, u);
@@ -82251,12 +82353,12 @@ rect.legend-mouseover-inactive,
                 class: "vue-apexcharts"
             });
         }
-    }), y4 = (t)=>{
+    }), w4 = (t)=>{
         t.component(Xs.name, Xs);
     };
-    Xs.install = y4;
-    let b4, F4, k4, x4, Yy, w4, S4, C4, A4, D4, T4, E4, _4, P4, B4, R4, L4, I4;
-    b4 = Et({
+    Xs.install = w4;
+    let S4, C4, A4, D4, Yy, T4, E4, _4, P4, B4, M4, R4, L4, I4, z4, O4, H4, V4;
+    S4 = Et({
         __name: "SpeedGraph",
         setup (t) {
             const { t: e } = aa(), a = rl(), { serverState: r } = gt($n()), n = Zm(), i = ba(), o = G(), s = {
@@ -82357,10 +82459,10 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    F4 = {
+    C4 = {
         class: "text-subtitle-1 font-weight-bold"
     };
-    k4 = Et({
+    A4 = Et({
         __name: "StringCard",
         props: {
             title: {},
@@ -82394,7 +82496,7 @@ rect.legend-mouseover-inactive,
                                             class: br(`text-${e.color}`)
                                         }, {
                                             default: z(()=>[
-                                                    at("span", F4, Fe(e.value), 1)
+                                                    at("span", C4, Fe(e.value), 1)
                                                 ]),
                                             _: 1
                                         }, 8, [
@@ -82408,7 +82510,7 @@ rect.legend-mouseover-inactive,
                 }));
         }
     });
-    x4 = {
+    D4 = {
         class: "d-flex flex-column flex-gap-row"
     };
     Yy = Et({
@@ -82437,7 +82539,7 @@ rect.legend-mouseover-inactive,
                                 class: "px-0 pb-0"
                             }, {
                                 default: z(()=>[
-                                        at("div", x4, [
+                                        at("div", D4, [
                                             y(Vh, {
                                                 title: l.$t("navbar.side.stats.downloaded"),
                                                 value: i.value,
@@ -82456,7 +82558,7 @@ rect.legend-mouseover-inactive,
                                                 "title",
                                                 "value"
                                             ]),
-                                            l.session ? bt("", !0) : (fe(), Ie(k4, {
+                                            l.session ? bt("", !0) : (fe(), Ie(A4, {
                                                 key: 0,
                                                 title: l.$t("navbar.side.stats.ratio"),
                                                 value: s.value,
@@ -82474,19 +82576,19 @@ rect.legend-mouseover-inactive,
                 }));
         }
     });
-    w4 = {
+    T4 = {
         class: "d-flex flex-column flex-gap-row mt-3"
     };
-    S4 = {
+    E4 = {
         key: 0
     };
-    C4 = {
+    _4 = {
         key: 1
     };
-    A4 = {
+    P4 = {
         key: 2
     };
-    D4 = Et({
+    B4 = Et({
         __name: "ActiveFilters",
         setup (t) {
             const { mobile: e } = Ra(), { t: a, getTorrentStateString: r } = aa(), { isTextFilterActive: n, textFilter: i, isStatusFilterActive: o, statusFilter: s, isCategoryFilterActive: l, categoryFilter: u, isTagFilterActive: c, tagFilter: d, isTrackerFilterActive: h, trackerFilter: m } = gt(Ya()), p = T(()=>n.value && f.value || o.value && g.value || l.value && v.value || c.value && b.value || h.value && x.value), f = T(()=>i.value.length > 0), g = T(()=>s.value.length > 0), v = T(()=>u.value.length > 0), b = T(()=>d.value.length > 0), x = T(()=>m.value.length > 0), C = T(()=>p.value ? "active-global" : "active-global-disabled"), k = T(()=>n.value ? "active-text" : "active-text-disabled"), S = T(()=>o.value ? Is(s.value[0]) : `${Is(s.value[0])}-darken-2`), w = T(()=>o.value ? "active-status" : "active-status-disabled"), F = T(()=>l.value ? "active-category" : "active-category-disabled"), A = T(()=>c.value ? "active-tag" : "active-tag-disabled"), E = T(()=>h.value ? "active-tracker" : "active-tracker-disabled"), D = T(()=>Number(f.value) + Number(g.value) + Number(v.value) + Number(b.value) + Number(x.value)), _ = T(()=>Number(f.value && n.value) + Number(g.value && o.value) + Number(v.value && l.value) + Number(b.value && c.value) + Number(x.value && h.value));
@@ -82535,7 +82637,7 @@ rect.legend-mouseover-inactive,
                     "open-on-focus": ""
                 }, {
                     activator: z(({ props: V })=>[
-                            y(P0, null, {
+                            y(B0, null, {
                                 default: z(()=>[
                                         D.value > 0 ? (fe(), Ie(oa, Q({
                                             key: 0
@@ -82572,7 +82674,7 @@ rect.legend-mouseover-inactive,
                             }, 1024)
                         ]),
                     default: z(()=>[
-                            at("div", w4, [
+                            at("div", T4, [
                                 f.value ? (fe(), Ie(oa, {
                                     key: 0,
                                     color: k.value,
@@ -82787,11 +82889,11 @@ rect.legend-mouseover-inactive,
                                                 })
                                             ]),
                                         default: z(()=>[
-                                                U(m)[0] === U(Wa).UNTRACKED ? (fe(), Ze("span", S4, Fe(U(a)("navbar.top.active_filters.tracker", {
+                                                U(m)[0] === U(Wa).UNTRACKED ? (fe(), Ze("span", E4, Fe(U(a)("navbar.top.active_filters.tracker", {
                                                     value: U(a)("navbar.side.filters.tracker.empty")
-                                                })), 1)) : U(m)[0] === U(Wa).NOT_WORKING ? (fe(), Ze("span", C4, Fe(U(a)("navbar.top.active_filters.tracker", {
+                                                })), 1)) : U(m)[0] === U(Wa).NOT_WORKING ? (fe(), Ze("span", _4, Fe(U(a)("navbar.top.active_filters.tracker", {
                                                     value: U(a)("navbar.side.filters.tracker.not_working")
-                                                })), 1)) : (fe(), Ze("span", A4, Fe(U(a)("navbar.top.active_filters.tracker", {
+                                                })), 1)) : (fe(), Ze("span", P4, Fe(U(a)("navbar.top.active_filters.tracker", {
                                                     value: U(m)[0]
                                                 })), 1))
                                             ]),
@@ -82831,20 +82933,20 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    T4 = Y({
+    M4 = Y({
         ...xe(),
-        ...o3()
+        ...d3()
     }, "VForm");
-    Bk = te()({
+    Mk = te()({
         name: "VForm",
-        props: T4(),
+        props: M4(),
         emits: {
             "update:modelValue": (t)=>!0,
             submit: (t)=>!0
         },
         setup (t, e) {
             let { slots: a, emit: r } = e;
-            const n = s3(t), i = G();
+            const n = h3(t), i = G();
             function o(l) {
                 l.preventDefault(), n.reset();
             }
@@ -82870,19 +82972,19 @@ rect.legend-mouseover-inactive,
                 ])), sr(n, i);
         }
     });
-    E4 = {
+    R4 = {
         class: "d-flex flex-wrap flex-gap-small"
     };
-    _4 = {
+    L4 = {
         class: "pa-1 border wrap-anywhere"
     };
-    P4 = {
+    I4 = {
         class: "d-flex flex-row flex-gap align-center"
     };
-    B4 = {
+    z4 = {
         class: "text-red"
     };
-    M4 = Et({
+    N4 = Et({
         __name: "ConfirmDeleteDialog",
         props: {
             guid: {},
@@ -82927,7 +83029,7 @@ rect.legend-mouseover-inactive,
                                         }),
                                         y(Qn, null, {
                                             default: z(()=>[
-                                                    y(U(Bk), {
+                                                    y(U(Mk), {
                                                         modelValue: h.value,
                                                         "onUpdate:modelValue": k[1] || (k[1] = (S)=>h.value = S),
                                                         ref_key: "form",
@@ -82937,10 +83039,10 @@ rect.legend-mouseover-inactive,
                                                         ]))
                                                     }, {
                                                         default: z(()=>[
-                                                                at("div", E4, [
-                                                                    (fe(!0), Ze(Ae, null, km(m.value, (S)=>(fe(), Ze("span", _4, Fe(S.name), 1))), 256))
+                                                                at("div", R4, [
+                                                                    (fe(!0), Ze(Ae, null, km(m.value, (S)=>(fe(), Ze("span", L4, Fe(S.name), 1))), 256))
                                                                 ]),
-                                                                at("div", P4, [
+                                                                at("div", I4, [
                                                                     y(Re, {
                                                                         disabled: f.value === p.value,
                                                                         color: "accent",
@@ -82960,9 +83062,9 @@ rect.legend-mouseover-inactive,
                                                                         "label"
                                                                     ])
                                                                 ]),
-                                                                y(_0, null, {
+                                                                y(P0, null, {
                                                                     default: z(()=>[
-                                                                            dt(at("div", B4, [
+                                                                            dt(at("div", z4, [
                                                                                 y(_e, null, {
                                                                                     default: z(()=>k[4] || (k[4] = [
                                                                                             Ee("mdi-alert")
@@ -83023,7 +83125,7 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    R4 = Et({
+    O4 = Et({
         __name: "TopActions",
         emits: [
             "resumeTorrents",
@@ -83166,7 +83268,7 @@ rect.legend-mouseover-inactive,
                 ], 64));
         }
     });
-    L4 = Et({
+    H4 = Et({
         __name: "TopOverflow",
         emits: [
             "resumeTorrents",
@@ -83329,10 +83431,10 @@ rect.legend-mouseover-inactive,
                 }));
         }
     });
-    I4 = Et({
+    V4 = Et({
         __name: "TopContainer",
         setup (t) {
-            const e = xm(), a = tl(), r = Io(), n = Ei(), i = BM(), o = Ya(), s = T(()=>e.name === "torrentDetail"), l = T(()=>s.value ? [
+            const e = xm(), a = tl(), r = Io(), n = Ei(), i = zM(), o = Ya(), s = T(()=>e.name === "torrentDetail"), l = T(()=>s.value ? [
                     e.params.hash
                 ] : r.selectedTorrents);
             function u() {
@@ -83345,7 +83447,7 @@ rect.legend-mouseover-inactive,
                 await o.pauseTorrents(l.value);
             }
             function h() {
-                l.value.length && n.createDialog(M4, {
+                l.value.length && n.createDialog(N4, {
                     hashes: [
                         ...l.value
                     ]
@@ -83399,7 +83501,7 @@ rect.legend-mouseover-inactive,
                         inset: "",
                         vertical: ""
                     }),
-                    b.$vuetify.display.smAndDown ? (fe(), Ie(L4, {
+                    b.$vuetify.display.smAndDown ? (fe(), Ie(H4, {
                         key: 0,
                         onDeleteTorrents: h,
                         onOpenLogs: g,
@@ -83409,7 +83511,7 @@ rect.legend-mouseover-inactive,
                         onOpenTorrentCreator: f,
                         onPauseTorrents: d,
                         onResumeTorrents: c
-                    })) : (fe(), Ie(R4, {
+                    })) : (fe(), Ie(O4, {
                         key: 1,
                         onDeleteTorrents: h,
                         onOpenLogs: g,
@@ -83424,7 +83526,7 @@ rect.legend-mouseover-inactive,
         }
     });
     var nh, qy;
-    function z4() {
+    function W4() {
         if (qy) return nh;
         qy = 1;
         var t = "Expected a function", e = NaN, a = "[object Symbol]", r = /^\s+|\s+$/g, n = /^[-+]0x[0-9a-f]+$/i, i = /^0b[01]+$/i, o = /^0o[0-7]+$/i, s = parseInt, l = typeof hi == "object" && hi && hi.Object === Object && hi, u = typeof self == "object" && self && self.Object === Object && self, c = l || u || Function("return this")(), d = Object.prototype, h = d.toString, m = Math.max, p = Math.min, f = function() {
@@ -83497,10 +83599,10 @@ rect.legend-mouseover-inactive,
         }
         return nh = g, nh;
     }
-    var N4 = z4();
-    let V4;
-    O4 = Ci(N4);
-    H4 = Et({
+    var G4 = W4();
+    let U4;
+    $4 = Ci(G4);
+    j4 = Et({
         __name: "TorrentSearchbar",
         setup (t) {
             const { t: e } = aa(), a = Ya();
@@ -83509,7 +83611,7 @@ rect.legend-mouseover-inactive,
             }
             const n = T({
                 get: ()=>a.textFilter,
-                set: O4((i)=>{
+                set: $4((i)=>{
                     a.textFilter = i ?? "";
                 }, 300)
             });
@@ -83532,7 +83634,7 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    V4 = Y({
+    U4 = Y({
         scrollTarget: {
             type: String
         },
@@ -83544,7 +83646,7 @@ rect.legend-mouseover-inactive,
             default: 300
         }
     }, "scroll");
-    function W4(t) {
+    function Y4(t) {
         let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
         const { canScroll: a } = e;
         let r = 0, n = 0;
@@ -83586,7 +83688,7 @@ rect.legend-mouseover-inactive,
             savedScroll: s
         };
     }
-    const G4 = Y({
+    const q4 = Y({
         scrollBehavior: String,
         modelValue: {
             type: Boolean,
@@ -83600,9 +83702,9 @@ rect.legend-mouseover-inactive,
                     "bottom"
                 ].includes(t)
         },
-        ...L1(),
+        ...I1(),
         ...Vn(),
-        ...V4(),
+        ...U4(),
         height: {
             type: [
                 Number,
@@ -83610,9 +83712,9 @@ rect.legend-mouseover-inactive,
             ],
             default: 64
         }
-    }, "VAppBar"), Mk = te()({
+    }, "VAppBar"), Rk = te()({
         name: "VAppBar",
-        props: G4(),
+        props: q4(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -83631,7 +83733,7 @@ rect.legend-mouseover-inactive,
             }), o = T(()=>{
                 const b = i.value;
                 return b.hide || b.fullyHide || b.inverted || b.collapse || b.elevate || b.fadeImage || !n.value;
-            }), { currentScroll: s, scrollThreshold: l, isScrollingUp: u, scrollRatio: c } = W4(t, {
+            }), { currentScroll: s, scrollThreshold: l, isScrollingUp: u, scrollRatio: c } = Y4(t, {
                 canScroll: o
             }), d = T(()=>i.value.hide || i.value.fullyHide), h = T(()=>t.collapse || i.value.collapse && (i.value.inverted ? c.value > 0 : c.value === 0)), m = T(()=>t.flat || i.value.fullyHide && !n.value || i.value.elevate && (i.value.inverted ? s.value > 0 : s.value === 0)), p = T(()=>i.value.fadeImage ? i.value.inverted ? 1 - c.value : c.value : void 0), f = T(()=>{
                 if (i.value.hide && i.value.inverted) return 0;
@@ -83678,14 +83780,14 @@ rect.legend-mouseover-inactive,
                 }), a);
             }), {};
         }
-    }), $4 = Y({
+    }), K4 = Y({
         ...Rl({
             icon: "$menu",
             variant: "text"
         })
-    }, "VAppBarNavIcon"), Rk = te()({
+    }, "VAppBarNavIcon"), Lk = te()({
         name: "VAppBarNavIcon",
-        props: $4(),
+        props: K4(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(Re, Q(t, {
@@ -83694,9 +83796,9 @@ rect.legend-mouseover-inactive,
                     ]
                 }), a)), {};
         }
-    }), j4 = te()({
+    }), X4 = te()({
         name: "VAppBarTitle",
-        props: R1(),
+        props: L1(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y(Ll, Q(t, {
@@ -83704,7 +83806,7 @@ rect.legend-mouseover-inactive,
                 }), a)), {};
         }
     });
-    function U4(t) {
+    function J4(t) {
         let { rootEl: e, isSticky: a, layoutItemStyles: r } = t;
         const n = de(!1), i = de(0), o = T(()=>{
             const u = typeof n.value == "boolean" ? "top" : n.value;
@@ -83742,7 +83844,7 @@ rect.legend-mouseover-inactive,
             stickyStyles: o
         };
     }
-    const Y4 = 100, q4 = 20;
+    const Z4 = 100, Q4 = 20;
     function Ky(t) {
         return (t < 0 ? -1 : 1) * Math.sqrt(Math.abs(t)) * 1.41421356237;
     }
@@ -83757,11 +83859,11 @@ rect.legend-mouseover-inactive,
         }
         return Ky(e) * 1e3;
     }
-    function K4() {
+    function e6() {
         const t = {};
         function e(n) {
             Array.from(n.changedTouches).forEach((i)=>{
-                (t[i.identifier] ?? (t[i.identifier] = new Iw(q4))).push([
+                (t[i.identifier] ?? (t[i.identifier] = new zw(Q4))).push([
                     n.timeStamp,
                     i
                 ]);
@@ -83777,7 +83879,7 @@ rect.legend-mouseover-inactive,
             if (!i) throw new Error(`No samples for touch id ${n}`);
             const o = i[0], s = [], l = [];
             for (const u of i){
-                if (o[0] - u[0] > Y4) break;
+                if (o[0] - u[0] > Z4) break;
                 s.push({
                     t: u[0],
                     d: u[1].clientX
@@ -83794,7 +83896,7 @@ rect.legend-mouseover-inactive,
                         Math.abs(u),
                         Math.abs(c)
                     ];
-                    return d > h && u >= 0 ? "right" : d > h && u <= 0 ? "left" : h > d && c >= 0 ? "down" : h > d && c <= 0 ? "up" : X4();
+                    return d > h && u >= 0 ? "right" : d > h && u <= 0 ? "left" : h > d && c >= 0 ? "down" : h > d && c <= 0 ? "up" : t6();
                 }
             };
         }
@@ -83804,10 +83906,10 @@ rect.legend-mouseover-inactive,
             getVelocity: r
         };
     }
-    function X4() {
+    function t6() {
         throw new Error;
     }
-    function J4(t) {
+    function a6(t) {
         let { el: e, isActive: a, isTemporary: r, width: n, touchless: i, position: o } = t;
         ra(()=>{
             window.addEventListener("touchstart", b, {
@@ -83823,7 +83925,7 @@ rect.legend-mouseover-inactive,
         const s = T(()=>[
                 "left",
                 "right"
-            ].includes(o.value)), { addMovement: l, endTouch: u, getVelocity: c } = K4();
+            ].includes(o.value)), { addMovement: l, endTouch: u, getVelocity: c } = e6();
         let d = !1;
         const h = de(!1), m = de(0), p = de(0);
         let f;
@@ -83889,14 +83991,14 @@ rect.legend-mouseover-inactive,
     function ui() {
         throw new Error;
     }
-    const Z4 = [
+    const r6 = [
         "start",
         "end",
         "left",
         "right",
         "top",
         "bottom"
-    ], Q4 = Y({
+    ], n6 = Y({
         color: String,
         disableResizeWatcher: Boolean,
         disableRouteWatcher: Boolean,
@@ -83939,7 +84041,7 @@ rect.legend-mouseover-inactive,
         location: {
             type: String,
             default: "start",
-            validator: (t)=>Z4.includes(t)
+            validator: (t)=>r6.includes(t)
         },
         sticky: Boolean,
         ...Ia(),
@@ -83955,18 +84057,18 @@ rect.legend-mouseover-inactive,
             tag: "nav"
         }),
         ...Qe()
-    }, "VNavigationDrawer"), Lk = te()({
+    }, "VNavigationDrawer"), Ik = te()({
         name: "VNavigationDrawer",
-        props: Q4(),
+        props: n6(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:rail": (t)=>!0
         },
         setup (t, e) {
             let { attrs: a, emit: r, slots: n } = e;
-            const { isRtl: i } = Zt(), { themeClasses: o } = it(t), { borderClasses: s } = qa(t), { backgroundColorClasses: l, backgroundColorStyles: u } = ht(X(t, "color")), { elevationClasses: c } = na(t), { displayClasses: d, mobile: h } = Ra(t), { roundedClasses: m } = Pt(t), p = V0(), f = Pe(t, "modelValue", null, (I)=>!!I), { ssrBootStyles: g } = Kn(), { scopeId: v } = Jn(), b = G(), x = de(!1), { runOpenDelay: C, runCloseDelay: k } = lp(t, (I)=>{
+            const { isRtl: i } = Zt(), { themeClasses: o } = it(t), { borderClasses: s } = qa(t), { backgroundColorClasses: l, backgroundColorStyles: u } = ht(X(t, "color")), { elevationClasses: c } = na(t), { displayClasses: d, mobile: h } = Ra(t), { roundedClasses: m } = Pt(t), p = W0(), f = Pe(t, "modelValue", null, (I)=>!!I), { ssrBootStyles: g } = Kn(), { scopeId: v } = Jn(), b = G(), x = de(!1), { runOpenDelay: C, runCloseDelay: k } = lp(t, (I)=>{
                 x.value = I;
-            }), S = T(()=>t.rail && t.expandOnHover && x.value ? Number(t.width) : Number(t.rail ? t.railWidth : t.width)), w = T(()=>zw(t.location, i.value)), F = T(()=>t.persistent), A = T(()=>!t.permanent && (h.value || t.temporary)), E = T(()=>t.sticky && !A.value && w.value !== "bottom");
+            }), S = T(()=>t.rail && t.expandOnHover && x.value ? Number(t.width) : Number(t.rail ? t.railWidth : t.width)), w = T(()=>Nw(t.location, i.value)), F = T(()=>t.persistent), A = T(()=>!t.permanent && (h.value || t.temporary)), E = T(()=>t.sticky && !A.value && w.value !== "bottom");
             Ba(()=>t.expandOnHover && t.rail != null, ()=>{
                 he(x, (I)=>r("update:rail", !I));
             }), Ba(()=>!t.disableResizeWatcher, ()=>{
@@ -83976,7 +84078,7 @@ rect.legend-mouseover-inactive,
             }), he(()=>t.permanent, (I)=>{
                 I && (f.value = !0);
             }), t.modelValue == null && !A.value && (f.value = t.permanent || !h.value);
-            const { isDragging: D, dragProgress: _ } = J4({
+            const { isDragging: D, dragProgress: _ } = a6({
                 el: b,
                 isActive: f,
                 isTemporary: A,
@@ -83995,7 +84097,7 @@ rect.legend-mouseover-inactive,
                 active: T(()=>f.value || D.value),
                 disableTransitions: T(()=>D.value),
                 absolute: T(()=>t.absolute || E.value && typeof R.value != "string")
-            }), { isStuck: R, stickyStyles: O } = U4({
+            }), { isStuck: R, stickyStyles: O } = J4({
                 rootEl: b,
                 isSticky: E,
                 layoutItemStyles: P
@@ -84111,14 +84213,14 @@ rect.legend-mouseover-inactive,
                 isStuck: R
             };
         }
-    }), e6 = {
+    }), i6 = {
         class: "d-flex justify-center text-accent text-select"
-    }, t6 = {
+    }, o6 = {
         key: 0,
         class: "text-accent"
-    }, a6 = {
+    }, s6 = {
         key: 1
-    }, r6 = Et({
+    }, l6 = Et({
         __name: "Navbar",
         setup (t) {
             const e = tl(), a = Io(), { isDrawerOpen: r } = gt(Zm()), { isDrawerRight: n, showCurrentSpeed: i, showSpeedGraph: o, showAlltimeStat: s, showSessionStat: l, showFreeSpace: u } = gt(ba()), c = ()=>{
@@ -84129,7 +84231,7 @@ rect.legend-mouseover-inactive,
                 });
             };
             return (h, m)=>(fe(), Ze(Ae, null, [
-                    y(Lk, {
+                    y(Ik, {
                         class: "ios-padding",
                         modelValue: U(r),
                         "onUpdate:modelValue": m[0] || (m[0] = (p)=>Rt(r) ? r.value = p : null),
@@ -84138,7 +84240,7 @@ rect.legend-mouseover-inactive,
                         "disable-route-watcher": ""
                     }, {
                         append: z(()=>[
-                                y(GL)
+                                y(qL)
                             ]),
                         default: z(()=>[
                                 y(Xn, {
@@ -84149,7 +84251,7 @@ rect.legend-mouseover-inactive,
                                                 key: 0
                                             }, {
                                                 default: z(()=>[
-                                                        y($L)
+                                                        y(KL)
                                                     ]),
                                                 _: 1
                                             })) : bt("", !0),
@@ -84157,7 +84259,7 @@ rect.legend-mouseover-inactive,
                                                 key: 1
                                             }, {
                                                 default: z(()=>[
-                                                        y(b4)
+                                                        y(S4)
                                                     ]),
                                                 _: 1
                                             })) : bt("", !0),
@@ -84185,13 +84287,13 @@ rect.legend-mouseover-inactive,
                                                 key: 4
                                             }, {
                                                 default: z(()=>[
-                                                        y(aI)
+                                                        y(sI)
                                                     ]),
                                                 _: 1
                                             })) : bt("", !0),
                                             y(Je, null, {
                                                 default: z(()=>[
-                                                        y(QL)
+                                                        y(nI)
                                                     ]),
                                                 _: 1
                                             }),
@@ -84199,7 +84301,7 @@ rect.legend-mouseover-inactive,
                                                 density: "compact"
                                             }, {
                                                 default: z(()=>[
-                                                        at("div", e6, Fe(U(a).torrentCountString), 1)
+                                                        at("div", i6, Fe(U(a).torrentCountString), 1)
                                                     ]),
                                                 _: 1
                                             })
@@ -84212,48 +84314,48 @@ rect.legend-mouseover-inactive,
                         "modelValue",
                         "location"
                     ]),
-                    y(Mk, {
+                    y(Rk, {
                         class: "ios-padding"
                     }, {
                         default: z(()=>[
-                                y(Rk, {
+                                y(Lk, {
                                     onClick: c
                                 }),
                                 at("div", {
                                     class: "title-wrapper cursor-pointer",
                                     onClick: d
                                 }, [
-                                    h.$vuetify.display.smAndUp ? (fe(), Ze("span", t6, "Vue")) : bt("", !0),
-                                    h.$vuetify.display.smAndUp ? (fe(), Ze("span", a6, "Torrent")) : bt("", !0)
+                                    h.$vuetify.display.smAndUp ? (fe(), Ze("span", o6, "Vue")) : bt("", !0),
+                                    h.$vuetify.display.smAndUp ? (fe(), Ze("span", s6, "Torrent")) : bt("", !0)
                                 ]),
-                                y(D4),
-                                h.$vuetify.display.lgAndUp ? (fe(), Ie(H4, {
+                                y(B4),
+                                h.$vuetify.display.lgAndUp ? (fe(), Ie(j4, {
                                     key: 0,
                                     "bg-color": "background",
                                     class: "px-6"
                                 })) : (fe(), Ie(cn, {
                                     key: 1
                                 })),
-                                y(I4)
+                                y(V4)
                             ]),
                         _: 1
                     })
                 ], 64));
         }
-    }), n6 = H1(r6, [
+    }), u6 = V1(l6, [
         [
             "__scopeId",
             "data-v-7fb6a4d8"
         ]
-    ]), i6 = Y({
+    ]), c6 = Y({
         ...xe(),
         ...gb({
             fullHeight: !0
         }),
         ...Qe()
-    }, "VApp"), Ik = te()({
+    }, "VApp"), zk = te()({
         name: "VApp",
-        props: i6(),
+        props: c6(),
         setup (t, e) {
             let { slots: a } = e;
             const r = it(t), { layoutClasses: n, getLayoutItem: i, items: o, layoutRef: s } = fb(t), { rtlClasses: l } = Zt();
@@ -84281,16 +84383,16 @@ rect.legend-mouseover-inactive,
                 theme: r
             };
         }
-    }), o6 = Y({
+    }), d6 = Y({
         scrollable: Boolean,
         ...xe(),
         ...$t(),
         ...Ve({
             tag: "main"
         })
-    }, "VMain"), zk = te()({
+    }, "VMain"), Nk = te()({
         name: "VMain",
-        props: o6(),
+        props: d6(),
         setup (t, e) {
             let { slots: a } = e;
             const { dimensionStyles: r } = jt(t), { mainStyles: n } = vb(), { ssrBootStyles: i } = Kn();
@@ -84318,10 +84420,10 @@ rect.legend-mouseover-inactive,
                         ]
                 })), {};
         }
-    }), s6 = Et({
+    }), h6 = Et({
         __name: "App",
         setup (t) {
-            const { t: e } = aa(), a = Fl(), r = Sr(), n = Io(), i = Ei(), o = h0(), s = $n(), { serverState: l } = gt(s), u = Ya(), { torrents: c } = gt(u), d = bl(), { routerDomKey: h } = gt(EM()), m = ba(), { language: p, uiTitleCustom: f, uiTitleType: g, useBitSpeed: v } = gt(m), b = [
+            const { t: e } = aa(), a = Fl(), r = Sr(), n = Io(), i = Ei(), o = m0(), s = $n(), { serverState: l } = gt(s), u = Ya(), { torrents: c } = gt(u), d = bl(), { routerDomKey: h } = gt(RM()), m = ba(), { language: p, uiTitleCustom: f, uiTitleType: g, useBitSpeed: v } = gt(m), b = [
                 vu(n, "vuetorrent_dashboard", {
                     whitelist: [
                         "displayMode"
@@ -84383,7 +84485,7 @@ rect.legend-mouseover-inactive,
                     case bn.FIRST_TORRENT_STATUS:
                         const D = c.value.at(0);
                         if (D) {
-                            const _ = to(D.dlspeed, v.value), B = to(D.upspeed, v.value), P = XD(D.progress);
+                            const _ = to(D.dlspeed, v.value), B = to(D.upspeed, v.value), P = QD(D.progress);
                             document.title = `[D: ${_}, U: ${B}, ${P}] ${w}`;
                         } else document.title = `[N/A] ${w}`;
                         break;
@@ -84397,7 +84499,7 @@ rect.legend-mouseover-inactive,
                 }
             }), (S, w)=>{
                 const F = lb("router-view");
-                return fe(), Ie(Ik, {
+                return fe(), Ie(zk, {
                     class: "text-noselect"
                 }, {
                     default: z(()=>[
@@ -84407,10 +84509,10 @@ rect.legend-mouseover-inactive,
                                     guid: A.guid,
                                     ...A.props
                                 }), null, 16))), 256)),
-                            U(r).isAuthenticated ? (fe(), Ie(n6, {
+                            U(r).isAuthenticated ? (fe(), Ie(u6, {
                                 key: 0
                             })) : bt("", !0),
-                            y(zk, null, {
+                            y(Nk, null, {
                                 default: z(()=>[
                                         (fe(), Ie(F, {
                                             key: U(h)
@@ -84418,64 +84520,64 @@ rect.legend-mouseover-inactive,
                                     ]),
                                 _: 1
                             }),
-                            U(r).isAuthenticated ? (fe(), Ie(kL, {
+                            U(r).isAuthenticated ? (fe(), Ie(AL, {
                                 key: 1
                             })) : bt("", !0),
-                            y(DL)
+                            y(BL)
                         ]),
                     _: 1
                 });
             };
         }
-    }), l6 = [
+    }), m6 = [
         {
             name: "dashboard",
             path: "/",
-            component: ()=>Dr(()=>import("./Dashboard-CTeZdRBs.js"), __vite__mapDeps([0,1,2,3,4,5]), import.meta.url)
+            component: ()=>Dr(()=>import("./Dashboard-Dp8MhaUX.js"), __vite__mapDeps([0,1,2,3,4,5]), import.meta.url)
         },
         {
             name: "settings",
             path: "/settings/:tab?/:subtab?",
-            component: ()=>Dr(()=>import("./Settings-w_VcJYkR.js"), __vite__mapDeps([6,1,7,4,3,8]), import.meta.url)
+            component: ()=>Dr(()=>import("./Settings-590VAayp.js"), __vite__mapDeps([6,1,7,4,3,8]), import.meta.url)
         },
         {
             name: "rssArticles",
             path: "/rss/:tab?/:feedId?",
-            component: ()=>Dr(()=>import("./RssArticles-NsKpGpn7.js"), __vite__mapDeps([9,1,3,10]), import.meta.url)
+            component: ()=>Dr(()=>import("./RssArticles-CmVJjcmo.js"), __vite__mapDeps([9,1,3,10]), import.meta.url)
         },
         {
             name: "logs",
             path: "/logs",
-            component: ()=>Dr(()=>import("./Logs-IgDCI6dR.js"), __vite__mapDeps([11,1,3]), import.meta.url)
+            component: ()=>Dr(()=>import("./Logs-DfPqHb_u.js"), __vite__mapDeps([11,1,3]), import.meta.url)
         },
         {
             name: "searchEngine",
             path: "/search",
-            component: ()=>Dr(()=>import("./SearchEngine-DjlarhO9.js"), __vite__mapDeps([12,1,3,13]), import.meta.url)
+            component: ()=>Dr(()=>import("./SearchEngine-a-4bjgLp.js"), __vite__mapDeps([12,1,3,13]), import.meta.url)
         },
         {
             name: "torrentCreator",
             path: "/torrentCreator",
-            component: ()=>Dr(()=>import("./TorrentCreator-DX3y3Yyb.js"), __vite__mapDeps([14,1,3]), import.meta.url)
+            component: ()=>Dr(()=>import("./TorrentCreator-C8C6Hdli.js"), __vite__mapDeps([14,1,3]), import.meta.url)
         },
         {
             name: "torrentDetail",
             path: "/torrent/:hash/:tab?",
-            component: ()=>Dr(()=>import("./TorrentDetail-rQSw82Ik.js").then(async (m)=>{
+            component: ()=>Dr(()=>import("./TorrentDetail-9sy4nL2F.js").then(async (m)=>{
                         await m.__tla;
                         return m;
-                    }).then((t)=>t.aq), __vite__mapDeps([15,2,1,3,16]), import.meta.url)
+                    }).then((t)=>t.ap), __vite__mapDeps([15,2,1,3,16]), import.meta.url)
         },
         {
             name: "magnetHandler",
             path: "/magnet/:url",
             alias: "/download=:url",
-            component: ()=>Dr(()=>import("./MagnetHandler-Duxvxh87.js"), __vite__mapDeps([17,1,3]), import.meta.url)
+            component: ()=>Dr(()=>import("./MagnetHandler-Dm7jl4JZ.js"), __vite__mapDeps([17,1,3]), import.meta.url)
         },
         {
             name: "login",
             path: "/login",
-            component: ()=>Dr(()=>import("./Login-CVA7yyc-.js"), __vite__mapDeps([18,1,7,3]), import.meta.url),
+            component: ()=>Dr(()=>import("./Login-BdiCExNs.js"), __vite__mapDeps([18,1,7,3]), import.meta.url),
             meta: {
                 public: !0
             }
@@ -84485,12 +84587,12 @@ rect.legend-mouseover-inactive,
             redirect: "/"
         }
     ];
-    var u6 = {};
-    const Nk = lw({
-        history: uw(u6.BASE_URL),
-        routes: l6
+    var p6 = {};
+    const Ok = uw({
+        history: cw(p6.BASE_URL),
+        routes: m6
     });
-    Nk.beforeResolve((t, e, a)=>{
+    Ok.beforeResolve((t, e, a)=>{
         const { isAuthenticated: r } = gt(Sr());
         return !(t.meta.public === !0) && !r.value ? a({
             name: "login",
@@ -84499,12 +84601,12 @@ rect.legend-mouseover-inactive,
             }
         }) : a();
     });
-    const Ok = xr("v-alert-title"), c6 = [
+    const Hk = xr("v-alert-title"), f6 = [
         "success",
         "info",
         "warning",
         "error"
-    ], d6 = Y({
+    ], g6 = Y({
         border: {
             type: [
                 Boolean,
@@ -84545,7 +84647,7 @@ rect.legend-mouseover-inactive,
         text: String,
         type: {
             type: String,
-            validator: (t)=>c6.includes(t)
+            validator: (t)=>f6.includes(t)
         },
         ...xe(),
         ...Qt(),
@@ -84559,9 +84661,9 @@ rect.legend-mouseover-inactive,
         ...or({
             variant: "flat"
         })
-    }, "VAlert"), h6 = te()({
+    }, "VAlert"), v6 = te()({
         name: "VAlert",
-        props: d6(),
+        props: g6(),
         emits: {
             "click:close": (t)=>!0,
             "update:modelValue": (t)=>!0
@@ -84642,7 +84744,7 @@ rect.legend-mouseover-inactive,
                             y("div", {
                                 class: "v-alert__content"
                             }, [
-                                S && y(Ok, {
+                                S && y(Hk, {
                                     key: "title"
                                 }, {
                                     default: ()=>[
@@ -84689,7 +84791,7 @@ rect.legend-mouseover-inactive,
             };
         }
     });
-    function m6(t, e, a) {
+    function y6(t, e, a) {
         if (e == null) return t;
         if (Array.isArray(e)) throw new Error("Multiple matches is not implemented");
         return typeof e == "number" && ~e ? y(Ae, null, [
@@ -84710,8 +84812,8 @@ rect.legend-mouseover-inactive,
             ])
         ]) : t;
     }
-    let p6, f6, g6, y6, Hk, Vk, b6, F6, k6, w6, Wk, S6, Gk, C6, A6, $k, jk, Hl, D6, T6, Vl, E6, _6, P6, B6, M6;
-    p6 = Y({
+    let b6, F6, k6, w6, Vk, Wk, S6, C6, A6, T6, Gk, E6, $k, _6, P6, jk, Uk, Hl, B6, M6, Vl, R6, L6, I6, z6, N6;
+    b6 = Y({
         autoSelectFirst: {
             type: [
                 Boolean,
@@ -84738,9 +84840,9 @@ rect.legend-mouseover-inactive,
             transition: !1
         })
     }, "VAutocomplete");
-    f6 = te()({
+    F6 = te()({
         name: "VAutocomplete",
-        props: p6(),
+        props: b6(),
         emits: {
             "update:focused": (t)=>!0,
             "update:search": (t)=>!0,
@@ -84985,7 +85087,7 @@ rect.legend-mouseover-inactive,
                                                                         }, null)
                                                                     ]);
                                                                 },
-                                                                title: ()=>o.value ? re.title : m6(re.title, A(re)?.title, C.value?.length ?? 0)
+                                                                title: ()=>o.value ? re.title : y6(re.title, A(re)?.title, C.value?.length ?? 0)
                                                             });
                                                         }
                                                     }),
@@ -85085,7 +85187,7 @@ rect.legend-mouseover-inactive,
             }, n);
         }
     });
-    g6 = Y({
+    k6 = Y({
         bordered: Boolean,
         color: String,
         content: [
@@ -85128,10 +85230,10 @@ rect.legend-mouseover-inactive,
             transition: "scale-rotate-transition"
         })
     }, "VBadge");
-    v6 = te()({
+    x6 = te()({
         name: "VBadge",
         inheritAttrs: !1,
-        props: g6(),
+        props: k6(),
         setup (t, e) {
             const { backgroundColorClasses: a, backgroundColorStyles: r } = ht(X(t, "color")), { roundedClasses: n } = Pt(t), { t: i } = Ot(), { textColorClasses: o, textColorStyles: s } = da(X(t, "textColor")), { themeClasses: l } = rl(), { locationStyles: u } = Zn(t, !0, (c)=>(t.floating ? t.dot ? 2 : 4 : t.dot ? 8 : 12) + ([
                     "top",
@@ -85141,7 +85243,7 @@ rect.legend-mouseover-inactive,
                     "right"
                 ].includes(c) ? Number(t.offsetX ?? 0) : 0));
             return ne(()=>{
-                const c = Number(t.content), d = !t.max || isNaN(c) ? t.content : c <= Number(t.max) ? c : `${t.max}+`, [h, m] = Nw(e.attrs, [
+                const c = Number(t.content), d = !t.max || isNaN(c) ? t.content : c <= Number(t.max) ? c : `${t.max}+`, [h, m] = Ow(e.attrs, [
                     "aria-atomic",
                     "aria-label",
                     "aria-live",
@@ -85206,14 +85308,14 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    y6 = Y({
+    w6 = Y({
         color: String,
         density: String,
         ...xe()
     }, "VBannerActions");
-    Hk = te()({
+    Vk = te()({
         name: "VBannerActions",
-        props: y6(),
+        props: w6(),
         setup (t, e) {
             let { slots: a } = e;
             return _t({
@@ -85234,8 +85336,8 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    Vk = xr("v-banner-text");
-    b6 = Y({
+    Wk = xr("v-banner-text");
+    S6 = Y({
         avatar: String,
         bgColor: String,
         color: String,
@@ -85258,9 +85360,9 @@ rect.legend-mouseover-inactive,
         ...Ve(),
         ...Qe()
     }, "VBanner");
-    F6 = te()({
+    C6 = te()({
         name: "VBanner",
-        props: b6(),
+        props: S6(),
         setup (t, e) {
             let { slots: a } = e;
             const { backgroundColorClasses: r, backgroundColorStyles: n } = ht(t, "bgColor"), { borderClasses: i } = qa(t), { densityClasses: o } = Fa(t), { displayClasses: s, mobile: l } = Ra(t), { dimensionStyles: u } = jt(t), { elevationClasses: c } = na(t), { locationStyles: d } = Zn(t), { positionClasses: h } = Ni(t), { roundedClasses: m } = Pt(t), { themeClasses: p } = it(t), f = X(t, "color"), g = X(t, "density");
@@ -85324,7 +85426,7 @@ rect.legend-mouseover-inactive,
                             y("div", {
                                 class: "v-banner__content"
                             }, [
-                                v && y(Vk, {
+                                v && y(Wk, {
                                     key: "text"
                                 }, {
                                     default: ()=>[
@@ -85333,7 +85435,7 @@ rect.legend-mouseover-inactive,
                                 }),
                                 a.default?.()
                             ]),
-                            a.actions && y(Hk, {
+                            a.actions && y(Vk, {
                                 key: "actions"
                             }, a.actions)
                         ]
@@ -85341,15 +85443,15 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    k6 = Y({
+    A6 = Y({
         inset: Boolean,
-        ...P1({
+        ...B1({
             transition: "bottom-sheet-transition"
         })
     }, "VBottomSheet");
-    x6 = te()({
+    D6 = te()({
         name: "VBottomSheet",
-        props: k6(),
+        props: A6(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -85377,16 +85479,16 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    w6 = Y({
+    T6 = Y({
         divider: [
             Number,
             String
         ],
         ...xe()
     }, "VBreadcrumbsDivider");
-    Wk = te()({
+    Gk = te()({
         name: "VBreadcrumbsDivider",
-        props: w6(),
+        props: T6(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>y("li", {
@@ -85401,7 +85503,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    S6 = Y({
+    E6 = Y({
         active: Boolean,
         activeClass: String,
         activeColor: String,
@@ -85414,9 +85516,9 @@ rect.legend-mouseover-inactive,
             tag: "li"
         })
     }, "VBreadcrumbsItem");
-    Gk = te()({
+    $k = te()({
         name: "VBreadcrumbsItem",
-        props: S6(),
+        props: E6(),
         setup (t, e) {
             let { slots: a, attrs: r } = e;
             const n = Oo(t, r), i = T(()=>t.active || n.isActive?.value), o = T(()=>i.value ? t.activeColor : t.color), { textColorClasses: s, textColorStyles: l } = da(o);
@@ -85448,7 +85550,7 @@ rect.legend-mouseover-inactive,
                 })), {};
         }
     });
-    C6 = Y({
+    _6 = Y({
         activeClass: String,
         activeColor: String,
         bgColor: String,
@@ -85470,9 +85572,9 @@ rect.legend-mouseover-inactive,
             tag: "ul"
         })
     }, "VBreadcrumbs");
-    A6 = te()({
+    P6 = te()({
         name: "VBreadcrumbs",
-        props: C6(),
+        props: _6(),
         setup (t, e) {
             let { slots: a } = e;
             const { backgroundColorClasses: r, backgroundColorStyles: n } = ht(X(t, "bgColor")), { densityClasses: i } = Fa(t), { roundedClasses: o } = Pt(t);
@@ -85537,7 +85639,7 @@ rect.legend-mouseover-inactive,
                                     a.item?.({
                                         item: h,
                                         index: c
-                                    }) ?? y(Gk, Q({
+                                    }) ?? y($k, Q({
                                         key: c,
                                         disabled: c >= d.length - 1
                                     }, typeof h == "string" ? {
@@ -85548,7 +85650,7 @@ rect.legend-mouseover-inactive,
                                                 index: c
                                             }) : void 0
                                     }),
-                                    c < d.length - 1 && y(Wk, null, {
+                                    c < d.length - 1 && y(Gk, null, {
                                         default: a.divider ? ()=>a.divider?.({
                                                 item: m,
                                                 index: c
@@ -85562,8 +85664,8 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    $k = Symbol.for("vuetify:v-window");
-    jk = Symbol.for("vuetify:v-window-group");
+    jk = Symbol.for("vuetify:v-window");
+    Uk = Symbol.for("vuetify:v-window-group");
     Hl = Y({
         continuous: Boolean,
         nextIcon: {
@@ -85631,14 +85733,14 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const { themeClasses: r } = it(t), { isRtl: n } = Zt(), { t: i } = Ot(), o = un(t, jk), s = G(), l = T(()=>n.value ? !t.reverse : t.reverse), u = de(!1), c = T(()=>{
+            const { themeClasses: r } = it(t), { isRtl: n } = Zt(), { t: i } = Ot(), o = un(t, Uk), s = G(), l = T(()=>n.value ? !t.reverse : t.reverse), u = de(!1), c = T(()=>{
                 const C = t.direction === "vertical" ? "y" : "x", S = (l.value ? !u.value : u.value) ? "-reverse" : "";
                 return `v-window-${C}${S}-transition`;
             }), d = de(0), h = G(void 0), m = T(()=>o.items.value.findIndex((C)=>o.selected.value.includes(C.id)));
             he(m, (C, k)=>{
                 const S = o.items.value.length, w = S - 1;
                 S <= 2 ? u.value = C < k : C === w && k === 0 ? u.value = !0 : C === 0 && k === w ? u.value = !1 : u.value = C < k;
-            }), Kt($k, {
+            }), Kt(jk, {
                 transition: c,
                 isReversed: u,
                 transitionCount: d,
@@ -85728,7 +85830,7 @@ rect.legend-mouseover-inactive,
             };
         }
     });
-    D6 = Y({
+    B6 = Y({
         color: String,
         cycle: Boolean,
         delimiterIcon: {
@@ -85766,9 +85868,9 @@ rect.legend-mouseover-inactive,
             showArrows: !0
         })
     }, "VCarousel");
-    T6 = te()({
+    M6 = te()({
         name: "VCarousel",
-        props: D6(),
+        props: B6(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -85891,7 +85993,7 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const r = Tt($k), n = qn(t, jk), { isBooted: i } = Kn();
+            const r = Tt(jk), n = qn(t, Uk), { isBooted: i } = Kn();
             if (!r || !n) throw new Error("[Vuetify] VWindowItem must be used inside VWindow");
             const o = de(!1), s = T(()=>i.value && (r.isReversed.value ? t.reverseTransition !== !1 : t.transition !== !1));
             function l() {
@@ -85947,14 +86049,14 @@ rect.legend-mouseover-inactive,
             };
         }
     });
-    E6 = Y({
-        ...f0(),
+    R6 = Y({
+        ...g0(),
         ...Vl()
     }, "VCarouselItem");
-    _6 = te()({
+    L6 = te()({
         name: "VCarouselItem",
         inheritAttrs: !1,
-        props: E6(),
+        props: R6(),
         setup (t, e) {
             let { slots: a, attrs: r } = e;
             ne(()=>{
@@ -85972,8 +86074,8 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    P6 = xr("v-code", "code");
-    B6 = Y({
+    I6 = xr("v-code", "code");
+    z6 = Y({
         color: {
             type: Object
         },
@@ -86001,9 +86103,9 @@ rect.legend-mouseover-inactive,
         },
         ...xe()
     }, "VColorPickerCanvas");
-    M6 = on({
+    N6 = on({
         name: "VColorPickerCanvas",
-        props: B6(),
+        props: z6(),
         emits: {
             "update:color": (t)=>!0,
             "update:position": (t)=>!0
@@ -86050,7 +86152,7 @@ rect.legend-mouseover-inactive,
             function m(g) {
                 if (t.disabled || !n.value) return;
                 r.value = !0;
-                const v = Ow(g);
+                const v = Hw(g);
                 d(v.clientX, v.clientY, n.value.getBoundingClientRect());
             }
             function p() {
@@ -86119,14 +86221,14 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    function R6(t, e) {
+    function O6(t, e) {
         if (e) {
             const { a, ...r } = t;
             return r;
         }
         return t;
     }
-    function L6(t, e) {
+    function H6(t, e) {
         if (e == null || typeof e == "string") {
             const a = yb(t);
             return t.a === 1 ? a.slice(0, 7) : a;
@@ -86145,7 +86247,7 @@ rect.legend-mouseover-inactive,
                 "h",
                 "s",
                 "v"
-            ]) && (a = t), R6(a, !as(e, [
+            ]) && (a = t), O6(a, !as(e, [
                 "a"
             ]) && t.a === 1);
         }
@@ -86208,7 +86310,7 @@ rect.legend-mouseover-inactive,
         ],
         to: Fb,
         from: ll
-    }, I6 = {
+    }, V6 = {
         ...sm,
         inputs: sm.inputs?.slice(0, 3)
     }, lm = {
@@ -86262,11 +86364,11 @@ rect.legend-mouseover-inactive,
             }
         ],
         to: bb,
-        from: Vw
-    }, z6 = {
+        from: Ww
+    }, W6 = {
         ...lm,
         inputs: lm.inputs.slice(0, 3)
-    }, Uk = {
+    }, Yk = {
         inputProps: {
             type: "text"
         },
@@ -86278,9 +86380,9 @@ rect.legend-mouseover-inactive,
             }
         ],
         to: yb,
-        from: Hw
-    }, N6 = {
-        ...Uk,
+        from: Vw
+    }, G6 = {
+        ...Yk,
         inputs: [
             {
                 label: "HEX",
@@ -86289,13 +86391,13 @@ rect.legend-mouseover-inactive,
             }
         ]
     }, An = {
-        rgb: I6,
+        rgb: V6,
         rgba: sm,
-        hsl: z6,
+        hsl: W6,
         hsla: lm,
-        hex: N6,
-        hexa: Uk
-    }, O6 = (t)=>{
+        hex: G6,
+        hexa: Yk
+    }, $6 = (t)=>{
         let { label: e, ...a } = t;
         return y("div", {
             class: "v-color-picker-edit__input"
@@ -86305,7 +86407,7 @@ rect.legend-mouseover-inactive,
                 e
             ])
         ]);
-    }, H6 = Y({
+    }, j6 = Y({
         color: Object,
         disabled: Boolean,
         mode: {
@@ -86319,9 +86421,9 @@ rect.legend-mouseover-inactive,
             validator: (t)=>Array.isArray(t) && t.every((e)=>Object.keys(An).includes(e))
         },
         ...xe()
-    }, "VColorPickerEdit"), V6 = on({
+    }, "VColorPickerEdit"), U6 = on({
         name: "VColorPickerEdit",
-        props: H6(),
+        props: j6(),
         emits: {
             "update:color": (t)=>!0,
             "update:mode": (t)=>!0
@@ -86356,7 +86458,7 @@ rect.legend-mouseover-inactive,
                     ],
                     style: t.style
                 }, [
-                    n.value?.map((i)=>y(O6, i, null)),
+                    n.value?.map((i)=>y($6, i, null)),
                     r.value.length > 1 && y(Re, {
                         icon: "$unfold",
                         size: "x-small",
@@ -86373,10 +86475,10 @@ rect.legend-mouseover-inactive,
         const r = a === "vertical", n = e.getBoundingClientRect(), i = "touches" in t ? t.touches[0] : t;
         return r ? i.clientY - (n.top + n.height / 2) : i.clientX - (n.left + n.width / 2);
     }
-    function W6(t, e) {
+    function Y6(t, e) {
         return "touches" in t && t.touches.length ? t.touches[0][e] : "changedTouches" in t && t.changedTouches.length ? t.changedTouches[0][e] : t[e];
     }
-    const Yk = Y({
+    const qk = Y({
         disabled: {
             type: Boolean,
             default: null
@@ -86471,7 +86573,7 @@ rect.legend-mouseover-inactive,
             type: Boolean,
             default: !0
         }
-    }, "Slider"), qk = (t)=>{
+    }, "Slider"), Kk = (t)=>{
         const e = T(()=>parseFloat(t.min)), a = T(()=>parseFloat(t.max)), r = T(()=>Number(t.step) > 0 ? parseFloat(t.step) : 0), n = T(()=>Math.max(cf(r.value), cf(e.value)));
         function i(o) {
             if (o = parseFloat(o), r.value <= 0) return o;
@@ -86485,13 +86587,13 @@ rect.legend-mouseover-inactive,
             decimals: n,
             roundValue: i
         };
-    }, Kk = (t)=>{
+    }, Xk = (t)=>{
         let { props: e, steps: a, onSliderStart: r, onSliderMove: n, onSliderEnd: i, getActiveThumb: o } = t;
         const { isRtl: s } = Zt(), l = X(e, "reverse"), u = T(()=>e.direction === "vertical"), c = T(()=>u.value !== l.value), { min: d, max: h, step: m, decimals: p, roundValue: f } = a, g = T(()=>parseInt(e.thumbSize, 10)), v = T(()=>parseInt(e.tickSize, 10)), b = T(()=>parseInt(e.trackSize, 10)), x = T(()=>(h.value - d.value) / m.value), C = X(e, "disabled"), k = T(()=>e.error || e.disabled ? void 0 : e.thumbColor ?? e.color), S = T(()=>e.error || e.disabled ? void 0 : e.trackColor ?? e.color), w = T(()=>e.error || e.disabled ? void 0 : e.trackFillColor ?? e.color), F = de(!1), A = de(0), E = G(), D = G();
         function _($) {
             const V = E.value?.$el;
             if (!V) return;
-            const oe = e.direction === "vertical", be = oe ? "top" : "left", pe = oe ? "height" : "width", ue = oe ? "clientY" : "clientX", { [be]: se, [pe]: ge } = V.getBoundingClientRect(), K = W6($, ue);
+            const oe = e.direction === "vertical", be = oe ? "top" : "left", pe = oe ? "height" : "width", ue = oe ? "clientY" : "clientX", { [be]: se, [pe]: ge } = V.getBoundingClientRect(), K = Y6($, ue);
             let re = Math.min(Math.max((K - se - A.value) / ge, 0), 1) || 0;
             return (oe ? c.value : c.value !== s.value) && (re = 1 - re), f(d.value + re * (h.value - d.value));
         }
@@ -86590,7 +86692,7 @@ rect.legend-mouseover-inactive,
             vertical: u
         };
         return Kt(Pp, me), me;
-    }, G6 = Y({
+    }, q6 = Y({
         focused: Boolean,
         max: {
             type: Number,
@@ -86622,7 +86724,7 @@ rect.legend-mouseover-inactive,
         directives: {
             Ripple: zr
         },
-        props: G6(),
+        props: q6(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -86766,7 +86868,7 @@ rect.legend-mouseover-inactive,
                 ]);
             }), {};
         }
-    }), $6 = Y({
+    }), K6 = Y({
         start: {
             type: Number,
             required: !0
@@ -86776,9 +86878,9 @@ rect.legend-mouseover-inactive,
             required: !0
         },
         ...xe()
-    }, "VSliderTrack"), Xk = te()({
+    }, "VSliderTrack"), Jk = te()({
         name: "VSliderTrack",
-        props: $6(),
+        props: K6(),
         emits: {},
         setup (t, e) {
             let { slots: a } = e;
@@ -86865,9 +86967,9 @@ rect.legend-mouseover-inactive,
                     ])
                 ])), {};
         }
-    }), j6 = Y({
+    }), X6 = Y({
         ...No(),
-        ...Yk(),
+        ...qk(),
         ...Or(),
         modelValue: {
             type: [
@@ -86878,7 +86980,7 @@ rect.legend-mouseover-inactive,
         }
     }, "VSlider"), dm = te()({
         name: "VSlider",
-        props: j6(),
+        props: X6(),
         emits: {
             "update:focused": (t)=>!0,
             "update:modelValue": (t)=>!0,
@@ -86887,7 +86989,7 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { slots: a, emit: r } = e;
-            const n = G(), { rtlClasses: i } = Zt(), o = qk(t), s = Pe(t, "modelValue", void 0, (S)=>o.roundValue(S ?? o.min.value)), { min: l, max: u, mousePressed: c, roundValue: d, onSliderMousedown: h, onSliderTouchstart: m, trackContainerRef: p, position: f, hasLabels: g, readonly: v } = Kk({
+            const n = G(), { rtlClasses: i } = Zt(), o = Kk(t), s = Pe(t, "modelValue", void 0, (S)=>o.roundValue(S ?? o.min.value)), { min: l, max: u, mousePressed: c, roundValue: d, onSliderMousedown: h, onSliderTouchstart: m, trackContainerRef: p, position: f, hasLabels: g, readonly: v } = Xk({
                 props: t,
                 steps: o,
                 onSliderStart: ()=>{
@@ -86946,7 +87048,7 @@ rect.legend-mouseover-inactive,
                                 tabindex: "-1",
                                 value: s.value
                             }, null),
-                            y(Xk, {
+                            y(Jk, {
                                 ref: p,
                                 start: 0,
                                 stop: k.value
@@ -86975,16 +87077,16 @@ rect.legend-mouseover-inactive,
                 });
             }), {};
         }
-    }), U6 = Y({
+    }), J6 = Y({
         color: {
             type: Object
         },
         disabled: Boolean,
         hideAlpha: Boolean,
         ...xe()
-    }, "VColorPickerPreview"), Y6 = on({
+    }, "VColorPickerPreview"), Z6 = on({
         name: "VColorPickerPreview",
-        props: U6(),
+        props: J6(),
         emits: {
             "update:color": (t)=>!0
         },
@@ -87073,10 +87175,10 @@ rect.legend-mouseover-inactive,
                     ])
                 ])), {};
         }
-    }), q6 = Y({
+    }), Q6 = Y({
         swatches: {
             type: Array,
-            default: ()=>K6(Oe)
+            default: ()=>ez(Oe)
         },
         disabled: Boolean,
         color: Object,
@@ -87086,7 +87188,7 @@ rect.legend-mouseover-inactive,
         ],
         ...xe()
     }, "VColorPickerSwatches");
-    function K6(t) {
+    function ez(t) {
         return Object.keys(t).map((e)=>{
             const a = t[e];
             return a.base ? [
@@ -87107,9 +87209,9 @@ rect.legend-mouseover-inactive,
             ];
         });
     }
-    const X6 = on({
+    const tz = on({
         name: "VColorPickerSwatches",
-        props: q6(),
+        props: Q6(),
         emits: {
             "update:color": (t)=>!0
         },
@@ -87132,7 +87234,7 @@ rect.legend-mouseover-inactive,
                                 class: "v-color-picker-swatches__swatch"
                             }, [
                                 r.map((n)=>{
-                                    const i = nl(n), o = ll(i), s = Ww(i);
+                                    const i = nl(n), o = ll(i), s = Gw(i);
                                     return y("div", {
                                         class: "v-color-picker-swatches__color",
                                         onClick: ()=>o && a("update:color", o)
@@ -87145,7 +87247,7 @@ rect.legend-mouseover-inactive,
                                             t.color && Sa(t.color, o) ? y(_e, {
                                                 size: "x-small",
                                                 icon: "$success",
-                                                color: Gw(n, "#FFFFFF") > 2 ? "white" : "black"
+                                                color: $w(n, "#FFFFFF") > 2 ? "white" : "black"
                                             }, null) : void 0
                                         ])
                                     ]);
@@ -87154,7 +87256,7 @@ rect.legend-mouseover-inactive,
                     ])
                 ])), {};
         }
-    }), J6 = Y({
+    }), az = Y({
         canvasHeight: {
             type: [
                 String,
@@ -87208,9 +87310,9 @@ rect.legend-mouseover-inactive,
             "minWidth",
             "maxWidth"
         ])
-    }, "VColorPicker"), Z6 = on({
+    }, "VColorPicker"), rz = on({
         name: "VColorPicker",
-        props: J6(),
+        props: az(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:mode": (t)=>!0
@@ -87225,7 +87327,7 @@ rect.legend-mouseover-inactive,
                     return null;
                 }
                 return u;
-            }, (l)=>l ? L6(l, t.modelValue) : null), n = T(()=>r.value ? {
+            }, (l)=>l ? H6(l, t.modelValue) : null), n = T(()=>r.value ? {
                     ...r.value,
                     h: a.value ?? r.value.h
                 } : null), { rtlClasses: i } = Zt();
@@ -87274,7 +87376,7 @@ rect.legend-mouseover-inactive,
                     maxWidth: t.width
                 }), {
                     default: ()=>[
-                            !t.hideCanvas && y(M6, {
+                            !t.hideCanvas && y(N6, {
                                 key: "canvas",
                                 color: n.value,
                                 "onUpdate:color": s,
@@ -87287,14 +87389,14 @@ rect.legend-mouseover-inactive,
                                 key: "controls",
                                 class: "v-color-picker__controls"
                             }, [
-                                !t.hideSliders && y(Y6, {
+                                !t.hideSliders && y(Z6, {
                                     key: "preview",
                                     color: n.value,
                                     "onUpdate:color": s,
                                     hideAlpha: !e.value.endsWith("a"),
                                     disabled: t.disabled
                                 }, null),
-                                !t.hideInputs && y(V6, {
+                                !t.hideInputs && y(U6, {
                                     key: "edit",
                                     modes: t.modes,
                                     mode: e.value,
@@ -87304,7 +87406,7 @@ rect.legend-mouseover-inactive,
                                     disabled: t.disabled
                                 }, null)
                             ]),
-                            t.showSwatches && y(X6, {
+                            t.showSwatches && y(tz, {
                                 key: "swatches",
                                 color: n.value,
                                 "onUpdate:color": s,
@@ -87316,7 +87418,7 @@ rect.legend-mouseover-inactive,
                 });
             }), {};
         }
-    }), Q6 = Y({
+    }), nz = Y({
         modelValue: null,
         color: String,
         cancelText: {
@@ -87327,9 +87429,9 @@ rect.legend-mouseover-inactive,
             type: String,
             default: "$vuetify.confirmEdit.ok"
         }
-    }, "VConfirmEdit"), ez = te()({
+    }, "VConfirmEdit"), iz = te()({
         name: "VConfirmEdit",
-        props: Q6(),
+        props: nz(),
         emits: {
             cancel: ()=>!0,
             save: (t)=>!0,
@@ -87384,14 +87486,14 @@ rect.legend-mouseover-inactive,
                 isPristine: s
             };
         }
-    }), Jk = Y({
+    }), Zk = Y({
         expandOnClick: Boolean,
         showExpand: Boolean,
         expanded: {
             type: Array,
             default: ()=>[]
         }
-    }, "DataTable-expand"), Zk = Symbol.for("vuetify:datatable:expanded");
+    }, "DataTable-expand"), Qk = Symbol.for("vuetify:datatable:expanded");
     function Wl(t) {
         const e = X(t, "expandOnClick"), a = Pe(t, "expanded", t.expanded, (s)=>new Set(s), (s)=>[
                 ...s.values()
@@ -87413,10 +87515,10 @@ rect.legend-mouseover-inactive,
             isExpanded: n,
             toggleExpand: i
         };
-        return Kt(Zk, o), o;
+        return Kt(Qk, o), o;
     }
-    function Qk() {
-        const t = Tt(Zk);
+    function ex() {
+        const t = Tt(Qk);
         if (!t) throw new Error("foo");
         return t;
     }
@@ -87425,7 +87527,7 @@ rect.legend-mouseover-inactive,
             type: Array,
             default: ()=>[]
         }
-    }, "DataTable-group"), ex = Symbol.for("vuetify:data-table-group");
+    }, "DataTable-group"), tx = Symbol.for("vuetify:data-table-group");
     function Mp(t) {
         return {
             groupBy: Pe(t, "groupBy")
@@ -87463,14 +87565,14 @@ rect.legend-mouseover-inactive,
             extractRows: l,
             isGroupOpen: o
         };
-        return Kt(ex, u), u;
+        return Kt(tx, u), u;
     }
-    function tx() {
-        const t = Tt(ex);
+    function ax() {
+        const t = Tt(tx);
         if (!t) throw new Error("Missing group!");
         return t;
     }
-    function tz(t, e) {
+    function oz(t, e) {
         if (!t.length) return [];
         const a = new Map;
         for (const r of t){
@@ -87479,10 +87581,10 @@ rect.legend-mouseover-inactive,
         }
         return a;
     }
-    function ax(t, e) {
+    function rx(t, e) {
         let a = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0, r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : "root";
         if (!e.length) return [];
-        const n = tz(t, e[0]), i = [], o = e.slice(1);
+        const n = oz(t, e[0]), i = [], o = e.slice(1);
         return n.forEach((s, l)=>{
             const u = e[0], c = `${r}_${u}_${l}`;
             i.push({
@@ -87490,22 +87592,22 @@ rect.legend-mouseover-inactive,
                 id: c,
                 key: u,
                 value: l,
-                items: o.length ? ax(s, o, a + 1, c) : s,
+                items: o.length ? rx(s, o, a + 1, c) : s,
                 type: "group"
             });
         }), i;
     }
-    function rx(t, e) {
+    function nx(t, e) {
         const a = [];
-        for (const r of t)"type" in r && r.type === "group" ? (r.value != null && a.push(r), (e.has(r.id) || r.value == null) && a.push(...rx(r.items, e))) : a.push(r);
+        for (const r of t)"type" in r && r.type === "group" ? (r.value != null && a.push(r), (e.has(r.id) || r.value == null) && a.push(...nx(r.items, e))) : a.push(r);
         return a;
     }
     function $l(t, e, a) {
         return {
             flatItems: T(()=>{
                 if (!e.value.length) return t.value;
-                const n = ax(t.value, e.value.map((i)=>i.key));
-                return rx(n, a.value);
+                const n = rx(t.value, e.value.map((i)=>i.key));
+                return nx(n, a.value);
             })
         };
     }
@@ -87541,7 +87643,7 @@ rect.legend-mouseover-inactive,
             ],
             default: 10
         }
-    }, "DataTable-paginate"), nx = Symbol.for("vuetify:data-table-pagination");
+    }, "DataTable-paginate"), ix = Symbol.for("vuetify:data-table-pagination");
     function Lp(t) {
         const e = Pe(t, "page", void 0, (r)=>Number(r ?? 1)), a = Pe(t, "itemsPerPage", void 0, (r)=>Number(r ?? 10));
         return {
@@ -87581,14 +87683,14 @@ rect.legend-mouseover-inactive,
             setPage: c,
             setItemsPerPage: s
         };
-        return Kt(nx, d), d;
+        return Kt(ix, d), d;
     }
-    function az() {
-        const t = Tt(nx);
+    function sz() {
+        const t = Tt(ix);
         if (!t) throw new Error("Missing pagination!");
         return t;
     }
-    function ix(t) {
+    function ox(t) {
         const e = La("usePaginatedItems"), { items: a, startIndex: r, stopIndex: n, itemsPerPage: i } = t, o = T(()=>i.value <= 0 ? a.value : a.value.slice(r.value, n.value));
         return he(o, (s)=>{
             e.emit("update:currentItems", s);
@@ -87598,7 +87700,7 @@ rect.legend-mouseover-inactive,
             paginatedItems: o
         };
     }
-    const rz = {
+    const lz = {
         showSelectAll: !1,
         allSelected: ()=>[],
         select: (t)=>{
@@ -87611,7 +87713,7 @@ rect.legend-mouseover-inactive,
             let { selected: e } = t;
             return e;
         }
-    }, ox = {
+    }, sx = {
         showSelectAll: !0,
         allSelected: (t)=>{
             let { currentPage: e } = t;
@@ -87624,13 +87726,13 @@ rect.legend-mouseover-inactive,
         },
         selectAll: (t)=>{
             let { value: e, currentPage: a, selected: r } = t;
-            return ox.select({
+            return sx.select({
                 items: a,
                 value: e,
                 selected: r
             });
         }
-    }, sx = {
+    }, lx = {
         showSelectAll: !0,
         allSelected: (t)=>{
             let { allItems: e } = t;
@@ -87643,13 +87745,13 @@ rect.legend-mouseover-inactive,
         },
         selectAll: (t)=>{
             let { value: e, allItems: a, selected: r } = t;
-            return sx.select({
+            return lx.select({
                 items: a,
                 value: e,
                 selected: r
             });
         }
-    }, lx = Y({
+    }, ux = Y({
         showSelect: Boolean,
         selectStrategy: {
             type: [
@@ -87666,7 +87768,7 @@ rect.legend-mouseover-inactive,
             type: Function,
             default: Sa
         }
-    }, "DataTable-select"), ux = Symbol.for("vuetify:data-table-selection");
+    }, "DataTable-select"), cx = Symbol.for("vuetify:data-table-selection");
     function Ul(t, e) {
         let { allItems: a, currentPage: r } = e;
         const n = Pe(t, "modelValue", t.modelValue, (v)=>new Set(Dt(v).map((b)=>a.value.find((x)=>t.valueComparator(b, x.value))?.value ?? b)), (v)=>[
@@ -87675,12 +87777,12 @@ rect.legend-mouseover-inactive,
             if (typeof t.selectStrategy == "object") return t.selectStrategy;
             switch(t.selectStrategy){
                 case "single":
-                    return rz;
+                    return lz;
                 case "all":
-                    return sx;
+                    return lx;
                 case "page":
                 default:
-                    return ox;
+                    return sx;
             }
         });
         function l(v) {
@@ -87729,14 +87831,14 @@ rect.legend-mouseover-inactive,
             allSelected: p,
             showSelectAll: f
         };
-        return Kt(ux, g), g;
+        return Kt(cx, g), g;
     }
     function Yl() {
-        const t = Tt(ux);
+        const t = Tt(cx);
         if (!t) throw new Error("Missing selection!");
         return t;
     }
-    const cx = Y({
+    const dx = Y({
         sortBy: {
             type: Array,
             default: ()=>[]
@@ -87744,7 +87846,7 @@ rect.legend-mouseover-inactive,
         customKeySort: Object,
         multiSort: Boolean,
         mustSort: Boolean
-    }, "DataTable-sort"), dx = Symbol.for("vuetify:data-table-sort");
+    }, "DataTable-sort"), hx = Symbol.for("vuetify:data-table-sort");
     function ql(t) {
         const e = Pe(t, "sortBy"), a = X(t, "mustSort"), r = X(t, "multiSort");
         return {
@@ -87778,17 +87880,17 @@ rect.legend-mouseover-inactive,
             toggleSort: i,
             isSorted: o
         };
-        return Kt(dx, s), s;
+        return Kt(hx, s), s;
     }
-    function hx() {
-        const t = Tt(dx);
+    function mx() {
+        const t = Tt(hx);
         if (!t) throw new Error("Missing sort!");
         return t;
     }
     function zp(t, e, a, r) {
         const n = Ot();
         return {
-            sortedItems: T(()=>a.value.length ? nz(e.value, a.value, n.current.value, {
+            sortedItems: T(()=>a.value.length ? uz(e.value, a.value, n.current.value, {
                     transform: r?.transform,
                     sortFunctions: {
                         ...t.customKeySort,
@@ -87798,7 +87900,7 @@ rect.legend-mouseover-inactive,
                 }) : e.value)
         };
     }
-    function nz(t, e, a, r) {
+    function uz(t, e, a, r) {
         const n = new Intl.Collator(a, {
             sensitivity: "accent",
             usage: "sort"
@@ -87842,7 +87944,7 @@ rect.legend-mouseover-inactive,
             return s;
         });
     }
-    const iz = Y({
+    const cz = Y({
         items: {
             type: Array,
             default: ()=>[]
@@ -87865,7 +87967,7 @@ rect.legend-mouseover-inactive,
         },
         returnObject: Boolean
     }, "DataIterator-items");
-    function oz(t, e) {
+    function dz(t, e) {
         const a = t.returnObject ? e : Ut(e, t.itemValue), r = Ut(e, t.itemSelectable, !0);
         return {
             type: "item",
@@ -87874,27 +87976,27 @@ rect.legend-mouseover-inactive,
             raw: e
         };
     }
-    function sz(t, e) {
+    function hz(t, e) {
         const a = [];
-        for (const r of e)a.push(oz(t, r));
+        for (const r of e)a.push(dz(t, r));
         return a;
     }
-    function lz(t) {
+    function mz(t) {
         return {
-            items: T(()=>sz(t, t.items))
+            items: T(()=>hz(t, t.items))
         };
     }
-    const uz = Y({
+    const pz = Y({
         search: String,
         loading: Boolean,
         ...xe(),
-        ...iz(),
-        ...lx(),
-        ...cx(),
+        ...cz(),
+        ...ux(),
+        ...dx(),
         ...Rp({
             itemsPerPage: 5
         }),
-        ...Jk(),
+        ...Zk(),
         ...Bp(),
         ...jo(),
         ...Ve(),
@@ -87904,9 +88006,9 @@ rect.legend-mouseover-inactive,
                 hideOnLeave: !0
             }
         })
-    }, "VDataIterator"), cz = te()({
+    }, "VDataIterator"), fz = te()({
         name: "VDataIterator",
-        props: uz(),
+        props: pz(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:groupBy": (t)=>!0,
@@ -87919,7 +88021,7 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const r = Pe(t, "groupBy"), n = X(t, "search"), { items: i } = lz(t), { filteredItems: o } = Uo(t, i, n, {
+            const r = Pe(t, "groupBy"), n = X(t, "search"), { items: i } = mz(t), { filteredItems: o } = Uo(t, i, n, {
                 transform: (L)=>L.raw
             }), { sortBy: s, multiSort: l, mustSort: u } = ql(t), { page: c, itemsPerPage: d } = Lp(t), { toggleSort: h } = Kl({
                 sortBy: s,
@@ -87935,7 +88037,7 @@ rect.legend-mouseover-inactive,
                 page: c,
                 itemsPerPage: d,
                 itemsLength: C
-            }), { paginatedItems: _ } = ix({
+            }), { paginatedItems: _ } = ox({
                 items: x,
                 startIndex: k,
                 stopIndex: S,
@@ -88006,9 +88108,9 @@ rect.legend-mouseover-inactive,
                 })), {};
         }
     });
-    function dz() {
+    function gz() {
         const t = G([]);
-        cw(()=>t.value = []);
+        dw(()=>t.value = []);
         function e(a, r) {
             t.value[r] = a;
         }
@@ -88017,8 +88119,8 @@ rect.legend-mouseover-inactive,
             updateRef: e
         };
     }
-    let hz, Np, Do, Js, mz, mx, px, pz;
-    hz = Y({
+    let vz, Np, Do, Js, yz, px, fx, bz;
+    vz = Y({
         activeColor: String,
         start: {
             type: [
@@ -88109,7 +88211,7 @@ rect.legend-mouseover-inactive,
     }, "VPagination");
     hm = te()({
         name: "VPagination",
-        props: hz(),
+        props: vz(),
         emits: {
             "update:modelValue": (t)=>!0,
             first: (t)=>!0,
@@ -88168,7 +88270,7 @@ rect.legend-mouseover-inactive,
             function v(F, A, E) {
                 F.preventDefault(), n.value = A, E && r(E, A);
             }
-            const { refs: b, updateRef: x } = dz();
+            const { refs: b, updateRef: x } = gz();
             _t({
                 VPaginationBtn: {
                     color: X(t, "color"),
@@ -88400,7 +88502,7 @@ rect.legend-mouseover-inactive,
         props: Np(),
         setup (t, e) {
             let { slots: a } = e;
-            const { t: r } = Ot(), { page: n, pageCount: i, startIndex: o, stopIndex: s, itemsLength: l, itemsPerPage: u, setItemsPerPage: c } = az(), d = T(()=>t.itemsPerPageOptions.map((h)=>typeof h == "number" ? {
+            const { t: r } = Ot(), { page: n, pageCount: i, startIndex: o, stopIndex: s, itemsLength: l, itemsPerPage: u, setItemsPerPage: c } = sz(), d = T(()=>t.itemsPerPageOptions.map((h)=>typeof h == "number" ? {
                         value: h,
                         title: h === -1 ? r("$vuetify.dataFooter.itemsPerPageAll") : String(h)
                     } : {
@@ -88457,7 +88559,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Js = $w({
+    Js = jw({
         align: {
             type: String,
             default: "start"
@@ -88509,19 +88611,19 @@ rect.legend-mouseover-inactive,
                 ]
         });
     });
-    mz = Y({
+    yz = Y({
         headers: Array
     }, "DataTable-header");
-    mx = Symbol.for("vuetify:data-table-headers");
-    px = {
+    px = Symbol.for("vuetify:data-table-headers");
+    fx = {
         title: "",
         sortable: !1
     };
-    pz = {
-        ...px,
+    bz = {
+        ...fx,
         width: 48
     };
-    function fz() {
+    function Fz() {
         const e = (arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : []).map((a)=>({
                 element: a,
                 priority: 0
@@ -88558,30 +88660,30 @@ rect.legend-mouseover-inactive,
         else for (const a of t.children)mm(a, e);
         return e;
     }
-    function fx(t) {
+    function gx(t) {
         let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : new Set;
-        for (const a of t)a.key && e.add(a.key), a.children && fx(a.children, e);
+        for (const a of t)a.key && e.add(a.key), a.children && gx(a.children, e);
         return e;
     }
-    function gz(t) {
+    function kz(t) {
         if (t.key) {
-            if (t.key === "data-table-group") return px;
+            if (t.key === "data-table-group") return fx;
             if ([
                 "data-table-expand",
                 "data-table-select"
-            ].includes(t.key)) return pz;
+            ].includes(t.key)) return bz;
         }
     }
     function Op(t) {
         let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0;
         return t.children ? Math.max(e, ...t.children.map((a)=>Op(a, e + 1))) : e;
     }
-    function vz(t) {
+    function xz(t) {
         let e = !1;
         function a(i) {
             let o = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1;
             if (i) if (o && (i.fixed = !0), i.fixed) if (i.children) for(let s = i.children.length - 1; s >= 0; s--)a(i.children[s], !0);
-            else e ? isNaN(Number(i.width)) ? jw(`Multiple fixed columns should have a static width (key: ${i.key})`) : i.minWidth = Math.max(Number(i.width) || 0, Number(i.minWidth) || 0) : i.lastFixed = !0, e = !0;
+            else e ? isNaN(Number(i.width)) ? Uw(`Multiple fixed columns should have a static width (key: ${i.key})`) : i.minWidth = Math.max(Number(i.width) || 0, Number(i.minWidth) || 0) : i.lastFixed = !0, e = !0;
             else if (i.children) for(let s = i.children.length - 1; s >= 0; s--)a(i.children[s]);
             else e = !1;
         }
@@ -88598,10 +88700,10 @@ rect.legend-mouseover-inactive,
         let n = 0;
         for (const i of t)n = r(i, n);
     }
-    function yz(t, e) {
+    function wz(t, e) {
         const a = [];
         let r = 0;
-        const n = fz(t);
+        const n = Fz(t);
         for(; n.size() > 0;){
             let o = n.count();
             const s = [];
@@ -88625,18 +88727,18 @@ rect.legend-mouseover-inactive,
             headers: a
         };
     }
-    function gx(t) {
+    function vx(t) {
         const e = [];
         for (const a of t){
             const r = {
-                ...gz(a),
+                ...kz(a),
                 ...a
             }, n = r.key ?? (typeof r.value == "string" ? r.value : null), i = r.value ?? n ?? null, o = {
                 ...r,
                 key: n,
                 value: i,
                 sortable: r.sortable ?? (r.key != null || !!r.sort),
-                children: r.children ? gx(r.children) : void 0
+                children: r.children ? vx(r.children) : void 0
             };
             e.push(o);
         }
@@ -88648,7 +88750,7 @@ rect.legend-mouseover-inactive,
             const u = (t.headers || Object.keys(t.items[0] ?? {}).map((f)=>({
                     key: f,
                     title: al(f)
-                }))).slice(), c = fx(u);
+                }))).slice(), c = gx(u);
             e?.groupBy?.value.length && !c.has("data-table-group") && u.unshift({
                 key: "data-table-group",
                 title: "Group"
@@ -88657,9 +88759,9 @@ rect.legend-mouseover-inactive,
             }), e?.showExpand?.value && !c.has("data-table-expand") && u.push({
                 key: "data-table-expand"
             });
-            const d = gx(u);
-            vz(d);
-            const h = Math.max(...d.map((f)=>Op(f))) + 1, m = yz(d, h);
+            const d = vx(u);
+            xz(d);
+            const h = Math.max(...d.map((f)=>Op(f))) + 1, m = wz(d, h);
             a.value = m.headers, r.value = m.columns;
             const p = m.headers.flat(1);
             for (const f of p)f.key && (f.sortable && (f.sort && (n.value[f.key] = f.sort), f.sortRaw && (i.value[f.key] = f.sortRaw)), f.filter && (o.value[f.key] = f.filter));
@@ -88671,15 +88773,15 @@ rect.legend-mouseover-inactive,
             sortRawFunctions: i,
             filterFunctions: o
         };
-        return Kt(mx, s), s;
+        return Kt(px, s), s;
     }
     function Xl() {
-        const t = Tt(mx);
+        const t = Tt(px);
         if (!t) throw new Error("Missing headers!");
         return t;
     }
-    let vx, Ln, bz, Fz, kz, yx, In, bx, xz;
-    vx = Y({
+    let yx, Ln, Sz, Cz, Az, bx, In, Fx, Dz;
+    yx = Y({
         color: String,
         disableSort: Boolean,
         fixedHeader: Boolean,
@@ -88701,10 +88803,10 @@ rect.legend-mouseover-inactive,
     }, "VDataTableHeaders");
     Ln = te()({
         name: "VDataTableHeaders",
-        props: vx(),
+        props: yx(),
         setup (t, e) {
             let { slots: a } = e;
-            const { t: r } = Ot(), { toggleSort: n, sortBy: i, isSorted: o } = hx(), { someSelected: s, allSelected: l, selectAll: u, showSelectAll: c } = Yl(), { columns: d, headers: h } = Xl(), { loaderClasses: m } = Wo(t);
+            const { t: r } = Ot(), { toggleSort: n, sortBy: i, isSorted: o } = mx(), { someSelected: s, allSelected: l, selectAll: u, showSelectAll: c } = Yl(), { columns: d, headers: h } = Xl(), { loaderClasses: m } = Wo(t);
             function p(F, A) {
                 if (!(!(t.sticky || t.fixedHeader) && !F.fixed)) return {
                     position: "sticky",
@@ -88882,18 +88984,18 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    bz = Y({
+    Sz = Y({
         item: {
             type: Object,
             required: !0
         }
     }, "VDataTableGroupHeaderRow");
-    Fz = te()({
+    Cz = te()({
         name: "VDataTableGroupHeaderRow",
-        props: bz(),
+        props: Sz(),
         setup (t, e) {
             let { slots: a } = e;
-            const { isGroupOpen: r, toggleGroup: n, extractRows: i } = tx(), { isSelected: o, isSomeSelected: s, select: l } = Yl(), { columns: u } = Xl(), c = T(()=>i([
+            const { isGroupOpen: r, toggleGroup: n, extractRows: i } = ax(), { isSelected: o, isSomeSelected: s, select: l } = Yl(), { columns: u } = Xl(), c = T(()=>i([
                     t.item
                 ]));
             return ()=>y("tr", {
@@ -88954,7 +89056,7 @@ rect.legend-mouseover-inactive,
                 ]);
         }
     });
-    kz = Y({
+    Az = Y({
         index: Number,
         item: Object,
         cellProps: [
@@ -88968,10 +89070,10 @@ rect.legend-mouseover-inactive,
     }, "VDataTableRow");
     Vp = te()({
         name: "VDataTableRow",
-        props: kz(),
+        props: Az(),
         setup (t, e) {
             let { slots: a } = e;
-            const { displayClasses: r, mobile: n } = Ra(t, "v-data-table__tr"), { isSelected: i, toggleSelect: o, someSelected: s, allSelected: l, selectAll: u } = Yl(), { isExpanded: c, toggleExpand: d } = Qk(), { toggleSort: h, sortBy: m, isSorted: p } = hx(), { columns: f } = Xl();
+            const { displayClasses: r, mobile: n } = Ra(t, "v-data-table__tr"), { isSelected: i, toggleSelect: o, someSelected: s, allSelected: l, selectAll: u } = Yl(), { isExpanded: c, toggleExpand: d } = ex(), { toggleSort: h, sortBy: m, isSorted: p } = mx(), { columns: f } = Xl();
             ne(()=>y("tr", {
                     class: [
                         "v-data-table__tr",
@@ -89068,7 +89170,7 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    yx = Y({
+    bx = Y({
         loading: [
             Boolean,
             String
@@ -89099,10 +89201,10 @@ rect.legend-mouseover-inactive,
     In = te()({
         name: "VDataTableRows",
         inheritAttrs: !1,
-        props: yx(),
+        props: bx(),
         setup (t, e) {
             let { attrs: a, slots: r } = e;
-            const { columns: n } = Xl(), { expandOnClick: i, toggleExpand: o, isExpanded: s } = Qk(), { isSelected: l, toggleSelect: u } = Yl(), { toggleGroup: c, isGroupOpen: d } = tx(), { t: h } = Ot(), { mobile: m } = Ra(t);
+            const { columns: n } = Xl(), { expandOnClick: i, toggleExpand: o, isExpanded: s } = ex(), { isSelected: l, toggleSelect: u } = Yl(), { toggleGroup: c, isGroupOpen: d } = ax(), { t: h } = Ot(), { mobile: m } = Ra(t);
             return ne(()=>t.loading && (!t.items.length || r.loading) ? y("tr", {
                     class: "v-data-table-rows-loading",
                     key: "loading"
@@ -89135,7 +89237,7 @@ rect.legend-mouseover-inactive,
                                 toggleGroup: c,
                                 isGroupOpen: d
                             };
-                            return r["group-header"] ? r["group-header"](b) : y(Fz, Q({
+                            return r["group-header"] ? r["group-header"](b) : y(Cz, Q({
                                 key: `group-header_${p.id}`,
                                 item: p
                             }, hf(a, ":group-header", ()=>b)), r);
@@ -89176,7 +89278,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    bx = Y({
+    Fx = Y({
         fixedHeader: Boolean,
         fixedFooter: Boolean,
         height: [
@@ -89191,7 +89293,7 @@ rect.legend-mouseover-inactive,
     }, "VTable");
     zn = te()({
         name: "VTable",
-        props: bx(),
+        props: Fx(),
         setup (t, e) {
             let { slots: a, emit: r } = e;
             const { themeClasses: n } = it(t), { densityClasses: i } = Fa(t);
@@ -89229,7 +89331,7 @@ rect.legend-mouseover-inactive,
                 })), {};
         }
     });
-    xz = Y({
+    Dz = Y({
         items: {
             type: Array,
             default: ()=>[]
@@ -89260,7 +89362,7 @@ rect.legend-mouseover-inactive,
         ],
         returnObject: Boolean
     }, "DataTable-items");
-    function wz(t, e, a, r) {
+    function Tz(t, e, a, r) {
         const n = t.returnObject ? e : Ut(e, t.itemValue), i = Ut(e, t.itemSelectable, !0), o = r.reduce((s, l)=>(l.key != null && (s[l.key] = Ut(e, l.value)), s), {});
         return {
             type: "item",
@@ -89272,17 +89374,17 @@ rect.legend-mouseover-inactive,
             raw: e
         };
     }
-    function Sz(t, e, a) {
-        return e.map((r, n)=>wz(t, r, n, a));
+    function Ez(t, e, a) {
+        return e.map((r, n)=>Tz(t, r, n, a));
     }
     function Wp(t, e) {
         return {
-            items: T(()=>Sz(t, t.items, e.value))
+            items: T(()=>Ez(t, t.items, e.value))
         };
     }
-    let Gp, Cz, Dz, Ez, _z, Fx, pm, Pz, fm, Bz;
+    let Gp, _z, Bz, Rz, Lz, kx, pm, Iz, fm, zz;
     Gp = Y({
-        ...yx(),
+        ...bx(),
         hideDefaultBody: Boolean,
         hideDefaultFooter: Boolean,
         hideDefaultHeader: Boolean,
@@ -89291,24 +89393,24 @@ rect.legend-mouseover-inactive,
             Number
         ],
         search: String,
-        ...Jk(),
+        ...Zk(),
         ...Bp(),
-        ...mz(),
-        ...xz(),
-        ...lx(),
-        ...cx(),
-        ...vx(),
-        ...bx()
+        ...yz(),
+        ...Dz(),
+        ...ux(),
+        ...dx(),
+        ...yx(),
+        ...Fx()
     }, "DataTable");
-    Cz = Y({
+    _z = Y({
         ...Rp(),
         ...Gp(),
         ...jo(),
         ...Np()
     }, "VDataTable");
-    Az = te()({
+    Pz = te()({
         name: "VDataTable",
-        props: Cz(),
+        props: _z(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:page": (t)=>!0,
@@ -89348,7 +89450,7 @@ rect.legend-mouseover-inactive,
                 page: l,
                 itemsPerPage: u,
                 itemsLength: D
-            }), { paginatedItems: R } = ix({
+            }), { paginatedItems: R } = ox({
                 items: E,
                 startIndex: _,
                 stopIndex: B,
@@ -89438,15 +89540,15 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Dz = Y({
+    Bz = Y({
         ...Gp(),
         ...Bp(),
-        ...d1(),
+        ...h1(),
         ...jo()
     }, "VDataTableVirtual");
-    Tz = te()({
+    Mz = te()({
         name: "VDataTableVirtual",
-        props: Dz(),
+        props: Bz(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:sortBy": (t)=>!0,
@@ -89481,7 +89583,7 @@ rect.legend-mouseover-inactive,
             }), { flatItems: F } = $l(w, n, x), A = T(()=>C(F.value)), { isSelected: E, select: D, selectAll: _, toggleSelect: B, someSelected: P, allSelected: M } = Ul(t, {
                 allItems: A,
                 currentPage: A
-            }), { isExpanded: R, toggleExpand: O } = Wl(t), { containerRef: N, markerRef: H, paddingTop: I, paddingBottom: L, computedItems: q, handleItemResize: ee, handleScroll: J, handleScrollend: me } = h1(t, F), $ = T(()=>q.value.map((oe)=>oe.raw));
+            }), { isExpanded: R, toggleExpand: O } = Wl(t), { containerRef: N, markerRef: H, paddingTop: I, paddingBottom: L, computedItems: q, handleItemResize: ee, handleScroll: J, handleScrollend: me } = m1(t, F), $ = T(()=>q.value.map((oe)=>oe.raw));
             jl({
                 sortBy: i,
                 page: de(1),
@@ -89567,7 +89669,7 @@ rect.legend-mouseover-inactive,
                                         items: $.value
                                     }), {
                                         ...r,
-                                        item: (ue)=>y(c1, {
+                                        item: (ue)=>y(d1, {
                                                 key: ue.internalItem.index,
                                                 renderless: !0,
                                                 "onUpdate:height": (se)=>ee(ue.internalItem.index, se)
@@ -89608,7 +89710,7 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    Ez = Y({
+    Rz = Y({
         itemsLength: {
             type: [
                 Number,
@@ -89620,9 +89722,9 @@ rect.legend-mouseover-inactive,
         ...Gp(),
         ...Np()
     }, "VDataTableServer");
-    _z = te()({
+    Lz = te()({
         name: "VDataTableServer",
-        props: Ez(),
+        props: Rz(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:page": (t)=>!0,
@@ -89743,7 +89845,7 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    Fx = Y({
+    kx = Y({
         active: {
             type: [
                 String,
@@ -89779,7 +89881,7 @@ rect.legend-mouseover-inactive,
     }, "VDatePickerControls");
     pm = te()({
         name: "VDatePickerControls",
-        props: Fx(),
+        props: kx(),
         emits: {
             "click:year": ()=>!0,
             "click:month": ()=>!0,
@@ -89847,7 +89949,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    Pz = Y({
+    Iz = Y({
         appendIcon: Be,
         color: String,
         header: String,
@@ -89856,7 +89958,7 @@ rect.legend-mouseover-inactive,
     }, "VDatePickerHeader");
     fm = te()({
         name: "VDatePickerHeader",
-        props: Pz(),
+        props: Iz(),
         emits: {
             click: ()=>!0,
             "click:append": ()=>!0
@@ -89929,7 +90031,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Bz = Y({
+    zz = Y({
         allowedDates: [
             Array,
             Function
@@ -89972,7 +90074,7 @@ rect.legend-mouseover-inactive,
             String
         ]
     }, "calendar");
-    function Mz(t) {
+    function Nz(t) {
         const e = To(), a = Pe(t, "modelValue", [], (p)=>Dt(p)), r = T(()=>t.displayValue ? e.date(t.displayValue) : a.value.length > 0 ? e.date(a.value[0]) : t.min ? e.date(t.min) : Array.isArray(t.allowedDates) ? e.date(t.allowedDates[0]) : e.date()), n = Pe(t, "year", void 0, (p)=>{
             const f = p != null ? Number(p) : e.getYear(r.value);
             return e.startOfYear(e.setYear(e.date(), f));
@@ -90022,7 +90124,7 @@ rect.legend-mouseover-inactive,
         }), d = T(()=>{
             const p = l.value.flat(), f = e.date();
             return u(p, f);
-        }), h = T(()=>l.value.map((p)=>p.length ? Uw(e, p[0]) : null));
+        }), h = T(()=>l.value.map((p)=>p.length ? Yw(e, p[0]) : null));
         function m(p) {
             if (t.disabled) return !0;
             const f = e.date(p);
@@ -90039,8 +90141,8 @@ rect.legend-mouseover-inactive,
             weekNumbers: h
         };
     }
-    let kx, gm, xx, vm, wx, ym, Rz, Sx, Jy, Lz, Iz, zz, Oz, Hz, Vz, Wz, Gz, $z, jz, Zy, Uz, Cx, Yz, qz, Kz, Xz, Jz, Zz, Qz, eN, tN, aN, rN, nN, iN, oN, sN;
-    kx = Y({
+    let xx, gm, wx, vm, Sx, ym, Oz, Cx, Jy, Hz, Vz, Wz, $z, jz, Uz, Yz, qz, Kz, Xz, Zy, Jz, Ax, Zz, Qz, eN, tN, aN, rN, nN, iN, oN, sN, lN, uN, cN, dN, hN;
+    xx = Y({
         color: String,
         hideWeekdays: Boolean,
         multiple: [
@@ -90057,13 +90159,13 @@ rect.legend-mouseover-inactive,
             type: String,
             default: "picker-reverse-transition"
         },
-        ...Gt(Bz(), [
+        ...Gt(zz(), [
             "displayValue"
         ])
     }, "VDatePickerMonth");
     gm = te()({
         name: "VDatePickerMonth",
-        props: kx(),
+        props: xx(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:month": (t)=>!0,
@@ -90071,7 +90173,7 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { emit: a, slots: r } = e;
-            const n = G(), { daysInMonth: i, model: o, weekNumbers: s } = Mz(t), l = To(), u = de(), c = de(), d = de(!1), h = T(()=>d.value ? t.reverseTransition : t.transition);
+            const n = G(), { daysInMonth: i, model: o, weekNumbers: s } = Nz(t), l = To(), u = de(), c = de(), d = de(!1), h = T(()=>d.value ? t.reverseTransition : t.transition);
             t.multiple === "range" && o.value.length > 0 && (u.value = o.value[0], o.value.length > 1 && (c.value = o.value[o.value.length - 1]));
             const m = T(()=>{
                 const v = [
@@ -90200,7 +90302,7 @@ rect.legend-mouseover-inactive,
                 ]));
         }
     });
-    xx = Y({
+    wx = Y({
         color: String,
         height: [
             String,
@@ -90213,7 +90315,7 @@ rect.legend-mouseover-inactive,
     }, "VDatePickerMonths");
     vm = te()({
         name: "VDatePickerMonths",
-        props: xx(),
+        props: wx(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -90270,7 +90372,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    wx = Y({
+    Sx = Y({
         color: String,
         height: [
             String,
@@ -90282,7 +90384,7 @@ rect.legend-mouseover-inactive,
     }, "VDatePickerYears");
     ym = te()({
         name: "VDatePickerYears",
-        props: wx(),
+        props: Sx(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -90346,8 +90448,8 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    Rz = xr("v-picker-title");
-    Sx = Y({
+    Oz = xr("v-picker-title");
+    Cx = Y({
         bgColor: String,
         landscape: Boolean,
         title: String,
@@ -90356,7 +90458,7 @@ rect.legend-mouseover-inactive,
     }, "VPicker");
     Jy = te()({
         name: "VPicker",
-        props: Sx(),
+        props: Cx(),
         setup (t, e) {
             let { slots: a } = e;
             const { backgroundColorClasses: r, backgroundColorStyles: n } = ht(X(t, "color"));
@@ -90384,7 +90486,7 @@ rect.legend-mouseover-inactive,
                                     n.value
                                 ]
                             }, [
-                                o && y(Rz, {
+                                o && y(Oz, {
                                     key: "picker-title"
                                 }, {
                                     default: ()=>[
@@ -90423,29 +90525,29 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Lz = Y({
+    Hz = Y({
         header: {
             type: String,
             default: "$vuetify.datePicker.header"
         },
-        ...Fx(),
-        ...kx({
+        ...kx(),
+        ...xx({
             weeksInMonth: "static"
         }),
-        ...Gt(xx(), [
-            "modelValue"
-        ]),
         ...Gt(wx(), [
             "modelValue"
         ]),
-        ...Sx({
+        ...Gt(Sx(), [
+            "modelValue"
+        ]),
+        ...Cx({
             title: "$vuetify.datePicker.title"
         }),
         modelValue: null
     }, "VDatePicker");
-    Iz = te()({
+    Vz = te()({
         name: "VDatePicker",
-        props: Lz(),
+        props: Hz(),
         emits: {
             "update:modelValue": (t)=>!0,
             "update:month": (t)=>!0,
@@ -90613,7 +90715,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    zz = Y({
+    Wz = Y({
         actionText: String,
         bgColor: String,
         color: String,
@@ -90642,9 +90744,9 @@ rect.legend-mouseover-inactive,
         }),
         ...Qe()
     }, "VEmptyState");
-    Nz = te()({
+    Gz = te()({
         name: "VEmptyState",
-        props: zz(),
+        props: Wz(),
         emits: {
             "click:action": (t)=>!0
         },
@@ -90761,7 +90863,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Oz = Y({
+    $z = Y({
         app: Boolean,
         appear: Boolean,
         extended: Boolean,
@@ -90782,9 +90884,9 @@ rect.legend-mouseover-inactive,
             transition: "fab-transition"
         })
     }, "VFab");
-    Hz = te()({
+    jz = te()({
         name: "VFab",
-        props: Oz(),
+        props: $z(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -90859,7 +90961,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Vz = Y({
+    Uz = Y({
         app: Boolean,
         color: String,
         height: {
@@ -90879,9 +90981,9 @@ rect.legend-mouseover-inactive,
         }),
         ...Qe()
     }, "VFooter");
-    Wz = te()({
+    Yz = te()({
         name: "VFooter",
-        props: Vz(),
+        props: Uz(),
         setup (t, e) {
             let { slots: a } = e;
             const r = G(), { themeClasses: n } = it(t), { backgroundColorClasses: i, backgroundColorStyles: o } = ht(X(t, "color")), { borderClasses: s } = qa(t), { elevationClasses: l } = na(t), { roundedClasses: u } = Pt(t), c = de(32), { resizeRef: d } = Fr((m)=>{
@@ -90921,7 +91023,7 @@ rect.legend-mouseover-inactive,
                 }, a)), {};
         }
     });
-    Gz = Y({
+    qz = Y({
         disabled: Boolean,
         modelValue: {
             type: Boolean,
@@ -90929,9 +91031,9 @@ rect.legend-mouseover-inactive,
         },
         ...sp()
     }, "VHover");
-    $z = te()({
+    Kz = te()({
         name: "VHover",
-        props: Gz(),
+        props: qz(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -90947,7 +91049,7 @@ rect.legend-mouseover-inactive,
                 });
         }
     });
-    jz = Y({
+    Xz = Y({
         color: String,
         direction: {
             type: String,
@@ -91017,9 +91119,9 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    Uz = te()({
+    Jz = te()({
         name: "VInfiniteScroll",
-        props: jz(),
+        props: Xz(),
         emits: {
             load: (t)=>!0
         },
@@ -91157,8 +91259,8 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    Cx = Symbol.for("vuetify:v-item-group");
-    Yz = Y({
+    Ax = Symbol.for("vuetify:v-item-group");
+    Zz = Y({
         ...xe(),
         ...Un({
             selectedClass: "v-item--selected"
@@ -91166,15 +91268,15 @@ rect.legend-mouseover-inactive,
         ...Ve(),
         ...Qe()
     }, "VItemGroup");
-    qz = te()({
+    Qz = te()({
         name: "VItemGroup",
-        props: Yz(),
+        props: Zz(),
         emits: {
             "update:modelValue": (t)=>!0
         },
         setup (t, e) {
             let { slots: a } = e;
-            const { themeClasses: r } = it(t), { isSelected: n, select: i, next: o, prev: s, selected: l } = un(t, Cx);
+            const { themeClasses: r } = it(t), { isSelected: n, select: i, next: o, prev: s, selected: l } = un(t, Ax);
             return ()=>y(t.tag, {
                     class: [
                         "v-item-group",
@@ -91195,7 +91297,7 @@ rect.legend-mouseover-inactive,
                 });
         }
     });
-    Kz = te()({
+    eN = te()({
         name: "VItem",
         props: Yn(),
         emits: {
@@ -91203,7 +91305,7 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const { isSelected: r, select: n, toggle: i, selectedClass: o, value: s, disabled: l } = qn(t, Cx);
+            const { isSelected: r, select: n, toggle: i, selectedClass: o, value: s, disabled: l } = qn(t, Ax);
             return ()=>a.default?.({
                     isSelected: r.value,
                     selectedClass: o.value,
@@ -91214,15 +91316,15 @@ rect.legend-mouseover-inactive,
                 });
         }
     });
-    Xz = xr("v-kbd", "kbd");
-    Jz = Y({
+    tN = xr("v-kbd", "kbd");
+    aN = Y({
         ...xe(),
         ...$t(),
         ...gb()
     }, "VLayout");
-    Zz = te()({
+    rN = te()({
         name: "VLayout",
-        props: Jz(),
+        props: aN(),
         setup (t, e) {
             let { slots: a } = e;
             const { layoutClasses: r, layoutStyles: n, getLayoutItem: i, items: o, layoutRef: s } = fb(t), { dimensionStyles: l } = jt(t);
@@ -91245,7 +91347,7 @@ rect.legend-mouseover-inactive,
             };
         }
     });
-    Qz = Y({
+    nN = Y({
         position: {
             type: String,
             required: !0
@@ -91261,9 +91363,9 @@ rect.legend-mouseover-inactive,
         ...xe(),
         ...Vn()
     }, "VLayoutItem");
-    eN = te()({
+    iN = te()({
         name: "VLayoutItem",
-        props: Qz(),
+        props: nN(),
         setup (t, e) {
             let { slots: a } = e;
             const { layoutItemStyles: r } = Hn({
@@ -91289,7 +91391,7 @@ rect.legend-mouseover-inactive,
                 ]);
         }
     });
-    tN = Y({
+    oN = Y({
         modelValue: Boolean,
         options: {
             type: Object,
@@ -91306,12 +91408,12 @@ rect.legend-mouseover-inactive,
             transition: "fade-transition"
         })
     }, "VLazy");
-    aN = te()({
+    sN = te()({
         name: "VLazy",
         directives: {
             intersect: zo
         },
-        props: tN(),
+        props: oN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -91353,7 +91455,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    rN = Y({
+    lN = Y({
         locale: String,
         fallbackLocale: String,
         messages: Object,
@@ -91363,12 +91465,12 @@ rect.legend-mouseover-inactive,
         },
         ...xe()
     }, "VLocaleProvider");
-    nN = te()({
+    uN = te()({
         name: "VLocaleProvider",
-        props: rN(),
+        props: lN(),
         setup (t, e) {
             let { slots: a } = e;
-            const { rtlClasses: r } = Yw(t);
+            const { rtlClasses: r } = qw(t);
             return ne(()=>y("div", {
                     class: [
                         "v-locale-provider",
@@ -91381,15 +91483,15 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    iN = on({
+    cN = on({
         name: "VNoSsr",
         setup (t, e) {
             let { slots: a } = e;
-            const r = i1();
+            const r = o1();
             return ()=>r.value && a.default?.();
         }
     });
-    oN = Y({
+    dN = Y({
         autofocus: Boolean,
         divider: String,
         focusAll: Boolean,
@@ -91434,9 +91536,9 @@ rect.legend-mouseover-inactive,
             "variant"
         ])
     }, "VOtpInput");
-    sN = te()({
+    hN = te()({
         name: "VOtpInput",
-        props: oN(),
+        props: dN(),
         emits: {
             finish: (t)=>!0,
             "update:focused": (t)=>!0,
@@ -91600,11 +91702,11 @@ rect.legend-mouseover-inactive,
             };
         }
     });
-    function lN(t) {
+    function mN(t) {
         return Math.floor(Math.abs(t)) * Math.sign(t);
     }
-    let uN, cN, dN, mN, fN, vN, yN, bN;
-    uN = Y({
+    let pN, fN, gN, yN, FN, xN, wN, SN;
+    pN = Y({
         scale: {
             type: [
                 Number,
@@ -91614,9 +91716,9 @@ rect.legend-mouseover-inactive,
         },
         ...xe()
     }, "VParallax");
-    cN = te()({
+    fN = te()({
         name: "VParallax",
-        props: uN(),
+        props: pN(),
         setup (t, e) {
             let { slots: a } = e;
             const { intersectionRef: r, isIntersecting: n } = El(), { resizeRef: i, contentRect: o } = Fr(), { height: s } = Ra(), l = G();
@@ -91637,7 +91739,7 @@ rect.legend-mouseover-inactive,
                 n.value && (cancelAnimationFrame(d), d = requestAnimationFrame(()=>{
                     const m = (l.value?.$el).querySelector(".v-img__img");
                     if (!m) return;
-                    const p = u instanceof Document ? document.documentElement.clientHeight : u.clientHeight, f = u instanceof Document ? window.scrollY : u.scrollTop, g = r.value.getBoundingClientRect().top + f, v = o.value.height, b = g + (v - p) / 2, x = lN((f - b) * c.value), C = Math.max(1, (c.value * (p - v) + v) / v);
+                    const p = u instanceof Document ? document.documentElement.clientHeight : u.clientHeight, f = u instanceof Document ? window.scrollY : u.scrollTop, g = r.value.getBoundingClientRect().top + f, v = o.value.height, b = g + (v - p) / 2, x = mN((f - b) * c.value), C = Math.max(1, (c.value * (p - v) + v) / v);
                     m.style.setProperty("transform", `translateY(${x}px) scale(${C})`);
                 }));
             }
@@ -91657,15 +91759,15 @@ rect.legend-mouseover-inactive,
                 }, a)), {};
         }
     });
-    dN = Y({
+    gN = Y({
         ...wl({
             falseIcon: "$radioOff",
             trueIcon: "$radioOn"
         })
     }, "VRadio");
-    hN = te()({
+    vN = te()({
         name: "VRadio",
-        props: dN(),
+        props: gN(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>{
@@ -91681,7 +91783,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    mN = Y({
+    yN = Y({
         height: {
             type: [
                 Number,
@@ -91706,10 +91808,10 @@ rect.legend-mouseover-inactive,
             default: "radio"
         }
     }, "VRadioGroup");
-    pN = te()({
+    bN = te()({
         name: "VRadioGroup",
         inheritAttrs: !1,
-        props: mN(),
+        props: yN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -91745,7 +91847,7 @@ rect.legend-mouseover-inactive,
                                         d
                                     ]
                             }),
-                            y(v0, Q(c, {
+                            y(y0, Q(c, {
                                 id: m.value,
                                 "aria-describedby": p.value,
                                 defaultsTarget: "VRadio",
@@ -91766,10 +91868,10 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    fN = Y({
+    FN = Y({
         ...No(),
         ...Or(),
-        ...Yk(),
+        ...qk(),
         strict: Boolean,
         modelValue: {
             type: Array,
@@ -91779,9 +91881,9 @@ rect.legend-mouseover-inactive,
                 ]
         }
     }, "VRangeSlider");
-    gN = te()({
+    kN = te()({
         name: "VRangeSlider",
-        props: fN(),
+        props: FN(),
         emits: {
             "update:focused": (t)=>!0,
             "update:modelValue": (t)=>!0,
@@ -91796,10 +91898,10 @@ rect.legend-mouseover-inactive,
                 const D = um(E, n.value.$el, t.direction), _ = um(E, i.value.$el, t.direction), B = Math.abs(D), P = Math.abs(_);
                 return B < P || B === P && D < 0 ? n.value.$el : i.value.$el;
             }
-            const u = qk(t), c = Pe(t, "modelValue", void 0, (E)=>E?.length ? E.map((D)=>u.roundValue(D)) : [
+            const u = Kk(t), c = Pe(t, "modelValue", void 0, (E)=>E?.length ? E.map((D)=>u.roundValue(D)) : [
                     0,
                     0
-                ]), { activeThumbRef: d, hasLabels: h, max: m, min: p, mousePressed: f, onSliderMousedown: g, onSliderTouchstart: v, position: b, trackContainerRef: x, readonly: C } = Kk({
+                ]), { activeThumbRef: d, hasLabels: h, max: m, min: p, mousePressed: f, onSliderMousedown: g, onSliderTouchstart: v, position: b, trackContainerRef: x, readonly: C } = Xk({
                 props: t,
                 steps: u,
                 onSliderStart: ()=>{
@@ -91880,7 +91982,7 @@ rect.legend-mouseover-inactive,
                                 tabindex: "-1",
                                 value: c.value[1]
                             }, null),
-                            y(Xk, {
+                            y(Jk, {
                                 ref: x,
                                 start: F.value,
                                 stop: A.value
@@ -91937,7 +92039,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    vN = Y({
+    xN = Y({
         name: String,
         itemAriaLabel: {
             type: String,
@@ -91988,9 +92090,9 @@ rect.legend-mouseover-inactive,
         ...Ve(),
         ...Qe()
     }, "VRating");
-    yN = te()({
+    wN = te()({
         name: "VRating",
-        props: vN(),
+        props: xN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -92141,7 +92243,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    bN = {
+    SN = {
         actions: "button@2",
         article: "heading, paragraph",
         avatar: "avatar",
@@ -92174,7 +92276,7 @@ rect.legend-mouseover-inactive,
         "table-tfoot": "text@2, avatar@2",
         text: "text"
     };
-    function FN(t) {
+    function CN(t) {
         let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : [];
         return y("div", {
             class: [
@@ -92194,20 +92296,20 @@ rect.legend-mouseover-inactive,
     function Jl(t) {
         let e = [];
         if (!t) return e;
-        const a = bN[t];
+        const a = SN[t];
         if (t !== a) {
             if (t.includes(",")) return eb(t);
             if (t.includes("@")) return Qy(t);
             a.includes(",") ? e = eb(a) : a.includes("@") ? e = Qy(a) : a && e.push(Jl(a));
         }
         return [
-            FN(t, e)
+            CN(t, e)
         ];
     }
     function eb(t) {
         return t.replace(/\s/g, "").split(",").map(Jl);
     }
-    const kN = Y({
+    const AN = Y({
         boilerplate: Boolean,
         color: String,
         loading: Boolean,
@@ -92225,9 +92327,9 @@ rect.legend-mouseover-inactive,
         ...$t(),
         ...Xt(),
         ...Qe()
-    }, "VSkeletonLoader"), xN = te()({
+    }, "VSkeletonLoader"), DN = te()({
         name: "VSkeletonLoader",
-        props: kN(),
+        props: AN(),
         setup (t, e) {
             let { slots: a } = e;
             const { backgroundColorClasses: r, backgroundColorStyles: n } = ht(X(t, "color")), { dimensionStyles: i } = jt(t), { elevationClasses: o } = na(t), { themeClasses: s } = it(t), { t: l } = Ot(), u = T(()=>Jl(Dt(t.type).join(",")));
@@ -92256,7 +92358,7 @@ rect.legend-mouseover-inactive,
                 ]);
             }), {};
         }
-    }), wN = te()({
+    }), TN = te()({
         name: "VSlideGroupItem",
         props: Yn(),
         emits: {
@@ -92264,7 +92366,7 @@ rect.legend-mouseover-inactive,
         },
         setup (t, e) {
             let { slots: a } = e;
-            const r = qn(t, O0);
+            const r = qn(t, H0);
             return ()=>a.default?.({
                     isSelected: r.isSelected.value,
                     select: r.select,
@@ -92273,7 +92375,7 @@ rect.legend-mouseover-inactive,
                 });
         }
     });
-    function SN(t) {
+    function EN(t) {
         const e = de(t());
         let a = -1;
         function r() {
@@ -92300,7 +92402,7 @@ rect.legend-mouseover-inactive,
             reset: n
         };
     }
-    const CN = Y({
+    const _N = Y({
         multiLine: Boolean,
         text: String,
         timer: [
@@ -92330,15 +92432,15 @@ rect.legend-mouseover-inactive,
             "scrim",
             "scrollStrategy"
         ])
-    }, "VSnackbar"), AN = te()({
+    }, "VSnackbar"), PN = te()({
         name: "VSnackbar",
-        props: CN(),
+        props: _N(),
         emits: {
             "update:modelValue": (t)=>!0
         },
         setup (t, e) {
             let { slots: a } = e;
-            const r = Pe(t, "modelValue"), { positionClasses: n } = Ni(t), { scopeId: i } = Jn(), { themeClasses: o } = it(t), { colorClasses: s, colorStyles: l, variantClasses: u } = jn(t), { roundedClasses: c } = Pt(t), d = SN(()=>Number(t.timeout)), h = G(), m = G(), p = de(!1), f = de(0), g = G(), v = Tt(Kw, void 0);
+            const r = Pe(t, "modelValue"), { positionClasses: n } = Ni(t), { scopeId: i } = Jn(), { themeClasses: o } = it(t), { colorClasses: s, colorStyles: l, variantClasses: u } = jn(t), { roundedClasses: c } = Pt(t), d = EN(()=>Number(t.timeout)), h = G(), m = G(), p = de(!1), f = de(0), g = G(), v = Tt(Xw, void 0);
             Ba(()=>!!v, ()=>{
                 const D = vb();
                 zt(()=>{
@@ -92352,7 +92454,7 @@ rect.legend-mouseover-inactive,
                 d.reset(), window.clearTimeout(b);
                 const D = Number(t.timeout);
                 if (!r.value || D === -1) return;
-                const _ = qw(m.value);
+                const _ = Kw(m.value);
                 d.start(_), b = window.setTimeout(()=>{
                     r.value = !1;
                 }, D);
@@ -92468,7 +92570,7 @@ rect.legend-mouseover-inactive,
                 });
             }), sr({}, h);
         }
-    }), Ax = Y({
+    }), Dx = Y({
         autoDraw: Boolean,
         autoDrawDuration: [
             Number,
@@ -92555,12 +92657,12 @@ rect.legend-mouseover-inactive,
             ],
             default: 300
         }
-    }, "Line"), Dx = Y({
+    }, "Line"), Tx = Y({
         autoLineWidth: Boolean,
-        ...Ax()
+        ...Dx()
     }, "VBarline"), tb = te()({
         name: "VBarline",
-        props: Dx(),
+        props: Tx(),
         setup (t, e) {
             let { slots: a } = e;
             const r = Ca(), n = T(()=>t.id || `barline-${r}`), i = T(()=>Number(t.autoDrawDuration) || 500), o = T(()=>!!(t.showLabels || t.labels.length > 0 || a?.label)), s = T(()=>parseFloat(t.lineWidth) || 4), l = T(()=>Math.max(t.modelValue.length * s.value, Number(t.width))), u = T(()=>({
@@ -92681,12 +92783,12 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    function DN(t, e) {
+    function BN(t, e) {
         let a = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : !1, r = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 75;
         if (t.length === 0) return "";
         const n = t.shift(), i = t[t.length - 1];
         return (a ? `M${n.x} ${r - n.x + 2} L${n.x} ${n.y}` : `M${n.x} ${n.y}`) + t.map((o, s)=>{
-            const l = t[s + 1], u = t[s - 1] || n, c = l && TN(l, o, u);
+            const l = t[s + 1], u = t[s - 1] || n, c = l && MN(l, o, u);
             if (!l || c) return `L${o.x} ${o.y}`;
             const d = Math.min(ab(u, o), ab(l, o)), m = d / 2 < e ? d / 2 : e, p = rb(u, o, m), f = rb(l, o, m);
             return `L${p.x} ${p.y}S${o.x} ${o.y} ${f.x} ${f.y}`;
@@ -92695,7 +92797,7 @@ rect.legend-mouseover-inactive,
     function ps(t) {
         return parseInt(t, 10);
     }
-    function TN(t, e, a) {
+    function MN(t, e, a) {
         return ps(t.x + a.x) === ps(2 * e.x) && ps(t.y + a.y) === ps(2 * e.y);
     }
     function ab(t, e) {
@@ -92714,14 +92816,14 @@ rect.legend-mouseover-inactive,
             y: e.y + i.y * a
         };
     }
-    let Tx, nb, EN, _N, PN, BN, $p, Ex, _x, Px, MN, RN, Bx, LN, Mx, IN, Rx, zN, NN, ON, HN, WN, GN, jp, $N, jN, Ix, UN, zx;
-    Tx = Y({
+    let Ex, nb, RN, LN, IN, zN, $p, _x, Px, Bx, NN, ON, Mx, HN, Rx, VN, Lx, WN, GN, $N, jN, YN, qN, jp, KN, XN, zx, JN, Nx;
+    Ex = Y({
         fill: Boolean,
-        ...Ax()
+        ...Dx()
     }, "VTrendline");
     nb = te()({
         name: "VTrendline",
-        props: Tx(),
+        props: Ex(),
         setup (t, e) {
             let { slots: a } = e;
             const r = Ca(), n = T(()=>t.id || `trendline-${r}`), i = T(()=>Number(t.autoDrawDuration) || (t.fill ? 500 : 2e3)), o = G(0), s = G(null);
@@ -92762,7 +92864,7 @@ rect.legend-mouseover-inactive,
             });
             function f(g) {
                 const v = typeof t.smooth == "boolean" ? t.smooth ? 8 : 0 : Number(t.smooth);
-                return DN(l(m.value, h.value), v, g, parseInt(t.height, 10));
+                return BN(l(m.value, h.value), v, g, parseInt(t.height, 10));
             }
             ne(()=>{
                 const g = t.gradient.slice().length ? t.gradient.slice().reverse() : [
@@ -92821,17 +92923,17 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    EN = Y({
+    RN = Y({
         type: {
             type: String,
             default: "trend"
         },
-        ...Dx(),
-        ...Tx()
+        ...Tx(),
+        ...Ex()
     }, "VSparkline");
-    _N = te()({
+    LN = te()({
         name: "VSparkline",
-        props: EN(),
+        props: RN(),
         setup (t, e) {
             let { slots: a } = e;
             const { textColorClasses: r, textColorStyles: n } = da(X(t, "color")), i = T(()=>!!(t.showLabels || t.labels.length > 0 || a?.label)), o = T(()=>{
@@ -92849,9 +92951,9 @@ rect.legend-mouseover-inactive,
             });
         }
     });
-    PN = Y({
+    IN = Y({
         ...xe(),
-        ...u1({
+        ...c1({
             offset: 8,
             minWidth: 0,
             openDelay: 0,
@@ -92860,9 +92962,9 @@ rect.legend-mouseover-inactive,
             transition: "scale-transition"
         })
     }, "VSpeedDial");
-    BN = te()({
+    zN = te()({
         name: "VSpeedDial",
-        props: PN(),
+        props: IN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -92915,7 +93017,7 @@ rect.legend-mouseover-inactive,
         }
     });
     $p = Symbol.for("vuetify:v-stepper");
-    Ex = Y({
+    _x = Y({
         color: String,
         disabled: {
             type: [
@@ -92933,9 +93035,9 @@ rect.legend-mouseover-inactive,
             default: "$vuetify.stepper.next"
         }
     }, "VStepperActions");
-    _x = te()({
+    Px = te()({
         name: "VStepperActions",
-        props: Ex(),
+        props: _x(),
         emits: {
             "click:prev": ()=>!0,
             "click:next": ()=>!0
@@ -92999,8 +93101,8 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    Px = xr("v-stepper-header");
-    MN = Y({
+    Bx = xr("v-stepper-header");
+    NN = Y({
         color: String,
         title: String,
         subtitle: String,
@@ -93032,16 +93134,16 @@ rect.legend-mouseover-inactive,
             default: ()=>[]
         }
     }, "StepperItem");
-    RN = Y({
-        ...MN(),
+    ON = Y({
+        ...NN(),
         ...Yn()
     }, "VStepperItem");
-    Bx = te()({
+    Mx = te()({
         name: "VStepperItem",
         directives: {
             Ripple: zr
         },
-        props: RN(),
+        props: ON(),
         emits: {
             "group:selected": (t)=>!0
         },
@@ -93115,7 +93217,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    LN = Y({
+    HN = Y({
         ...Gt(Hl(), [
             "continuous",
             "nextIcon",
@@ -93125,9 +93227,9 @@ rect.legend-mouseover-inactive,
             "mandatory"
         ])
     }, "VStepperWindow");
-    Mx = te()({
+    Rx = te()({
         name: "VStepperWindow",
-        props: LN(),
+        props: HN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -93159,12 +93261,12 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    IN = Y({
+    VN = Y({
         ...Vl()
     }, "VStepperWindowItem");
-    Rx = te()({
+    Lx = te()({
         name: "VStepperWindowItem",
-        props: IN(),
+        props: VN(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>{
@@ -93181,7 +93283,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    zN = Y({
+    WN = Y({
         altLabels: Boolean,
         bgColor: String,
         completeIcon: Be,
@@ -93205,21 +93307,21 @@ rect.legend-mouseover-inactive,
         flat: Boolean,
         ...On()
     }, "Stepper");
-    NN = Y({
-        ...zN(),
+    GN = Y({
+        ...WN(),
         ...Un({
             mandatory: "force",
             selectedClass: "v-stepper-item--selected"
         }),
         ...zl(),
-        ...nn(Ex(), [
+        ...nn(_x(), [
             "prevText",
             "nextText"
         ])
     }, "VStepper");
-    ON = te()({
+    $N = te()({
         name: "VStepper",
-        props: NN(),
+        props: GN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -93266,7 +93368,7 @@ rect.legend-mouseover-inactive,
                     style: t.style
                 }), {
                     default: ()=>[
-                            C && y(Px, {
+                            C && y(Bx, {
                                 key: "stepper-header"
                             }, {
                                 default: ()=>[
@@ -93274,7 +93376,7 @@ rect.legend-mouseover-inactive,
                                             let { raw: A, ...E } = w;
                                             return y(Ae, null, [
                                                 !!F && y(er, null, null),
-                                                y(Bx, E, {
+                                                y(Mx, E, {
                                                     default: a[`header-item.${E.value}`] ?? a.header,
                                                     icon: a.icon,
                                                     title: a.title,
@@ -93284,11 +93386,11 @@ rect.legend-mouseover-inactive,
                                         })
                                     ]
                             }),
-                            k && y(Mx, {
+                            k && y(Rx, {
                                 key: "stepper-window"
                             }, {
                                 default: ()=>[
-                                        g.value.map((w)=>y(Rx, {
+                                        g.value.map((w)=>y(Lx, {
                                                 value: w.value
                                             }, {
                                                 default: ()=>a[`item.${w.value}`]?.(w) ?? a.item?.(w)
@@ -93302,7 +93404,7 @@ rect.legend-mouseover-inactive,
                             S && (a.actions?.({
                                 next: n,
                                 prev: i
-                            }) ?? y(_x, {
+                            }) ?? y(Px, {
                                 key: "stepper-actions",
                                 "onClick:prev": i,
                                 "onClick:next": n
@@ -93315,7 +93417,7 @@ rect.legend-mouseover-inactive,
             };
         }
     });
-    HN = Y({
+    jN = Y({
         indeterminate: Boolean,
         inset: Boolean,
         flat: Boolean,
@@ -93329,10 +93431,10 @@ rect.legend-mouseover-inactive,
         ...Or(),
         ...wl()
     }, "VSwitch");
-    VN = te()({
+    UN = te()({
         name: "VSwitch",
         inheritAttrs: !1,
-        props: HN(),
+        props: jN(),
         emits: {
             "update:focused": (t)=>!0,
             "update:modelValue": (t)=>!0,
@@ -93478,7 +93580,7 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    WN = Y({
+    YN = Y({
         color: String,
         height: [
             Number,
@@ -93492,9 +93594,9 @@ rect.legend-mouseover-inactive,
         ...Ve(),
         ...Qe()
     }, "VSystemBar");
-    GN = te()({
+    qN = te()({
         name: "VSystemBar",
-        props: WN(),
+        props: YN(),
         setup (t, e) {
             let { slots: a } = e;
             const { themeClasses: r } = it(t), { backgroundColorClasses: n, backgroundColorStyles: i } = ht(X(t, "color")), { elevationClasses: o } = na(t), { roundedClasses: s } = Pt(t), { ssrBootStyles: l } = Kn(), u = T(()=>t.height ?? (t.window ? 32 : 24)), { layoutItemStyles: c } = Hn({
@@ -93528,7 +93630,7 @@ rect.legend-mouseover-inactive,
         }
     });
     jp = Symbol.for("vuetify:v-tabs");
-    $N = Y({
+    KN = Y({
         fixed: Boolean,
         sliderColor: String,
         hideSlider: Boolean,
@@ -93548,9 +93650,9 @@ rect.legend-mouseover-inactive,
             "symbol"
         ])
     }, "VTab");
-    Lx = te()({
+    Ix = te()({
         name: "VTab",
-        props: $N(),
+        props: KN(),
         setup (t, e) {
             let { slots: a, attrs: r } = e;
             const { textColorClasses: n, textColorStyles: i } = da(t, "sliderColor"), o = G(), s = G(), l = T(()=>t.direction === "horizontal"), u = T(()=>o.value?.group?.isSelected.value ?? !1);
@@ -93612,7 +93714,7 @@ rect.legend-mouseover-inactive,
             }), sr({}, o);
         }
     });
-    jN = Y({
+    XN = Y({
         ...Gt(Hl(), [
             "continuous",
             "nextIcon",
@@ -93622,9 +93724,9 @@ rect.legend-mouseover-inactive,
             "mandatory"
         ])
     }, "VTabsWindow");
-    Ix = te()({
+    zx = te()({
         name: "VTabsWindow",
-        props: jN(),
+        props: XN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
@@ -93656,12 +93758,12 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    UN = Y({
+    JN = Y({
         ...Vl()
     }, "VTabsWindowItem");
-    zx = te()({
+    Nx = te()({
         name: "VTabsWindowItem",
-        props: UN(),
+        props: JN(),
         setup (t, e) {
             let { slots: a } = e;
             return ne(()=>{
@@ -93678,14 +93780,14 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    function YN(t) {
+    function ZN(t) {
         return t ? t.map((e)=>il(e) ? e : {
                 text: e,
                 value: e
             }) : [];
     }
-    let qN, XN, JN, ZN, QN, Nx, eO, tO, aO, rO, nO, iO, oO, sO, lO, uO, cO, dO, hO, mO, pO, fO, gO, vO, yO, bO, FO, kO, xO, wO, SO, CO, AO, DO, TO, EO, _O, PO, BO, MO, RO, LO, IO, zO, NO, OO, HO, VO, WO, GO, $O, jO, UO, YO, qO, KO, XO, JO, ZO, QO, eH, tH, aH, rH, nH, iH, oH, sH, lH, uH, cH, dH, hH, mH, pH, fH, gH, vH, yH, bH, FH, kH, xH, wH, SH, CH, AH, DH, TH, EH, _H, PH, BH, MH, RH, LH, IH, zH, NH, OH, HH, VH, WH, GH, $H, jH, UH, YH, qH, KH, XH, JH, ZH, QH, e9, t9, a9, r9, n9, i9, o9, s9, l9, u9, c9, d9, h9, m9, p9, f9, g9, v9, y9, b9, F9, k9, x9, w9, S9, C9, A9, D9, T9, E9, _9, P9, B9, M9, R9, L9, I9, z9, N9, O9, H9, V9, W9, G9, $9, j9, U9, Y9, q9, K9, X9, J9, Z9, Q9, eV, tV, aV, rV, nV, iV, oV, sV, lV, uV, cV, dV, hV, mV, pV, fV, gV, vV, yV, bV, FV, kV, xV, wV, SV, CV, AV, DV, TV, EV, _V, PV, BV, MV, RV, LV, IV, zV, NV, OV, HV, VV, WV, GV, $V, jV, UV, YV, qV, KV, XV, JV, ZV, QV, eW, tW, aW, rW, nW, iW, oW, sW, lW, uW, cW, dW, hW, mW, pW, Ox;
-    qN = Y({
+    let QN, tO, aO, rO, nO, Ox, iO, oO, sO, lO, uO, cO, dO, hO, mO, pO, fO, gO, vO, yO, bO, FO, kO, xO, wO, SO, CO, AO, DO, TO, EO, _O, PO, BO, MO, RO, LO, IO, zO, NO, OO, HO, VO, WO, GO, $O, jO, UO, YO, qO, KO, XO, JO, ZO, QO, eH, tH, aH, rH, nH, iH, oH, sH, lH, uH, cH, dH, hH, mH, pH, fH, gH, vH, yH, bH, FH, kH, xH, wH, SH, CH, AH, DH, TH, EH, _H, PH, BH, MH, RH, LH, IH, zH, NH, OH, HH, VH, WH, GH, $H, jH, UH, YH, qH, KH, XH, JH, ZH, QH, e9, t9, a9, r9, n9, i9, o9, s9, l9, u9, c9, d9, h9, m9, p9, f9, g9, v9, y9, b9, F9, k9, x9, w9, S9, C9, A9, D9, T9, E9, _9, P9, B9, M9, R9, L9, I9, z9, N9, O9, H9, V9, W9, G9, $9, j9, U9, Y9, q9, K9, X9, J9, Z9, Q9, eV, tV, aV, rV, nV, iV, oV, sV, lV, uV, cV, dV, hV, mV, pV, fV, gV, vV, yV, bV, FV, kV, xV, wV, SV, CV, AV, DV, TV, EV, _V, PV, BV, MV, RV, LV, IV, zV, NV, OV, HV, VV, WV, GV, $V, jV, UV, YV, qV, KV, XV, JV, ZV, QV, eW, tW, aW, rW, nW, iW, oW, sW, lW, uW, cW, dW, hW, mW, pW, fW, gW, vW, yW, bW, Hx;
+    QN = Y({
         alignTabs: {
             type: String,
             default: "start"
@@ -93715,15 +93817,15 @@ rect.legend-mouseover-inactive,
         ...Qt(),
         ...Ve()
     }, "VTabs");
-    KN = te()({
+    eO = te()({
         name: "VTabs",
-        props: qN(),
+        props: QN(),
         emits: {
             "update:modelValue": (t)=>!0
         },
         setup (t, e) {
             let { attrs: a, slots: r } = e;
-            const n = Pe(t, "modelValue"), i = T(()=>YN(t.items)), { densityClasses: o } = Fa(t), { backgroundColorClasses: s, backgroundColorStyles: l } = ht(X(t, "bgColor")), { scopeId: u } = Jn();
+            const n = Pe(t, "modelValue"), i = T(()=>ZN(t.items)), { densityClasses: o } = Fa(t), { backgroundColorClasses: s, backgroundColorStyles: l } = ht(X(t, "bgColor")), { scopeId: u } = Jn();
             return _t({
                 VTab: {
                     color: X(t, "color"),
@@ -93765,7 +93867,7 @@ rect.legend-mouseover-inactive,
                         default: ()=>[
                                 r.default?.() ?? i.value.map((h)=>r.tab?.({
                                         item: h
-                                    }) ?? y(Lx, Q(h, {
+                                    }) ?? y(Ix, Q(h, {
                                         key: h.text,
                                         value: h.value
                                     }), {
@@ -93775,7 +93877,7 @@ rect.legend-mouseover-inactive,
                                     }))
                             ]
                     }),
-                    d && y(Ix, Q({
+                    d && y(zx, Q({
                         modelValue: n.value,
                         "onUpdate:modelValue": (h)=>n.value = h,
                         key: "tabs-window"
@@ -93783,7 +93885,7 @@ rect.legend-mouseover-inactive,
                         default: ()=>[
                                 i.value.map((h)=>r.item?.({
                                         item: h
-                                    }) ?? y(zx, {
+                                    }) ?? y(Nx, {
                                         value: h.value
                                     }, {
                                         default: ()=>r[`item.${h.value}`]?.({
@@ -93797,15 +93899,15 @@ rect.legend-mouseover-inactive,
             }), {};
         }
     });
-    XN = Y({
+    tO = Y({
         withBackground: Boolean,
         ...xe(),
         ...Qe(),
         ...Ve()
     }, "VThemeProvider");
-    JN = te()({
+    aO = te()({
         name: "VThemeProvider",
-        props: XN(),
+        props: tO(),
         setup (t, e) {
             let { slots: a } = e;
             const { themeClasses: r } = it(t);
@@ -93823,7 +93925,7 @@ rect.legend-mouseover-inactive,
                 }) : a.default?.();
         }
     });
-    ZN = Y({
+    rO = Y({
         dotColor: String,
         fillDot: Boolean,
         hideDot: Boolean,
@@ -93835,9 +93937,9 @@ rect.legend-mouseover-inactive,
         ...Cr(),
         ...Xt()
     }, "VTimelineDivider");
-    QN = te()({
+    nO = te()({
         name: "VTimelineDivider",
-        props: ZN(),
+        props: rO(),
         setup (t, e) {
             let { slots: a } = e;
             const { sizeClasses: r, sizeStyles: n } = Ri(t, "v-timeline-divider__dot"), { backgroundColorStyles: i, backgroundColorClasses: o } = ht(X(t, "dotColor")), { roundedClasses: s } = Pt(t, "v-timeline-divider__dot"), { elevationClasses: l } = na(t), { backgroundColorClasses: u, backgroundColorStyles: c } = ht(X(t, "lineColor"));
@@ -93904,7 +94006,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    Nx = Y({
+    Ox = Y({
         density: String,
         dotColor: String,
         fillDot: Boolean,
@@ -93926,9 +94028,9 @@ rect.legend-mouseover-inactive,
         ...Cr(),
         ...Ve()
     }, "VTimelineItem");
-    eO = te()({
+    iO = te()({
         name: "VTimelineItem",
-        props: Nx(),
+        props: Ox(),
         setup (t, e) {
             let { slots: a } = e;
             const { dimensionStyles: r } = jt(t), n = de(0), i = G();
@@ -93958,7 +94060,7 @@ rect.legend-mouseover-inactive,
                     }, [
                         a.default?.()
                     ]),
-                    y(QN, {
+                    y(nO, {
                         ref: i,
                         hideDot: t.hideDot,
                         icon: t.icon,
@@ -93979,7 +94081,7 @@ rect.legend-mouseover-inactive,
                 ])), {};
         }
     });
-    tO = Y({
+    oO = Y({
         align: {
             type: String,
             default: "center",
@@ -94027,7 +94129,7 @@ rect.legend-mouseover-inactive,
                     "both"
                 ].includes(t)
         },
-        ...nn(Nx({
+        ...nn(Ox({
             lineInset: 0
         }), [
             "dotColor",
@@ -94042,9 +94144,9 @@ rect.legend-mouseover-inactive,
         ...Ve(),
         ...Qe()
     }, "VTimeline");
-    aO = te()({
+    sO = te()({
         name: "VTimeline",
-        props: tO(),
+        props: oO(),
         setup (t, e) {
             let { slots: a } = e;
             const { themeClasses: r } = it(t), { densityClasses: n } = Fa(t), { rtlClasses: i } = Zt();
@@ -94107,70 +94209,70 @@ rect.legend-mouseover-inactive,
                 }, a)), {};
         }
     });
-    rO = te()({
+    lO = te()({
         name: "VValidation",
-        props: R0(),
+        props: L0(),
         emits: {
             "update:modelValue": (t)=>!0
         },
         setup (t, e) {
             let { slots: a } = e;
-            const r = L0(t, "validation");
+            const r = I0(t, "validation");
             return ()=>a.default?.(r);
         }
     });
-    nO = Object.freeze(Object.defineProperty({
+    uO = Object.freeze(Object.defineProperty({
         __proto__: null,
-        VAlert: h6,
-        VAlertTitle: Ok,
-        VApp: Ik,
-        VAppBar: Mk,
-        VAppBarNavIcon: Rk,
-        VAppBarTitle: j4,
-        VAutocomplete: f6,
+        VAlert: v6,
+        VAlertTitle: Hk,
+        VApp: zk,
+        VAppBar: Rk,
+        VAppBarNavIcon: Lk,
+        VAppBarTitle: X4,
+        VAutocomplete: F6,
         VAvatar: rr,
-        VBadge: v6,
-        VBanner: F6,
-        VBannerActions: Hk,
-        VBannerText: Vk,
-        VBottomNavigation: O1,
-        VBottomSheet: x6,
-        VBreadcrumbs: A6,
-        VBreadcrumbsDivider: Wk,
-        VBreadcrumbsItem: Gk,
+        VBadge: x6,
+        VBanner: C6,
+        VBannerActions: Vk,
+        VBannerText: Wk,
+        VBottomNavigation: H1,
+        VBottomSheet: D6,
+        VBreadcrumbs: P6,
+        VBreadcrumbsDivider: Gk,
+        VBreadcrumbsItem: $k,
         VBtn: Re,
         VBtnGroup: Hh,
-        VBtnToggle: HR,
+        VBtnToggle: jR,
         VCard: ei,
         VCardActions: Oi,
-        VCardItem: _1,
-        VCardSubtitle: E1,
+        VCardItem: P1,
+        VCardSubtitle: _1,
         VCardText: Qn,
         VCardTitle: Hi,
-        VCarousel: T6,
-        VCarouselItem: _6,
+        VCarousel: M6,
+        VCarouselItem: L6,
         VCheckbox: Kr,
         VCheckboxBtn: Rr,
         VChip: oa,
-        VChipGroup: f3,
-        VClassIcon: Xw,
-        VCode: P6,
+        VChipGroup: F3,
+        VClassIcon: Jw,
+        VCode: I6,
         VCol: je,
-        VColorPicker: Z6,
+        VColorPicker: rz,
         VCombobox: Ws,
-        VComponentIcon: Jw,
-        VConfirmEdit: ez,
-        VContainer: TR,
+        VComponentIcon: Zw,
+        VConfirmEdit: iz,
+        VContainer: MR,
         VCounter: Tl,
-        VDataIterator: cz,
-        VDataTable: Az,
+        VDataIterator: fz,
+        VDataTable: Pz,
         VDataTableFooter: Do,
         VDataTableHeaders: Ln,
         VDataTableRow: Vp,
         VDataTableRows: In,
-        VDataTableServer: _z,
-        VDataTableVirtual: Tz,
-        VDatePicker: Iz,
+        VDataTableServer: Lz,
+        VDataTableVirtual: Mz,
+        VDatePicker: Vz,
         VDatePickerControls: pm,
         VDatePickerHeader: fm,
         VDatePickerMonth: gm,
@@ -94178,119 +94280,119 @@ rect.legend-mouseover-inactive,
         VDatePickerYears: ym,
         VDefaultsProvider: Ue,
         VDialog: _n,
-        VDialogBottomTransition: ZM,
-        VDialogTopTransition: QM,
+        VDialogBottomTransition: r3,
+        VDialogTopTransition: n3,
         VDialogTransition: Sl,
         VDivider: er,
-        VEmptyState: Nz,
+        VEmptyState: Gz,
         VExpandTransition: Al,
         VExpandXTransition: ap,
-        VExpansionPanel: g1,
+        VExpansionPanel: v1,
         VExpansionPanelText: Gs,
         VExpansionPanelTitle: Oh,
-        VExpansionPanels: v1,
-        VFab: Hz,
-        VFabTransition: JM,
+        VExpansionPanels: y1,
+        VFab: jz,
+        VFabTransition: a3,
         VFadeTransition: po,
         VField: Ii,
         VFieldLabel: ao,
-        VFileInput: B1,
-        VFooter: Wz,
-        VForm: Bk,
-        VHover: $z,
+        VFileInput: M1,
+        VFooter: Yz,
+        VForm: Mk,
+        VHover: Kz,
         VIcon: _e,
         VImg: Mr,
-        VInfiniteScroll: Uz,
+        VInfiniteScroll: Jz,
         VInput: ha,
-        VItem: Kz,
-        VItemGroup: qz,
-        VKbd: Xz,
+        VItem: eN,
+        VItemGroup: Qz,
+        VKbd: tN,
         VLabel: Li,
-        VLayout: Zz,
-        VLayoutItem: eN,
-        VLazy: aN,
-        VLigatureIcon: Zw,
+        VLayout: rN,
+        VLayoutItem: iN,
+        VLazy: sN,
+        VLigatureIcon: Qw,
         VList: Xn,
         VListGroup: Rh,
-        VListImg: O3,
+        VListImg: $3,
         VListItem: Je,
-        VListItemAction: V3,
-        VListItemMedia: G3,
-        VListItemSubtitle: K0,
+        VListItemAction: U3,
+        VListItemMedia: q3,
+        VListItemSubtitle: X0,
         VListItemTitle: vr,
-        VListSubheader: X0,
-        VLocaleProvider: nN,
-        VMain: zk,
+        VListSubheader: J0,
+        VLocaleProvider: uN,
+        VMain: Nk,
         VMenu: Qr,
-        VMessages: B0,
-        VNavigationDrawer: Lk,
-        VNoSsr: iN,
-        VOtpInput: sN,
+        VMessages: M0,
+        VNavigationDrawer: Ik,
+        VNoSsr: cN,
+        VOtpInput: hN,
         VOverlay: kr,
         VPagination: hm,
-        VParallax: cN,
+        VParallax: fN,
         VProgressCircular: ki,
         VProgressLinear: _l,
-        VRadio: hN,
-        VRadioGroup: pN,
-        VRangeSlider: gN,
-        VRating: yN,
+        VRadio: vN,
+        VRadioGroup: bN,
+        VRangeSlider: kN,
+        VRating: wN,
         VResponsive: _h,
         VRow: _a,
         VScaleTransition: fo,
-        VScrollXReverseTransition: e3,
-        VScrollXTransition: _0,
-        VScrollYReverseTransition: a3,
-        VScrollYTransition: t3,
+        VScrollXReverseTransition: i3,
+        VScrollXTransition: P0,
+        VScrollYReverseTransition: s3,
+        VScrollYTransition: o3,
         VSelect: Pr,
         VSelectionControl: Zr,
-        VSelectionControlGroup: v0,
+        VSelectionControlGroup: y0,
         VSheet: mr,
-        VSkeletonLoader: xN,
+        VSkeletonLoader: DN,
         VSlideGroup: vo,
-        VSlideGroupItem: wN,
-        VSlideXReverseTransition: r3,
-        VSlideXTransition: P0,
-        VSlideYReverseTransition: n3,
+        VSlideGroupItem: TN,
+        VSlideXReverseTransition: l3,
+        VSlideXTransition: B0,
+        VSlideYReverseTransition: u3,
         VSlideYTransition: Cl,
         VSlider: dm,
-        VSnackbar: AN,
+        VSnackbar: PN,
         VSpacer: cn,
-        VSparkline: _N,
-        VSpeedDial: BN,
-        VStepper: ON,
-        VStepperActions: _x,
-        VStepperHeader: Px,
-        VStepperItem: Bx,
-        VStepperWindow: Mx,
-        VStepperWindowItem: Rx,
-        VSvgIcon: Qw,
-        VSwitch: VN,
-        VSystemBar: GN,
-        VTab: Lx,
+        VSparkline: LN,
+        VSpeedDial: zN,
+        VStepper: $N,
+        VStepperActions: Px,
+        VStepperHeader: Bx,
+        VStepperItem: Mx,
+        VStepperWindow: Rx,
+        VStepperWindowItem: Lx,
+        VSvgIcon: eS,
+        VSwitch: UN,
+        VSystemBar: qN,
+        VTab: Ix,
         VTable: zn,
-        VTabs: KN,
-        VTabsWindow: Ix,
-        VTabsWindowItem: zx,
+        VTabs: eO,
+        VTabsWindow: zx,
+        VTabsWindowItem: Nx,
         VTextField: Ea,
-        VTextarea: M1,
-        VThemeProvider: JN,
-        VTimeline: aO,
-        VTimelineItem: eO,
+        VTextarea: R1,
+        VThemeProvider: aO,
+        VTimeline: sO,
+        VTimelineItem: iO,
         VToolbar: $s,
-        VToolbarItems: ZR,
+        VToolbarItems: rL,
         VToolbarTitle: Ll,
         VTooltip: ea,
-        VValidation: rO,
+        VValidation: lO,
         VVirtualScroll: Ml,
         VWindow: Mn,
         VWindowItem: Rn
     }, Symbol.toStringTag, {
         value: "Module"
     }));
-    iO = eS({
-        components: nO,
-        directives: bL,
+    cO = tS({
+        components: uO,
+        directives: SL,
         display: {
             mobileBreakpoint: "sm"
         },
@@ -94298,7 +94400,7 @@ rect.legend-mouseover-inactive,
             defaultSet: "mdi"
         },
         theme: {
-            defaultTheme: d0.id,
+            defaultTheme: h0.id,
             variations: {
                 colors: [
                     "primary",
@@ -94326,10 +94428,10 @@ rect.legend-mouseover-inactive,
                 lighten: 3,
                 darken: 3
             },
-            themes: TM
+            themes: MM
         }
     });
-    oO = {
+    dO = {
         cancel: "Zrušit",
         close: "Zavřít",
         delete: "Smazat",
@@ -94349,7 +94451,7 @@ rect.legend-mouseover-inactive,
         useGlobalSettings: "Použít globální nastavení",
         yes: "Ano"
     };
-    sO = {
+    hO = {
         addStopped: {
             always: "Vždy",
             never: "Nikdy",
@@ -94463,7 +94565,7 @@ rect.legend-mouseover-inactive,
             preferTcp: "Upřednostňovat TCP"
         }
     };
-    lO = {
+    mO = {
         displayMode: {
             grid: "Mřížka",
             list: "Seznam",
@@ -94524,7 +94626,7 @@ rect.legend-mouseover-inactive,
         selectAll: "(Od)vybrat vše (Ctrl + A)",
         selectedTorrentsCount: "Žádný torrent | {count} z {total} torrentů ({size}) | {count} z {total} torrentů ({size})"
     };
-    uO = {
+    pO = {
         side: {
             filters: {
                 state: {
@@ -94533,30 +94635,30 @@ rect.legend-mouseover-inactive,
             }
         }
     };
-    cO = {
+    fO = {
         peers: {
             fields: {
                 progress: "Postup"
             }
         }
     };
-    dO = {
+    gO = {
         properties: {
             avg_download_speed: "Průměrná rychlost stahování",
             avg_upload_speed: "Průměrná rychlost nahrávání",
             priority: "Priorita"
         }
     };
-    hO = {
-        common: oO,
-        constants: sO,
-        dashboard: lO,
-        navbar: uO,
-        torrentDetail: cO,
-        torrent: dO
+    vO = {
+        common: dO,
+        constants: hO,
+        dashboard: mO,
+        navbar: pO,
+        torrentDetail: fO,
+        torrent: gO
     };
-    mO = "Content generated by Tolgee app. NEVER EDIT MANUALLY AS IT WILL BE OVERRIDDEN";
-    pO = {
+    yO = "Content generated by Tolgee app. NEVER EDIT MANUALLY AS IT WILL BE OVERRIDDEN";
+    bO = {
         auto: "Auto",
         cancel: "Cancel",
         close: "Close",
@@ -94580,7 +94682,7 @@ rect.legend-mouseover-inactive,
         useGlobalSettings: "Use Global Settings",
         yes: "Yes"
     };
-    fO = {
+    FO = {
         addStopped: {
             always: "Always",
             never: "Never",
@@ -94635,6 +94737,19 @@ rect.legend-mouseover-inactive,
             mixed: "Mixed",
             normal: "Normal",
             unwanted: "Unwanted"
+        },
+        file_type: {
+            archive: "Archives",
+            audio: "Audio",
+            book: "Books",
+            document: "Documents",
+            executable: "Executables",
+            image: "Images",
+            information: "Information",
+            script: "Scripts",
+            subtitle: "Subtitles",
+            unknown: "Unknown",
+            video: "Video"
         },
         filter_type: {
             conjunctive: "Conjunctive filtering (AND)",
@@ -94727,7 +94842,7 @@ rect.legend-mouseover-inactive,
             preferTcp: "Prefer TCP"
         }
     };
-    gO = {
+    kO = {
         displayMode: {
             grid: "Grid",
             list: "List",
@@ -94797,7 +94912,7 @@ rect.legend-mouseover-inactive,
         toggleSortOrder: "Reverse sort order",
         torrentsCount: "No torrent | {n} torrent | {n} torrents"
     };
-    vO = {
+    xO = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "name1=value1; name2=value2; ...",
@@ -95044,7 +95159,7 @@ Errors may happen, use with caution.`
             urlSeeds: "Web seed URLs"
         }
     };
-    yO = {
+    wO = {
         error: "Login failed!",
         password: "Password",
         pending: "Checking current auth status...",
@@ -95058,7 +95173,7 @@ Errors may happen, use with caution.`
         title: "Login",
         username: "Username"
     };
-    bO = {
+    SO = {
         emptyLogList: "No logs found",
         filters: {
             query: "Search in log message",
@@ -95066,7 +95181,7 @@ Errors may happen, use with caution.`
         },
         title: "qBittorrent Logs"
     };
-    FO = {
+    CO = {
         addPanel: {
             torrentsPendingCount: "{n} torrent awaiting upload | {n} torrents awaiting upload"
         },
@@ -95141,7 +95256,7 @@ Errors may happen, use with caution.`
             }
         }
     };
-    kO = {
+    AO = {
         feeds: {
             empty: {
                 action: "Create RSS Feed",
@@ -95184,7 +95299,7 @@ Errors may happen, use with caution.`
             rules: "Show rules"
         }
     };
-    xO = {
+    DO = {
         filters: {
             category: {
                 all: "All",
@@ -95222,8 +95337,8 @@ Errors may happen, use with caution.`
         tabHeaderEmpty: "(Empty query)",
         title: "Search engine"
     };
-    wO = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Auto ban BT player peer","auto_ban_unknown_peer":"Auto ban unknown peer","auto_update_trackers":"Automatically update public trackers list","public_trackers":"Public trackers","trackers_list_url":"Customize Trackers URL List"}},"advanced":{"libtorrent":{"announceAllTiers":"Always announce to all tiers","announceAllTrackers":"Always announce to all trackers in a tier","announceIP":"IP address reported to trackers (requires restart)","coalesceReadsWrites":"Coalesce reads & writes (libtorrent < 2.0)","dhtBootstrapNodes":"DHT bootstrap nodes","dhtBootstrapNodesHint":"Resets to default if empty","disk":{"diskCache":"Disk cache (libtorrent < 2.0)","diskCacheExpiry":"Disk cache expiry interval (libtorrent < 2.0)","diskIoReadMode":"Disk IO read mode","diskIoType":"Disk IO Type (libtorrent >= 2.0; requires restart)","diskIoWriteMode":"Disk IO write mode","diskQueueSize":"Disk queue size","subheader":"Disk"},"i2p":{"inboundLength":"I2P inbound length","inboundQuantity":"I2P inbound quantity","invalidLength":"I2P length values must be between 0 and 7","invalidQuantity":"I2P quantity values must be between 1 and 16","outboundLength":"I2P outbound length","outboundQuantity":"I2P outbound quantity","restartNeeded":"Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)"},"maxConcurrentHTTPAnnounces":"Max concurrent HTTP announces","networking":{"outgoingPortsMax":"Outgoing ports (Max) [0: Disabled]","outgoingPortsMin":"Outgoing ports (Min) [0: Disabled]","peerTos":"DSCP value for connections to peers","subheader":"Networking","upnpLeaseDuration":"UPnP lease duration [0: Permanent lease]","utpTcpMixedModeAlgorithm":"μTP-TCP mixed mode algorithm"},"outgoingConnectionsPerSecond":"Outgoing connections per second","peerTurnover":"Peer turnover disconnect percentage","peerTurnoverCutoff":"Peer turnover threshold percentage","peerTurnoverInterval":"Peer turnover disconnect interval","pieceExtentAffinity":"Use piece extent affinity","requestQueueSize":"Maximum outstanding requests to a single peer","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Allow multiple connections from the same IP address","blockPeersOnPrivilegedPorts":"Disallow connection to peers on privileged ports","idnSupport":"Enable Internationalized Domain Name (IDN) support","mitigateSSRF":"Server-side request forgery (SSRF) mitigation","subheader":"Security","validateHTTPSTrackerCertificate":"Validate HTTPS tracker certificate"},"sendBufferLowWatermark":"Send buffer low watermark","sendBufferWatermark":"Send buffer watermark","sendBufferWatermarkFactor":"Send buffer watermark factor","sendUploadPieceSuggestions":"Send upload piece suggestions","socketBacklogSize":"Socket backlog size","socketReceiveBufferSize":"Socket receive buffer size","socketReceiveBufferSizeHint":"0: system default","socketSendBufferSize":"Socket send buffer size","socketSendBufferSizeHint":"0: system default","ssl":{"disclaimer":"The \\"SSL torrent\\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\\nEnable this feature only if you need it.","enabled":"Enable SSL torrents","listenPort":"Port used for SSL connections","listenPortHint":"Leave empty to auto-select","rule":"Port must be between 0 and 65535"},"stopTrackerTimeout":"Stop tracker timeout","subheader":"libtorrent Section","threads":{"asyncIoThreads":"Asynchronous I/O threads","bdecodeDepthLimit":"Bdecode depth limit","bdecodeTokenLimit":"Bdecode token limit","filePoolSize":"File pool size","hashingThreads":"Hashing threads (libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Upload choking algorithm","uploadSlotsBehavior":"Upload slots behavior"},"openDoc":"Open documentation","qbittorrent":{"allocatedRam":"Physical memory (RAM) usage limit (libtorrent >= 2.0)","appInstanceName":"App instance name","embeddedTracker":{"enable":"Enable embedded tracker","port":"Embedded tracker port","portForward":"Enable port forwarding for embedded tracker","title":"Embedded Tracker"},"enableMarkOfTheWeb":"Enable Mark-of-the-Web (MOTW) for downloaded files","enableMarkOfTheWebHint":"Require macOS or Windows","networking":{"ipAddress":{"all":"All addresses","allIPv4":"All IPv4 addresses","allIPv6":"All IPv6 addresses","label":"Optional IP address to bind to"},"networkInterfaces":{"any":"Any interface","label":"Network interface"},"title":"Networking"},"pythonExecutablePath":"Python executable path","pythonExecutablePathHint":"Auto detect if empty, require restart","reannounceOnIpPortChanged":"Reannounce to all trackers when IP or port changed","recheckOnCompletion":"Recheck torrents on completion","refreshInterval":"GUI Refresh interval","resolveCountries":"Resolve peer countries","resumeDataStorageType":{"label":"Resume data storage type (requires restart)","legacy":"Fastresume files","sqlite":"SQLite database (experimental)"},"saveInterval":"Save resume data interval","subheader":"qBittorrent Section","torrentContentRemovingMode":"Torrent content removing mode","torrentFileSizeLimit":".torrent file size limit"}},"behavior":{"logs":{"file_log_age":"Delete backup logs older than","file_log_backup_enabled":"Enable log file backup","file_log_delete_old":"Delete old backup logs","file_log_enabled":"Enable log files","file_log_max_size":"Backup the log file after","file_log_path":"Save path","subheader":"Logs management"},"performance_warning":"Log performance warning"},"bittorrent":{"autoAddTrackers":"Automatically append these trackers to new downloads","autoAddTrackersHint":"One tracker per line","maxActiveCheckingTorrents":"Max active checking torrents","privacy":{"enableAnonymous":"Enable anonymous mode","enableDHT":"Enable DHT (decentralized network) to find more peers","enableLPD":"Enable Local Peer Discovery to find more peers","enablePeX":"Enable Peer Exchange (PeX) to find more peers","encryptionMode":"Encryption Mode","moreInfo":"More Information","subheader":"Privacy"},"seedLimits":{"subheader":"Seed Limits","then":"Then","whenInactiveSeedingTimeReaches":"When inactive seeding time reaches","whenRatioReaches":"When ratio reaches","whenSeedingTimeReaches":"When seeding time reaches"},"torrentQueueing":{"downloadRateLimit":"Download rate threshold","excludeSlowTorrent":"Do not count slow torrents in these limits","maxActiveDownload":"Maximum active downloads","maxActiveTorrent":"Maximum active torrents","maxActiveUpload":"Maximum active uploads","subheader":"Torrent Queueing","torrentInactivityTimer":"Torrent inactivity timer","uploadRateLimit":"Upload rate threshold"}},"connection":{"connectionLimits":{"globalMaxConnection":"Global maximum number of connections","globalMaxUploadSlots":"Global maximum number of upload slots","perTorrentMaxConnection":"Maximum number of connections per torrent","perTorrentMaxUploadSlots":"Maximum number of upload slots per torrent","subheader":"Connection Limits"},"i2p":{"address":"I2P Host","disclaimer":"If \\"Mixed Mode\\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.","enabled":"Enable I2P","mixedMode":"Mixed Mode","port":"Port","rule":"Port value must be between 0 and 65535","subheader":"I2P (experimental)"},"ipFiltering":{"applyToTrackers":"Apply to trackers","bannedIps":"Manually banned IP addresses","bannedIpsHint":"One on each line","filterPath":"Filter path (.dat, .p2p, .p2b)","subheader":"IP Filtering"},"listeningPort":{"incomingConnectionPort":"Port used for incoming connections","randomPort":"Random Port","subheader":"Listening Port","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"protocol":"Peer connection protocol","proxy":{"auth":{"password":"Password","subtitle":"Authentication","tip":"Info: The password is saved unencrypted","username":"Username"},"bittorrent":"Use proxy for BitTorrent purposes","host":"Host","hostNameLookup":"Use proxy for hostname lookup","misc":"Use proxy for general purposes","peerConnections":"Use proxy for peer connections","port":"Port","rss":"Use proxy for RSS purposes","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"One filter per line","label":"Excluded file names"},"mailNotification":{"authEnabled":"Authentication","enabled":"Email notification upon download completion","from":"From","password":"Password","smtpServer":"SMTP server","sslEnabled":"This server requires a secure connection (SSL)","test":{"error":"Email request failed\\n{message}","label":"Send test email","success":"Email request sent!\\nCheck your inbox to confirm success"},"to":"To","username":"Username"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Are you sure you want to delete this item?","editItem":"Edit","monitoredFolderPath":"Monitored Folder","newItem":"New","noData":"No monitored folder yet","otherPath":"Other Path","saveType":"Override Save Location","subheader":"Monitored Folders"},"publicSettings":{"appendQBExtension":"Append .!qB extension to incomplete files","preAllocateDisk":"Pre-allocate disk space for all files","useUnwantedFolder":"Keep unselected files in \\".unwanted\\" folder"},"runExternalProgram":{"onAddedEnabled":"Run external program on torrent added","onAddedLabel":"Command","onFinishedEnabled":"Run external program on torrent finished","onFinishedLabel":"Command","subheader":"Run external program","supportParamC":"%C: Number of files","supportParamD":"%D: Save path","supportParamF":"%F: Content path (same as root path for multi-file torrent)","supportParamG":"%G: Tags (separated by comma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Category","supportParamN":"%N: Torrent name","supportParamR":"%R: Root path (first torrent subdirectory path)","supportParamT":"%T: Current tracker","supportParamTitle":"Supported parameters (case sensitive):","supportParamZ":"%Z: Torrent size (bytes)","tip":"Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Default Torrent Management Mode","categoryChangedTMM":"When Category Save Path changed","defaultSavePath":"Default Save Path (complete)","defaultTMMOptions":{"automatic":"Automatic","manual":"Manual"},"exportDir":"Copy .torrent files to","exportDirFinished":"Copy .torrent files for finished downloads to","keepIncomplete":"Default Download Path (incomplete torrents)","paramChangedTMMOptions":{"relocateTorrent":"Relocate torrent","switchToManual":"Switch torrent to Manual Mode"},"savePathChangedTMM":"When Default Save Path changed","subheader":"Saving Management","torrentChangedTMM":"When Torrent Category changed","useCategoryPathInManualMode":"Use Category paths in Manual Mode","useCategoryPathInManualModeHint":"Resolve relative Save Path against appropriate Category path instead of Default one"},"whenAddTorrent":{"addToTopOfQueue":"Add to top of queue","autoDeleteMode":"Delete .torrent files afterwards","doNotAutoStart":"Do not start the download automatically","mergeTrackers":"Merge trackers if torrent already exists","subheader":"When adding a torrent"}},"rss":{"autoDownloader":{"enable":"Enable RSS rules processing","subheader":"RSS Torrent Auto Downloader"},"reader":{"enableProcessing":"Enable fetching RSS feeds","feedsRefreshInterval":"Feeds refresh interval","maximumArticlesPerFeed":"Maximum number of articles per feed","sameHostRequestDelay":"Same host request delay","subheader":"RSS Reader"},"smartEpisodeFilter":{"downloadEpisodes":"Download REPACK/PROPER episodes","filters":"Filters","filtersHint":"One per line","subheader":"RSS Smart Episode Filter"},"useIdForRssLinks":"Use ID for RSS article link"},"saveSuccess":"Settings saved!","speed":{"download":"Download","scheduler":{"from":"From","selectButtonLabel":"Select time","subheader":"Schedule the use of alternative rate limits","to":"To","when":"When"},"settings":{"applyToPeersOnLan":"Apply rate limit to peers on LAN","applyToTransportOverhead":"Apply rate limit to transport overhead","applyToUtp":"Apply rate limit to µTP protocol"},"subheader":{"alternative":"Alternative Rate Limits","global":"Global Rate Limits","settings":"Rate Limits Settings"},"tip":"0 means unlimited","upload":"Upload"},"tabs":{"addons":{"enhanced_edition":"Enhanced edition"},"advanced":"Advanced","behavior":"Behavior","bittorrent":"BitTorrent","connection":"Connection","downloads":"Downloads","rss":"RSS","speed":"Speed","tagsAndCategories":"Tags & Categories","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Grid View","list":"List View","table":"Table View"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Available Categories:","createNewCategory":"Create new category","createNewTag":"Create new tag","deleteUnusedCategories":"Delete unused categories","deleteUnusedTags":"Delete unused tags","noCategories":"No categories yet","noTags":"No tags yet","tagsSubheader":"Available Tags:"},"title":"Settings","vuetorrent":{"general":{"check_new":"Check for new version","currentVersion":"Current Version","customTitle":"Custom title","darkVariants":"Dark theme variant","dateFormat":"Date Format","displayGraphLimits":"Display limits in graph","download":"Export settings","durationFormat":"Duration format","enableHashColors":"Enable generated chip colors","enableRatioColors":"Enable ratio colors","expandContent":"Expand content by default in Content view","fetchExternalIpInfo":"Fetch external IP info","fileContentInterval":"Torrent file content refresh interval","filterType":"Filters inclusion type","hideChipIfUnset":"Hide chips if unset","hideColoredChip":"Use text variant for chips","historySize":"History size on eligible fields","import":"Import Settings","isDrawerRight":"Right Drawer","isShutdownButtonVisible":"Show shutdown button","language":"Language","lightVariants":"Light theme variant","paginationSize":{"infinite_scroll":"Infinite scroll","label":"Pagination Size","warning":"This option can significantly affect performance with a lot of torrents"},"qbittorrentVersion":"qBittorrent Version","refreshInterval":"qBittorrent API refresh interval","registerMagnet":"Register magnet links","resetSettings":"Reset Settings","showAlltimeStat":"Show All-Time Stats","showCurrentSpeed":"Show Current Speed","showFreeSpace":"Show Free Space","showSessionStat":"Show Session Stats","showSpeedGraph":"Show Speed Graph","tip":"These settings are for the custom WebUI itself","useBinarySize":"Replace data sizes by binary units (kB -> KiB)","useBitSpeed":"Replace speed values by bits (kB/s -> kbps)","useEmojiState":"Prepend torrent states with emojis","vueTorrentTitle":"Tab title"},"torrentCard":{"grid":{"busyTip":"Properties to display for incomplete torrents in grid view","doneTip":"Properties to display for completed torrents in grid view"},"list":{"busyTip":"Properties to display for incomplete torrents in list view","doneTip":"Properties to display for completed torrents in list view"},"table":{"tip":"Properties to display for torrents in table view"}}},"webUI":{"authentication":{"banDuration":"Ban Duration","banDurationHint":"In seconds","bypassLocalhost":"Bypass authentication for clients on localhost","bypassWhitelist":"Bypass authentication for clients in whitelisted IP subnets","maxAttempts":"Max attempts","password":"Password","passwordPlaceholder":"(unchanged)","sessionTimeout":"Session timeout","sessionTimeoutHint":"In seconds","subheader":"Authentication","username":"Username","whitelistExamples":"Example: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Add custom HTTP headers","customHeadersHint":"One per line","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Domain name","password":"Password","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Register","subheader":"Update my dynamic domain name","username":"Username"},"https":{"certificate":"Certificate","key":"Key","subheader":"Use HTTPS","tip":"Information about certificates"},"interface":{"ipAddress":"IP Address","port":"Port","subheader":"Web User Interface","useAlternativeWebUI":"Use Alternative WebUI","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"proxiesList":"Trusted proxies list","proxiesListHint":"Seperate IPs with semicolon ( ; )","reverseProxySupport":"Enable reverse proxy support","security":{"clickjacking":"Enable clickjacking protection","csrf":"Enable Cross-Site Request Forgery (CSRF) protection","hostHeaderValidation":"Enable Host header validation","hostHeaderValidationHint":"Seperated with semi-colon ( ; )","secureCookie":"Enable cookie \\"secure\\" flag (requires HTTPS)","serverDomains":"Server Domains","subheader":"Security"}}}');
-    SO = {
+    TO = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Auto ban BT player peer","auto_ban_unknown_peer":"Auto ban unknown peer","auto_update_trackers":"Automatically update public trackers list","public_trackers":"Public trackers","trackers_list_url":"Customize Trackers URL List"}},"advanced":{"libtorrent":{"announceAllTiers":"Always announce to all tiers","announceAllTrackers":"Always announce to all trackers in a tier","announceIP":"IP address reported to trackers (requires restart)","coalesceReadsWrites":"Coalesce reads & writes (libtorrent < 2.0)","dhtBootstrapNodes":"DHT bootstrap nodes","dhtBootstrapNodesHint":"Resets to default if empty","disk":{"diskCache":"Disk cache (libtorrent < 2.0)","diskCacheExpiry":"Disk cache expiry interval (libtorrent < 2.0)","diskIoReadMode":"Disk IO read mode","diskIoType":"Disk IO Type (libtorrent >= 2.0; requires restart)","diskIoWriteMode":"Disk IO write mode","diskQueueSize":"Disk queue size","subheader":"Disk"},"i2p":{"inboundLength":"I2P inbound length","inboundQuantity":"I2P inbound quantity","invalidLength":"I2P length values must be between 0 and 7","invalidQuantity":"I2P quantity values must be between 1 and 16","outboundLength":"I2P outbound length","outboundQuantity":"I2P outbound quantity","restartNeeded":"Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)"},"maxConcurrentHTTPAnnounces":"Max concurrent HTTP announces","networking":{"outgoingPortsMax":"Outgoing ports (Max) [0: Disabled]","outgoingPortsMin":"Outgoing ports (Min) [0: Disabled]","peerTos":"DSCP value for connections to peers","subheader":"Networking","upnpLeaseDuration":"UPnP lease duration [0: Permanent lease]","utpTcpMixedModeAlgorithm":"μTP-TCP mixed mode algorithm"},"outgoingConnectionsPerSecond":"Outgoing connections per second","peerTurnover":"Peer turnover disconnect percentage","peerTurnoverCutoff":"Peer turnover threshold percentage","peerTurnoverInterval":"Peer turnover disconnect interval","pieceExtentAffinity":"Use piece extent affinity","requestQueueSize":"Maximum outstanding requests to a single peer","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Allow multiple connections from the same IP address","blockPeersOnPrivilegedPorts":"Disallow connection to peers on privileged ports","idnSupport":"Enable Internationalized Domain Name (IDN) support","mitigateSSRF":"Server-side request forgery (SSRF) mitigation","subheader":"Security","validateHTTPSTrackerCertificate":"Validate HTTPS tracker certificate"},"sendBufferLowWatermark":"Send buffer low watermark","sendBufferWatermark":"Send buffer watermark","sendBufferWatermarkFactor":"Send buffer watermark factor","sendUploadPieceSuggestions":"Send upload piece suggestions","socketBacklogSize":"Socket backlog size","socketReceiveBufferSize":"Socket receive buffer size","socketReceiveBufferSizeHint":"0: system default","socketSendBufferSize":"Socket send buffer size","socketSendBufferSizeHint":"0: system default","ssl":{"disclaimer":"The \\"SSL torrent\\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\\nEnable this feature only if you need it.","enabled":"Enable SSL torrents","listenPort":"Port used for SSL connections","listenPortHint":"Leave empty to auto-select","rule":"Port must be between 0 and 65535"},"stopTrackerTimeout":"Stop tracker timeout","subheader":"libtorrent Section","threads":{"asyncIoThreads":"Asynchronous I/O threads","bdecodeDepthLimit":"Bdecode depth limit","bdecodeTokenLimit":"Bdecode token limit","filePoolSize":"File pool size","hashingThreads":"Hashing threads (libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Upload choking algorithm","uploadSlotsBehavior":"Upload slots behavior"},"openDoc":"Open documentation","qbittorrent":{"allocatedRam":"Physical memory (RAM) usage limit (libtorrent >= 2.0)","appInstanceName":"App instance name","embeddedTracker":{"enable":"Enable embedded tracker","port":"Embedded tracker port","portForward":"Enable port forwarding for embedded tracker","title":"Embedded Tracker"},"enableMarkOfTheWeb":"Enable Mark-of-the-Web (MOTW) for downloaded files","enableMarkOfTheWebHint":"Require macOS or Windows","networking":{"ipAddress":{"all":"All addresses","allIPv4":"All IPv4 addresses","allIPv6":"All IPv6 addresses","label":"Optional IP address to bind to"},"networkInterfaces":{"any":"Any interface","label":"Network interface"},"title":"Networking"},"pythonExecutablePath":"Python executable path","pythonExecutablePathHint":"Auto detect if empty, require restart","reannounceOnIpPortChanged":"Reannounce to all trackers when IP or port changed","recheckOnCompletion":"Recheck torrents on completion","refreshInterval":"GUI Refresh interval","resolveCountries":"Resolve peer countries","resumeDataStorageType":{"label":"Resume data storage type (requires restart)","legacy":"Fastresume files","sqlite":"SQLite database (experimental)"},"saveInterval":"Save resume data interval","subheader":"qBittorrent Section","torrentContentRemovingMode":"Torrent content removing mode","torrentFileSizeLimit":".torrent file size limit"}},"behavior":{"logs":{"file_log_age":"Delete backup logs older than","file_log_backup_enabled":"Enable log file backup","file_log_delete_old":"Delete old backup logs","file_log_enabled":"Enable log files","file_log_max_size":"Backup the log file after","file_log_path":"Save path","subheader":"Logs management"},"performance_warning":"Log performance warning"},"bittorrent":{"autoAddTrackers":"Automatically append these trackers to new downloads","autoAddTrackersHint":"One tracker per line","maxActiveCheckingTorrents":"Max active checking torrents","privacy":{"enableAnonymous":"Enable anonymous mode","enableDHT":"Enable DHT (decentralized network) to find more peers","enableLPD":"Enable Local Peer Discovery to find more peers","enablePeX":"Enable Peer Exchange (PeX) to find more peers","encryptionMode":"Encryption Mode","moreInfo":"More Information","subheader":"Privacy"},"seedLimits":{"subheader":"Seed Limits","then":"Then","whenInactiveSeedingTimeReaches":"When inactive seeding time reaches","whenRatioReaches":"When ratio reaches","whenSeedingTimeReaches":"When seeding time reaches"},"torrentQueueing":{"downloadRateLimit":"Download rate threshold","excludeSlowTorrent":"Do not count slow torrents in these limits","maxActiveDownload":"Maximum active downloads","maxActiveTorrent":"Maximum active torrents","maxActiveUpload":"Maximum active uploads","subheader":"Torrent Queueing","torrentInactivityTimer":"Torrent inactivity timer","uploadRateLimit":"Upload rate threshold"}},"connection":{"connectionLimits":{"globalMaxConnection":"Global maximum number of connections","globalMaxUploadSlots":"Global maximum number of upload slots","perTorrentMaxConnection":"Maximum number of connections per torrent","perTorrentMaxUploadSlots":"Maximum number of upload slots per torrent","subheader":"Connection Limits"},"i2p":{"address":"I2P Host","disclaimer":"If \\"Mixed Mode\\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.","enabled":"Enable I2P","mixedMode":"Mixed Mode","port":"Port","rule":"Port value must be between 0 and 65535","subheader":"I2P (experimental)"},"ipFiltering":{"applyToTrackers":"Apply to trackers","bannedIps":"Manually banned IP addresses","bannedIpsHint":"One on each line","filterPath":"Filter path (.dat, .p2p, .p2b)","subheader":"IP Filtering"},"listeningPort":{"incomingConnectionPort":"Port used for incoming connections","randomPort":"Random Port","subheader":"Listening Port","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"protocol":"Peer connection protocol","proxy":{"auth":{"password":"Password","subtitle":"Authentication","tip":"Info: The password is saved unencrypted","username":"Username"},"bittorrent":"Use proxy for BitTorrent purposes","host":"Host","hostNameLookup":"Use proxy for hostname lookup","misc":"Use proxy for general purposes","peerConnections":"Use proxy for peer connections","port":"Port","rss":"Use proxy for RSS purposes","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"One filter per line","label":"Excluded file names"},"mailNotification":{"authEnabled":"Authentication","enabled":"Email notification upon download completion","from":"From","password":"Password","smtpServer":"SMTP server","sslEnabled":"This server requires a secure connection (SSL)","test":{"error":"Email request failed\\n{message}","label":"Send test email","success":"Email request sent!\\nCheck your inbox to confirm success"},"to":"To","username":"Username"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Are you sure you want to delete this item?","editItem":"Edit","monitoredFolderPath":"Monitored Folder","newItem":"New","noData":"No monitored folder yet","otherPath":"Other Path","saveType":"Override Save Location","subheader":"Monitored Folders"},"publicSettings":{"appendQBExtension":"Append .!qB extension to incomplete files","preAllocateDisk":"Pre-allocate disk space for all files","useUnwantedFolder":"Keep unselected files in \\".unwanted\\" folder"},"runExternalProgram":{"onAddedEnabled":"Run external program on torrent added","onAddedLabel":"Command","onFinishedEnabled":"Run external program on torrent finished","onFinishedLabel":"Command","subheader":"Run external program","supportParamC":"%C: Number of files","supportParamD":"%D: Save path","supportParamF":"%F: Content path (same as root path for multi-file torrent)","supportParamG":"%G: Tags (separated by comma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Category","supportParamN":"%N: Torrent name","supportParamR":"%R: Root path (first torrent subdirectory path)","supportParamT":"%T: Current tracker","supportParamTitle":"Supported parameters (case sensitive):","supportParamZ":"%Z: Torrent size (bytes)","tip":"Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Default Torrent Management Mode","categoryChangedTMM":"When Category Save Path changed","defaultSavePath":"Default Save Path (complete)","defaultTMMOptions":{"automatic":"Automatic","manual":"Manual"},"exportDir":"Copy .torrent files to","exportDirFinished":"Copy .torrent files for finished downloads to","keepIncomplete":"Default Download Path (incomplete torrents)","paramChangedTMMOptions":{"relocateTorrent":"Relocate torrent","switchToManual":"Switch torrent to Manual Mode"},"savePathChangedTMM":"When Default Save Path changed","subheader":"Saving Management","torrentChangedTMM":"When Torrent Category changed","useCategoryPathInManualMode":"Use Category paths in Manual Mode","useCategoryPathInManualModeHint":"Resolve relative Save Path against appropriate Category path instead of Default one"},"whenAddTorrent":{"addToTopOfQueue":"Add to top of queue","autoDeleteMode":"Delete .torrent files afterwards","doNotAutoStart":"Do not start the download automatically","mergeTrackers":"Merge trackers if torrent already exists","subheader":"When adding a torrent"}},"rss":{"autoDownloader":{"enable":"Enable RSS rules processing","subheader":"RSS Torrent Auto Downloader"},"reader":{"enableProcessing":"Enable fetching RSS feeds","feedsRefreshInterval":"Feeds refresh interval","maximumArticlesPerFeed":"Maximum number of articles per feed","sameHostRequestDelay":"Same host request delay","subheader":"RSS Reader"},"smartEpisodeFilter":{"downloadEpisodes":"Download REPACK/PROPER episodes","filters":"Filters","filtersHint":"One per line","subheader":"RSS Smart Episode Filter"},"useIdForRssLinks":"Use ID for RSS article link"},"saveSuccess":"Settings saved!","speed":{"download":"Download","scheduler":{"from":"From","selectButtonLabel":"Select time","subheader":"Schedule the use of alternative rate limits","to":"To","when":"When"},"settings":{"applyToPeersOnLan":"Apply rate limit to peers on LAN","applyToTransportOverhead":"Apply rate limit to transport overhead","applyToUtp":"Apply rate limit to µTP protocol"},"subheader":{"alternative":"Alternative Rate Limits","global":"Global Rate Limits","settings":"Rate Limits Settings"},"tip":"0 means unlimited","upload":"Upload"},"tabs":{"addons":{"enhanced_edition":"Enhanced edition"},"advanced":"Advanced","behavior":"Behavior","bittorrent":"BitTorrent","connection":"Connection","downloads":"Downloads","rss":"RSS","speed":"Speed","tagsAndCategories":"Tags & Categories","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Grid View","list":"List View","table":"Table View"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Available Categories:","createNewCategory":"Create new category","createNewTag":"Create new tag","deleteUnusedCategories":"Delete unused categories","deleteUnusedTags":"Delete unused tags","noCategories":"No categories yet","noTags":"No tags yet","tagsSubheader":"Available Tags:"},"title":"Settings","vuetorrent":{"general":{"check_new":"Check for new version","currentVersion":"Current Version","customTitle":"Custom title","darkVariants":"Dark theme variant","dateFormat":"Date Format","displayGraphLimits":"Display limits in graph","download":"Export settings","durationFormat":"Duration format","enableHashColors":"Enable generated chip colors","enableRatioColors":"Enable ratio colors","expandContent":"Expand content by default in Content view","fetchExternalIpInfo":"Fetch external IP info","fileContentInterval":"Torrent file content refresh interval","filterType":"Filters inclusion type","hideChipIfUnset":"Hide chips if unset","hideColoredChip":"Use text variant for chips","historySize":"History size on eligible fields","import":"Import Settings","isDrawerRight":"Right Drawer","isShutdownButtonVisible":"Show shutdown button","language":"Language","lightVariants":"Light theme variant","paginationSize":{"infinite_scroll":"Infinite scroll","label":"Pagination Size","warning":"This option can significantly affect performance with a lot of torrents"},"qbittorrentVersion":"qBittorrent Version","refreshInterval":"qBittorrent API refresh interval","registerMagnet":"Register magnet links","resetSettings":"Reset Settings","showAlltimeStat":"Show All-Time Stats","showCurrentSpeed":"Show Current Speed","showFreeSpace":"Show Free Space","showSessionStat":"Show Session Stats","showSpeedGraph":"Show Speed Graph","tip":"These settings are for the custom WebUI itself","useBinarySize":"Replace data sizes by binary units (kB -> KiB)","useBitSpeed":"Replace speed values by bits (kB/s -> kbps)","useEmojiState":"Prepend torrent states with emojis","vueTorrentTitle":"Tab title"},"torrentCard":{"grid":{"busyTip":"Properties to display for incomplete torrents in grid view","doneTip":"Properties to display for completed torrents in grid view"},"list":{"busyTip":"Properties to display for incomplete torrents in list view","doneTip":"Properties to display for completed torrents in list view"},"table":{"tip":"Properties to display for torrents in table view"}}},"webUI":{"authentication":{"banDuration":"Ban Duration","banDurationHint":"In seconds","bypassLocalhost":"Bypass authentication for clients on localhost","bypassWhitelist":"Bypass authentication for clients in whitelisted IP subnets","maxAttempts":"Max attempts","password":"Password","passwordPlaceholder":"(unchanged)","sessionTimeout":"Session timeout","sessionTimeoutHint":"In seconds","subheader":"Authentication","username":"Username","whitelistExamples":"Example: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Add custom HTTP headers","customHeadersHint":"One per line","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Domain name","password":"Password","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Register","subheader":"Update my dynamic domain name","username":"Username"},"https":{"certificate":"Certificate","key":"Key","subheader":"Use HTTPS","tip":"Information about certificates"},"interface":{"ipAddress":"IP Address","port":"Port","subheader":"Web User Interface","useAlternativeWebUI":"Use Alternative WebUI","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"proxiesList":"Trusted proxies list","proxiesListHint":"Seperate IPs with semicolon ( ; )","reverseProxySupport":"Enable reverse proxy support","security":{"clickjacking":"Enable clickjacking protection","csrf":"Enable Cross-Site Request Forgery (CSRF) protection","hostHeaderValidation":"Enable Host header validation","hostHeaderValidationHint":"Seperated with semi-colon ( ; )","secureCookie":"Enable cookie \\"secure\\" flag (requires HTTPS)","serverDomains":"Server Domains","subheader":"Security"}}}');
+    EO = {
         add: {
             error: "Error while adding torrents",
             pending: "Sending torrents...",
@@ -95245,7 +95360,7 @@ Errors may happen, use with caution.`
             new: "New version available!"
         }
     };
-    CO = {
+    _O = {
         actions: {
             delete: "Delete Torrents",
             logs: "Open Logs",
@@ -95269,7 +95384,7 @@ Errors may happen, use with caution.`
         },
         searchTorrents: "Search torrents"
     };
-    AO = {
+    PO = {
         empty: {
             action: "Create new task",
             value: "No tasks registered"
@@ -95303,7 +95418,7 @@ Errors may happen, use with caution.`
         },
         title: "Torrent Creator"
     };
-    DO = {
+    BO = {
         content: {
             fileInfo: "{n} file | {n} files",
             filter: {
@@ -95412,7 +95527,7 @@ Errors may happen, use with caution.`
             tier: "Tier: {n}"
         }
     };
-    TO = {
+    MO = {
         properties: {
             added_on: "Added On",
             amount_left: "Amount Left",
@@ -95509,30 +95624,30 @@ Errors may happen, use with caution.`
             uploading: "Uploading"
         }
     };
-    EO = {
+    RO = {
         minutes: "minute | minutes",
         seconds: "second | seconds"
     };
-    _O = {
-        _comments: mO,
-        common: pO,
-        constants: fO,
-        dashboard: gO,
-        dialogs: vO,
-        login: yO,
-        logs: bO,
-        navbar: FO,
-        rssArticles: kO,
-        searchEngine: xO,
-        settings: wO,
-        toast: SO,
-        topbar: CO,
-        torrentCreator: AO,
-        torrentDetail: DO,
-        torrent: TO,
-        units: EO
+    LO = {
+        _comments: yO,
+        common: bO,
+        constants: FO,
+        dashboard: kO,
+        dialogs: xO,
+        login: wO,
+        logs: SO,
+        navbar: CO,
+        rssArticles: AO,
+        searchEngine: DO,
+        settings: TO,
+        toast: EO,
+        topbar: _O,
+        torrentCreator: PO,
+        torrentDetail: BO,
+        torrent: MO,
+        units: RO
     };
-    PO = {
+    IO = {
         cancel: "Cancelar",
         close: "Cerrar",
         delete: "Eliminar",
@@ -95553,7 +95668,7 @@ Errors may happen, use with caution.`
         useGlobalSettings: "Usar configuración global",
         yes: "Sí"
     };
-    BO = {
+    zO = {
         addStopped: {
             always: "Siempre",
             never: "Nunca",
@@ -95668,7 +95783,7 @@ Errors may happen, use with caution.`
             preferTcp: "Preferir TCP"
         }
     };
-    MO = {
+    NO = {
         displayMode: {
             grid: "Cuadrícula",
             list: "Lista",
@@ -95735,7 +95850,7 @@ Errors may happen, use with caution.`
         toggleSortOrder: "Orden inverso",
         torrentsCount: "No hay torrents | {n} torrent | {n} torrents"
     };
-    RO = {
+    OO = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "nombre1=valor1; nombre2=valor2; ...",
@@ -95916,7 +96031,7 @@ Pueden ocurrir errores, usar con precaución.`
 Pueden ocurrir errores, usar con precaución.`
         }
     };
-    LO = {
+    HO = {
         error: "¡Error al iniciar sesión!",
         password: "Contraseña",
         rules: {
@@ -95929,7 +96044,7 @@ Pueden ocurrir errores, usar con precaución.`
         title: "Iniciar sesión",
         username: "Usuario"
     };
-    IO = {
+    VO = {
         emptyLogList: "No se encontraron registros",
         filters: {
             query: "Buscar en el mensaje del registro",
@@ -95937,7 +96052,7 @@ Pueden ocurrir errores, usar con precaución.`
         },
         title: "Registros de qBittorrent"
     };
-    zO = {
+    WO = {
         addPanel: {
             torrentsPendingCount: "{n} torrent pendiente de subir | {n} torrents pendientes de subir"
         },
@@ -96006,7 +96121,7 @@ Pueden ocurrir errores, usar con precaución.`
             }
         }
     };
-    NO = {
+    GO = {
         feeds: {
             empty: {
                 action: "Crear fuente RSS"
@@ -96034,7 +96149,7 @@ Pueden ocurrir errores, usar con precaución.`
             }
         }
     };
-    OO = {
+    $O = {
         filters: {
             category: {
                 all: "Todo",
@@ -96070,8 +96185,8 @@ Pueden ocurrir errores, usar con precaución.`
         tabHeaderEmpty: "(Consulta vacía)",
         title: "Motor de búsqueda"
     };
-    HO = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Siempre anunciar a todos los niveles","announceAllTrackers":"Siempre anunciar a todos los rastreadores en un nivel","announceIP":"Dirección IP reportada a los trackers (requiere reinicio)","coalesceReadsWrites":"Unir lecturas y escrituras (libtorrent < 2.0)","disk":{"diskCache":"Caché de disco (libtorrent < 2.0)","diskCacheExpiry":"Intervalo de caducidad de la caché de disco (libtorrent < 2.0)","diskIoReadMode":"Modo de lectura de E/S de disco","diskIoType":"Tipo de E/S de disco (libtorrent >= 2.0; requiere reinicio)","diskIoWriteMode":"Modo de escritura de E/S de disco","diskQueueSize":"Tamaño de cola de disco","subheader":"Disco"},"maxConcurrentHTTPAnnounces":"Anuncios HTTP simultáneos máximos","networking":{"outgoingPortsMax":"Puertos de salida (Máx) [0: Desactivado]","outgoingPortsMin":"Puertos de salida (Mín) [0: Desactivado]","peerTos":"Valor DSCP para conexiones con pares","subheader":"Redes","upnpLeaseDuration":"Duración del arrendamiento UPnP [0: Arrendamiento permanente]","utpTcpMixedModeAlgorithm":"Algoritmo de modo mixto μTP-TCP"},"outgoingConnectionsPerSecond":"Conexiones salientes por segundo","peerTurnover":"Porcentaje de desconexión de pares","peerTurnoverCutoff":"Porcentaje umbral de desconexión de pares","peerTurnoverInterval":"Intervalo de desconexión de pares","pieceExtentAffinity":"Usar afinidad de extensión de pieza","requestQueueSize":"Máximo de solicitudes pendientes a un solo par","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Permitir múltiples conexiones desde la misma dirección IP","blockPeersOnPrivilegedPorts":"No permitir conexión a pares en puertos privilegiados","idnSupport":"Habilitar soporte para Nombres de Dominio Internacionalizados (IDN)","mitigateSSRF":"Mitigación de solicitud de falsificación de servidor (SSRF)","subheader":"Seguridad","validateHTTPSTrackerCertificate":"Validar certificado de tracker HTTPS"},"sendBufferLowWatermark":"Marca de agua baja del búfer de envío","sendBufferWatermark":"Marca de agua del búfer de envío","sendBufferWatermarkFactor":"Factor de marca de agua del búfer de envío","sendUploadPieceSuggestions":"Enviar sugerencias de piezas de carga","socketBacklogSize":"Tamaño de cola de espera del socket","socketReceiveBufferSize":"Tamaño del búfer de recepción del socket","socketReceiveBufferSizeHint":"0: valor predeterminado del sistema","socketSendBufferSize":"Tamaño del búfer de envío de socket","socketSendBufferSizeHint":"0: valor predeterminado del sistema","stopTrackerTimeout":"Tiempo de espera para detener el rastreador","subheader":"Sección de libtorrent","threads":{"asyncIoThreads":"Hilos de E/S asincrónicos","bdecodeDepthLimit":"Límite de profundidad de Bdecode","bdecodeTokenLimit":"Límite de tokens Bdecode","filePoolSize":"Tamaño del pool de archivos","hashingThreads":"Hilos de hash (libtorrent >= 2.0)","outstandingMemory":"Memoria pendiente al verificar torrents","subheader":"Hilos"},"uploadChokingAlgorithm":"Algoritmo de estrangulamiento de carga","uploadSlotsBehavior":"Comportamiento de ranuras de carga"},"openDoc":"Abrir documentación","qbittorrent":{"allocatedRam":"Límite de uso de memoria física (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Habilitar rastreador integrado","port":"Puerto del rastreador integrado","portForward":"Habilitar reenvío de puertos para el rastreador integrado","title":"Rastreador Integrado"},"networking":{"ipAddress":{"all":"Todas las direcciones","allIPv4":"Todas las direcciones IPv4","allIPv6":"Todas las direcciones IPv6","label":"Dirección IP opcional para enlazar"},"networkInterfaces":{"any":"Cualquier interfaz","label":"Interfaz de red"},"title":"Redes"},"reannounceOnIpPortChanged":"Volver a anunciar a todos los rastreadores cuando cambie la IP o el puerto","recheckOnCompletion":"Volver a comprobar torrents al finalizar","refreshInterval":"Intervalo de actualización de la interfaz gráfica de usuario","resolveCountries":"Resolver países de pares","resumeDataStorageType":{"label":"Tipo de almacenamiento de datos de reanudación (requiere reinicio)","legacy":"Archivos de reanudación rápida","sqlite":"Base de datos SQLite (experimental)"},"saveInterval":"Intervalo de guardado de datos de reanudación","subheader":"Sección de qBittorrent","torrentFileSizeLimit":"Límite de tamaño de archivo .torrent"}},"behavior":{"logs":{"file_log_age":"Eliminar registros de copia de seguridad anteriores a","file_log_backup_enabled":"Habilitar copia de seguridad de archivos de registro","file_log_delete_old":"Eliminar registros de copia de seguridad antiguos","file_log_enabled":"Habilitar archivos de registro","file_log_max_size":"Hacer una copia de seguridad del archivo de registro después de","file_log_path":"Ruta de guardado","subheader":"Gestión de registros"},"performance_warning":"Registrar advertencia de rendimiento"},"bittorrent":{"autoAddTrackers":"Agregar automáticamente estos trackers a las nuevas descargas","autoAddTrackersHint":"Un rastreador por línea","maxActiveCheckingTorrents":"Torrents máximos activos en verificación","privacy":{"enableAnonymous":"Activar modo anónimo","enableDHT":"Habilitar DHT (red descentralizada) para encontrar más pares","enableLPD":"Habilitar el Descubrimiento de Pares Locales para encontrar más pares","enablePeX":"Habilitar el Intercambio de Pares (PeX) para encontrar más pares","encryptionMode":"Modo de encriptación","moreInfo":"Más información","subheader":"Privacidad"},"seedLimits":{"subheader":"Límites de semillas","then":"Luego","whenInactiveSeedingTimeReaches":"Cuando el tiempo de siembra inactiva llega a","whenRatioReaches":"Cuando la relación alcance","whenSeedingTimeReaches":"Cuando el tiempo de siembra llega a"},"torrentQueueing":{"downloadRateLimit":"Umbral de velocidad de descarga","excludeSlowTorrent":"No contar los torrents lentos en estos límites","maxActiveDownload":"Descargas activas máximas","maxActiveTorrent":"Torrents máximos activos","maxActiveUpload":"Cargas activas máximas","subheader":"Cola de torrents","torrentInactivityTimer":"Temporizador de inactividad de torrentes","uploadRateLimit":"Umbral de velocidad de carga"}},"connection":{"connectionLimits":{"globalMaxConnection":"Número máximo global de conexiones","globalMaxUploadSlots":"Número máximo global de ranuras de carga","perTorrentMaxConnection":"Número máximo de conexiones por torrent","perTorrentMaxUploadSlots":"Número máximo de ranuras de carga por torrent","subheader":"Límites de conexión"},"ipFiltering":{"applyToTrackers":"Aplicar a rastreadores","bannedIps":"Direcciones IP prohibidas manualmente","bannedIpsHint":"Uno en cada línea","filterPath":"Ruta del filtro (.dat, .p2p, .p2b)","subheader":"Filtrado de IP"},"listeningPort":{"incomingConnectionPort":"Puerto utilizado para conexiones entrantes","randomPort":"Puerto aleatorio","subheader":"Puerto de escucha","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"protocol":"Protocolo de conexión de pares","proxy":{"auth":{"password":"Contraseña","subtitle":"Autenticación","tip":"Información: La contraseña se guarda sin cifrar","username":"Usuario"},"bittorrent":"Usar proxy para fines de BitTorrent","host":"Anfitrión","hostNameLookup":"Usar proxy para la búsqueda de nombres de host","misc":"Usar proxy para propósitos generales","peerConnections":"Usar proxy para conexiones de pares","port":"Puerto","rss":"Usar proxy para fines de RSS","subheader":"Servidor Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtro por línea","label":"Nombres de archivo excluidos"},"mailNotification":{"authEnabled":"Autenticación","enabled":"Notificación por correo electrónico al completar la descarga","from":"De","password":"Contraseña","smtpServer":"Servidor SMTP","sslEnabled":"Este servidor requiere una conexión segura (SSL)","to":"A","username":"Nombre de usuario"},"monitoredFolders":{"actions":"Acciones","confirmDelete":"¿Estás seguro de que deseas eliminar este elemento?","editItem":"Editar","monitoredFolderPath":"Carpeta Monitoreada","newItem":"Nuevo","noData":"Aún no hay carpetas monitoreadas","otherPath":"Otra ruta","saveType":"Sobrescribir ubicación de guardado","subheader":"Carpetas Monitoreadas"},"publicSettings":{"appendQBExtension":"Agregar extensión .!qB a archivos incompletos","preAllocateDisk":"Preasignar espacio en disco para todos los archivos"},"runExternalProgram":{"onAddedEnabled":"Ejecutar programa externo al agregar torrent","onAddedLabel":"Comando","onFinishedEnabled":"Ejecutar programa externo al finalizar torrent","onFinishedLabel":"Comando","subheader":"Ejecutar programa externo","supportParamC":"%C: Número de archivos","supportParamD":"%D: Ruta de guardado","supportParamF":"%F: Ruta del contenido (igual que la ruta raíz para torrents con múltiples archivos)","supportParamG":"%G: Etiquetas (separadas por coma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: ID del torrent","supportParamL":"%L: Categoría","supportParamN":"%N: Nombre del torrent","supportParamR":"%R: Ruta raíz (ruta del primer subdirectorio del torrent)","supportParamT":"%T: Rastreador actual","supportParamTitle":"Parámetros soportados (sensible a mayúsculas y minúsculas):","supportParamZ":"%Z: Tamaño del torrent (bytes)","tip":"Consejo: Encapsula el parámetro con comillas para evitar que el texto se corte en espacios en blanco (por ejemplo, \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Modo de gestión de torrents predeterminado","categoryChangedTMM":"Cuando cambia la Ruta de Guardado de Categoría","defaultSavePath":"Ruta de Guardado Predeterminada (completa)","defaultTMMOptions":{"automatic":"Automático","manual":"Manual"},"exportDir":"Copiar archivos .torrent a","exportDirFinished":"Copiar archivos .torrent de descargas finalizadas a","keepIncomplete":"Ruta de descarga predeterminada (torrents incompletos)","paramChangedTMMOptions":{"relocateTorrent":"Mover torrent","switchToManual":"Cambiar torrent a modo manual"},"savePathChangedTMM":"Cuando cambia la Ruta de Guardado Predeterminada","subheader":"Gestión de Guardado","torrentChangedTMM":"Cuando cambia la categoría del torrent"},"whenAddTorrent":{"addToTopOfQueue":"Agregar al principio de la cola","autoDeleteMode":"Eliminar archivos .torrent después","doNotAutoStart":"No iniciar la descarga automáticamente","mergeTrackers":"Combinar trackers si el torrent ya existe","subheader":"Al agregar un torrente"}},"rss":{"autoDownloader":{"enable":"Habilitar el procesamiento de reglas RSS","subheader":"Descargador Automático de Torrents RSS"},"reader":{"enableProcessing":"Habilitar la obtención de feeds RSS","feedsRefreshInterval":"Intervalo de actualización de feeds","maximumArticlesPerFeed":"Número máximo de artículos por fuente","subheader":"Lector de RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Descargar episodios REPACK/PROPER","filters":"Filtros","filtersHint":"Uno por línea","subheader":"Filtro inteligente de episodios RSS"},"useIdForRssLinks":"Usar ID para enlace de artículo RSS"},"saveSuccess":"¡Ajustes guardados!","speed":{"download":"Descargar","scheduler":{"from":"De","selectButtonLabel":"Seleccionar tiempo","subheader":"Programar el uso de límites de velocidad alternativos","to":"A","when":"Cuándo"},"settings":{"applyToPeersOnLan":"Aplicar límite de velocidad a pares en LAN","applyToTransportOverhead":"Aplicar límite de velocidad a la sobrecarga de transporte","applyToUtp":"Aplicar límite de velocidad al protocolo µTP"},"subheader":{"alternative":"Límites de velocidad alternativos","global":"Límites de velocidad globales","settings":"Configuración de límites de velocidad"},"tip":"0 significa ilimitado","upload":"Cargar"},"tabs":{"advanced":"Avanzado","behavior":"Comportamiento","bittorrent":"BitTorrent","connection":"Conexión","downloads":"Descargas","rss":"RSS","speed":"Velocidad","tagsAndCategories":"Etiquetas y Categorías","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Vista de cuadrícula","list":"Vista de lista","table":"Vista de tabla"}},"webui":"Interfaz Web"},"tagsAndCategories":{"categoriesSubheader":"Categorías disponibles:","createNewCategory":"Crear nueva categoría","createNewTag":"Crear nueva etiqueta","noCategories":"Aún no hay categorías","noTags":"Sin etiquetas todavía","tagsSubheader":"Etiquetas disponibles:"},"title":"Ajustes","vuetorrent":{"general":{"check_new":"Buscar nueva versión","currentVersion":"Versión Actual","customTitle":"Título personalizado","dateFormat":"Formato de fecha","download":"Exportar configuración","fileContentInterval":"Intervalo de actualización de contenido de archivo torrent","hideChipIfUnset":"Ocultar chips si no están establecidos","historySize":"Tamaño del historial en campos elegibles","import":"Importar ajustes","isDrawerRight":"Cajón derecho","isShutdownButtonVisible":"Mostrar botón de apagado","language":"Idioma","paginationSize":{"infinite_scroll":"Desplazamiento infinito","label":"Tamaño de paginación","warning":"El uso de valores altos puede afectar el rendimiento"},"qbittorrentVersion":"Versión de qBittorrent","refreshInterval":"Intervalo de actualización de la API de qBittorrent","registerMagnet":"Registrar enlaces magnéticos","resetSettings":"Restablecer ajustes","showAlltimeStat":"Mostrar estadísticas de todos los tiempos","showCurrentSpeed":"Mostrar velocidad actual","showFreeSpace":"Mostrar espacio libre","showSessionStat":"Mostrar estadísticas de sesión","showSpeedGraph":"Mostrar gráfico de velocidad","tip":"Estas configuraciones son para la propia interfaz de usuario web personalizada","useBinarySize":"Reemplazar tamaños de datos por unidades binarias (kB -> KiB)","useBitSpeed":"Reemplazar los valores de velocidad por bits (kB/s -> kbps)","vueTorrentTitle":"Título de la pestaña"},"torrentCard":{"grid":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de cuadrícula","doneTip":"Propiedades para mostrar de los torrents completados en la vista de cuadrícula"},"list":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de lista","doneTip":"Propiedades para mostrar de los torrents completados en la vista de lista"},"table":{"tip":"Propiedades para mostrar de los torrents en la vista de tabla"}}},"webUI":{"authentication":{"banDuration":"Duración del bloqueo","banDurationHint":"En segundos","bypassLocalhost":"Omitir autenticación para clientes en localhost","bypassWhitelist":"Omitir autenticación para clientes en subredes de IP en lista blanca","maxAttempts":"Intentos máximos","password":"Contraseña","passwordPlaceholder":"(sin cambios)","sessionTimeout":"Tiempo de espera de sesión","sessionTimeoutHint":"En segundos","subheader":"Autenticación","username":"Usuario","whitelistExamples":"Ejemplo: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Agregar encabezados HTTP personalizados","customHeadersHint":"Uno por línea","customHeadersPlaceholder":"Encabezado1: valor1\\nEncabezado2: valor2\\n...","dynDns":{"domainName":"Nombre de dominio","password":"Contraseña","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Registrar","subheader":"Actualizar mi nombre de dominio dinámico","username":"Usuario"},"https":{"certificate":"Certificado","key":"Clave","subheader":"Usar HTTPS","tip":"Información sobre certificados"},"interface":{"ipAddress":"Dirección IP","port":"Puerto","subheader":"Interfaz de Usuario Web","useAlternativeWebUI":"Usar interfaz web alternativa","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"proxiesList":"Lista de proxies confiables","proxiesListHint":"Separar IPs con punto y coma (;) ","reverseProxySupport":"Habilitar soporte para proxy inverso","security":{"clickjacking":"Habilitar protección contra clickjacking","csrf":"Habilitar protección contra falsificación de solicitudes en sitios cruzados (CSRF)","hostHeaderValidation":"Habilitar validación de encabezado de host","hostHeaderValidationHint":"Separado por punto y coma (;) ","secureCookie":"Habilitar la bandera \\"segura\\" de las cookies (requiere HTTPS)","serverDomains":"Dominios del servidor","subheader":"Seguridad"}}}');
-    VO = {
+    jO = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Siempre anunciar a todos los niveles","announceAllTrackers":"Siempre anunciar a todos los rastreadores en un nivel","announceIP":"Dirección IP reportada a los trackers (requiere reinicio)","coalesceReadsWrites":"Unir lecturas y escrituras (libtorrent < 2.0)","disk":{"diskCache":"Caché de disco (libtorrent < 2.0)","diskCacheExpiry":"Intervalo de caducidad de la caché de disco (libtorrent < 2.0)","diskIoReadMode":"Modo de lectura de E/S de disco","diskIoType":"Tipo de E/S de disco (libtorrent >= 2.0; requiere reinicio)","diskIoWriteMode":"Modo de escritura de E/S de disco","diskQueueSize":"Tamaño de cola de disco","subheader":"Disco"},"maxConcurrentHTTPAnnounces":"Anuncios HTTP simultáneos máximos","networking":{"outgoingPortsMax":"Puertos de salida (Máx) [0: Desactivado]","outgoingPortsMin":"Puertos de salida (Mín) [0: Desactivado]","peerTos":"Valor DSCP para conexiones con pares","subheader":"Redes","upnpLeaseDuration":"Duración del arrendamiento UPnP [0: Arrendamiento permanente]","utpTcpMixedModeAlgorithm":"Algoritmo de modo mixto μTP-TCP"},"outgoingConnectionsPerSecond":"Conexiones salientes por segundo","peerTurnover":"Porcentaje de desconexión de pares","peerTurnoverCutoff":"Porcentaje umbral de desconexión de pares","peerTurnoverInterval":"Intervalo de desconexión de pares","pieceExtentAffinity":"Usar afinidad de extensión de pieza","requestQueueSize":"Máximo de solicitudes pendientes a un solo par","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Permitir múltiples conexiones desde la misma dirección IP","blockPeersOnPrivilegedPorts":"No permitir conexión a pares en puertos privilegiados","idnSupport":"Habilitar soporte para Nombres de Dominio Internacionalizados (IDN)","mitigateSSRF":"Mitigación de solicitud de falsificación de servidor (SSRF)","subheader":"Seguridad","validateHTTPSTrackerCertificate":"Validar certificado de tracker HTTPS"},"sendBufferLowWatermark":"Marca de agua baja del búfer de envío","sendBufferWatermark":"Marca de agua del búfer de envío","sendBufferWatermarkFactor":"Factor de marca de agua del búfer de envío","sendUploadPieceSuggestions":"Enviar sugerencias de piezas de carga","socketBacklogSize":"Tamaño de cola de espera del socket","socketReceiveBufferSize":"Tamaño del búfer de recepción del socket","socketReceiveBufferSizeHint":"0: valor predeterminado del sistema","socketSendBufferSize":"Tamaño del búfer de envío de socket","socketSendBufferSizeHint":"0: valor predeterminado del sistema","stopTrackerTimeout":"Tiempo de espera para detener el rastreador","subheader":"Sección de libtorrent","threads":{"asyncIoThreads":"Hilos de E/S asincrónicos","bdecodeDepthLimit":"Límite de profundidad de Bdecode","bdecodeTokenLimit":"Límite de tokens Bdecode","filePoolSize":"Tamaño del pool de archivos","hashingThreads":"Hilos de hash (libtorrent >= 2.0)","outstandingMemory":"Memoria pendiente al verificar torrents","subheader":"Hilos"},"uploadChokingAlgorithm":"Algoritmo de estrangulamiento de carga","uploadSlotsBehavior":"Comportamiento de ranuras de carga"},"openDoc":"Abrir documentación","qbittorrent":{"allocatedRam":"Límite de uso de memoria física (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Habilitar rastreador integrado","port":"Puerto del rastreador integrado","portForward":"Habilitar reenvío de puertos para el rastreador integrado","title":"Rastreador Integrado"},"networking":{"ipAddress":{"all":"Todas las direcciones","allIPv4":"Todas las direcciones IPv4","allIPv6":"Todas las direcciones IPv6","label":"Dirección IP opcional para enlazar"},"networkInterfaces":{"any":"Cualquier interfaz","label":"Interfaz de red"},"title":"Redes"},"reannounceOnIpPortChanged":"Volver a anunciar a todos los rastreadores cuando cambie la IP o el puerto","recheckOnCompletion":"Volver a comprobar torrents al finalizar","refreshInterval":"Intervalo de actualización de la interfaz gráfica de usuario","resolveCountries":"Resolver países de pares","resumeDataStorageType":{"label":"Tipo de almacenamiento de datos de reanudación (requiere reinicio)","legacy":"Archivos de reanudación rápida","sqlite":"Base de datos SQLite (experimental)"},"saveInterval":"Intervalo de guardado de datos de reanudación","subheader":"Sección de qBittorrent","torrentFileSizeLimit":"Límite de tamaño de archivo .torrent"}},"behavior":{"logs":{"file_log_age":"Eliminar registros de copia de seguridad anteriores a","file_log_backup_enabled":"Habilitar copia de seguridad de archivos de registro","file_log_delete_old":"Eliminar registros de copia de seguridad antiguos","file_log_enabled":"Habilitar archivos de registro","file_log_max_size":"Hacer una copia de seguridad del archivo de registro después de","file_log_path":"Ruta de guardado","subheader":"Gestión de registros"},"performance_warning":"Registrar advertencia de rendimiento"},"bittorrent":{"autoAddTrackers":"Agregar automáticamente estos trackers a las nuevas descargas","autoAddTrackersHint":"Un rastreador por línea","maxActiveCheckingTorrents":"Torrents máximos activos en verificación","privacy":{"enableAnonymous":"Activar modo anónimo","enableDHT":"Habilitar DHT (red descentralizada) para encontrar más pares","enableLPD":"Habilitar el Descubrimiento de Pares Locales para encontrar más pares","enablePeX":"Habilitar el Intercambio de Pares (PeX) para encontrar más pares","encryptionMode":"Modo de encriptación","moreInfo":"Más información","subheader":"Privacidad"},"seedLimits":{"subheader":"Límites de semillas","then":"Luego","whenInactiveSeedingTimeReaches":"Cuando el tiempo de siembra inactiva llega a","whenRatioReaches":"Cuando la relación alcance","whenSeedingTimeReaches":"Cuando el tiempo de siembra llega a"},"torrentQueueing":{"downloadRateLimit":"Umbral de velocidad de descarga","excludeSlowTorrent":"No contar los torrents lentos en estos límites","maxActiveDownload":"Descargas activas máximas","maxActiveTorrent":"Torrents máximos activos","maxActiveUpload":"Cargas activas máximas","subheader":"Cola de torrents","torrentInactivityTimer":"Temporizador de inactividad de torrentes","uploadRateLimit":"Umbral de velocidad de carga"}},"connection":{"connectionLimits":{"globalMaxConnection":"Número máximo global de conexiones","globalMaxUploadSlots":"Número máximo global de ranuras de carga","perTorrentMaxConnection":"Número máximo de conexiones por torrent","perTorrentMaxUploadSlots":"Número máximo de ranuras de carga por torrent","subheader":"Límites de conexión"},"ipFiltering":{"applyToTrackers":"Aplicar a rastreadores","bannedIps":"Direcciones IP prohibidas manualmente","bannedIpsHint":"Uno en cada línea","filterPath":"Ruta del filtro (.dat, .p2p, .p2b)","subheader":"Filtrado de IP"},"listeningPort":{"incomingConnectionPort":"Puerto utilizado para conexiones entrantes","randomPort":"Puerto aleatorio","subheader":"Puerto de escucha","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"protocol":"Protocolo de conexión de pares","proxy":{"auth":{"password":"Contraseña","subtitle":"Autenticación","tip":"Información: La contraseña se guarda sin cifrar","username":"Usuario"},"bittorrent":"Usar proxy para fines de BitTorrent","host":"Anfitrión","hostNameLookup":"Usar proxy para la búsqueda de nombres de host","misc":"Usar proxy para propósitos generales","peerConnections":"Usar proxy para conexiones de pares","port":"Puerto","rss":"Usar proxy para fines de RSS","subheader":"Servidor Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtro por línea","label":"Nombres de archivo excluidos"},"mailNotification":{"authEnabled":"Autenticación","enabled":"Notificación por correo electrónico al completar la descarga","from":"De","password":"Contraseña","smtpServer":"Servidor SMTP","sslEnabled":"Este servidor requiere una conexión segura (SSL)","to":"A","username":"Nombre de usuario"},"monitoredFolders":{"actions":"Acciones","confirmDelete":"¿Estás seguro de que deseas eliminar este elemento?","editItem":"Editar","monitoredFolderPath":"Carpeta Monitoreada","newItem":"Nuevo","noData":"Aún no hay carpetas monitoreadas","otherPath":"Otra ruta","saveType":"Sobrescribir ubicación de guardado","subheader":"Carpetas Monitoreadas"},"publicSettings":{"appendQBExtension":"Agregar extensión .!qB a archivos incompletos","preAllocateDisk":"Preasignar espacio en disco para todos los archivos"},"runExternalProgram":{"onAddedEnabled":"Ejecutar programa externo al agregar torrent","onAddedLabel":"Comando","onFinishedEnabled":"Ejecutar programa externo al finalizar torrent","onFinishedLabel":"Comando","subheader":"Ejecutar programa externo","supportParamC":"%C: Número de archivos","supportParamD":"%D: Ruta de guardado","supportParamF":"%F: Ruta del contenido (igual que la ruta raíz para torrents con múltiples archivos)","supportParamG":"%G: Etiquetas (separadas por coma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: ID del torrent","supportParamL":"%L: Categoría","supportParamN":"%N: Nombre del torrent","supportParamR":"%R: Ruta raíz (ruta del primer subdirectorio del torrent)","supportParamT":"%T: Rastreador actual","supportParamTitle":"Parámetros soportados (sensible a mayúsculas y minúsculas):","supportParamZ":"%Z: Tamaño del torrent (bytes)","tip":"Consejo: Encapsula el parámetro con comillas para evitar que el texto se corte en espacios en blanco (por ejemplo, \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Modo de gestión de torrents predeterminado","categoryChangedTMM":"Cuando cambia la Ruta de Guardado de Categoría","defaultSavePath":"Ruta de Guardado Predeterminada (completa)","defaultTMMOptions":{"automatic":"Automático","manual":"Manual"},"exportDir":"Copiar archivos .torrent a","exportDirFinished":"Copiar archivos .torrent de descargas finalizadas a","keepIncomplete":"Ruta de descarga predeterminada (torrents incompletos)","paramChangedTMMOptions":{"relocateTorrent":"Mover torrent","switchToManual":"Cambiar torrent a modo manual"},"savePathChangedTMM":"Cuando cambia la Ruta de Guardado Predeterminada","subheader":"Gestión de Guardado","torrentChangedTMM":"Cuando cambia la categoría del torrent"},"whenAddTorrent":{"addToTopOfQueue":"Agregar al principio de la cola","autoDeleteMode":"Eliminar archivos .torrent después","doNotAutoStart":"No iniciar la descarga automáticamente","mergeTrackers":"Combinar trackers si el torrent ya existe","subheader":"Al agregar un torrente"}},"rss":{"autoDownloader":{"enable":"Habilitar el procesamiento de reglas RSS","subheader":"Descargador Automático de Torrents RSS"},"reader":{"enableProcessing":"Habilitar la obtención de feeds RSS","feedsRefreshInterval":"Intervalo de actualización de feeds","maximumArticlesPerFeed":"Número máximo de artículos por fuente","subheader":"Lector de RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Descargar episodios REPACK/PROPER","filters":"Filtros","filtersHint":"Uno por línea","subheader":"Filtro inteligente de episodios RSS"},"useIdForRssLinks":"Usar ID para enlace de artículo RSS"},"saveSuccess":"¡Ajustes guardados!","speed":{"download":"Descargar","scheduler":{"from":"De","selectButtonLabel":"Seleccionar tiempo","subheader":"Programar el uso de límites de velocidad alternativos","to":"A","when":"Cuándo"},"settings":{"applyToPeersOnLan":"Aplicar límite de velocidad a pares en LAN","applyToTransportOverhead":"Aplicar límite de velocidad a la sobrecarga de transporte","applyToUtp":"Aplicar límite de velocidad al protocolo µTP"},"subheader":{"alternative":"Límites de velocidad alternativos","global":"Límites de velocidad globales","settings":"Configuración de límites de velocidad"},"tip":"0 significa ilimitado","upload":"Cargar"},"tabs":{"advanced":"Avanzado","behavior":"Comportamiento","bittorrent":"BitTorrent","connection":"Conexión","downloads":"Descargas","rss":"RSS","speed":"Velocidad","tagsAndCategories":"Etiquetas y Categorías","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Vista de cuadrícula","list":"Vista de lista","table":"Vista de tabla"}},"webui":"Interfaz Web"},"tagsAndCategories":{"categoriesSubheader":"Categorías disponibles:","createNewCategory":"Crear nueva categoría","createNewTag":"Crear nueva etiqueta","noCategories":"Aún no hay categorías","noTags":"Sin etiquetas todavía","tagsSubheader":"Etiquetas disponibles:"},"title":"Ajustes","vuetorrent":{"general":{"check_new":"Buscar nueva versión","currentVersion":"Versión Actual","customTitle":"Título personalizado","dateFormat":"Formato de fecha","download":"Exportar configuración","fileContentInterval":"Intervalo de actualización de contenido de archivo torrent","hideChipIfUnset":"Ocultar chips si no están establecidos","historySize":"Tamaño del historial en campos elegibles","import":"Importar ajustes","isDrawerRight":"Cajón derecho","isShutdownButtonVisible":"Mostrar botón de apagado","language":"Idioma","paginationSize":{"infinite_scroll":"Desplazamiento infinito","label":"Tamaño de paginación","warning":"El uso de valores altos puede afectar el rendimiento"},"qbittorrentVersion":"Versión de qBittorrent","refreshInterval":"Intervalo de actualización de la API de qBittorrent","registerMagnet":"Registrar enlaces magnéticos","resetSettings":"Restablecer ajustes","showAlltimeStat":"Mostrar estadísticas de todos los tiempos","showCurrentSpeed":"Mostrar velocidad actual","showFreeSpace":"Mostrar espacio libre","showSessionStat":"Mostrar estadísticas de sesión","showSpeedGraph":"Mostrar gráfico de velocidad","tip":"Estas configuraciones son para la propia interfaz de usuario web personalizada","useBinarySize":"Reemplazar tamaños de datos por unidades binarias (kB -> KiB)","useBitSpeed":"Reemplazar los valores de velocidad por bits (kB/s -> kbps)","vueTorrentTitle":"Título de la pestaña"},"torrentCard":{"grid":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de cuadrícula","doneTip":"Propiedades para mostrar de los torrents completados en la vista de cuadrícula"},"list":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de lista","doneTip":"Propiedades para mostrar de los torrents completados en la vista de lista"},"table":{"tip":"Propiedades para mostrar de los torrents en la vista de tabla"}}},"webUI":{"authentication":{"banDuration":"Duración del bloqueo","banDurationHint":"En segundos","bypassLocalhost":"Omitir autenticación para clientes en localhost","bypassWhitelist":"Omitir autenticación para clientes en subredes de IP en lista blanca","maxAttempts":"Intentos máximos","password":"Contraseña","passwordPlaceholder":"(sin cambios)","sessionTimeout":"Tiempo de espera de sesión","sessionTimeoutHint":"En segundos","subheader":"Autenticación","username":"Usuario","whitelistExamples":"Ejemplo: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Agregar encabezados HTTP personalizados","customHeadersHint":"Uno por línea","customHeadersPlaceholder":"Encabezado1: valor1\\nEncabezado2: valor2\\n...","dynDns":{"domainName":"Nombre de dominio","password":"Contraseña","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Registrar","subheader":"Actualizar mi nombre de dominio dinámico","username":"Usuario"},"https":{"certificate":"Certificado","key":"Clave","subheader":"Usar HTTPS","tip":"Información sobre certificados"},"interface":{"ipAddress":"Dirección IP","port":"Puerto","subheader":"Interfaz de Usuario Web","useAlternativeWebUI":"Usar interfaz web alternativa","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"proxiesList":"Lista de proxies confiables","proxiesListHint":"Separar IPs con punto y coma (;) ","reverseProxySupport":"Habilitar soporte para proxy inverso","security":{"clickjacking":"Habilitar protección contra clickjacking","csrf":"Habilitar protección contra falsificación de solicitudes en sitios cruzados (CSRF)","hostHeaderValidation":"Habilitar validación de encabezado de host","hostHeaderValidationHint":"Separado por punto y coma (;) ","secureCookie":"Habilitar la bandera \\"segura\\" de las cookies (requiere HTTPS)","serverDomains":"Dominios del servidor","subheader":"Seguridad"}}}');
+    UO = {
         add: {
             error: "Error al agregar torrents",
             pending: "Enviando torrents...",
@@ -96092,7 +96207,7 @@ Pueden ocurrir errores, usar con precaución.`
             new: "¡Nueva versión disponible!"
         }
     };
-    WO = {
+    YO = {
         actions: {
             delete: "Eliminar Torrents",
             logs: "Abrir registros",
@@ -96114,7 +96229,7 @@ Pueden ocurrir errores, usar con precaución.`
         },
         searchTorrents: "Buscar torrents"
     };
-    GO = {
+    qO = {
         content: {
             fileInfo: "{n} archivo | {n} archivos",
             filter_placeholder: "Buscar en el árbol de archivos",
@@ -96203,7 +96318,7 @@ Pueden ocurrir errores, usar con precaución.`
             tier: "Nivel: {n}"
         }
     };
-    $O = {
+    KO = {
         properties: {
             added_on: "Añadido el",
             amount_left: "Cantidad Restante",
@@ -96288,29 +96403,29 @@ Pueden ocurrir errores, usar con precaución.`
             uploading: "Subiendo"
         }
     };
-    jO = {
+    XO = {
         minutes: "minuto | minuto | minutos",
         seconds: "segundo | segundos | segundos"
     };
-    UO = {
-        common: PO,
-        constants: BO,
-        dashboard: MO,
-        dialogs: RO,
-        login: LO,
-        logs: IO,
-        navbar: zO,
-        rssArticles: NO,
-        searchEngine: OO,
-        settings: HO,
-        toast: VO,
-        topbar: WO,
-        torrentDetail: GO,
-        torrent: $O,
-        units: jO
+    JO = {
+        common: IO,
+        constants: zO,
+        dashboard: NO,
+        dialogs: OO,
+        login: HO,
+        logs: VO,
+        navbar: WO,
+        rssArticles: GO,
+        searchEngine: $O,
+        settings: jO,
+        toast: UO,
+        topbar: YO,
+        torrentDetail: qO,
+        torrent: KO,
+        units: XO
     };
-    YO = "Contenu généré par l'application Tolgee. NE JAMAIS MODIFIER MANUELLEMENT CAR CE SERA ÉCRASÉ";
-    qO = {
+    ZO = "Contenu généré par l'application Tolgee. NE JAMAIS MODIFIER MANUELLEMENT CAR CE SERA ÉCRASÉ";
+    QO = {
         cancel: "Annuler",
         close: "Fermer",
         delete: "Supprimer",
@@ -96333,7 +96448,7 @@ Pueden ocurrir errores, usar con precaución.`
         useGlobalSettings: "Utiliser les paramètres globaux",
         yes: "Oui"
     };
-    KO = {
+    eH = {
         addStopped: {
             always: "Toujours",
             never: "Jamais",
@@ -96466,7 +96581,7 @@ Pueden ocurrir errores, usar con precaución.`
             preferTcp: "Préférer TCP"
         }
     };
-    XO = {
+    tH = {
         displayMode: {
             grid: "Grille",
             list: "Liste",
@@ -96534,7 +96649,7 @@ Pueden ocurrir errores, usar con precaución.`
         toggleSortOrder: "Inverser l'order de tri",
         torrentsCount: "Aucun torrent | {n} torrent | {n} torrents"
     };
-    JO = {
+    aH = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "nom1=valeur1; nom2=valeur2; ...",
@@ -96737,7 +96852,7 @@ Pueden ocurrir errores, usar con precaución.`
 Des erreurs peuvent survenir, à utiliser avec précaution.`
         }
     };
-    ZO = {
+    rH = {
         error: "Echec de la connexion !",
         password: "Mot de passe",
         rules: {
@@ -96750,7 +96865,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         title: "Connexion",
         username: "Nom d'utilisateur"
     };
-    QO = {
+    nH = {
         emptyLogList: "Aucun logs trouvés",
         filters: {
             query: "Rechercher dans le corps des logs",
@@ -96758,7 +96873,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         },
         title: "Logs de qBittorrent"
     };
-    eH = {
+    iH = {
         addPanel: {
             torrentsPendingCount: "{n} torrent en attente d'ajout | {n} torrents en attente d'ajout"
         },
@@ -96828,7 +96943,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             }
         }
     };
-    tH = {
+    oH = {
         feeds: {
             empty: {
                 action: "Créer un flux RSS",
@@ -96870,7 +96985,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             rules: "Afficher les règles"
         }
     };
-    aH = {
+    sH = {
         filters: {
             category: {
                 all: "Tout",
@@ -96906,8 +97021,8 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         tabHeaderEmpty: "(Requête vide)",
         title: "Moteur de recherche"
     };
-    rH = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Bannir automatiquement le pair du lecteur BT","auto_ban_unknown_peer":"Bannir automatiquement les pairs inconnus","auto_update_trackers":"Mettre à jour automatiquement la liste des trackers publics","public_trackers":"Trackers publics","trackers_list_url":"Personnaliser la liste des URL des trackers"}},"advanced":{"libtorrent":{"announceAllTiers":"Toujours annoncer à tous les tiers","announceAllTrackers":"Toujours annoncer à tous les trackers du même tier","announceIP":"Adresse IP rapportée aux trackers (redémarrage nécessaire)","coalesceReadsWrites":"Fusionner les lectures et écritures (libtorrent < 2.0)","disk":{"diskCache":"Cache disque (libtorrent < 2.0)","diskCacheExpiry":"Intervalle d'expiration du cache disque (libtorrent < 2.0)","diskIoReadMode":"Mode de lecture des E/S du disque","diskIoType":"Type d'E/S du disque (libtorrent >= 2.0 ; nécessite un redémarrage)","diskIoWriteMode":"Mode d'écriture des E/S du disque","diskQueueSize":"Taille de la file d'attente du disque","subheader":"Disque"},"maxConcurrentHTTPAnnounces":"Annonces HTTP concurrentes max","networking":{"outgoingPortsMax":"Ports sortants (Max) [0 : Désactivé]","outgoingPortsMin":"Ports sortants (Min) [0 : Désactivé]","peerTos":"Valuer DSCP pour la connexion aux pairs","subheader":"Réseau","upnpLeaseDuration":"Durée du bail UPnP [0: bail permanent]","utpTcpMixedModeAlgorithm":"Algorithme mixte μTP-TCP"},"outgoingConnectionsPerSecond":"Connexions sortantes par seconde","peerTurnover":"Pourcentage de déconnexion des pairs","peerTurnoverCutoff":"Pourcentage du seuil de rotation des pairs","peerTurnoverInterval":"Intervalle de déconnexion de la rotation des pairs","pieceExtentAffinity":"Utiliser l'affinité par extension de morceau","requestQueueSize":"Nombre maximal de demandes en attente adressées à un seul pair","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Autoriser plusieurs connexions venant de la même adresse IP","blockPeersOnPrivilegedPorts":"Interdire la connexion à des pairs sur des ports privilégiés","idnSupport":"Activer la prise en charge des noms de domaine internationalisés (IDN)","mitigateSSRF":"Atténuation de la falsification des demandes côté serveur (SSRF)","subheader":"Sécurité","validateHTTPSTrackerCertificate":"Valider le certificat HTTPS du tracker"},"sendBufferLowWatermark":"Envoi du filigrane bas de la mémoire tampon","sendBufferWatermark":"Envoi du filigrane de la mémoire tampon","sendBufferWatermarkFactor":"Envoi du facteur de filigrane de la mémoire tampon","sendUploadPieceSuggestions":"Envoyer des suggestions de pièces à télécharger","socketBacklogSize":"Taille de l'arriéré de prises","socketReceiveBufferSize":"Taille de la mémoire tampon de réception du socket","socketReceiveBufferSizeHint":"0 : valeur par défaut du système","socketSendBufferSize":"Taille de la mémoire tampon d'envoi du socket","socketSendBufferSizeHint":"0 : valeur par défaut du système","ssl":{"rule":"Le port doit être compris entre 0 et 65535"},"stopTrackerTimeout":"Délai d'attente lors de l’arrêt du tracker","subheader":"Section libtorrent","threads":{"asyncIoThreads":"Threads d'E/S asynchrones","bdecodeDepthLimit":"Limite de profondeur Bdecode","bdecodeTokenLimit":"Limite de jeton Bdecode","filePoolSize":"Taille de la pool de fichiers","hashingThreads":"Fils de hachage (libtorrent >= 2.0)","outstandingMemory":"Mémoire exceptionnelle lors de la vérification des torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Télécharger l'algorithme d'étouffement","uploadSlotsBehavior":"Comportement des créneaux de téléchargement"},"openDoc":"Ouvrir la documentation","qbittorrent":{"allocatedRam":"Limite d'utilisation de la mémoire vive (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Activer le tracker embarqué","port":"Port du tracker embarqué","portForward":"Activer la redirection de port pour le tracker embarqué","title":"Tracker embarqué"},"enableMarkOfTheWebHint":"Nécessite macOS ou Windows","networking":{"ipAddress":{"all":"Toutes les adresses","allIPv4":"Toutes les adresses IPv4","allIPv6":"Toutes les adresses IPv6","label":"Adresse IP facultative à laquelle se lier"},"networkInterfaces":{"any":"N'importe quelle interface","label":"Interface réseau"},"title":"Réseau"},"reannounceOnIpPortChanged":"Annoncer à tous les trackers lorsque l'IP ou le port est modifié","recheckOnCompletion":"Revérifier les torrents à la fin","refreshInterval":"Intervalle de rafraîchissement de l'interface graphique","resolveCountries":"Résoudre les pays des pairs","resumeDataStorageType":{"label":"Type de stockage des données de reprise (nécessite un redémarrage)","legacy":"Fichiers fastresume","sqlite":"Base de données SQLite (expérimental)"},"saveInterval":"Intervalle de sauvegarde des données de reprise","subheader":"Section qBittorrent","torrentFileSizeLimit":"Limite de taille des fichiers .torrent"}},"behavior":{"logs":{"file_log_age":"Supprimer les archives des logs plus anciennes que","file_log_backup_enabled":"Activer l'archivage des fichiers de log","file_log_delete_old":"Supprimer les anciennes archives des logs","file_log_enabled":"Activer les fichiers de log","file_log_max_size":"Archiver les fichiers de log après","file_log_path":"Répertoire de destination","subheader":"Gestion des logs"},"performance_warning":"Loguer les avertissements de performance"},"bittorrent":{"autoAddTrackers":"Ajouter automatiquement ces trackers aux nouveaux téléchargements","autoAddTrackersHint":"Un tracker par ligne","maxActiveCheckingTorrents":"Nombre maximum de torrents en vérification actifs","privacy":{"enableAnonymous":"Activer le mode anonyme","enableDHT":"Activer le DHT (réseau décentralisé) pour trouver plus de pairs","enableLPD":"Activer la découverte de pairs locaux pour trouver plus de pairs","enablePeX":"Activer l'échange de pairs (PeX) pour trouver plus de pairs","encryptionMode":"Mode de chiffrage","moreInfo":"Plus d'informations","subheader":"Confidentialité"},"seedLimits":{"subheader":"Limites de seed","then":"Alors","whenInactiveSeedingTimeReaches":"Lorsque le temps de seed inactif atteint","whenRatioReaches":"Lorsque le ratio atteint","whenSeedingTimeReaches":"Lorsque le temps de seed atteint"},"torrentQueueing":{"downloadRateLimit":"Seuil du débit de téléchargement","excludeSlowTorrent":"Ne comptez pas les torrents lents dans ces limites.","maxActiveDownload":"Nombre maximum de téléchargements actifs","maxActiveTorrent":"Nombre maximum de torrents actifs","maxActiveUpload":"Nombre maximum d'envois actifs","subheader":"Mise en file d'attente des torrents","torrentInactivityTimer":"Minuterie d'inactivité des torrents","uploadRateLimit":"Seuil du taux de téléchargement"}},"connection":{"connectionLimits":{"globalMaxConnection":"Nombre maximum global de connexions","globalMaxUploadSlots":"Nombre maximum global d'emplacements d'envoi","perTorrentMaxConnection":"Nombre maximum de connexions par torrent","perTorrentMaxUploadSlots":"Nombre maximum d'emplacements d'envoi par torrent","subheader":"Limites de connexion"},"i2p":{"port":"Port"},"ipFiltering":{"applyToTrackers":"Appliquer aux trackers","bannedIps":"Adresses IP bannies manuellement","bannedIpsHint":"Un sur chaque ligne","filterPath":"Chemin filtrés (.dat, .p2p, .p2b)","subheader":"Filtrage d'IP"},"listeningPort":{"incomingConnectionPort":"Port utilisé pour les connexions entrantes","randomPort":"Port aléatoire","subheader":"Port d'écoute","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP de mon routeur"},"protocol":"Protocole de connexion entre pairs","proxy":{"auth":{"password":"Mot de passe","subtitle":"Authentification","tip":"Info : Le mot de passe est enregistré en clair","username":"Nom d'utilisateur"},"bittorrent":"Utiliser un proxy pour BitTorrent","host":"Hôte","hostNameLookup":"Utiliser un proxy pour la résolution des noms d'hôtes","misc":"Utiliser un proxy à des fins générales","peerConnections":"Utiliser un proxy pour les connexions entre pairs","port":"Port","rss":"Utiliser un proxy pour les flux RSS","subheader":"Serveur Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtre par ligne","label":"Exclusion des noms de fichiers"},"mailNotification":{"authEnabled":"Authentification","enabled":"Notification par courrier électronique à la fin du téléchargement","from":"De","password":"Mot de passe","smtpServer":"Serveur SMTP","sslEnabled":"Ce serveur nécessite une connexion sécurisée (SSL)","test":{"label":"Envoyer un email de test"},"to":"Pour","username":"Nom d'utilisateur"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Êtes-vous sûr de vouloir supprimer cet élément ?","editItem":"Modifier","monitoredFolderPath":"Dossier surveillé","newItem":"Nouveau","noData":"Pas encore de dossier surveillé","otherPath":"Autre chemin","saveType":"Remplacer l'emplacement de sauvegarde","subheader":"Dossiers surveillés"},"publicSettings":{"appendQBExtension":"Ajouter l'extension .!qB aux fichiers incomplets","preAllocateDisk":"Pré-allouer l'espace disque pour les fichiers"},"runExternalProgram":{"onAddedEnabled":"Exécuter un programme externe à l'ajout d'un torrent","onAddedLabel":"Commande","onFinishedEnabled":"Exécuter un programme externe sur le torrent terminé","onFinishedLabel":"Commande","subheader":"Exécuter un programme externe","supportParamC":"%C : Nombre de fichiers","supportParamD":"%D : Répertoire de destination","supportParamF":"%F : Chemin du contenu (identique à la racine pour les torrents multi-fichiers)","supportParamG":"%G : Étiquettes (séparées par une virgule)","supportParamI":"%I: Info hash v1","supportParamJ":"%J : Info hash v2","supportParamK":"%K : ID du torrent","supportParamL":"%L : Catégorie","supportParamN":"%N : Nom du torrent","supportParamR":"%R : Racine du chemin (chemin du premier sous-répertoire du torrent)","supportParamT":"%T : Tracker actuel","supportParamTitle":"Paramètres pris en charge (sensibles à la casse) :","supportParamZ":"%Z : Taille du torrent (octets)","tip":"Conseil : Encapsulez le paramètre avec des guillemets pour éviter que le texte ne soit coupé aux espaces (par exemple, \\"%N\\")."},"saveManagement":{"autoTMMEnabled":"Mode de gestion des torrents par défaut","categoryChangedTMM":"Lorsque le répertoire de destination de la catégorie est modifié","defaultSavePath":"Répertoire de destination par défaut (complet)","defaultTMMOptions":{"automatic":"Automatique","manual":"Manuel"},"exportDir":"Copier les fichiers .torrent vers","exportDirFinished":"Copier les fichiers .torrent pour les téléchargements terminés vers","keepIncomplete":"Chemin de téléchargement par défaut (incomplet)","paramChangedTMMOptions":{"relocateTorrent":"Déplacer le torrent","switchToManual":"Passer le torrent en mode manuel"},"savePathChangedTMM":"Lorsque le répertoire de destination par défaut est modifié","subheader":"Gestion de la sauvegarde","torrentChangedTMM":"Lorsque la catégorie des torrents a changé"},"whenAddTorrent":{"addToTopOfQueue":"Ajouter en haut de la file d'attente","autoDeleteMode":"Supprimer les fichiers .torrent ensuite","doNotAutoStart":"Ne pas lancer le téléchargement automatiquement","mergeTrackers":"Fusionner les trackers si le torrent existe déjà","subheader":"Lors de l'ajout d'un torrent"}},"rss":{"autoDownloader":{"enable":"Activer le traitement des règles RSS","subheader":"Téléchargement automatique de torrents via RSS"},"reader":{"enableProcessing":"Activer la récupération des flux RSS","feedsRefreshInterval":"Intervalle de rafraîchissement des flux","maximumArticlesPerFeed":"Nombre maximum d'articles par flux","subheader":"Lecteur RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Télécharger les épisodes REPACK/PROPER","filters":"Filtres","filtersHint":"Un par ligne","subheader":"Filtre intelligent pour les épisodes RSS"},"useIdForRssLinks":"Utiliser les ID pour les liens RSS"},"saveSuccess":"Paramètres sauvegardés !","speed":{"download":"Téléchargement","scheduler":{"from":"De","selectButtonLabel":"Sélectionner l'heure","subheader":"Programmer l'utilisation de limites de taux alternatives","to":"À","when":"Quand"},"settings":{"applyToPeersOnLan":"Appliquer une limite de débit aux pairs sur le réseau local","applyToTransportOverhead":"Appliquer une limite de taux aux frais généraux de transport","applyToUtp":"Appliquer une limite de débit au protocole µTP"},"subheader":{"alternative":"Limites de débit alternatif","global":"Limites de débit global","settings":"Réglages des limites de débit"},"tip":"0 signifie illimité","upload":"Partage"},"tabs":{"addons":{"enhanced_edition":"Édition améliorée"},"advanced":"Avancé","behavior":"Comportement","bittorrent":"BitTorrent","connection":"Connexion","downloads":"Téléchargements","rss":"RSS","speed":"Vitesse","tagsAndCategories":"Étiquettes & Catégories","vuetorrent":{"general":"Général","title":"VueTorrent","torrent_card":{"grid":"Affichage Grille","list":"Affichage Liste","table":"Affichage Tableau"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Catégories disponibles :","createNewCategory":"Créer une nouvelle catégorie","createNewTag":"Créer une nouvelle étiquette","noCategories":"Aucune catégorie pour le moment","noTags":"Aucune étiquette pour le moment","tagsSubheader":"Étiquettes disponibles :"},"title":"Paramètres","vuetorrent":{"general":{"check_new":"Vérifier une nouvelle version","currentVersion":"Version actuelle","customTitle":"Titre personnalisé","darkVariants":"Variante du thème sombre","dateFormat":"Format de la date","download":"Exporter les paramètres","enableHashColors":"Activer les couleurs générées sur les capsules","enableRatioColors":"Activer les couleurs de ratio","fileContentInterval":"Intervalle de rafraîchissement du contenu des torrents","hideChipIfUnset":"Masquer les capsules si non défini","hideColoredChip":"Utiliser la variante texte pour les puces","historySize":"Taille de l'historique sur les champs éligibles","import":"Importer les paramètres","isDrawerRight":"Menu latéral à droite","isShutdownButtonVisible":"Afficher le bouton d'arrêt","language":"Langue","lightVariants":"Variante du thème clair","paginationSize":{"infinite_scroll":"Défilement infini","label":"Taille de la pagination","warning":"L'utilisation de valeurs élevées peut affecter les performances"},"qbittorrentVersion":"Version de qBittorrent","refreshInterval":"Intervalle de rafraîchissement de l'API qBittorrent","registerMagnet":"Enregistrer les liens magnet","resetSettings":"Réinitialiser les paramètres","showAlltimeStat":"Afficher les statistiques globales","showCurrentSpeed":"Afficher la vitesse actuelle","showFreeSpace":"Afficher l'espace libre","showSessionStat":"Afficher les statistiques de la session","showSpeedGraph":"Afficher le graphique de vitesse","tip":"Ces paramètres concernent l'interface actuelle","useBinarySize":"Remplacer les tailles de données par des unités binaires (kB -> KiB)","useBitSpeed":"Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)","vueTorrentTitle":"Titre de l'onglet"},"torrentCard":{"grid":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage grille","doneTip":"Propriétés à afficher pour les torrents complets en affichage grille"},"list":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage liste","doneTip":"Propriétés à afficher pour les torrents complets en affichage liste"},"table":{"tip":"Propriétés à afficher pour les torrents en affichage tableau"}}},"webUI":{"authentication":{"banDuration":"Durée du ban","banDurationHint":"En secondes","bypassLocalhost":"Contourner l'authentification pour les clients sur localhost","bypassWhitelist":"Contournement de l'authentification pour les clients des sous-réseaux IP figurant sur la liste blanche","maxAttempts":"Nombre maximal de tentatives","password":"Mot de passe","passwordPlaceholder":"(inchangé)","sessionTimeout":"Délai d'expiration de la session","sessionTimeoutHint":"En secondes","subheader":"Authentification","username":"Nom d'utilisateur","whitelistExamples":"Exemple : 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Ajouter des en-têtes HTTP personnalisés","customHeadersHint":"Un par ligne","customHeadersPlaceholder":"En-tête1: valeur1\\nEn-tête2: valeur2\\n...","dynDns":{"domainName":"Nom de domaine","password":"Mot de passe","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"S'inscrire","subheader":"Mettre à jour mon nom de domaine dynamique","username":"Nom d'utilisateur"},"https":{"certificate":"Certificat","key":"Clé","subheader":"Utiliser HTTPS","tip":"Informations sur les certificats"},"interface":{"ipAddress":"Adresse IP","port":"Port","subheader":"Interface Utilisateur Web","useAlternativeWebUI":"Utiliser une autre interface web","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur"},"proxiesList":"Liste des proxys de confiance","proxiesListHint":"Séparer les IP par un point-virgule ( ; )","reverseProxySupport":"Activer la prise en charge du proxy inverse","security":{"clickjacking":"Activer la protection contre le détournement de clics","csrf":"Activer la protection contre la falsification des requêtes intersites (CSRF)","hostHeaderValidation":"Activer la validation de l'en-tête Host","hostHeaderValidationHint":"Séparés par un point-virgule ( ; )","secureCookie":"Activer le flag \\"secure\\" du cookie (nécessite HTTPS)","serverDomains":"Domaines du serveur","subheader":"Sécurité"}}}`);
-    nH = {
+    lH = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Bannir automatiquement le pair du lecteur BT","auto_ban_unknown_peer":"Bannir automatiquement les pairs inconnus","auto_update_trackers":"Mettre à jour automatiquement la liste des trackers publics","public_trackers":"Trackers publics","trackers_list_url":"Personnaliser la liste des URL des trackers"}},"advanced":{"libtorrent":{"announceAllTiers":"Toujours annoncer à tous les tiers","announceAllTrackers":"Toujours annoncer à tous les trackers du même tier","announceIP":"Adresse IP rapportée aux trackers (redémarrage nécessaire)","coalesceReadsWrites":"Fusionner les lectures et écritures (libtorrent < 2.0)","disk":{"diskCache":"Cache disque (libtorrent < 2.0)","diskCacheExpiry":"Intervalle d'expiration du cache disque (libtorrent < 2.0)","diskIoReadMode":"Mode de lecture des E/S du disque","diskIoType":"Type d'E/S du disque (libtorrent >= 2.0 ; nécessite un redémarrage)","diskIoWriteMode":"Mode d'écriture des E/S du disque","diskQueueSize":"Taille de la file d'attente du disque","subheader":"Disque"},"maxConcurrentHTTPAnnounces":"Annonces HTTP concurrentes max","networking":{"outgoingPortsMax":"Ports sortants (Max) [0 : Désactivé]","outgoingPortsMin":"Ports sortants (Min) [0 : Désactivé]","peerTos":"Valuer DSCP pour la connexion aux pairs","subheader":"Réseau","upnpLeaseDuration":"Durée du bail UPnP [0: bail permanent]","utpTcpMixedModeAlgorithm":"Algorithme mixte μTP-TCP"},"outgoingConnectionsPerSecond":"Connexions sortantes par seconde","peerTurnover":"Pourcentage de déconnexion des pairs","peerTurnoverCutoff":"Pourcentage du seuil de rotation des pairs","peerTurnoverInterval":"Intervalle de déconnexion de la rotation des pairs","pieceExtentAffinity":"Utiliser l'affinité par extension de morceau","requestQueueSize":"Nombre maximal de demandes en attente adressées à un seul pair","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Autoriser plusieurs connexions venant de la même adresse IP","blockPeersOnPrivilegedPorts":"Interdire la connexion à des pairs sur des ports privilégiés","idnSupport":"Activer la prise en charge des noms de domaine internationalisés (IDN)","mitigateSSRF":"Atténuation de la falsification des demandes côté serveur (SSRF)","subheader":"Sécurité","validateHTTPSTrackerCertificate":"Valider le certificat HTTPS du tracker"},"sendBufferLowWatermark":"Envoi du filigrane bas de la mémoire tampon","sendBufferWatermark":"Envoi du filigrane de la mémoire tampon","sendBufferWatermarkFactor":"Envoi du facteur de filigrane de la mémoire tampon","sendUploadPieceSuggestions":"Envoyer des suggestions de pièces à télécharger","socketBacklogSize":"Taille de l'arriéré de prises","socketReceiveBufferSize":"Taille de la mémoire tampon de réception du socket","socketReceiveBufferSizeHint":"0 : valeur par défaut du système","socketSendBufferSize":"Taille de la mémoire tampon d'envoi du socket","socketSendBufferSizeHint":"0 : valeur par défaut du système","ssl":{"rule":"Le port doit être compris entre 0 et 65535"},"stopTrackerTimeout":"Délai d'attente lors de l’arrêt du tracker","subheader":"Section libtorrent","threads":{"asyncIoThreads":"Threads d'E/S asynchrones","bdecodeDepthLimit":"Limite de profondeur Bdecode","bdecodeTokenLimit":"Limite de jeton Bdecode","filePoolSize":"Taille de la pool de fichiers","hashingThreads":"Fils de hachage (libtorrent >= 2.0)","outstandingMemory":"Mémoire exceptionnelle lors de la vérification des torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Télécharger l'algorithme d'étouffement","uploadSlotsBehavior":"Comportement des créneaux de téléchargement"},"openDoc":"Ouvrir la documentation","qbittorrent":{"allocatedRam":"Limite d'utilisation de la mémoire vive (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Activer le tracker embarqué","port":"Port du tracker embarqué","portForward":"Activer la redirection de port pour le tracker embarqué","title":"Tracker embarqué"},"enableMarkOfTheWebHint":"Nécessite macOS ou Windows","networking":{"ipAddress":{"all":"Toutes les adresses","allIPv4":"Toutes les adresses IPv4","allIPv6":"Toutes les adresses IPv6","label":"Adresse IP facultative à laquelle se lier"},"networkInterfaces":{"any":"N'importe quelle interface","label":"Interface réseau"},"title":"Réseau"},"reannounceOnIpPortChanged":"Annoncer à tous les trackers lorsque l'IP ou le port est modifié","recheckOnCompletion":"Revérifier les torrents à la fin","refreshInterval":"Intervalle de rafraîchissement de l'interface graphique","resolveCountries":"Résoudre les pays des pairs","resumeDataStorageType":{"label":"Type de stockage des données de reprise (nécessite un redémarrage)","legacy":"Fichiers fastresume","sqlite":"Base de données SQLite (expérimental)"},"saveInterval":"Intervalle de sauvegarde des données de reprise","subheader":"Section qBittorrent","torrentFileSizeLimit":"Limite de taille des fichiers .torrent"}},"behavior":{"logs":{"file_log_age":"Supprimer les archives des logs plus anciennes que","file_log_backup_enabled":"Activer l'archivage des fichiers de log","file_log_delete_old":"Supprimer les anciennes archives des logs","file_log_enabled":"Activer les fichiers de log","file_log_max_size":"Archiver les fichiers de log après","file_log_path":"Répertoire de destination","subheader":"Gestion des logs"},"performance_warning":"Loguer les avertissements de performance"},"bittorrent":{"autoAddTrackers":"Ajouter automatiquement ces trackers aux nouveaux téléchargements","autoAddTrackersHint":"Un tracker par ligne","maxActiveCheckingTorrents":"Nombre maximum de torrents en vérification actifs","privacy":{"enableAnonymous":"Activer le mode anonyme","enableDHT":"Activer le DHT (réseau décentralisé) pour trouver plus de pairs","enableLPD":"Activer la découverte de pairs locaux pour trouver plus de pairs","enablePeX":"Activer l'échange de pairs (PeX) pour trouver plus de pairs","encryptionMode":"Mode de chiffrage","moreInfo":"Plus d'informations","subheader":"Confidentialité"},"seedLimits":{"subheader":"Limites de seed","then":"Alors","whenInactiveSeedingTimeReaches":"Lorsque le temps de seed inactif atteint","whenRatioReaches":"Lorsque le ratio atteint","whenSeedingTimeReaches":"Lorsque le temps de seed atteint"},"torrentQueueing":{"downloadRateLimit":"Seuil du débit de téléchargement","excludeSlowTorrent":"Ne comptez pas les torrents lents dans ces limites.","maxActiveDownload":"Nombre maximum de téléchargements actifs","maxActiveTorrent":"Nombre maximum de torrents actifs","maxActiveUpload":"Nombre maximum d'envois actifs","subheader":"Mise en file d'attente des torrents","torrentInactivityTimer":"Minuterie d'inactivité des torrents","uploadRateLimit":"Seuil du taux de téléchargement"}},"connection":{"connectionLimits":{"globalMaxConnection":"Nombre maximum global de connexions","globalMaxUploadSlots":"Nombre maximum global d'emplacements d'envoi","perTorrentMaxConnection":"Nombre maximum de connexions par torrent","perTorrentMaxUploadSlots":"Nombre maximum d'emplacements d'envoi par torrent","subheader":"Limites de connexion"},"i2p":{"port":"Port"},"ipFiltering":{"applyToTrackers":"Appliquer aux trackers","bannedIps":"Adresses IP bannies manuellement","bannedIpsHint":"Un sur chaque ligne","filterPath":"Chemin filtrés (.dat, .p2p, .p2b)","subheader":"Filtrage d'IP"},"listeningPort":{"incomingConnectionPort":"Port utilisé pour les connexions entrantes","randomPort":"Port aléatoire","subheader":"Port d'écoute","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP de mon routeur"},"protocol":"Protocole de connexion entre pairs","proxy":{"auth":{"password":"Mot de passe","subtitle":"Authentification","tip":"Info : Le mot de passe est enregistré en clair","username":"Nom d'utilisateur"},"bittorrent":"Utiliser un proxy pour BitTorrent","host":"Hôte","hostNameLookup":"Utiliser un proxy pour la résolution des noms d'hôtes","misc":"Utiliser un proxy à des fins générales","peerConnections":"Utiliser un proxy pour les connexions entre pairs","port":"Port","rss":"Utiliser un proxy pour les flux RSS","subheader":"Serveur Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtre par ligne","label":"Exclusion des noms de fichiers"},"mailNotification":{"authEnabled":"Authentification","enabled":"Notification par courrier électronique à la fin du téléchargement","from":"De","password":"Mot de passe","smtpServer":"Serveur SMTP","sslEnabled":"Ce serveur nécessite une connexion sécurisée (SSL)","test":{"label":"Envoyer un email de test"},"to":"Pour","username":"Nom d'utilisateur"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Êtes-vous sûr de vouloir supprimer cet élément ?","editItem":"Modifier","monitoredFolderPath":"Dossier surveillé","newItem":"Nouveau","noData":"Pas encore de dossier surveillé","otherPath":"Autre chemin","saveType":"Remplacer l'emplacement de sauvegarde","subheader":"Dossiers surveillés"},"publicSettings":{"appendQBExtension":"Ajouter l'extension .!qB aux fichiers incomplets","preAllocateDisk":"Pré-allouer l'espace disque pour les fichiers"},"runExternalProgram":{"onAddedEnabled":"Exécuter un programme externe à l'ajout d'un torrent","onAddedLabel":"Commande","onFinishedEnabled":"Exécuter un programme externe sur le torrent terminé","onFinishedLabel":"Commande","subheader":"Exécuter un programme externe","supportParamC":"%C : Nombre de fichiers","supportParamD":"%D : Répertoire de destination","supportParamF":"%F : Chemin du contenu (identique à la racine pour les torrents multi-fichiers)","supportParamG":"%G : Étiquettes (séparées par une virgule)","supportParamI":"%I: Info hash v1","supportParamJ":"%J : Info hash v2","supportParamK":"%K : ID du torrent","supportParamL":"%L : Catégorie","supportParamN":"%N : Nom du torrent","supportParamR":"%R : Racine du chemin (chemin du premier sous-répertoire du torrent)","supportParamT":"%T : Tracker actuel","supportParamTitle":"Paramètres pris en charge (sensibles à la casse) :","supportParamZ":"%Z : Taille du torrent (octets)","tip":"Conseil : Encapsulez le paramètre avec des guillemets pour éviter que le texte ne soit coupé aux espaces (par exemple, \\"%N\\")."},"saveManagement":{"autoTMMEnabled":"Mode de gestion des torrents par défaut","categoryChangedTMM":"Lorsque le répertoire de destination de la catégorie est modifié","defaultSavePath":"Répertoire de destination par défaut (complet)","defaultTMMOptions":{"automatic":"Automatique","manual":"Manuel"},"exportDir":"Copier les fichiers .torrent vers","exportDirFinished":"Copier les fichiers .torrent pour les téléchargements terminés vers","keepIncomplete":"Chemin de téléchargement par défaut (incomplet)","paramChangedTMMOptions":{"relocateTorrent":"Déplacer le torrent","switchToManual":"Passer le torrent en mode manuel"},"savePathChangedTMM":"Lorsque le répertoire de destination par défaut est modifié","subheader":"Gestion de la sauvegarde","torrentChangedTMM":"Lorsque la catégorie des torrents a changé"},"whenAddTorrent":{"addToTopOfQueue":"Ajouter en haut de la file d'attente","autoDeleteMode":"Supprimer les fichiers .torrent ensuite","doNotAutoStart":"Ne pas lancer le téléchargement automatiquement","mergeTrackers":"Fusionner les trackers si le torrent existe déjà","subheader":"Lors de l'ajout d'un torrent"}},"rss":{"autoDownloader":{"enable":"Activer le traitement des règles RSS","subheader":"Téléchargement automatique de torrents via RSS"},"reader":{"enableProcessing":"Activer la récupération des flux RSS","feedsRefreshInterval":"Intervalle de rafraîchissement des flux","maximumArticlesPerFeed":"Nombre maximum d'articles par flux","subheader":"Lecteur RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Télécharger les épisodes REPACK/PROPER","filters":"Filtres","filtersHint":"Un par ligne","subheader":"Filtre intelligent pour les épisodes RSS"},"useIdForRssLinks":"Utiliser les ID pour les liens RSS"},"saveSuccess":"Paramètres sauvegardés !","speed":{"download":"Téléchargement","scheduler":{"from":"De","selectButtonLabel":"Sélectionner l'heure","subheader":"Programmer l'utilisation de limites de taux alternatives","to":"À","when":"Quand"},"settings":{"applyToPeersOnLan":"Appliquer une limite de débit aux pairs sur le réseau local","applyToTransportOverhead":"Appliquer une limite de taux aux frais généraux de transport","applyToUtp":"Appliquer une limite de débit au protocole µTP"},"subheader":{"alternative":"Limites de débit alternatif","global":"Limites de débit global","settings":"Réglages des limites de débit"},"tip":"0 signifie illimité","upload":"Partage"},"tabs":{"addons":{"enhanced_edition":"Édition améliorée"},"advanced":"Avancé","behavior":"Comportement","bittorrent":"BitTorrent","connection":"Connexion","downloads":"Téléchargements","rss":"RSS","speed":"Vitesse","tagsAndCategories":"Étiquettes & Catégories","vuetorrent":{"general":"Général","title":"VueTorrent","torrent_card":{"grid":"Affichage Grille","list":"Affichage Liste","table":"Affichage Tableau"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Catégories disponibles :","createNewCategory":"Créer une nouvelle catégorie","createNewTag":"Créer une nouvelle étiquette","noCategories":"Aucune catégorie pour le moment","noTags":"Aucune étiquette pour le moment","tagsSubheader":"Étiquettes disponibles :"},"title":"Paramètres","vuetorrent":{"general":{"check_new":"Vérifier une nouvelle version","currentVersion":"Version actuelle","customTitle":"Titre personnalisé","darkVariants":"Variante du thème sombre","dateFormat":"Format de la date","download":"Exporter les paramètres","enableHashColors":"Activer les couleurs générées sur les capsules","enableRatioColors":"Activer les couleurs de ratio","fileContentInterval":"Intervalle de rafraîchissement du contenu des torrents","hideChipIfUnset":"Masquer les capsules si non défini","hideColoredChip":"Utiliser la variante texte pour les puces","historySize":"Taille de l'historique sur les champs éligibles","import":"Importer les paramètres","isDrawerRight":"Menu latéral à droite","isShutdownButtonVisible":"Afficher le bouton d'arrêt","language":"Langue","lightVariants":"Variante du thème clair","paginationSize":{"infinite_scroll":"Défilement infini","label":"Taille de la pagination","warning":"L'utilisation de valeurs élevées peut affecter les performances"},"qbittorrentVersion":"Version de qBittorrent","refreshInterval":"Intervalle de rafraîchissement de l'API qBittorrent","registerMagnet":"Enregistrer les liens magnet","resetSettings":"Réinitialiser les paramètres","showAlltimeStat":"Afficher les statistiques globales","showCurrentSpeed":"Afficher la vitesse actuelle","showFreeSpace":"Afficher l'espace libre","showSessionStat":"Afficher les statistiques de la session","showSpeedGraph":"Afficher le graphique de vitesse","tip":"Ces paramètres concernent l'interface actuelle","useBinarySize":"Remplacer les tailles de données par des unités binaires (kB -> KiB)","useBitSpeed":"Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)","vueTorrentTitle":"Titre de l'onglet"},"torrentCard":{"grid":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage grille","doneTip":"Propriétés à afficher pour les torrents complets en affichage grille"},"list":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage liste","doneTip":"Propriétés à afficher pour les torrents complets en affichage liste"},"table":{"tip":"Propriétés à afficher pour les torrents en affichage tableau"}}},"webUI":{"authentication":{"banDuration":"Durée du ban","banDurationHint":"En secondes","bypassLocalhost":"Contourner l'authentification pour les clients sur localhost","bypassWhitelist":"Contournement de l'authentification pour les clients des sous-réseaux IP figurant sur la liste blanche","maxAttempts":"Nombre maximal de tentatives","password":"Mot de passe","passwordPlaceholder":"(inchangé)","sessionTimeout":"Délai d'expiration de la session","sessionTimeoutHint":"En secondes","subheader":"Authentification","username":"Nom d'utilisateur","whitelistExamples":"Exemple : 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Ajouter des en-têtes HTTP personnalisés","customHeadersHint":"Un par ligne","customHeadersPlaceholder":"En-tête1: valeur1\\nEn-tête2: valeur2\\n...","dynDns":{"domainName":"Nom de domaine","password":"Mot de passe","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"S'inscrire","subheader":"Mettre à jour mon nom de domaine dynamique","username":"Nom d'utilisateur"},"https":{"certificate":"Certificat","key":"Clé","subheader":"Utiliser HTTPS","tip":"Informations sur les certificats"},"interface":{"ipAddress":"Adresse IP","port":"Port","subheader":"Interface Utilisateur Web","useAlternativeWebUI":"Utiliser une autre interface web","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur"},"proxiesList":"Liste des proxys de confiance","proxiesListHint":"Séparer les IP par un point-virgule ( ; )","reverseProxySupport":"Activer la prise en charge du proxy inverse","security":{"clickjacking":"Activer la protection contre le détournement de clics","csrf":"Activer la protection contre la falsification des requêtes intersites (CSRF)","hostHeaderValidation":"Activer la validation de l'en-tête Host","hostHeaderValidationHint":"Séparés par un point-virgule ( ; )","secureCookie":"Activer le flag \\"secure\\" du cookie (nécessite HTTPS)","serverDomains":"Domaines du serveur","subheader":"Sécurité"}}}`);
+    uH = {
         add: {
             error: "Erreur lors de l'ajout des torrents",
             pending: "Envoi des torrents...",
@@ -96929,7 +97044,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             new: "Nouvelle version disponible !"
         }
     };
-    iH = {
+    cH = {
         actions: {
             delete: "Supprimer les torrents",
             logs: "Ouvrir les logs",
@@ -96951,7 +97066,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         },
         searchTorrents: "Rechercher des torrents"
     };
-    oH = {
+    dH = {
         content: {
             fileInfo: "{n} fichier | {n} fichiers",
             filter: {
@@ -97051,7 +97166,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             tier: "Tier : {n}"
         }
     };
-    sH = {
+    hH = {
         properties: {
             added_on: "Ajouté le",
             amount_left: "Montant restant",
@@ -97144,29 +97259,29 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             uploading: "Envoi"
         }
     };
-    lH = {
+    mH = {
         minutes: "minute | minute | minutes",
         seconds: "seconde | seconde | secondes"
     };
-    uH = {
-        _comments: YO,
-        common: qO,
-        constants: KO,
-        dashboard: XO,
-        dialogs: JO,
-        login: ZO,
-        logs: QO,
-        navbar: eH,
-        rssArticles: tH,
-        searchEngine: aH,
-        settings: rH,
-        toast: nH,
-        topbar: iH,
-        torrentDetail: oH,
-        torrent: sH,
-        units: lH
+    pH = {
+        _comments: ZO,
+        common: QO,
+        constants: eH,
+        dashboard: tH,
+        dialogs: aH,
+        login: rH,
+        logs: nH,
+        navbar: iH,
+        rssArticles: oH,
+        searchEngine: sH,
+        settings: lH,
+        toast: uH,
+        topbar: cH,
+        torrentDetail: dH,
+        torrent: hH,
+        units: mH
     };
-    cH = {
+    fH = {
         cancel: "Mégse",
         close: "Bezár",
         delete: "Törlés",
@@ -97187,7 +97302,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         useGlobalSettings: "Globális beállítások használata",
         yes: "Igen"
     };
-    dH = {
+    gH = {
         addStopped: {
             always: "Mindig",
             never: "Soha",
@@ -97302,7 +97417,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             preferTcp: "TCP preferálása"
         }
     };
-    hH = {
+    vH = {
         displayMode: {
             grid: "Rács",
             list: "Lista",
@@ -97369,7 +97484,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         toggleSortOrder: "Rendezési sorrend megfordítása",
         torrentsCount: "Nincs torrent | {n} torrent | {n} torrentek"
     };
-    mH = {
+    yH = {
         add: {
             cookie: "Sütik",
             cookie_placeholder: "név1=érték1; név2=érték2; ...",
@@ -97550,7 +97665,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
 Hibák fordulhatnak elő, óvatosan használja.`
         }
     };
-    pH = {
+    bH = {
         error: "Bejelentkezés sikertelen!",
         password: "Jelszó",
         rules: {
@@ -97563,7 +97678,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "Bejelentkezés",
         username: "Felhasználónév"
     };
-    fH = {
+    FH = {
         emptyLogList: "Nem található napló",
         filters: {
             query: "Keresés a naplóüzenetekben",
@@ -97571,7 +97686,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "qBittorrent naplók"
     };
-    gH = {
+    kH = {
         addPanel: {
             torrentsPendingCount: "{n} torrent vár feltöltésre | {n} torrent vár feltöltésre"
         },
@@ -97640,7 +97755,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    vH = {
+    xH = {
         feeds: {
             empty: {
                 action: "RSS hírcsatorna létrehozása"
@@ -97668,7 +97783,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    yH = {
+    wH = {
         filters: {
             category: {
                 all: "Összes",
@@ -97704,8 +97819,8 @@ Hibák fordulhatnak elő, óvatosan használja.`
         tabHeaderEmpty: "(Üres lekérdezés)",
         title: "Keresőmotor"
     };
-    bH = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Mindig hirdessen minden szinten","announceAllTrackers":"Mindig hirdessen minden követőn egy szinten","announceIP":"A követőknek jelentett IP-cím (újraindítás szükséges)","coalesceReadsWrites":"Olvasások és írások egyesítése (libtorrent < 2.0)","disk":{"diskCache":"Lemez gyorsítótár (libtorrent < 2.0)","diskCacheExpiry":"Lemez gyorsítótár lejárati intervalluma (libtorrent < 2.0)","diskIoReadMode":"Lemez IO olvasási mód","diskIoType":"Lemez IO Típus (libtorrent >= 2.0; újraindítás szükséges)","diskIoWriteMode":"Lemez IO írási mód","diskQueueSize":"Lemez várakozási sor mérete","subheader":"Lemez"},"maxConcurrentHTTPAnnounces":"Egyidejűleg maximális HTTP bejelentések","networking":{"outgoingPortsMax":"Kimenő portok (Max) [0: Letiltva]","outgoingPortsMin":"Kimenő portok (Min) [0: Letiltva]","peerTos":"DSCP érték a peerekhez való kapcsolódásokhoz","subheader":"Hálózat","upnpLeaseDuration":"UPnP bérleti időtartam [0: Állandó bérlet]","utpTcpMixedModeAlgorithm":"μTP-TCP vegyes mód algoritmus"},"outgoingConnectionsPerSecond":"Kimenő kapcsolatok másodpercenként","peerTurnover":"Peer cserélődés lekapcsolási százaléka","peerTurnoverCutoff":"Peer cserélődés küszöbértéke","peerTurnoverInterval":"Peer cserélődés lekapcsolási intervalluma","pieceExtentAffinity":"Darab kiterjedés affinitás használata","requestQueueSize":"Maximális kérések egy peerhez","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Több kapcsolat engedélyezése ugyanarról az IP-címről","blockPeersOnPrivilegedPorts":"Kapcsolódás tiltása privilégiumos portokon lévő peerekhez","idnSupport":"Nemzetközi Domain Név (IDN) támogatás engedélyezése","mitigateSSRF":"Szerveroldali kérés hamisítás (SSRF) mérséklése","subheader":"Biztonság","validateHTTPSTrackerCertificate":"HTTPS követő tanúsítványának érvényesítése"},"sendBufferLowWatermark":"Küldési puffer alacsony vízjel","sendBufferWatermark":"Küldési puffer vízjel","sendBufferWatermarkFactor":"Küldési puffer vízjel tényező","sendUploadPieceSuggestions":"Feltöltési darab javaslatok küldése","socketBacklogSize":"Socket várakozási sor mérete","socketReceiveBufferSize":"Socket fogadási puffer mérete","socketReceiveBufferSizeHint":"0: rendszer alapértelmezett","socketSendBufferSize":"Socket küldési puffer mérete","socketSendBufferSizeHint":"0: rendszer alapértelmezett","stopTrackerTimeout":"Követő időtúllépés leállítása","subheader":"libtorrent szakasz","threads":{"asyncIoThreads":"Aszinkron I/O szálak","bdecodeDepthLimit":"Bdecode mélység korlát","bdecodeTokenLimit":"Bdecode token korlát","filePoolSize":"Fájlpool mérete","hashingThreads":"Hashelési szálak (libtorrent >= 2.0)","outstandingMemory":"Kiemelkedő memória torrentek ellenőrzésekor","subheader":"Szálak"},"uploadChokingAlgorithm":"Feltöltési fulladás algoritmus","uploadSlotsBehavior":"Feltöltési slotok viselkedése"},"openDoc":"Dokumentáció megnyitása","qbittorrent":{"allocatedRam":"Fizikai memória (RAM) használati korlát (libtorrent >= 2.0)","embeddedTracker":{"enable":"Beágyazott követő engedélyezése","port":"Beágyazott követő port","portForward":"Port továbbítás engedélyezése a beágyazott követő számára","title":"Beágyazott követő"},"networking":{"ipAddress":{"all":"Minden cím","allIPv4":"Minden IPv4 cím","allIPv6":"Minden IPv6 cím","label":"Opcionális IP-cím a kötéshez"},"networkInterfaces":{"any":"Bármelyik interfész","label":"Hálózati interfész"},"title":"Hálózat"},"reannounceOnIpPortChanged":"Újrahirdetés minden követőnek, amikor az IP vagy a port megváltozik","recheckOnCompletion":"Torrentek újraellenőrzése a befejezéskor","refreshInterval":"GUI frissítési intervallum","resolveCountries":"Peer országok feloldása","resumeDataStorageType":{"label":"Folytatási adatok tárolási típusa (újraindítás szükséges)","legacy":"Gyorsfolytatás fájlok","sqlite":"SQLite adatbázis (kísérleti)"},"saveInterval":"Folytatási adatok mentési intervalluma","subheader":"qBittorrent szakasz","torrentFileSizeLimit":".torrent fájlméret korlát"}},"behavior":{"logs":{"file_log_age":"Régi naplófájlok törlése, ha régebbiek, mint","file_log_backup_enabled":"Naplófájl biztonsági mentés engedélyezése","file_log_delete_old":"Régi biztonsági mentési naplók törlése","file_log_enabled":"Naplófájlok engedélyezése","file_log_max_size":"A naplófájl biztonsági mentése után","file_log_path":"Mentési útvonal","subheader":"Naplókezelés"},"performance_warning":"Teljesítmény figyelmeztetés naplózása"},"bittorrent":{"autoAddTrackers":"Automatikusan ezeket a követőket adja hozzá az új letöltésekhez","autoAddTrackersHint":"Egy követő soronként","maxActiveCheckingTorrents":"Maximálisan aktív ellenőrző torrentek","privacy":{"enableAnonymous":"Névtelen mód engedélyezése","enableDHT":"DHT (decentralizált hálózat) engedélyezése több peer megtalálásához","enableLPD":"Helyi Peer Felfedezés engedélyezése több peer megtalálásához","enablePeX":"Peer Csere (PeX) engedélyezése több peer megtalálásához","encryptionMode":"Titkosítási mód","moreInfo":"További információ","subheader":"Adatvédelem"},"seedLimits":{"subheader":"Seed korlátok","then":"Akkor","whenInactiveSeedingTimeReaches":"Amikor az inaktív seedelési idő eléri","whenRatioReaches":"Amikor az arány eléri","whenSeedingTimeReaches":"Amikor a seedelési idő eléri"},"torrentQueueing":{"downloadRateLimit":"Letöltési sebesség küszöbérték","excludeSlowTorrent":"A lassú torrenteket ne számítsa bele ezekbe a korlátokba","maxActiveDownload":"Maximális aktív letöltések","maxActiveTorrent":"Maximális aktív torrentek","maxActiveUpload":"Maximális aktív feltöltések","subheader":"Torrent Sorbaállítás","torrentInactivityTimer":"Torrent inaktivitási időzítő","uploadRateLimit":"Feltöltési sebesség küszöbérték"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globális maximális kapcsolatok száma","globalMaxUploadSlots":"Globális maximális feltöltési slotok száma","perTorrentMaxConnection":"Maximális kapcsolatok száma torrentenként","perTorrentMaxUploadSlots":"Maximális feltöltési slotok száma torrentenként","subheader":"Kapcsolat korlátok"},"ipFiltering":{"applyToTrackers":"Alkalmazás követőkre","bannedIps":"Manuálisan kitiltott IP-címek","bannedIpsHint":"Minden egyes sorban egy","filterPath":"Szűrő útvonal (.dat, .p2p, .p2b)","subheader":"IP Szűrés"},"listeningPort":{"incomingConnectionPort":"Bejövő kapcsolatok portja","randomPort":"Véletlenszerű port","subheader":"Hallgatózó port","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"protocol":"Peer kapcsolatódási protokoll","proxy":{"auth":{"password":"Jelszó","subtitle":"Hitelesítés","tip":"Információ: A jelszó titkosítatlanul van mentve","username":"Felhasználónév"},"bittorrent":"Proxy használata BitTorrent célra","host":"Hoszt","hostNameLookup":"Proxy használata hosztnév lekérdezésre","misc":"Proxy használata általános célra","peerConnections":"Proxy használata peerkapcsolatokhoz","port":"Port","rss":"Proxy használata RSS célra","subheader":"Proxy Szerver"}},"downloads":{"excludedFileNames":{"hint":"Egy szűrő soronként","label":"Kizárt fájlnév"},"mailNotification":{"authEnabled":"Hitelesítés","enabled":"Email értesítés a letöltés befejezésekor","from":"Feladó","password":"Jelszó","smtpServer":"SMTP szerver","sslEnabled":"Ez a szerver biztonságos kapcsolatot (SSL) igényel","to":"Címzett","username":"Felhasználónév"},"monitoredFolders":{"actions":"Műveletek","confirmDelete":"Biztosan törölni szeretné ezt az elemet?","editItem":"Szerkesztés","monitoredFolderPath":"Megfigyelt Mappa","newItem":"Új","noData":"Még nincs megfigyelt mappa","otherPath":"Egyéb Útvonal","saveType":"Mentési hely felülbírálása","subheader":"Megfigyelt Mappák"},"publicSettings":{"appendQBExtension":"Append .!qB kiterjesztés a befejezetlen fájlokhoz","preAllocateDisk":"A lemezterület előzetes lefoglalása minden fájlhoz"},"runExternalProgram":{"onAddedEnabled":"Külső program futtatása a torrent hozzáadásakor","onAddedLabel":"Parancs","onFinishedEnabled":"Külső program futtatása a torrent befejezésekor","onFinishedLabel":"Parancs","subheader":"Külső program futtatása","supportParamC":"%C: Fájlok száma","supportParamD":"%D: Mentési útvonal","supportParamF":"%F: Tartalom útvonala (ugyanaz, mint a gyökér útvonal többfájlos torrent esetén)","supportParamG":"%G: Címkék (vesszővel elválasztva)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategória","supportParamN":"%N: Torrent név","supportParamR":"%R: Gyökér útvonal (az első torrent almappa útvonala)","supportParamT":"%T: Aktuális követő","supportParamTitle":"Támogatott paraméterek (kisbetű-érzékeny):","supportParamZ":"%Z: Torrent méret (bájtokban)","tip":"Tipp: A paraméter idézőjelek közé zárása elkerüli a szöveg szóköznél történő levágását (pl. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Alapértelmezett Torrent Kezelési Mód","categoryChangedTMM":"Amikor a Kategória Mentési Útvonala megváltozik","defaultSavePath":"Alapértelmezett Mentési Útvonal (befejezett)","defaultTMMOptions":{"automatic":"Automatikus","manual":"Kézi"},"exportDir":"Másolja a .torrent fájlokat ide","exportDirFinished":"Másolja a befejezett letöltések .torrent fájljait ide","keepIncomplete":"Alapértelmezett Letöltési Útvonal (befejezetlen torrentek)","paramChangedTMMOptions":{"relocateTorrent":"Torrent áthelyezése","switchToManual":"Torrent átkapcsolása Kézi Módra"},"savePathChangedTMM":"Amikor az Alapértelmezett Mentési Útvonal megváltozik","subheader":"Mentési Kezelés","torrentChangedTMM":"Amikor a Torrent Kategória megváltozik"},"whenAddTorrent":{"addToTopOfQueue":"Hozzáadás a sor elejéhez","autoDeleteMode":"A .torrent fájlok utólagos törlése","doNotAutoStart":"Ne indítsa el automatikusan a letöltést","mergeTrackers":"Követők összevonása, ha a torrent már létezik","subheader":"Amikor hozzáad egy torrentet"}},"rss":{"autoDownloader":{"enable":"RSS szabályok feldolgozásának engedélyezése","subheader":"RSS Torrent Automatikus Letöltő"},"reader":{"enableProcessing":"RSS hírcsatornák lekérdezésének engedélyezése","feedsRefreshInterval":"Hírcsatornák frissítési intervalluma","maximumArticlesPerFeed":"Cikkek maximális száma hírcsatornánként","subheader":"RSS Olvasó"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER epizódok letöltése","filters":"Szűrők","filtersHint":"Soronként egy","subheader":"RSS Okos Epizód Szűrő"},"useIdForRssLinks":"Azonosító használata az RSS cikk hivatkozásokhoz"},"saveSuccess":"Beállítások mentve!","speed":{"download":"Letöltés","scheduler":{"from":"Ettől","selectButtonLabel":"Időpont kiválasztása","subheader":"Alternatív sebességkorlátok használatának ütemezése","to":"Eddig","when":"Mikor"},"settings":{"applyToPeersOnLan":"Sebességkorlát alkalmazása a LAN-on lévő peerekre","applyToTransportOverhead":"Sebességkorlát alkalmazása a szállítási túlterhelésre","applyToUtp":"Sebességkorlát alkalmazása a µTP protokollra"},"subheader":{"alternative":"Alternatív Sebességkorlátok","global":"Globális Sebességkorlátok","settings":"Sebességkorlát Beállítások"},"tip":"0 korlátlan jelent","upload":"Feltöltés"},"tabs":{"advanced":"Haladó","behavior":"Viselkedés","bittorrent":"BitTorrent","connection":"Kapcsolat","downloads":"Letöltések","rss":"RSS","speed":"Sebesség","tagsAndCategories":"Címkék & Kategóriák","vuetorrent":{"general":"Általános","title":"VueTorrent","torrent_card":{"grid":"Rács Nézet","list":"Lista Nézet","table":"Táblázat Nézet"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Elérhető kategóriák:","createNewCategory":"Új kategória létrehozása","createNewTag":"Új címke létrehozása","noCategories":"Még nincsenek kategóriák","noTags":"Még nincsenek címkék","tagsSubheader":"Elérhető címkék:"},"title":"Beállítások","vuetorrent":{"general":{"check_new":"Új verzió keresése","currentVersion":"Jelenlegi verzió","customTitle":"Egyéni cím","dateFormat":"Dátumformátum","download":"Beállítások exportálása","fileContentInterval":"Torrent fájltartalom frissítési intervalluma","hideChipIfUnset":"Csempék elrejtése, ha nincsenek beállítva","historySize":"Előzmények mérete a jogosult mezőkön","import":"Beállítások importálása","isDrawerRight":"Jobb oldali fiók","isShutdownButtonVisible":"Leállítás gomb megjelenítése","language":"Nyelv","paginationSize":{"infinite_scroll":"Végtelen görgetés","label":"Lapozási méret","warning":"A magas értékek használata befolyásolhatja a teljesítményt"},"qbittorrentVersion":"qBittorrent verzió","refreshInterval":"qBittorrent API frissítési intervalluma","registerMagnet":"Mágnes linkek regisztrálása","resetSettings":"Beállítások visszaállítása","showAlltimeStat":"Összes idő statisztikájának megjelenítése","showCurrentSpeed":"Aktuális sebesség megjelenítése","showFreeSpace":"Szabad hely megjelenítése","showSessionStat":"Munkamenet statisztikájának megjelenítése","showSpeedGraph":"Sebességgrafikon megjelenítése","tip":"Ezek a beállítások a testreszabott WebUI-ra vonatkoznak","useBinarySize":"Az adatméretek bináris egységekre való cseréje (kB -> KiB)","useBitSpeed":"A sebességértékek bitekre való cseréje (kB/s -> kbps)","vueTorrentTitle":"Fül cím"},"torrentCard":{"grid":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai rács nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai rács nézetben"},"list":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai lista nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai lista nézetben"},"table":{"tip":"A torrentek megjelenítendő tulajdonságai táblázat nézetben"}}},"webUI":{"authentication":{"banDuration":"Kitiltás időtartama","banDurationHint":"Másodpercekben","bypassLocalhost":"Hitelesítés megkerülése a localhoston lévő kliensek számára","bypassWhitelist":"Hitelesítés megkerülése a fehérlistán szereplő IP-alhálózatokban lévő kliensek számára","maxAttempts":"Maximális próbálkozások száma","password":"Jelszó","passwordPlaceholder":"(változatlan)","sessionTimeout":"Munkamenet időkorlát","sessionTimeoutHint":"Másodpercekben","subheader":"Hitelesítés","username":"Felhasználónév","whitelistExamples":"Példa: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Egyéni HTTP fejlécek hozzáadása","customHeadersHint":"Soronként egy","customHeadersPlaceholder":"Fejléc1: érték1\\nFejléc2: érték2\\n...","dynDns":{"domainName":"Domain név","password":"Jelszó","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Regisztráció","subheader":"Dinamikus domain név frissítése","username":"Felhasználónév"},"https":{"certificate":"Tanúsítvány","key":"Kulcs","subheader":"HTTPS használata","tip":"Tanúsítványokkal kapcsolatos információk"},"interface":{"ipAddress":"IP-cím","port":"Port","subheader":"Web Felhasználói Felület","useAlternativeWebUI":"Alternatív WebUI használata","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"proxiesList":"Megbízható proxyk listája","proxiesListHint":"Az IP-címek pontosvesszővel ( ; ) elválasztva","reverseProxySupport":"Fordított proxy támogatás engedélyezése","security":{"clickjacking":"Clickjacking védelem engedélyezése","csrf":"Cross-Site Request Forgery (CSRF) védelem engedélyezése","hostHeaderValidation":"Host fejléc érvényesítésének engedélyezése","hostHeaderValidationHint":"Pontosvesszővel ( ; ) elválasztva","secureCookie":"Cookie \\"biztonságos\\" jelzőjének engedélyezése (HTTPS szükséges)","serverDomains":"Szerver Domainek","subheader":"Biztonság"}}}');
-    FH = {
+    SH = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Mindig hirdessen minden szinten","announceAllTrackers":"Mindig hirdessen minden követőn egy szinten","announceIP":"A követőknek jelentett IP-cím (újraindítás szükséges)","coalesceReadsWrites":"Olvasások és írások egyesítése (libtorrent < 2.0)","disk":{"diskCache":"Lemez gyorsítótár (libtorrent < 2.0)","diskCacheExpiry":"Lemez gyorsítótár lejárati intervalluma (libtorrent < 2.0)","diskIoReadMode":"Lemez IO olvasási mód","diskIoType":"Lemez IO Típus (libtorrent >= 2.0; újraindítás szükséges)","diskIoWriteMode":"Lemez IO írási mód","diskQueueSize":"Lemez várakozási sor mérete","subheader":"Lemez"},"maxConcurrentHTTPAnnounces":"Egyidejűleg maximális HTTP bejelentések","networking":{"outgoingPortsMax":"Kimenő portok (Max) [0: Letiltva]","outgoingPortsMin":"Kimenő portok (Min) [0: Letiltva]","peerTos":"DSCP érték a peerekhez való kapcsolódásokhoz","subheader":"Hálózat","upnpLeaseDuration":"UPnP bérleti időtartam [0: Állandó bérlet]","utpTcpMixedModeAlgorithm":"μTP-TCP vegyes mód algoritmus"},"outgoingConnectionsPerSecond":"Kimenő kapcsolatok másodpercenként","peerTurnover":"Peer cserélődés lekapcsolási százaléka","peerTurnoverCutoff":"Peer cserélődés küszöbértéke","peerTurnoverInterval":"Peer cserélődés lekapcsolási intervalluma","pieceExtentAffinity":"Darab kiterjedés affinitás használata","requestQueueSize":"Maximális kérések egy peerhez","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Több kapcsolat engedélyezése ugyanarról az IP-címről","blockPeersOnPrivilegedPorts":"Kapcsolódás tiltása privilégiumos portokon lévő peerekhez","idnSupport":"Nemzetközi Domain Név (IDN) támogatás engedélyezése","mitigateSSRF":"Szerveroldali kérés hamisítás (SSRF) mérséklése","subheader":"Biztonság","validateHTTPSTrackerCertificate":"HTTPS követő tanúsítványának érvényesítése"},"sendBufferLowWatermark":"Küldési puffer alacsony vízjel","sendBufferWatermark":"Küldési puffer vízjel","sendBufferWatermarkFactor":"Küldési puffer vízjel tényező","sendUploadPieceSuggestions":"Feltöltési darab javaslatok küldése","socketBacklogSize":"Socket várakozási sor mérete","socketReceiveBufferSize":"Socket fogadási puffer mérete","socketReceiveBufferSizeHint":"0: rendszer alapértelmezett","socketSendBufferSize":"Socket küldési puffer mérete","socketSendBufferSizeHint":"0: rendszer alapértelmezett","stopTrackerTimeout":"Követő időtúllépés leállítása","subheader":"libtorrent szakasz","threads":{"asyncIoThreads":"Aszinkron I/O szálak","bdecodeDepthLimit":"Bdecode mélység korlát","bdecodeTokenLimit":"Bdecode token korlát","filePoolSize":"Fájlpool mérete","hashingThreads":"Hashelési szálak (libtorrent >= 2.0)","outstandingMemory":"Kiemelkedő memória torrentek ellenőrzésekor","subheader":"Szálak"},"uploadChokingAlgorithm":"Feltöltési fulladás algoritmus","uploadSlotsBehavior":"Feltöltési slotok viselkedése"},"openDoc":"Dokumentáció megnyitása","qbittorrent":{"allocatedRam":"Fizikai memória (RAM) használati korlát (libtorrent >= 2.0)","embeddedTracker":{"enable":"Beágyazott követő engedélyezése","port":"Beágyazott követő port","portForward":"Port továbbítás engedélyezése a beágyazott követő számára","title":"Beágyazott követő"},"networking":{"ipAddress":{"all":"Minden cím","allIPv4":"Minden IPv4 cím","allIPv6":"Minden IPv6 cím","label":"Opcionális IP-cím a kötéshez"},"networkInterfaces":{"any":"Bármelyik interfész","label":"Hálózati interfész"},"title":"Hálózat"},"reannounceOnIpPortChanged":"Újrahirdetés minden követőnek, amikor az IP vagy a port megváltozik","recheckOnCompletion":"Torrentek újraellenőrzése a befejezéskor","refreshInterval":"GUI frissítési intervallum","resolveCountries":"Peer országok feloldása","resumeDataStorageType":{"label":"Folytatási adatok tárolási típusa (újraindítás szükséges)","legacy":"Gyorsfolytatás fájlok","sqlite":"SQLite adatbázis (kísérleti)"},"saveInterval":"Folytatási adatok mentési intervalluma","subheader":"qBittorrent szakasz","torrentFileSizeLimit":".torrent fájlméret korlát"}},"behavior":{"logs":{"file_log_age":"Régi naplófájlok törlése, ha régebbiek, mint","file_log_backup_enabled":"Naplófájl biztonsági mentés engedélyezése","file_log_delete_old":"Régi biztonsági mentési naplók törlése","file_log_enabled":"Naplófájlok engedélyezése","file_log_max_size":"A naplófájl biztonsági mentése után","file_log_path":"Mentési útvonal","subheader":"Naplókezelés"},"performance_warning":"Teljesítmény figyelmeztetés naplózása"},"bittorrent":{"autoAddTrackers":"Automatikusan ezeket a követőket adja hozzá az új letöltésekhez","autoAddTrackersHint":"Egy követő soronként","maxActiveCheckingTorrents":"Maximálisan aktív ellenőrző torrentek","privacy":{"enableAnonymous":"Névtelen mód engedélyezése","enableDHT":"DHT (decentralizált hálózat) engedélyezése több peer megtalálásához","enableLPD":"Helyi Peer Felfedezés engedélyezése több peer megtalálásához","enablePeX":"Peer Csere (PeX) engedélyezése több peer megtalálásához","encryptionMode":"Titkosítási mód","moreInfo":"További információ","subheader":"Adatvédelem"},"seedLimits":{"subheader":"Seed korlátok","then":"Akkor","whenInactiveSeedingTimeReaches":"Amikor az inaktív seedelési idő eléri","whenRatioReaches":"Amikor az arány eléri","whenSeedingTimeReaches":"Amikor a seedelési idő eléri"},"torrentQueueing":{"downloadRateLimit":"Letöltési sebesség küszöbérték","excludeSlowTorrent":"A lassú torrenteket ne számítsa bele ezekbe a korlátokba","maxActiveDownload":"Maximális aktív letöltések","maxActiveTorrent":"Maximális aktív torrentek","maxActiveUpload":"Maximális aktív feltöltések","subheader":"Torrent Sorbaállítás","torrentInactivityTimer":"Torrent inaktivitási időzítő","uploadRateLimit":"Feltöltési sebesség küszöbérték"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globális maximális kapcsolatok száma","globalMaxUploadSlots":"Globális maximális feltöltési slotok száma","perTorrentMaxConnection":"Maximális kapcsolatok száma torrentenként","perTorrentMaxUploadSlots":"Maximális feltöltési slotok száma torrentenként","subheader":"Kapcsolat korlátok"},"ipFiltering":{"applyToTrackers":"Alkalmazás követőkre","bannedIps":"Manuálisan kitiltott IP-címek","bannedIpsHint":"Minden egyes sorban egy","filterPath":"Szűrő útvonal (.dat, .p2p, .p2b)","subheader":"IP Szűrés"},"listeningPort":{"incomingConnectionPort":"Bejövő kapcsolatok portja","randomPort":"Véletlenszerű port","subheader":"Hallgatózó port","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"protocol":"Peer kapcsolatódási protokoll","proxy":{"auth":{"password":"Jelszó","subtitle":"Hitelesítés","tip":"Információ: A jelszó titkosítatlanul van mentve","username":"Felhasználónév"},"bittorrent":"Proxy használata BitTorrent célra","host":"Hoszt","hostNameLookup":"Proxy használata hosztnév lekérdezésre","misc":"Proxy használata általános célra","peerConnections":"Proxy használata peerkapcsolatokhoz","port":"Port","rss":"Proxy használata RSS célra","subheader":"Proxy Szerver"}},"downloads":{"excludedFileNames":{"hint":"Egy szűrő soronként","label":"Kizárt fájlnév"},"mailNotification":{"authEnabled":"Hitelesítés","enabled":"Email értesítés a letöltés befejezésekor","from":"Feladó","password":"Jelszó","smtpServer":"SMTP szerver","sslEnabled":"Ez a szerver biztonságos kapcsolatot (SSL) igényel","to":"Címzett","username":"Felhasználónév"},"monitoredFolders":{"actions":"Műveletek","confirmDelete":"Biztosan törölni szeretné ezt az elemet?","editItem":"Szerkesztés","monitoredFolderPath":"Megfigyelt Mappa","newItem":"Új","noData":"Még nincs megfigyelt mappa","otherPath":"Egyéb Útvonal","saveType":"Mentési hely felülbírálása","subheader":"Megfigyelt Mappák"},"publicSettings":{"appendQBExtension":"Append .!qB kiterjesztés a befejezetlen fájlokhoz","preAllocateDisk":"A lemezterület előzetes lefoglalása minden fájlhoz"},"runExternalProgram":{"onAddedEnabled":"Külső program futtatása a torrent hozzáadásakor","onAddedLabel":"Parancs","onFinishedEnabled":"Külső program futtatása a torrent befejezésekor","onFinishedLabel":"Parancs","subheader":"Külső program futtatása","supportParamC":"%C: Fájlok száma","supportParamD":"%D: Mentési útvonal","supportParamF":"%F: Tartalom útvonala (ugyanaz, mint a gyökér útvonal többfájlos torrent esetén)","supportParamG":"%G: Címkék (vesszővel elválasztva)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategória","supportParamN":"%N: Torrent név","supportParamR":"%R: Gyökér útvonal (az első torrent almappa útvonala)","supportParamT":"%T: Aktuális követő","supportParamTitle":"Támogatott paraméterek (kisbetű-érzékeny):","supportParamZ":"%Z: Torrent méret (bájtokban)","tip":"Tipp: A paraméter idézőjelek közé zárása elkerüli a szöveg szóköznél történő levágását (pl. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Alapértelmezett Torrent Kezelési Mód","categoryChangedTMM":"Amikor a Kategória Mentési Útvonala megváltozik","defaultSavePath":"Alapértelmezett Mentési Útvonal (befejezett)","defaultTMMOptions":{"automatic":"Automatikus","manual":"Kézi"},"exportDir":"Másolja a .torrent fájlokat ide","exportDirFinished":"Másolja a befejezett letöltések .torrent fájljait ide","keepIncomplete":"Alapértelmezett Letöltési Útvonal (befejezetlen torrentek)","paramChangedTMMOptions":{"relocateTorrent":"Torrent áthelyezése","switchToManual":"Torrent átkapcsolása Kézi Módra"},"savePathChangedTMM":"Amikor az Alapértelmezett Mentési Útvonal megváltozik","subheader":"Mentési Kezelés","torrentChangedTMM":"Amikor a Torrent Kategória megváltozik"},"whenAddTorrent":{"addToTopOfQueue":"Hozzáadás a sor elejéhez","autoDeleteMode":"A .torrent fájlok utólagos törlése","doNotAutoStart":"Ne indítsa el automatikusan a letöltést","mergeTrackers":"Követők összevonása, ha a torrent már létezik","subheader":"Amikor hozzáad egy torrentet"}},"rss":{"autoDownloader":{"enable":"RSS szabályok feldolgozásának engedélyezése","subheader":"RSS Torrent Automatikus Letöltő"},"reader":{"enableProcessing":"RSS hírcsatornák lekérdezésének engedélyezése","feedsRefreshInterval":"Hírcsatornák frissítési intervalluma","maximumArticlesPerFeed":"Cikkek maximális száma hírcsatornánként","subheader":"RSS Olvasó"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER epizódok letöltése","filters":"Szűrők","filtersHint":"Soronként egy","subheader":"RSS Okos Epizód Szűrő"},"useIdForRssLinks":"Azonosító használata az RSS cikk hivatkozásokhoz"},"saveSuccess":"Beállítások mentve!","speed":{"download":"Letöltés","scheduler":{"from":"Ettől","selectButtonLabel":"Időpont kiválasztása","subheader":"Alternatív sebességkorlátok használatának ütemezése","to":"Eddig","when":"Mikor"},"settings":{"applyToPeersOnLan":"Sebességkorlát alkalmazása a LAN-on lévő peerekre","applyToTransportOverhead":"Sebességkorlát alkalmazása a szállítási túlterhelésre","applyToUtp":"Sebességkorlát alkalmazása a µTP protokollra"},"subheader":{"alternative":"Alternatív Sebességkorlátok","global":"Globális Sebességkorlátok","settings":"Sebességkorlát Beállítások"},"tip":"0 korlátlan jelent","upload":"Feltöltés"},"tabs":{"advanced":"Haladó","behavior":"Viselkedés","bittorrent":"BitTorrent","connection":"Kapcsolat","downloads":"Letöltések","rss":"RSS","speed":"Sebesség","tagsAndCategories":"Címkék & Kategóriák","vuetorrent":{"general":"Általános","title":"VueTorrent","torrent_card":{"grid":"Rács Nézet","list":"Lista Nézet","table":"Táblázat Nézet"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Elérhető kategóriák:","createNewCategory":"Új kategória létrehozása","createNewTag":"Új címke létrehozása","noCategories":"Még nincsenek kategóriák","noTags":"Még nincsenek címkék","tagsSubheader":"Elérhető címkék:"},"title":"Beállítások","vuetorrent":{"general":{"check_new":"Új verzió keresése","currentVersion":"Jelenlegi verzió","customTitle":"Egyéni cím","dateFormat":"Dátumformátum","download":"Beállítások exportálása","fileContentInterval":"Torrent fájltartalom frissítési intervalluma","hideChipIfUnset":"Csempék elrejtése, ha nincsenek beállítva","historySize":"Előzmények mérete a jogosult mezőkön","import":"Beállítások importálása","isDrawerRight":"Jobb oldali fiók","isShutdownButtonVisible":"Leállítás gomb megjelenítése","language":"Nyelv","paginationSize":{"infinite_scroll":"Végtelen görgetés","label":"Lapozási méret","warning":"A magas értékek használata befolyásolhatja a teljesítményt"},"qbittorrentVersion":"qBittorrent verzió","refreshInterval":"qBittorrent API frissítési intervalluma","registerMagnet":"Mágnes linkek regisztrálása","resetSettings":"Beállítások visszaállítása","showAlltimeStat":"Összes idő statisztikájának megjelenítése","showCurrentSpeed":"Aktuális sebesség megjelenítése","showFreeSpace":"Szabad hely megjelenítése","showSessionStat":"Munkamenet statisztikájának megjelenítése","showSpeedGraph":"Sebességgrafikon megjelenítése","tip":"Ezek a beállítások a testreszabott WebUI-ra vonatkoznak","useBinarySize":"Az adatméretek bináris egységekre való cseréje (kB -> KiB)","useBitSpeed":"A sebességértékek bitekre való cseréje (kB/s -> kbps)","vueTorrentTitle":"Fül cím"},"torrentCard":{"grid":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai rács nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai rács nézetben"},"list":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai lista nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai lista nézetben"},"table":{"tip":"A torrentek megjelenítendő tulajdonságai táblázat nézetben"}}},"webUI":{"authentication":{"banDuration":"Kitiltás időtartama","banDurationHint":"Másodpercekben","bypassLocalhost":"Hitelesítés megkerülése a localhoston lévő kliensek számára","bypassWhitelist":"Hitelesítés megkerülése a fehérlistán szereplő IP-alhálózatokban lévő kliensek számára","maxAttempts":"Maximális próbálkozások száma","password":"Jelszó","passwordPlaceholder":"(változatlan)","sessionTimeout":"Munkamenet időkorlát","sessionTimeoutHint":"Másodpercekben","subheader":"Hitelesítés","username":"Felhasználónév","whitelistExamples":"Példa: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Egyéni HTTP fejlécek hozzáadása","customHeadersHint":"Soronként egy","customHeadersPlaceholder":"Fejléc1: érték1\\nFejléc2: érték2\\n...","dynDns":{"domainName":"Domain név","password":"Jelszó","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Regisztráció","subheader":"Dinamikus domain név frissítése","username":"Felhasználónév"},"https":{"certificate":"Tanúsítvány","key":"Kulcs","subheader":"HTTPS használata","tip":"Tanúsítványokkal kapcsolatos információk"},"interface":{"ipAddress":"IP-cím","port":"Port","subheader":"Web Felhasználói Felület","useAlternativeWebUI":"Alternatív WebUI használata","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"proxiesList":"Megbízható proxyk listája","proxiesListHint":"Az IP-címek pontosvesszővel ( ; ) elválasztva","reverseProxySupport":"Fordított proxy támogatás engedélyezése","security":{"clickjacking":"Clickjacking védelem engedélyezése","csrf":"Cross-Site Request Forgery (CSRF) védelem engedélyezése","hostHeaderValidation":"Host fejléc érvényesítésének engedélyezése","hostHeaderValidationHint":"Pontosvesszővel ( ; ) elválasztva","secureCookie":"Cookie \\"biztonságos\\" jelzőjének engedélyezése (HTTPS szükséges)","serverDomains":"Szerver Domainek","subheader":"Biztonság"}}}');
+    CH = {
         add: {
             error: "Hiba történt a torrentek hozzáadása közben",
             pending: "Torrentek küldése...",
@@ -97726,7 +97841,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             new: "Új verzió elérhető!"
         }
     };
-    kH = {
+    AH = {
         actions: {
             delete: "Torrentek törlése",
             logs: "Naplók megnyitása",
@@ -97748,7 +97863,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         searchTorrents: "Torrentek keresése"
     };
-    xH = {
+    DH = {
         content: {
             fileInfo: "{n} fájl | {n} fájlok",
             filter_placeholder: "Keresés a fájlfa-ban",
@@ -97837,7 +97952,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             tier: "Szint: {n}"
         }
     };
-    wH = {
+    TH = {
         properties: {
             added_on: "Hozzáadva",
             amount_left: "Hátralévő mennyiség",
@@ -97922,28 +98037,28 @@ Hibák fordulhatnak elő, óvatosan használja.`
             uploading: "Feltöltés"
         }
     };
-    SH = {
+    EH = {
         minutes: "perc | perc | percek",
         seconds: "másodperc | másodperc | másodpercek"
     };
-    CH = {
-        common: cH,
-        constants: dH,
-        dashboard: hH,
-        dialogs: mH,
-        login: pH,
-        logs: fH,
-        navbar: gH,
-        rssArticles: vH,
-        searchEngine: yH,
-        settings: bH,
-        toast: FH,
-        topbar: kH,
-        torrentDetail: xH,
-        torrent: wH,
-        units: SH
+    _H = {
+        common: fH,
+        constants: gH,
+        dashboard: vH,
+        dialogs: yH,
+        login: bH,
+        logs: FH,
+        navbar: kH,
+        rssArticles: xH,
+        searchEngine: wH,
+        settings: SH,
+        toast: CH,
+        topbar: AH,
+        torrentDetail: DH,
+        torrent: TH,
+        units: EH
     };
-    AH = {
+    PH = {
         cancel: "Annulla",
         close: "Chiudi",
         delete: "Elimina",
@@ -97959,7 +98074,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "Usa Impostazioni Globali",
         yes: "Sì"
     };
-    DH = {
+    BH = {
         addStopped: {
             always: "Sempre",
             never: "Mai",
@@ -98073,7 +98188,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "Preferisci TCP"
         }
     };
-    TH = {
+    MH = {
         displayMode: {
             grid: "Griglia",
             list: "Lista",
@@ -98134,7 +98249,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "Ordinamento Inverso",
         torrentsCount: "Nessun Torrent | {n} Torrent | {n} Torrent"
     };
-    EH = {
+    RH = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "nome1=valore1; nome2=valore2; ...",
@@ -98274,7 +98389,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             warnEdit: "Modificare il nome dell'etichetta migrerà i torrent alla nuova etichetta. Potrebbero verificarsi errori, usare con cautela."
         }
     };
-    _H = {
+    LH = {
         error: "Accesso fallito!",
         password: "Password",
         rules: {
@@ -98287,7 +98402,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "Accedi",
         username: "Nome utente"
     };
-    PH = {
+    IH = {
         emptyLogList: "Nessun log trovato",
         filters: {
             query: "Cerca nel log",
@@ -98295,7 +98410,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "Log qBittorrent"
     };
-    BH = {
+    zH = {
         addPanel: {
             torrentsPendingCount: "{n} Torrent in attesa di Upload | {n} Torrent in attesa di Upload"
         },
@@ -98361,7 +98476,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    MH = {
+    NH = {
         feeds: {
             empty: {
                 action: "Crea Feed RSS"
@@ -98382,14 +98497,14 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    RH = {
+    OH = {
         add: {
             error: "Errore durante l'aggiunta dei torrent",
             pending: "Inviando torrent...",
             success: "{n} Torrent aggiunto | {n} Torrent aggiunti"
         }
     };
-    LH = {
+    HH = {
         peers: {
             fields: {
                 download: "Download",
@@ -98403,7 +98518,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    IH = {
+    VH = {
         properties: {
             avg_download_speed: "Velocità DL Media",
             avg_upload_speed: "Velocità UL Media",
@@ -98412,20 +98527,20 @@ Hibák fordulhatnak elő, óvatosan használja.`
             seeding_time_limit: "Limite Tempo di Seeding"
         }
     };
-    zH = {
-        common: AH,
-        constants: DH,
-        dashboard: TH,
-        dialogs: EH,
-        login: _H,
-        logs: PH,
-        navbar: BH,
-        rssArticles: MH,
-        toast: RH,
-        torrentDetail: LH,
-        torrent: IH
+    WH = {
+        common: PH,
+        constants: BH,
+        dashboard: MH,
+        dialogs: RH,
+        login: LH,
+        logs: IH,
+        navbar: zH,
+        rssArticles: NH,
+        toast: OH,
+        torrentDetail: HH,
+        torrent: VH
     };
-    NH = {
+    GH = {
         cancel: "キャンセル",
         close: "閉じる",
         delete: "削除",
@@ -98448,7 +98563,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "グローバル設定を使用する",
         yes: "はい"
     };
-    OH = {
+    $H = {
         addStopped: {
             always: "常に",
             never: "一度もない",
@@ -98573,7 +98688,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "TCPを優先"
         }
     };
-    HH = {
+    jH = {
         displayMode: {
             grid: "グリッド",
             list: "リスト",
@@ -98641,7 +98756,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "並び順を変える",
         torrentsCount: "Torrentなし | {n}個のTorrent | {n}個のTorrent"
     };
-    VH = {
+    UH = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "name1=value1; name2=value2; ..",
@@ -98843,7 +98958,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             warnEdit: "タグ名を編集すると、Torrentが新しいタグに移行されます。エラーが発生する場合がありますので、注意して使用してください。"
         }
     };
-    WH = {
+    YH = {
         error: "ログインに失敗しました!",
         password: "パスワード",
         rules: {
@@ -98856,7 +98971,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "ログイン",
         username: "ユーザー名"
     };
-    GH = {
+    qH = {
         emptyLogList: "ログが見つかりません",
         filters: {
             query: "ログメッセージ内を検索",
@@ -98864,7 +98979,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "qBittorrentログ"
     };
-    $H = {
+    KH = {
         addPanel: {
             torrentsPendingCount: "{n}個のTorrentがアップロードを待機中 | {n}個のTorrentがアップロードを待機中"
         },
@@ -98933,7 +99048,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    jH = {
+    XH = {
         feeds: {
             empty: {
                 action: "RSSフィードを作成",
@@ -98975,7 +99090,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             rules: "ルールを表示"
         }
     };
-    UH = {
+    JH = {
         filters: {
             category: {
                 all: "全て",
@@ -99011,8 +99126,8 @@ Hibák fordulhatnak elő, óvatosan használja.`
         tabHeaderEmpty: "(空のクエリ)",
         title: "検索エンジン"
     };
-    YH = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BTプレイヤーピアを自動的にアクセス禁止","auto_ban_unknown_peer":"不明なピアの自動アクセス禁止","auto_update_trackers":"公開トラッカーリストを自動的に更新する","public_trackers":"公開トラッカー","trackers_list_url":"トラッカーURLリストをカスタマイズ"}},"advanced":{"libtorrent":{"announceAllTiers":"常にすべてのティアにアナウンスする","announceAllTrackers":"常にティア内のすべてのトラッカーにアナウンスする","announceIP":"トラッカーに報告するIPアドレス (再起動が必要)","coalesceReadsWrites":"読み取りと書き込みを合成 (libtorrent < 2.0)","disk":{"diskCache":"ディスクキャッシュ (libtorrent < 2.0)","diskCacheExpiry":"ディスクキャッシュ期限切れ間隔 (libtorrent < 2.0)","diskIoReadMode":"ディスクI/O読み取りモード","diskIoType":"ディスクI/Oタイプ (libtorrent >= 2.0、再起動が必要)","diskIoWriteMode":"ディスクI/O書き込みモード","diskQueueSize":"ディスクキューサイズ","subheader":"ディスク"},"maxConcurrentHTTPAnnounces":"HTTPアナウンスの最大同時接続数","networking":{"outgoingPortsMax":"送信ポート (最大) [0: 無効]","outgoingPortsMin":"送信ポート (最小) [0: 無効]","peerTos":" ピアに接続するサービスの種類 (ToS)","subheader":"ネットワーク","upnpLeaseDuration":"UPnPのリース期間 [0: 永続リース]","utpTcpMixedModeAlgorithm":"μTP-TCP混合モードアルゴリズム"},"outgoingConnectionsPerSecond":"1秒あたりの外部接続数","peerTurnover":"ピアターンオーバーの切断の割合","peerTurnoverCutoff":"ピアターンオーバーのしきい値の割合","peerTurnoverInterval":"ピアターンオーバーの切断の間隔","pieceExtentAffinity":"ピースのエクステントアフィニティを使用する","requestQueueSize":"1つのピアへ送信する未処理リクエストの最大数","security":{"allowMultipleConnectionsFromTheSameIPAddress":"同じIPアドレスから複数の接続を許可する","blockPeersOnPrivilegedPorts":"特権ポートでのピアへの接続を許可しない","idnSupport":"国際化ドメイン名 (IDN) に対応する","mitigateSSRF":"サーバーサイドリクエストフォージェリ (SSRF) 対策","subheader":"セキュリティ","validateHTTPSTrackerCertificate":"HTTPSトラッカーの証明書を検証する"},"sendBufferLowWatermark":"送信バッファーのウォーターマーク最小値","sendBufferWatermark":"送信バッファーのウォーターマーク","sendBufferWatermarkFactor":"送信バッファーのウォーターマーク係数","sendUploadPieceSuggestions":"アップロードピースの提案を送信する","socketBacklogSize":"ソケットで保留にできる接続待ちの数","socketReceiveBufferSize":"ソケットの受信バッファサイズ","socketReceiveBufferSizeHint":"0: システムデフォルト","socketSendBufferSize":"ソケットの送信バッファサイズ","socketSendBufferSizeHint":"0: システムデフォルト","stopTrackerTimeout":"トラッカーのタイムアウトを停止","subheader":"libtorrentセクション","threads":{"asyncIoThreads":"非同期I/Oスレッド数","bdecodeDepthLimit":"Bdecodeの深度制限","bdecodeTokenLimit":"Bdecodeのトークン制限","filePoolSize":"ファイルプールサイズ","hashingThreads":"ハッシュ化のスレッド数 (libtorrent >= 2.0)","outstandingMemory":"Torrentのチェックに使用するメモリー量","subheader":"スレッド"},"uploadChokingAlgorithm":"アップロードのチョークアルゴリズム","uploadSlotsBehavior":"アップロードスロットの動作"},"openDoc":"ドキュメントを開く","qbittorrent":{"allocatedRam":"物理メモリ (RAM) の使用限度 (libtorrent >= 2.0)","embeddedTracker":{"enable":"組み込みトラッカーを有効にする","port":"組み込みトラッカーのポート","portForward":"組み込みトラッカーのポート転送を有効にする","title":"組み込みトラッカー"},"networking":{"ipAddress":{"all":"すべてのアドレス","allIPv4":"すべてのIPv4アドレス","allIPv6":"すべてのIPv6アドレス","label":"バインドする任意のIPアドレス"},"networkInterfaces":{"any":"任意のインターフェース","label":"ネットワークインターフェース"},"title":"ネットワーク"},"reannounceOnIpPortChanged":"IPまたはポートに変更があった場合にすべてのトラッカーに再アナウンスする","recheckOnCompletion":"Torrentの完了時に再チェックする","refreshInterval":"GUI更新間隔","resolveCountries":"ピアの国籍を解決する","resumeDataStorageType":{"label":"再開データのストレージタイプ (再起動が必要)","legacy":"Fastresumeファイル","sqlite":"SQLiteデータベース (実験的)"},"saveInterval":"再開データの保存間隔","subheader":"qBittorrentセクション","torrentFileSizeLimit":".torrentファイルのサイズ制限"}},"behavior":{"logs":{"file_log_age":"より古いバックアップログを削除する","file_log_backup_enabled":"ログファイルのバックアップを有効にする","file_log_delete_old":"古いバックアップログを削除する","file_log_enabled":"ログファイルを有効にする","file_log_max_size":"ログファイルをバックアップする間隔","file_log_path":"保存先パス","subheader":"ログ管理"},"performance_warning":"パフォーマンス警告をログに記録する"},"bittorrent":{"autoAddTrackers":"以下のトラッカーを新しいダウンロードに自動追加する","autoAddTrackersHint":"1行につき1トラッカー","maxActiveCheckingTorrents":"Torrentをチェックする最大アクティブ数","privacy":{"enableAnonymous":"匿名モードを有効にする","enableDHT":"DHT (分散型ネットワーク) を有効にする (ピア検出数の向上)","enableLPD":"ローカルピア検出 (LPD) を有効にする (ピア検出数の向上)","enablePeX":"ピア交換 (PeX) を有効にする (ピア検出数の向上)","encryptionMode":"暗号化モード","moreInfo":"詳細情報","subheader":"プライバシー"},"seedLimits":{"subheader":"シード制限","then":"から","whenInactiveSeedingTimeReaches":"非アクティブシード時間制限に達したとき","whenRatioReaches":"共有比制限に達したとき","whenSeedingTimeReaches":"シード時間制限に達したとき"},"torrentQueueing":{"downloadRateLimit":"DL速度のしきい値","excludeSlowTorrent":"これらの制限で低速なTorrentは数に含めない","maxActiveDownload":"アクティブDL数の上限","maxActiveTorrent":"アクティブTorrent数の上限","maxActiveUpload":"アクティブUP数の上限","subheader":"Torrentキュー","torrentInactivityTimer":"Torrent非アクティブタイマー","uploadRateLimit":"UP速度のしきい値"}},"connection":{"connectionLimits":{"globalMaxConnection":"グローバル最大接続数","globalMaxUploadSlots":"最大アップロードスロット数","perTorrentMaxConnection":"Torrentごとの最大接続数","perTorrentMaxUploadSlots":"Torrentごとの最大アップロードスロット数","subheader":"接続制限"},"ipFiltering":{"applyToTrackers":"トラッカーに適用する","bannedIps":"手動でアクセス禁止にしたIPアドレス","bannedIpsHint":"1行に1つずつ","filterPath":"フィルターパス (.dat、.p2p、.p2b)","subheader":"IPフィルタリング"},"listeningPort":{"incomingConnectionPort":"受信接続に使用するポート","randomPort":"ランダムなポート","subheader":"接続待ちポート","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"protocol":"ピア接続プロトコル","proxy":{"auth":{"password":"パスワード","subtitle":"認証","tip":"注意: パスワードは暗号化されずに保存されます","username":"ユーザー名"},"bittorrent":"BitTorrentにプロキシを使用する","host":"ホスト","hostNameLookup":"ホスト名解決にプロキシを使用する","misc":"全般にプロキシを使用する","peerConnections":"ピア接続にプロキシを使用する","port":"ポート","rss":"RSSにプロキシを使用する","subheader":"プロキシサーバー"}},"downloads":{"excludedFileNames":{"hint":"1行に1つのフィルター","label":"除外ファイル名"},"mailNotification":{"authEnabled":"認証","enabled":"ダウンロード完了時のメール通知","from":"差出人(From)","password":"パスワード","smtpServer":"SMTPサーバー","sslEnabled":"このサーバーは安全な接続 (SSL) を必要とする","to":"宛先 (To)","username":"ユーザー名"},"monitoredFolders":{"actions":"アクション","confirmDelete":"このアイテムを削除してもよろしいですか?","editItem":"編集","monitoredFolderPath":"監視対象フォルダー","newItem":"新規","noData":"監視対象フォルダーはありません","otherPath":"その他のパス","saveType":"保存先を上書きする","subheader":"監視対象フォルダー"},"publicSettings":{"appendQBExtension":"未完了のファイルに.!qB拡張子を追加する","preAllocateDisk":"すべてのファイルにディスク領域を事前に割り当てる"},"runExternalProgram":{"onAddedEnabled":"Torrentの追加時に実行","onAddedLabel":"コマンド","onFinishedEnabled":"Torrentの完了時に実行","onFinishedLabel":"コマンド","subheader":"外部プログラムを実行","supportParamC":"%C: ファイル数","supportParamD":"%D: 保存先パス","supportParamF":"%F: コンテンツパス (複数ファイルTorrentのルートと同じ) ","supportParamG":"%G: タグ (カンマ区切り)","supportParamI":"%I: Infoハッシュ v1","supportParamJ":"%J: Infoハッシュ v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: カテゴリー","supportParamN":"%N: Torrent名","supportParamR":"%R: ルートパス (最初のTorrentサブディレクトリのパス)","supportParamT":"%T: 現在のトラッカー","supportParamTitle":"使用できるパラメーター (大文字と小文字を区別する) :","supportParamZ":"%Z: Torrentのサイズ (バイト)","tip":"ヒント: 空白でテキストが切り取られるのを避けるために、引用符でパラメータを囲んでください (例: \\"％N\\")"},"saveManagement":{"autoTMMEnabled":"デフォルトのTorrent管理モード","categoryChangedTMM":"カテゴリ保存パスが変更された場合","defaultSavePath":"デフォルトの保存先パス (完了時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":".torrentファイルのコピー先","exportDirFinished":"完了した.torrentファイルのコピー先","keepIncomplete":"ダウンロードパス (未完了時)","paramChangedTMMOptions":{"relocateTorrent":"Torrentを再配置","switchToManual":"Torrentを手動モードに切り替える"},"savePathChangedTMM":"デフォルトの保存パスが変更されたとき","subheader":"保存管理","torrentChangedTMM":"Torrentのカテゴリーが変更されたとき"},"whenAddTorrent":{"addToTopOfQueue":"キューの先頭に追加","autoDeleteMode":"追加後に.torrentファイルを削除する","doNotAutoStart":"ダウンロードを自動的に開始しない","mergeTrackers":"既存のTorrentにトラッカーをマージする","subheader":"Torrentの追加時"}},"rss":{"autoDownloader":{"enable":"RSSルール処理を有効にする","subheader":"RSS Torrent自動ダウンローダー"},"reader":{"enableProcessing":"RSSフィードの取得を有効にする","feedsRefreshInterval":"フィードの更新間隔","maximumArticlesPerFeed":"フィードごとの記事数の上限","subheader":"RSSリーダー"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPERエピソードをダウンロードする","filters":"フィルター","filtersHint":"1行に1つのフィルター","subheader":"RSS スマートエピソードフィルター"},"useIdForRssLinks":"RSS記事のリンクにIDを使用する"},"saveSuccess":"設定が保存されました!","speed":{"download":"ダウンロード","scheduler":{"from":"開始時間","selectButtonLabel":"時間を選択","subheader":"代替速度制限の使用をスケジュール","to":"終了時間","when":"いつ"},"settings":{"applyToPeersOnLan":"LAN上のピアに速度制限を適用する","applyToTransportOverhead":"トランスポートオーバーヘッドに速度制限を適用する","applyToUtp":"µTPプロトコルに速度制限を適用する"},"subheader":{"alternative":"代替速度制限","global":"グローバル速度制限","settings":"速度制限設定"},"tip":"0=無制限","upload":"アップロード"},"tabs":{"addons":{"enhanced_edition":"強化版"},"advanced":"高度な設定","behavior":"動作","bittorrent":"BitTorrent","connection":"接続","downloads":"ダウンロード","rss":"RSS","speed":"速度","tagsAndCategories":"タグ/カテゴリー","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"グリッドビュー","list":"リストビュー","table":"テーブルビュー"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"利用可能なカテゴリー:","createNewCategory":"新しいカテゴリーを作成","createNewTag":"新しいタグを作成","noCategories":"カテゴリーなし","noTags":"タグなし","tagsSubheader":"利用可能なタグ:"},"title":"設定","vuetorrent":{"general":{"check_new":"新しいバージョンを確認する","currentVersion":"現在のバージョン","customTitle":"カスタムタイトル","darkVariants":"ダークモード","dateFormat":"日付フォーマット","download":"設定のエクスポート","enableHashColors":"生成されたチップの色を有効にする","enableRatioColors":"共有比の色を有効にする","fileContentInterval":"Torrentファイルのコンテンツの更新間隔","hideChipIfUnset":"未設定の場合はチップを非表示にする","hideColoredChip":"チップのテキストバリアントを使用する","historySize":"対象フィールドの履歴サイズ","import":"設定のインポート","isDrawerRight":"右側のドロワー","isShutdownButtonVisible":"シャットダウンボタンを表示","language":"言語","lightVariants":"ライトモード","paginationSize":{"infinite_scroll":"無限スクロール","label":"ページネーションのサイズ","warning":"高い値を使用するとパフォーマンスに影響する可能性があります"},"qbittorrentVersion":"qBittorrentバージョン","refreshInterval":"qBittorrent API更新間隔","registerMagnet":"マグネットリンクを登録する","resetSettings":"設定をリセット","showAlltimeStat":"過去の統計を表示する","showCurrentSpeed":"現在の速度を表示する","showFreeSpace":"空き容量を表示する","showSessionStat":"セッション統計を表示する","showSpeedGraph":"速度グラフを表示する","tip":"これらの設定はカスタムWebUI自体のためのものです","useBinarySize":"データサイズの単位をバイナリ単位に置き換える (kB -> KiB)","useBitSpeed":"速度の値をビットに置き換える (kB/s -> kbps)","vueTorrentTitle":"タブのタイトル"},"torrentCard":{"grid":{"busyTip":"グリッドビューで表示する未完了のTorrentのプロパティ","doneTip":"グリッドビューで表示する完了したTorrentのプロパティ"},"list":{"busyTip":"リストビューで表示する未完了のTorrentのプロパティ","doneTip":"リストビューで表示する完了したTorrentのプロパティ"},"table":{"tip":"テーブルビューで表示するTorrentのプロパティ"}}},"webUI":{"authentication":{"banDuration":"アクセス禁止期間","banDurationHint":"秒単位","bypassLocalhost":"localhost上ではクライアントの認証を行わない","bypassWhitelist":"ホワイトリストに登録されたIPサブネット内のクライアントの認証を行わない","maxAttempts":"最大試行回数","password":"パスワード","passwordPlaceholder":"(変更なし)","sessionTimeout":"セッションタイムアウト","sessionTimeoutHint":"秒単位","subheader":"認証","username":"ユーザー名","whitelistExamples":"例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"カスタムHTTPヘッダーを追加する","customHeadersHint":"1行に1つのヘッダー","customHeadersPlaceholder":"Header1: 値1\\nHeader2: 値2\\n... ","dynDns":{"domainName":"ドメイン名","password":"パスワード","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"登録","subheader":"ダイナミックドメイン名を更新する","username":"ユーザー名"},"https":{"certificate":"証明書","key":"鍵","subheader":"HTTPSを使用する","tip":"証明書に関する情報"},"interface":{"ipAddress":"IPアドレス","port":"ポート","subheader":"Webユーザーインターフェース","useAlternativeWebUI":"代替WebUIを使用する","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"proxiesList":"信頼できるプロキシのリスト","proxiesListHint":"IPはセミコロン(;)で区切る","reverseProxySupport":"リバースプロキシのサポートを有効にする","security":{"clickjacking":"クリックジャッキング保護を有効にする","csrf":"クロスサイトリクエストフォージェリ(CSRF)保護を有効にする","hostHeaderValidation":"ホストヘッダー検証を有効にする","hostHeaderValidationHint":"セミコロン(;)で区切る","secureCookie":"CookieのSecureフラグを有効にする (HTTPSが必要)","serverDomains":"サーバードメイン","subheader":"セキュリティ"}}}');
-    qH = {
+    ZH = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BTプレイヤーピアを自動的にアクセス禁止","auto_ban_unknown_peer":"不明なピアの自動アクセス禁止","auto_update_trackers":"公開トラッカーリストを自動的に更新する","public_trackers":"公開トラッカー","trackers_list_url":"トラッカーURLリストをカスタマイズ"}},"advanced":{"libtorrent":{"announceAllTiers":"常にすべてのティアにアナウンスする","announceAllTrackers":"常にティア内のすべてのトラッカーにアナウンスする","announceIP":"トラッカーに報告するIPアドレス (再起動が必要)","coalesceReadsWrites":"読み取りと書き込みを合成 (libtorrent < 2.0)","disk":{"diskCache":"ディスクキャッシュ (libtorrent < 2.0)","diskCacheExpiry":"ディスクキャッシュ期限切れ間隔 (libtorrent < 2.0)","diskIoReadMode":"ディスクI/O読み取りモード","diskIoType":"ディスクI/Oタイプ (libtorrent >= 2.0、再起動が必要)","diskIoWriteMode":"ディスクI/O書き込みモード","diskQueueSize":"ディスクキューサイズ","subheader":"ディスク"},"maxConcurrentHTTPAnnounces":"HTTPアナウンスの最大同時接続数","networking":{"outgoingPortsMax":"送信ポート (最大) [0: 無効]","outgoingPortsMin":"送信ポート (最小) [0: 無効]","peerTos":" ピアに接続するサービスの種類 (ToS)","subheader":"ネットワーク","upnpLeaseDuration":"UPnPのリース期間 [0: 永続リース]","utpTcpMixedModeAlgorithm":"μTP-TCP混合モードアルゴリズム"},"outgoingConnectionsPerSecond":"1秒あたりの外部接続数","peerTurnover":"ピアターンオーバーの切断の割合","peerTurnoverCutoff":"ピアターンオーバーのしきい値の割合","peerTurnoverInterval":"ピアターンオーバーの切断の間隔","pieceExtentAffinity":"ピースのエクステントアフィニティを使用する","requestQueueSize":"1つのピアへ送信する未処理リクエストの最大数","security":{"allowMultipleConnectionsFromTheSameIPAddress":"同じIPアドレスから複数の接続を許可する","blockPeersOnPrivilegedPorts":"特権ポートでのピアへの接続を許可しない","idnSupport":"国際化ドメイン名 (IDN) に対応する","mitigateSSRF":"サーバーサイドリクエストフォージェリ (SSRF) 対策","subheader":"セキュリティ","validateHTTPSTrackerCertificate":"HTTPSトラッカーの証明書を検証する"},"sendBufferLowWatermark":"送信バッファーのウォーターマーク最小値","sendBufferWatermark":"送信バッファーのウォーターマーク","sendBufferWatermarkFactor":"送信バッファーのウォーターマーク係数","sendUploadPieceSuggestions":"アップロードピースの提案を送信する","socketBacklogSize":"ソケットで保留にできる接続待ちの数","socketReceiveBufferSize":"ソケットの受信バッファサイズ","socketReceiveBufferSizeHint":"0: システムデフォルト","socketSendBufferSize":"ソケットの送信バッファサイズ","socketSendBufferSizeHint":"0: システムデフォルト","stopTrackerTimeout":"トラッカーのタイムアウトを停止","subheader":"libtorrentセクション","threads":{"asyncIoThreads":"非同期I/Oスレッド数","bdecodeDepthLimit":"Bdecodeの深度制限","bdecodeTokenLimit":"Bdecodeのトークン制限","filePoolSize":"ファイルプールサイズ","hashingThreads":"ハッシュ化のスレッド数 (libtorrent >= 2.0)","outstandingMemory":"Torrentのチェックに使用するメモリー量","subheader":"スレッド"},"uploadChokingAlgorithm":"アップロードのチョークアルゴリズム","uploadSlotsBehavior":"アップロードスロットの動作"},"openDoc":"ドキュメントを開く","qbittorrent":{"allocatedRam":"物理メモリ (RAM) の使用限度 (libtorrent >= 2.0)","embeddedTracker":{"enable":"組み込みトラッカーを有効にする","port":"組み込みトラッカーのポート","portForward":"組み込みトラッカーのポート転送を有効にする","title":"組み込みトラッカー"},"networking":{"ipAddress":{"all":"すべてのアドレス","allIPv4":"すべてのIPv4アドレス","allIPv6":"すべてのIPv6アドレス","label":"バインドする任意のIPアドレス"},"networkInterfaces":{"any":"任意のインターフェース","label":"ネットワークインターフェース"},"title":"ネットワーク"},"reannounceOnIpPortChanged":"IPまたはポートに変更があった場合にすべてのトラッカーに再アナウンスする","recheckOnCompletion":"Torrentの完了時に再チェックする","refreshInterval":"GUI更新間隔","resolveCountries":"ピアの国籍を解決する","resumeDataStorageType":{"label":"再開データのストレージタイプ (再起動が必要)","legacy":"Fastresumeファイル","sqlite":"SQLiteデータベース (実験的)"},"saveInterval":"再開データの保存間隔","subheader":"qBittorrentセクション","torrentFileSizeLimit":".torrentファイルのサイズ制限"}},"behavior":{"logs":{"file_log_age":"より古いバックアップログを削除する","file_log_backup_enabled":"ログファイルのバックアップを有効にする","file_log_delete_old":"古いバックアップログを削除する","file_log_enabled":"ログファイルを有効にする","file_log_max_size":"ログファイルをバックアップする間隔","file_log_path":"保存先パス","subheader":"ログ管理"},"performance_warning":"パフォーマンス警告をログに記録する"},"bittorrent":{"autoAddTrackers":"以下のトラッカーを新しいダウンロードに自動追加する","autoAddTrackersHint":"1行につき1トラッカー","maxActiveCheckingTorrents":"Torrentをチェックする最大アクティブ数","privacy":{"enableAnonymous":"匿名モードを有効にする","enableDHT":"DHT (分散型ネットワーク) を有効にする (ピア検出数の向上)","enableLPD":"ローカルピア検出 (LPD) を有効にする (ピア検出数の向上)","enablePeX":"ピア交換 (PeX) を有効にする (ピア検出数の向上)","encryptionMode":"暗号化モード","moreInfo":"詳細情報","subheader":"プライバシー"},"seedLimits":{"subheader":"シード制限","then":"から","whenInactiveSeedingTimeReaches":"非アクティブシード時間制限に達したとき","whenRatioReaches":"共有比制限に達したとき","whenSeedingTimeReaches":"シード時間制限に達したとき"},"torrentQueueing":{"downloadRateLimit":"DL速度のしきい値","excludeSlowTorrent":"これらの制限で低速なTorrentは数に含めない","maxActiveDownload":"アクティブDL数の上限","maxActiveTorrent":"アクティブTorrent数の上限","maxActiveUpload":"アクティブUP数の上限","subheader":"Torrentキュー","torrentInactivityTimer":"Torrent非アクティブタイマー","uploadRateLimit":"UP速度のしきい値"}},"connection":{"connectionLimits":{"globalMaxConnection":"グローバル最大接続数","globalMaxUploadSlots":"最大アップロードスロット数","perTorrentMaxConnection":"Torrentごとの最大接続数","perTorrentMaxUploadSlots":"Torrentごとの最大アップロードスロット数","subheader":"接続制限"},"ipFiltering":{"applyToTrackers":"トラッカーに適用する","bannedIps":"手動でアクセス禁止にしたIPアドレス","bannedIpsHint":"1行に1つずつ","filterPath":"フィルターパス (.dat、.p2p、.p2b)","subheader":"IPフィルタリング"},"listeningPort":{"incomingConnectionPort":"受信接続に使用するポート","randomPort":"ランダムなポート","subheader":"接続待ちポート","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"protocol":"ピア接続プロトコル","proxy":{"auth":{"password":"パスワード","subtitle":"認証","tip":"注意: パスワードは暗号化されずに保存されます","username":"ユーザー名"},"bittorrent":"BitTorrentにプロキシを使用する","host":"ホスト","hostNameLookup":"ホスト名解決にプロキシを使用する","misc":"全般にプロキシを使用する","peerConnections":"ピア接続にプロキシを使用する","port":"ポート","rss":"RSSにプロキシを使用する","subheader":"プロキシサーバー"}},"downloads":{"excludedFileNames":{"hint":"1行に1つのフィルター","label":"除外ファイル名"},"mailNotification":{"authEnabled":"認証","enabled":"ダウンロード完了時のメール通知","from":"差出人(From)","password":"パスワード","smtpServer":"SMTPサーバー","sslEnabled":"このサーバーは安全な接続 (SSL) を必要とする","to":"宛先 (To)","username":"ユーザー名"},"monitoredFolders":{"actions":"アクション","confirmDelete":"このアイテムを削除してもよろしいですか?","editItem":"編集","monitoredFolderPath":"監視対象フォルダー","newItem":"新規","noData":"監視対象フォルダーはありません","otherPath":"その他のパス","saveType":"保存先を上書きする","subheader":"監視対象フォルダー"},"publicSettings":{"appendQBExtension":"未完了のファイルに.!qB拡張子を追加する","preAllocateDisk":"すべてのファイルにディスク領域を事前に割り当てる"},"runExternalProgram":{"onAddedEnabled":"Torrentの追加時に実行","onAddedLabel":"コマンド","onFinishedEnabled":"Torrentの完了時に実行","onFinishedLabel":"コマンド","subheader":"外部プログラムを実行","supportParamC":"%C: ファイル数","supportParamD":"%D: 保存先パス","supportParamF":"%F: コンテンツパス (複数ファイルTorrentのルートと同じ) ","supportParamG":"%G: タグ (カンマ区切り)","supportParamI":"%I: Infoハッシュ v1","supportParamJ":"%J: Infoハッシュ v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: カテゴリー","supportParamN":"%N: Torrent名","supportParamR":"%R: ルートパス (最初のTorrentサブディレクトリのパス)","supportParamT":"%T: 現在のトラッカー","supportParamTitle":"使用できるパラメーター (大文字と小文字を区別する) :","supportParamZ":"%Z: Torrentのサイズ (バイト)","tip":"ヒント: 空白でテキストが切り取られるのを避けるために、引用符でパラメータを囲んでください (例: \\"％N\\")"},"saveManagement":{"autoTMMEnabled":"デフォルトのTorrent管理モード","categoryChangedTMM":"カテゴリ保存パスが変更された場合","defaultSavePath":"デフォルトの保存先パス (完了時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":".torrentファイルのコピー先","exportDirFinished":"完了した.torrentファイルのコピー先","keepIncomplete":"ダウンロードパス (未完了時)","paramChangedTMMOptions":{"relocateTorrent":"Torrentを再配置","switchToManual":"Torrentを手動モードに切り替える"},"savePathChangedTMM":"デフォルトの保存パスが変更されたとき","subheader":"保存管理","torrentChangedTMM":"Torrentのカテゴリーが変更されたとき"},"whenAddTorrent":{"addToTopOfQueue":"キューの先頭に追加","autoDeleteMode":"追加後に.torrentファイルを削除する","doNotAutoStart":"ダウンロードを自動的に開始しない","mergeTrackers":"既存のTorrentにトラッカーをマージする","subheader":"Torrentの追加時"}},"rss":{"autoDownloader":{"enable":"RSSルール処理を有効にする","subheader":"RSS Torrent自動ダウンローダー"},"reader":{"enableProcessing":"RSSフィードの取得を有効にする","feedsRefreshInterval":"フィードの更新間隔","maximumArticlesPerFeed":"フィードごとの記事数の上限","subheader":"RSSリーダー"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPERエピソードをダウンロードする","filters":"フィルター","filtersHint":"1行に1つのフィルター","subheader":"RSS スマートエピソードフィルター"},"useIdForRssLinks":"RSS記事のリンクにIDを使用する"},"saveSuccess":"設定が保存されました!","speed":{"download":"ダウンロード","scheduler":{"from":"開始時間","selectButtonLabel":"時間を選択","subheader":"代替速度制限の使用をスケジュール","to":"終了時間","when":"いつ"},"settings":{"applyToPeersOnLan":"LAN上のピアに速度制限を適用する","applyToTransportOverhead":"トランスポートオーバーヘッドに速度制限を適用する","applyToUtp":"µTPプロトコルに速度制限を適用する"},"subheader":{"alternative":"代替速度制限","global":"グローバル速度制限","settings":"速度制限設定"},"tip":"0=無制限","upload":"アップロード"},"tabs":{"addons":{"enhanced_edition":"強化版"},"advanced":"高度な設定","behavior":"動作","bittorrent":"BitTorrent","connection":"接続","downloads":"ダウンロード","rss":"RSS","speed":"速度","tagsAndCategories":"タグ/カテゴリー","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"グリッドビュー","list":"リストビュー","table":"テーブルビュー"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"利用可能なカテゴリー:","createNewCategory":"新しいカテゴリーを作成","createNewTag":"新しいタグを作成","noCategories":"カテゴリーなし","noTags":"タグなし","tagsSubheader":"利用可能なタグ:"},"title":"設定","vuetorrent":{"general":{"check_new":"新しいバージョンを確認する","currentVersion":"現在のバージョン","customTitle":"カスタムタイトル","darkVariants":"ダークモード","dateFormat":"日付フォーマット","download":"設定のエクスポート","enableHashColors":"生成されたチップの色を有効にする","enableRatioColors":"共有比の色を有効にする","fileContentInterval":"Torrentファイルのコンテンツの更新間隔","hideChipIfUnset":"未設定の場合はチップを非表示にする","hideColoredChip":"チップのテキストバリアントを使用する","historySize":"対象フィールドの履歴サイズ","import":"設定のインポート","isDrawerRight":"右側のドロワー","isShutdownButtonVisible":"シャットダウンボタンを表示","language":"言語","lightVariants":"ライトモード","paginationSize":{"infinite_scroll":"無限スクロール","label":"ページネーションのサイズ","warning":"高い値を使用するとパフォーマンスに影響する可能性があります"},"qbittorrentVersion":"qBittorrentバージョン","refreshInterval":"qBittorrent API更新間隔","registerMagnet":"マグネットリンクを登録する","resetSettings":"設定をリセット","showAlltimeStat":"過去の統計を表示する","showCurrentSpeed":"現在の速度を表示する","showFreeSpace":"空き容量を表示する","showSessionStat":"セッション統計を表示する","showSpeedGraph":"速度グラフを表示する","tip":"これらの設定はカスタムWebUI自体のためのものです","useBinarySize":"データサイズの単位をバイナリ単位に置き換える (kB -> KiB)","useBitSpeed":"速度の値をビットに置き換える (kB/s -> kbps)","vueTorrentTitle":"タブのタイトル"},"torrentCard":{"grid":{"busyTip":"グリッドビューで表示する未完了のTorrentのプロパティ","doneTip":"グリッドビューで表示する完了したTorrentのプロパティ"},"list":{"busyTip":"リストビューで表示する未完了のTorrentのプロパティ","doneTip":"リストビューで表示する完了したTorrentのプロパティ"},"table":{"tip":"テーブルビューで表示するTorrentのプロパティ"}}},"webUI":{"authentication":{"banDuration":"アクセス禁止期間","banDurationHint":"秒単位","bypassLocalhost":"localhost上ではクライアントの認証を行わない","bypassWhitelist":"ホワイトリストに登録されたIPサブネット内のクライアントの認証を行わない","maxAttempts":"最大試行回数","password":"パスワード","passwordPlaceholder":"(変更なし)","sessionTimeout":"セッションタイムアウト","sessionTimeoutHint":"秒単位","subheader":"認証","username":"ユーザー名","whitelistExamples":"例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"カスタムHTTPヘッダーを追加する","customHeadersHint":"1行に1つのヘッダー","customHeadersPlaceholder":"Header1: 値1\\nHeader2: 値2\\n... ","dynDns":{"domainName":"ドメイン名","password":"パスワード","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"登録","subheader":"ダイナミックドメイン名を更新する","username":"ユーザー名"},"https":{"certificate":"証明書","key":"鍵","subheader":"HTTPSを使用する","tip":"証明書に関する情報"},"interface":{"ipAddress":"IPアドレス","port":"ポート","subheader":"Webユーザーインターフェース","useAlternativeWebUI":"代替WebUIを使用する","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"proxiesList":"信頼できるプロキシのリスト","proxiesListHint":"IPはセミコロン(;)で区切る","reverseProxySupport":"リバースプロキシのサポートを有効にする","security":{"clickjacking":"クリックジャッキング保護を有効にする","csrf":"クロスサイトリクエストフォージェリ(CSRF)保護を有効にする","hostHeaderValidation":"ホストヘッダー検証を有効にする","hostHeaderValidationHint":"セミコロン(;)で区切る","secureCookie":"CookieのSecureフラグを有効にする (HTTPSが必要)","serverDomains":"サーバードメイン","subheader":"セキュリティ"}}}');
+    QH = {
         add: {
             error: "Torrentの追加中にエラーが発生しました",
             pending: "Torrentを送信中...",
@@ -99034,7 +99149,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             new: "新しいバージョンが利用可能です!"
         }
     };
-    KH = {
+    e9 = {
         actions: {
             delete: "Torrentを削除",
             logs: "ログを開く",
@@ -99056,7 +99171,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         searchTorrents: "Torrentを検索"
     };
-    XH = {
+    t9 = {
         content: {
             fileInfo: "{n}ファイル | {n}ファイル",
             filter_placeholder: "ファイルツリー内を検索",
@@ -99147,7 +99262,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             tier: "Tier: {n}"
         }
     };
-    JH = {
+    a9 = {
         properties: {
             added_on: "追加日時",
             amount_left: "残り",
@@ -99238,28 +99353,28 @@ Hibák fordulhatnak elő, óvatosan használja.`
             uploading: "アップロード中"
         }
     };
-    ZH = {
+    r9 = {
         minutes: "分 | 分 | 分",
         seconds: "秒 | 秒 | 秒"
     };
-    QH = {
-        common: NH,
-        constants: OH,
-        dashboard: HH,
-        dialogs: VH,
-        login: WH,
-        logs: GH,
-        navbar: $H,
-        rssArticles: jH,
-        searchEngine: UH,
-        settings: YH,
-        toast: qH,
-        topbar: KH,
-        torrentDetail: XH,
-        torrent: JH,
-        units: ZH
+    n9 = {
+        common: GH,
+        constants: $H,
+        dashboard: jH,
+        dialogs: UH,
+        login: YH,
+        logs: qH,
+        navbar: KH,
+        rssArticles: XH,
+        searchEngine: JH,
+        settings: ZH,
+        toast: QH,
+        topbar: e9,
+        torrentDetail: t9,
+        torrent: a9,
+        units: r9
     };
-    e9 = {
+    i9 = {
         cancel: "취소",
         close: "닫기",
         delete: "삭제",
@@ -99280,7 +99395,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "전역 설정 사용",
         yes: "예"
     };
-    t9 = {
+    o9 = {
         addStopped: {
             always: "항상",
             never: "절대 안함",
@@ -99395,7 +99510,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "TCP 우선"
         }
     };
-    a9 = {
+    s9 = {
         displayMode: {
             grid: "Grid",
             list: "목록",
@@ -99461,7 +99576,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "역순 정렬",
         torrentsCount: "토렌트 없음 | {n}개의 토렌트 | {n}개의 토렌트"
     };
-    r9 = {
+    l9 = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "NAME1=값1; NAME2=값2; ...",
@@ -99620,7 +99735,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
 오류가 발생할 수 있으니 주의해서 사용하세요.`
         }
     };
-    n9 = {
+    u9 = {
         error: "로그인에 실패했습니다!",
         password: "비밀번호",
         rules: {
@@ -99633,7 +99748,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "로그인",
         username: "사용자 이름"
     };
-    i9 = {
+    c9 = {
         emptyLogList: "로그를 찾을 수 없음",
         filters: {
             query: "로그 메시지 검색",
@@ -99641,7 +99756,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "qBittorrent 로그"
     };
-    o9 = {
+    d9 = {
         addPanel: {
             torrentsPendingCount: "업로드 대기 중인 토런트 {n}개"
         },
@@ -99709,7 +99824,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    s9 = {
+    h9 = {
         feeds: {
             empty: {
                 action: "RSS 피드 생성"
@@ -99737,7 +99852,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    l9 = {
+    m9 = {
         filters: {
             category: {
                 all: "모두",
@@ -99773,8 +99888,8 @@ Hibák fordulhatnak elő, óvatosan használja.`
         tabHeaderEmpty: "(검색어 없음)",
         title: "검색 엔진"
     };
-    u9 = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"항상 모든 티어에게 알립니다","announceAllTrackers":"항상 같은 티어의 모든 트래커에게 알립니다.","announceIP":"트래커에 보고되는 IP 주소 (재시작 필요) ","coalesceReadsWrites":"읽기 및 쓰기 통합(libtorrent < 2.0)","disk":{"diskCache":"디스크 캐시 (libtorrent <2.0)","diskCacheExpiry":"디스크 캐시 만료 간격(libtorrent <2.0)","diskIoReadMode":"디스크 IO 읽기 모드","diskIoType":"디스크 IO 유형(libtorrent >= 2.0, 재시작 필요)","diskIoWriteMode":"디스크 IO 쓰기 모드","diskQueueSize":"디스크 큐 크기","subheader":"디스크"},"maxConcurrentHTTPAnnounces":"동시에 처리할 수 있는 최대 HTTP 알림 수","networking":{"outgoingPortsMax":"송신 포트(최대) [0: 사용 안 함]","outgoingPortsMin":"송신 포트(최소) [0: 사용 안 함]","peerTos":"피어 연결에 대한 DSCP 값","subheader":"네트워킹","upnpLeaseDuration":"UPnP 임대 기간 [0: 영구 임대] ","utpTcpMixedModeAlgorithm":"μTP-TCP 혼합 모드 알고리즘"},"outgoingConnectionsPerSecond":"초당 발신 연결 수","peerTurnover":"피어 전환 연결 해제 백분율","peerTurnoverCutoff":"피어 교체 임계치 백분율","peerTurnoverInterval":"피어 전환 연결 해제 간격","pieceExtentAffinity":"조각 범위 선호도 사용","requestQueueSize":"단일 피어에 대한 최대 미결 요청 수","security":{"allowMultipleConnectionsFromTheSameIPAddress":"동일한 IP 주소에서 여러 개의 연결 허용하기","blockPeersOnPrivilegedPorts":"권한 있는 포트에서는 피어에 대한 연결을 허용하지 않습니다.","idnSupport":"IDN(Internationalized Domain Name) 지원 사용","mitigateSSRF":"서버 측 요청 위조(SSRF) 완화","subheader":"보안","validateHTTPSTrackerCertificate":"HTTPS 트래커 인증서 유효성 검사"},"sendBufferLowWatermark":"버퍼 부족 워터마크 전송","sendBufferWatermark":"버퍼 워터마크 전송","sendBufferWatermarkFactor":"버퍼 워터마크 계수 보내기","sendUploadPieceSuggestions":"업로드 조각 제안 보내기","socketBacklogSize":"소켓 대기열 크기","socketReceiveBufferSize":"수신 소켓 버퍼 크기","socketReceiveBufferSizeHint":"0: 시스템 기본값","socketSendBufferSize":"전송 소켓 버퍼 크기","socketSendBufferSizeHint":"0: 시스템 기본값","stopTrackerTimeout":"트래커 시간 초과 중지","subheader":"libtorrent 섹션","threads":{"asyncIoThreads":"비동기 I/O 스레드","bdecodeDepthLimit":"B디코딩 깊이 제한","bdecodeTokenLimit":"Bdecode 토큰 제한","filePoolSize":"파일 Pool 크기","hashingThreads":"스레드 해싱(libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"스레드"},"uploadChokingAlgorithm":"업로드 차단 알고리즘","uploadSlotsBehavior":"업로드 슬롯 동작 방식"},"openDoc":"문서 열기","qbittorrent":{"allocatedRam":"물리적 메모리(RAM) 사용량 제한(libtorrent >= 2.0)","embeddedTracker":{"enable":"내장 트래커 활성화","port":"내장 트래커 포트","portForward":"내장 트래커를 위한 포트 포워딩 활성화","title":"내장 트래커"},"networking":{"ipAddress":{"all":"모든 주소","allIPv4":"모든 IPv4 주소","allIPv6":"모든 IPv6 주소","label":"바인딩(결합)할 IP 주소(선택 사항)"},"networkInterfaces":{"any":"모든 인터페이스","label":"네트워크 인터페이스"},"title":"네트워킹"},"reannounceOnIpPortChanged":"IP 또는 포트가 변경되면 모든 트래커에게 다시 알립니다.","recheckOnCompletion":"완료 시 다운로드 파일 무결성 검사","refreshInterval":"GUI 새로 고침 간격","resolveCountries":"피어국가 분석","resumeDataStorageType":{"label":"이어받기 데이터 저장 유형(qBittorrent 재시작 필요)","legacy":"Fastresume files","sqlite":"SQLite 데이터베이스(실험적)"},"saveInterval":"재개 데이터 저장 간격","subheader":"qBittorrent 섹션","torrentFileSizeLimit":".torrent 파일 크기 제한"}},"behavior":{"logs":{"file_log_age":"다음보다 오래된 백업 로그 삭제","file_log_backup_enabled":"로그 파일 백업 사용","file_log_delete_old":"이전 백업 로그 삭제","file_log_enabled":"로그 파일 사용","file_log_max_size":"다음에 로그 파일을 백업합니다.","file_log_path":"저장 경로","subheader":"로그 관리"},"performance_warning":"로그 성능 경고"},"bittorrent":{"autoAddTrackers":"새로운 다운로드에 이러한 트래커를 자동으로 추가합니다.","autoAddTrackersHint":"한 줄에 하나의 트래커","maxActiveCheckingTorrents":"최대 활성 토렌트 확인","privacy":{"enableAnonymous":"익명 모드 사용","enableDHT":"DHT(분산 네트워크)를 활성화하여 더 많은 피어 찾기","enableLPD":"로컬 피어 검색을 활성화하여 더 많은 피어 찾기","enablePeX":"피어 익스체인지(PeX)를 활성화하여 더 많은 피어 찾기","encryptionMode":"암호화 모드","moreInfo":"자세한 정보","subheader":"개인정보 보호"},"seedLimits":{"subheader":"시드 제한","then":"그런 다음","whenInactiveSeedingTimeReaches":"비활성 시딩 시간에 도달하면","whenRatioReaches":"비율에 도달하면","whenSeedingTimeReaches":"시딩 시간에 도달하면"},"torrentQueueing":{"downloadRateLimit":"다운로드 속도 임계값","excludeSlowTorrent":"이 제한에 느린 토렌트는 포함하지 않기","maxActiveDownload":"최대 활성 다운로드 수","maxActiveTorrent":"최대 활성 토렌트 수","maxActiveUpload":"최대 활성 업로드 수","subheader":"토렌트 대기열","torrentInactivityTimer":"토렌트 비활성 타이머","uploadRateLimit":"업로드 속도 제한"}},"connection":{"connectionLimits":{"globalMaxConnection":"전역 최대 연결 수","globalMaxUploadSlots":"전역 최대 업로드 슬롯 수","perTorrentMaxConnection":"토렌트 당 최대 연결 수","perTorrentMaxUploadSlots":"토렌트 당 최대 업로드 슬롯 수","subheader":"연결 제한"},"ipFiltering":{"applyToTrackers":"트래커에 적용하기","bannedIps":"수동으로 차단한 IP 주소","bannedIpsHint":"한 줄에 하나씩","filterPath":"필터 경로 (.dat, .p2p, .p2b)","subheader":"IP 필터링"},"listeningPort":{"incomingConnectionPort":"수신 연결에 사용되는 포트","randomPort":"무작위 포트","subheader":"수신 포트","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"protocol":"피어 연결 프로토콜","proxy":{"auth":{"password":"비밀번호","subtitle":"계정설정","tip":"정보: 비밀번호는 암호화되지 않은 상태로 저장됩니다.","username":"로그인 ID"},"bittorrent":"BitTorrent 용도로 Proxy 사용","host":"호스트","hostNameLookup":"호스트 이름 조회에 Proxy 사용","misc":"일반적인 용도로 Proxy 사용","peerConnections":"피어 연결에 Proxy 사용","port":"포트","rss":"RSS 용도로 Proxy 사용","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"한 줄에 하나의 필터","label":"제외된 파일 이름"},"mailNotification":{"authEnabled":"계정설정","enabled":"다운로드 완료 시 이메일 알림","from":"From","password":"비밀번호","smtpServer":"SMTP 서버","sslEnabled":"이 서버에는 보안 연결(SSL)이 필요합니다.","to":"To","username":"로그인 ID"},"monitoredFolders":{"actions":"작업","confirmDelete":"이 항목을 삭제하시겠습니까?","editItem":"편집","monitoredFolderPath":"모니터링(Watch) 폴더","newItem":"새로 만들기","noData":"아직 모니터링되는 폴더 없음","otherPath":"기타 경로","saveType":"저장 위치 재정의(Override Save Location)","subheader":"모니터링(Watch) 폴더"},"publicSettings":{"appendQBExtension":"완료되지 않은 파일에 .!qB 확장자 추가하기","preAllocateDisk":"다운로드할 파일에 대해 디스크 공간 사전 할당"},"runExternalProgram":{"onAddedEnabled":"토렌트 추가 후 외부 프로그램 실행","onAddedLabel":"커맨드","onFinishedEnabled":"토렌트 다운로드 완료 후 외부 프로그램 실행","onFinishedLabel":"커맨드","subheader":"외부 프로그램 실행","supportParamC":"%C: 파일 개수","supportParamD":"%D: 저장 경로","supportParamF":"%F: 콘텐츠 경로(다중 파일 토렌트의 루트 경로와 동일)","supportParamG":"%G: 태그(쉼표로 구분)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: 토렌트 ID","supportParamL":"%L: 카테고리","supportParamN":"%N: 토렌트 이름","supportParamR":"%R: 루트 경로 (첫 번째 토런트 하위 디렉터리 경로)","supportParamT":"%T: 현재 트래커","supportParamTitle":"지원되는 매개변수(대소문자 구분):","supportParamZ":"%Z: 토렌트 크기 (바이트)","tip":"팁: 공백에서 텍스트가 잘리는 것을 방지하려면 매개 변수를 따옴표로 묶으세요 (예: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"기본 토렌트 관리 모드","categoryChangedTMM":"카테고리 저장 경로가 변경된 경우","defaultSavePath":"기본 저장 경로 (완료)","defaultTMMOptions":{"automatic":"자동","manual":"수동"},"exportDir":".torrent 파일을 다음 위치로 복사","exportDirFinished":"다운로드가 완료된 .torrent 파일을 다음 위치로 복사","keepIncomplete":"기본 다운로드 경로(미완료된 토렌트)","paramChangedTMMOptions":{"relocateTorrent":"토렌트 이동하기","switchToManual":"토렌트를 수동 모드로 전환"},"savePathChangedTMM":"기본 저장 경로가 변경된 경우","subheader":"저장 관리","torrentChangedTMM":"토렌트 카테고리가 변경되었을 때"},"whenAddTorrent":{"addToTopOfQueue":"대기열 맨 위로 올리기","autoDeleteMode":"나중에 .torrent 파일 삭제","doNotAutoStart":"자동으로 다운로드 시작하지 않기","mergeTrackers":"토렌트가 이미 존재하는 경우 트래커 병합하기","subheader":"토렌트를 추가할 때"}},"rss":{"autoDownloader":{"enable":"RSS 규칙 처리 활성화","subheader":"RSS 토렌트 자동 다운로더"},"reader":{"enableProcessing":"RSS 피드 가져오기 활성화","feedsRefreshInterval":"피드 새로고침 간격","maximumArticlesPerFeed":"피드 당 수집할 최대 기사 수","subheader":"RSS 리더"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER 에피소드 다운로드","filters":"필터","filtersHint":"한 줄에 하나씩","subheader":"RSS Smart episode 필터"},"useIdForRssLinks":"RSS 피드에 ID사용"},"saveSuccess":"설정이 저장되었습니다!","speed":{"download":"다운로드","scheduler":{"from":"시작시간","selectButtonLabel":"시간 선택","subheader":"대체 속도 제한 사용 일정","to":"종료시간","when":"스케쥴"},"settings":{"applyToPeersOnLan":"LAN 내 피어에 대해 속도 제한 적용","applyToTransportOverhead":"Transport overhead에 대한 속도 제한 적용","applyToUtp":"µTP 프로토콜에 속도 제한 적용"},"subheader":{"alternative":"대체 속도 제한","global":"전역 속도 제한","settings":"속도 제한"},"tip":"0은 무제한을 의미합니다","upload":"업로드"},"tabs":{"advanced":"고급 설정","behavior":"동작","bittorrent":"BitTorrent","connection":"연결수","downloads":"다운로드","rss":"RSS","speed":"속도","tagsAndCategories":"태그 및 카테고리","vuetorrent":{"general":"일반","title":"VueTorrent","torrent_card":{"grid":"그리드 형식보기(Grid view)","list":"목록 형식 보기(List view)","table":"테이블 형식 보기(Table View)"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"사용 가능한 카테고리:","createNewCategory":"새 카테고리 만들기","createNewTag":"새 태그 만들기","noCategories":"아직 카테고리가 없습니다","noTags":"아직 태그가 없습니다","tagsSubheader":"사용 가능한 태그:"},"title":"설정","vuetorrent":{"general":{"check_new":"새 버전 확인","currentVersion":"현재 버전","customTitle":"사용자 지정 제목","dateFormat":"날짜 표시 형식","download":"설정 내보내기","fileContentInterval":"토렌트 진행사항 새로고침 간격","hideChipIfUnset":"설정되지 않은 경우 해당 옵션 숨기기","historySize":"대상 필드의 기록 크기","import":"설정 가져오기","isDrawerRight":"오른쪽 탭","isShutdownButtonVisible":"종료 버튼 표시","language":"표시 언어","paginationSize":{"infinite_scroll":"무한 스크롤","label":"Pagination 크기","warning":"높은 값을 사용하면 성능에 영향을 줄 수 있습니다."},"qbittorrentVersion":"qBittorrent 버전","refreshInterval":"qBittorrent API 새로 고침 간격","registerMagnet":"마그넷 링크 등록","resetSettings":"설정 초기화","showAlltimeStat":"역대 통계 보기","showCurrentSpeed":"현재 속도 표시","showFreeSpace":"여유 공간 표시","showSessionStat":"세션 통계 표시","showSpeedGraph":"속도 그래프 표시","tip":"이 설정은 사용자 지정 WebUI에 대한 설정입니다.","useBinarySize":"데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)","useBitSpeed":"속도 값 표시를 비트로 바꾸기(kB/s -> kbps)","vueTorrentTitle":"탭 제목"},"torrentCard":{"grid":{"busyTip":"그리드 보기에서 미완료된 토렌트에 대해 표시할 속성","doneTip":"그리드 보기에서 완료된 토렌트에 대해 표시할 속성"},"list":{"busyTip":"목록 보기에서 사용 중인 토렌트에 대해 표시할 속성","doneTip":"목록 보기에서 완료된 토렌트에 대해 표시할 속성"},"table":{"tip":"테이블 보기에서 토렌트에 대해 표시할 속성"}}},"webUI":{"authentication":{"banDuration":"차단 시간","banDurationHint":"초(seconds) 단위","bypassLocalhost":"localhost에서 접속할 시 로그인 절차 없음","bypassWhitelist":"아래 IP주소에 대해서는 로그인 절차 없이 접근 가능(Whitelist)","maxAttempts":"로그인 최대 시도 횟수","password":"비밀번호","passwordPlaceholder":"(변경 없음)","sessionTimeout":"세션 만료 시간","sessionTimeoutHint":"초(seconds) 단위","subheader":"계정설정","username":"로그인 ID","whitelistExamples":"예시: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"사용자 정의 HTTP 헤더 추가","customHeadersHint":"한 줄에 하나씩","customHeadersPlaceholder":"Header1: value1 Header2: value2 ...","dynDns":{"domainName":"도메인 주소","password":"비밀번호","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"등록","subheader":"DDNS 활성화","username":"로그인 ID"},"https":{"certificate":"인증서","key":"Key","subheader":"HTTPS 사용","tip":"인증서에 대한 정보"},"interface":{"ipAddress":"IP 주소","port":"포트","subheader":"웹 사용자 인터페이스","useAlternativeWebUI":"대체 WebUI 사용","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"proxiesList":"신뢰할 수 있는 프록시 목록","proxiesListHint":"IP 주소를 세미콜론( ;)으로 구분합니다","reverseProxySupport":"역방향 프록시(Reverse proxy) 지원 활성화","security":{"clickjacking":"클릭재킹(Clickjacking) 보호 활성화","csrf":"CSRF(사이트 간 요청 위조) 보호 활성화","hostHeaderValidation":"호스트 헤더 유효성 검사 사용","hostHeaderValidationHint":"세미콜론( ;)으로 구분합니다.","secureCookie":"\\"secure\\" cookie flag 활성화 (HTTPS필요)","serverDomains":"서버 도메인","subheader":"보안"}}}');
-    c9 = {
+    p9 = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"항상 모든 티어에게 알립니다","announceAllTrackers":"항상 같은 티어의 모든 트래커에게 알립니다.","announceIP":"트래커에 보고되는 IP 주소 (재시작 필요) ","coalesceReadsWrites":"읽기 및 쓰기 통합(libtorrent < 2.0)","disk":{"diskCache":"디스크 캐시 (libtorrent <2.0)","diskCacheExpiry":"디스크 캐시 만료 간격(libtorrent <2.0)","diskIoReadMode":"디스크 IO 읽기 모드","diskIoType":"디스크 IO 유형(libtorrent >= 2.0, 재시작 필요)","diskIoWriteMode":"디스크 IO 쓰기 모드","diskQueueSize":"디스크 큐 크기","subheader":"디스크"},"maxConcurrentHTTPAnnounces":"동시에 처리할 수 있는 최대 HTTP 알림 수","networking":{"outgoingPortsMax":"송신 포트(최대) [0: 사용 안 함]","outgoingPortsMin":"송신 포트(최소) [0: 사용 안 함]","peerTos":"피어 연결에 대한 DSCP 값","subheader":"네트워킹","upnpLeaseDuration":"UPnP 임대 기간 [0: 영구 임대] ","utpTcpMixedModeAlgorithm":"μTP-TCP 혼합 모드 알고리즘"},"outgoingConnectionsPerSecond":"초당 발신 연결 수","peerTurnover":"피어 전환 연결 해제 백분율","peerTurnoverCutoff":"피어 교체 임계치 백분율","peerTurnoverInterval":"피어 전환 연결 해제 간격","pieceExtentAffinity":"조각 범위 선호도 사용","requestQueueSize":"단일 피어에 대한 최대 미결 요청 수","security":{"allowMultipleConnectionsFromTheSameIPAddress":"동일한 IP 주소에서 여러 개의 연결 허용하기","blockPeersOnPrivilegedPorts":"권한 있는 포트에서는 피어에 대한 연결을 허용하지 않습니다.","idnSupport":"IDN(Internationalized Domain Name) 지원 사용","mitigateSSRF":"서버 측 요청 위조(SSRF) 완화","subheader":"보안","validateHTTPSTrackerCertificate":"HTTPS 트래커 인증서 유효성 검사"},"sendBufferLowWatermark":"버퍼 부족 워터마크 전송","sendBufferWatermark":"버퍼 워터마크 전송","sendBufferWatermarkFactor":"버퍼 워터마크 계수 보내기","sendUploadPieceSuggestions":"업로드 조각 제안 보내기","socketBacklogSize":"소켓 대기열 크기","socketReceiveBufferSize":"수신 소켓 버퍼 크기","socketReceiveBufferSizeHint":"0: 시스템 기본값","socketSendBufferSize":"전송 소켓 버퍼 크기","socketSendBufferSizeHint":"0: 시스템 기본값","stopTrackerTimeout":"트래커 시간 초과 중지","subheader":"libtorrent 섹션","threads":{"asyncIoThreads":"비동기 I/O 스레드","bdecodeDepthLimit":"B디코딩 깊이 제한","bdecodeTokenLimit":"Bdecode 토큰 제한","filePoolSize":"파일 Pool 크기","hashingThreads":"스레드 해싱(libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"스레드"},"uploadChokingAlgorithm":"업로드 차단 알고리즘","uploadSlotsBehavior":"업로드 슬롯 동작 방식"},"openDoc":"문서 열기","qbittorrent":{"allocatedRam":"물리적 메모리(RAM) 사용량 제한(libtorrent >= 2.0)","embeddedTracker":{"enable":"내장 트래커 활성화","port":"내장 트래커 포트","portForward":"내장 트래커를 위한 포트 포워딩 활성화","title":"내장 트래커"},"networking":{"ipAddress":{"all":"모든 주소","allIPv4":"모든 IPv4 주소","allIPv6":"모든 IPv6 주소","label":"바인딩(결합)할 IP 주소(선택 사항)"},"networkInterfaces":{"any":"모든 인터페이스","label":"네트워크 인터페이스"},"title":"네트워킹"},"reannounceOnIpPortChanged":"IP 또는 포트가 변경되면 모든 트래커에게 다시 알립니다.","recheckOnCompletion":"완료 시 다운로드 파일 무결성 검사","refreshInterval":"GUI 새로 고침 간격","resolveCountries":"피어국가 분석","resumeDataStorageType":{"label":"이어받기 데이터 저장 유형(qBittorrent 재시작 필요)","legacy":"Fastresume files","sqlite":"SQLite 데이터베이스(실험적)"},"saveInterval":"재개 데이터 저장 간격","subheader":"qBittorrent 섹션","torrentFileSizeLimit":".torrent 파일 크기 제한"}},"behavior":{"logs":{"file_log_age":"다음보다 오래된 백업 로그 삭제","file_log_backup_enabled":"로그 파일 백업 사용","file_log_delete_old":"이전 백업 로그 삭제","file_log_enabled":"로그 파일 사용","file_log_max_size":"다음에 로그 파일을 백업합니다.","file_log_path":"저장 경로","subheader":"로그 관리"},"performance_warning":"로그 성능 경고"},"bittorrent":{"autoAddTrackers":"새로운 다운로드에 이러한 트래커를 자동으로 추가합니다.","autoAddTrackersHint":"한 줄에 하나의 트래커","maxActiveCheckingTorrents":"최대 활성 토렌트 확인","privacy":{"enableAnonymous":"익명 모드 사용","enableDHT":"DHT(분산 네트워크)를 활성화하여 더 많은 피어 찾기","enableLPD":"로컬 피어 검색을 활성화하여 더 많은 피어 찾기","enablePeX":"피어 익스체인지(PeX)를 활성화하여 더 많은 피어 찾기","encryptionMode":"암호화 모드","moreInfo":"자세한 정보","subheader":"개인정보 보호"},"seedLimits":{"subheader":"시드 제한","then":"그런 다음","whenInactiveSeedingTimeReaches":"비활성 시딩 시간에 도달하면","whenRatioReaches":"비율에 도달하면","whenSeedingTimeReaches":"시딩 시간에 도달하면"},"torrentQueueing":{"downloadRateLimit":"다운로드 속도 임계값","excludeSlowTorrent":"이 제한에 느린 토렌트는 포함하지 않기","maxActiveDownload":"최대 활성 다운로드 수","maxActiveTorrent":"최대 활성 토렌트 수","maxActiveUpload":"최대 활성 업로드 수","subheader":"토렌트 대기열","torrentInactivityTimer":"토렌트 비활성 타이머","uploadRateLimit":"업로드 속도 제한"}},"connection":{"connectionLimits":{"globalMaxConnection":"전역 최대 연결 수","globalMaxUploadSlots":"전역 최대 업로드 슬롯 수","perTorrentMaxConnection":"토렌트 당 최대 연결 수","perTorrentMaxUploadSlots":"토렌트 당 최대 업로드 슬롯 수","subheader":"연결 제한"},"ipFiltering":{"applyToTrackers":"트래커에 적용하기","bannedIps":"수동으로 차단한 IP 주소","bannedIpsHint":"한 줄에 하나씩","filterPath":"필터 경로 (.dat, .p2p, .p2b)","subheader":"IP 필터링"},"listeningPort":{"incomingConnectionPort":"수신 연결에 사용되는 포트","randomPort":"무작위 포트","subheader":"수신 포트","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"protocol":"피어 연결 프로토콜","proxy":{"auth":{"password":"비밀번호","subtitle":"계정설정","tip":"정보: 비밀번호는 암호화되지 않은 상태로 저장됩니다.","username":"로그인 ID"},"bittorrent":"BitTorrent 용도로 Proxy 사용","host":"호스트","hostNameLookup":"호스트 이름 조회에 Proxy 사용","misc":"일반적인 용도로 Proxy 사용","peerConnections":"피어 연결에 Proxy 사용","port":"포트","rss":"RSS 용도로 Proxy 사용","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"한 줄에 하나의 필터","label":"제외된 파일 이름"},"mailNotification":{"authEnabled":"계정설정","enabled":"다운로드 완료 시 이메일 알림","from":"From","password":"비밀번호","smtpServer":"SMTP 서버","sslEnabled":"이 서버에는 보안 연결(SSL)이 필요합니다.","to":"To","username":"로그인 ID"},"monitoredFolders":{"actions":"작업","confirmDelete":"이 항목을 삭제하시겠습니까?","editItem":"편집","monitoredFolderPath":"모니터링(Watch) 폴더","newItem":"새로 만들기","noData":"아직 모니터링되는 폴더 없음","otherPath":"기타 경로","saveType":"저장 위치 재정의(Override Save Location)","subheader":"모니터링(Watch) 폴더"},"publicSettings":{"appendQBExtension":"완료되지 않은 파일에 .!qB 확장자 추가하기","preAllocateDisk":"다운로드할 파일에 대해 디스크 공간 사전 할당"},"runExternalProgram":{"onAddedEnabled":"토렌트 추가 후 외부 프로그램 실행","onAddedLabel":"커맨드","onFinishedEnabled":"토렌트 다운로드 완료 후 외부 프로그램 실행","onFinishedLabel":"커맨드","subheader":"외부 프로그램 실행","supportParamC":"%C: 파일 개수","supportParamD":"%D: 저장 경로","supportParamF":"%F: 콘텐츠 경로(다중 파일 토렌트의 루트 경로와 동일)","supportParamG":"%G: 태그(쉼표로 구분)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: 토렌트 ID","supportParamL":"%L: 카테고리","supportParamN":"%N: 토렌트 이름","supportParamR":"%R: 루트 경로 (첫 번째 토런트 하위 디렉터리 경로)","supportParamT":"%T: 현재 트래커","supportParamTitle":"지원되는 매개변수(대소문자 구분):","supportParamZ":"%Z: 토렌트 크기 (바이트)","tip":"팁: 공백에서 텍스트가 잘리는 것을 방지하려면 매개 변수를 따옴표로 묶으세요 (예: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"기본 토렌트 관리 모드","categoryChangedTMM":"카테고리 저장 경로가 변경된 경우","defaultSavePath":"기본 저장 경로 (완료)","defaultTMMOptions":{"automatic":"자동","manual":"수동"},"exportDir":".torrent 파일을 다음 위치로 복사","exportDirFinished":"다운로드가 완료된 .torrent 파일을 다음 위치로 복사","keepIncomplete":"기본 다운로드 경로(미완료된 토렌트)","paramChangedTMMOptions":{"relocateTorrent":"토렌트 이동하기","switchToManual":"토렌트를 수동 모드로 전환"},"savePathChangedTMM":"기본 저장 경로가 변경된 경우","subheader":"저장 관리","torrentChangedTMM":"토렌트 카테고리가 변경되었을 때"},"whenAddTorrent":{"addToTopOfQueue":"대기열 맨 위로 올리기","autoDeleteMode":"나중에 .torrent 파일 삭제","doNotAutoStart":"자동으로 다운로드 시작하지 않기","mergeTrackers":"토렌트가 이미 존재하는 경우 트래커 병합하기","subheader":"토렌트를 추가할 때"}},"rss":{"autoDownloader":{"enable":"RSS 규칙 처리 활성화","subheader":"RSS 토렌트 자동 다운로더"},"reader":{"enableProcessing":"RSS 피드 가져오기 활성화","feedsRefreshInterval":"피드 새로고침 간격","maximumArticlesPerFeed":"피드 당 수집할 최대 기사 수","subheader":"RSS 리더"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER 에피소드 다운로드","filters":"필터","filtersHint":"한 줄에 하나씩","subheader":"RSS Smart episode 필터"},"useIdForRssLinks":"RSS 피드에 ID사용"},"saveSuccess":"설정이 저장되었습니다!","speed":{"download":"다운로드","scheduler":{"from":"시작시간","selectButtonLabel":"시간 선택","subheader":"대체 속도 제한 사용 일정","to":"종료시간","when":"스케쥴"},"settings":{"applyToPeersOnLan":"LAN 내 피어에 대해 속도 제한 적용","applyToTransportOverhead":"Transport overhead에 대한 속도 제한 적용","applyToUtp":"µTP 프로토콜에 속도 제한 적용"},"subheader":{"alternative":"대체 속도 제한","global":"전역 속도 제한","settings":"속도 제한"},"tip":"0은 무제한을 의미합니다","upload":"업로드"},"tabs":{"advanced":"고급 설정","behavior":"동작","bittorrent":"BitTorrent","connection":"연결수","downloads":"다운로드","rss":"RSS","speed":"속도","tagsAndCategories":"태그 및 카테고리","vuetorrent":{"general":"일반","title":"VueTorrent","torrent_card":{"grid":"그리드 형식보기(Grid view)","list":"목록 형식 보기(List view)","table":"테이블 형식 보기(Table View)"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"사용 가능한 카테고리:","createNewCategory":"새 카테고리 만들기","createNewTag":"새 태그 만들기","noCategories":"아직 카테고리가 없습니다","noTags":"아직 태그가 없습니다","tagsSubheader":"사용 가능한 태그:"},"title":"설정","vuetorrent":{"general":{"check_new":"새 버전 확인","currentVersion":"현재 버전","customTitle":"사용자 지정 제목","dateFormat":"날짜 표시 형식","download":"설정 내보내기","fileContentInterval":"토렌트 진행사항 새로고침 간격","hideChipIfUnset":"설정되지 않은 경우 해당 옵션 숨기기","historySize":"대상 필드의 기록 크기","import":"설정 가져오기","isDrawerRight":"오른쪽 탭","isShutdownButtonVisible":"종료 버튼 표시","language":"표시 언어","paginationSize":{"infinite_scroll":"무한 스크롤","label":"Pagination 크기","warning":"높은 값을 사용하면 성능에 영향을 줄 수 있습니다."},"qbittorrentVersion":"qBittorrent 버전","refreshInterval":"qBittorrent API 새로 고침 간격","registerMagnet":"마그넷 링크 등록","resetSettings":"설정 초기화","showAlltimeStat":"역대 통계 보기","showCurrentSpeed":"현재 속도 표시","showFreeSpace":"여유 공간 표시","showSessionStat":"세션 통계 표시","showSpeedGraph":"속도 그래프 표시","tip":"이 설정은 사용자 지정 WebUI에 대한 설정입니다.","useBinarySize":"데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)","useBitSpeed":"속도 값 표시를 비트로 바꾸기(kB/s -> kbps)","vueTorrentTitle":"탭 제목"},"torrentCard":{"grid":{"busyTip":"그리드 보기에서 미완료된 토렌트에 대해 표시할 속성","doneTip":"그리드 보기에서 완료된 토렌트에 대해 표시할 속성"},"list":{"busyTip":"목록 보기에서 사용 중인 토렌트에 대해 표시할 속성","doneTip":"목록 보기에서 완료된 토렌트에 대해 표시할 속성"},"table":{"tip":"테이블 보기에서 토렌트에 대해 표시할 속성"}}},"webUI":{"authentication":{"banDuration":"차단 시간","banDurationHint":"초(seconds) 단위","bypassLocalhost":"localhost에서 접속할 시 로그인 절차 없음","bypassWhitelist":"아래 IP주소에 대해서는 로그인 절차 없이 접근 가능(Whitelist)","maxAttempts":"로그인 최대 시도 횟수","password":"비밀번호","passwordPlaceholder":"(변경 없음)","sessionTimeout":"세션 만료 시간","sessionTimeoutHint":"초(seconds) 단위","subheader":"계정설정","username":"로그인 ID","whitelistExamples":"예시: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"사용자 정의 HTTP 헤더 추가","customHeadersHint":"한 줄에 하나씩","customHeadersPlaceholder":"Header1: value1 Header2: value2 ...","dynDns":{"domainName":"도메인 주소","password":"비밀번호","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"등록","subheader":"DDNS 활성화","username":"로그인 ID"},"https":{"certificate":"인증서","key":"Key","subheader":"HTTPS 사용","tip":"인증서에 대한 정보"},"interface":{"ipAddress":"IP 주소","port":"포트","subheader":"웹 사용자 인터페이스","useAlternativeWebUI":"대체 WebUI 사용","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"proxiesList":"신뢰할 수 있는 프록시 목록","proxiesListHint":"IP 주소를 세미콜론( ;)으로 구분합니다","reverseProxySupport":"역방향 프록시(Reverse proxy) 지원 활성화","security":{"clickjacking":"클릭재킹(Clickjacking) 보호 활성화","csrf":"CSRF(사이트 간 요청 위조) 보호 활성화","hostHeaderValidation":"호스트 헤더 유효성 검사 사용","hostHeaderValidationHint":"세미콜론( ;)으로 구분합니다.","secureCookie":"\\"secure\\" cookie flag 활성화 (HTTPS필요)","serverDomains":"서버 도메인","subheader":"보안"}}}');
+    f9 = {
         add: {
             error: "토렌트 추가 중 오류",
             pending: "토렌트 전송 중...",
@@ -99795,7 +99910,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             new: "새 버전을 사용할 수 있습니다!"
         }
     };
-    d9 = {
+    g9 = {
         actions: {
             delete: "토렌트 삭제",
             logs: "Log 열기",
@@ -99817,7 +99932,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         searchTorrents: "토렌트 검색"
     };
-    h9 = {
+    v9 = {
         content: {
             fileInfo: "{n} 파일 | {n} 파일",
             folderInfo: "{n} 디렉토리 | {n} 디렉토리",
@@ -99905,7 +100020,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             tier: "Tier: {n}"
         }
     };
-    m9 = {
+    y9 = {
         properties: {
             added_on: "추가 날짜",
             amount_left: "남은 양",
@@ -99981,28 +100096,28 @@ Hibák fordulhatnak elő, óvatosan használja.`
             uploading: "업로드 중"
         }
     };
-    p9 = {
+    b9 = {
         minutes: "분 | 분 | 분",
         seconds: "초 | 초 | 초"
     };
-    f9 = {
-        common: e9,
-        constants: t9,
-        dashboard: a9,
-        dialogs: r9,
-        login: n9,
-        logs: i9,
-        navbar: o9,
-        rssArticles: s9,
-        searchEngine: l9,
-        settings: u9,
-        toast: c9,
-        topbar: d9,
-        torrentDetail: h9,
-        torrent: m9,
-        units: p9
+    F9 = {
+        common: i9,
+        constants: o9,
+        dashboard: s9,
+        dialogs: l9,
+        login: u9,
+        logs: c9,
+        navbar: d9,
+        rssArticles: h9,
+        searchEngine: m9,
+        settings: p9,
+        toast: f9,
+        topbar: g9,
+        torrentDetail: v9,
+        torrent: y9,
+        units: b9
     };
-    g9 = {
+    k9 = {
         cancel: "Annuleren",
         close: "Sluiten",
         delete: "Verwijderen",
@@ -100012,7 +100127,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         save: "Opslaan",
         selectAll: "Alles selecteren"
     };
-    v9 = {
+    x9 = {
         bittorrentProtocols: {
             tcp_utp: "TCP en μTP"
         },
@@ -100020,11 +100135,11 @@ Hibák fordulhatnak elő, óvatosan használja.`
             connected: "Verbonden"
         }
     };
-    y9 = {
-        common: g9,
-        constants: v9
+    w9 = {
+        common: k9,
+        constants: x9
     };
-    b9 = {
+    S9 = {
         cancel: "Anuluj",
         close: "Zamknij",
         delete: "Usuń",
@@ -100045,7 +100160,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "Użyj ustawień globalnych",
         yes: "Tak"
     };
-    F9 = {
+    C9 = {
         addStopped: {
             always: "Zawsze",
             never: "Nigdy",
@@ -100160,7 +100275,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "Preferuj TCP"
         }
     };
-    k9 = {
+    A9 = {
         displayMode: {
             grid: "Siatka",
             list: "Lista",
@@ -100226,7 +100341,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "Odwróć kolejność sortowania",
         torrentsCount: "Brak torrentów | {n} torrent | {n} torrentów"
     };
-    x9 = {
+    D9 = {
         add: {
             cookie: "Ciasteczka",
             cookie_placeholder: "nazwa1=wartość1; nazwa2=wartość2; ...",
@@ -100407,7 +100522,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
 Mogą wystąpić błędy, należy zachować ostrożność.`
         }
     };
-    w9 = {
+    T9 = {
         error: "Logowanie nie powiodło się!",
         password: "Hasło",
         rules: {
@@ -100420,7 +100535,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         title: "Logowanie",
         username: "Nazwa użytkownika"
     };
-    S9 = {
+    E9 = {
         emptyLogList: "Nie znaleziono żadnych dzienników",
         filters: {
             query: "Szukaj w wiadomości dziennika",
@@ -100428,7 +100543,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         title: "Dzienniki qBittorrent"
     };
-    C9 = {
+    _9 = {
         addPanel: {
             torrentsPendingCount: "{n} torrent oczekujący na przesłanie | {n} torrentów oczekujących na przesłanie"
         },
@@ -100497,7 +100612,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    A9 = {
+    P9 = {
         feeds: {
             empty: {
                 action: "Utwórz kanał RSS"
@@ -100525,7 +100640,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    D9 = {
+    B9 = {
         filters: {
             category: {
                 all: "Wszystkie",
@@ -100561,8 +100676,8 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         tabHeaderEmpty: "(Puste zapytanie)",
         title: "Wyszukiwarka"
     };
-    T9 = JSON.parse(`{"advanced":{"libtorrent":{"announceAllTiers":"Zawsze ogłaszaj do wszystkich poziomów","announceAllTrackers":"Zawsze ogłaszaj wszystkim trackerom na danym poziomie","announceIP":"Adres IP zgłaszany do trackerów (wymaga ponownego uruchomienia)","coalesceReadsWrites":"Łączenie odczytów i zapisów (libtorrent < 2.0)","disk":{"diskCache":"Pamięć podręczna dysku (libtorrent < 2.0)","diskCacheExpiry":"Interwał wygaśnięcia pamięci podręcznej dysku (libtorrent < 2.0)","diskIoReadMode":"Tryb odczytu dysku IO","diskIoType":"Typ wejścia/wyjścia dysku (libtorrent >= 2.0; wymaga ponownego uruchomienia)","diskIoWriteMode":"Tryb zapisu dysku IO","diskQueueSize":"Rozmiar kolejki dysku","subheader":"Dysk"},"maxConcurrentHTTPAnnounces":"Maksymalna liczba równoczesnych ogłoszeń HTTP","networking":{"outgoingPortsMax":"Porty wychodzące (maks.) [0: Wyłączone]","outgoingPortsMin":"Porty wychodzące (min.) [0: Wyłączone]","peerTos":"Wartość DSCP dla połączeń z peerami","subheader":"Sieć","upnpLeaseDuration":"Czas dzierżawy UPnP [0: Dzierżawa stała]","utpTcpMixedModeAlgorithm":"Algorytm mieszany μTP-TCP"},"outgoingConnectionsPerSecond":"Połączenia wychodzące na sekundę","peerTurnover":"Procent rozłączenia w przypadku wymiany peer'ów","peerTurnoverCutoff":"Procent prógu odłączenia w przypadku wymiany peer'ów","peerTurnoverInterval":"Interwał rozłączenia w przypadku wymiany peer'ów","pieceExtentAffinity":"Użyj powiązania zasięgu fragmentu","requestQueueSize":"Maksymalna liczba oczekujących żądań do jednego peer'a","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Zezwalaj na wiele połączeń z tego samego adresu IP","blockPeersOnPrivilegedPorts":"Zablokuj połączenia z peerami na uprzywilejowanych portach","idnSupport":"Włącz obsługę międzynarodowych nazw domenowych (IDN)","mitigateSSRF":"Zabezpieczenie przed podrobieniem żądania po stronie serwera (SSRF)","subheader":"Bezpieczeństwo","validateHTTPSTrackerCertificate":"Sprawdź ważność certyfikatu HTTPS tracker'a"},"sendBufferLowWatermark":"Minimalny próg buforowania wysyłania","sendBufferWatermark":"Wyślij buforowy znak wodny","sendBufferWatermarkFactor":"Wyślij współczynnik znaku wodnego bufora","sendUploadPieceSuggestions":"Wyślij sugestie dotyczące przesyłania fragmentów","socketBacklogSize":"Rozmiar kolejki gniazda","socketReceiveBufferSize":"Rozmiar bufora odbioru gniazda","socketReceiveBufferSizeHint":"0: domyślny systemowy","socketSendBufferSize":"Rozmiar bufora wysyłania gniazda","socketSendBufferSizeHint":"0: domyślny systemowy","stopTrackerTimeout":"Czas oczekiwania na zatrzymanie trackera","subheader":"Sekcja libtorrent","threads":{"asyncIoThreads":"Asynchroniczne wątki we/wy","bdecodeDepthLimit":"Limit głębokości Bdecode","bdecodeTokenLimit":"Limit tokenów Bdecode","filePoolSize":"Rozmiar puli plików","hashingThreads":"Wątki hashowania (libtorrent >= 2.0)","outstandingMemory":"Pamięć oczekująca podczas sprawdzania torrentów","subheader":"Wątki"},"uploadChokingAlgorithm":"Algorytm ograniczania wysyłania","uploadSlotsBehavior":"Zachowanie slotów wysyłania"},"openDoc":"Otwórz dokumentację","qbittorrent":{"allocatedRam":"Limit wykorzystania pamięci RAM (libtorrent >= 2.0)","embeddedTracker":{"enable":"Włącz wbudowany tracker","port":"Port wbudowanego trackera","portForward":"Włącz przekierowanie portów dla wbudowanego trackera","title":"Tracker wbudowany"},"networking":{"ipAddress":{"all":"Wszystkie adresy","allIPv4":"Wszystkie adresy IPv4","allIPv6":"Wszystkie adresy IPv6","label":"Opcjonalny adres IP do przypisania"},"networkInterfaces":{"any":"Dowolny interfejs","label":"Interfejs sieciowy"},"title":"Sieć"},"reannounceOnIpPortChanged":"Powiadom wszystkie trackery o zmianie adresu IP lub portu","recheckOnCompletion":"Sprawdź ponownie torrenty po zakończeniu","refreshInterval":"Interwał odświeżania GUI","resolveCountries":"Ustalaj kraje peerów","resumeDataStorageType":{"label":"Typ przechowywania danych wznawiania (wymaga ponownego uruchomienia)","legacy":"Pliki szybkiego wznowienia","sqlite":"Baza danych SQLite (eksperymentalna)"},"saveInterval":"Interwał zapisywania danych do wznowienia","subheader":"Sekcja qBittorrent","torrentFileSizeLimit":"Limit rozmiaru pliku .torrent"}},"behavior":{"logs":{"file_log_age":"Usuń dzienniki kopii zapasowych starsze niż","file_log_backup_enabled":"Włącz kopię zapasową pliku dziennika","file_log_delete_old":"Usuń stare dzienniki kopii zapasowych","file_log_enabled":"Włącz pliki dziennika","file_log_max_size":"Wykonaj kopię zapasową pliku dziennika po","file_log_path":"Ścieżka zapisu","subheader":"Zarządzanie logami"},"performance_warning":"Zapisz ostrzeżenie o wydajności"},"bittorrent":{"autoAddTrackers":"Automatycznie dodaj te trackery do nowych pobierań","autoAddTrackersHint":"Jeden tracker na wiersz","maxActiveCheckingTorrents":"Maksymalna liczba aktywnych sprawdzanych torrentów","privacy":{"enableAnonymous":"Włącz tryb anonimowy","enableDHT":"Włącz DHT (zdecentralizowaną sieć) aby znaleźć więcej peerów","enableLPD":"Włącz odkrywanie lokalnych peerów, aby znaleźć więcej peerów","enablePeX":"Włącz wymianę peerów (PeX), aby znaleźć więcej peerów","encryptionMode":"Tryb szyfrowania","moreInfo":"Więcej informacji","subheader":"Prywatność"},"seedLimits":{"subheader":"Limity seedowania","then":"Następnie","whenInactiveSeedingTimeReaches":"Gdy czas nieaktywnego seedowania osiągnie","whenRatioReaches":"Gdy stosunek osiągnie","whenSeedingTimeReaches":"Gdy czas seedowania osiągnie"},"torrentQueueing":{"downloadRateLimit":"Próg pobierania","excludeSlowTorrent":"Nie uwzględniaj wolnych torrentów w tych limitach","maxActiveDownload":"Maksymalna liczba aktywnych pobrań","maxActiveTorrent":"Maksymalna liczba aktywnych torrentów","maxActiveUpload":"Maksymalna liczba aktywnych wysyłek","subheader":"Kolejkowanie torrentów","torrentInactivityTimer":"Timer bezczynności torrenta","uploadRateLimit":"Próg wysyłania"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globalna maksymalna liczba połączeń","globalMaxUploadSlots":"Globalna maksymalna liczba slotów przesyłania plików","perTorrentMaxConnection":"Maksymalna liczba połączeń na torrent","perTorrentMaxUploadSlots":"Maksymalna liczba slotów przesyłania plików na torrent","subheader":"Limity połączeń"},"ipFiltering":{"applyToTrackers":"Zastosuj do trackerów","bannedIps":"Ręcznie zbanowane adresy IP","bannedIpsHint":"Jeden na każdej linii","filterPath":"Ścieżka filtru (.dat, .p2p, .p2b)","subheader":"Filtrowanie IP"},"listeningPort":{"incomingConnectionPort":"Port używany do przychodzących połączeń","randomPort":"Losowy port","subheader":"Port nasłuchu","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"protocol":"Protokół połączenia z peer'ami","proxy":{"auth":{"password":"Hasło","subtitle":"Uwierzytelnianie","tip":"Informacja: Hasło jest zapisane w postaci niezaszyfrowanej","username":"Nazwa użytkownika"},"bittorrent":"Użyj serwera proxy do celów BitTorrent","host":"Host","hostNameLookup":"Użyj serwera proxy do wyszukiwania nazw hostów","misc":"Użyj serwera proxy do celów ogólnych","peerConnections":"Użyj serwera proxy dla połączeń peer","port":"Port","rss":"Użyj serwera proxy do celów RSS","subheader":"Serwer proxy"}},"downloads":{"excludedFileNames":{"hint":"Jeden filtr na linię","label":"Wykluczone nazwy plików"},"mailNotification":{"authEnabled":"Uwierzytelnianie","enabled":"Powiadomienie e-mailem po zakończeniu pobierania","from":"Od","password":"Hasło","smtpServer":"Serwer SMTP","sslEnabled":"Ten serwer wymaga bezpiecznego połączenia (SSL) ","to":"Do","username":"Nazwa użytkownika"},"monitoredFolders":{"actions":"Akcje","confirmDelete":"Czy na pewno chcesz usunąć ten element?","editItem":"Edytuj","monitoredFolderPath":"Folder monitorowany","newItem":"Nowy","noData":"Nie ma jeszcze monitorowanego folderu","otherPath":"Inna ścieżka","saveType":"Zastąp lokalizację zapisu","subheader":"Foldery monitorowane"},"publicSettings":{"appendQBExtension":"Dodaj rozszerzenie .!qB do niekompletnych plików","preAllocateDisk":"Wstępna alokacja miejsca na dysku dla wszystkich plików"},"runExternalProgram":{"onAddedEnabled":"Uruchom program zewnętrzny po dodaniu torrenta","onAddedLabel":"Polecenie","onFinishedEnabled":"Uruchom program zewnętrzny po zakończeniu pobierania torrenta","onFinishedLabel":"Polecenie","subheader":"Uruchom program zewnętrzny","supportParamC":"%C: Liczba plików","supportParamD":"%D: Ścieżka zapisu","supportParamF":"%F: Ścieżka zawartości (taka sama jak ścieżka główna dla torrentów wieloplikowych)","supportParamG":"%G: Tagi (oddzielone przecinkami)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: Identyfikator torrenta","supportParamL":"%L: Kategoria","supportParamN":"%N: Nazwa torrenta","supportParamR":"%R: Ścieżka główna (ścieżka pierwszego podkatalogu torrenta) ","supportParamT":"%T: Bieżący tracker","supportParamTitle":"Obsługiwane parametry (z uwzględnieniem wielkości liter):","supportParamZ":"%Z: Rozmiar torrenta (bajty)","tip":"Porada: Obejmij parametr cudzysłowami, aby uniknąć przycięcia tekstu na białych znakach (np. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Domyślny tryb zarządzania torrentami","categoryChangedTMM":"Gdy zmieniono ścieżkę zapisu kategorii","defaultSavePath":"Domyślna ścieżka zapisu (kompletna)","defaultTMMOptions":{"automatic":"Automatyczne","manual":"Ręczne"},"exportDir":"Kopiuj pliki .torrent do","exportDirFinished":"Kopiuj pliki .torrent dla ukończonych pobierań do","keepIncomplete":"Domyślna ścieżka pobierania (niekompletne torrenty)","paramChangedTMMOptions":{"relocateTorrent":"Przenieś torrent","switchToManual":"Przełącz torrent w tryb ręczny"},"savePathChangedTMM":"Gdy zmieniono domyślną ścieżkę zapisu","subheader":"Zarządzanie zapisywaniem","torrentChangedTMM":"Gdy zmieniono kategorię torrenta"},"whenAddTorrent":{"addToTopOfQueue":"Dodaj na początek kolejki","autoDeleteMode":"Usuń pliki .torrent automatycznie","doNotAutoStart":"Nie uruchamiaj pobierania automatycznie","mergeTrackers":"Scal trackery, jeśli torrent już istnieje","subheader":"Podczas dodawania torrenta"}},"rss":{"autoDownloader":{"enable":"Włącz przetwarzanie reguł RSS","subheader":"Automatyczne pobieranie torrentów RSS"},"reader":{"enableProcessing":"Włącz pobieranie kanałów RSS","feedsRefreshInterval":"Interwał odświeżania kanałów","maximumArticlesPerFeed":"Maksymalna liczba artykułów na kanał","subheader":"Czytnik RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Pobierz odcinki REPACK/PROPER","filters":"Filtry","filtersHint":"Jeden na linię","subheader":"Filtr inteligentnych odcinków RSS"},"useIdForRssLinks":"Użyj identyfikatora linku do artykułu RSS"},"saveSuccess":"Ustawienia zapisane!","speed":{"download":"Pobieranie","scheduler":{"from":"Od","selectButtonLabel":"Wybierz czas","subheader":"Zaplanuj wykorzystanie alternatywnych limitów szybkości","to":"Do","when":"Kiedy"},"settings":{"applyToPeersOnLan":"Zastosuj limit prędkości dla peerów w sieci LAN","applyToTransportOverhead":"Zastosuj limit szybkości do nadmiaru transportu","applyToUtp":"Zastosuj limit prędkości dla protokołu µTP"},"subheader":{"alternative":"Alternatywne limity szybkości","global":"Ogólne limity szybkości","settings":"Ustawienia limitów szybkości"},"tip":"0 oznacza brak limitu","upload":"Wysyłanie"},"tabs":{"advanced":"Zaawansowane","behavior":"Zachowanie","bittorrent":"BitTorrent","connection":"Połączenie","downloads":"Pobrania","rss":"RSS","speed":"Prędkość","tagsAndCategories":"Tagi i kategorie","vuetorrent":{"general":"Ogólne","title":"VueTorrent","torrent_card":{"grid":"Widok siatki","list":"Widok listy","table":"Widok tabeli"}},"webui":"Interfejs WWW"},"tagsAndCategories":{"categoriesSubheader":"Dostępne kategorie:","createNewCategory":"Utwórz nową kategorię","createNewTag":"Utwórz nowy tag","noCategories":"Nie ma jeszcze kategorii","noTags":"Nie ma jeszcze tagów","tagsSubheader":"Dostępne tagi:"},"title":"Ustawienia","vuetorrent":{"general":{"check_new":"Sprawdź nową wersję","currentVersion":"Obecna wersja","customTitle":"Niestandardowy tytuł","dateFormat":"Format daty","download":"Eksportuj ustawienia","fileContentInterval":"Interwał odświeżania zawartości pliku torrent","hideChipIfUnset":"Ukryj elementy, jeśli nieustawione","historySize":"Rozmiar historii w kwalifikujących się polach","import":"Importuj ustawienia","isDrawerRight":"Prawy panel boczny","isShutdownButtonVisible":"Pokaż przycisk wyłączenia","language":"Język","paginationSize":{"infinite_scroll":"Nieskończone przewijanie","label":"Rozmiar paginacji","warning":"Używanie wysokich wartości może wpłynąć na wydajność"},"qbittorrentVersion":"Wersja qBittorrent","refreshInterval":"Interwał odświeżania API qBittorrent","registerMagnet":"Zarejestruj linki magnet","resetSettings":"Resetuj ustawienia","showAlltimeStat":"Pokaż statystyki ogólne","showCurrentSpeed":"Pokaż aktualną prędkość","showFreeSpace":"Pokaż wolne miejsce","showSessionStat":"Pokaż statystyki sesji","showSpeedGraph":"Pokaż wykres prędkości","tip":"Te ustawienia dotyczą niestandardowego interfejsu WebUI","useBinarySize":"Zastąp jednostki danych jednostkami binarnymi (kB -> KiB)","useBitSpeed":"Zamień wartości prędkości na bity (kB/s -> kbps)","vueTorrentTitle":"Tytuł karty"},"torrentCard":{"grid":{"busyTip":"Właściwości do wyświetlenia dla niekompletnych torrentów w widoku siatki","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku siatki"},"list":{"busyTip":"Właściwości do wyświetlenia dla zajętych torrentów w widoku listy","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku listy"},"table":{"tip":"Właściwości do wyświetlenia dla torrentów w widoku tabeli"}}},"webUI":{"authentication":{"banDuration":"Czas blokady","banDurationHint":"W sekundach","bypassLocalhost":"Pomiń uwierzytelnianie klientów na serwerze lokalnym","bypassWhitelist":"Pomiń uwierzytelnianie dla klientów w podsieciach IP na białej liście","maxAttempts":"Maksymalna liczba prób","password":"Hasło","passwordPlaceholder":"(bez zmian)","sessionTimeout":"Limit czasu sesji","sessionTimeoutHint":"W sekundach","subheader":"Uwierzytelnianie","username":"Nazwa użytkownika","whitelistExamples":"Przykład: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Dodaj niestandardowe nagłówki HTTP","customHeadersHint":"Jeden na linię","customHeadersPlaceholder":"Nagłówek1: wartość1\\nNagłówek2: wartość2\\n...","dynDns":{"domainName":"Nazwa domeny","password":"Hasło","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Zarejestruj","subheader":"Zaktualizuj moją dynamiczną nazwę domeny","username":"Nazwa użytkownika"},"https":{"certificate":"Certyfikat","key":"Klucz","subheader":"Użyj protokołu HTTPS","tip":"Informacje o certyfikatach"},"interface":{"ipAddress":"Adres IP","port":"Port","subheader":"Interfejs użytkownika","useAlternativeWebUI":"Użyj alternatywnego interfejsu WebUI","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"proxiesList":"Lista zaufanych serwerów proxy","proxiesListHint":"Oddzielaj adresy IP średnikiem ( ; )","reverseProxySupport":"Włącz obsługę odwrotnego proxy","security":{"clickjacking":"Włącz ochronę przed clickjackingiem","csrf":"Włącz ochronę przed atakami typu Cross-Site Request Forgery (CSRF)","hostHeaderValidation":"Włącz walidację nagłówka Host","hostHeaderValidationHint":"Oddzielone średnikiem ( ; ) ","secureCookie":"Włącz flagę \\"secure\\" dla ciasteczek (wymaga HTTPS)","serverDomains":"Domeny serwera","subheader":"Bezpieczeństwo"}}}`);
-    E9 = {
+    M9 = JSON.parse(`{"advanced":{"libtorrent":{"announceAllTiers":"Zawsze ogłaszaj do wszystkich poziomów","announceAllTrackers":"Zawsze ogłaszaj wszystkim trackerom na danym poziomie","announceIP":"Adres IP zgłaszany do trackerów (wymaga ponownego uruchomienia)","coalesceReadsWrites":"Łączenie odczytów i zapisów (libtorrent < 2.0)","disk":{"diskCache":"Pamięć podręczna dysku (libtorrent < 2.0)","diskCacheExpiry":"Interwał wygaśnięcia pamięci podręcznej dysku (libtorrent < 2.0)","diskIoReadMode":"Tryb odczytu dysku IO","diskIoType":"Typ wejścia/wyjścia dysku (libtorrent >= 2.0; wymaga ponownego uruchomienia)","diskIoWriteMode":"Tryb zapisu dysku IO","diskQueueSize":"Rozmiar kolejki dysku","subheader":"Dysk"},"maxConcurrentHTTPAnnounces":"Maksymalna liczba równoczesnych ogłoszeń HTTP","networking":{"outgoingPortsMax":"Porty wychodzące (maks.) [0: Wyłączone]","outgoingPortsMin":"Porty wychodzące (min.) [0: Wyłączone]","peerTos":"Wartość DSCP dla połączeń z peerami","subheader":"Sieć","upnpLeaseDuration":"Czas dzierżawy UPnP [0: Dzierżawa stała]","utpTcpMixedModeAlgorithm":"Algorytm mieszany μTP-TCP"},"outgoingConnectionsPerSecond":"Połączenia wychodzące na sekundę","peerTurnover":"Procent rozłączenia w przypadku wymiany peer'ów","peerTurnoverCutoff":"Procent prógu odłączenia w przypadku wymiany peer'ów","peerTurnoverInterval":"Interwał rozłączenia w przypadku wymiany peer'ów","pieceExtentAffinity":"Użyj powiązania zasięgu fragmentu","requestQueueSize":"Maksymalna liczba oczekujących żądań do jednego peer'a","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Zezwalaj na wiele połączeń z tego samego adresu IP","blockPeersOnPrivilegedPorts":"Zablokuj połączenia z peerami na uprzywilejowanych portach","idnSupport":"Włącz obsługę międzynarodowych nazw domenowych (IDN)","mitigateSSRF":"Zabezpieczenie przed podrobieniem żądania po stronie serwera (SSRF)","subheader":"Bezpieczeństwo","validateHTTPSTrackerCertificate":"Sprawdź ważność certyfikatu HTTPS tracker'a"},"sendBufferLowWatermark":"Minimalny próg buforowania wysyłania","sendBufferWatermark":"Wyślij buforowy znak wodny","sendBufferWatermarkFactor":"Wyślij współczynnik znaku wodnego bufora","sendUploadPieceSuggestions":"Wyślij sugestie dotyczące przesyłania fragmentów","socketBacklogSize":"Rozmiar kolejki gniazda","socketReceiveBufferSize":"Rozmiar bufora odbioru gniazda","socketReceiveBufferSizeHint":"0: domyślny systemowy","socketSendBufferSize":"Rozmiar bufora wysyłania gniazda","socketSendBufferSizeHint":"0: domyślny systemowy","stopTrackerTimeout":"Czas oczekiwania na zatrzymanie trackera","subheader":"Sekcja libtorrent","threads":{"asyncIoThreads":"Asynchroniczne wątki we/wy","bdecodeDepthLimit":"Limit głębokości Bdecode","bdecodeTokenLimit":"Limit tokenów Bdecode","filePoolSize":"Rozmiar puli plików","hashingThreads":"Wątki hashowania (libtorrent >= 2.0)","outstandingMemory":"Pamięć oczekująca podczas sprawdzania torrentów","subheader":"Wątki"},"uploadChokingAlgorithm":"Algorytm ograniczania wysyłania","uploadSlotsBehavior":"Zachowanie slotów wysyłania"},"openDoc":"Otwórz dokumentację","qbittorrent":{"allocatedRam":"Limit wykorzystania pamięci RAM (libtorrent >= 2.0)","embeddedTracker":{"enable":"Włącz wbudowany tracker","port":"Port wbudowanego trackera","portForward":"Włącz przekierowanie portów dla wbudowanego trackera","title":"Tracker wbudowany"},"networking":{"ipAddress":{"all":"Wszystkie adresy","allIPv4":"Wszystkie adresy IPv4","allIPv6":"Wszystkie adresy IPv6","label":"Opcjonalny adres IP do przypisania"},"networkInterfaces":{"any":"Dowolny interfejs","label":"Interfejs sieciowy"},"title":"Sieć"},"reannounceOnIpPortChanged":"Powiadom wszystkie trackery o zmianie adresu IP lub portu","recheckOnCompletion":"Sprawdź ponownie torrenty po zakończeniu","refreshInterval":"Interwał odświeżania GUI","resolveCountries":"Ustalaj kraje peerów","resumeDataStorageType":{"label":"Typ przechowywania danych wznawiania (wymaga ponownego uruchomienia)","legacy":"Pliki szybkiego wznowienia","sqlite":"Baza danych SQLite (eksperymentalna)"},"saveInterval":"Interwał zapisywania danych do wznowienia","subheader":"Sekcja qBittorrent","torrentFileSizeLimit":"Limit rozmiaru pliku .torrent"}},"behavior":{"logs":{"file_log_age":"Usuń dzienniki kopii zapasowych starsze niż","file_log_backup_enabled":"Włącz kopię zapasową pliku dziennika","file_log_delete_old":"Usuń stare dzienniki kopii zapasowych","file_log_enabled":"Włącz pliki dziennika","file_log_max_size":"Wykonaj kopię zapasową pliku dziennika po","file_log_path":"Ścieżka zapisu","subheader":"Zarządzanie logami"},"performance_warning":"Zapisz ostrzeżenie o wydajności"},"bittorrent":{"autoAddTrackers":"Automatycznie dodaj te trackery do nowych pobierań","autoAddTrackersHint":"Jeden tracker na wiersz","maxActiveCheckingTorrents":"Maksymalna liczba aktywnych sprawdzanych torrentów","privacy":{"enableAnonymous":"Włącz tryb anonimowy","enableDHT":"Włącz DHT (zdecentralizowaną sieć) aby znaleźć więcej peerów","enableLPD":"Włącz odkrywanie lokalnych peerów, aby znaleźć więcej peerów","enablePeX":"Włącz wymianę peerów (PeX), aby znaleźć więcej peerów","encryptionMode":"Tryb szyfrowania","moreInfo":"Więcej informacji","subheader":"Prywatność"},"seedLimits":{"subheader":"Limity seedowania","then":"Następnie","whenInactiveSeedingTimeReaches":"Gdy czas nieaktywnego seedowania osiągnie","whenRatioReaches":"Gdy stosunek osiągnie","whenSeedingTimeReaches":"Gdy czas seedowania osiągnie"},"torrentQueueing":{"downloadRateLimit":"Próg pobierania","excludeSlowTorrent":"Nie uwzględniaj wolnych torrentów w tych limitach","maxActiveDownload":"Maksymalna liczba aktywnych pobrań","maxActiveTorrent":"Maksymalna liczba aktywnych torrentów","maxActiveUpload":"Maksymalna liczba aktywnych wysyłek","subheader":"Kolejkowanie torrentów","torrentInactivityTimer":"Timer bezczynności torrenta","uploadRateLimit":"Próg wysyłania"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globalna maksymalna liczba połączeń","globalMaxUploadSlots":"Globalna maksymalna liczba slotów przesyłania plików","perTorrentMaxConnection":"Maksymalna liczba połączeń na torrent","perTorrentMaxUploadSlots":"Maksymalna liczba slotów przesyłania plików na torrent","subheader":"Limity połączeń"},"ipFiltering":{"applyToTrackers":"Zastosuj do trackerów","bannedIps":"Ręcznie zbanowane adresy IP","bannedIpsHint":"Jeden na każdej linii","filterPath":"Ścieżka filtru (.dat, .p2p, .p2b)","subheader":"Filtrowanie IP"},"listeningPort":{"incomingConnectionPort":"Port używany do przychodzących połączeń","randomPort":"Losowy port","subheader":"Port nasłuchu","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"protocol":"Protokół połączenia z peer'ami","proxy":{"auth":{"password":"Hasło","subtitle":"Uwierzytelnianie","tip":"Informacja: Hasło jest zapisane w postaci niezaszyfrowanej","username":"Nazwa użytkownika"},"bittorrent":"Użyj serwera proxy do celów BitTorrent","host":"Host","hostNameLookup":"Użyj serwera proxy do wyszukiwania nazw hostów","misc":"Użyj serwera proxy do celów ogólnych","peerConnections":"Użyj serwera proxy dla połączeń peer","port":"Port","rss":"Użyj serwera proxy do celów RSS","subheader":"Serwer proxy"}},"downloads":{"excludedFileNames":{"hint":"Jeden filtr na linię","label":"Wykluczone nazwy plików"},"mailNotification":{"authEnabled":"Uwierzytelnianie","enabled":"Powiadomienie e-mailem po zakończeniu pobierania","from":"Od","password":"Hasło","smtpServer":"Serwer SMTP","sslEnabled":"Ten serwer wymaga bezpiecznego połączenia (SSL) ","to":"Do","username":"Nazwa użytkownika"},"monitoredFolders":{"actions":"Akcje","confirmDelete":"Czy na pewno chcesz usunąć ten element?","editItem":"Edytuj","monitoredFolderPath":"Folder monitorowany","newItem":"Nowy","noData":"Nie ma jeszcze monitorowanego folderu","otherPath":"Inna ścieżka","saveType":"Zastąp lokalizację zapisu","subheader":"Foldery monitorowane"},"publicSettings":{"appendQBExtension":"Dodaj rozszerzenie .!qB do niekompletnych plików","preAllocateDisk":"Wstępna alokacja miejsca na dysku dla wszystkich plików"},"runExternalProgram":{"onAddedEnabled":"Uruchom program zewnętrzny po dodaniu torrenta","onAddedLabel":"Polecenie","onFinishedEnabled":"Uruchom program zewnętrzny po zakończeniu pobierania torrenta","onFinishedLabel":"Polecenie","subheader":"Uruchom program zewnętrzny","supportParamC":"%C: Liczba plików","supportParamD":"%D: Ścieżka zapisu","supportParamF":"%F: Ścieżka zawartości (taka sama jak ścieżka główna dla torrentów wieloplikowych)","supportParamG":"%G: Tagi (oddzielone przecinkami)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: Identyfikator torrenta","supportParamL":"%L: Kategoria","supportParamN":"%N: Nazwa torrenta","supportParamR":"%R: Ścieżka główna (ścieżka pierwszego podkatalogu torrenta) ","supportParamT":"%T: Bieżący tracker","supportParamTitle":"Obsługiwane parametry (z uwzględnieniem wielkości liter):","supportParamZ":"%Z: Rozmiar torrenta (bajty)","tip":"Porada: Obejmij parametr cudzysłowami, aby uniknąć przycięcia tekstu na białych znakach (np. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Domyślny tryb zarządzania torrentami","categoryChangedTMM":"Gdy zmieniono ścieżkę zapisu kategorii","defaultSavePath":"Domyślna ścieżka zapisu (kompletna)","defaultTMMOptions":{"automatic":"Automatyczne","manual":"Ręczne"},"exportDir":"Kopiuj pliki .torrent do","exportDirFinished":"Kopiuj pliki .torrent dla ukończonych pobierań do","keepIncomplete":"Domyślna ścieżka pobierania (niekompletne torrenty)","paramChangedTMMOptions":{"relocateTorrent":"Przenieś torrent","switchToManual":"Przełącz torrent w tryb ręczny"},"savePathChangedTMM":"Gdy zmieniono domyślną ścieżkę zapisu","subheader":"Zarządzanie zapisywaniem","torrentChangedTMM":"Gdy zmieniono kategorię torrenta"},"whenAddTorrent":{"addToTopOfQueue":"Dodaj na początek kolejki","autoDeleteMode":"Usuń pliki .torrent automatycznie","doNotAutoStart":"Nie uruchamiaj pobierania automatycznie","mergeTrackers":"Scal trackery, jeśli torrent już istnieje","subheader":"Podczas dodawania torrenta"}},"rss":{"autoDownloader":{"enable":"Włącz przetwarzanie reguł RSS","subheader":"Automatyczne pobieranie torrentów RSS"},"reader":{"enableProcessing":"Włącz pobieranie kanałów RSS","feedsRefreshInterval":"Interwał odświeżania kanałów","maximumArticlesPerFeed":"Maksymalna liczba artykułów na kanał","subheader":"Czytnik RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Pobierz odcinki REPACK/PROPER","filters":"Filtry","filtersHint":"Jeden na linię","subheader":"Filtr inteligentnych odcinków RSS"},"useIdForRssLinks":"Użyj identyfikatora linku do artykułu RSS"},"saveSuccess":"Ustawienia zapisane!","speed":{"download":"Pobieranie","scheduler":{"from":"Od","selectButtonLabel":"Wybierz czas","subheader":"Zaplanuj wykorzystanie alternatywnych limitów szybkości","to":"Do","when":"Kiedy"},"settings":{"applyToPeersOnLan":"Zastosuj limit prędkości dla peerów w sieci LAN","applyToTransportOverhead":"Zastosuj limit szybkości do nadmiaru transportu","applyToUtp":"Zastosuj limit prędkości dla protokołu µTP"},"subheader":{"alternative":"Alternatywne limity szybkości","global":"Ogólne limity szybkości","settings":"Ustawienia limitów szybkości"},"tip":"0 oznacza brak limitu","upload":"Wysyłanie"},"tabs":{"advanced":"Zaawansowane","behavior":"Zachowanie","bittorrent":"BitTorrent","connection":"Połączenie","downloads":"Pobrania","rss":"RSS","speed":"Prędkość","tagsAndCategories":"Tagi i kategorie","vuetorrent":{"general":"Ogólne","title":"VueTorrent","torrent_card":{"grid":"Widok siatki","list":"Widok listy","table":"Widok tabeli"}},"webui":"Interfejs WWW"},"tagsAndCategories":{"categoriesSubheader":"Dostępne kategorie:","createNewCategory":"Utwórz nową kategorię","createNewTag":"Utwórz nowy tag","noCategories":"Nie ma jeszcze kategorii","noTags":"Nie ma jeszcze tagów","tagsSubheader":"Dostępne tagi:"},"title":"Ustawienia","vuetorrent":{"general":{"check_new":"Sprawdź nową wersję","currentVersion":"Obecna wersja","customTitle":"Niestandardowy tytuł","dateFormat":"Format daty","download":"Eksportuj ustawienia","fileContentInterval":"Interwał odświeżania zawartości pliku torrent","hideChipIfUnset":"Ukryj elementy, jeśli nieustawione","historySize":"Rozmiar historii w kwalifikujących się polach","import":"Importuj ustawienia","isDrawerRight":"Prawy panel boczny","isShutdownButtonVisible":"Pokaż przycisk wyłączenia","language":"Język","paginationSize":{"infinite_scroll":"Nieskończone przewijanie","label":"Rozmiar paginacji","warning":"Używanie wysokich wartości może wpłynąć na wydajność"},"qbittorrentVersion":"Wersja qBittorrent","refreshInterval":"Interwał odświeżania API qBittorrent","registerMagnet":"Zarejestruj linki magnet","resetSettings":"Resetuj ustawienia","showAlltimeStat":"Pokaż statystyki ogólne","showCurrentSpeed":"Pokaż aktualną prędkość","showFreeSpace":"Pokaż wolne miejsce","showSessionStat":"Pokaż statystyki sesji","showSpeedGraph":"Pokaż wykres prędkości","tip":"Te ustawienia dotyczą niestandardowego interfejsu WebUI","useBinarySize":"Zastąp jednostki danych jednostkami binarnymi (kB -> KiB)","useBitSpeed":"Zamień wartości prędkości na bity (kB/s -> kbps)","vueTorrentTitle":"Tytuł karty"},"torrentCard":{"grid":{"busyTip":"Właściwości do wyświetlenia dla niekompletnych torrentów w widoku siatki","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku siatki"},"list":{"busyTip":"Właściwości do wyświetlenia dla zajętych torrentów w widoku listy","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku listy"},"table":{"tip":"Właściwości do wyświetlenia dla torrentów w widoku tabeli"}}},"webUI":{"authentication":{"banDuration":"Czas blokady","banDurationHint":"W sekundach","bypassLocalhost":"Pomiń uwierzytelnianie klientów na serwerze lokalnym","bypassWhitelist":"Pomiń uwierzytelnianie dla klientów w podsieciach IP na białej liście","maxAttempts":"Maksymalna liczba prób","password":"Hasło","passwordPlaceholder":"(bez zmian)","sessionTimeout":"Limit czasu sesji","sessionTimeoutHint":"W sekundach","subheader":"Uwierzytelnianie","username":"Nazwa użytkownika","whitelistExamples":"Przykład: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Dodaj niestandardowe nagłówki HTTP","customHeadersHint":"Jeden na linię","customHeadersPlaceholder":"Nagłówek1: wartość1\\nNagłówek2: wartość2\\n...","dynDns":{"domainName":"Nazwa domeny","password":"Hasło","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Zarejestruj","subheader":"Zaktualizuj moją dynamiczną nazwę domeny","username":"Nazwa użytkownika"},"https":{"certificate":"Certyfikat","key":"Klucz","subheader":"Użyj protokołu HTTPS","tip":"Informacje o certyfikatach"},"interface":{"ipAddress":"Adres IP","port":"Port","subheader":"Interfejs użytkownika","useAlternativeWebUI":"Użyj alternatywnego interfejsu WebUI","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"proxiesList":"Lista zaufanych serwerów proxy","proxiesListHint":"Oddzielaj adresy IP średnikiem ( ; )","reverseProxySupport":"Włącz obsługę odwrotnego proxy","security":{"clickjacking":"Włącz ochronę przed clickjackingiem","csrf":"Włącz ochronę przed atakami typu Cross-Site Request Forgery (CSRF)","hostHeaderValidation":"Włącz walidację nagłówka Host","hostHeaderValidationHint":"Oddzielone średnikiem ( ; ) ","secureCookie":"Włącz flagę \\"secure\\" dla ciasteczek (wymaga HTTPS)","serverDomains":"Domeny serwera","subheader":"Bezpieczeństwo"}}}`);
+    R9 = {
         add: {
             error: "Błąd podczas dodawania torrentów",
             pending: "Wysyłanie torrentów...",
@@ -100583,7 +100698,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             new: "Nowa wersja dostępna!"
         }
     };
-    _9 = {
+    L9 = {
         actions: {
             delete: "Usuń torrenty",
             logs: "Otwórz dzienniki",
@@ -100605,7 +100720,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         searchTorrents: "Szukaj torrentów"
     };
-    P9 = {
+    I9 = {
         content: {
             fileInfo: "{n} plik | {n} pliki | {n} plików",
             folderInfo: "{n} folder | {n} foldery | {n} folderów",
@@ -100693,7 +100808,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             tier: "Poziom: {n}"
         }
     };
-    B9 = {
+    z9 = {
         properties: {
             added_on: "Dodano",
             amount_left: "Pozostała ilość",
@@ -100770,29 +100885,29 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             uploading: "Wysyłanie"
         }
     };
-    M9 = {
+    N9 = {
         minutes: "minuta | minuty | minut",
         seconds: "sekunda | sekundy | sekund"
     };
-    R9 = {
-        common: b9,
-        constants: F9,
-        dashboard: k9,
-        dialogs: x9,
-        login: w9,
-        logs: S9,
-        navbar: C9,
-        rssArticles: A9,
-        searchEngine: D9,
-        settings: T9,
-        toast: E9,
-        topbar: _9,
-        torrentDetail: P9,
-        torrent: B9,
-        units: M9
+    O9 = {
+        common: S9,
+        constants: C9,
+        dashboard: A9,
+        dialogs: D9,
+        login: T9,
+        logs: E9,
+        navbar: _9,
+        rssArticles: P9,
+        searchEngine: B9,
+        settings: M9,
+        toast: R9,
+        topbar: L9,
+        torrentDetail: I9,
+        torrent: z9,
+        units: N9
     };
-    L9 = "Conteúdo gerado pelo aplicativo Tolgee. NUNCA EDITE MANUALMENTE, POIS SERÁ SOBRESCRITO";
-    I9 = {
+    H9 = "Conteúdo gerado pelo aplicativo Tolgee. NUNCA EDITE MANUALMENTE, POIS SERÁ SOBRESCRITO";
+    V9 = {
         cancel: "Cancelar",
         close: "Fechar",
         delete: "Excluir",
@@ -100815,7 +100930,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         useGlobalSettings: "Usar configurações globais",
         yes: "Sim"
     };
-    z9 = {
+    W9 = {
         addStopped: {
             always: "Sempre",
             never: "Nunca",
@@ -100936,7 +101051,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             preferTcp: "Preferir TCP"
         }
     };
-    N9 = {
+    G9 = {
         displayMode: {
             grid: "Grade",
             list: "Lista",
@@ -100981,7 +101096,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         searchInputLabel: "Buscar"
     };
-    O9 = {
+    $9 = {
         side: {
             filters: {
                 state: {
@@ -100990,14 +101105,14 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    H9 = {
-        _comments: L9,
-        common: I9,
-        constants: z9,
-        dashboard: N9,
-        navbar: O9
+    j9 = {
+        _comments: H9,
+        common: V9,
+        constants: W9,
+        dashboard: G9,
+        navbar: $9
     };
-    V9 = {
+    U9 = {
         auto: "Авто",
         cancel: "Отменить",
         close: "Закрыть",
@@ -101021,7 +101136,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         useGlobalSettings: "Использовать глобальные настройки",
         yes: "Да"
     };
-    W9 = {
+    Y9 = {
         addStopped: {
             always: "Всегда",
             never: "Никогда",
@@ -101168,7 +101283,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             preferTcp: "Предпочитать TCP"
         }
     };
-    G9 = {
+    q9 = {
         displayMode: {
             grid: "Сетка",
             list: "Список",
@@ -101238,7 +101353,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         toggleSortOrder: "Обратный порядок сортировки",
         torrentsCount: "Нет торрентов | {n} торрент | {n} торрентов"
     };
-    $9 = {
+    K9 = {
         add: {
             cookie: "Куки",
             cookie_placeholder: "имя1=значение1; имя2=значение2; ...",
@@ -101486,7 +101601,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             urlSeeds: "URL-ы веб-сидов"
         }
     };
-    j9 = {
+    X9 = {
         error: "Ошибка входа!",
         password: "Пароль",
         pending: "Проверка статуса авторизации...",
@@ -101500,7 +101615,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         title: "Войти",
         username: "Логин"
     };
-    U9 = {
+    J9 = {
         emptyLogList: "Логи не найдены",
         filters: {
             query: "Найти в сообщениях лога",
@@ -101508,7 +101623,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         title: "Логи qBittorrent"
     };
-    Y9 = {
+    Z9 = {
         addPanel: {
             torrentsPendingCount: "{n} торрент(а) ожидает раздачи | {n} торрентов ожидает раздачи"
         },
@@ -101583,7 +101698,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    q9 = {
+    Q9 = {
         feeds: {
             empty: {
                 action: "Создать RSS ленту",
@@ -101626,7 +101741,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             rules: "Показать правила"
         }
     };
-    K9 = {
+    eV = {
         filters: {
             category: {
                 all: "Все",
@@ -101664,8 +101779,8 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         tabHeaderEmpty: "(Пустая очередь)",
         title: "Поиск торрентов"
     };
-    X9 = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Автоматический бан торрент-проигрывателей","auto_ban_unknown_peer":"Автоматический бан неизвестных пиров","auto_update_trackers":"Автоматическое обновление списка общедоступных трекеров","public_trackers":"Общедоступные трекеры","trackers_list_url":"Настройка списка URL трекеров"}},"advanced":{"libtorrent":{"announceAllTiers":"Всегда объявлять всем уровням","announceAllTrackers":"Всегда объявлять всем трекерам на уровне","announceIP":"IP-адрес, переданный трекерам (требуется перезагрузка)","coalesceReadsWrites":"Объединение операций чтения и записи (libtorrent < 2.0)","dhtBootstrapNodes":"Узлы начальной загрузки DHT","dhtBootstrapNodesHint":"Сброс на значение по умолчанию (если пусто)","disk":{"diskCache":"Кэш диска (libtorrent < 2.0)","diskCacheExpiry":"Интервал очистки кэша диска (libtorrent < 2.0)","diskIoReadMode":"Режим чтения ввода-вывода с диска","diskIoType":"Тип ввода-вывода диска (libtorrent >= 2.0; требует перезапуск)","diskIoWriteMode":"Режим записи ввода-вывода с диска","diskQueueSize":"Размер очереди диска","subheader":"Диск"},"i2p":{"inboundLength":"Длина входящего I2P","inboundQuantity":"Количество входящих I2P","invalidLength":"Значение длины I2P должно быть между 0 и 7","invalidQuantity":"Значение количества I2P должно быть между 1 и 16","outboundLength":"Длина исходящего I2P","outboundQuantity":"Количество исходящих I2P","restartNeeded":"Любые изменения в этих настройках вступят в силу при следующем восстановлении SAM соединения (путём перезапуска I2P или изменения адреса или порта I2P)"},"maxConcurrentHTTPAnnounces":"Максимальное количество одновременных анонсов HTTP","networking":{"outgoingPortsMax":"Максимум исходящих портов [0: отключено]","outgoingPortsMin":"Минимум исходящих портов [0: отключено]","peerTos":"Значение DSCP для подключений к пирам","subheader":"Networking","upnpLeaseDuration":"Срок аренды UPnP [0: постоянный]","utpTcpMixedModeAlgorithm":"Алгоритм смешанного режима µTP-TCP"},"outgoingConnectionsPerSecond":"Фактор отметки буфера отправки","peerTurnover":"Процент отключения от пира","peerTurnoverCutoff":"Пороговый процент текучести пира","peerTurnoverInterval":"Интервал отключения при смене пира","pieceExtentAffinity":"Группировать смежные части","requestQueueSize":"Максимальное количество невыполненных запросов к одному пиру","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Разрешить несколько подключений с одного и того же IP","blockPeersOnPrivilegedPorts":"Запретить подключение к пирам на привилегированных портах","idnSupport":"Включить поддержку интернационализированных доменных имен (IDN)","mitigateSSRF":"Предотвращение подделки запросов на стороне сервера (SSRF)","subheader":"Безопасность","validateHTTPSTrackerCertificate":"Проверка сертификата трекера HTTPS"},"sendBufferLowWatermark":"Минимальный размер буфера отправки","sendBufferWatermark":"Размер буфера отправки","sendBufferWatermarkFactor":"Коэффициент размера буфера отправки","sendUploadPieceSuggestions":"Отправлять предложения частей отдачи","socketBacklogSize":"Размер очереди сокета","socketReceiveBufferSize":"Размер буфера сокета на получение","socketReceiveBufferSizeHint":"0: по выбору системы","socketSendBufferSize":"Размер буфера сокета на отправку","socketSendBufferSizeHint":"0: по выбору системы","ssl":{"disclaimer":"Функция \\"SSL торрент\\" не стандартизирована, с ней не связаны BEP (BitTorrent Enhancement Proposals).\\nВключайте эту функцию только в том случае, если она вам нужна.","enabled":"Разрешить SSL торренты","listenPort":"Порт, используемый для SSL-соединений","listenPortHint":"Оставить пустым для авто выбора","rule":"Порт должен быть между 0 и 65535"},"stopTrackerTimeout":"Тайм-аут остановки трекера","subheader":"Раздел libtorrent","threads":{"asyncIoThreads":"Потоки асинхронного ввода-вывода","bdecodeDepthLimit":"Ограничение глубины Bdecode","bdecodeTokenLimit":"Ограничение токена Bdecode","filePoolSize":"Размер пула файлов","hashingThreads":"Потоки хеширования (libtorrent >= 2.0)","outstandingMemory":"Накладная память при проверке торрентов","subheader":"Потоки"},"uploadChokingAlgorithm":"Алгоритм подавления раздачи","uploadSlotsBehavior":"Поведение слотов для раздачи"},"openDoc":"Открыть документацию","qbittorrent":{"allocatedRam":"Предел использования оперативной памяти (libtorrent >= 2.0)","appInstanceName":"Имя экземпляра приложения","embeddedTracker":{"enable":"Включить встроенный трекер","port":"Порт встроенного трекера","portForward":"Включить переадресацию портов для встроенного трекера","title":"Встроенный трекер"},"enableMarkOfTheWeb":"Разрешить Mark-of-the-Web (MOTW) для загруженных файлов","enableMarkOfTheWebHint":"Требуется macOS или Windows","networking":{"ipAddress":{"all":"Все адреса","allIPv4":"Все IPv4 адреса","allIPv6":"Все IPv6 адреса","label":"Необязательный IP-адрес для привязки"},"networkInterfaces":{"any":"Любой интерфейс","label":"Сетевой интерфейс"},"title":"Связь"},"pythonExecutablePath":"Путь к исполняемому файлу Python","pythonExecutablePathHint":"Авто определение (если не заполнено), требуется перезагрузка","reannounceOnIpPortChanged":"Повторно уведомлять все трекеры об изменении IP-адреса или порта","recheckOnCompletion":"Перепроверка торрентов по завершении","refreshInterval":"Интервал обновления интерфейса","resolveCountries":"Разрешить пиры из других стран","resumeDataStorageType":{"label":"Тип хранилища для возобновления данных (требуется перезагрузка)","legacy":"Файлы для быстрого возобновления","sqlite":"База данных SQLite (экспериментально)"},"saveInterval":"Сохранить интервал возобновления данных","subheader":"Раздел qBittorrent","torrentContentRemovingMode":"Режим удаления контента торрента","torrentFileSizeLimit":"Ограничение размера файла .torrent"}},"behavior":{"logs":{"file_log_age":"Удалить бэкап логов старше...","file_log_backup_enabled":"Включить бэкап логов","file_log_delete_old":"Удалять старые бэкапы логов","file_log_enabled":"Разрешить логи","file_log_max_size":"Делать бэкап логов при размере...","file_log_path":"Путь хранения","subheader":"Управление логами"},"performance_warning":"Писать в лог о проблемах производительности"},"bittorrent":{"autoAddTrackers":"Автоматически добавлять эти трекеры к новым загрузкам","autoAddTrackersHint":"Один трекер на строку","maxActiveCheckingTorrents":"Максимум одновременных проверок торрентов","privacy":{"enableAnonymous":"Включить анонимный режим","enableDHT":"Включить DHT (децентрализованную сеть) для поиска пиров","enableLPD":"Искать пиров в вашей локальной сети","enablePeX":"Включить обмен пирами (PeX)","encryptionMode":"Режим шифрования","moreInfo":"Подробнее","subheader":"Конфиденциальность"},"seedLimits":{"subheader":"Ограничение сида","then":"Затем","whenInactiveSeedingTimeReaches":"По достижении предела без активности","whenRatioReaches":"По достижении рейтинга раздачи","whenSeedingTimeReaches":"По достижении времени сидирования"},"torrentQueueing":{"downloadRateLimit":"Порог скорости загрузки","excludeSlowTorrent":"Не учитывать медленные торренты в этих ограничениях","maxActiveDownload":"Максимум активных загрузок","maxActiveTorrent":"Максимум активных торрентов","maxActiveUpload":"Максимум активных раздач","subheader":"Работа с очередью торрентов","torrentInactivityTimer":"Таймер бездействия торрента","uploadRateLimit":"Порог скорости отдачи"}},"connection":{"connectionLimits":{"globalMaxConnection":"Глобальное максимальное количество соединений","globalMaxUploadSlots":"Глобальное максимальное количество слотов для раздачи","perTorrentMaxConnection":"Максимальное количество соединений на торрент","perTorrentMaxUploadSlots":"Максимальное количество слотов для раздачи на торрент","subheader":"Ограничение соединений"},"i2p":{"address":"Хост I2P","disclaimer":"Если включён \\"Смешанный режим\\", торрентам I2P также разрешается получать пиры из других источников, отличных от трекера, и подключаться к обычным IP-адресам, не обеспечивая никакой анонимности. Это может быть полезно, если пользователю не требуется анонимизация I2P, но нужна возможность подключаться к пирам I2P.","enabled":"Разрешить I2P","mixedMode":"Смешанный режим","port":"Порт","rule":"Значение порта должно быть между 0 и 65535","subheader":"I2P (экспериментально)"},"ipFiltering":{"applyToTrackers":"Применить к трекерам","bannedIps":"Вручную запрещённые IP-адреса","bannedIpsHint":"По одному на строку","filterPath":"Путь к фильтрам (.dat, .p2p, .p2b):","subheader":"Фильтрация по IP"},"listeningPort":{"incomingConnectionPort":"Используемый порт для входящих соединений","randomPort":"Случайный порт","subheader":"Прослушиваемый порт","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"protocol":"Протокол подключения к пирам","proxy":{"auth":{"password":"Пароль","subtitle":"Аутентификация","tip":"Примечание: Пароль хранится в незашифрованном виде","username":"Имя пользователя"},"bittorrent":"Использовать прокси для BitTorrent","host":"Хост","hostNameLookup":"Использовать прокси для поиска доменного имени хоста","misc":"Использовать прокси для общих целей","peerConnections":"Использовать прокси для соединения с пирами","port":"Порт","rss":"Использовать прокси только для RSS","subheader":"Прокси сервер"}},"downloads":{"excludedFileNames":{"hint":"Одно название файла на строку","label":"Исключенные имена файлов"},"mailNotification":{"authEnabled":"Авторизация","enabled":"Отправлять уведомление на Email, когда загрузка завершится","from":"От","password":"Пароль","smtpServer":"SMTP сервер","sslEnabled":"Этот сервер требует защищённое соединение (SSL)","test":{"error":"Не удалось отправить запрос по электронной почте\\n{message}","label":"Отправить тестовое электронное письмо","success":"Запрос отправлен по электронной почте!\\nПроверьте свой почтовый ящик, чтобы подтвердить"},"to":"Кому","username":"Логин"},"monitoredFolders":{"actions":"Действия","confirmDelete":"Вы уверены что хотите удалить эту запись?","editItem":"Редактировать","monitoredFolderPath":"Отслеживаемая папка","newItem":"Новая запись","noData":"Ещё нет отслеживаемых папок","otherPath":"Пользовательский путь","saveType":"Изменить путь сохранения на:","subheader":"Отслеживаемые папки"},"publicSettings":{"appendQBExtension":"Добавлять расширение .!qB к незавершённым файлам","preAllocateDisk":"Резервировать место на диске для всех файлов","useUnwantedFolder":"Хранить не выбранные файлы в папке \\".unwanted\\""},"runExternalProgram":{"onAddedEnabled":"Запустить внешнюю программу при добавлении торрента","onAddedLabel":"Команда","onFinishedEnabled":"Запустить внешнюю программу при завершении торрента","onFinishedLabel":"Команда","subheader":"Запускать внешнюю программу","supportParamC":"%C: Количество файлов","supportParamD":"%D: Путь сохранения","supportParamF":"%F: Папка содержимого (или корневая папка для торрентов с множеством файлов)","supportParamG":"%G: Метки (разделяются запятыми)","supportParamI":"%I: Хеш-сумма v1","supportParamJ":"%J: Хеш-сумма v2","supportParamK":"%K: ID торрента","supportParamL":"%L: Категория","supportParamN":"%N: Имя торрента","supportParamR":"%R: Корневая папка (главный путь для подкаталога торрента)","supportParamT":"%T: Текущий трекер","supportParamTitle":"Поддерживаемые параметры (с учетом регистра):","supportParamZ":"%Z: Размер торрента (в байтах)","tip":"Совет: Заключите параметр в кавычки, чтобы избежать обрезания текста по пробелам (вот так \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Автоматический режим управления торрентом по умолчанию","categoryChangedTMM":"При изменении пути сохранения у категории","defaultSavePath":"Путь сохранения по умолчанию","defaultTMMOptions":{"automatic":"Автоматически","manual":"Вручную"},"exportDir":"Копировать файлы .torrent в","exportDirFinished":"Для завершенный загрузок копировать файлы .torrent в","keepIncomplete":"Путь по умолчанию для незавершённых торрентов","paramChangedTMMOptions":{"relocateTorrent":"Переместить торрент","switchToManual":"Переключить торрент в Ручной Режим"},"savePathChangedTMM":"При изменении пути сохранения по умолчанию","subheader":"Управление сохранением","torrentChangedTMM":"При изменении категории торрента","useCategoryPathInManualMode":"Использовать пути Категорий в ручном режиме","useCategoryPathInManualModeHint":"Сопоставить относительный путь сохранения с соответствующим путем категории вместо пути по умолчанию"},"whenAddTorrent":{"addToTopOfQueue":"Добавить в начало очереди","autoDeleteMode":"Автоматически удалять файлы .torrent","doNotAutoStart":"Не начинать загрузку автоматически","mergeTrackers":"Объединить трекеры, если торрент уже есть","subheader":"При добавлении торрента"}},"rss":{"autoDownloader":{"enable":"Включить автозагрузку торрентов из RSS","subheader":"Автозагрузчик торрентов из RSS"},"reader":{"enableProcessing":"Включить получение RSS-лент","feedsRefreshInterval":"Интервал обновления лент","maximumArticlesPerFeed":"Максимум статей для ленты","sameHostRequestDelay":"Задержка запроса того же хоста","subheader":"Менеджер RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Загружать эпизоды REPACK/PROPER","filters":"Фильтры","filtersHint":"По одному на строку","subheader":"Умный фильтр эпизодов RSS"},"useIdForRssLinks":"Использовать ID для ссылки на статью RSS"},"saveSuccess":"Настройки сохранены!","speed":{"download":"Загрузка","scheduler":{"from":"С","selectButtonLabel":"Выбрать время","subheader":"Запланировать включение особых ограничений скорости","to":"До","when":"Когда"},"settings":{"applyToPeersOnLan":"Применять ограничения скорости к локальным пирам","applyToTransportOverhead":"Применять ограничения скорости к служебному трафику","applyToUtp":"Применять ограничения скорости к протоколу µTP"},"subheader":{"alternative":"Особые ограничения скорости","global":"Общие ограничения скорости","settings":"Настройки ограничений скорости"},"tip":"0 означает неограниченно","upload":"Раздача"},"tabs":{"addons":{"enhanced_edition":"Расширенная версия"},"advanced":"Дополнительно","behavior":"Поведение","bittorrent":"BitTorrent","connection":"Соединение","downloads":"Загрузки","rss":"RSS","speed":"Скорость","tagsAndCategories":"Теги и категории","vuetorrent":{"general":"Общее","title":"VueTorrent","torrent_card":{"grid":"Отображение сеткой","list":"Отображение списком","table":"Отображение таблицей"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Доступные категории:","createNewCategory":"Создать новую категорию","createNewTag":"Создать новый тег","deleteUnusedCategories":"Удалить неиспользуемые категории","deleteUnusedTags":"Удалить неиспользуемые теги","noCategories":"Категорий пока нет","noTags":"Тегов пока нет","tagsSubheader":"Доступные теги:"},"title":"Параметры","vuetorrent":{"general":{"check_new":"Проверить обновление","currentVersion":"Текущая версия","customTitle":"Настраиваемый заголовок","darkVariants":"Тёмная тема","dateFormat":"Формат даты","displayGraphLimits":"Отобразить ограничения на графике","download":"Экспортировать настройки","durationFormat":"Формат длительности","enableHashColors":"Разрешить генерируемые цвета хэша","enableRatioColors":"Разрешить цвета рейтинга","fetchExternalIpInfo":"Извлечение информации о внешнем IP","fileContentInterval":"Интервал обновления содержимого торрент-файла","filterType":"Фильтры «включительно»","hideChipIfUnset":"Скрыть фишки, если не настроено","hideColoredChip":"Использовать текстовый вариант для фишек","historySize":"Размер истории в подходящих полях","import":"Импортировать настройки","isDrawerRight":"Расположить боковую панель справа","isShutdownButtonVisible":"Показать кнопку выключения","language":"Язык","lightVariants":"Светлая тема","paginationSize":{"infinite_scroll":"Бесконечная прокрутка","label":"Количество торрентов на странице","warning":"Использование высоких значений может сказаться на производительности"},"qbittorrentVersion":"Версия qBittorrent","refreshInterval":"Интервал обновления qBittorrent API","registerMagnet":"Регистрировать магнитные ссылки","resetSettings":"Сбросить настройки","showAlltimeStat":"Показывать всю статистику","showCurrentSpeed":"Показывать текущую скорость","showFreeSpace":"Показывать свободное место","showSessionStat":"Показывать статистику сессии","showSpeedGraph":"Показывать график скорости","tip":"Общие настройки пользовательского WebUI","useBinarySize":"Заменить размеры данных двоичными единицами измерения (kB -> KiB)","useBitSpeed":"Заменить значения скорости на биты (kB/s -> kbps)","useEmojiState":"Добавлять к состоянию торрента эмодзи","vueTorrentTitle":"Заголовок вкладки"},"torrentCard":{"grid":{"busyTip":"Параметры отображения незавершённых торрентов в виде сетки","doneTip":"Параметры отображения завершённых торрентов в виде сетки"},"list":{"busyTip":"Параметры отображения незавершённых торрентов в виде списка","doneTip":"Параметры отображения завершённых торрентов в виде списка"},"table":{"tip":"Параметры отображения торрентов в виде таблицы"}}},"webUI":{"authentication":{"banDuration":"Время блокировки","banDurationHint":"В секундах","bypassLocalhost":"Пропускать аутентификацию клиентов для localhost","bypassWhitelist":"Пропускать аутентификацию клиентов для разрешённых подсетей","maxAttempts":"Максимум попыток","password":"Пароль","passwordPlaceholder":"(без изменений)","sessionTimeout":"Тайм-аут сессии","sessionTimeoutHint":"В секундах","subheader":"Аутентификация","username":"Имя пользователя","whitelistExamples":"Пример: 172.17.32.0/24, fdff:ffff:c8::/40"},"customHeaders":"Добавить пользовательские заголовки HTTP","customHeadersHint":"Одно значение на строку","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Доменное имя","password":"Пароль","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Регистрация","subheader":"Обновлять динамическое доменное имя","username":"Имя пользователя"},"https":{"certificate":"Сертификат","key":"Ключ","subheader":"Использовать HTTPS","tip":"Сведения о сертификатах"},"interface":{"ipAddress":"IP адрес","port":"Порт","subheader":"Веб-интерфейс пользователя","useAlternativeWebUI":"Использовать альтернативный WebUI","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"proxiesList":"Список доверенных прокси-серверов","proxiesListHint":"Перечисляйте IP через точку с запятой ( ; )","reverseProxySupport":"Включить поддержку обратного прокси-сервера","security":{"clickjacking":"Включить защиту от кликджекинга","csrf":"Включить защиту от межсайтовой подделки запроса (CSRF)","hostHeaderValidation":"Включить проверку заголовка хоста","hostHeaderValidationHint":"Перечисляйте через точку с запятой ( ; )","secureCookie":"Включить защиту куки (требует HTTPS)","serverDomains":"Домены сервера","subheader":"Безопасность"}}}');
-    J9 = {
+    tV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Автоматический бан торрент-проигрывателей","auto_ban_unknown_peer":"Автоматический бан неизвестных пиров","auto_update_trackers":"Автоматическое обновление списка общедоступных трекеров","public_trackers":"Общедоступные трекеры","trackers_list_url":"Настройка списка URL трекеров"}},"advanced":{"libtorrent":{"announceAllTiers":"Всегда объявлять всем уровням","announceAllTrackers":"Всегда объявлять всем трекерам на уровне","announceIP":"IP-адрес, переданный трекерам (требуется перезагрузка)","coalesceReadsWrites":"Объединение операций чтения и записи (libtorrent < 2.0)","dhtBootstrapNodes":"Узлы начальной загрузки DHT","dhtBootstrapNodesHint":"Сброс на значение по умолчанию (если пусто)","disk":{"diskCache":"Кэш диска (libtorrent < 2.0)","diskCacheExpiry":"Интервал очистки кэша диска (libtorrent < 2.0)","diskIoReadMode":"Режим чтения ввода-вывода с диска","diskIoType":"Тип ввода-вывода диска (libtorrent >= 2.0; требует перезапуск)","diskIoWriteMode":"Режим записи ввода-вывода с диска","diskQueueSize":"Размер очереди диска","subheader":"Диск"},"i2p":{"inboundLength":"Длина входящего I2P","inboundQuantity":"Количество входящих I2P","invalidLength":"Значение длины I2P должно быть между 0 и 7","invalidQuantity":"Значение количества I2P должно быть между 1 и 16","outboundLength":"Длина исходящего I2P","outboundQuantity":"Количество исходящих I2P","restartNeeded":"Любые изменения в этих настройках вступят в силу при следующем восстановлении SAM соединения (путём перезапуска I2P или изменения адреса или порта I2P)"},"maxConcurrentHTTPAnnounces":"Максимальное количество одновременных анонсов HTTP","networking":{"outgoingPortsMax":"Максимум исходящих портов [0: отключено]","outgoingPortsMin":"Минимум исходящих портов [0: отключено]","peerTos":"Значение DSCP для подключений к пирам","subheader":"Networking","upnpLeaseDuration":"Срок аренды UPnP [0: постоянный]","utpTcpMixedModeAlgorithm":"Алгоритм смешанного режима µTP-TCP"},"outgoingConnectionsPerSecond":"Фактор отметки буфера отправки","peerTurnover":"Процент отключения от пира","peerTurnoverCutoff":"Пороговый процент текучести пира","peerTurnoverInterval":"Интервал отключения при смене пира","pieceExtentAffinity":"Группировать смежные части","requestQueueSize":"Максимальное количество невыполненных запросов к одному пиру","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Разрешить несколько подключений с одного и того же IP","blockPeersOnPrivilegedPorts":"Запретить подключение к пирам на привилегированных портах","idnSupport":"Включить поддержку интернационализированных доменных имен (IDN)","mitigateSSRF":"Предотвращение подделки запросов на стороне сервера (SSRF)","subheader":"Безопасность","validateHTTPSTrackerCertificate":"Проверка сертификата трекера HTTPS"},"sendBufferLowWatermark":"Минимальный размер буфера отправки","sendBufferWatermark":"Размер буфера отправки","sendBufferWatermarkFactor":"Коэффициент размера буфера отправки","sendUploadPieceSuggestions":"Отправлять предложения частей отдачи","socketBacklogSize":"Размер очереди сокета","socketReceiveBufferSize":"Размер буфера сокета на получение","socketReceiveBufferSizeHint":"0: по выбору системы","socketSendBufferSize":"Размер буфера сокета на отправку","socketSendBufferSizeHint":"0: по выбору системы","ssl":{"disclaimer":"Функция \\"SSL торрент\\" не стандартизирована, с ней не связаны BEP (BitTorrent Enhancement Proposals).\\nВключайте эту функцию только в том случае, если она вам нужна.","enabled":"Разрешить SSL торренты","listenPort":"Порт, используемый для SSL-соединений","listenPortHint":"Оставить пустым для авто выбора","rule":"Порт должен быть между 0 и 65535"},"stopTrackerTimeout":"Тайм-аут остановки трекера","subheader":"Раздел libtorrent","threads":{"asyncIoThreads":"Потоки асинхронного ввода-вывода","bdecodeDepthLimit":"Ограничение глубины Bdecode","bdecodeTokenLimit":"Ограничение токена Bdecode","filePoolSize":"Размер пула файлов","hashingThreads":"Потоки хеширования (libtorrent >= 2.0)","outstandingMemory":"Накладная память при проверке торрентов","subheader":"Потоки"},"uploadChokingAlgorithm":"Алгоритм подавления раздачи","uploadSlotsBehavior":"Поведение слотов для раздачи"},"openDoc":"Открыть документацию","qbittorrent":{"allocatedRam":"Предел использования оперативной памяти (libtorrent >= 2.0)","appInstanceName":"Имя экземпляра приложения","embeddedTracker":{"enable":"Включить встроенный трекер","port":"Порт встроенного трекера","portForward":"Включить переадресацию портов для встроенного трекера","title":"Встроенный трекер"},"enableMarkOfTheWeb":"Разрешить Mark-of-the-Web (MOTW) для загруженных файлов","enableMarkOfTheWebHint":"Требуется macOS или Windows","networking":{"ipAddress":{"all":"Все адреса","allIPv4":"Все IPv4 адреса","allIPv6":"Все IPv6 адреса","label":"Необязательный IP-адрес для привязки"},"networkInterfaces":{"any":"Любой интерфейс","label":"Сетевой интерфейс"},"title":"Связь"},"pythonExecutablePath":"Путь к исполняемому файлу Python","pythonExecutablePathHint":"Авто определение (если не заполнено), требуется перезагрузка","reannounceOnIpPortChanged":"Повторно уведомлять все трекеры об изменении IP-адреса или порта","recheckOnCompletion":"Перепроверка торрентов по завершении","refreshInterval":"Интервал обновления интерфейса","resolveCountries":"Разрешить пиры из других стран","resumeDataStorageType":{"label":"Тип хранилища для возобновления данных (требуется перезагрузка)","legacy":"Файлы для быстрого возобновления","sqlite":"База данных SQLite (экспериментально)"},"saveInterval":"Сохранить интервал возобновления данных","subheader":"Раздел qBittorrent","torrentContentRemovingMode":"Режим удаления контента торрента","torrentFileSizeLimit":"Ограничение размера файла .torrent"}},"behavior":{"logs":{"file_log_age":"Удалить бэкап логов старше...","file_log_backup_enabled":"Включить бэкап логов","file_log_delete_old":"Удалять старые бэкапы логов","file_log_enabled":"Разрешить логи","file_log_max_size":"Делать бэкап логов при размере...","file_log_path":"Путь хранения","subheader":"Управление логами"},"performance_warning":"Писать в лог о проблемах производительности"},"bittorrent":{"autoAddTrackers":"Автоматически добавлять эти трекеры к новым загрузкам","autoAddTrackersHint":"Один трекер на строку","maxActiveCheckingTorrents":"Максимум одновременных проверок торрентов","privacy":{"enableAnonymous":"Включить анонимный режим","enableDHT":"Включить DHT (децентрализованную сеть) для поиска пиров","enableLPD":"Искать пиров в вашей локальной сети","enablePeX":"Включить обмен пирами (PeX)","encryptionMode":"Режим шифрования","moreInfo":"Подробнее","subheader":"Конфиденциальность"},"seedLimits":{"subheader":"Ограничение сида","then":"Затем","whenInactiveSeedingTimeReaches":"По достижении предела без активности","whenRatioReaches":"По достижении рейтинга раздачи","whenSeedingTimeReaches":"По достижении времени сидирования"},"torrentQueueing":{"downloadRateLimit":"Порог скорости загрузки","excludeSlowTorrent":"Не учитывать медленные торренты в этих ограничениях","maxActiveDownload":"Максимум активных загрузок","maxActiveTorrent":"Максимум активных торрентов","maxActiveUpload":"Максимум активных раздач","subheader":"Работа с очередью торрентов","torrentInactivityTimer":"Таймер бездействия торрента","uploadRateLimit":"Порог скорости отдачи"}},"connection":{"connectionLimits":{"globalMaxConnection":"Глобальное максимальное количество соединений","globalMaxUploadSlots":"Глобальное максимальное количество слотов для раздачи","perTorrentMaxConnection":"Максимальное количество соединений на торрент","perTorrentMaxUploadSlots":"Максимальное количество слотов для раздачи на торрент","subheader":"Ограничение соединений"},"i2p":{"address":"Хост I2P","disclaimer":"Если включён \\"Смешанный режим\\", торрентам I2P также разрешается получать пиры из других источников, отличных от трекера, и подключаться к обычным IP-адресам, не обеспечивая никакой анонимности. Это может быть полезно, если пользователю не требуется анонимизация I2P, но нужна возможность подключаться к пирам I2P.","enabled":"Разрешить I2P","mixedMode":"Смешанный режим","port":"Порт","rule":"Значение порта должно быть между 0 и 65535","subheader":"I2P (экспериментально)"},"ipFiltering":{"applyToTrackers":"Применить к трекерам","bannedIps":"Вручную запрещённые IP-адреса","bannedIpsHint":"По одному на строку","filterPath":"Путь к фильтрам (.dat, .p2p, .p2b):","subheader":"Фильтрация по IP"},"listeningPort":{"incomingConnectionPort":"Используемый порт для входящих соединений","randomPort":"Случайный порт","subheader":"Прослушиваемый порт","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"protocol":"Протокол подключения к пирам","proxy":{"auth":{"password":"Пароль","subtitle":"Аутентификация","tip":"Примечание: Пароль хранится в незашифрованном виде","username":"Имя пользователя"},"bittorrent":"Использовать прокси для BitTorrent","host":"Хост","hostNameLookup":"Использовать прокси для поиска доменного имени хоста","misc":"Использовать прокси для общих целей","peerConnections":"Использовать прокси для соединения с пирами","port":"Порт","rss":"Использовать прокси только для RSS","subheader":"Прокси сервер"}},"downloads":{"excludedFileNames":{"hint":"Одно название файла на строку","label":"Исключенные имена файлов"},"mailNotification":{"authEnabled":"Авторизация","enabled":"Отправлять уведомление на Email, когда загрузка завершится","from":"От","password":"Пароль","smtpServer":"SMTP сервер","sslEnabled":"Этот сервер требует защищённое соединение (SSL)","test":{"error":"Не удалось отправить запрос по электронной почте\\n{message}","label":"Отправить тестовое электронное письмо","success":"Запрос отправлен по электронной почте!\\nПроверьте свой почтовый ящик, чтобы подтвердить"},"to":"Кому","username":"Логин"},"monitoredFolders":{"actions":"Действия","confirmDelete":"Вы уверены что хотите удалить эту запись?","editItem":"Редактировать","monitoredFolderPath":"Отслеживаемая папка","newItem":"Новая запись","noData":"Ещё нет отслеживаемых папок","otherPath":"Пользовательский путь","saveType":"Изменить путь сохранения на:","subheader":"Отслеживаемые папки"},"publicSettings":{"appendQBExtension":"Добавлять расширение .!qB к незавершённым файлам","preAllocateDisk":"Резервировать место на диске для всех файлов","useUnwantedFolder":"Хранить не выбранные файлы в папке \\".unwanted\\""},"runExternalProgram":{"onAddedEnabled":"Запустить внешнюю программу при добавлении торрента","onAddedLabel":"Команда","onFinishedEnabled":"Запустить внешнюю программу при завершении торрента","onFinishedLabel":"Команда","subheader":"Запускать внешнюю программу","supportParamC":"%C: Количество файлов","supportParamD":"%D: Путь сохранения","supportParamF":"%F: Папка содержимого (или корневая папка для торрентов с множеством файлов)","supportParamG":"%G: Метки (разделяются запятыми)","supportParamI":"%I: Хеш-сумма v1","supportParamJ":"%J: Хеш-сумма v2","supportParamK":"%K: ID торрента","supportParamL":"%L: Категория","supportParamN":"%N: Имя торрента","supportParamR":"%R: Корневая папка (главный путь для подкаталога торрента)","supportParamT":"%T: Текущий трекер","supportParamTitle":"Поддерживаемые параметры (с учетом регистра):","supportParamZ":"%Z: Размер торрента (в байтах)","tip":"Совет: Заключите параметр в кавычки, чтобы избежать обрезания текста по пробелам (вот так \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Автоматический режим управления торрентом по умолчанию","categoryChangedTMM":"При изменении пути сохранения у категории","defaultSavePath":"Путь сохранения по умолчанию","defaultTMMOptions":{"automatic":"Автоматически","manual":"Вручную"},"exportDir":"Копировать файлы .torrent в","exportDirFinished":"Для завершенный загрузок копировать файлы .torrent в","keepIncomplete":"Путь по умолчанию для незавершённых торрентов","paramChangedTMMOptions":{"relocateTorrent":"Переместить торрент","switchToManual":"Переключить торрент в Ручной Режим"},"savePathChangedTMM":"При изменении пути сохранения по умолчанию","subheader":"Управление сохранением","torrentChangedTMM":"При изменении категории торрента","useCategoryPathInManualMode":"Использовать пути Категорий в ручном режиме","useCategoryPathInManualModeHint":"Сопоставить относительный путь сохранения с соответствующим путем категории вместо пути по умолчанию"},"whenAddTorrent":{"addToTopOfQueue":"Добавить в начало очереди","autoDeleteMode":"Автоматически удалять файлы .torrent","doNotAutoStart":"Не начинать загрузку автоматически","mergeTrackers":"Объединить трекеры, если торрент уже есть","subheader":"При добавлении торрента"}},"rss":{"autoDownloader":{"enable":"Включить автозагрузку торрентов из RSS","subheader":"Автозагрузчик торрентов из RSS"},"reader":{"enableProcessing":"Включить получение RSS-лент","feedsRefreshInterval":"Интервал обновления лент","maximumArticlesPerFeed":"Максимум статей для ленты","sameHostRequestDelay":"Задержка запроса того же хоста","subheader":"Менеджер RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Загружать эпизоды REPACK/PROPER","filters":"Фильтры","filtersHint":"По одному на строку","subheader":"Умный фильтр эпизодов RSS"},"useIdForRssLinks":"Использовать ID для ссылки на статью RSS"},"saveSuccess":"Настройки сохранены!","speed":{"download":"Загрузка","scheduler":{"from":"С","selectButtonLabel":"Выбрать время","subheader":"Запланировать включение особых ограничений скорости","to":"До","when":"Когда"},"settings":{"applyToPeersOnLan":"Применять ограничения скорости к локальным пирам","applyToTransportOverhead":"Применять ограничения скорости к служебному трафику","applyToUtp":"Применять ограничения скорости к протоколу µTP"},"subheader":{"alternative":"Особые ограничения скорости","global":"Общие ограничения скорости","settings":"Настройки ограничений скорости"},"tip":"0 означает неограниченно","upload":"Раздача"},"tabs":{"addons":{"enhanced_edition":"Расширенная версия"},"advanced":"Дополнительно","behavior":"Поведение","bittorrent":"BitTorrent","connection":"Соединение","downloads":"Загрузки","rss":"RSS","speed":"Скорость","tagsAndCategories":"Теги и категории","vuetorrent":{"general":"Общее","title":"VueTorrent","torrent_card":{"grid":"Отображение сеткой","list":"Отображение списком","table":"Отображение таблицей"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Доступные категории:","createNewCategory":"Создать новую категорию","createNewTag":"Создать новый тег","deleteUnusedCategories":"Удалить неиспользуемые категории","deleteUnusedTags":"Удалить неиспользуемые теги","noCategories":"Категорий пока нет","noTags":"Тегов пока нет","tagsSubheader":"Доступные теги:"},"title":"Параметры","vuetorrent":{"general":{"check_new":"Проверить обновление","currentVersion":"Текущая версия","customTitle":"Настраиваемый заголовок","darkVariants":"Тёмная тема","dateFormat":"Формат даты","displayGraphLimits":"Отобразить ограничения на графике","download":"Экспортировать настройки","durationFormat":"Формат длительности","enableHashColors":"Разрешить генерируемые цвета хэша","enableRatioColors":"Разрешить цвета рейтинга","fetchExternalIpInfo":"Извлечение информации о внешнем IP","fileContentInterval":"Интервал обновления содержимого торрент-файла","filterType":"Фильтры «включительно»","hideChipIfUnset":"Скрыть фишки, если не настроено","hideColoredChip":"Использовать текстовый вариант для фишек","historySize":"Размер истории в подходящих полях","import":"Импортировать настройки","isDrawerRight":"Расположить боковую панель справа","isShutdownButtonVisible":"Показать кнопку выключения","language":"Язык","lightVariants":"Светлая тема","paginationSize":{"infinite_scroll":"Бесконечная прокрутка","label":"Количество торрентов на странице","warning":"Использование высоких значений может сказаться на производительности"},"qbittorrentVersion":"Версия qBittorrent","refreshInterval":"Интервал обновления qBittorrent API","registerMagnet":"Регистрировать магнитные ссылки","resetSettings":"Сбросить настройки","showAlltimeStat":"Показывать всю статистику","showCurrentSpeed":"Показывать текущую скорость","showFreeSpace":"Показывать свободное место","showSessionStat":"Показывать статистику сессии","showSpeedGraph":"Показывать график скорости","tip":"Общие настройки пользовательского WebUI","useBinarySize":"Заменить размеры данных двоичными единицами измерения (kB -> KiB)","useBitSpeed":"Заменить значения скорости на биты (kB/s -> kbps)","useEmojiState":"Добавлять к состоянию торрента эмодзи","vueTorrentTitle":"Заголовок вкладки"},"torrentCard":{"grid":{"busyTip":"Параметры отображения незавершённых торрентов в виде сетки","doneTip":"Параметры отображения завершённых торрентов в виде сетки"},"list":{"busyTip":"Параметры отображения незавершённых торрентов в виде списка","doneTip":"Параметры отображения завершённых торрентов в виде списка"},"table":{"tip":"Параметры отображения торрентов в виде таблицы"}}},"webUI":{"authentication":{"banDuration":"Время блокировки","banDurationHint":"В секундах","bypassLocalhost":"Пропускать аутентификацию клиентов для localhost","bypassWhitelist":"Пропускать аутентификацию клиентов для разрешённых подсетей","maxAttempts":"Максимум попыток","password":"Пароль","passwordPlaceholder":"(без изменений)","sessionTimeout":"Тайм-аут сессии","sessionTimeoutHint":"В секундах","subheader":"Аутентификация","username":"Имя пользователя","whitelistExamples":"Пример: 172.17.32.0/24, fdff:ffff:c8::/40"},"customHeaders":"Добавить пользовательские заголовки HTTP","customHeadersHint":"Одно значение на строку","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Доменное имя","password":"Пароль","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Регистрация","subheader":"Обновлять динамическое доменное имя","username":"Имя пользователя"},"https":{"certificate":"Сертификат","key":"Ключ","subheader":"Использовать HTTPS","tip":"Сведения о сертификатах"},"interface":{"ipAddress":"IP адрес","port":"Порт","subheader":"Веб-интерфейс пользователя","useAlternativeWebUI":"Использовать альтернативный WebUI","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"proxiesList":"Список доверенных прокси-серверов","proxiesListHint":"Перечисляйте IP через точку с запятой ( ; )","reverseProxySupport":"Включить поддержку обратного прокси-сервера","security":{"clickjacking":"Включить защиту от кликджекинга","csrf":"Включить защиту от межсайтовой подделки запроса (CSRF)","hostHeaderValidation":"Включить проверку заголовка хоста","hostHeaderValidationHint":"Перечисляйте через точку с запятой ( ; )","secureCookie":"Включить защиту куки (требует HTTPS)","serverDomains":"Домены сервера","subheader":"Безопасность"}}}');
+    aV = {
         add: {
             error: "Ошибка при добавлении торрентов",
             pending: "Отправка торрентов...",
@@ -101687,7 +101802,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             new: "Доступна новая версия!"
         }
     };
-    Z9 = {
+    rV = {
         actions: {
             delete: "Удалить торренты",
             logs: "Открыть логи",
@@ -101711,7 +101826,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         searchTorrents: "Поиск торрентов"
     };
-    Q9 = {
+    nV = {
         empty: {
             action: "Создать новую задачу",
             value: "Нет задач"
@@ -101745,7 +101860,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         title: "Создание торрента"
     };
-    eV = {
+    iV = {
         content: {
             fileInfo: "{n} файлов | {n} файл | {n} файла | {n} файлов",
             filter: {
@@ -101854,7 +101969,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             tier: "Ранг: {n}"
         }
     };
-    tV = {
+    oV = {
         properties: {
             added_on: "Добавлено",
             amount_left: "Осталось",
@@ -101951,29 +102066,29 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             uploading: "Раздача"
         }
     };
-    aV = {
+    sV = {
         minutes: "минут | минута | минуты | минут",
         seconds: "секунд | секунда | секунды | секунд"
     };
-    rV = {
-        common: V9,
-        constants: W9,
-        dashboard: G9,
-        dialogs: $9,
-        login: j9,
-        logs: U9,
-        navbar: Y9,
-        rssArticles: q9,
-        searchEngine: K9,
-        settings: X9,
-        toast: J9,
-        topbar: Z9,
-        torrentCreator: Q9,
-        torrentDetail: eV,
-        torrent: tV,
-        units: aV
+    lV = {
+        common: U9,
+        constants: Y9,
+        dashboard: q9,
+        dialogs: K9,
+        login: X9,
+        logs: J9,
+        navbar: Z9,
+        rssArticles: Q9,
+        searchEngine: eV,
+        settings: tV,
+        toast: aV,
+        topbar: rV,
+        torrentCreator: nV,
+        torrentDetail: iV,
+        torrent: oV,
+        units: sV
     };
-    nV = {
+    uV = {
         cancel: "İptal",
         close: "Kapat",
         delete: "Sil",
@@ -101996,7 +102111,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         useGlobalSettings: "Genel Ayarları Kullan",
         yes: "Evet"
     };
-    iV = {
+    cV = {
         addStopped: {
             always: "Her Zaman",
             never: "Asla",
@@ -102121,7 +102236,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             preferTcp: "TCP'yi Tercih Et"
         }
     };
-    oV = {
+    dV = {
         displayMode: {
             grid: "Izgara",
             list: "Liste",
@@ -102189,7 +102304,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         toggleSortOrder: "Sıralama düzenini tersine çevir",
         torrentsCount: "Torrent yok | {n} torrent | {n} torrent"
     };
-    sV = {
+    hV = {
         add: {
             cookie: "Çerezler",
             cookie_placeholder: "isim1=değer1; isim2=değer2; ...",
@@ -102391,7 +102506,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
 Hatalar oluşabilir, dikkatli kullanın.`
         }
     };
-    lV = {
+    mV = {
         error: "Giriş başarısız oldu!",
         password: "Parola",
         rules: {
@@ -102404,7 +102519,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         title: "Giriş",
         username: "Kullanıcı Adı"
     };
-    uV = {
+    pV = {
         emptyLogList: "Günlük bulunamadı",
         filters: {
             query: "Günlük mesajında ara",
@@ -102412,7 +102527,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "qBittorrent Günlükleri"
     };
-    cV = {
+    fV = {
         addPanel: {
             torrentsPendingCount: "{n} torrent yüklenmeyi bekliyor | {n} torrent yüklenmeyi bekliyor"
         },
@@ -102481,7 +102596,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    dV = {
+    gV = {
         feeds: {
             empty: {
                 action: "RSS Beslemesi Oluştur",
@@ -102523,7 +102638,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             rules: "Kuralları göster"
         }
     };
-    hV = {
+    vV = {
         filters: {
             category: {
                 all: "Tümü",
@@ -102559,8 +102674,8 @@ Hatalar oluşabilir, dikkatli kullanın.`
         tabHeaderEmpty: "(Boş sorgu)",
         title: "Arama motoru"
     };
-    mV = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BT oynatıcı eşini otomatik yasakla","auto_ban_unknown_peer":"Bilinmeyen eşleri otomatik yasakla","auto_update_trackers":"Genel izleyici listesini otomatik olarak güncelle","public_trackers":"Genel izleyiciler","trackers_list_url":"İzleyici URL Listesini Özelleştir"}},"advanced":{"libtorrent":{"announceAllTiers":"Her zaman tüm seviyelere duyuru yap","announceAllTrackers":"Her zaman bir seviyedeki tüm izleyicilere duyuru yap","announceIP":"İzleyicilere bildirilen IP adresi (yeniden başlatma gerektirir)","coalesceReadsWrites":"Okumaları ve yazmaları birleştir (libtorrent < 2.0) ","disk":{"diskCache":"Disk önbelleği (libtorrent < 2.0) ","diskCacheExpiry":"Disk önbelleği sona erme aralığı (libtorrent < 2.0)","diskIoReadMode":"Disk G/Ç okuma modu","diskIoType":"Disk G/Ç Türü (libtorrent >= 2.0; yeniden başlatma gerektirir)","diskIoWriteMode":"Disk G/Ç yazma modu","diskQueueSize":"Disk kuyruğu boyutu","subheader":"Disk"},"maxConcurrentHTTPAnnounces":"Maksimum eşzamanlı HTTP duyurusu","networking":{"outgoingPortsMax":"Giden bağlantı noktaları (Maks) [0: Devre dışı] ","outgoingPortsMin":"Giden bağlantı noktaları (Min) [0: Devre dışı] ","peerTos":"Eşlere yapılan bağlantılar için DSCP değeri","subheader":"Ağ Oluşturma","upnpLeaseDuration":"UPnP kiralama süresi [0: Kalıcı kiralama] ","utpTcpMixedModeAlgorithm":"μTP-TCP karışık mod algoritması"},"outgoingConnectionsPerSecond":"Saniye başına giden bağlantılar","peerTurnover":"Eş dönüşümü kopma yüzdesi","peerTurnoverCutoff":"Eş dönüşümü eşik yüzdesi","peerTurnoverInterval":"Eş dönüşümü kopma aralığı","pieceExtentAffinity":"Parça kapsamı yakınlığını kullan","requestQueueSize":"Tek bir eşe gönderilebilecek maksimum istek sayısı","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Aynı IP adresinden birden fazla bağlantıya izin ver","blockPeersOnPrivilegedPorts":"Ayrıcalıklı bağlantı noktalarındaki eşlere bağlantıyı engelle","idnSupport":"Uluslararası Alan Adı (IDN) desteğini etkinleştir","mitigateSSRF":"Sunucu taraflı istek sahteciliği (SSRF) önleme","subheader":"Güvenlik","validateHTTPSTrackerCertificate":"HTTPS izleyici sertifikasını doğrula"},"sendBufferLowWatermark":"Arabellek düşük filigranı gönder","sendBufferWatermark":"Arabellek filigranı gönder","sendBufferWatermarkFactor":"Arabellek filigran faktörü gönder","sendUploadPieceSuggestions":"Yükleme parçası önerilerini gönder","socketBacklogSize":"Soket biriktirme boyutu","socketReceiveBufferSize":"Soket alma arabelleği boyutu","socketReceiveBufferSizeHint":"0: sistem varsayılanı","socketSendBufferSize":"Soket gönderme arabelleği boyutu","socketSendBufferSizeHint":"0: sistem varsayılanı","stopTrackerTimeout":"İzleyici zaman aşımını durdur","subheader":"libtorrent Bölümü","threads":{"asyncIoThreads":"Eşzamansız G/Ç iş parçacıkları","bdecodeDepthLimit":"Bdecode derinlik sınırı","bdecodeTokenLimit":"Bdecode token sınırı","filePoolSize":"Dosya havuzu boyutu","hashingThreads":"Hash iş parçacıkları (libtorrent >= 2.0)","outstandingMemory":"Torrentleri kontrol ederken kullanılan en fazla bellek miktarı","subheader":"İş Parçacıkları"},"uploadChokingAlgorithm":"Yükleme boğulma algoritması","uploadSlotsBehavior":"Yükleme yuvaları davranışı"},"openDoc":"Belgeleri aç","qbittorrent":{"allocatedRam":"Fiziksel bellek (RAM) kullanım sınırı (libtorrent >= 2.0)","embeddedTracker":{"enable":"Yerleşik izleyiciyi etkinleştir","port":"Yerleşik izleyici bağlantı noktası","portForward":"Yerleşik izleyici için bağlantı noktası yönlendirmesini etkinleştir","title":"Yerleşik İzleyici"},"networking":{"ipAddress":{"all":"Tüm adresler","allIPv4":"Tüm IPv4 adresleri","allIPv6":"Tüm IPv6 adresleri","label":"Bağlanmak için isteğe bağlı IP adresi"},"networkInterfaces":{"any":"Herhangi bir arayüz","label":"Ağ arayüzü"},"title":"Ağ Oluşturma"},"reannounceOnIpPortChanged":"IP veya port değiştiğinde tüm izleyicilere yeniden duyuru yap","recheckOnCompletion":"Tamamlanınca torrentleri yeniden kontrol et","refreshInterval":"Arayüz Yenileme Aralığı","resolveCountries":"Eş ülke çözümleme","resumeDataStorageType":{"label":"Devam etme verisi depolama türü (yeniden başlatma gerektirir)","legacy":"Hızlı devam dosyaları","sqlite":"SQLite veritabanı (deneysel)"},"saveInterval":"Devam etme verisi kaydetme aralığı","subheader":"qBittorrent Bölümü","torrentFileSizeLimit":".torrent dosya boyutu sınırı"}},"behavior":{"logs":{"file_log_age":"Şu tarihten eski yedekleme günlüklerini sil","file_log_backup_enabled":"Günlük dosyası yedeklemesini etkinleştir","file_log_delete_old":"Eski yedekleme günlüklerini sil","file_log_enabled":"Günlük dosyalarını etkinleştir","file_log_max_size":"Günlük dosyasını şu boyuttan sonra yedekle","file_log_path":"Kaydetme yolu","subheader":"Günlük yönetimi"},"performance_warning":"Günlük performansı uyarısı"},"bittorrent":{"autoAddTrackers":"Yeni indirmelere otomatik olarak bu izleyicileri ekle","autoAddTrackersHint":"Satır başına bir izleyici","maxActiveCheckingTorrents":"Maksimum etkin kontrol edilen torrent sayısı","privacy":{"enableAnonymous":"Anonim modu etkinleştir","enableDHT":"Daha fazla eş bulmak için DHT'yi (merkezi olmayan ağ) etkinleştirin","enableLPD":"Daha fazla eş bulmak için Yerel Eş Bulma özelliğini etkinleştirin","enablePeX":"Daha fazla eş bulmak için Eş Değişimi (PeX) özelliğini etkinleştirin","encryptionMode":"Şifreleme Modu","moreInfo":"Daha Fazla Bilgi","subheader":"Gizlilik"},"seedLimits":{"subheader":"Seed Sınırı","then":"Yapılacak","whenInactiveSeedingTimeReaches":"Etkin olmayan seeding süresine ulaştığında","whenRatioReaches":"Orana ulaştığında","whenSeedingTimeReaches":"Seeding süresine ulaştığında"},"torrentQueueing":{"downloadRateLimit":"İndirme hızı eşiği","excludeSlowTorrent":"Yavaş torrentleri bu sınırlamalara dahil etme","maxActiveDownload":"Maksimum aktif indirmeler","maxActiveTorrent":"Maksimum aktif torrentler","maxActiveUpload":"Maksimum aktif yüklemeler","subheader":"Torrent Sıralama","torrentInactivityTimer":"Torrent hareketsizlik zamanlayıcısı","uploadRateLimit":"Yükleme hızı eşiği"}},"connection":{"connectionLimits":{"globalMaxConnection":"Genel maksimum bağlantı sayısı","globalMaxUploadSlots":"Genel maksimum yükleme alanı sayısı","perTorrentMaxConnection":"Torrent başına maksimum bağlantı sayısı","perTorrentMaxUploadSlots":"Torrent başına maksimum yükleme alanı sayısı","subheader":"Bağlantı Sınırları"},"ipFiltering":{"applyToTrackers":"İzleyicilere uygula","bannedIps":"Elle yasaklanan IP adresleri","bannedIpsHint":"Her satırda bir tane","filterPath":"Filtre yolu (.dat, .p2p, .p2b)","subheader":"IP Filtreleme"},"listeningPort":{"incomingConnectionPort":"Gelen bağlantılar için kullanılan bağlantı noktası","randomPort":"Rastgele Bağlantı Noktası","subheader":"Dinleme Bağlantı Noktası","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"protocol":"Eş bağlantı protokolü","proxy":{"auth":{"password":"Parola","subtitle":"Kimlik Doğrulama","tip":"Bilgi: Parola şifrelenmemiş olarak kaydedilir","username":"Kullanıcı Adı"},"bittorrent":"BitTorrent amaçları için proxy kullan","host":"Sunucu","hostNameLookup":"Ana bilgisayar adı çözümlemesi için proxy kullan","misc":"Genel amaçlar için proxy kullan","peerConnections":"Eş bağlantıları için proxy kullan","port":"Bağlantı Noktası","rss":"RSS amaçları için proxy kullan","subheader":"Proxy Sunucusu"}},"downloads":{"excludedFileNames":{"hint":"Satır başına bir filtre","label":"Hariç tutulan dosya adları"},"mailNotification":{"authEnabled":"Kimlik Doğrulama","enabled":"İndirme tamamlandığında e-posta bildirimi","from":"Kimden","password":"Parola","smtpServer":"SMTP sunucusu","sslEnabled":"Bu sunucu güvenli bir bağlantı (SSL) gerektirir","to":"Kime","username":"Kullanıcı Adı"},"monitoredFolders":{"actions":"Eylemler","confirmDelete":"Bu öğeyi silmek istediğinizden emin misiniz?","editItem":"Düzenle","monitoredFolderPath":"İzlenen Klasör","newItem":"Yeni","noData":"Henüz izlenen klasör yok","otherPath":"Diğer Yol","saveType":"Kaydetme Konumunu Geçersiz Kıl","subheader":"İzlenen Klasörler"},"publicSettings":{"appendQBExtension":"Tamamlanmamış dosyalara .!qB uzantısını ekle","preAllocateDisk":"Tüm dosyalar için disk alanını önceden ayırın"},"runExternalProgram":{"onAddedEnabled":"Torrent eklendiğinde harici programı çalıştır","onAddedLabel":"Komut","onFinishedEnabled":"Torrent tamamlandığında harici programı çalıştır","onFinishedLabel":"Komut","subheader":"Harici programı çalıştır","supportParamC":"%C: Dosya sayısı","supportParamD":"%D: Kaydetme yolu","supportParamF":"%F: İçerik yolu (çok dosyalı torrent için kök yolla aynı)","supportParamG":"%G: Etiketler (virgülle ayrılmış)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategori","supportParamN":"%N: Torrent ismi","supportParamR":"%R: Kök dizin (ilk torrent alt dizin yolu) ","supportParamT":"%T: Mevcut izleyici","supportParamTitle":"Desteklenen parametreler (büyük/küçük harf duyarlıdır):","supportParamZ":"%Z: Torrent boyutu (bayt)","tip":"İpucu: Metnin boşluklardan kesilmesini önlemek için parametreyi tırnak işaretleri içine alın (ör. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Varsayılan Torrent Yönetim Modu","categoryChangedTMM":"Kategori Kayıt Yolu değiştirildiğinde","defaultSavePath":"Varsayılan Kaydetme Yolu (tamamlanan)","defaultTMMOptions":{"automatic":"Otomatik","manual":"El ile"},"exportDir":".torrent dosyalarını şuraya kopyala","exportDirFinished":"Tamamlanan indirmeler için .torrent dosyalarını şuraya kopyala:","keepIncomplete":"Varsayılan İndirme Yolu (tamamlanmamış torrentler)","paramChangedTMMOptions":{"relocateTorrent":"Torrent'in yerini değiştir","switchToManual":"Torrent'i Manuel Moda geçir"},"savePathChangedTMM":"Varsayılan Kaydetme Yolu değiştirildiğinde","subheader":"Kaydetme Yönetimi","torrentChangedTMM":"Torrent Kategorisi değiştirildiğinde"},"whenAddTorrent":{"addToTopOfQueue":"Kuyruğun en üstüne ekle","autoDeleteMode":".torrent dosyalarını sonradan sil","doNotAutoStart":"İndirmeyi otomatik olarak başlatma","mergeTrackers":"Torrent zaten mevcutsa izleyicileri birleştir","subheader":"Torrent eklerken"}},"rss":{"autoDownloader":{"enable":"RSS kurallarının işlenmesini etkinleştirin","subheader":"RSS Torrent Otomatik İndirici"},"reader":{"enableProcessing":"RSS beslemelerini almayı etkinleştirin","feedsRefreshInterval":"Besleme yenileme aralığı","maximumArticlesPerFeed":"Besleme başına maksimum makale sayısı","subheader":"RSS Okuyucu"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER bölümlerini indirin","filters":"Filtreler","filtersHint":"Satır başına bir tane","subheader":"RSS Akıllı Bölüm Filtresi"},"useIdForRssLinks":"RSS makale bağlantısı için ID kullan"},"saveSuccess":"Ayarlar kaydedildi!","speed":{"download":"İndirme","scheduler":{"from":"Başlangıç","selectButtonLabel":"Zamanı seçin","subheader":"Alternatif hız sınırlarının kullanımını zamanlayın","to":"Bitiş","when":"Ne zaman"},"settings":{"applyToPeersOnLan":"LAN'daki eşlere hız sınırı uygula","applyToTransportOverhead":"Taşıma yüküne oran sınırı uygula","applyToUtp":"µTP protokolüne oran sınırı uygula"},"subheader":{"alternative":"Alternatif Oran Sınırları","global":"Genel Oran Sınırları","settings":"Oran Sınırları Ayarları"},"tip":"0 sınırsız anlamına gelir","upload":"Yükleme"},"tabs":{"addons":{"enhanced_edition":"Gelişmiş sürüm"},"advanced":"Gelişmiş","behavior":"Davranış","bittorrent":"BitTorrent","connection":"Bağlantı","downloads":"İndirilenler","rss":"RSS","speed":"Hız","tagsAndCategories":"Etiketler & Kategoriler","vuetorrent":{"general":"Genel","title":"VueTorrent","torrent_card":{"grid":"Izgara Görünümü","list":"Liste Görünümü","table":"Tablo Görünümü"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Mevcut Kategoriler:","createNewCategory":"Yeni kategori oluştur","createNewTag":"Yeni etiket oluştur","noCategories":"Henüz kategori yok","noTags":"Henüz etiket yok","tagsSubheader":"Mevcut Etiketler:"},"title":"Ayarlar","vuetorrent":{"general":{"check_new":"Yeni sürümü kontrol et","currentVersion":"Mevcut Sürüm","customTitle":"Özel başlık","darkVariants":"Koyu tema varyantı","dateFormat":"Tarih formatı","download":"Ayarları Dışa Aktar","enableHashColors":"Oluşturulmuş çip renklerini etkinleştir","enableRatioColors":"Oran renklerini etkinleştir","fileContentInterval":"Torrent dosyası içerik yenileme aralığı","hideChipIfUnset":"Ayarlanmamışsa çipleri gizle","hideColoredChip":"Çipler için metin varyantını kullan","historySize":"Uygun alanlarda geçmiş boyutu","import":"Ayarları İçe Aktar","isDrawerRight":"Sağ Çekmece","isShutdownButtonVisible":"Kapatma düğmesini göster","language":"Dil","lightVariants":"Açık tema varyantı","paginationSize":{"infinite_scroll":"Sonsuz kaydırma","label":"Sayfalama Boyutu","warning":"Yüksek değerler kullanmak performansı etkileyebilir"},"qbittorrentVersion":"qBittorrent Sürümü","refreshInterval":"qBittorrent API yenileme aralığı","registerMagnet":"Magnet bağlantılarını kaydet","resetSettings":"Ayarları Sıfırla","showAlltimeStat":"Tüm Zaman İstatistiklerini Göster","showCurrentSpeed":"Mevcut Hızı Göster","showFreeSpace":"Boş Alanı Göster","showSessionStat":"Oturum İstatistiklerini Göster","showSpeedGraph":"Hız Grafiğini Göster","tip":"Bu ayarlar özel WebUI'nin kendisi içindir","useBinarySize":"Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ","useBitSpeed":"Hız değerlerini bit cinsinden değiştir (kB/s -> kbps)","vueTorrentTitle":"Sekme başlığı"},"torrentCard":{"grid":{"busyTip":"Tamamlanmamış torrentler için ızgara görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için ızgara görünümünde gösterilecek özellikler"},"list":{"busyTip":"Tamamlanmamış torrentler için liste görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için liste görünümünde gösterilecek özellikler"},"table":{"tip":"Tablo görünümünde gösterilecek torrent özellikleri"}}},"webUI":{"authentication":{"banDuration":"Yasaklama Süresi","banDurationHint":"Saniye cinsinden","bypassLocalhost":"Localhost'taki istemciler için kimlik doğrulamasını atla","bypassWhitelist":"Beyaz listedeki IP alt ağlarındaki istemciler için kimlik doğrulamayı atlayın","maxAttempts":"Maksimum deneme sayısı","password":"Parola","passwordPlaceholder":"(değişmedi)","sessionTimeout":"Oturum zaman aşımı","sessionTimeoutHint":"Saniye cinsinden","subheader":"Kimlik Doğrulama","username":"Kullanıcı Adı","whitelistExamples":"Örnek: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Özel HTTP başlıkları ekle","customHeadersHint":"Satır başına bir tane","customHeadersPlaceholder":"Başlık1: değer1\\nBaşlık2: değer2\\n...","dynDns":{"domainName":"Alan adı","password":"Parola","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Kayıt Ol","subheader":"Dinamik alan adımı güncelle","username":"Kullanıcı Adı"},"https":{"certificate":"Sertifika","key":"Anahtar","subheader":"HTTPS kullan","tip":"Sertifikalar hakkında bilgi"},"interface":{"ipAddress":"IP Adresi","port":"Bağlantı Noktası","subheader":"Web Kullanıcı Arayüzü","useAlternativeWebUI":"Alternatif Web Arayüzünü Kullan","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"proxiesList":"Güvenilir proxy listesi","proxiesListHint":"IP'leri noktalı virgülle ( ; ) ayırın","reverseProxySupport":"Ters proxy desteğini etkinleştirin","security":{"clickjacking":"Tıklama korsanlığına karşı korumayı etkinleştir","csrf":"Çapraz Site İstek Sahtekarlığı (CSRF) korumasını etkinleştirin","hostHeaderValidation":"Ana bilgisayar başlığı doğrulamasını etkinleştir","hostHeaderValidationHint":"Noktalı virgülle ayrılmış ( ; )","secureCookie":"Çerez \\"güvenli\\" bayrağını etkinleştir (HTTPS gerektirir) ","serverDomains":"Sunucu Alan Adları","subheader":"Güvenlik"}}}`);
-    pV = {
+    yV = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BT oynatıcı eşini otomatik yasakla","auto_ban_unknown_peer":"Bilinmeyen eşleri otomatik yasakla","auto_update_trackers":"Genel izleyici listesini otomatik olarak güncelle","public_trackers":"Genel izleyiciler","trackers_list_url":"İzleyici URL Listesini Özelleştir"}},"advanced":{"libtorrent":{"announceAllTiers":"Her zaman tüm seviyelere duyuru yap","announceAllTrackers":"Her zaman bir seviyedeki tüm izleyicilere duyuru yap","announceIP":"İzleyicilere bildirilen IP adresi (yeniden başlatma gerektirir)","coalesceReadsWrites":"Okumaları ve yazmaları birleştir (libtorrent < 2.0) ","disk":{"diskCache":"Disk önbelleği (libtorrent < 2.0) ","diskCacheExpiry":"Disk önbelleği sona erme aralığı (libtorrent < 2.0)","diskIoReadMode":"Disk G/Ç okuma modu","diskIoType":"Disk G/Ç Türü (libtorrent >= 2.0; yeniden başlatma gerektirir)","diskIoWriteMode":"Disk G/Ç yazma modu","diskQueueSize":"Disk kuyruğu boyutu","subheader":"Disk"},"maxConcurrentHTTPAnnounces":"Maksimum eşzamanlı HTTP duyurusu","networking":{"outgoingPortsMax":"Giden bağlantı noktaları (Maks) [0: Devre dışı] ","outgoingPortsMin":"Giden bağlantı noktaları (Min) [0: Devre dışı] ","peerTos":"Eşlere yapılan bağlantılar için DSCP değeri","subheader":"Ağ Oluşturma","upnpLeaseDuration":"UPnP kiralama süresi [0: Kalıcı kiralama] ","utpTcpMixedModeAlgorithm":"μTP-TCP karışık mod algoritması"},"outgoingConnectionsPerSecond":"Saniye başına giden bağlantılar","peerTurnover":"Eş dönüşümü kopma yüzdesi","peerTurnoverCutoff":"Eş dönüşümü eşik yüzdesi","peerTurnoverInterval":"Eş dönüşümü kopma aralığı","pieceExtentAffinity":"Parça kapsamı yakınlığını kullan","requestQueueSize":"Tek bir eşe gönderilebilecek maksimum istek sayısı","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Aynı IP adresinden birden fazla bağlantıya izin ver","blockPeersOnPrivilegedPorts":"Ayrıcalıklı bağlantı noktalarındaki eşlere bağlantıyı engelle","idnSupport":"Uluslararası Alan Adı (IDN) desteğini etkinleştir","mitigateSSRF":"Sunucu taraflı istek sahteciliği (SSRF) önleme","subheader":"Güvenlik","validateHTTPSTrackerCertificate":"HTTPS izleyici sertifikasını doğrula"},"sendBufferLowWatermark":"Arabellek düşük filigranı gönder","sendBufferWatermark":"Arabellek filigranı gönder","sendBufferWatermarkFactor":"Arabellek filigran faktörü gönder","sendUploadPieceSuggestions":"Yükleme parçası önerilerini gönder","socketBacklogSize":"Soket biriktirme boyutu","socketReceiveBufferSize":"Soket alma arabelleği boyutu","socketReceiveBufferSizeHint":"0: sistem varsayılanı","socketSendBufferSize":"Soket gönderme arabelleği boyutu","socketSendBufferSizeHint":"0: sistem varsayılanı","stopTrackerTimeout":"İzleyici zaman aşımını durdur","subheader":"libtorrent Bölümü","threads":{"asyncIoThreads":"Eşzamansız G/Ç iş parçacıkları","bdecodeDepthLimit":"Bdecode derinlik sınırı","bdecodeTokenLimit":"Bdecode token sınırı","filePoolSize":"Dosya havuzu boyutu","hashingThreads":"Hash iş parçacıkları (libtorrent >= 2.0)","outstandingMemory":"Torrentleri kontrol ederken kullanılan en fazla bellek miktarı","subheader":"İş Parçacıkları"},"uploadChokingAlgorithm":"Yükleme boğulma algoritması","uploadSlotsBehavior":"Yükleme yuvaları davranışı"},"openDoc":"Belgeleri aç","qbittorrent":{"allocatedRam":"Fiziksel bellek (RAM) kullanım sınırı (libtorrent >= 2.0)","embeddedTracker":{"enable":"Yerleşik izleyiciyi etkinleştir","port":"Yerleşik izleyici bağlantı noktası","portForward":"Yerleşik izleyici için bağlantı noktası yönlendirmesini etkinleştir","title":"Yerleşik İzleyici"},"networking":{"ipAddress":{"all":"Tüm adresler","allIPv4":"Tüm IPv4 adresleri","allIPv6":"Tüm IPv6 adresleri","label":"Bağlanmak için isteğe bağlı IP adresi"},"networkInterfaces":{"any":"Herhangi bir arayüz","label":"Ağ arayüzü"},"title":"Ağ Oluşturma"},"reannounceOnIpPortChanged":"IP veya port değiştiğinde tüm izleyicilere yeniden duyuru yap","recheckOnCompletion":"Tamamlanınca torrentleri yeniden kontrol et","refreshInterval":"Arayüz Yenileme Aralığı","resolveCountries":"Eş ülke çözümleme","resumeDataStorageType":{"label":"Devam etme verisi depolama türü (yeniden başlatma gerektirir)","legacy":"Hızlı devam dosyaları","sqlite":"SQLite veritabanı (deneysel)"},"saveInterval":"Devam etme verisi kaydetme aralığı","subheader":"qBittorrent Bölümü","torrentFileSizeLimit":".torrent dosya boyutu sınırı"}},"behavior":{"logs":{"file_log_age":"Şu tarihten eski yedekleme günlüklerini sil","file_log_backup_enabled":"Günlük dosyası yedeklemesini etkinleştir","file_log_delete_old":"Eski yedekleme günlüklerini sil","file_log_enabled":"Günlük dosyalarını etkinleştir","file_log_max_size":"Günlük dosyasını şu boyuttan sonra yedekle","file_log_path":"Kaydetme yolu","subheader":"Günlük yönetimi"},"performance_warning":"Günlük performansı uyarısı"},"bittorrent":{"autoAddTrackers":"Yeni indirmelere otomatik olarak bu izleyicileri ekle","autoAddTrackersHint":"Satır başına bir izleyici","maxActiveCheckingTorrents":"Maksimum etkin kontrol edilen torrent sayısı","privacy":{"enableAnonymous":"Anonim modu etkinleştir","enableDHT":"Daha fazla eş bulmak için DHT'yi (merkezi olmayan ağ) etkinleştirin","enableLPD":"Daha fazla eş bulmak için Yerel Eş Bulma özelliğini etkinleştirin","enablePeX":"Daha fazla eş bulmak için Eş Değişimi (PeX) özelliğini etkinleştirin","encryptionMode":"Şifreleme Modu","moreInfo":"Daha Fazla Bilgi","subheader":"Gizlilik"},"seedLimits":{"subheader":"Seed Sınırı","then":"Yapılacak","whenInactiveSeedingTimeReaches":"Etkin olmayan seeding süresine ulaştığında","whenRatioReaches":"Orana ulaştığında","whenSeedingTimeReaches":"Seeding süresine ulaştığında"},"torrentQueueing":{"downloadRateLimit":"İndirme hızı eşiği","excludeSlowTorrent":"Yavaş torrentleri bu sınırlamalara dahil etme","maxActiveDownload":"Maksimum aktif indirmeler","maxActiveTorrent":"Maksimum aktif torrentler","maxActiveUpload":"Maksimum aktif yüklemeler","subheader":"Torrent Sıralama","torrentInactivityTimer":"Torrent hareketsizlik zamanlayıcısı","uploadRateLimit":"Yükleme hızı eşiği"}},"connection":{"connectionLimits":{"globalMaxConnection":"Genel maksimum bağlantı sayısı","globalMaxUploadSlots":"Genel maksimum yükleme alanı sayısı","perTorrentMaxConnection":"Torrent başına maksimum bağlantı sayısı","perTorrentMaxUploadSlots":"Torrent başına maksimum yükleme alanı sayısı","subheader":"Bağlantı Sınırları"},"ipFiltering":{"applyToTrackers":"İzleyicilere uygula","bannedIps":"Elle yasaklanan IP adresleri","bannedIpsHint":"Her satırda bir tane","filterPath":"Filtre yolu (.dat, .p2p, .p2b)","subheader":"IP Filtreleme"},"listeningPort":{"incomingConnectionPort":"Gelen bağlantılar için kullanılan bağlantı noktası","randomPort":"Rastgele Bağlantı Noktası","subheader":"Dinleme Bağlantı Noktası","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"protocol":"Eş bağlantı protokolü","proxy":{"auth":{"password":"Parola","subtitle":"Kimlik Doğrulama","tip":"Bilgi: Parola şifrelenmemiş olarak kaydedilir","username":"Kullanıcı Adı"},"bittorrent":"BitTorrent amaçları için proxy kullan","host":"Sunucu","hostNameLookup":"Ana bilgisayar adı çözümlemesi için proxy kullan","misc":"Genel amaçlar için proxy kullan","peerConnections":"Eş bağlantıları için proxy kullan","port":"Bağlantı Noktası","rss":"RSS amaçları için proxy kullan","subheader":"Proxy Sunucusu"}},"downloads":{"excludedFileNames":{"hint":"Satır başına bir filtre","label":"Hariç tutulan dosya adları"},"mailNotification":{"authEnabled":"Kimlik Doğrulama","enabled":"İndirme tamamlandığında e-posta bildirimi","from":"Kimden","password":"Parola","smtpServer":"SMTP sunucusu","sslEnabled":"Bu sunucu güvenli bir bağlantı (SSL) gerektirir","to":"Kime","username":"Kullanıcı Adı"},"monitoredFolders":{"actions":"Eylemler","confirmDelete":"Bu öğeyi silmek istediğinizden emin misiniz?","editItem":"Düzenle","monitoredFolderPath":"İzlenen Klasör","newItem":"Yeni","noData":"Henüz izlenen klasör yok","otherPath":"Diğer Yol","saveType":"Kaydetme Konumunu Geçersiz Kıl","subheader":"İzlenen Klasörler"},"publicSettings":{"appendQBExtension":"Tamamlanmamış dosyalara .!qB uzantısını ekle","preAllocateDisk":"Tüm dosyalar için disk alanını önceden ayırın"},"runExternalProgram":{"onAddedEnabled":"Torrent eklendiğinde harici programı çalıştır","onAddedLabel":"Komut","onFinishedEnabled":"Torrent tamamlandığında harici programı çalıştır","onFinishedLabel":"Komut","subheader":"Harici programı çalıştır","supportParamC":"%C: Dosya sayısı","supportParamD":"%D: Kaydetme yolu","supportParamF":"%F: İçerik yolu (çok dosyalı torrent için kök yolla aynı)","supportParamG":"%G: Etiketler (virgülle ayrılmış)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategori","supportParamN":"%N: Torrent ismi","supportParamR":"%R: Kök dizin (ilk torrent alt dizin yolu) ","supportParamT":"%T: Mevcut izleyici","supportParamTitle":"Desteklenen parametreler (büyük/küçük harf duyarlıdır):","supportParamZ":"%Z: Torrent boyutu (bayt)","tip":"İpucu: Metnin boşluklardan kesilmesini önlemek için parametreyi tırnak işaretleri içine alın (ör. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Varsayılan Torrent Yönetim Modu","categoryChangedTMM":"Kategori Kayıt Yolu değiştirildiğinde","defaultSavePath":"Varsayılan Kaydetme Yolu (tamamlanan)","defaultTMMOptions":{"automatic":"Otomatik","manual":"El ile"},"exportDir":".torrent dosyalarını şuraya kopyala","exportDirFinished":"Tamamlanan indirmeler için .torrent dosyalarını şuraya kopyala:","keepIncomplete":"Varsayılan İndirme Yolu (tamamlanmamış torrentler)","paramChangedTMMOptions":{"relocateTorrent":"Torrent'in yerini değiştir","switchToManual":"Torrent'i Manuel Moda geçir"},"savePathChangedTMM":"Varsayılan Kaydetme Yolu değiştirildiğinde","subheader":"Kaydetme Yönetimi","torrentChangedTMM":"Torrent Kategorisi değiştirildiğinde"},"whenAddTorrent":{"addToTopOfQueue":"Kuyruğun en üstüne ekle","autoDeleteMode":".torrent dosyalarını sonradan sil","doNotAutoStart":"İndirmeyi otomatik olarak başlatma","mergeTrackers":"Torrent zaten mevcutsa izleyicileri birleştir","subheader":"Torrent eklerken"}},"rss":{"autoDownloader":{"enable":"RSS kurallarının işlenmesini etkinleştirin","subheader":"RSS Torrent Otomatik İndirici"},"reader":{"enableProcessing":"RSS beslemelerini almayı etkinleştirin","feedsRefreshInterval":"Besleme yenileme aralığı","maximumArticlesPerFeed":"Besleme başına maksimum makale sayısı","subheader":"RSS Okuyucu"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER bölümlerini indirin","filters":"Filtreler","filtersHint":"Satır başına bir tane","subheader":"RSS Akıllı Bölüm Filtresi"},"useIdForRssLinks":"RSS makale bağlantısı için ID kullan"},"saveSuccess":"Ayarlar kaydedildi!","speed":{"download":"İndirme","scheduler":{"from":"Başlangıç","selectButtonLabel":"Zamanı seçin","subheader":"Alternatif hız sınırlarının kullanımını zamanlayın","to":"Bitiş","when":"Ne zaman"},"settings":{"applyToPeersOnLan":"LAN'daki eşlere hız sınırı uygula","applyToTransportOverhead":"Taşıma yüküne oran sınırı uygula","applyToUtp":"µTP protokolüne oran sınırı uygula"},"subheader":{"alternative":"Alternatif Oran Sınırları","global":"Genel Oran Sınırları","settings":"Oran Sınırları Ayarları"},"tip":"0 sınırsız anlamına gelir","upload":"Yükleme"},"tabs":{"addons":{"enhanced_edition":"Gelişmiş sürüm"},"advanced":"Gelişmiş","behavior":"Davranış","bittorrent":"BitTorrent","connection":"Bağlantı","downloads":"İndirilenler","rss":"RSS","speed":"Hız","tagsAndCategories":"Etiketler & Kategoriler","vuetorrent":{"general":"Genel","title":"VueTorrent","torrent_card":{"grid":"Izgara Görünümü","list":"Liste Görünümü","table":"Tablo Görünümü"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Mevcut Kategoriler:","createNewCategory":"Yeni kategori oluştur","createNewTag":"Yeni etiket oluştur","noCategories":"Henüz kategori yok","noTags":"Henüz etiket yok","tagsSubheader":"Mevcut Etiketler:"},"title":"Ayarlar","vuetorrent":{"general":{"check_new":"Yeni sürümü kontrol et","currentVersion":"Mevcut Sürüm","customTitle":"Özel başlık","darkVariants":"Koyu tema varyantı","dateFormat":"Tarih formatı","download":"Ayarları Dışa Aktar","enableHashColors":"Oluşturulmuş çip renklerini etkinleştir","enableRatioColors":"Oran renklerini etkinleştir","fileContentInterval":"Torrent dosyası içerik yenileme aralığı","hideChipIfUnset":"Ayarlanmamışsa çipleri gizle","hideColoredChip":"Çipler için metin varyantını kullan","historySize":"Uygun alanlarda geçmiş boyutu","import":"Ayarları İçe Aktar","isDrawerRight":"Sağ Çekmece","isShutdownButtonVisible":"Kapatma düğmesini göster","language":"Dil","lightVariants":"Açık tema varyantı","paginationSize":{"infinite_scroll":"Sonsuz kaydırma","label":"Sayfalama Boyutu","warning":"Yüksek değerler kullanmak performansı etkileyebilir"},"qbittorrentVersion":"qBittorrent Sürümü","refreshInterval":"qBittorrent API yenileme aralığı","registerMagnet":"Magnet bağlantılarını kaydet","resetSettings":"Ayarları Sıfırla","showAlltimeStat":"Tüm Zaman İstatistiklerini Göster","showCurrentSpeed":"Mevcut Hızı Göster","showFreeSpace":"Boş Alanı Göster","showSessionStat":"Oturum İstatistiklerini Göster","showSpeedGraph":"Hız Grafiğini Göster","tip":"Bu ayarlar özel WebUI'nin kendisi içindir","useBinarySize":"Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ","useBitSpeed":"Hız değerlerini bit cinsinden değiştir (kB/s -> kbps)","vueTorrentTitle":"Sekme başlığı"},"torrentCard":{"grid":{"busyTip":"Tamamlanmamış torrentler için ızgara görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için ızgara görünümünde gösterilecek özellikler"},"list":{"busyTip":"Tamamlanmamış torrentler için liste görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için liste görünümünde gösterilecek özellikler"},"table":{"tip":"Tablo görünümünde gösterilecek torrent özellikleri"}}},"webUI":{"authentication":{"banDuration":"Yasaklama Süresi","banDurationHint":"Saniye cinsinden","bypassLocalhost":"Localhost'taki istemciler için kimlik doğrulamasını atla","bypassWhitelist":"Beyaz listedeki IP alt ağlarındaki istemciler için kimlik doğrulamayı atlayın","maxAttempts":"Maksimum deneme sayısı","password":"Parola","passwordPlaceholder":"(değişmedi)","sessionTimeout":"Oturum zaman aşımı","sessionTimeoutHint":"Saniye cinsinden","subheader":"Kimlik Doğrulama","username":"Kullanıcı Adı","whitelistExamples":"Örnek: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Özel HTTP başlıkları ekle","customHeadersHint":"Satır başına bir tane","customHeadersPlaceholder":"Başlık1: değer1\\nBaşlık2: değer2\\n...","dynDns":{"domainName":"Alan adı","password":"Parola","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Kayıt Ol","subheader":"Dinamik alan adımı güncelle","username":"Kullanıcı Adı"},"https":{"certificate":"Sertifika","key":"Anahtar","subheader":"HTTPS kullan","tip":"Sertifikalar hakkında bilgi"},"interface":{"ipAddress":"IP Adresi","port":"Bağlantı Noktası","subheader":"Web Kullanıcı Arayüzü","useAlternativeWebUI":"Alternatif Web Arayüzünü Kullan","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"proxiesList":"Güvenilir proxy listesi","proxiesListHint":"IP'leri noktalı virgülle ( ; ) ayırın","reverseProxySupport":"Ters proxy desteğini etkinleştirin","security":{"clickjacking":"Tıklama korsanlığına karşı korumayı etkinleştir","csrf":"Çapraz Site İstek Sahtekarlığı (CSRF) korumasını etkinleştirin","hostHeaderValidation":"Ana bilgisayar başlığı doğrulamasını etkinleştir","hostHeaderValidationHint":"Noktalı virgülle ayrılmış ( ; )","secureCookie":"Çerez \\"güvenli\\" bayrağını etkinleştir (HTTPS gerektirir) ","serverDomains":"Sunucu Alan Adları","subheader":"Güvenlik"}}}`);
+    bV = {
         add: {
             error: "Torrentler eklenirken hata oluştu",
             pending: "Torrentler gönderiliyor...",
@@ -102582,7 +102697,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             new: "Yeni sürüm mevcut!"
         }
     };
-    fV = {
+    FV = {
         actions: {
             delete: "Torrentleri Sil",
             logs: "Günlükleri Aç",
@@ -102604,7 +102719,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         searchTorrents: "Torrentleri ara"
     };
-    gV = {
+    kV = {
         content: {
             fileInfo: "{n} dosya | {n} dosya",
             filter_placeholder: "Dosya ağacında ara",
@@ -102695,7 +102810,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             tier: "Seviye: {n} "
         }
     };
-    vV = {
+    xV = {
         properties: {
             added_on: "Eklendiği Tarih",
             amount_left: "Kalan Miktar",
@@ -102782,28 +102897,28 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "Yükleniyor"
         }
     };
-    yV = {
+    wV = {
         minutes: "dakika | dakika | dakika",
         seconds: "saniye | saniye | saniye"
     };
-    bV = {
-        common: nV,
-        constants: iV,
-        dashboard: oV,
-        dialogs: sV,
-        login: lV,
-        logs: uV,
-        navbar: cV,
-        rssArticles: dV,
-        searchEngine: hV,
-        settings: mV,
-        toast: pV,
-        topbar: fV,
-        torrentDetail: gV,
-        torrent: vV,
-        units: yV
+    SV = {
+        common: uV,
+        constants: cV,
+        dashboard: dV,
+        dialogs: hV,
+        login: mV,
+        logs: pV,
+        navbar: fV,
+        rssArticles: gV,
+        searchEngine: vV,
+        settings: yV,
+        toast: bV,
+        topbar: FV,
+        torrentDetail: kV,
+        torrent: xV,
+        units: wV
     };
-    FV = {
+    CV = {
         cancel: "Скасувати",
         close: "Закрити",
         delete: "Видалити",
@@ -102826,7 +102941,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         useGlobalSettings: "Використовувати глобальні налаштування",
         yes: "Так"
     };
-    kV = {
+    AV = {
         addStopped: {
             always: "Завжди",
             never: "Ніколи",
@@ -102951,7 +103066,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             preferTcp: "Надавати перевагу TCP"
         }
     };
-    xV = {
+    DV = {
         displayMode: {
             grid: "Сітка",
             list: "Список",
@@ -103018,7 +103133,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         toggleSortOrder: "Зворотній порядок сортування",
         torrentsCount: "Без торрента | {n} торренти | {n} торрентів"
     };
-    wV = {
+    TV = {
         add: {
             cookie: "Куки",
             cookie_placeholder: "name1=value1; name2=value2; ...",
@@ -103026,7 +103141,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             file_overflow: "+ {n} більше"
         }
     };
-    SV = {
+    EV = {
         side: {
             filters: {
                 state: {
@@ -103039,7 +103154,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    CV = {
+    _V = {
         properties: {
             avg_download_speed: "Середня швидкість завантаження",
             avg_upload_speed: "Середня швидкість роздачі",
@@ -103064,21 +103179,21 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "Роздача"
         }
     };
-    AV = {
+    PV = {
         minutes: "хвилина | хвилини | хвилин",
         seconds: "секунда | секунди | секунд"
     };
-    DV = {
-        common: FV,
-        constants: kV,
-        dashboard: xV,
-        dialogs: wV,
-        navbar: SV,
-        torrent: CV,
-        units: AV
+    BV = {
+        common: CV,
+        constants: AV,
+        dashboard: DV,
+        dialogs: TV,
+        navbar: EV,
+        torrent: _V,
+        units: PV
     };
-    TV = "由Tolgee生成。切勿手动修改否则将被覆盖";
-    EV = {
+    MV = "由Tolgee生成。切勿手动修改否则将被覆盖";
+    RV = {
         auto: "自动",
         cancel: "取消",
         close: "关闭",
@@ -103102,7 +103217,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         useGlobalSettings: "使用全局设置",
         yes: "是"
     };
-    _V = {
+    LV = {
         addStopped: {
             always: "总是",
             never: "从不",
@@ -103246,7 +103361,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             preferTcp: "优先使用 TCP"
         }
     };
-    PV = {
+    IV = {
         displayMode: {
             grid: "网格",
             list: "列表",
@@ -103314,7 +103429,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         toggleSortOrder: "反转排序",
         torrentsCount: "无种子 | {n} 个种子 | {n} 个种子"
     };
-    BV = {
+    zV = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "name1=value1; name2=value2; ...",
@@ -103543,7 +103658,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             urlSeeds: "Web种子URL"
         }
     };
-    MV = {
+    NV = {
         error: "登录失败！",
         password: "密码",
         pending: "正在检测身份验证状态...",
@@ -103557,7 +103672,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         title: "登录",
         username: "用户名"
     };
-    RV = {
+    OV = {
         emptyLogList: "未找到日志",
         filters: {
             query: "在日志信息中搜索",
@@ -103565,7 +103680,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "qBittorrent 日志"
     };
-    LV = {
+    HV = {
         addPanel: {
             torrentsPendingCount: "{n} 个种子等待上传 | {n} 个种子等待上传"
         },
@@ -103635,7 +103750,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    IV = {
+    VV = {
         feeds: {
             empty: {
                 action: "创建 RSS 订阅源",
@@ -103677,7 +103792,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             rules: "展示订阅规则"
         }
     };
-    zV = {
+    WV = {
         filters: {
             category: {
                 all: "全部",
@@ -103715,8 +103830,8 @@ Hatalar oluşabilir, dikkatli kullanın.`
         tabHeaderEmpty: "(空查询)",
         title: "搜索种子"
     };
-    NV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自动屏蔽BT用户","auto_ban_unknown_peer":"自动屏蔽未知用户","auto_update_trackers":"自动更新公共Trackers列表","public_trackers":"公共Trackers","trackers_list_url":"自定义Trackers链接列表"}},"advanced":{"libtorrent":{"announceAllTiers":"总是向所有等级的 Tracker 汇报","announceAllTrackers":"总是向同级的所有 Tracker 汇报","announceIP":"向 Tracker 报告的 IP 地址 (需要重启)","coalesceReadsWrites":"合并读写 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引导节点","dhtBootstrapNodesHint":"留空则重置为默认值","disk":{"diskCache":"磁盘缓存 (libtorrent < 2.0)","diskCacheExpiry":"磁盘缓存过期时间间隔 (libtorrent < 2.0)","diskIoReadMode":"磁盘 IO 读取模式","diskIoType":"磁盘 IO 类型 (libtorrent >= 2.0; 需要重启)","diskIoWriteMode":"磁盘 IO 写入模式","diskQueueSize":"磁盘队列大小","subheader":"磁盘"},"i2p":{"inboundLength":"I2P 入站长度","inboundQuantity":"I2P 入站会话数","invalidLength":"I2P 出入站长度必须介于 0 和 7 之间","invalidQuantity":"I2P 会话数必须介于 1 和 16 之间","outboundLength":"I2P 出站长度","outboundQuantity":"I2P 出站会话数","restartNeeded":"对这些设置的任何更改将在下次重新建立SAM连接时生效（通过重新启动I2P或更改I2P地址或端口）"},"maxConcurrentHTTPAnnounces":"最大并行 HTTP 发布数","networking":{"outgoingPortsMax":"传出端口 (上限) [0：禁用]","outgoingPortsMin":"传出端口 (下限) [0：禁用]","peerTos":"与 Peers 连接的服务类型 (ToS)","subheader":"网络","upnpLeaseDuration":"UPnP 租期 [0：永久]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式策略"},"outgoingConnectionsPerSecond":"每秒传出连接数","peerTurnover":"Peer 进出断开百分比","peerTurnoverCutoff":"Peer 进出阈值百分比","peerTurnoverInterval":"Peer 进出断开间隔","pieceExtentAffinity":"启用相连文件块下载模式","requestQueueSize":"单一 Peer 的最大未完成请求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允许来自同一 IP 地址的多个连接","blockPeersOnPrivilegedPorts":"禁止连接到特权端口上的 Peer","idnSupport":"启用国际化域名 (IDN) 支持","mitigateSSRF":"服务器端请求伪造 (SSRF) 缓解","subheader":"安全","validateHTTPSTrackerCertificate":"验证 HTTPS Tracker 证书"},"sendBufferLowWatermark":"发送缓冲区下限","sendBufferWatermark":"发送缓冲区上限","sendBufferWatermarkFactor":"发送缓冲区增长系数","sendUploadPieceSuggestions":"发送分块上传建议","socketBacklogSize":"Socket backlog 大小","socketReceiveBufferSize":"套接字接收缓冲区大小","socketReceiveBufferSizeHint":"0：系统默认","socketSendBufferSize":"套接字发送缓冲区大小","socketSendBufferSizeHint":"0：系统默认","ssl":{"disclaimer":"“SSL torrent”功能尚未标准化，没有与之相关的BEP（BitTorrent增强提案）。\\n仅在需要时启用此功能。","enabled":"启用SSL种子","listenPort":"用于 SSL 连接的端口","listenPortHint":"留空则自动选择","rule":"端口必须介于 0 和 65535 之间"},"stopTrackerTimeout":"Tracker 停止超时","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"异步 I/O 线程","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"文件池大小","hashingThreads":"哈希校验线程数 (libtorrent >= 2.0)","outstandingMemory":"校验时内存使用扩增量","subheader":"线程"},"uploadChokingAlgorithm":"上传连接策略","uploadSlotsBehavior":"上传窗口策略"},"openDoc":"打开文档","qbittorrent":{"allocatedRam":"物理内存 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"应用程序实例名称","embeddedTracker":{"enable":"启用内置 Tracker","port":"内置 Tracker 端口","portForward":"对内置 Tracker 启用端口转发","title":"内置 Tracker"},"enableMarkOfTheWeb":"为下载的文件启用网络标记 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有地址","allIPv4":"所有 IPv4 地址","allIPv6":"所有 IPv6 地址","label":"绑定的可选 IP 地址"},"networkInterfaces":{"any":"任意接口","label":"网络接口"},"title":"网络"},"pythonExecutablePath":"Python 可执行文件路径","pythonExecutablePathHint":"留空则自动检测，需要重启","reannounceOnIpPortChanged":"当 IP 或端口变更时重新向所有 Tracker汇报","recheckOnCompletion":"完成后重新校验种子","refreshInterval":"界面刷新间隔","resolveCountries":"解析用户所在国家","resumeDataStorageType":{"label":"恢复数据存储类型 (需重新启动)","legacy":"快速恢复文件","sqlite":"SQLite 数据库 (试验性)"},"saveInterval":"保存恢复数据间隔","subheader":"qBittorrent 部分","torrentContentRemovingMode":"种子内容删除模式","torrentFileSizeLimit":".torrent 文件大小限制"}},"behavior":{"logs":{"file_log_age":"删除早于以下时间的日志备份","file_log_backup_enabled":"启用日志备份","file_log_delete_old":"删除旧日志备份","file_log_enabled":"启用日志文件","file_log_max_size":"当文件大小达到以下值触发备份","file_log_path":"保存路径","subheader":"日志管理"},"performance_warning":"记录性能警告"},"bittorrent":{"autoAddTrackers":"自动将这些 Tracker 添加到新下载","autoAddTrackersHint":"每行一个 Tracker","maxActiveCheckingTorrents":"最大活跃校验种子数","privacy":{"enableAnonymous":"启用匿名模式","enableDHT":"启用 DHT (去中心化网络) 以找到更多用户","enableLPD":"启用本地用户发现以找到更多用户","enablePeX":"启用用户交换 (PeX) 以找到更多用户","encryptionMode":"加密模式","moreInfo":"更多信息","subheader":"隐私"},"seedLimits":{"subheader":"做种限制","then":"随后","whenInactiveSeedingTimeReaches":"当非活跃做种时长达到","whenRatioReaches":"当分享率达到","whenSeedingTimeReaches":"当做种时长达到"},"torrentQueueing":{"downloadRateLimit":"下载速率阈值","excludeSlowTorrent":"在这些限制中不计算慢速种子","maxActiveDownload":"最大活跃下载数","maxActiveTorrent":"最大活跃种子数","maxActiveUpload":"最大活跃上传数","subheader":"种子队列","torrentInactivityTimer":"种子非活跃计时器","uploadRateLimit":"上传速率阈值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全局最大连接数","globalMaxUploadSlots":"全局最大上传数","perTorrentMaxConnection":"每个种子的最大连接数","perTorrentMaxUploadSlots":"单个种子最大上传数","subheader":"连接限制"},"i2p":{"address":"I2P 主机","disclaimer":"如果启用了“混合模式”，I2P种子将被允许从跟踪器以外的其他来源获取对等体，并连接到常规IP，不提供任何匿名化。如果用户对I2P的匿名化不感兴趣，但仍希望能够连接到I2P对等体，这可能会很有用。","enabled":"启用 I2P","mixedMode":"混合模式","port":"端口","rule":"端口必须介于 0 和 65535 之间","subheader":"I2P（实验性）"},"ipFiltering":{"applyToTrackers":"应用于 Tracker","bannedIps":"手动禁止的 IP 地址","bannedIpsHint":"每行一个","filterPath":"过滤器路径 (.dat、.p2p、.p2b)","subheader":"IP 过滤"},"listeningPort":{"incomingConnectionPort":"用于传入连接的端口","randomPort":"随机端口","subheader":"监听端口","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"protocol":"Peer连接协议","proxy":{"auth":{"password":"密码","subtitle":"身份验证","tip":"注意：密码将以未加密形式保存","username":"用户名"},"bittorrent":"为BitTorrent进程启用代理","host":"主机","hostNameLookup":"为主机名查找启用代理","misc":"为常规进程启用代理 (如更新, 搜索)","peerConnections":"为用户对等连接启用代理","port":"端口","rss":"为RSS订阅启用代理","subheader":"代理服务器"}},"downloads":{"excludedFileNames":{"hint":"每行一个过滤器","label":"排除的文件名"},"mailNotification":{"authEnabled":"身份验证","enabled":"下载完成后发送电子邮件通知","from":"发件人","password":"密码","smtpServer":"SMTP 服务器","sslEnabled":"此服务器需要安全连接 (SSL)","test":{"error":"邮件发送失败\\n{message}","label":"发送测试邮件","success":"测试邮件已发送！\\n请检查您的收件箱以确认配置成功"},"to":"收件人","username":"用户名"},"monitoredFolders":{"actions":"操作","confirmDelete":"确定要删除此项目吗？","editItem":"编辑","monitoredFolderPath":"监视文件夹","newItem":"新建","noData":"暂无监视文件夹","otherPath":"其他路径","saveType":"覆盖保存位置","subheader":"监视文件夹"},"publicSettings":{"appendQBExtension":"为未完成的文件添加 .!qB 后缀名","preAllocateDisk":"为所有文件预分配磁盘空间","useUnwantedFolder":"将未选择的文件保存在“.unwanted”文件夹中"},"runExternalProgram":{"onAddedEnabled":"添加种子时运行外部程序：","onAddedLabel":"命令","onFinishedEnabled":"种子下载完成时运行外部程序：","onFinishedLabel":"命令","subheader":"运行外部程序","supportParamC":"%C：文件数","supportParamD":"%D：保存路径","supportParamF":"%F：内容路径 (多文件种子的根路径相同)","supportParamG":"%G：标签 (用逗号分隔)","supportParamI":"%I：哈希值 v1","supportParamJ":"%J：哈希值 v2","supportParamK":"%K：种子 ID","supportParamL":"%L：分类","supportParamN":"%N：种子名称","supportParamR":"%R：根路径 (第一个种子子目录路径)","supportParamT":"%T：当前 Tracker","supportParamTitle":"支持的参数 (区分大小写)：","supportParamZ":"%Z：种子大小 (字节)","tip":"提示：使用引号将参数封装起来，以避免文本在空格处被截断 (例如，\\"%N\\")"},"saveManagement":{"autoTMMEnabled":"默认种子管理模式","categoryChangedTMM":"当分类保存路径更改时","defaultSavePath":"默认保存路径（完成时）","defaultTMMOptions":{"automatic":"自动","manual":"手动"},"exportDir":"将 .torrent 文件复制到","exportDirFinished":"将已完成下载的 .torrent 文件复制到","keepIncomplete":"默认下载路径（未完成的种子）","paramChangedTMMOptions":{"relocateTorrent":"重新定位种子","switchToManual":"将种子切换到手动模式"},"savePathChangedTMM":"当默认保存路径更改时","subheader":"保存管理","torrentChangedTMM":"当种子分类更改时","useCategoryPathInManualMode":"在手动模式中使用类别路径","useCategoryPathInManualModeHint":"根据适当的类别路径解析相对保存路径，而不是默认路径"},"whenAddTorrent":{"addToTopOfQueue":"添加到队列首位","autoDeleteMode":"下载完成后删除 .torrent 文件","doNotAutoStart":"不自动开始下载","mergeTrackers":"如果种子已存在，则合并Tracker","subheader":"添加种子时"}},"rss":{"autoDownloader":{"enable":"启用 RSS 规则处理","subheader":"RSS 种子自动下载器"},"reader":{"enableProcessing":"启用获取 RSS 订阅","feedsRefreshInterval":"订阅源刷新间隔","maximumArticlesPerFeed":"每个订阅源的最大文章数","sameHostRequestDelay":"相同主机请求延迟","subheader":"RSS 阅读器"},"smartEpisodeFilter":{"downloadEpisodes":"下载 REPACK/PROPER 剧集","filters":"过滤器","filtersHint":"每行一个","subheader":"RSS 智能剧集过滤器"},"useIdForRssLinks":"在 RSS 文章链接中使用 ID"},"saveSuccess":"设置已成功保存！","speed":{"download":"下载","scheduler":{"from":"开始时间","selectButtonLabel":"选择时间","subheader":"定时使用备用速率限制","to":"结束时间","when":"何时"},"settings":{"applyToPeersOnLan":"将速率限制应用于本地网络上的用户","applyToTransportOverhead":"将速率限制应用于传输总开销","applyToUtp":"将速率限制应用于 µTP 协议"},"subheader":{"alternative":"备用速率限制","global":"全局速率限制","settings":"速率限制设置"},"tip":"0 表示无限制","upload":"上传"},"tabs":{"addons":{"enhanced_edition":"增强版"},"advanced":"高级","behavior":"行为","bittorrent":"BitTorrent","connection":"连接","downloads":"下载","rss":"RSS","speed":"速度","tagsAndCategories":"标签和分类","vuetorrent":{"general":"常规设置","title":"VueTorrent","torrent_card":{"grid":"网格视图","list":"列表视图","table":"表格视图"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"可用分类：","createNewCategory":"创建新分类","createNewTag":"创建新标签","noCategories":"暂无分类","noTags":"暂无标签","tagsSubheader":"可用标签："},"title":"设置","vuetorrent":{"general":{"check_new":"检查新版本","currentVersion":"当前版本","customTitle":"自定义标题","darkVariants":"深色模式样式","dateFormat":"日期格式","displayGraphLimits":"在图表中显示速度限制","download":"导出设置","durationFormat":"持续时间显示格式","enableHashColors":"启用自动生成的卡片颜色","enableRatioColors":"启用彩色的分享率","fileContentInterval":"种子文件内容刷新间隔","filterType":"过滤器组合类型","hideChipIfUnset":"未设置时隐藏卡片","hideColoredChip":"为卡片使用文本模式","historySize":"符合条件字段的历史大小","import":"导入设置","isDrawerRight":"侧边栏居右显示","isShutdownButtonVisible":"显示关闭按钮","language":"语言","lightVariants":"浅色模式样式","paginationSize":{"infinite_scroll":"无限滚动","label":"分页大小","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 刷新间隔","registerMagnet":"注册为磁力链程序","resetSettings":"重置设置","showAlltimeStat":"显示全局统计数据","showCurrentSpeed":"显示当前速度","showFreeSpace":"显示剩余空间","showSessionStat":"显示本次会话统计","showSpeedGraph":"显示速度图表","tip":"这些设置适用于自定义WebUI","useBinarySize":"以KiB表示文件大小 (kB -> KiB)","useBitSpeed":"以kbps表示速度 (kB/s -> kbps)","useEmojiState":"在种子状态前添加表情符号","vueTorrentTitle":"VueTorrent 标题"},"torrentCard":{"grid":{"busyTip":"在网格视图中为未完成的种子显示的属性","doneTip":"在网格视图中为已完成的种子显示的属性"},"list":{"busyTip":"在列表视图中为未完成的种子显示的属性","doneTip":"在列表视图中为已完成的种子显示的属性"},"table":{"tip":"在表格视图中为种子显示的属性"}}},"webUI":{"authentication":{"banDuration":"封禁持续时间","banDurationHint":"以秒为单位","bypassLocalhost":"对本地主机上的客户端跳过身份验证","bypassWhitelist":"对 IP 子网白名单中的客户端跳过身份验证","maxAttempts":"最大尝试次数","password":"密码","passwordPlaceholder":"(不更改)","sessionTimeout":"会话超时","sessionTimeoutHint":"以秒为单位","subheader":"身份验证","username":"用户名","whitelistExamples":"示例：192.168.1.0/24，fdff:ffff:c8::/40"},"customHeaders":"添加自定义 HTTP 标头","customHeadersHint":"每行一个","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"域名","password":"密码","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"注册","subheader":"更新我的动态域名","username":"用户名"},"https":{"certificate":"证书","key":"密钥","subheader":"使用 HTTPS","tip":"证书相关信息"},"interface":{"ipAddress":"IP 地址","port":"端口","subheader":"Web 用户界面 (远程控制)","useAlternativeWebUI":"使用备用 WebUI","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"proxiesList":"受信任的代理服务器列表","proxiesListHint":"使用分号 ( ; ) 分隔 IP","reverseProxySupport":"启用反向代理支持","security":{"clickjacking":"启用点击劫持保护","csrf":"启用跨站点请求伪造 (CSRF) 保护","hostHeaderValidation":"启用主机头验证","hostHeaderValidationHint":"使用分号 ( ; ) 分隔","secureCookie":"启用 Cookie 安全标志 (需要 HTTPS)","serverDomains":"服务器域名","subheader":"安全"}}}');
-    OV = {
+    GV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自动屏蔽BT用户","auto_ban_unknown_peer":"自动屏蔽未知用户","auto_update_trackers":"自动更新公共Trackers列表","public_trackers":"公共Trackers","trackers_list_url":"自定义Trackers链接列表"}},"advanced":{"libtorrent":{"announceAllTiers":"总是向所有等级的 Tracker 汇报","announceAllTrackers":"总是向同级的所有 Tracker 汇报","announceIP":"向 Tracker 报告的 IP 地址 (需要重启)","coalesceReadsWrites":"合并读写 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引导节点","dhtBootstrapNodesHint":"留空则重置为默认值","disk":{"diskCache":"磁盘缓存 (libtorrent < 2.0)","diskCacheExpiry":"磁盘缓存过期时间间隔 (libtorrent < 2.0)","diskIoReadMode":"磁盘 IO 读取模式","diskIoType":"磁盘 IO 类型 (libtorrent >= 2.0; 需要重启)","diskIoWriteMode":"磁盘 IO 写入模式","diskQueueSize":"磁盘队列大小","subheader":"磁盘"},"i2p":{"inboundLength":"I2P 入站长度","inboundQuantity":"I2P 入站会话数","invalidLength":"I2P 出入站长度必须介于 0 和 7 之间","invalidQuantity":"I2P 会话数必须介于 1 和 16 之间","outboundLength":"I2P 出站长度","outboundQuantity":"I2P 出站会话数","restartNeeded":"对这些设置的任何更改将在下次重新建立SAM连接时生效（通过重新启动I2P或更改I2P地址或端口）"},"maxConcurrentHTTPAnnounces":"最大并行 HTTP 发布数","networking":{"outgoingPortsMax":"传出端口 (上限) [0：禁用]","outgoingPortsMin":"传出端口 (下限) [0：禁用]","peerTos":"与 Peers 连接的服务类型 (ToS)","subheader":"网络","upnpLeaseDuration":"UPnP 租期 [0：永久]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式策略"},"outgoingConnectionsPerSecond":"每秒传出连接数","peerTurnover":"Peer 进出断开百分比","peerTurnoverCutoff":"Peer 进出阈值百分比","peerTurnoverInterval":"Peer 进出断开间隔","pieceExtentAffinity":"启用相连文件块下载模式","requestQueueSize":"单一 Peer 的最大未完成请求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允许来自同一 IP 地址的多个连接","blockPeersOnPrivilegedPorts":"禁止连接到特权端口上的 Peer","idnSupport":"启用国际化域名 (IDN) 支持","mitigateSSRF":"服务器端请求伪造 (SSRF) 缓解","subheader":"安全","validateHTTPSTrackerCertificate":"验证 HTTPS Tracker 证书"},"sendBufferLowWatermark":"发送缓冲区下限","sendBufferWatermark":"发送缓冲区上限","sendBufferWatermarkFactor":"发送缓冲区增长系数","sendUploadPieceSuggestions":"发送分块上传建议","socketBacklogSize":"Socket backlog 大小","socketReceiveBufferSize":"套接字接收缓冲区大小","socketReceiveBufferSizeHint":"0：系统默认","socketSendBufferSize":"套接字发送缓冲区大小","socketSendBufferSizeHint":"0：系统默认","ssl":{"disclaimer":"“SSL torrent”功能尚未标准化，没有与之相关的BEP（BitTorrent增强提案）。\\n仅在需要时启用此功能。","enabled":"启用SSL种子","listenPort":"用于 SSL 连接的端口","listenPortHint":"留空则自动选择","rule":"端口必须介于 0 和 65535 之间"},"stopTrackerTimeout":"Tracker 停止超时","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"异步 I/O 线程","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"文件池大小","hashingThreads":"哈希校验线程数 (libtorrent >= 2.0)","outstandingMemory":"校验时内存使用扩增量","subheader":"线程"},"uploadChokingAlgorithm":"上传连接策略","uploadSlotsBehavior":"上传窗口策略"},"openDoc":"打开文档","qbittorrent":{"allocatedRam":"物理内存 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"应用程序实例名称","embeddedTracker":{"enable":"启用内置 Tracker","port":"内置 Tracker 端口","portForward":"对内置 Tracker 启用端口转发","title":"内置 Tracker"},"enableMarkOfTheWeb":"为下载的文件启用网络标记 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有地址","allIPv4":"所有 IPv4 地址","allIPv6":"所有 IPv6 地址","label":"绑定的可选 IP 地址"},"networkInterfaces":{"any":"任意接口","label":"网络接口"},"title":"网络"},"pythonExecutablePath":"Python 可执行文件路径","pythonExecutablePathHint":"留空则自动检测，需要重启","reannounceOnIpPortChanged":"当 IP 或端口变更时重新向所有 Tracker汇报","recheckOnCompletion":"完成后重新校验种子","refreshInterval":"界面刷新间隔","resolveCountries":"解析用户所在国家","resumeDataStorageType":{"label":"恢复数据存储类型 (需重新启动)","legacy":"快速恢复文件","sqlite":"SQLite 数据库 (试验性)"},"saveInterval":"保存恢复数据间隔","subheader":"qBittorrent 部分","torrentContentRemovingMode":"种子内容删除模式","torrentFileSizeLimit":".torrent 文件大小限制"}},"behavior":{"logs":{"file_log_age":"删除早于以下时间的日志备份","file_log_backup_enabled":"启用日志备份","file_log_delete_old":"删除旧日志备份","file_log_enabled":"启用日志文件","file_log_max_size":"当文件大小达到以下值触发备份","file_log_path":"保存路径","subheader":"日志管理"},"performance_warning":"记录性能警告"},"bittorrent":{"autoAddTrackers":"自动将这些 Tracker 添加到新下载","autoAddTrackersHint":"每行一个 Tracker","maxActiveCheckingTorrents":"最大活跃校验种子数","privacy":{"enableAnonymous":"启用匿名模式","enableDHT":"启用 DHT (去中心化网络) 以找到更多用户","enableLPD":"启用本地用户发现以找到更多用户","enablePeX":"启用用户交换 (PeX) 以找到更多用户","encryptionMode":"加密模式","moreInfo":"更多信息","subheader":"隐私"},"seedLimits":{"subheader":"做种限制","then":"随后","whenInactiveSeedingTimeReaches":"当非活跃做种时长达到","whenRatioReaches":"当分享率达到","whenSeedingTimeReaches":"当做种时长达到"},"torrentQueueing":{"downloadRateLimit":"下载速率阈值","excludeSlowTorrent":"在这些限制中不计算慢速种子","maxActiveDownload":"最大活跃下载数","maxActiveTorrent":"最大活跃种子数","maxActiveUpload":"最大活跃上传数","subheader":"种子队列","torrentInactivityTimer":"种子非活跃计时器","uploadRateLimit":"上传速率阈值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全局最大连接数","globalMaxUploadSlots":"全局最大上传数","perTorrentMaxConnection":"每个种子的最大连接数","perTorrentMaxUploadSlots":"单个种子最大上传数","subheader":"连接限制"},"i2p":{"address":"I2P 主机","disclaimer":"如果启用了“混合模式”，I2P种子将被允许从跟踪器以外的其他来源获取对等体，并连接到常规IP，不提供任何匿名化。如果用户对I2P的匿名化不感兴趣，但仍希望能够连接到I2P对等体，这可能会很有用。","enabled":"启用 I2P","mixedMode":"混合模式","port":"端口","rule":"端口必须介于 0 和 65535 之间","subheader":"I2P（实验性）"},"ipFiltering":{"applyToTrackers":"应用于 Tracker","bannedIps":"手动禁止的 IP 地址","bannedIpsHint":"每行一个","filterPath":"过滤器路径 (.dat、.p2p、.p2b)","subheader":"IP 过滤"},"listeningPort":{"incomingConnectionPort":"用于传入连接的端口","randomPort":"随机端口","subheader":"监听端口","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"protocol":"Peer连接协议","proxy":{"auth":{"password":"密码","subtitle":"身份验证","tip":"注意：密码将以未加密形式保存","username":"用户名"},"bittorrent":"为BitTorrent进程启用代理","host":"主机","hostNameLookup":"为主机名查找启用代理","misc":"为常规进程启用代理 (如更新, 搜索)","peerConnections":"为用户对等连接启用代理","port":"端口","rss":"为RSS订阅启用代理","subheader":"代理服务器"}},"downloads":{"excludedFileNames":{"hint":"每行一个过滤器","label":"排除的文件名"},"mailNotification":{"authEnabled":"身份验证","enabled":"下载完成后发送电子邮件通知","from":"发件人","password":"密码","smtpServer":"SMTP 服务器","sslEnabled":"此服务器需要安全连接 (SSL)","test":{"error":"邮件发送失败\\n{message}","label":"发送测试邮件","success":"测试邮件已发送！\\n请检查您的收件箱以确认配置成功"},"to":"收件人","username":"用户名"},"monitoredFolders":{"actions":"操作","confirmDelete":"确定要删除此项目吗？","editItem":"编辑","monitoredFolderPath":"监视文件夹","newItem":"新建","noData":"暂无监视文件夹","otherPath":"其他路径","saveType":"覆盖保存位置","subheader":"监视文件夹"},"publicSettings":{"appendQBExtension":"为未完成的文件添加 .!qB 后缀名","preAllocateDisk":"为所有文件预分配磁盘空间","useUnwantedFolder":"将未选择的文件保存在“.unwanted”文件夹中"},"runExternalProgram":{"onAddedEnabled":"添加种子时运行外部程序：","onAddedLabel":"命令","onFinishedEnabled":"种子下载完成时运行外部程序：","onFinishedLabel":"命令","subheader":"运行外部程序","supportParamC":"%C：文件数","supportParamD":"%D：保存路径","supportParamF":"%F：内容路径 (多文件种子的根路径相同)","supportParamG":"%G：标签 (用逗号分隔)","supportParamI":"%I：哈希值 v1","supportParamJ":"%J：哈希值 v2","supportParamK":"%K：种子 ID","supportParamL":"%L：分类","supportParamN":"%N：种子名称","supportParamR":"%R：根路径 (第一个种子子目录路径)","supportParamT":"%T：当前 Tracker","supportParamTitle":"支持的参数 (区分大小写)：","supportParamZ":"%Z：种子大小 (字节)","tip":"提示：使用引号将参数封装起来，以避免文本在空格处被截断 (例如，\\"%N\\")"},"saveManagement":{"autoTMMEnabled":"默认种子管理模式","categoryChangedTMM":"当分类保存路径更改时","defaultSavePath":"默认保存路径（完成时）","defaultTMMOptions":{"automatic":"自动","manual":"手动"},"exportDir":"将 .torrent 文件复制到","exportDirFinished":"将已完成下载的 .torrent 文件复制到","keepIncomplete":"默认下载路径（未完成的种子）","paramChangedTMMOptions":{"relocateTorrent":"重新定位种子","switchToManual":"将种子切换到手动模式"},"savePathChangedTMM":"当默认保存路径更改时","subheader":"保存管理","torrentChangedTMM":"当种子分类更改时","useCategoryPathInManualMode":"在手动模式中使用类别路径","useCategoryPathInManualModeHint":"根据适当的类别路径解析相对保存路径，而不是默认路径"},"whenAddTorrent":{"addToTopOfQueue":"添加到队列首位","autoDeleteMode":"下载完成后删除 .torrent 文件","doNotAutoStart":"不自动开始下载","mergeTrackers":"如果种子已存在，则合并Tracker","subheader":"添加种子时"}},"rss":{"autoDownloader":{"enable":"启用 RSS 规则处理","subheader":"RSS 种子自动下载器"},"reader":{"enableProcessing":"启用获取 RSS 订阅","feedsRefreshInterval":"订阅源刷新间隔","maximumArticlesPerFeed":"每个订阅源的最大文章数","sameHostRequestDelay":"相同主机请求延迟","subheader":"RSS 阅读器"},"smartEpisodeFilter":{"downloadEpisodes":"下载 REPACK/PROPER 剧集","filters":"过滤器","filtersHint":"每行一个","subheader":"RSS 智能剧集过滤器"},"useIdForRssLinks":"在 RSS 文章链接中使用 ID"},"saveSuccess":"设置已成功保存！","speed":{"download":"下载","scheduler":{"from":"开始时间","selectButtonLabel":"选择时间","subheader":"定时使用备用速率限制","to":"结束时间","when":"何时"},"settings":{"applyToPeersOnLan":"将速率限制应用于本地网络上的用户","applyToTransportOverhead":"将速率限制应用于传输总开销","applyToUtp":"将速率限制应用于 µTP 协议"},"subheader":{"alternative":"备用速率限制","global":"全局速率限制","settings":"速率限制设置"},"tip":"0 表示无限制","upload":"上传"},"tabs":{"addons":{"enhanced_edition":"增强版"},"advanced":"高级","behavior":"行为","bittorrent":"BitTorrent","connection":"连接","downloads":"下载","rss":"RSS","speed":"速度","tagsAndCategories":"标签和分类","vuetorrent":{"general":"常规设置","title":"VueTorrent","torrent_card":{"grid":"网格视图","list":"列表视图","table":"表格视图"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"可用分类：","createNewCategory":"创建新分类","createNewTag":"创建新标签","noCategories":"暂无分类","noTags":"暂无标签","tagsSubheader":"可用标签："},"title":"设置","vuetorrent":{"general":{"check_new":"检查新版本","currentVersion":"当前版本","customTitle":"自定义标题","darkVariants":"深色模式样式","dateFormat":"日期格式","displayGraphLimits":"在图表中显示速度限制","download":"导出设置","durationFormat":"持续时间显示格式","enableHashColors":"启用自动生成的卡片颜色","enableRatioColors":"启用彩色的分享率","fileContentInterval":"种子文件内容刷新间隔","filterType":"过滤器组合类型","hideChipIfUnset":"未设置时隐藏卡片","hideColoredChip":"为卡片使用文本模式","historySize":"符合条件字段的历史大小","import":"导入设置","isDrawerRight":"侧边栏居右显示","isShutdownButtonVisible":"显示关闭按钮","language":"语言","lightVariants":"浅色模式样式","paginationSize":{"infinite_scroll":"无限滚动","label":"分页大小","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 刷新间隔","registerMagnet":"注册为磁力链程序","resetSettings":"重置设置","showAlltimeStat":"显示全局统计数据","showCurrentSpeed":"显示当前速度","showFreeSpace":"显示剩余空间","showSessionStat":"显示本次会话统计","showSpeedGraph":"显示速度图表","tip":"这些设置适用于自定义WebUI","useBinarySize":"以KiB表示文件大小 (kB -> KiB)","useBitSpeed":"以kbps表示速度 (kB/s -> kbps)","useEmojiState":"在种子状态前添加表情符号","vueTorrentTitle":"VueTorrent 标题"},"torrentCard":{"grid":{"busyTip":"在网格视图中为未完成的种子显示的属性","doneTip":"在网格视图中为已完成的种子显示的属性"},"list":{"busyTip":"在列表视图中为未完成的种子显示的属性","doneTip":"在列表视图中为已完成的种子显示的属性"},"table":{"tip":"在表格视图中为种子显示的属性"}}},"webUI":{"authentication":{"banDuration":"封禁持续时间","banDurationHint":"以秒为单位","bypassLocalhost":"对本地主机上的客户端跳过身份验证","bypassWhitelist":"对 IP 子网白名单中的客户端跳过身份验证","maxAttempts":"最大尝试次数","password":"密码","passwordPlaceholder":"(不更改)","sessionTimeout":"会话超时","sessionTimeoutHint":"以秒为单位","subheader":"身份验证","username":"用户名","whitelistExamples":"示例：192.168.1.0/24，fdff:ffff:c8::/40"},"customHeaders":"添加自定义 HTTP 标头","customHeadersHint":"每行一个","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"域名","password":"密码","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"注册","subheader":"更新我的动态域名","username":"用户名"},"https":{"certificate":"证书","key":"密钥","subheader":"使用 HTTPS","tip":"证书相关信息"},"interface":{"ipAddress":"IP 地址","port":"端口","subheader":"Web 用户界面 (远程控制)","useAlternativeWebUI":"使用备用 WebUI","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"proxiesList":"受信任的代理服务器列表","proxiesListHint":"使用分号 ( ; ) 分隔 IP","reverseProxySupport":"启用反向代理支持","security":{"clickjacking":"启用点击劫持保护","csrf":"启用跨站点请求伪造 (CSRF) 保护","hostHeaderValidation":"启用主机头验证","hostHeaderValidationHint":"使用分号 ( ; ) 分隔","secureCookie":"启用 Cookie 安全标志 (需要 HTTPS)","serverDomains":"服务器域名","subheader":"安全"}}}');
+    $V = {
         add: {
             error: "添加种子时出错",
             pending: "正在上传...",
@@ -103738,7 +103853,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             new: "新版本可用！"
         }
     };
-    HV = {
+    jV = {
         actions: {
             delete: "删除种子",
             logs: "打开日志",
@@ -103762,7 +103877,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         searchTorrents: "搜索种子"
     };
-    VV = {
+    UV = {
         empty: {
             action: "创建新任务",
             value: "未设置任务"
@@ -103795,7 +103910,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "种子创建器"
     };
-    WV = {
+    YV = {
         content: {
             fileInfo: "{n} 个文件 | {n} 个文件",
             filter: {
@@ -103904,7 +104019,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             tier: "层级：{n}"
         }
     };
-    GV = {
+    qV = {
         properties: {
             added_on: "添加时间",
             amount_left: "剩余大小",
@@ -103997,31 +104112,31 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "上传中"
         }
     };
-    $V = {
+    KV = {
         minutes: "分钟",
         seconds: "秒"
     };
-    jV = {
-        _comments: TV,
-        common: EV,
-        constants: _V,
-        dashboard: PV,
-        dialogs: BV,
-        login: MV,
-        logs: RV,
-        navbar: LV,
-        rssArticles: IV,
-        searchEngine: zV,
-        settings: NV,
-        toast: OV,
-        topbar: HV,
-        torrentCreator: VV,
-        torrentDetail: WV,
-        torrent: GV,
-        units: $V
+    XV = {
+        _comments: MV,
+        common: RV,
+        constants: LV,
+        dashboard: IV,
+        dialogs: zV,
+        login: NV,
+        logs: OV,
+        navbar: HV,
+        rssArticles: VV,
+        searchEngine: WV,
+        settings: GV,
+        toast: $V,
+        topbar: jV,
+        torrentCreator: UV,
+        torrentDetail: YV,
+        torrent: qV,
+        units: KV
     };
-    UV = "僅從Tolgee生成，請不要手動修改不然會被推翻";
-    YV = {
+    JV = "僅從Tolgee生成，請不要手動修改不然會被推翻";
+    ZV = {
         auto: "自動",
         cancel: "取消",
         close: "關閉",
@@ -104045,7 +104160,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         useGlobalSettings: "使用全域設定",
         yes: "是"
     };
-    qV = {
+    QV = {
         addStopped: {
             always: "總是",
             never: "永不",
@@ -104189,7 +104304,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             preferTcp: "偏好 TCP"
         }
     };
-    KV = {
+    eW = {
         displayMode: {
             grid: "網格",
             list: "清單",
@@ -104257,7 +104372,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         toggleSortOrder: "反轉排序",
         torrentsCount: "無種子 | {n} 個種子 | {n} 個種子"
     };
-    XV = {
+    tW = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "名稱1=值1; 名稱2=值2; ...",
@@ -104486,7 +104601,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             urlSeeds: "Web 種子 URL"
         }
     };
-    JV = {
+    aW = {
         error: "登入失敗！",
         password: "密碼",
         pending: "正在檢測驗證狀態...",
@@ -104500,7 +104615,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         title: "登入",
         username: "使用者名稱"
     };
-    ZV = {
+    rW = {
         emptyLogList: "未找到日誌",
         filters: {
             query: "在日誌信息中搜尋",
@@ -104508,7 +104623,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "qBittorrent 日誌"
     };
-    QV = {
+    nW = {
         addPanel: {
             torrentsPendingCount: "{n} 個種子待上傳 | {n} 個種子待上傳"
         },
@@ -104578,7 +104693,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    eW = {
+    iW = {
         feeds: {
             empty: {
                 action: "新增 RSS 訂閱源",
@@ -104620,7 +104735,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             rules: "顯示訂閱規則"
         }
     };
-    tW = {
+    oW = {
         filters: {
             category: {
                 all: "所有",
@@ -104658,8 +104773,8 @@ Hatalar oluşabilir, dikkatli kullanın.`
         tabHeaderEmpty: "(空查詢)",
         title: "搜尋種子"
     };
-    aW = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自動禁止BT用戶","auto_ban_unknown_peer":"自動禁止未知用戶","auto_update_trackers":"自動更新公開跟蹤器清單","public_trackers":"公開跟蹤器","trackers_list_url":"自定義跟蹤器連結清單"}},"advanced":{"libtorrent":{"announceAllTiers":"總是發佈到所有追蹤者群組","announceAllTrackers":"總是發佈到同一追蹤者群組內的所有追蹤者","announceIP":"向追蹤器回報的 IP 位置 (需要重新啟動)","coalesceReadsWrites":"合併讀寫 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引導節點","dhtBootstrapNodesHint":"如果為空則重置為預設值","disk":{"diskCache":"硬碟快取 (libtorrent < 2.0)","diskCacheExpiry":"硬碟快取過期區間 (libtorrent < 2.0)","diskIoReadMode":"硬碟 IO 讀取模式","diskIoType":"硬碟 IO 類型 (libtorrent >= 2.0; 需要重新啟動)","diskIoWriteMode":"硬碟 IO 寫入模式","diskQueueSize":"硬碟佇列大小","subheader":"硬碟"},"i2p":{"inboundLength":"I2P 入站長度","inboundQuantity":"I2P 入站數量","invalidLength":"I2P 長度值必須介於 0 到 7 之間","invalidQuantity":"I2P 數量值必須介於 1 到 16 之間","outboundLength":"I2P 出站長度","outboundQuantity":"I2P 出站數量","restartNeeded":"這些設定的任何變更將在下次重新建立 SAM 連接時生效（通過重新啟動 I2P 或更改 I2P 地址或端口）"},"maxConcurrentHTTPAnnounces":"最大並行 HTTP 發佈","networking":{"outgoingPortsMax":"連出埠（最大）[0: 停用]","outgoingPortsMin":"連出埠（最小）[0: 停用]","peerTos":"連接到用戶的 DSCP 值","subheader":"網路","upnpLeaseDuration":"UPnP 租約期限 [0: 永久租約]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式演算法"},"outgoingConnectionsPerSecond":"每秒對外連線數","peerTurnover":"用戶流動斷線百分比","peerTurnoverCutoff":"用戶流動閾值百分比","peerTurnoverInterval":"用戶流動斷線區間","pieceExtentAffinity":"使用分塊範圍關聯","requestQueueSize":"對單個用戶的最多未完成請求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允許從同一個 IP 位置而來的多重連線","blockPeersOnPrivilegedPorts":"不允許連線到在特權連接埠上的用戶","idnSupport":"啟用國際化域名 (IDN)支援","mitigateSSRF":"伺服器端請求偽造 (SSRF) 緩解","subheader":"安全","validateHTTPSTrackerCertificate":"驗證 HTTPS 追蹤器憑證"},"sendBufferLowWatermark":"傳送緩衝低浮水印","sendBufferWatermark":"傳送緩衝浮水印","sendBufferWatermarkFactor":"傳送緩衝浮水印因子","sendUploadPieceSuggestions":"傳送上傳分塊建議","socketBacklogSize":"Socket 紀錄檔大小","socketReceiveBufferSize":"Socket 接收緩衝大小","socketReceiveBufferSizeHint":"0: 系統預設值","socketSendBufferSize":"Socket 傳送緩衝大小","socketSendBufferSizeHint":"0: 系統預設值","ssl":{"disclaimer":"「SSL torrent」功能並非標準化，沒有與之相關的 BEP（BitTorrent 增強提案）。\\n僅在需要時啟用此功能。","enabled":"啟用 SSL 種子","listenPort":"SSL 連線時使用的埠","listenPortHint":"留空以自動選擇","rule":"端口必須介於 0 到 65535 之間"},"stopTrackerTimeout":"停止追蹤者逾時","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"異步 I/O 執行緒","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"檔案叢集大小","hashingThreads":"雜湊執行緒 (libtorrent >= 2.0)","outstandingMemory":"檢查種子時的未完成記憶體","subheader":"執行緒"},"uploadChokingAlgorithm":"上傳演算法","uploadSlotsBehavior":"上傳通道行為"},"openDoc":"開啟文檔","qbittorrent":{"allocatedRam":"實體記憶體 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"應用程式實例名稱","embeddedTracker":{"enable":"啟用嵌入追蹤者","port":"嵌入追蹤者埠","portForward":"為嵌入追蹤者啟用連接埠轉發","title":"嵌入追蹤者"},"enableMarkOfTheWeb":"啟用下載文件的網頁標記 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有位置","allIPv4":"所有 IPv4 位置","allIPv6":"所有 IPv6 位置","label":"可選擇綁定的 IP 位置"},"networkInterfaces":{"any":"任何介面","label":"網路介面"},"title":"網路"},"pythonExecutablePath":"Python 可執行檔路徑","pythonExecutablePathHint":"如果為空則自動檢測，需要重新啟動","reannounceOnIpPortChanged":"當 IP 或連接埠變更時通知所有追蹤者","recheckOnCompletion":"完成後重新檢查種子","refreshInterval":"介面重新整理區間","resolveCountries":"解析用戶國家","resumeDataStorageType":{"label":"恢復數據儲存類型 (需要重新啟動)","legacy":"快速恢復檔案","sqlite":"SQLite 數據庫 (實驗性)"},"saveInterval":"儲存復原資料區間","subheader":"qBittorrent 部分","torrentContentRemovingMode":"種子內容移除模式","torrentFileSizeLimit":".torrent 檔案大小限制"}},"behavior":{"logs":{"file_log_age":"刪除早於以下時間的備份日誌","file_log_backup_enabled":"啟用日誌備份","file_log_delete_old":"移除舊的備份日誌","file_log_enabled":"啟用日誌文件","file_log_max_size":"備份日誌當","file_log_path":"儲存路徑","subheader":"日誌管理"},"performance_warning":"日誌效能警告"},"bittorrent":{"autoAddTrackers":"自動新增這些追蹤者至新的下載中","autoAddTrackersHint":"每行一個追蹤者","maxActiveCheckingTorrents":"最大活躍的正在檢查種子數","privacy":{"enableAnonymous":"啟用匿名模式","enableDHT":"啟用 DHT (分散式網絡) 以尋找更多用戶","enableLPD":"啟用本地用戶搜尋以尋找更多用戶","enablePeX":"啟用用戶交換 (PeX) 以尋找更多用戶","encryptionMode":"加密模式","moreInfo":"更多資訊","subheader":"隱私"},"seedLimits":{"subheader":"做種限制","then":"然後","whenInactiveSeedingTimeReaches":"當閒置做種時間達到","whenRatioReaches":"當分享率達到","whenSeedingTimeReaches":"當做種時間達到"},"torrentQueueing":{"downloadRateLimit":"下載速率閾值","excludeSlowTorrent":"不要在這些限制範圍內計算速率慢的種子","maxActiveDownload":"最大活躍下載數","maxActiveTorrent":"最大活躍種子數","maxActiveUpload":"最大活躍上傳數","subheader":"種子佇列","torrentInactivityTimer":"種子閒置計時器","uploadRateLimit":"上傳速率閾值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全域最大連線數","globalMaxUploadSlots":"全域上傳通道最大數","perTorrentMaxConnection":"單個種子的最大連線數","perTorrentMaxUploadSlots":"單個種子的上傳通道最大數","subheader":"連線限制"},"i2p":{"address":"I2P 主機","disclaimer":"如果啟用了「混合模式」，I2P種子允許從追蹤器以外的其他來源獲取同伴，並連接到常規IP，這不提供任何匿名化。如果用戶對I2P的匿名化不感興趣，但仍希望能夠連接到I2P同伴，這可能會有用。","enabled":"啟用 I2P","mixedMode":"混合模式","port":"埠","rule":"端口值必須介於 0 到 65535 之間","subheader":"I2P（實驗性）"},"ipFiltering":{"applyToTrackers":"套用到追蹤者","bannedIps":"手動封鎖的 IP 位置","bannedIpsHint":"每行一個","filterPath":"過濾器路徑 (.dat, .p2p, .p2b)","subheader":"IP 過濾"},"listeningPort":{"incomingConnectionPort":"連入連線時使用的埠","randomPort":"隨機連接埠","subheader":"監聽埠","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"protocol":"用戶連線協定","proxy":{"auth":{"password":"密碼","subtitle":"驗證","tip":"資訊: 密碼以未加密的形式儲存","username":"使用者名稱"},"bittorrent":"對 BitTorrent 使用代理","host":"主機","hostNameLookup":"為主機名稱查詢使用代理","misc":"對一般用途使用代理","peerConnections":"使用代理來連線用戶","port":"埠","rss":"對 RSS 使用代理","subheader":"代理伺服器"}},"downloads":{"excludedFileNames":{"hint":"每行一個檔案名稱","label":"排除的檔案名稱"},"mailNotification":{"authEnabled":"驗證","enabled":"下載完成時使用電子郵件通知","from":"從","password":"密碼","smtpServer":"SMTP 伺服器","sslEnabled":"這個伺服器需要加密連線 (SSL)","test":{"error":"電子郵件發送失敗\\n{message}","label":"發送測試電子郵件","success":"電子郵件請求已發送！\\n檢查您的收件箱以確認成功"},"to":"到","username":"使用者名稱"},"monitoredFolders":{"actions":"動作","confirmDelete":"你確認想要移除此項目？","editItem":"編輯","monitoredFolderPath":"已監視的資料夾","newItem":"新增","noData":"沒有已監視的資料夾","otherPath":"其他路徑","saveType":"覆寫儲存位置","subheader":"已監視的資料夾"},"publicSettings":{"appendQBExtension":"在未完成檔案加上 .!qB 副檔名","preAllocateDisk":"為所有檔案事先分配硬碟空間","useUnwantedFolder":"將未選擇的文件保存在 \\".unwanted\\" 文件夾中"},"runExternalProgram":{"onAddedEnabled":"當新增種子時執行外部程式:","onAddedLabel":"命令","onFinishedEnabled":"當種子下載結束時執行外部程式:","onFinishedLabel":"命令","subheader":"執行外部程式","supportParamC":"%C: 檔案數","supportParamD":"%D: 儲存路徑","supportParamF":"%F: 內容路徑 (與多檔案種子的根路徑相同)","supportParamG":"%G: 標籤 (以逗號分隔)","supportParamI":"%I: 資訊雜湊值 v1","supportParamJ":"%J: 資訊雜湊值 v2","supportParamK":"%K: 種子 ID","supportParamL":"%L: 分類","supportParamN":"%N: 種子名稱","supportParamR":"%R: 根路徑 (第一個種子的子目錄路徑)","supportParamT":"%T: 當前的追蹤者","supportParamTitle":"支援的參數（區分大小寫）：","supportParamZ":"%Z: 種子大小 (位元組 byte)","tip":"提示: 把參數以引號包起來以避免被空格切斷 (例如: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"預設種子管理模式","categoryChangedTMM":"當分類儲存路徑變更時","defaultSavePath":"預設儲存路徑 (完成時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":"複製 .torrent 檔案到","exportDirFinished":"複製已完成的 .torrent 檔案到","keepIncomplete":"預設下載路徑 (未完成的種子)","paramChangedTMMOptions":{"relocateTorrent":"重新定位種子","switchToManual":"切換種子至手動模式"},"savePathChangedTMM":"當預設儲存路徑變更時","subheader":"存檔管理","torrentChangedTMM":"當種子分類變更時","useCategoryPathInManualMode":"在手動模式中使用分類路徑","useCategoryPathInManualModeHint":"針對適當的類別路徑解析相對儲存路徑，而不是預設路徑"},"whenAddTorrent":{"addToTopOfQueue":"新增至佇列頂部","autoDeleteMode":"事後移除 .torrent 檔案","doNotAutoStart":"不要自動開始下載","mergeTrackers":"如果 torrent 已存在則合併追蹤者","subheader":"當新增種子時"}},"rss":{"autoDownloader":{"enable":"啟用 RSS 規則處理","subheader":"RSS 種子自動下載器"},"reader":{"enableProcessing":"啟用抓取 RSS 訂閱","feedsRefreshInterval":"訂閱源更新區間","maximumArticlesPerFeed":"每個訂閱源的最大文章數","sameHostRequestDelay":"相同主機請求延遲","subheader":"RSS 閱讀器"},"smartEpisodeFilter":{"downloadEpisodes":"下載 REPACK/PROPER 章節","filters":"過濾器","filtersHint":"每行一個","subheader":"RSS 智慧型章節過濾器"},"useIdForRssLinks":"在 RSS 文章連結中使用 ID"},"saveSuccess":"設定儲存成功！","speed":{"download":"下載","scheduler":{"from":"從","selectButtonLabel":"選擇時間","subheader":"預約使用替補速率限制","to":"到","when":"何時"},"settings":{"applyToPeersOnLan":"套用速率限制至 LAN 上的用戶","applyToTransportOverhead":"套用速率限制至傳輸負載","applyToUtp":"套用速率限制至 µTP 協定"},"subheader":{"alternative":"替補速率限制","global":"全域速率限制","settings":"速率限制設定"},"tip":"0 代表無限制","upload":"上傳"},"tabs":{"addons":{"enhanced_edition":"加強版"},"advanced":"進階","behavior":"行為","bittorrent":"BitTorrent","connection":"連線","downloads":"下載","rss":"RSS","speed":"速率","tagsAndCategories":"標籤和分類","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"網格檢視","list":"清單檢視","table":"表格檢視"}},"webui":"網頁介面"},"tagsAndCategories":{"categoriesSubheader":"可用分類:","createNewCategory":"新增新分類","createNewTag":"新增新標籤","noCategories":"尚無分類","noTags":"尚無標籤","tagsSubheader":"可用標籤:"},"title":"設定","vuetorrent":{"general":{"check_new":"檢查新版本","currentVersion":"當前版本","customTitle":"自訂標題","darkVariants":"深色界面式樣","dateFormat":"日期格式","displayGraphLimits":"在圖表裡顯示速度限制","download":"匯出設定","durationFormat":"持續時間顯示格式","enableHashColors":"啟用自動生成的卡片顏色","enableRatioColors":"啟用彩色的分享率","fileContentInterval":"種子檔案內容更新區間","filterType":"過濾器組合類別","hideChipIfUnset":"未設置時隱藏塊","hideColoredChip":"為卡片使用文本模式","historySize":"符合條件欄位的歷史大小","import":"匯入設定","isDrawerRight":"側邊欄居右顯示","isShutdownButtonVisible":"顯示結束按鈕","language":"語言","lightVariants":"淺色界面式樣","paginationSize":{"infinite_scroll":"無限滾動","label":"每頁展示數量","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 更新區間","registerMagnet":"註冊磁力連結","resetSettings":"重置設定","showAlltimeStat":"顯示歷史狀態","showCurrentSpeed":"顯示當前速率","showFreeSpace":"顯示剩餘空間","showSessionStat":"顯示會話狀態","showSpeedGraph":"顯示速率圖表","tip":"這些設定適用於自訂WebUI","useBinarySize":"以二進位制取代容量單位 (kB -> KiB)","useBitSpeed":"以位元取代速率單位 (kB/s -> kbps)","useEmojiState":"在種子狀態前加上表情符號","vueTorrentTitle":"VueTorrent 標題"},"torrentCard":{"grid":{"busyTip":"在網格檢視中為未完成的種子顯示的屬性","doneTip":"在網格檢視中為已完成的種子顯示的屬性"},"list":{"busyTip":"在清單檢視中為未完成的種子顯示的屬性","doneTip":"在清單檢視中為已完成的種子顯示的屬性"},"table":{"tip":"在表格檢視中為種子顯示的屬性"}}},"webUI":{"authentication":{"banDuration":"封鎖時長","banDurationHint":"秒","bypassLocalhost":"跳過本機客戶端的驗證","bypassWhitelist":"跳過白名單內 IP 子網中客戶端的驗證","maxAttempts":"最大嘗試次數","password":"密碼","passwordPlaceholder":"(不變更)","sessionTimeout":"會話逾時","sessionTimeoutHint":"秒","subheader":"驗證","username":"使用者名稱","whitelistExamples":"範例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"新增自訂 HTTP 標頭","customHeadersHint":"每行一個","customHeadersPlaceholder":"標頭1: 鍵值1\\n標頭2: 鍵值2\\n...","dynDns":{"domainName":"網域名稱","password":"密碼","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"註冊","subheader":"更新我的動態網域名稱","username":"使用者名稱"},"https":{"certificate":"憑證","key":"鍵值","subheader":"使用 HTTPS","tip":"關於憑證的資訊"},"interface":{"ipAddress":"IP 位置","port":"埠","subheader":"網頁介面 (遠端控制)","useAlternativeWebUI":"使用替補 WebUI","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"proxiesList":"受信任的代理伺服器清單","proxiesListHint":"使用分號分隔 IP ( ; )","reverseProxySupport":"啟用反向代理支援","security":{"clickjacking":"啟用點選劫持保護","csrf":"啟用跨站請求偽造 (CSRF) 保護","hostHeaderValidation":"啟用主機標頭驗證","hostHeaderValidationHint":"使用分號分隔 ( ; )","secureCookie":"啟用Cookie 安全旗標（需要 HTTPS）","serverDomains":"伺服器網域","subheader":"安全"}}}');
-    rW = {
+    sW = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自動禁止BT用戶","auto_ban_unknown_peer":"自動禁止未知用戶","auto_update_trackers":"自動更新公開跟蹤器清單","public_trackers":"公開跟蹤器","trackers_list_url":"自定義跟蹤器連結清單"}},"advanced":{"libtorrent":{"announceAllTiers":"總是發佈到所有追蹤者群組","announceAllTrackers":"總是發佈到同一追蹤者群組內的所有追蹤者","announceIP":"向追蹤器回報的 IP 位置 (需要重新啟動)","coalesceReadsWrites":"合併讀寫 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引導節點","dhtBootstrapNodesHint":"如果為空則重置為預設值","disk":{"diskCache":"硬碟快取 (libtorrent < 2.0)","diskCacheExpiry":"硬碟快取過期區間 (libtorrent < 2.0)","diskIoReadMode":"硬碟 IO 讀取模式","diskIoType":"硬碟 IO 類型 (libtorrent >= 2.0; 需要重新啟動)","diskIoWriteMode":"硬碟 IO 寫入模式","diskQueueSize":"硬碟佇列大小","subheader":"硬碟"},"i2p":{"inboundLength":"I2P 入站長度","inboundQuantity":"I2P 入站數量","invalidLength":"I2P 長度值必須介於 0 到 7 之間","invalidQuantity":"I2P 數量值必須介於 1 到 16 之間","outboundLength":"I2P 出站長度","outboundQuantity":"I2P 出站數量","restartNeeded":"這些設定的任何變更將在下次重新建立 SAM 連接時生效（通過重新啟動 I2P 或更改 I2P 地址或端口）"},"maxConcurrentHTTPAnnounces":"最大並行 HTTP 發佈","networking":{"outgoingPortsMax":"連出埠（最大）[0: 停用]","outgoingPortsMin":"連出埠（最小）[0: 停用]","peerTos":"連接到用戶的 DSCP 值","subheader":"網路","upnpLeaseDuration":"UPnP 租約期限 [0: 永久租約]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式演算法"},"outgoingConnectionsPerSecond":"每秒對外連線數","peerTurnover":"用戶流動斷線百分比","peerTurnoverCutoff":"用戶流動閾值百分比","peerTurnoverInterval":"用戶流動斷線區間","pieceExtentAffinity":"使用分塊範圍關聯","requestQueueSize":"對單個用戶的最多未完成請求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允許從同一個 IP 位置而來的多重連線","blockPeersOnPrivilegedPorts":"不允許連線到在特權連接埠上的用戶","idnSupport":"啟用國際化域名 (IDN)支援","mitigateSSRF":"伺服器端請求偽造 (SSRF) 緩解","subheader":"安全","validateHTTPSTrackerCertificate":"驗證 HTTPS 追蹤器憑證"},"sendBufferLowWatermark":"傳送緩衝低浮水印","sendBufferWatermark":"傳送緩衝浮水印","sendBufferWatermarkFactor":"傳送緩衝浮水印因子","sendUploadPieceSuggestions":"傳送上傳分塊建議","socketBacklogSize":"Socket 紀錄檔大小","socketReceiveBufferSize":"Socket 接收緩衝大小","socketReceiveBufferSizeHint":"0: 系統預設值","socketSendBufferSize":"Socket 傳送緩衝大小","socketSendBufferSizeHint":"0: 系統預設值","ssl":{"disclaimer":"「SSL torrent」功能並非標準化，沒有與之相關的 BEP（BitTorrent 增強提案）。\\n僅在需要時啟用此功能。","enabled":"啟用 SSL 種子","listenPort":"SSL 連線時使用的埠","listenPortHint":"留空以自動選擇","rule":"端口必須介於 0 到 65535 之間"},"stopTrackerTimeout":"停止追蹤者逾時","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"異步 I/O 執行緒","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"檔案叢集大小","hashingThreads":"雜湊執行緒 (libtorrent >= 2.0)","outstandingMemory":"檢查種子時的未完成記憶體","subheader":"執行緒"},"uploadChokingAlgorithm":"上傳演算法","uploadSlotsBehavior":"上傳通道行為"},"openDoc":"開啟文檔","qbittorrent":{"allocatedRam":"實體記憶體 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"應用程式實例名稱","embeddedTracker":{"enable":"啟用嵌入追蹤者","port":"嵌入追蹤者埠","portForward":"為嵌入追蹤者啟用連接埠轉發","title":"嵌入追蹤者"},"enableMarkOfTheWeb":"啟用下載文件的網頁標記 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有位置","allIPv4":"所有 IPv4 位置","allIPv6":"所有 IPv6 位置","label":"可選擇綁定的 IP 位置"},"networkInterfaces":{"any":"任何介面","label":"網路介面"},"title":"網路"},"pythonExecutablePath":"Python 可執行檔路徑","pythonExecutablePathHint":"如果為空則自動檢測，需要重新啟動","reannounceOnIpPortChanged":"當 IP 或連接埠變更時通知所有追蹤者","recheckOnCompletion":"完成後重新檢查種子","refreshInterval":"介面重新整理區間","resolveCountries":"解析用戶國家","resumeDataStorageType":{"label":"恢復數據儲存類型 (需要重新啟動)","legacy":"快速恢復檔案","sqlite":"SQLite 數據庫 (實驗性)"},"saveInterval":"儲存復原資料區間","subheader":"qBittorrent 部分","torrentContentRemovingMode":"種子內容移除模式","torrentFileSizeLimit":".torrent 檔案大小限制"}},"behavior":{"logs":{"file_log_age":"刪除早於以下時間的備份日誌","file_log_backup_enabled":"啟用日誌備份","file_log_delete_old":"移除舊的備份日誌","file_log_enabled":"啟用日誌文件","file_log_max_size":"備份日誌當","file_log_path":"儲存路徑","subheader":"日誌管理"},"performance_warning":"日誌效能警告"},"bittorrent":{"autoAddTrackers":"自動新增這些追蹤者至新的下載中","autoAddTrackersHint":"每行一個追蹤者","maxActiveCheckingTorrents":"最大活躍的正在檢查種子數","privacy":{"enableAnonymous":"啟用匿名模式","enableDHT":"啟用 DHT (分散式網絡) 以尋找更多用戶","enableLPD":"啟用本地用戶搜尋以尋找更多用戶","enablePeX":"啟用用戶交換 (PeX) 以尋找更多用戶","encryptionMode":"加密模式","moreInfo":"更多資訊","subheader":"隱私"},"seedLimits":{"subheader":"做種限制","then":"然後","whenInactiveSeedingTimeReaches":"當閒置做種時間達到","whenRatioReaches":"當分享率達到","whenSeedingTimeReaches":"當做種時間達到"},"torrentQueueing":{"downloadRateLimit":"下載速率閾值","excludeSlowTorrent":"不要在這些限制範圍內計算速率慢的種子","maxActiveDownload":"最大活躍下載數","maxActiveTorrent":"最大活躍種子數","maxActiveUpload":"最大活躍上傳數","subheader":"種子佇列","torrentInactivityTimer":"種子閒置計時器","uploadRateLimit":"上傳速率閾值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全域最大連線數","globalMaxUploadSlots":"全域上傳通道最大數","perTorrentMaxConnection":"單個種子的最大連線數","perTorrentMaxUploadSlots":"單個種子的上傳通道最大數","subheader":"連線限制"},"i2p":{"address":"I2P 主機","disclaimer":"如果啟用了「混合模式」，I2P種子允許從追蹤器以外的其他來源獲取同伴，並連接到常規IP，這不提供任何匿名化。如果用戶對I2P的匿名化不感興趣，但仍希望能夠連接到I2P同伴，這可能會有用。","enabled":"啟用 I2P","mixedMode":"混合模式","port":"埠","rule":"端口值必須介於 0 到 65535 之間","subheader":"I2P（實驗性）"},"ipFiltering":{"applyToTrackers":"套用到追蹤者","bannedIps":"手動封鎖的 IP 位置","bannedIpsHint":"每行一個","filterPath":"過濾器路徑 (.dat, .p2p, .p2b)","subheader":"IP 過濾"},"listeningPort":{"incomingConnectionPort":"連入連線時使用的埠","randomPort":"隨機連接埠","subheader":"監聽埠","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"protocol":"用戶連線協定","proxy":{"auth":{"password":"密碼","subtitle":"驗證","tip":"資訊: 密碼以未加密的形式儲存","username":"使用者名稱"},"bittorrent":"對 BitTorrent 使用代理","host":"主機","hostNameLookup":"為主機名稱查詢使用代理","misc":"對一般用途使用代理","peerConnections":"使用代理來連線用戶","port":"埠","rss":"對 RSS 使用代理","subheader":"代理伺服器"}},"downloads":{"excludedFileNames":{"hint":"每行一個檔案名稱","label":"排除的檔案名稱"},"mailNotification":{"authEnabled":"驗證","enabled":"下載完成時使用電子郵件通知","from":"從","password":"密碼","smtpServer":"SMTP 伺服器","sslEnabled":"這個伺服器需要加密連線 (SSL)","test":{"error":"電子郵件發送失敗\\n{message}","label":"發送測試電子郵件","success":"電子郵件請求已發送！\\n檢查您的收件箱以確認成功"},"to":"到","username":"使用者名稱"},"monitoredFolders":{"actions":"動作","confirmDelete":"你確認想要移除此項目？","editItem":"編輯","monitoredFolderPath":"已監視的資料夾","newItem":"新增","noData":"沒有已監視的資料夾","otherPath":"其他路徑","saveType":"覆寫儲存位置","subheader":"已監視的資料夾"},"publicSettings":{"appendQBExtension":"在未完成檔案加上 .!qB 副檔名","preAllocateDisk":"為所有檔案事先分配硬碟空間","useUnwantedFolder":"將未選擇的文件保存在 \\".unwanted\\" 文件夾中"},"runExternalProgram":{"onAddedEnabled":"當新增種子時執行外部程式:","onAddedLabel":"命令","onFinishedEnabled":"當種子下載結束時執行外部程式:","onFinishedLabel":"命令","subheader":"執行外部程式","supportParamC":"%C: 檔案數","supportParamD":"%D: 儲存路徑","supportParamF":"%F: 內容路徑 (與多檔案種子的根路徑相同)","supportParamG":"%G: 標籤 (以逗號分隔)","supportParamI":"%I: 資訊雜湊值 v1","supportParamJ":"%J: 資訊雜湊值 v2","supportParamK":"%K: 種子 ID","supportParamL":"%L: 分類","supportParamN":"%N: 種子名稱","supportParamR":"%R: 根路徑 (第一個種子的子目錄路徑)","supportParamT":"%T: 當前的追蹤者","supportParamTitle":"支援的參數（區分大小寫）：","supportParamZ":"%Z: 種子大小 (位元組 byte)","tip":"提示: 把參數以引號包起來以避免被空格切斷 (例如: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"預設種子管理模式","categoryChangedTMM":"當分類儲存路徑變更時","defaultSavePath":"預設儲存路徑 (完成時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":"複製 .torrent 檔案到","exportDirFinished":"複製已完成的 .torrent 檔案到","keepIncomplete":"預設下載路徑 (未完成的種子)","paramChangedTMMOptions":{"relocateTorrent":"重新定位種子","switchToManual":"切換種子至手動模式"},"savePathChangedTMM":"當預設儲存路徑變更時","subheader":"存檔管理","torrentChangedTMM":"當種子分類變更時","useCategoryPathInManualMode":"在手動模式中使用分類路徑","useCategoryPathInManualModeHint":"針對適當的類別路徑解析相對儲存路徑，而不是預設路徑"},"whenAddTorrent":{"addToTopOfQueue":"新增至佇列頂部","autoDeleteMode":"事後移除 .torrent 檔案","doNotAutoStart":"不要自動開始下載","mergeTrackers":"如果 torrent 已存在則合併追蹤者","subheader":"當新增種子時"}},"rss":{"autoDownloader":{"enable":"啟用 RSS 規則處理","subheader":"RSS 種子自動下載器"},"reader":{"enableProcessing":"啟用抓取 RSS 訂閱","feedsRefreshInterval":"訂閱源更新區間","maximumArticlesPerFeed":"每個訂閱源的最大文章數","sameHostRequestDelay":"相同主機請求延遲","subheader":"RSS 閱讀器"},"smartEpisodeFilter":{"downloadEpisodes":"下載 REPACK/PROPER 章節","filters":"過濾器","filtersHint":"每行一個","subheader":"RSS 智慧型章節過濾器"},"useIdForRssLinks":"在 RSS 文章連結中使用 ID"},"saveSuccess":"設定儲存成功！","speed":{"download":"下載","scheduler":{"from":"從","selectButtonLabel":"選擇時間","subheader":"預約使用替補速率限制","to":"到","when":"何時"},"settings":{"applyToPeersOnLan":"套用速率限制至 LAN 上的用戶","applyToTransportOverhead":"套用速率限制至傳輸負載","applyToUtp":"套用速率限制至 µTP 協定"},"subheader":{"alternative":"替補速率限制","global":"全域速率限制","settings":"速率限制設定"},"tip":"0 代表無限制","upload":"上傳"},"tabs":{"addons":{"enhanced_edition":"加強版"},"advanced":"進階","behavior":"行為","bittorrent":"BitTorrent","connection":"連線","downloads":"下載","rss":"RSS","speed":"速率","tagsAndCategories":"標籤和分類","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"網格檢視","list":"清單檢視","table":"表格檢視"}},"webui":"網頁介面"},"tagsAndCategories":{"categoriesSubheader":"可用分類:","createNewCategory":"新增新分類","createNewTag":"新增新標籤","noCategories":"尚無分類","noTags":"尚無標籤","tagsSubheader":"可用標籤:"},"title":"設定","vuetorrent":{"general":{"check_new":"檢查新版本","currentVersion":"當前版本","customTitle":"自訂標題","darkVariants":"深色界面式樣","dateFormat":"日期格式","displayGraphLimits":"在圖表裡顯示速度限制","download":"匯出設定","durationFormat":"持續時間顯示格式","enableHashColors":"啟用自動生成的卡片顏色","enableRatioColors":"啟用彩色的分享率","fileContentInterval":"種子檔案內容更新區間","filterType":"過濾器組合類別","hideChipIfUnset":"未設置時隱藏塊","hideColoredChip":"為卡片使用文本模式","historySize":"符合條件欄位的歷史大小","import":"匯入設定","isDrawerRight":"側邊欄居右顯示","isShutdownButtonVisible":"顯示結束按鈕","language":"語言","lightVariants":"淺色界面式樣","paginationSize":{"infinite_scroll":"無限滾動","label":"每頁展示數量","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 更新區間","registerMagnet":"註冊磁力連結","resetSettings":"重置設定","showAlltimeStat":"顯示歷史狀態","showCurrentSpeed":"顯示當前速率","showFreeSpace":"顯示剩餘空間","showSessionStat":"顯示會話狀態","showSpeedGraph":"顯示速率圖表","tip":"這些設定適用於自訂WebUI","useBinarySize":"以二進位制取代容量單位 (kB -> KiB)","useBitSpeed":"以位元取代速率單位 (kB/s -> kbps)","useEmojiState":"在種子狀態前加上表情符號","vueTorrentTitle":"VueTorrent 標題"},"torrentCard":{"grid":{"busyTip":"在網格檢視中為未完成的種子顯示的屬性","doneTip":"在網格檢視中為已完成的種子顯示的屬性"},"list":{"busyTip":"在清單檢視中為未完成的種子顯示的屬性","doneTip":"在清單檢視中為已完成的種子顯示的屬性"},"table":{"tip":"在表格檢視中為種子顯示的屬性"}}},"webUI":{"authentication":{"banDuration":"封鎖時長","banDurationHint":"秒","bypassLocalhost":"跳過本機客戶端的驗證","bypassWhitelist":"跳過白名單內 IP 子網中客戶端的驗證","maxAttempts":"最大嘗試次數","password":"密碼","passwordPlaceholder":"(不變更)","sessionTimeout":"會話逾時","sessionTimeoutHint":"秒","subheader":"驗證","username":"使用者名稱","whitelistExamples":"範例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"新增自訂 HTTP 標頭","customHeadersHint":"每行一個","customHeadersPlaceholder":"標頭1: 鍵值1\\n標頭2: 鍵值2\\n...","dynDns":{"domainName":"網域名稱","password":"密碼","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"註冊","subheader":"更新我的動態網域名稱","username":"使用者名稱"},"https":{"certificate":"憑證","key":"鍵值","subheader":"使用 HTTPS","tip":"關於憑證的資訊"},"interface":{"ipAddress":"IP 位置","port":"埠","subheader":"網頁介面 (遠端控制)","useAlternativeWebUI":"使用替補 WebUI","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"proxiesList":"受信任的代理伺服器清單","proxiesListHint":"使用分號分隔 IP ( ; )","reverseProxySupport":"啟用反向代理支援","security":{"clickjacking":"啟用點選劫持保護","csrf":"啟用跨站請求偽造 (CSRF) 保護","hostHeaderValidation":"啟用主機標頭驗證","hostHeaderValidationHint":"使用分號分隔 ( ; )","secureCookie":"啟用Cookie 安全旗標（需要 HTTPS）","serverDomains":"伺服器網域","subheader":"安全"}}}');
+    lW = {
         add: {
             error: "新增種子時出錯",
             pending: "正在傳送種子...",
@@ -104681,7 +104796,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             new: "新版本已發佈!"
         }
     };
-    nW = {
+    uW = {
         actions: {
             delete: "移除種子",
             logs: "開啟日誌",
@@ -104705,7 +104820,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         searchTorrents: "搜尋種子"
     };
-    iW = {
+    cW = {
         empty: {
             action: "新增新任務",
             value: "未有配置的任務"
@@ -104738,7 +104853,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "種子創建器"
     };
-    oW = {
+    dW = {
         content: {
             fileInfo: "{n} 個檔案 | {n} 個檔案",
             filter: {
@@ -104847,7 +104962,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             tier: "層: {n}"
         }
     };
-    sW = {
+    hW = {
         properties: {
             added_on: "新增於",
             amount_left: "剩餘大小",
@@ -104940,30 +105055,30 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "上傳中"
         }
     };
-    lW = {
+    mW = {
         minutes: "分鐘",
         seconds: "秒"
     };
-    uW = {
-        _comments: UV,
-        common: YV,
-        constants: qV,
-        dashboard: KV,
-        dialogs: XV,
-        login: JV,
-        logs: ZV,
-        navbar: QV,
-        rssArticles: eW,
-        searchEngine: tW,
-        settings: aW,
-        toast: rW,
-        topbar: nW,
-        torrentCreator: iW,
-        torrentDetail: oW,
-        torrent: sW,
-        units: lW
+    pW = {
+        _comments: JV,
+        common: ZV,
+        constants: QV,
+        dashboard: eW,
+        dialogs: tW,
+        login: aW,
+        logs: rW,
+        navbar: nW,
+        rssArticles: iW,
+        searchEngine: oW,
+        settings: sW,
+        toast: lW,
+        topbar: uW,
+        torrentCreator: cW,
+        torrentDetail: dW,
+        torrent: hW,
+        units: mW
     };
-    EG = [
+    RG = [
         {
             title: "čeština",
             value: "cs"
@@ -105029,31 +105144,31 @@ Hatalar oluşabilir, dikkatli kullanın.`
             value: "zh-Hant"
         }
     ];
-    cW = {
-        cs: hO,
-        en: _O,
-        es: UO,
-        fr: uH,
-        hu: CH,
-        it: zH,
-        ja: QH,
-        ko: f9,
-        nl: y9,
-        pl: R9,
-        "pt-BR": H9,
-        ru: rV,
-        tr: bV,
-        uk: DV,
-        "zh-Hans": jV,
-        "zh-Hant": uW
+    fW = {
+        cs: vO,
+        en: LO,
+        es: JO,
+        fr: pH,
+        hu: _H,
+        it: WH,
+        ja: n9,
+        ko: F9,
+        nl: w9,
+        pl: O9,
+        "pt-BR": j9,
+        ru: lV,
+        tr: SV,
+        uk: BV,
+        "zh-Hans": XV,
+        "zh-Hant": pW
     };
-    dW = "en";
-    hW = "en";
-    mW = dw({
+    gW = "en";
+    vW = "en";
+    yW = hw({
         legacy: !1,
-        locale: dW,
-        fallbackLocale: hW,
-        messages: cW,
+        locale: gW,
+        fallbackLocale: vW,
+        messages: fW,
         pluralRules: {
             ru: (t, e)=>{
                 if (t === 0) return 0;
@@ -105062,7 +105177,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     });
-    pW = {
+    bW = {
         autoClose: 1500,
         clearOnUrlChange: !1,
         containerId: yr.POSITION.BOTTOM_RIGHT,
@@ -105070,15 +105185,15 @@ Hatalar oluşabilir, dikkatli kullanın.`
         position: yr.POSITION.BOTTOM_RIGHT,
         theme: yr.THEME.COLORED
     };
-    Ox = hw();
-    Ox.use(mw({
+    Hx = mw();
+    Hx.use(pw({
         assertStorage: ()=>{},
         storeKeysPrefix: "vuetorrent",
         persistenceDefault: !1,
         ensureAsyncStorageUpdateOrder: !0
     }));
-    const Hx = pw(s6);
-    Hx.config.performance = !0;
-    Hx.use(Nk).use(iO).use(mW).use(fw, pW).use(Ox).mount("#app");
+    const Vx = fw(h6);
+    Vx.config.performance = !0;
+    Vx.use(Ok).use(cO).use(yW).use(gw, bW).use(Hx).mount("#app");
 })();
-export { Te as $, Oh as A, Gs as B, Xn as C, Gn as D, Fl as E, Ei as F, Sr as G, E1 as H, TR as I, $s as J, Ll as K, tt as L, Nh as M, Rs as N, v6 as O, Tz as P, Vp as Q, ea as R, Qr as S, Mt as T, Ml as U, Ea as V, Ya as W, zW as X, oa as Y, yh as Z, Fo as _, _e as a, Vv as a$, Az as a0, De as a1, Pm as a2, KN as a3, Lx as a4, NW as a5, JD as a6, WW as a7, H1 as a8, Ws as a9, dS as aA, hS as aB, cS as aC, uS as aD, lS as aE, nS as aF, rS as aG, iS as aH, xb as aI, aS as aJ, tS as aK, no as aL, io as aM, oS as aN, sS as aO, $n as aP, Nt as aQ, _M as aR, bn as aS, Vt as aT, Eh as aU, AM as aV, Os as aW, d0 as aX, CM as aY, EG as aZ, Hv as a_, vW as aa, Db as ab, Kr as ac, M1 as ad, c0 as ae, Ab as af, Nz as ag, _l as ah, XD as ai, Td as aj, GW as ak, BM as al, vr as am, K0 as an, Bb as ao, ki as ap, yW as aq, O4 as ar, x6 as as, NR as at, bl as au, VN as av, X0 as aw, mr as ax, wb as ay, Sb as az, qm as b, zn as b0, Rn as b1, Mn as b2, Ym as b3, UW as b4, ul as b5, pN as b6, hN as b7, Io as b8, M4 as b9, YW as bA, EM as bB, Zm as ba, H4 as bb, bh as bc, $m as bd, jm as be, v2 as bf, LF as bg, IF as bh, Is as bi, Me as bj, ap as bk, to as bl, Xe as bm, zr as bn, Al as bo, VW as bp, ci as bq, DD as br, Dr as bs, OW as bt, gN as bu, Cb as bv, KD as bw, jW as bx, $W as by, HW as bz, gl as c, ei as d, Hi as e, Qn as f, Bk as g, _0 as h, Oi as i, cn as j, Re as k, _n as l, Qm as m, h0 as n, ba as o, ch as p, je as q, _a as r, Je as s, Pr as t, aa as u, Rr as v, er as w, hm as x, v1 as y, g1 as z, __tla };
+export { yh as $, Oh as A, Gs as B, Xn as C, Gn as D, Fl as E, Ei as F, Sr as G, _1 as H, MR as I, $s as J, Ll as K, tt as L, Nh as M, Rs as N, x6 as O, Mz as P, Vp as Q, ea as R, $W as S, Mt as T, Qr as U, Ea as V, Ml as W, Ya as X, WW as Y, oa as Z, Fo as _, _e as a, Hv as a$, Te as a0, Pz as a1, De as a2, Pm as a3, eO as a4, Ix as a5, GW as a6, e2 as a7, YW as a8, V1 as a9, Sb as aA, hS as aB, mS as aC, dS as aD, cS as aE, uS as aF, iS as aG, nS as aH, oS as aI, xb as aJ, rS as aK, aS as aL, no as aM, io as aN, sS as aO, lS as aP, $n as aQ, Nt as aR, LM as aS, bn as aT, Vt as aU, Eh as aV, PM as aW, Os as aX, h0 as aY, _M as aZ, RG as a_, Ws as aa, xW as ab, Db as ac, Kr as ad, R1 as ae, d0 as af, Ab as ag, Gz as ah, _l as ai, QD as aj, Td as ak, qW as al, zM as am, vr as an, X0 as ao, Bb as ap, ki as aq, wW as ar, $4 as as, D6 as at, GR as au, bl as av, UN as aw, J0 as ax, mr as ay, wb as az, qm as b, Vv as b0, zn as b1, Rn as b2, Mn as b3, Ym as b4, JW as b5, ul as b6, bN as b7, vN as b8, Io as b9, XW as bA, KW as bB, jW as bC, ZW as bD, RM as bE, N4 as ba, Zm as bb, j4 as bc, bh as bd, $m as be, jm as bf, F2 as bg, IF as bh, zF as bi, Is as bj, Me as bk, ap as bl, to as bm, Xe as bn, zr as bo, Al as bp, UW as bq, ci as br, TD as bs, Dr as bt, k2 as bu, x2 as bv, DF as bw, kN as bx, Cb as by, ZD as bz, gl as c, ei as d, Hi as e, Qn as f, Mk as g, P0 as h, Oi as i, cn as j, Re as k, _n as l, Qm as m, m0 as n, ba as o, ch as p, je as q, _a as r, Je as s, Pr as t, aa as u, Rr as v, er as w, hm as x, y1 as y, v1 as z, __tla };
