@@ -504,10 +504,6 @@
     "error": "Login failed!",
     "password": "Password",
     "pending": "Checking current auth status...",
-    "remember": {
-      "label": "Remember me",
-      "warn": "This stores credentials in plain text. Use a password manager or the built-in bypass if possible."
-    },
     "rules": {
       "password_required": "Password is required",
       "username_required": "Username is required"
