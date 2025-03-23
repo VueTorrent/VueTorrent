@@ -118,5 +118,5 @@ export const extMap: Record<string, FileType> = {
   mpg: FileType.VIDEO,
   mts: FileType.VIDEO,
   ts: FileType.VIDEO,
-  wmv: FileType.VIDEO,
+  wmv: FileType.VIDEO
 }
