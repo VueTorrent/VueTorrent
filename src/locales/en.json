@@ -88,6 +88,7 @@
       "executable": "Executables",
       "image": "Images",
       "information": "Information",
+      "no_ext": "(No ext)",
       "script": "Scripts",
       "subtitle": "Subtitles",
       "unknown": "Unknown",
