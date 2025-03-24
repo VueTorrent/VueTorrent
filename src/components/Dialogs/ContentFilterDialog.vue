@@ -2,7 +2,7 @@
 import { useDialog, useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { FileType } from '@/constants/vuetorrent'
-import { comparators, formatData, getExtType, splitExt } from '@/helpers'
+import { comparators, formatData, getExtType, getTypeIcon, splitExt } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { computed, reactive } from 'vue'
 
@@ -22,7 +22,7 @@ const sizeBoundaries = computed<[number, number]>(() =>
 )
 
 const fileExtensionsByType = computed(() =>
-  new Set<string>(contentStore.cachedFiles.map(file => splitExt(file.name.toLocaleLowerCase())[1])).values().reduce(
+  new Set<string>(contentStore.cachedFiles.map(file => splitExt(file.name)[1])).values().reduce(
     (prev, ext) => {
       const type = getExtType(ext)
       if (Object.keys(prev).includes(type)) {
@@ -43,8 +43,8 @@ const extensionItems = computed(() =>
       return comparators.text.asc(typeA, typeB)
     })
     .flatMap(([type, extensions]) => [
-      { props: { header: t(`constants.file_type.${type}`) } },
-      ...extensions.map(ext => ({ title: `.${ext}`, value: ext })),
+      { props: { header: t(`constants.file_type.${type}`), icon: getTypeIcon(type as FileType) } },
+      ...extensions.map(ext => ({ title: ext ? `.${ext}` : t(`constants.file_type.no_ext`), value: ext })),
       { props: { divider: true } }
     ])
 )
@@ -121,12 +121,13 @@ function close() {
           </v-col>
           <v-col cols="8">
             <v-select v-model="filters.extensions" :items="extensionItems" :placeholder="t('common.disabled')" persistent-placeholder multiple hide-details>
-              <template #item="data">
-                <v-list-subheader v-if="data.props.header">
-                  {{ data.props.header }}
+              <template #item="{ props }">
+                <v-list-subheader v-if="props.header">
+                  <v-icon>{{ props.icon }}</v-icon>
+                  {{ props.header }}
                 </v-list-subheader>
-                <v-divider v-else-if="data.props.divider" />
-                <v-list-item v-else v-bind="data.props" />
+                <v-divider v-else-if="props.divider" />
+                <v-list-item v-else v-bind="props" />
               </template>
             </v-select>
           </v-col>
