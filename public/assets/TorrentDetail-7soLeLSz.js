@@ -1,8 +1,8 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./MoveTorrentFileDialog-BAOweJwe.js","./ColoredChip.vue_vue_type_script_setup_true_lang-87piE-9L.js","./index-BdywO0qg.js","./vue-DQy84xYo.js","./vuetify-BD3Y_TZC.js","./index-4LVWYijk.css","./BulkRenameFilesDialog-wOPUlP42.js","./BulkRenameFilesDialog-CKEu44go.css","./browserAll-C2L6j2Ld.js","./webworkerAll-DjftwNJS.js","./colorToUniform-C2GHuDhf.js","./CanvasPool-D9uWjK2J.js","./WebGPURenderer-C2TZF1CT.js","./SharedSystems-96GWn2iK.js","./WebGLRenderer-CdceIEkh.js"])))=>i.map(i=>d[i]);
-import { b as Ce, a as Io, _ as Ro } from "./ColoredChip.vue_vue_type_script_setup_true_lang-87piE-9L.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./MoveTorrentFileDialog-DRE1_FWm.js","./ColoredChip.vue_vue_type_script_setup_true_lang-S1HV9YUc.js","./index-txiQIQmc.js","./vue-DQy84xYo.js","./vuetify-ClWXjd8J.js","./index-4MHgeYty.css","./BulkRenameFilesDialog-PqBczjMs.js","./BulkRenameFilesDialog-CKEu44go.css","./browserAll-DvXsRrL7.js","./webworkerAll-hyFk_qwQ.js","./colorToUniform-C2GHuDhf.js","./CanvasPool-CXQONFOK.js","./WebGPURenderer-BONEUl_h.js","./SharedSystems-Epb5Dvxl.js","./WebGLRenderer-6rcEwQDC.js"])))=>i.map(i=>d[i]);
+import { b as Ce, a as Io, _ as Ro } from "./ColoredChip.vue_vue_type_script_setup_true_lang-S1HV9YUc.js";
 import { s as Xt, a as Z, a6 as Or, b as Eo, a0 as tn, d as mt, V as Do, Q as xt, r as vs, l as Bo, A as We, a7 as nr, h as wt, H as Fo, B as j, D as $, G as w, m as y, I as Y, J as N, u as M, L as Xe, M as Et, K as en, O as Ye, a8 as Go, n as pe, S as W, N as K, U as sn, X as gs, w as ke, z as ts, q as ws, $ as zr, F as kt, T as Gt, E as rn, a1 as Tr, R as No, W as Lr, v as Vo, a9 as nn, aa as on, P as $o } from "./vue-DQy84xYo.js";
-import { br as nt, bs as Oo, a2 as an, a0 as Se, u as ee, F as Cs, o as jt, a3 as zo, af as ln, p as Ss, bt as Pe, c as hn, d as Yt, e as As, f as me, g as un, V as Qt, i as je, j as Me, k as ot, l as qe, bu as Ur, bv as Lo, bw as Hr, bx as Uo, J as Ho, K as Wo, r as pt, q as it, t as Wr, ax as or, a as St, w as Xo, s as Ie, by as Yo, a7 as Ot, S as jo, ai as cn, bq as qo, a9 as Ts, R as _s, W as Ko, ay as Zo, X as ks, z as ge, B as _e, ad as be, a6 as Qo, bg as Jo, C as ys, ao as Xr, bm as fe, y as ta, bz as Es, bj as ea, bf as sa, be as ra, bn as Yr, bA as ia, bB as na, bC as oa, H as aa, aq as la, aj as ar, ba as ha, aQ as ua, av as ca, ah as lr, a1 as dn, bD as da, bE as Ds, ae as fn, b as fa, m as pa, b4 as ma, bF as ga, a4 as _a, a5 as ya, b2 as ve, b3 as xa, __tla as __tla_0 } from "./index-BdywO0qg.js";
-import { a as pn, u as ba } from "./vuetify-BD3Y_TZC.js";
+import { br as nt, bs as Oo, a2 as an, a0 as Se, u as ee, F as Cs, o as jt, a3 as zo, af as ln, p as Ss, bt as Pe, c as hn, d as Yt, e as As, f as me, g as un, V as Qt, i as je, j as Me, k as ot, l as qe, bu as Ur, bv as Lo, bw as Hr, bx as Uo, J as Ho, K as Wo, r as pt, q as it, t as Wr, ax as or, a as St, w as Xo, s as Ie, by as Yo, a7 as Ot, S as jo, ai as cn, bq as qo, a9 as Ts, R as _s, W as Ko, ay as Zo, X as ks, z as ge, B as _e, ad as be, a6 as Qo, bg as Jo, C as ys, ao as Xr, bm as fe, y as ta, bz as Es, bj as ea, bf as sa, be as ra, bn as Yr, bA as ia, bB as na, bC as oa, H as aa, aq as la, aj as ar, ba as ha, aQ as ua, av as ca, ah as lr, a1 as dn, bD as da, bE as Ds, ae as fn, b as fa, m as pa, b4 as ma, bF as ga, a4 as _a, a5 as ya, b2 as ve, b3 as xa, __tla as __tla_0 } from "./index-txiQIQmc.js";
+import { a as pn, u as ba } from "./vuetify-ClWXjd8J.js";
 let Ft, no, Pt, xe, ne, ht, Tn, Ms, zt, $l, ui, Ke, ch, tt, bh, _t, At, vt, yr, Wh, ns, mr, Sh, di, Hs, pi, Ll, Ca, re, Mn, oo, ct, yt, Mh, Zh, gu, yu, Cu, Au, Tu, Ne, ze, Qi, Is, Rh, xs, Te, vo, Ii, Pi, al, bs, hl, So, _d, Qe, ps, Rr, Nt, Mi, Lh, so, On, qt, eo, mu, _u, Qr, vu, Su, uo, wl, Er, ut, ye, Zn, Dt, ll, Pu, Jt;
 let __tla = Promise.all([
     (()=>{
@@ -245,7 +245,7 @@ let __tla = Promise.all([
         }
         async function O(k) {
             const { default: E } = await Pe(async ()=>{
-                const { default: H } = await import("./MoveTorrentFileDialog-BAOweJwe.js");
+                const { default: H } = await import("./MoveTorrentFileDialog-DRE1_FWm.js");
                 return {
                     default: H
                 };
@@ -258,7 +258,7 @@ let __tla = Promise.all([
         }
         async function R(k) {
             const { default: E } = await Pe(async ()=>{
-                const { default: H } = await import("./BulkRenameFilesDialog-wOPUlP42.js");
+                const { default: H } = await import("./BulkRenameFilesDialog-PqBczjMs.js");
                 return {
                     default: H
                 };
@@ -2213,7 +2213,7 @@ let __tla = Promise.all([
         },
         test: ()=>!0,
         load: async ()=>{
-            await Pe(()=>import("./browserAll-C2L6j2Ld.js"), __vite__mapDeps([8,9,10,11,1,2,3,4,5]), import.meta.url);
+            await Pe(()=>import("./browserAll-DvXsRrL7.js"), __vite__mapDeps([8,9,10,11,1,2,3,4,5]), import.meta.url);
         }
     };
     Ka = {
@@ -2224,7 +2224,7 @@ let __tla = Promise.all([
         },
         test: ()=>typeof self < "u" && self.WorkerGlobalScope !== void 0,
         load: async ()=>{
-            await Pe(()=>import("./webworkerAll-DjftwNJS.js"), __vite__mapDeps([9,10,11,1,2,3,4,5]), import.meta.url);
+            await Pe(()=>import("./webworkerAll-hyFk_qwQ.js"), __vite__mapDeps([9,10,11,1,2,3,4,5]), import.meta.url);
         }
     };
     class Rt {
@@ -4895,7 +4895,7 @@ Deprecated since v${r}`), console.warn(s))), Zr[t] = !0;
             t.resource || (t.resource = ne.get().createCanvas()), t.width || (t.width = t.resource.width, t.autoDensity || (t.width /= t.resolution)), t.height || (t.height = t.resource.height, t.autoDensity || (t.height /= t.resolution)), super(t), this.uploadMethodId = "image", this.autoDensity = t.autoDensity, this.resizeCanvas(), this.transparent = !!t.transparent;
         }
         resizeCanvas() {
-            this.autoDensity && (this.resource.style.width = `${this.width}px`, this.resource.style.height = `${this.height}px`), (this.resource.width !== this.pixelWidth || this.resource.height !== this.pixelHeight) && (this.resource.width = this.pixelWidth, this.resource.height = this.pixelHeight);
+            this.autoDensity && "style" in this.resource && (this.resource.style.width = `${this.width}px`, this.resource.style.height = `${this.height}px`), (this.resource.width !== this.pixelWidth || this.resource.height !== this.pixelHeight) && (this.resource.width = this.pixelWidth, this.resource.height = this.pixelHeight);
         }
         resize(t = this.width, e = this.height, s = this._resolution) {
             const i = super.resize(t, e, s);
@@ -6965,7 +6965,7 @@ ${r}`;
             const o = t[n];
             if (o === "webgpu" && await kh()) {
                 const { WebGPURenderer: a } = await Pe(async ()=>{
-                    const { WebGPURenderer: l } = await import("./WebGPURenderer-C2TZF1CT.js");
+                    const { WebGPURenderer: l } = await import("./WebGPURenderer-BONEUl_h.js");
                     return {
                         WebGPURenderer: l
                     };
@@ -6977,7 +6977,7 @@ ${r}`;
                 break;
             } else if (o === "webgl" && Th(r.failIfMajorPerformanceCaveat ?? no.defaultOptions.failIfMajorPerformanceCaveat)) {
                 const { WebGLRenderer: a } = await Pe(async ()=>{
-                    const { WebGLRenderer: l } = await import("./WebGLRenderer-CdceIEkh.js");
+                    const { WebGLRenderer: l } = await import("./WebGLRenderer-6rcEwQDC.js");
                     return {
                         WebGLRenderer: l
                     };
@@ -6995,7 +6995,7 @@ ${r}`;
         const i = new e;
         return await i.init(s), i;
     }
-    oo = "8.8.1";
+    oo = "8.9.0";
     class ao {
         static init() {
             globalThis.__PIXI_APP_INIT__?.(this, oo);
