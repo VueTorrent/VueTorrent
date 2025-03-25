@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.24.0](https://github.com/VueTorrent/VueTorrent/compare/v2.23.1...v2.24.0) (2025-03-25)
+
+
+### Features
+
+* **Content/Filter:** Group extensions of same type ([#2204](https://github.com/VueTorrent/VueTorrent/issues/2204)) ([ddbafbe](https://github.com/VueTorrent/VueTorrent/commit/ddbafbef68a9a1fc770411e31f84e15486f142a0))
+
+
+### Bug Fixes
+
+* **Content/Filter:** Handle extension casing ([#2208](https://github.com/VueTorrent/VueTorrent/issues/2208)) ([f5a6bda](https://github.com/VueTorrent/VueTorrent/commit/f5a6bdaf3eae5dedf0e1211ad3b41ed04cdc5aed))
+
 ## [2.23.1](https://github.com/VueTorrent/VueTorrent/compare/v2.23.0...v2.23.1) (2025-03-18)
 
 ### Bug Fixes
