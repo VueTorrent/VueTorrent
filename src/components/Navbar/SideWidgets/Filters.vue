@@ -118,11 +118,13 @@ function disableCategoryFilter() {
 }
 
 function disableTagFilter() {
-  tagFilter.value = []
+  tagFilter.value.include = new Set()
+  tagFilter.value.exclude = new Set()
 }
 
 function disableTrackerFilter() {
-  trackerFilter.value = []
+  trackerFilter.value.include = new Set()
+  trackerFilter.value.exclude = new Set()
 }
 </script>
 
@@ -144,14 +146,16 @@ function disableTrackerFilter() {
                         :items="categories"
                         @disable="disableCategoryFilter" />
 
-    <FilterSelectMulti v-model="tagFilter"
+    <FilterSelectMulti v-model:include="tagFilter.include"
+                       v-model:exclude="tagFilter.exclude"
                        :title="t('navbar.side.filters.tag.title')"
                        :items="tags"
                        :filterType="tagFilterType"
                        @disable="disableTagFilter"
                        @toggleFilterType="toggleTagFilterType" />
 
-    <FilterSelectMulti v-model="trackerFilter"
+    <FilterSelectMulti v-model:include="trackerFilter.include"
+                       v-model:exclude="trackerFilter.exclude"
                        :title="t('navbar.side.filters.tracker.title')"
                        :items="trackers"
                        :filterType="trackerFilterType"

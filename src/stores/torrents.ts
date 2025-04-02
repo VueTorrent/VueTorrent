@@ -6,7 +6,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
+import { computed, MaybeRefOrGetter, reactive, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useAppStore } from './app'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTrackerStore } from './trackers'
@@ -77,15 +77,21 @@ export const useTorrentStore = defineStore(
     )
 
     const isTagFilterActive = shallowRef(true)
-    const tagFilter = ref<(string | null)[]>([])
+    const tagFilter = reactive({
+      include: new Set<string | null>(),
+      exclude: new Set<string | null>()
+    })
     const tagFilterType = ref(FilterType.DISJUNCTIVE)
     whenever(
-      () => tagFilter.value.length === 0,
+      () => tagFilter.include.size + tagFilter.exclude.size === 0,
       () => (isTagFilterActive.value = true)
     )
 
     const isTrackerFilterActive = shallowRef(true)
-    const trackerFilter = ref<(string | TrackerSpecialFilter)[]>([])
+    const trackerFilter = reactive({
+      include: new Set<string | TrackerSpecialFilter>(),
+      exclude: new Set<string | TrackerSpecialFilter>()
+    })
     const trackerFilterType = ref(FilterType.DISJUNCTIVE)
     const torrentsByTracker = computed(() =>
       torrents.value.reduce(
@@ -112,7 +118,7 @@ export const useTorrentStore = defineStore(
       )
     )
     whenever(
-      () => trackerFilter.value.length === 0,
+      () => trackerFilter.include.size + trackerFilter.exclude.size === 0,
       () => (isTrackerFilterActive.value = true)
     )
 
@@ -131,9 +137,9 @@ export const useTorrentStore = defineStore(
 
       switch (tagFilterType.value) {
         case FilterType.CONJUNCTIVE:
-          return tagFilter.value.every(matcher)
+          return Array.from(tagFilter.include).every(matcher) && Array.from(tagFilter.exclude).every(t => !matcher(t))
         case FilterType.DISJUNCTIVE:
-          return tagFilter.value.some(matcher)
+          return Array.from(tagFilter.include).some(matcher) || Array.from(tagFilter.exclude).some(t => !matcher(t))
       }
     }
     const matchTracker: matchFn = t => {
@@ -152,9 +158,9 @@ export const useTorrentStore = defineStore(
 
       switch (trackerFilterType.value) {
         case FilterType.CONJUNCTIVE:
-          return trackerFilter.value.every(matcher)
+          return Array.from(trackerFilter.include).every(matcher) && Array.from(trackerFilter.exclude).every(t => !matcher(t))
         case FilterType.DISJUNCTIVE:
-          return trackerFilter.value.some(matcher)
+          return Array.from(trackerFilter.include).some(matcher) && Array.from(trackerFilter.exclude).some(t => !matcher(t))
       }
     }
 
@@ -162,8 +168,8 @@ export const useTorrentStore = defineStore(
       const matchResults = []
       statusFilter.value.length > 0 && isStatusFilterActive.value && matchResults.push(matchStatus(torrent))
       categoryFilter.value.length > 0 && isCategoryFilterActive.value && matchResults.push(matchCategory(torrent))
-      tagFilter.value.length > 0 && isTagFilterActive.value && matchResults.push(matchTag(torrent))
-      trackerFilter.value.length > 0 && isTrackerFilterActive.value && matchResults.push(matchTracker(torrent))
+      tagFilter.include.size + tagFilter.exclude.size > 0 && isTagFilterActive.value && matchResults.push(matchTag(torrent))
+      trackerFilter.include.size + trackerFilter.exclude.size > 0 && isTrackerFilterActive.value && matchResults.push(matchTracker(torrent))
 
       if (matchResults.length === 0) {
         return true
@@ -366,11 +372,13 @@ export const useTorrentStore = defineStore(
         categoryFilter.value = []
 
         isTagFilterActive.value = true
-        tagFilter.value = []
+        tagFilter.include = new Set()
+        tagFilter.exclude = new Set()
         tagFilterType.value = FilterType.DISJUNCTIVE
 
         isTrackerFilterActive.value = true
-        trackerFilter.value = []
+        trackerFilter.include = new Set()
+        trackerFilter.exclude = new Set()
         trackerFilterType.value = FilterType.DISJUNCTIVE
       }
     }
