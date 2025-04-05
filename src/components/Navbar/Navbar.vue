@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import BottomActions from './SideWidgets/BottomActions.vue'
 import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
-import FilterSelect from './SideWidgets/FilterSelect.vue'
+import Filters from './SideWidgets/Filters.vue'
 import FreeSpace from './SideWidgets/FreeSpace.vue'
 import SpeedGraph from './SideWidgets/SpeedGraph.vue'
 import TransferStats from './SideWidgets/TransferStats.vue'
@@ -50,7 +50,7 @@ const goHome = () => {
       </v-list-item>
 
       <v-list-item>
-        <FilterSelect />
+        <Filters />
       </v-list-item>
 
       <v-list-item density="compact">
