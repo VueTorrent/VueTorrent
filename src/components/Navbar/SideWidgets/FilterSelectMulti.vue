@@ -71,6 +71,11 @@ function toggleValue(value: T) {
       includeValues.value.add(value)
   }
 }
+
+function disableFilter(value: T) {
+  includeValues.value.delete(value)
+  excludeValues.value.delete(value)
+}
 </script>
 
 <template>
@@ -108,7 +113,8 @@ function toggleValue(value: T) {
           </span>
       </template>
       <template #item="{ item }">
-        <v-list-item :title="item.title" :class="getClassColor(item.value)" @click="toggleValue(item.value)">
+        <v-list-item :title="item.title" :class="getClassColor(item.value)"
+                     @click="toggleValue(item.value)" @contextmenu="disableFilter(item.value)">
           <template #prepend>
             <v-icon :icon="getIcon(item.value)" />
           </template>
