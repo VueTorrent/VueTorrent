@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T">
 import { useI18nUtils } from '@/composables'
-import { FilterType } from '@/constants/vuetorrent'
+import { FilterState, FilterType } from '@/constants/vuetorrent'
 import { computed } from 'vue'
 
 defineProps<{
@@ -21,29 +21,23 @@ const { t } = useI18nUtils()
 
 const filterCount = computed(() => includeValues.value.size + excludeValues.value.size)
 
-enum ValueState {
-  INCLUDED,
-  EXCLUDED,
-  DISABLED
-}
-
 function getValueState(value: T) {
   if (includeValues.value.has(value)) {
-    return ValueState.INCLUDED
+    return FilterState.INCLUDED
   } else if (excludeValues.value.has(value)) {
-    return ValueState.EXCLUDED
+    return FilterState.EXCLUDED
   } else {
-    return ValueState.DISABLED
+    return FilterState.DISABLED
   }
 }
 
 function getIcon(value: T) {
   switch (getValueState(value)) {
-    case ValueState.INCLUDED:
+    case FilterState.INCLUDED:
       return 'mdi-plus-box'
-    case ValueState.EXCLUDED:
+    case FilterState.EXCLUDED:
       return 'mdi-minus-box'
-    case ValueState.DISABLED:
+    case FilterState.DISABLED:
     default:
       return 'mdi-checkbox-blank-outline'
   }
@@ -51,9 +45,9 @@ function getIcon(value: T) {
 
 function getClassColor(value: T) {
   switch (getValueState(value)) {
-    case ValueState.INCLUDED:
+    case FilterState.INCLUDED:
       return 'text-green'
-    case ValueState.EXCLUDED:
+    case FilterState.EXCLUDED:
       return 'text-red'
     default:
       return undefined
@@ -62,15 +56,18 @@ function getClassColor(value: T) {
 
 function toggleValue(value: T) {
   switch (getValueState(value)) {
-    case ValueState.INCLUDED:
+    case FilterState.INCLUDED:
+      // Switch to excluded
       includeValues.value.delete(value)
       excludeValues.value.add(value)
       break;
-    case ValueState.EXCLUDED:
+    case FilterState.EXCLUDED:
+      // Switch to disabled
       excludeValues.value.delete(value)
       break;
-    case ValueState.DISABLED:
+    case FilterState.DISABLED:
     default:
+      // Switch to included
       includeValues.value.add(value)
   }
 }
