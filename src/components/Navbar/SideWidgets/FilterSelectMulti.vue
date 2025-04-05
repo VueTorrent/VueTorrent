@@ -5,17 +5,17 @@ import { computed } from 'vue'
 
 defineProps<{
   title: string
-  items: { title: string, value: T }[]
+  items: { title: string; value: T }[]
   filterType: FilterType
 }>()
-
-const includeValues = defineModel<Set<T>>('include', { required: true })
-const excludeValues = defineModel<Set<T>>('exclude', { required: true })
 
 defineEmits<{
   disable: () => void
   toggleFilterType: () => void
 }>()
+
+const includeValues = defineModel<Set<T>>('include', { required: true })
+const excludeValues = defineModel<Set<T>>('exclude', { required: true })
 
 const { t } = useI18nUtils()
 
@@ -60,11 +60,11 @@ function toggleValue(value: T) {
       // Switch to excluded
       includeValues.value.delete(value)
       excludeValues.value.add(value)
-      break;
+      break
     case FilterState.EXCLUDED:
       // Switch to disabled
       excludeValues.value.delete(value)
-      break;
+      break
     case FilterState.DISABLED:
     default:
       // Switch to included
@@ -105,16 +105,15 @@ function disableFilter(value: T) {
         <v-divider />
       </template>
       <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && filterCount === 1" class="text-accent">
-            {{ item.title }}
-          </span>
-          <span v-else-if="index === 0" class="text-accent">
-            {{ t('navbar.side.filters.activeFilter', filterCount) }}
-          </span>
+        <span v-if="index === 0 && filterCount === 1" class="text-accent">
+          {{ item.title }}
+        </span>
+        <span v-else-if="index === 0" class="text-accent">
+          {{ t('navbar.side.filters.activeFilter', filterCount) }}
+        </span>
       </template>
       <template #item="{ item }">
-        <v-list-item :title="item.title" :class="getClassColor(item.value)"
-                     @click="toggleValue(item.value)" @contextmenu="disableFilter(item.value)">
+        <v-list-item :title="item.title" :class="getClassColor(item.value)" @click="toggleValue(item.value)" @contextmenu="disableFilter(item.value)">
           <template #prepend>
             <v-icon :icon="getIcon(item.value)" />
           </template>

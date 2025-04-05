@@ -3,7 +3,7 @@ import { useI18nUtils } from '@/composables'
 
 defineProps<{
   title: string
-  items: { title: string, value: T }[]
+  items: { title: string; value: T }[]
 }>()
 
 defineSlots<{
