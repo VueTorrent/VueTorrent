@@ -160,7 +160,7 @@ export const useTorrentStore = defineStore(
         case FilterType.CONJUNCTIVE:
           return Array.from(trackerFilter.include).every(matcher) && Array.from(trackerFilter.exclude).every(t => !matcher(t))
         case FilterType.DISJUNCTIVE:
-          return Array.from(trackerFilter.include).some(matcher) && Array.from(trackerFilter.exclude).some(t => !matcher(t))
+          return Array.from(trackerFilter.include).some(matcher) || Array.from(trackerFilter.exclude).some(t => !matcher(t))
       }
     }
 
