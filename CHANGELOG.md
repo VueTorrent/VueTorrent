@@ -2,17 +2,19 @@
 
 ## [2.24.0](https://github.com/VueTorrent/VueTorrent/compare/v2.23.1...v2.24.0) (2025-04-09)
 
-
 ### Features
 
-* **Content/Filter:** Group extensions of same type ([#2204](https://github.com/VueTorrent/VueTorrent/issues/2204)) ([ddbafbe](https://github.com/VueTorrent/VueTorrent/commit/ddbafbef68a9a1fc770411e31f84e15486f142a0))
-* **Filters:** Handle exclude filtering for tags and trackers ([#2220](https://github.com/VueTorrent/VueTorrent/issues/2220)) ([c851d87](https://github.com/VueTorrent/VueTorrent/commit/c851d8777dc507fe5d9ea4846cd0d799853243cc))
-
+- **Content/Filter:** Group extensions of same type ([#2204](https://github.com/VueTorrent/VueTorrent/issues/2204))
+  ([ddbafbe](https://github.com/VueTorrent/VueTorrent/commit/ddbafbef68a9a1fc770411e31f84e15486f142a0))
+- **Filters:** Handle exclude filtering for tags and trackers ([#2220](https://github.com/VueTorrent/VueTorrent/issues/2220))
+  ([c851d87](https://github.com/VueTorrent/VueTorrent/commit/c851d8777dc507fe5d9ea4846cd0d799853243cc))
 
 ### Bug Fixes
 
-* **Content/Filter:** Handle extension casing ([#2208](https://github.com/VueTorrent/VueTorrent/issues/2208)) ([f5a6bda](https://github.com/VueTorrent/VueTorrent/commit/f5a6bdaf3eae5dedf0e1211ad3b41ed04cdc5aed))
-* **polyfills:** Downgraded 'toSorted' to 1.1.3 ([#2228](https://github.com/VueTorrent/VueTorrent/issues/2228)) ([ccb3f8c](https://github.com/VueTorrent/VueTorrent/commit/ccb3f8c2f65523e4a8d69bcd8af9a9d86ff11f4f))
+- **Content/Filter:** Handle extension casing ([#2208](https://github.com/VueTorrent/VueTorrent/issues/2208))
+  ([f5a6bda](https://github.com/VueTorrent/VueTorrent/commit/f5a6bdaf3eae5dedf0e1211ad3b41ed04cdc5aed))
+- **polyfills:** Downgraded 'toSorted' to 1.1.3 ([#2228](https://github.com/VueTorrent/VueTorrent/issues/2228))
+  ([ccb3f8c](https://github.com/VueTorrent/VueTorrent/commit/ccb3f8c2f65523e4a8d69bcd8af9a9d86ff11f4f))
 
 ## [2.23.1](https://github.com/VueTorrent/VueTorrent/compare/v2.23.0...v2.23.1) (2025-03-18)
 
