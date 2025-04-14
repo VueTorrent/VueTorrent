@@ -48,7 +48,7 @@
   "devDependencies": {
     "@pinia/testing": "^0.1.7",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.14.1",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
