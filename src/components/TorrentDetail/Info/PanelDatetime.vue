@@ -28,7 +28,7 @@ const torrentValues = [
           <template v-if="ppt.getter() > 0" v-slot:text>
             {{ formatTimeSec(ppt.getter(), dateFormat) }}
           </template>
-          <template v-else v-slot:text> {{ $t('common.NA') }}</template>
+          <template v-else v-slot:text> {{ $t('dashboard.not_complete') }}</template>
         </InfoBase>
       </v-row>
     </v-expansion-panel-text>
