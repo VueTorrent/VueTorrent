@@ -43,7 +43,7 @@ const height = computed(() => {
   // 48px for the multiple selection row
   // 8px for the pagination margin
   // 58px for the bottom pagination
-  return (
+  return Math.max(150,
     deviceHeight.value -
     64 -
     8 -
