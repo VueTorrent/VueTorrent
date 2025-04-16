@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.24.1](https://github.com/VueTorrent/VueTorrent/compare/v2.24.0...v2.24.1) (2025-04-16)
+
+
+### Bug Fixes
+
+* **Dashboard:** Add min height for main container ([#2242](https://github.com/VueTorrent/VueTorrent/issues/2242)) ([90821c3](https://github.com/VueTorrent/VueTorrent/commit/90821c33eabe1eb2ac93d1ebf494a5588dc0c9ab))
+* **filters:** Fix trackers filter not working in some cases ([#2231](https://github.com/VueTorrent/VueTorrent/issues/2231)) ([49d9a52](https://github.com/VueTorrent/VueTorrent/commit/49d9a52c4902db576dba1054a1860bcce2f8acb0))
+* **Info:** Format data correctly ([#2241](https://github.com/VueTorrent/VueTorrent/issues/2241)) ([cbdfff8](https://github.com/VueTorrent/VueTorrent/commit/cbdfff87d138b52552021ea3283dc055874c6ac8))
+* **ratio:** Force 2 decimal places ([#2240](https://github.com/VueTorrent/VueTorrent/issues/2240)) ([dbbc37f](https://github.com/VueTorrent/VueTorrent/commit/dbbc37f4f5649278cc639097886ec7d5291edc18))
+
 ## [2.24.0](https://github.com/VueTorrent/VueTorrent/compare/v2.23.1...v2.24.0) (2025-04-09)
 
 ### Features
