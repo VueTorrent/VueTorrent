@@ -491,7 +491,7 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.RATIO]: {
     props: {
       titleKey: 'torrent.properties.ratio',
-      value: t => t.ratio.toString(),
+      value: t => t.ratio.toFixed(2),
       color: t => {
         const { enableRatioColors } = storeToRefs(useVueTorrentStore())
 
