@@ -17,19 +17,21 @@ const {
   isCategoryFilterActive,
   categoryFilter,
   isTagFilterActive,
-  tagFilter,
+  tagFilterInclude,
+  tagFilterExclude,
   isTrackerFilterActive,
-  trackerFilter
+  trackerFilterInclude,
+  trackerFilterExclude
 } = storeToRefs(useTorrentStore())
 
 const aggregatedTagFilters = computed(() => {
-  const included = Array.from(tagFilter.value.include).map(tag => ({ value: tag, state: FilterState.INCLUDED }))
-  const excluded = Array.from(tagFilter.value.exclude).map(tag => ({ value: tag, state: FilterState.EXCLUDED }))
+  const included = Array.from(tagFilterInclude.value).map(tag => ({ value: tag, state: FilterState.INCLUDED }))
+  const excluded = Array.from(tagFilterExclude.value).map(tag => ({ value: tag, state: FilterState.EXCLUDED }))
   return [...included, ...excluded]
 })
 const aggregatedTrackerFilters = computed(() => {
-  const included = Array.from(trackerFilter.value.include).map(tracker => ({ value: tracker, state: FilterState.INCLUDED }))
-  const excluded = Array.from(trackerFilter.value.exclude).map(tracker => ({ value: tracker, state: FilterState.EXCLUDED }))
+  const included = Array.from(trackerFilterInclude.value).map(tracker => ({ value: tracker, state: FilterState.INCLUDED }))
+  const excluded = Array.from(trackerFilterExclude.value).map(tracker => ({ value: tracker, state: FilterState.EXCLUDED }))
   return [...included, ...excluded]
 })
 
@@ -129,8 +131,8 @@ function toggleTagFilter() {
 }
 
 function resetTagFilter() {
-  tagFilter.value.include = new Set()
-  tagFilter.value.exclude = new Set()
+  tagFilterInclude.value = []
+  tagFilterExclude.value = []
 }
 
 function toggleTrackerFilter() {
@@ -138,8 +140,8 @@ function toggleTrackerFilter() {
 }
 
 function resetTrackerFilter() {
-  trackerFilter.value.include = new Set()
-  trackerFilter.value.exclude = new Set()
+  trackerFilterInclude.value = []
+  trackerFilterExclude.value = []
 }
 </script>
 

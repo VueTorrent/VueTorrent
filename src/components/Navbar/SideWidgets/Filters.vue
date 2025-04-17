@@ -11,7 +11,7 @@ import { computed, Ref } from 'vue'
 const { t, getTorrentStateString } = useI18nUtils()
 const { categories: _categories, torrentsByCategory } = storeToRefs(useCategoryStore())
 const { tags: _tags, torrentsByTag } = storeToRefs(useTagStore())
-const { torrents, torrentsByStatus, statusFilter, categoryFilter, tagFilter, tagFilterType, torrentsByTracker, trackerFilter, trackerFilterType } = storeToRefs(useTorrentStore())
+const { torrents, torrentsByStatus, statusFilter, categoryFilter, tagFilterInclude, tagFilterExclude, tagFilterType, torrentsByTracker, trackerFilterInclude, trackerFilterExclude, trackerFilterType } = storeToRefs(useTorrentStore())
 const { hostnameTrackers } = storeToRefs(useTrackerStore())
 
 const statuses = computed(() =>
@@ -118,13 +118,13 @@ function disableCategoryFilter() {
 }
 
 function disableTagFilter() {
-  tagFilter.value.include = new Set()
-  tagFilter.value.exclude = new Set()
+  tagFilterInclude.value = []
+  tagFilterExclude.value = []
 }
 
 function disableTrackerFilter() {
-  trackerFilter.value.include = new Set()
-  trackerFilter.value.exclude = new Set()
+  trackerFilterInclude.value = []
+  trackerFilterExclude.value = []
 }
 </script>
 
@@ -141,8 +141,8 @@ function disableTrackerFilter() {
     <FilterSelectSingle v-model="categoryFilter" :title="t('navbar.side.filters.category.title')" :items="categories" @disable="disableCategoryFilter" />
 
     <FilterSelectMulti
-      v-model:include="tagFilter.include"
-      v-model:exclude="tagFilter.exclude"
+      v-model:include="tagFilterInclude"
+      v-model:exclude="tagFilterExclude"
       :title="t('navbar.side.filters.tag.title')"
       :items="tags"
       :filterType="tagFilterType"
@@ -150,8 +150,8 @@ function disableTrackerFilter() {
       @toggleFilterType="toggleTagFilterType" />
 
     <FilterSelectMulti
-      v-model:include="trackerFilter.include"
-      v-model:exclude="trackerFilter.exclude"
+      v-model:include="trackerFilterInclude"
+      v-model:exclude="trackerFilterExclude"
       :title="t('navbar.side.filters.tracker.title')"
       :items="trackers"
       :filterType="trackerFilterType"
