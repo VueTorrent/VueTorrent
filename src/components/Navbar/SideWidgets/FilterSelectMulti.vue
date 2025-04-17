@@ -1,6 +1,7 @@
 <script setup lang="ts" generic="T">
 import { useI18nUtils } from '@/composables'
 import { FilterState, FilterType } from '@/constants/vuetorrent'
+import { arrayRemove } from '@/helpers'
 import { computed } from 'vue'
 
 defineProps<{
@@ -14,17 +15,17 @@ defineEmits<{
   toggleFilterType: () => void
 }>()
 
-const includeValues = defineModel<Set<T>>('include', { required: true })
-const excludeValues = defineModel<Set<T>>('exclude', { required: true })
+const includeValues = defineModel<Array<T>>('include', { required: true })
+const excludeValues = defineModel<Array<T>>('exclude', { required: true })
 
 const { t } = useI18nUtils()
 
-const filterCount = computed(() => includeValues.value.size + excludeValues.value.size)
+const filterCount = computed(() => includeValues.value.length + excludeValues.value.length)
 
 function getValueState(value: T) {
-  if (includeValues.value.has(value)) {
+  if (includeValues.value.includes(value)) {
     return FilterState.INCLUDED
-  } else if (excludeValues.value.has(value)) {
+  } else if (excludeValues.value.includes(value)) {
     return FilterState.EXCLUDED
   } else {
     return FilterState.DISABLED
@@ -58,23 +59,23 @@ function toggleValue(value: T) {
   switch (getValueState(value)) {
     case FilterState.INCLUDED:
       // Switch to excluded
-      includeValues.value.delete(value)
-      excludeValues.value.add(value)
+      arrayRemove(includeValues.value, value)
+      excludeValues.value.push(value)
       break
     case FilterState.EXCLUDED:
       // Switch to disabled
-      excludeValues.value.delete(value)
+      arrayRemove(excludeValues.value, value)
       break
     case FilterState.DISABLED:
     default:
       // Switch to included
-      includeValues.value.add(value)
+      includeValues.value.push(value)
   }
 }
 
 function disableFilter(value: T) {
-  includeValues.value.delete(value)
-  excludeValues.value.delete(value)
+  arrayRemove(includeValues.value, value)
+  arrayRemove(excludeValues.value, value)
 }
 </script>
 
