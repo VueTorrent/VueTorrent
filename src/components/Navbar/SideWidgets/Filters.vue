@@ -11,7 +11,19 @@ import { computed, Ref } from 'vue'
 const { t, getTorrentStateString } = useI18nUtils()
 const { categories: _categories, torrentsByCategory } = storeToRefs(useCategoryStore())
 const { tags: _tags, torrentsByTag } = storeToRefs(useTagStore())
-const { torrents, torrentsByStatus, statusFilter, categoryFilter, tagFilterInclude, tagFilterExclude, tagFilterType, torrentsByTracker, trackerFilterInclude, trackerFilterExclude, trackerFilterType } = storeToRefs(useTorrentStore())
+const {
+  torrents,
+  torrentsByStatus,
+  statusFilter,
+  categoryFilter,
+  tagFilterInclude,
+  tagFilterExclude,
+  tagFilterType,
+  torrentsByTracker,
+  trackerFilterInclude,
+  trackerFilterExclude,
+  trackerFilterType
+} = storeToRefs(useTorrentStore())
 const { hostnameTrackers } = storeToRefs(useTrackerStore())
 
 const statuses = computed(() =>
