@@ -1,6 +1,7 @@
 <script lang="ts" setup>
+import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
-import { useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
@@ -13,6 +14,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 type PeerType = Peer & { host: string }
 
 const { t } = useI18nUtils()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
@@ -102,9 +104,16 @@ function closeAddDialog() {
 }
 
 async function banPeer(peer: PeerType) {
-  await maindataStore.banPeers([peer.host])
-  await preferenceStore.fetchPreferences()
-  resume()
+  dialogStore.createDialog(ConfirmDialog, {
+    title: t('dialogs.confirm.banPeers'),
+    text: peer.host,
+    yesColor: 'error',
+    onConfirm: async () => {
+      await maindataStore.banPeers([peer.host])
+      await preferenceStore.fetchPreferences()
+      resume()
+    }
+  })
 }
 
 const {

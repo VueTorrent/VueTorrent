@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ColoredChip from '@/components/Core/ColoredChip.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { useI18nUtils } from '@/composables'

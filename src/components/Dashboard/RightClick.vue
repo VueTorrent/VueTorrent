@@ -2,7 +2,8 @@
 import RightClickMenu from '@/components/Core/RightClickMenu'
 import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackers/BulkUpdateTrackersDialog.vue'
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
+import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
@@ -99,6 +100,17 @@ function openNewTagFormDialog() {
   dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, maindataStore.forceMaindataSync)
 }
 
+async function deleteUnusedTags() {
+  dialogStore.createDialog(ConfirmListDialog, {
+    title: t('dialogs.confirm.deleteUnusedTags'),
+    items: tagStore.unusedTags,
+    yesColor: 'error',
+    onConfirm: async () => {
+      await tagStore.deleteUnusedTags()
+    }
+  })
+}
+
 async function clearAllTags() {
   await torrentStore.removeTorrentTags(hashes.value)
 }
@@ -106,6 +118,17 @@ async function clearAllTags() {
 function openNewCategoryFormDialog() {
   const selectedHashes = hashes.value
   dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(selectedHashes, cat.name) }, maindataStore.forceMaindataSync)
+}
+
+async function deleteUnusedCategories() {
+  dialogStore.createDialog(ConfirmListDialog, {
+    title: t('dialogs.confirm.deleteUnusedCategories'),
+    items: categoryStore.unusedCategories,
+    yesColor: 'error',
+    onConfirm: async () => {
+      await categoryStore.deleteUnusedCategories()
+    }
+  })
 }
 
 async function clearCategory() {
@@ -264,7 +287,8 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         {
           text: t('settings.tagsAndCategories.deleteUnusedTags'),
           icon: 'mdi-delete',
-          action: tagStore.deleteUnusedTags
+          hidden: tagStore.deleteUnusedTags.length === 0,
+          action: () => deleteUnusedTags().then(maindataStore.forceMaindataSync)
         },
         {
           text: t('dashboard.right_click.tags.clear_all'),
@@ -296,7 +320,8 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         {
           text: t('settings.tagsAndCategories.deleteUnusedCategories'),
           icon: 'mdi-delete',
-          action: categoryStore.deleteUnusedCategories
+          hidden: categoryStore.deleteUnusedCategories.length === 0,
+          action: () => deleteUnusedCategories().then(maindataStore.forceMaindataSync)
         },
         {
           text: t('dashboard.right_click.category.clear'),

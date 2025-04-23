@@ -28,6 +28,10 @@ export const useCategoryStore = defineStore('categories', () => {
       {} as Record<string, number>
     )
   )
+  const unusedCategories = computed(() => {
+    const usedCategories = Object.keys(torrentsByCategory.value)
+    return categories.value.filter(c => !usedCategories.includes(c.name)).map(c => c.name)
+  })
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {
@@ -93,15 +97,13 @@ export const useCategoryStore = defineStore('categories', () => {
   }
 
   async function deleteUnusedCategories() {
-    const usedCategories = Object.keys(torrentsByCategory.value)
-    const unusedCategories = categories.value.filter(c => !usedCategories.includes(c.name)).map(c => c.name)
-
-    await deleteCategories(unusedCategories)
+    await deleteCategories(unusedCategories.value)
   }
 
   return {
     categories,
     torrentsByCategory,
+    unusedCategories,
     syncFromMaindata,
     getCategoryFromName,
     createCategory,
