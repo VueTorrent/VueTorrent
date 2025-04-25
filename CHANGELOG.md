@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.24.2](https://github.com/VueTorrent/VueTorrent/compare/v2.24.1...v2.24.2) (2025-04-22)
+
+
+### Bug Fixes
+
+* **filters:** Update tag/tracker filters not being persisted ([#2243](https://github.com/VueTorrent/VueTorrent/issues/2243)) ([c05f935](https://github.com/VueTorrent/VueTorrent/commit/c05f9354a13512b88e12ca1abce5d4c3d42f86f6))
+
 ## [2.24.1](https://github.com/VueTorrent/VueTorrent/compare/v2.24.0...v2.24.1) (2025-04-16)
 
 ### Bug Fixes
