@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Dashboard-BZtcH2qk.js","./vue-CNrckKKA.js","./ColoredChip.vue_vue_type_script_setup_true_lang-DdstTZOS.js","./vuetify-CX6A6eCZ.js","./TagFormDialog.vue_vue_type_script_setup_true_lang-0UZeL-bz.js","./Dashboard-DYNPPe4U.css","./Settings-BUcyxfe-.js","./PasswordField.vue_vue_type_script_setup_true_lang-CbMvAqSz.js","./Settings-DQiwVX2O.css","./RssArticles-B9paJCad.js","./RssArticles-9vWSa0z4.css","./Logs-CsUeAlEP.js","./SearchEngine-BGj6UdDJ.js","./SearchEngine-D9tNU7S0.css","./TorrentCreator-oSAIEirv.js","./TorrentDetail-HtdwmSWK.js","./TorrentDetail-BeZJnkuc.css","./MagnetHandler-VhtXokMs.js","./Login-DEqdiTBW.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Dashboard-DSqKY5BU.js","./vue-CNrckKKA.js","./ColoredChip.vue_vue_type_script_setup_true_lang-B5PKxkY0.js","./vuetify-CX6A6eCZ.js","./TagFormDialog.vue_vue_type_script_setup_true_lang-RGOPoPkY.js","./Dashboard-DYNPPe4U.css","./Settings-m6uGLVRX.js","./PasswordField.vue_vue_type_script_setup_true_lang-YhE3yiJo.js","./Settings-DQiwVX2O.css","./RssArticles-Cf9PBFoK.js","./RssArticles-9vWSa0z4.css","./Logs-UUzMMhPT.js","./SearchEngine-D79Mq_GY.js","./SearchEngine-D9tNU7S0.css","./TorrentCreator-EHfDByDg.js","./TorrentDetail-lRR6ZZcS.js","./TorrentDetail-BeZJnkuc.css","./MagnetHandler-DHgrJVv-.js","./Login-BePMp6FC.js"])))=>i.map(i=>d[i]);
 import { w as me, ac as yx, o as pa, a as T, a7 as Ue, s as de, P as Pt, aa as bx, v as Eo, ad as K, d as W, ae as Fx, g as nl, af as Ly, f as Et, u as Y, b as Lt, ag as jd, r as Ba, A as ea, a1 as Fa, a8 as cr, S as il, ah as kx, R as gt, ai as xx, aj as pi, a2 as Ti, e as um, q as ga, Q as ol, X as gr, t as Ei, ak as wx, m as y, al as cm, am as Kr, j as On, n as Z, I as Mr, B as at, a5 as mt, an as qa, F as Ce, a6 as Ca, x as La, p as Kt, k as Sx, ao as Cx, ap as Ax, a4 as Iy, K as Se, l as Gt, aq as Dx, y as Tx, ar as Ex, J as Pe, h as Ft, _ as lo, $ as uo, D as ze, E as ve, G as _x, H as O, a0 as zy, c as sl, O as it, as as Px, N as Dt, U as dm, Y as dr, Z as Ny, at as Oy, W as hm, T as nt, M as gn, au as Bx, av as Mx, aw as Rx, ax as Lx, ay as Ix, az as zx, aA as Nx, aB as Ox } from "./vue-CNrckKKA.js";
 import { u as _o, a as Ia, g as te, p as $, b as Bt, d as mm, i as Yf, c as Hx, e as ll, f as Vx, h as Rr, j as Wx, k as xe, l as Gx, m as ie, n as Qe, o as we, I as Me, q as $x, S as fm, r as za, s as ut, E as ra, t as Be, v as Aa, w as pm, x as qf, y as an, z as Tt, A as xi, B as It, C as zt, D as ul, F as vn, G as Ux, H as co, J as jx, K as Hy, L as gm, M as Ma, N as Xt, O as Hn, P as Yx, Q as vr, R as qx, T as Yt, U as Vn, V as Ms, W as Kf, X as rn, Y as br, Z as Kx, _ as Vy, $ as $t, a0 as bi, a1 as Xx, a2 as Yd, a3 as lu, a4 as uu, a5 as Xf, a6 as Rs, a7 as cu, a8 as Jf, a9 as Zf, aa as Rt, ab as Jx, ac as Zx, ad as qd, ae as Qx, af as ew, ag as Wy, ah as vm, ai as tw, aj as aw, ak as rw, al as ym, am as wi, an as Gy, ao as nw, ap as cl, aq as Qf, ar as Wn, as as Gn, at as $y, au as iw, av as ow, aw as Uy, ax as jy, ay as Yy, az as sw, aA as lw, aB as uw, aC as qy, aD as cw, aE as Kd, aF as dl, aG as Xd, aH as os, aI as ep, aJ as $r, aK as Jd, aL as tp, aM as Ky, aN as dw, aO as hw, aP as Ls, aQ as ss, aR as mw, aS as fw, aT as ap, aU as Po, aV as pw, aW as gw, aX as vw, aY as yw, aZ as bw, a_ as Fw, a$ as kw, b0 as xw } from "./vuetify-CX6A6eCZ.js";
 let sh, Th, qs, Qn, jn, Sl, Bi, kr, e1, K3, Ks, zl, rt, Dh, Os, M4, U6, Bf, sa, oW, Nt, Jr, ya, Ll, Ka, nW, oa, ko, _e, pv, Ee, G6, Te, xm, gN, ox, iW, gD, uW, d1, Zy, Mw, Rw, Bw, Pw, _w, Aw, Cw, Dw, Xy, Sw, ww, no, io, Tw, Ew, Yn, Vt, ZB, bn, Zt, yh, qB, $s, RF, YB, XW, Ys, NV, tb, jr, n1, MF, eb, ez, Ml, pD, fd, cW, eM, Yr, b0, ob, Si, OV, a4, N4, iR, wl, lN, F0, Br, Jy, zm, gv, Nn, Ln, Rn, Im, mW, hl, Lz, Mz, No, Qy, fD, hW, dW, sW, fW, JB, XI, Vm, r4, lh, Mm, Rm, ID, nF, iF, Vs, Le, Um, to, Ze, Lr, _l, lW, mi, $A, Cr, zD, ND, Bm, OD, zz, RD, bl, ri, Hi, ai, rk, QF, Oi, un, Re, Pn, Wm, LF, ka, Qd, qe, Pa, tt, _n, qt, Pr, _a, tm, W0, V0;
@@ -84528,37 +84528,37 @@ rect.legend-mouseover-inactive,
         {
             name: "dashboard",
             path: "/",
-            component: ()=>Cr(()=>import("./Dashboard-BZtcH2qk.js"), __vite__mapDeps([0,1,2,3,4,5]), import.meta.url)
+            component: ()=>Cr(()=>import("./Dashboard-DSqKY5BU.js"), __vite__mapDeps([0,1,2,3,4,5]), import.meta.url)
         },
         {
             name: "settings",
             path: "/settings/:tab?/:subtab?",
-            component: ()=>Cr(()=>import("./Settings-BUcyxfe-.js"), __vite__mapDeps([6,1,7,4,3,8]), import.meta.url)
+            component: ()=>Cr(()=>import("./Settings-m6uGLVRX.js"), __vite__mapDeps([6,1,7,4,3,8]), import.meta.url)
         },
         {
             name: "rssArticles",
             path: "/rss/:tab?/:feedId?",
-            component: ()=>Cr(()=>import("./RssArticles-B9paJCad.js"), __vite__mapDeps([9,1,3,10]), import.meta.url)
+            component: ()=>Cr(()=>import("./RssArticles-Cf9PBFoK.js"), __vite__mapDeps([9,1,3,10]), import.meta.url)
         },
         {
             name: "logs",
             path: "/logs",
-            component: ()=>Cr(()=>import("./Logs-CsUeAlEP.js"), __vite__mapDeps([11,1,3]), import.meta.url)
+            component: ()=>Cr(()=>import("./Logs-UUzMMhPT.js"), __vite__mapDeps([11,1,3]), import.meta.url)
         },
         {
             name: "searchEngine",
             path: "/search",
-            component: ()=>Cr(()=>import("./SearchEngine-BGj6UdDJ.js"), __vite__mapDeps([12,1,3,13]), import.meta.url)
+            component: ()=>Cr(()=>import("./SearchEngine-D79Mq_GY.js"), __vite__mapDeps([12,1,3,13]), import.meta.url)
         },
         {
             name: "torrentCreator",
             path: "/torrentCreator",
-            component: ()=>Cr(()=>import("./TorrentCreator-oSAIEirv.js"), __vite__mapDeps([14,1,3]), import.meta.url)
+            component: ()=>Cr(()=>import("./TorrentCreator-EHfDByDg.js"), __vite__mapDeps([14,1,3]), import.meta.url)
         },
         {
             name: "torrentDetail",
             path: "/torrent/:hash/:tab?",
-            component: ()=>Cr(()=>import("./TorrentDetail-HtdwmSWK.js").then(async (m)=>{
+            component: ()=>Cr(()=>import("./TorrentDetail-lRR6ZZcS.js").then(async (m)=>{
                         await m.__tla;
                         return m;
                     }).then((t)=>t.ap), __vite__mapDeps([15,2,1,3,16]), import.meta.url)
@@ -84567,12 +84567,12 @@ rect.legend-mouseover-inactive,
             name: "magnetHandler",
             path: "/magnet/:url",
             alias: "/download=:url",
-            component: ()=>Cr(()=>import("./MagnetHandler-VhtXokMs.js"), __vite__mapDeps([17,1,3]), import.meta.url)
+            component: ()=>Cr(()=>import("./MagnetHandler-DHgrJVv-.js"), __vite__mapDeps([17,1,3]), import.meta.url)
         },
         {
             name: "login",
             path: "/login",
-            component: ()=>Cr(()=>import("./Login-DEqdiTBW.js"), __vite__mapDeps([18,1,7,3]), import.meta.url),
+            component: ()=>Cr(()=>import("./Login-BePMp6FC.js"), __vite__mapDeps([18,1,7,3]), import.meta.url),
             meta: {
                 public: !0
             }
