@@ -338,6 +338,15 @@
       },
       "warnEdit": "Editing the category name will migrate torrents to the new category. Errors may happen, use with caution."
     },
+    "confirm": {
+      "banPeers": "Do you really want to ban this peer?",
+      "deleteCategory": "Do you really want to remove this category?",
+      "deleteFeed": "Do you really want to remove this RSS feed?",
+      "deleteRule": "Do you really want to remove this RSS rule?",
+      "deleteTag": "Do you really want to remove this tag?",
+      "deleteUnusedCategories": "Do you really want to remove all unused categories?",
+      "deleteUnusedTags": "Do you really want to remove all unused tags?"
+    },
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
       "externalIp": "External IP Address",

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { useRssStore } from '@/stores'
+import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
+import { useI18nUtils } from '@/composables'
+import { useDialogStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
 
 defineProps<{
@@ -10,6 +12,8 @@ defineEmits<{
   openRule: [rule: FeedRule]
 }>()
 
+const { t } = useI18nUtils()
+const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
 async function toggleRule(rule: FeedRule) {
@@ -18,8 +22,15 @@ async function toggleRule(rule: FeedRule) {
 }
 
 async function deleteRule(rule: FeedRule) {
-  await rssStore.deleteRule(rule.name!)
-  rssStore.resumeRuleTimer()
+  dialogStore.createDialog(ConfirmDialog, {
+    title: t('dialogs.confirm.deleteRule'),
+    text: rule.name,
+    yesColor: 'error',
+    onConfirm: async () => {
+      await rssStore.deleteRule(rule.name!)
+      rssStore.resumeRuleTimer()
+    }
+  })
 }
 </script>
 

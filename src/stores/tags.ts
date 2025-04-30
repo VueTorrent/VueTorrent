@@ -29,6 +29,10 @@ export const useTagStore = defineStore('tags', () => {
       {} as Record<string, number>
     )
   )
+  const unusedTags = computed(() => {
+    const usedTags = Object.keys(torrentsByTag.value)
+    return tags.value.filter(tag => !usedTags.includes(tag))
+  })
 
   function syncFromMaindata(fullUpdate: boolean, values: string[], removed?: string[]) {
     if (fullUpdate) {
@@ -69,15 +73,13 @@ export const useTagStore = defineStore('tags', () => {
   }
 
   async function deleteUnusedTags() {
-    const usedTags = Object.keys(torrentsByTag.value)
-    const unusedTags = tags.value.filter(tag => !usedTags.includes(tag))
-
-    await deleteTags(unusedTags)
+    await deleteTags(unusedTags.value)
   }
 
   return {
     tags,
     torrentsByTag,
+    unusedTags,
     syncFromMaindata,
     createTags,
     editTag,

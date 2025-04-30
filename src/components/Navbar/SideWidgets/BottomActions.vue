@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
+import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
 import { ThemeMode } from '@/constants/vuetorrent'
 import { useAppStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { toast } from 'vue3-toastify'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -67,7 +68,20 @@ function openConnectionStatusDialog() {
 }
 
 function openConfirmShutdownDialog() {
-  dialogStore.createDialog(ConfirmShutdownDialog)
+  dialogStore.createDialog(ConfirmDialog, {
+    title: t('dialogs.shutdown.title'),
+    text: t('dialogs.shutdown.content'),
+    yesColor: "error",
+    onConfirm: async () => {
+      if (await appStore.shutdownQbit()) {
+        await appStore.setAuthStatus(false)
+        await vueTorrentStore.redirectToLogin()
+        toast.success(t('dialogs.shutdown.success'))
+      } else {
+        toast.error(t('dialogs.shutdown.error'))
+      }
+    }
+  })
 }
 </script>
 
@@ -122,5 +136,3 @@ function openConfirmShutdownDialog() {
     </v-col>
   </v-row>
 </template>
-
-<style scoped></style>
