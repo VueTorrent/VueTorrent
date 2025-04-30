@@ -1,11 +1,11 @@
-<script setup lang="ts" generic="T">
+<script setup lang="ts">
 import { useDialog, useI18nUtils } from '@/composables'
 
 const props = defineProps<{
   guid: string
   title: string
 
-  items: T[]
+  items?: string[]
 
   noColor?: string
   noText?: string
