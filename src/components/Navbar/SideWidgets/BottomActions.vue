@@ -71,7 +71,7 @@ function openConfirmShutdownDialog() {
   dialogStore.createDialog(ConfirmDialog, {
     title: t('dialogs.shutdown.title'),
     text: t('dialogs.shutdown.content'),
-    yesColor: "error",
+    yesColor: 'error',
     onConfirm: async () => {
       if (await appStore.shutdownQbit()) {
         await appStore.setAuthStatus(false)
