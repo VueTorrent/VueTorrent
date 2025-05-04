@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
-import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useCategoryStore, useDialogStore, useMaindataStore, useTagStore } from '@/stores'
@@ -14,7 +12,7 @@ const maindataStore = useMaindataStore()
 const tagStore = useTagStore()
 
 async function deleteTag(tagName: string) {
-  dialogStore.createDialog(ConfirmDialog, {
+  dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteTag'),
     text: tagName,
     yesColor: 'error',
@@ -26,7 +24,7 @@ async function deleteTag(tagName: string) {
 }
 
 async function deleteUnusedTags() {
-  dialogStore.createDialog(ConfirmListDialog, {
+  dialogStore.confirmListAction({
     title: t('dialogs.confirm.deleteUnusedTags'),
     items: tagStore.unusedTags,
     yesColor: 'error',
@@ -37,7 +35,7 @@ async function deleteUnusedTags() {
 }
 
 async function deleteCategory(category: Category) {
-  dialogStore.createDialog(ConfirmDialog, {
+  dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteTag'),
     text: category.name,
     yesColor: 'error',
@@ -49,7 +47,7 @@ async function deleteCategory(category: Category) {
 }
 
 async function deleteUnusedCategories() {
-  dialogStore.createDialog(ConfirmListDialog, {
+  dialogStore.confirmListAction({
     title: t('dialogs.confirm.deleteUnusedCategories'),
     items: categoryStore.unusedCategories,
     yesColor: 'error',

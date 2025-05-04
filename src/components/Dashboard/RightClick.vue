@@ -3,7 +3,6 @@ import RightClickMenu from '@/components/Core/RightClickMenu'
 import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackers/BulkUpdateTrackersDialog.vue'
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
-import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
@@ -101,7 +100,7 @@ function openNewTagFormDialog() {
 }
 
 async function deleteUnusedTags() {
-  dialogStore.createDialog(ConfirmListDialog, {
+  dialogStore.confirmListAction({
     title: t('dialogs.confirm.deleteUnusedTags'),
     items: tagStore.unusedTags,
     yesColor: 'error',
@@ -121,7 +120,7 @@ function openNewCategoryFormDialog() {
 }
 
 async function deleteUnusedCategories() {
-  dialogStore.createDialog(ConfirmListDialog, {
+  dialogStore.confirmListAction({
     title: t('dialogs.confirm.deleteUnusedCategories'),
     items: categoryStore.unusedCategories,
     yesColor: 'error',

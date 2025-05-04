@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useRssStore } from '@/stores'
@@ -50,7 +49,7 @@ async function refreshFeed(item: Feed) {
 }
 
 async function deleteFeed(item: Feed) {
-  dialogStore.createDialog(ConfirmDialog, {
+  dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteFeed'),
     text: item.name,
     yesColor: 'error',

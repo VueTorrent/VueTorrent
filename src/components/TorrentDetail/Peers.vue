@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
 import { useDialogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
@@ -104,7 +103,7 @@ function closeAddDialog() {
 }
 
 async function banPeer(peer: PeerType) {
-  dialogStore.createDialog(ConfirmDialog, {
+  dialogStore.confirmAction({
     title: t('dialogs.confirm.banPeers'),
     text: peer.host,
     yesColor: 'error',

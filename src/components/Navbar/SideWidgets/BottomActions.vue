@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
 import { ThemeMode } from '@/constants/vuetorrent'
@@ -68,7 +67,7 @@ function openConnectionStatusDialog() {
 }
 
 function openConfirmShutdownDialog() {
-  dialogStore.createDialog(ConfirmDialog, {
+  dialogStore.confirmAction({
     title: t('dialogs.shutdown.title'),
     text: t('dialogs.shutdown.content'),
     yesColor: "error",
