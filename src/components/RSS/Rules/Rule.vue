@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
@@ -22,7 +21,7 @@ async function toggleRule(rule: FeedRule) {
 }
 
 async function deleteRule(rule: FeedRule) {
-  dialogStore.createDialog(ConfirmDialog, {
+  dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteRule'),
     text: rule.name,
     yesColor: 'error',

@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
+import { useI18nUtils } from '@/composables'
 import { useDashboardStore, useDialogStore, useRssStore, useTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
 import TopOverflow from './TopOverflow.vue'
 
+const { t } = useI18nUtils()
 const route = useRoute()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
@@ -22,11 +24,27 @@ function openAddTorrentDialog() {
 }
 
 async function resumeTorrents() {
-  await torrentStore.resumeTorrents(hashes.value)
+  const onConfirm = async () => {
+    await torrentStore.resumeTorrents(hashes.value)
+  }
+
+  if (!hashes.value.length) {
+    dialogStore.confirmAction({ title: t('dialogs.confirm.startAll'), yesColor: 'accent', onConfirm })
+  } else {
+    await onConfirm()
+  }
 }
 
 async function pauseTorrents() {
-  await torrentStore.pauseTorrents(hashes.value)
+  const onConfirm = async () => {
+    await torrentStore.pauseTorrents(hashes.value)
+  }
+
+  if (!hashes.value.length) {
+    dialogStore.confirmAction({ title: t('dialogs.confirm.stopAll'), yesColor: 'accent', onConfirm })
+  } else {
+    await onConfirm()
+  }
 }
 
 function deleteTorrents() {

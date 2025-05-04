@@ -345,7 +345,9 @@
       "deleteRule": "Do you really want to remove this RSS rule?",
       "deleteTag": "Do you really want to remove this tag?",
       "deleteUnusedCategories": "Do you really want to remove all unused categories?",
-      "deleteUnusedTags": "Do you really want to remove all unused tags?"
+      "deleteUnusedTags": "Do you really want to remove all unused tags?",
+      "startAll": "Do you really want to start all torrents?",
+      "stopAll": "Do you really want to stop all torrents?"
     },
     "connectionStatus": {
       "dht_nodes": "DHT nodes",

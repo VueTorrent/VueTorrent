@@ -1,3 +1,5 @@
+import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
+import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { AllowedComponentProps, Component, computed, shallowRef, triggerRef, VNodeProps } from 'vue'
@@ -42,12 +44,22 @@ export const useDialogStore = defineStore('dialogs', () => {
     triggerRef(dialogs)
   }
 
+  function confirmAction(props?: Omit<ComponentProps<typeof ConfirmDialog>, 'guid'>) {
+    createDialog(ConfirmDialog, props)
+  }
+
+  function confirmListAction(props: Omit<ComponentProps<typeof ConfirmListDialog>, 'guid'>) {
+    createDialog(ConfirmListDialog, props)
+  }
+
   return {
     dialogs,
     hasActiveDialog,
     isDialogOpened,
     createDialog,
     deleteDialog,
+    confirmAction,
+    confirmListAction,
     $reset: () => {
       dialogs.value.clear()
       triggerRef(dialogs)
