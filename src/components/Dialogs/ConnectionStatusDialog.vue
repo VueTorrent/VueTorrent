@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useLogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore, useVueTorrentStore, useExternalIpStore } from '@/stores'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -9,9 +9,9 @@ const props = defineProps<{
 }>()
 
 const { isOpened } = useDialog(props.guid)
-const logStore = useLogStore()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
+const externalIpStore = useExternalIpStore()
 
 const connectionStatusColor = computed(() => {
   switch (maindataStore.serverState?.connection_status) {
@@ -45,7 +45,7 @@ const close = () => {
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.externalIp') }}</div>
             <div class="ml-2">
-              <span v-if="logStore.externalIp">{{ logStore.externalIp }}</span>
+              <span v-if="externalIpStore.externalIp">{{ externalIpStore.externalIp }}</span>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.noExternalIp') }}</span>
             </div>
           </v-col>
@@ -65,7 +65,7 @@ const close = () => {
             <div>{{ $t('dialogs.connectionStatus.isp_details') }}</div>
             <div class="ml-2">
               <span v-if="!vuetorrentStore.fetchExternalIpInfo" class="text-grey">{{ $t('dialogs.connectionStatus.fetch_disabled') }}</span>
-              <span v-else-if="logStore.ispDetails" class="text-info">{{ logStore.ispDetails }}</span>
+              <span v-else-if="externalIpStore.ispDetails" class="text-info">{{ externalIpStore.ispDetails }}</span>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_isp_failed') }}</span>
             </div>
           </v-col>
@@ -73,7 +73,7 @@ const close = () => {
             <div>{{ $t('dialogs.connectionStatus.geo_details') }}</div>
             <div class="ml-2">
               <span v-if="!vuetorrentStore.fetchExternalIpInfo" class="text-grey">{{ $t('dialogs.connectionStatus.fetch_disabled') }}</span>
-              <span v-else-if="logStore.geoDetails" class="text-info">{{ logStore.geoDetails }}</span>
+              <span v-else-if="externalIpStore.geoDetails" class="text-info">{{ externalIpStore.geoDetails }}</span>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_geo_failed') }}</span>
             </div>
           </v-col>
