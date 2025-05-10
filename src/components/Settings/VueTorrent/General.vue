@@ -7,7 +7,7 @@ import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { DarkLegacy, DarkRedesigned, DarkOled, LightLegacy, LightRedesigned } from '@/themes'
 import { storeToRefs } from 'pinia'
-import { computed, readonly, ref }  from 'vue'
+import { computed, readonly, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
@@ -43,7 +43,7 @@ const darkVariants = readonly([
   { title: t('constants.themes.dark.oled'), value: DarkOled.id }
 ])
 
-type FilterKey = 'state' | 'category' | 'tag' | 'tracker';
+type FilterKey = 'state' | 'category' | 'tag' | 'tracker'
 
 const {showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
 
@@ -57,26 +57,23 @@ const filterOptions: FilterOption[] = [
   { title: t('settings.vuetorrent.general.showFilters.category'), value: 'category' },
   { title: t('settings.vuetorrent.general.showFilters.tag'), value: 'tag' },
   { title: t('settings.vuetorrent.general.showFilters.tracker'), value: 'tracker' },
-];
+]
 
 const filterToggles  = {
   'state': showFilterState,
   'category': showFilterCategory,
   'tag': showFilterTag,
   'tracker': showFilterTracker,
-};
+}
 
 const filters = computed({
   get: () => { return filterOptions.filter(option => filterToggles[option.value].value).map(option => option.value) },
   set(newSelectedValues) {
-    const selectedValuesSet = new Set(newSelectedValues);
     filterOptions.forEach(option => {
-        filterToggles[option.value].value = selectedValuesSet.has(option.value);
-    });
+        filterToggles[option.value].value = newSelectedValues.includes(option.value)
+    })
   },
 })
-
-
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
