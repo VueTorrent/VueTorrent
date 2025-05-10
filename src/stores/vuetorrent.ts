@@ -27,6 +27,10 @@ export const useVueTorrentStore = defineStore(
       dark: DarkLegacy.id
     })
     const showFreeSpace = ref(true)
+    const showFilterState = ref(true)
+    const showFilterCategory = ref(true)
+    const showFilterTag = ref(true)
+    const showFilterTracker = ref(true)
     const showSpeedGraph = ref(true)
     const showSessionStat = ref(true)
     const showAlltimeStat = ref(true)
@@ -247,6 +251,10 @@ export const useVueTorrentStore = defineStore(
       showAlltimeStat,
       showCurrentSpeed,
       showFreeSpace,
+      showFilterState,
+      showFilterCategory,
+      showFilterTag,
+      showFilterTracker,
       showSessionStat,
       showSpeedGraph,
       showSpeedInTitle,
@@ -291,6 +299,10 @@ export const useVueTorrentStore = defineStore(
         theme.light = LightLegacy.id
         theme.dark = DarkLegacy.id
         showFreeSpace.value = true
+        showFilterState.value = true
+        showFilterCategory.value = true
+        showFilterTag.value = true
+        showFilterTracker.value = true
         showSpeedGraph.value = true
         showSessionStat.value = true
         showAlltimeStat.value = true

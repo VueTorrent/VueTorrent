@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue';
 import { useRouter } from 'vue-router'
 import BottomActions from './SideWidgets/BottomActions.vue'
 import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
@@ -15,7 +16,14 @@ import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 const router = useRouter()
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSessionStat, showFreeSpace } = storeToRefs(useVueTorrentStore())
+const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSessionStat, showFreeSpace, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
+
+const showFilters = computed(() =>
+  showFilterState.value ||
+  showFilterCategory.value ||
+  showFilterTag.value ||
+  showFilterTracker.value
+);
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value
@@ -49,7 +57,7 @@ const goHome = () => {
         <FreeSpace />
       </v-list-item>
 
-      <v-list-item>
+      <v-list-item v-if="showFilters">
         <Filters />
       </v-list-item>
 

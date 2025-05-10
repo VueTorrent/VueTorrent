@@ -4,7 +4,7 @@ import FilterSelectSingle from '@/components/Navbar/SideWidgets/FilterSelectSing
 import { useI18nUtils } from '@/composables'
 import { FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
-import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore, useVueTorrentStore} from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, Ref } from 'vue'
 
@@ -25,6 +25,7 @@ const {
   trackerFilterType
 } = storeToRefs(useTorrentStore())
 const { hostnameTrackers } = storeToRefs(useTrackerStore())
+const {showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)
@@ -142,7 +143,7 @@ function disableTrackerFilter() {
 
 <template>
   <v-list class="pb-0 inherit-fg">
-    <FilterSelectSingle v-model="statusFilter" :title="t('navbar.side.filters.state.title')" :items="statuses" @disable="disableStatusFilter">
+    <FilterSelectSingle v-if="showFilterState" v-model="statusFilter" :title="t('navbar.side.filters.state.title')" :items="statuses" @disable="disableStatusFilter">
       <template #prepend-item>
         <v-list-item :title="`${t('navbar.side.filters.state.active')} (${activeTorrentsCount})`" @click="selectActive" />
         <v-list-item :title="`${t('navbar.side.filters.state.error')} (${erroredTorrentsCount})`" @click="selectError" />
@@ -150,9 +151,10 @@ function disableTrackerFilter() {
       </template>
     </FilterSelectSingle>
 
-    <FilterSelectSingle v-model="categoryFilter" :title="t('navbar.side.filters.category.title')" :items="categories" @disable="disableCategoryFilter" />
+    <FilterSelectSingle v-if="showFilterCategory" v-model="categoryFilter" :title="t('navbar.side.filters.category.title')" :items="categories" @disable="disableCategoryFilter" />
 
     <FilterSelectMulti
+      v-if="showFilterTag"
       v-model:include="tagFilterInclude"
       v-model:exclude="tagFilterExclude"
       :title="t('navbar.side.filters.tag.title')"
@@ -162,6 +164,7 @@ function disableTrackerFilter() {
       @toggleFilterType="toggleTagFilterType" />
 
     <FilterSelectMulti
+      v-if="showFilterTracker"
       v-model:include="trackerFilterInclude"
       v-model:exclude="trackerFilterExclude"
       :title="t('navbar.side.filters.tracker.title')"
