@@ -18,6 +18,7 @@ import { useTorrentDetailStore } from './torrentDetail'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
+import { useExternalIpStore } from './externalIpStore'
 
 export {
   useAddTorrentStore,
@@ -26,6 +27,7 @@ export {
   useContentStore,
   useDashboardStore,
   useDialogStore,
+  useExternalIpStore,
   useGlobalStore,
   useHistoryStore,
   useLogStore,
