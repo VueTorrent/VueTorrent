@@ -357,7 +357,7 @@
       "fetch_isp_failed": "Unable to fetch ISP details",
       "geo_details": "Geolocation details",
       "isp_details": "ISP details",
-      "noExternalIp": "Unable to detect from logs",
+      "noExternalIp": "Unable to detect External IP Address",
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
     },
@@ -1117,7 +1117,7 @@
           "filtersEnabled": "{n} filters enabled",
           "state": "State",
           "tag": "Tag",
-          "title":"Show filters",
+          "title": "Show filters",
           "tracker": "Tracker"
         },
         "showSessionStat": "Show Session Stats",
