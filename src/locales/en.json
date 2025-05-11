@@ -1117,7 +1117,7 @@
           "filtersEnabled": "{n} filters enabled",
           "state": "State",
           "tag": "Tag",
-          "title":"Show filters",
+          "title": "Show filters",
           "tracker": "Tracker"
         },
         "showSessionStat": "Show Session Stats",
