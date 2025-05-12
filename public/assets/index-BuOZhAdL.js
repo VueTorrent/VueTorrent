@@ -1,7 +1,7 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Dashboard-BwcSqI_6.js","./vue-D4Df4Kb1.js","./ColoredChip.vue_vue_type_script_setup_true_lang-CVRkiyEE.js","./vuetify-BGOl-5v9.js","./TagFormDialog.vue_vue_type_script_setup_true_lang-D6AVniWe.js","./Dashboard-DYNPPe4U.css","./Settings-rEh0D8An.js","./PasswordField.vue_vue_type_script_setup_true_lang-D3cK3ZQU.js","./Settings-G2WeTH0l.css","./RssArticles-BWJmyY12.js","./RssArticles-9vWSa0z4.css","./Logs-RvZ3BLcM.js","./SearchEngine-CU-aVD_Q.js","./SearchEngine-D9tNU7S0.css","./TorrentCreator-DTb4XG4h.js","./TorrentDetail-SbcbXlY0.js","./TorrentDetail-BeZJnkuc.css","./MagnetHandler-CJ2OGIVZ.js","./Login-vj-Nk8jl.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Dashboard-BKXZ7H1E.js","./vue-D4Df4Kb1.js","./ColoredChip.vue_vue_type_script_setup_true_lang-Cmg_h6xQ.js","./vuetify-BGOl-5v9.js","./TagFormDialog.vue_vue_type_script_setup_true_lang-CnUBYLBl.js","./Dashboard-DYNPPe4U.css","./Settings-DZRwgjy_.js","./PasswordField.vue_vue_type_script_setup_true_lang-CwsgdZ9-.js","./Settings-G2WeTH0l.css","./RssArticles-hi64Q-BA.js","./RssArticles-9vWSa0z4.css","./Logs-Vv6xIbSo.js","./SearchEngine-CZ_yC9Z2.js","./SearchEngine-D9tNU7S0.css","./TorrentCreator-C391FdBo.js","./TorrentDetail-CF3vYn2o.js","./TorrentDetail-BeZJnkuc.css","./MagnetHandler-UwIyR-du.js","./Login-CWIAkifF.js"])))=>i.map(i=>d[i]);
 import { j as fe, ac as Fx, o as pa, a as T, a7 as Ue, s as ce, P as Pt, aa as kx, v as To, ad as q, b as W, ae as xx, g as rl, af as Oy, d as Et, u as Y, w as Lt, ag as Jd, r as Ba, A as ea, m as y, F as Ce, x as Ia, p as Kt, q as ga, ah as wx, n as X, t as Ei, ai as Sx, aj as Xr, a4 as Hy, B as at, a5 as pt, K as Se, ak as fm, h as On, I as Mr, al as qa, a6 as Ca, f as Cx, k as pm, l as $t, am as Ax, c as nl, e as Ft, D as Re, E as ge, H as O, N as ht, J as _e, a0 as il, T as nt, O as it, U as gm, a1 as Fa, a8 as cr, S as ol, an as Dx, R as yt, ao as Tx, ap as pi, a2 as _i, Q as sl, X as gr, aq as Ex, y as _x, ar as Px, _ as so, $ as lo, G as Bx, as as Mx, Y as dr, Z as Vy, at as Wy, W as vm, M as gi, au as Rx, av as Lx, aw as Ix, ax as zx, ay as Nx, az as Ox, aA as Hx, aB as Vx } from "./vue-D4Df4Kb1.js";
 import { p as U, g as Rr, d as ym, i as Jf, b as Wx, c as ll, e as Gx, f as ee, h as ut, j as Bt, k as oe, m as Qe, l as we, n as za, o as Be, q as Aa, w as Tt, r as $x, s as Ux, t as xe, u as Eo, v as jx, I as Me, x as Yx, S as bm, y as vr, z as Xt, A as Zd, B as Rt, C as qt, D as Zf, E as Fm, F as Qf, G as br, H as vn, J as qx, K as uo, L as Kx, M as Gy, N as km, O as Ma, P as Xx, Q as mu, R as fu, T as ep, U as Bs, V as pu, W as tp, X as ap, Y as Jx, Z as Zx, _ as Qd, $ as wi, a0 as Qx, a1 as ew, a as Na, a2 as $y, a3 as xm, a4 as Ms, a5 as ul, a6 as ra, a7 as rn, a8 as It, a9 as zt, aa as cl, ab as Hn, ac as tw, ad as Vn, ae as nn, af as aw, ag as Uy, ah as Ut, ai as Fi, aj as rw, ak as nw, al as iw, am as wm, an as Si, ao as jy, ap as ow, aq as rp, ar as Wn, as as Gn, at as Yy, au as sw, av as lw, aw as qy, ax as Ky, ay as Xy, az as uw, aA as cw, aB as dw, aC as Jy, aD as hw, aE as eh, aF as dl, aG as th, aH as is, aI as np, aJ as Ur, aK as ah, aL as ip, aM as Zy, aN as mw, aO as fw, aP as Rs, aQ as os, aR as pw, aS as gw, aT as op, aU as _o, aV as vw, aW as yw, aX as bw, aY as Fw, aZ as kw, a_ as xw, a$ as ww, b0 as Sw } from "./vuetify-BGOl-5v9.js";
-let bh, Rh, Ys, ri, ei, Bl, zi, zr, jb, IA, qs, Nl, rt, Mh, Hs, L4, Y6, zf, sa, cW, Nt, Zr, ya, zl, Za, lW, oa, Fo, Pe, Pv, Ee, U6, Te, Im, FN, cx, uW, IT, mW, g1, tb, Lw, Iw, Rw, Mw, Bw, Tw, Dw, Ew, Qy, Aw, Cw, ro, no, _w, Pw, ti, Vt, y3, bn, Zt, _h, f3, Us, S0, m3, eG, js, WV, nb, Yr, u1, w0, rb, az, kl, LT, Sd, fW, F3, qr, j0, ub, Ci, GV, n4, H4, FR, Pl, hN, Y0, Br, eb, Jm, Bv, Nn, Ln, Rn, Xm, vW, hl, Oz, zz, Go, ab, RT, gW, pW, dW, yW, v3, ZI, tf, i4, Fh, Ym, qm, a2, qF, KF, Ws, Ie, Em, eo, Ze, Ir, Al, hW, mi, cT, Sr, r2, n2, jm, i2, Vz, e2, Dl, Xn, Kn, _r, lz, Qb, Ii, ln, Le, Tn, af, C0, xa, nh, qe, _a, tt, Pn, Wt, Pr, Pa, om, s1, o1;
+let bh, Rh, Ys, ri, ei, Bl, zi, zr, jb, IA, qs, Nl, rt, Mh, Hs, L4, Y6, zf, sa, dW, Nt, Zr, ya, zl, Za, uW, oa, Fo, Pe, Pv, Ee, U6, Te, Im, FN, cx, cW, IT, fW, g1, tb, Lw, Iw, Rw, Mw, Bw, Tw, Dw, Ew, Qy, Aw, Cw, ro, no, _w, Pw, ti, Vt, y3, bn, Zt, _h, f3, Us, S0, m3, tG, js, GV, nb, Yr, u1, w0, rb, az, kl, LT, Sd, pW, F3, qr, j0, ub, Ci, $V, n4, H4, FR, Pl, hN, Y0, Br, eb, Jm, Bv, Nn, Ln, Rn, Xm, yW, hl, Oz, zz, Go, ab, RT, vW, gW, hW, bW, v3, ZI, tf, i4, Fh, Ym, qm, a2, qF, KF, Ws, Ie, Em, eo, Ze, Ir, Al, mW, mi, cT, Sr, r2, n2, jm, i2, Vz, e2, Dl, Xn, Kn, _r, lz, Qb, Ii, ln, Le, Tn, af, C0, xa, nh, qe, _a, tt, Pn, Wt, Pr, Pa, om, s1, o1;
 let __tla = (async ()=>{
     (function() {
         const e = document.createElement("link").relList;
@@ -199,7 +199,7 @@ line: ` + a + i;
             t
         ];
     }
-    WV = function(t, e = 200, a = {}) {
+    GV = function(t, e = 200, a = {}) {
         return ob(Vw(e, a), t);
     };
     function Gw(t, e, a = {}) {
@@ -244,7 +244,7 @@ line: ` + a + i;
     function Uw(t) {
         return Array.from(new Set(t));
     }
-    GV = function(t, e) {
+    $V = function(t, e) {
         return T(()=>{
             const a = Ue(t).map((r)=>Ue(r));
             return Uw(a);
@@ -2076,7 +2076,7 @@ line: ` + a + i;
     Vt.getAdapter = Pb.getAdapter;
     Vt.HttpStatusCode = ch;
     Vt.default = Vt;
-    const { Axios: jV, AxiosError: YV, CanceledError: qV, isCancel: KV, CancelToken: XV, VERSION: JV, all: ZV, Cancel: QV, isAxiosError: eW, spread: tW, toFormData: aW, AxiosHeaders: rW, HttpStatusCode: nW, formToJSON: iW, getAdapter: oW, mergeConfig: sW } = Vt;
+    const { Axios: YV, AxiosError: qV, CanceledError: KV, isCancel: XV, CancelToken: JV, VERSION: ZV, all: QV, Cancel: eW, isAxiosError: tW, spread: aW, toFormData: rW, AxiosHeaders: nW, HttpStatusCode: iW, formToJSON: oW, getAdapter: sW, mergeConfig: lW } = Vt;
     class PC {
         axios;
         up = !1;
@@ -10319,7 +10319,7 @@ line: ` + a + i;
         for(let a = 0; a < t.length; a++)e = e * 33 ^ t.charCodeAt(a);
         return e >>> 0;
     }
-    lW = function(t, e) {
+    uW = function(t, e) {
         const a = VF({
             seed: MT(t)
         });
@@ -11178,7 +11178,7 @@ line: ` + a + i;
     function t2(t, e) {
         return ei(t).format(e);
     }
-    uW = function(t, e) {
+    cW = function(t, e) {
         return t2(t * 1e3, e);
     };
     a2 = function(t, e, a) {
@@ -11216,7 +11216,7 @@ line: ` + a + i;
     i2 = function(t) {
         return dT[t || jm.UNKNOWN];
     };
-    cW = function(t) {
+    dW = function(t) {
         return i2(n2(r2(t.toLocaleLowerCase())[1]));
     };
     qF = function(t, e) {
@@ -11229,15 +11229,15 @@ line: ` + a + i;
         return `${qF(t, e)} ${KF(t, e)}`;
     };
     let o2;
-    dW = window.navigator.userAgent.toLowerCase().includes("windows");
+    hW = window.navigator.userAgent.toLowerCase().includes("windows");
     o2 = window.navigator.userAgent.toLowerCase().includes("mac");
-    hW = function(t) {
+    mW = function(t) {
         return o2 ? t.metaKey : t.ctrlKey;
     };
-    mW = function(t) {
+    fW = function(t) {
         window.open(t, "_blank", "noreferrer");
     };
-    fW = function(t, e) {
+    pW = function(t, e) {
         const a = window.URL.createObjectURL(e), r = Object.assign(document.createElement("a"), {
             href: a,
             download: t,
@@ -11256,7 +11256,7 @@ line: ` + a + i;
         return e != null && e.length > 2 && typeof e[2] == "string" && e[2].length > 0 ? e[2] : "";
     }
     const XF = ()=>new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi);
-    pW = function(t) {
+    gW = function(t) {
         const e = t.match(XF());
         let a = [];
         return e ? e.forEach(function(r) {
@@ -11267,10 +11267,10 @@ line: ` + a + i;
             ];
         }) : a[0] = t, a = a.filter((r)=>r !== ""), a;
     };
-    gW = function(t) {
+    vW = function(t) {
         return XF().test(t);
     };
-    vW = function(t, e = [
+    yW = function(t, e = [
         "http:",
         "https:",
         "udp:"
@@ -11282,7 +11282,7 @@ line: ` + a + i;
             return !1;
         }
     };
-    yW = function(t) {
+    bW = function(t) {
         t = t.toUpperCase();
         const a = [
             ...t
@@ -84619,37 +84619,37 @@ rect.legend-mouseover-inactive,
         {
             name: "dashboard",
             path: "/",
-            component: ()=>Sr(()=>import("./Dashboard-BwcSqI_6.js"), __vite__mapDeps([0,1,2,3,4,5]), import.meta.url)
+            component: ()=>Sr(()=>import("./Dashboard-BKXZ7H1E.js"), __vite__mapDeps([0,1,2,3,4,5]), import.meta.url)
         },
         {
             name: "settings",
             path: "/settings/:tab?/:subtab?",
-            component: ()=>Sr(()=>import("./Settings-rEh0D8An.js"), __vite__mapDeps([6,1,7,4,3,8]), import.meta.url)
+            component: ()=>Sr(()=>import("./Settings-DZRwgjy_.js"), __vite__mapDeps([6,1,7,4,3,8]), import.meta.url)
         },
         {
             name: "rssArticles",
             path: "/rss/:tab?/:feedId?",
-            component: ()=>Sr(()=>import("./RssArticles-BWJmyY12.js"), __vite__mapDeps([9,1,3,10]), import.meta.url)
+            component: ()=>Sr(()=>import("./RssArticles-hi64Q-BA.js"), __vite__mapDeps([9,1,3,10]), import.meta.url)
         },
         {
             name: "logs",
             path: "/logs",
-            component: ()=>Sr(()=>import("./Logs-RvZ3BLcM.js"), __vite__mapDeps([11,1,3]), import.meta.url)
+            component: ()=>Sr(()=>import("./Logs-Vv6xIbSo.js"), __vite__mapDeps([11,1,3]), import.meta.url)
         },
         {
             name: "searchEngine",
             path: "/search",
-            component: ()=>Sr(()=>import("./SearchEngine-CU-aVD_Q.js"), __vite__mapDeps([12,1,3,13]), import.meta.url)
+            component: ()=>Sr(()=>import("./SearchEngine-CZ_yC9Z2.js"), __vite__mapDeps([12,1,3,13]), import.meta.url)
         },
         {
             name: "torrentCreator",
             path: "/torrentCreator",
-            component: ()=>Sr(()=>import("./TorrentCreator-DTb4XG4h.js"), __vite__mapDeps([14,1,3]), import.meta.url)
+            component: ()=>Sr(()=>import("./TorrentCreator-C391FdBo.js"), __vite__mapDeps([14,1,3]), import.meta.url)
         },
         {
             name: "torrentDetail",
             path: "/torrent/:hash/:tab?",
-            component: ()=>Sr(()=>import("./TorrentDetail-SbcbXlY0.js").then(async (m)=>{
+            component: ()=>Sr(()=>import("./TorrentDetail-CF3vYn2o.js").then(async (m)=>{
                         await m.__tla;
                         return m;
                     }).then((t)=>t.ap), __vite__mapDeps([15,2,1,3,16]), import.meta.url)
@@ -84658,12 +84658,12 @@ rect.legend-mouseover-inactive,
             name: "magnetHandler",
             path: "/magnet/:url",
             alias: "/download=:url",
-            component: ()=>Sr(()=>import("./MagnetHandler-CJ2OGIVZ.js"), __vite__mapDeps([17,1,3]), import.meta.url)
+            component: ()=>Sr(()=>import("./MagnetHandler-UwIyR-du.js"), __vite__mapDeps([17,1,3]), import.meta.url)
         },
         {
             name: "login",
             path: "/login",
-            component: ()=>Sr(()=>import("./Login-vj-Nk8jl.js"), __vite__mapDeps([18,1,7,3]), import.meta.url),
+            component: ()=>Sr(()=>import("./Login-CWIAkifF.js"), __vite__mapDeps([18,1,7,3]), import.meta.url),
             meta: {
                 public: !0
             }
@@ -94374,7 +94374,7 @@ rect.legend-mouseover-inactive,
                 value: e
             }) : [];
     }
-    let bN, kN, xN, wN, SN, mx, CN, AN, DN, TN, EN, _N, PN, BN, MN, RN, LN, IN, zN, NN, ON, HN, VN, WN, GN, $N, UN, jN, YN, qN, KN, XN, JN, ZN, QN, eO, tO, aO, rO, nO, iO, oO, sO, lO, uO, cO, dO, hO, mO, fO, pO, gO, vO, yO, bO, FO, kO, xO, wO, SO, CO, AO, DO, TO, EO, _O, PO, BO, MO, RO, LO, IO, zO, NO, OO, HO, VO, WO, GO, $O, UO, jO, YO, qO, KO, XO, JO, ZO, QO, eH, tH, aH, rH, nH, iH, oH, sH, lH, uH, cH, dH, hH, mH, fH, pH, gH, vH, yH, bH, FH, kH, xH, wH, SH, CH, AH, DH, TH, EH, _H, PH, BH, MH, RH, LH, IH, zH, NH, OH, HH, VH, WH, GH, $H, UH, jH, YH, qH, KH, XH, JH, ZH, QH, e9, t9, a9, r9, n9, i9, o9, s9, l9, u9, c9, d9, h9, m9, f9, p9, g9, v9, y9, b9, F9, k9, x9, w9, S9, C9, A9, D9, T9, E9, _9, P9, B9, M9, R9, L9, I9, z9, N9, O9, H9, V9, W9, G9, $9, U9, j9, Y9, q9, K9, X9, J9, Z9, Q9, eV, tV, aV, rV, nV, iV, oV, sV, lV, uV, cV, dV, hV, mV, fV, pV, gV, vV, yV, bV, FV, kV, xV, wV, SV, CV, AV, DV, TV, EV, _V, PV, BV, MV, RV, LV, IV, zV, NV, OV, fx;
+    let bN, kN, xN, wN, SN, mx, CN, AN, DN, TN, EN, _N, PN, BN, MN, RN, LN, IN, zN, NN, ON, HN, VN, WN, GN, $N, UN, jN, YN, qN, KN, XN, JN, ZN, QN, eO, tO, aO, rO, nO, iO, oO, sO, lO, uO, cO, dO, hO, mO, fO, pO, gO, vO, yO, bO, FO, kO, xO, wO, SO, CO, AO, DO, TO, EO, _O, PO, BO, MO, RO, LO, IO, zO, NO, OO, HO, VO, WO, GO, $O, UO, jO, YO, qO, KO, XO, JO, ZO, QO, eH, tH, aH, rH, nH, iH, oH, sH, lH, uH, cH, dH, hH, mH, fH, pH, gH, vH, yH, bH, FH, kH, xH, wH, SH, CH, AH, DH, TH, EH, _H, PH, BH, MH, RH, LH, IH, zH, NH, OH, HH, VH, WH, GH, $H, UH, jH, YH, qH, KH, XH, JH, ZH, QH, e9, t9, a9, r9, n9, i9, o9, s9, l9, u9, c9, d9, h9, m9, f9, p9, g9, v9, y9, b9, F9, k9, x9, w9, S9, C9, A9, D9, T9, E9, _9, P9, B9, M9, R9, L9, I9, z9, N9, O9, H9, V9, W9, G9, $9, U9, j9, Y9, q9, K9, X9, J9, Z9, Q9, eV, tV, aV, rV, nV, iV, oV, sV, lV, uV, cV, dV, hV, mV, fV, pV, gV, vV, yV, bV, FV, kV, xV, wV, SV, CV, AV, DV, TV, EV, _V, PV, BV, MV, RV, LV, IV, zV, NV, OV, HV, fx;
     bN = U({
         alignTabs: {
             type: String,
@@ -95261,6 +95261,7 @@ rect.legend-mouseover-inactive,
         auto: "Auto",
         cancel: "Cancel",
         close: "Close",
+        create: "Create",
         delete: "Delete",
         disable: "Disable",
         disabled: "Disabled",
@@ -95278,6 +95279,7 @@ rect.legend-mouseover-inactive,
         search: "Search",
         selectAll: "Select All",
         selectNone: "Select None",
+        submit: "Submit",
         useGlobalSettings: "Use Global Settings",
         yes: "Yes"
     };
@@ -95443,6 +95445,23 @@ rect.legend-mouseover-inactive,
         }
     };
     VN = {
+        clear: "Clear all cookies",
+        create: "Add new cookie",
+        empty: {
+            action: "Add new cookie",
+            value: "No cookies registered"
+        },
+        import: "Import cookies",
+        table: {
+            domain: "Domain Name",
+            expiration_date: "Expiration Date",
+            name: "Cookie Name",
+            path: "Path",
+            value: "Cookie Value"
+        },
+        title: "Cookies Manager"
+    };
+    WN = {
         displayMode: {
             grid: "Grid",
             list: "List",
@@ -95512,7 +95531,7 @@ rect.legend-mouseover-inactive,
         toggleSortOrder: "Reverse sort order",
         torrentsCount: "No torrent | {n} torrent | {n} torrents"
     };
-    WN = {
+    GN = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "name1=value1; name2=value2; ...",
@@ -95597,7 +95616,9 @@ rect.legend-mouseover-inactive,
         },
         confirm: {
             banPeers: "Do you really want to ban this peer?",
+            clearCookies: "Do you really want to clear all cookies?",
             deleteCategory: "Do you really want to remove this category?",
+            deleteCookie: "Do you really want to remove this cookie?",
             deleteFeed: "Do you really want to remove this RSS feed?",
             deleteRule: "Do you really want to remove this RSS rule?",
             deleteTag: "Do you really want to remove this tag?",
@@ -95617,6 +95638,27 @@ rect.legend-mouseover-inactive,
             noExternalIp: "Unable to detect from logs",
             status: "Connection Status",
             total_peer_connections: "Active peer connections"
+        },
+        cookiesImport: {
+            input: "Cookie data",
+            title: "Import cookies",
+            type: {
+                header: "Header value",
+                json: "JSON",
+                label: "Type of data to import",
+                netscape: "Netscape"
+            }
+        },
+        cookiesManager: {
+            domain: "Domain Name",
+            expiration_date: "Expiration Date",
+            name: "Cookie Name",
+            path: "Path",
+            rules: {
+                duplicate: "This cookie already exists"
+            },
+            title: "Cookie form",
+            value: "Cookie Value"
         },
         delete: {
             deleteWithFiles: "Delete files with torrent",
@@ -95770,7 +95812,7 @@ Errors may happen, use with caution.`
             urlSeeds: "Web seed URLs"
         }
     };
-    GN = {
+    $N = {
         error: "Login failed!",
         password: "Password",
         pending: "Checking current auth status...",
@@ -95784,7 +95826,7 @@ Errors may happen, use with caution.`
         title: "Login",
         username: "Username"
     };
-    $N = {
+    UN = {
         emptyLogList: "No logs found",
         filters: {
             query: "Search in log message",
@@ -95792,7 +95834,7 @@ Errors may happen, use with caution.`
         },
         title: "qBittorrent Logs"
     };
-    UN = {
+    jN = {
         addPanel: {
             torrentsPendingCount: "{n} torrent awaiting upload | {n} torrents awaiting upload"
         },
@@ -95867,7 +95909,7 @@ Errors may happen, use with caution.`
             }
         }
     };
-    jN = {
+    YN = {
         feeds: {
             empty: {
                 action: "Create RSS Feed",
@@ -95910,7 +95952,7 @@ Errors may happen, use with caution.`
             rules: "Show rules"
         }
     };
-    YN = {
+    qN = {
         filters: {
             category: {
                 all: "All",
@@ -95948,8 +95990,8 @@ Errors may happen, use with caution.`
         tabHeaderEmpty: "(Empty query)",
         title: "Search engine"
     };
-    qN = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Auto ban BT player peer","auto_ban_unknown_peer":"Auto ban unknown peer","auto_update_trackers":"Automatically update public trackers list","public_trackers":"Public trackers","trackers_list_url":"Customize Trackers URL List"}},"advanced":{"libtorrent":{"announceAllTiers":"Always announce to all tiers","announceAllTrackers":"Always announce to all trackers in a tier","announceIP":"IP address reported to trackers (requires restart)","coalesceReadsWrites":"Coalesce reads & writes (libtorrent < 2.0)","dhtBootstrapNodes":"DHT bootstrap nodes","dhtBootstrapNodesHint":"Resets to default if empty","disk":{"diskCache":"Disk cache (libtorrent < 2.0)","diskCacheExpiry":"Disk cache expiry interval (libtorrent < 2.0)","diskIoReadMode":"Disk IO read mode","diskIoType":"Disk IO Type (libtorrent >= 2.0; requires restart)","diskIoWriteMode":"Disk IO write mode","diskQueueSize":"Disk queue size","subheader":"Disk"},"i2p":{"inboundLength":"I2P inbound length","inboundQuantity":"I2P inbound quantity","invalidLength":"I2P length values must be between 0 and 7","invalidQuantity":"I2P quantity values must be between 1 and 16","outboundLength":"I2P outbound length","outboundQuantity":"I2P outbound quantity","restartNeeded":"Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)"},"maxConcurrentHTTPAnnounces":"Max concurrent HTTP announces","networking":{"outgoingPortsMax":"Outgoing ports (Max) [0: Disabled]","outgoingPortsMin":"Outgoing ports (Min) [0: Disabled]","peerTos":"DSCP value for connections to peers","subheader":"Networking","upnpLeaseDuration":"UPnP lease duration [0: Permanent lease]","utpTcpMixedModeAlgorithm":"μTP-TCP mixed mode algorithm"},"outgoingConnectionsPerSecond":"Outgoing connections per second","peerTurnover":"Peer turnover disconnect percentage","peerTurnoverCutoff":"Peer turnover threshold percentage","peerTurnoverInterval":"Peer turnover disconnect interval","pieceExtentAffinity":"Use piece extent affinity","requestQueueSize":"Maximum outstanding requests to a single peer","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Allow multiple connections from the same IP address","blockPeersOnPrivilegedPorts":"Disallow connection to peers on privileged ports","idnSupport":"Enable Internationalized Domain Name (IDN) support","mitigateSSRF":"Server-side request forgery (SSRF) mitigation","subheader":"Security","validateHTTPSTrackerCertificate":"Validate HTTPS tracker certificate"},"sendBufferLowWatermark":"Send buffer low watermark","sendBufferWatermark":"Send buffer watermark","sendBufferWatermarkFactor":"Send buffer watermark factor","sendUploadPieceSuggestions":"Send upload piece suggestions","socketBacklogSize":"Socket backlog size","socketReceiveBufferSize":"Socket receive buffer size","socketReceiveBufferSizeHint":"0: system default","socketSendBufferSize":"Socket send buffer size","socketSendBufferSizeHint":"0: system default","ssl":{"disclaimer":"The \\"SSL torrent\\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\\nEnable this feature only if you need it.","enabled":"Enable SSL torrents","listenPort":"Port used for SSL connections","listenPortHint":"Leave empty to auto-select","rule":"Port must be between 0 and 65535"},"stopTrackerTimeout":"Stop tracker timeout","subheader":"libtorrent Section","threads":{"asyncIoThreads":"Asynchronous I/O threads","bdecodeDepthLimit":"Bdecode depth limit","bdecodeTokenLimit":"Bdecode token limit","filePoolSize":"File pool size","hashingThreads":"Hashing threads (libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Upload choking algorithm","uploadSlotsBehavior":"Upload slots behavior"},"openDoc":"Open documentation","qbittorrent":{"allocatedRam":"Physical memory (RAM) usage limit (libtorrent >= 2.0)","appInstanceName":"App instance name","embeddedTracker":{"enable":"Enable embedded tracker","port":"Embedded tracker port","portForward":"Enable port forwarding for embedded tracker","title":"Embedded Tracker"},"enableMarkOfTheWeb":"Enable Mark-of-the-Web (MOTW) for downloaded files","enableMarkOfTheWebHint":"Require macOS or Windows","networking":{"ipAddress":{"all":"All addresses","allIPv4":"All IPv4 addresses","allIPv6":"All IPv6 addresses","label":"Optional IP address to bind to"},"networkInterfaces":{"any":"Any interface","label":"Network interface"},"title":"Networking"},"pythonExecutablePath":"Python executable path","pythonExecutablePathHint":"Auto detect if empty, require restart","reannounceOnIpPortChanged":"Reannounce to all trackers when IP or port changed","recheckOnCompletion":"Recheck torrents on completion","refreshInterval":"GUI Refresh interval","resolveCountries":"Resolve peer countries","resumeDataStorageType":{"label":"Resume data storage type (requires restart)","legacy":"Fastresume files","sqlite":"SQLite database (experimental)"},"saveInterval":"Save resume data interval","subheader":"qBittorrent Section","torrentContentRemovingMode":"Torrent content removing mode","torrentFileSizeLimit":".torrent file size limit"}},"behavior":{"logs":{"file_log_age":"Delete backup logs older than","file_log_backup_enabled":"Enable log file backup","file_log_delete_old":"Delete old backup logs","file_log_enabled":"Enable log files","file_log_max_size":"Backup the log file after","file_log_path":"Save path","subheader":"Logs management"},"performance_warning":"Log performance warning"},"bittorrent":{"autoAddTrackers":"Automatically append these trackers to new downloads","autoAddTrackersHint":"One tracker per line","maxActiveCheckingTorrents":"Max active checking torrents","privacy":{"enableAnonymous":"Enable anonymous mode","enableDHT":"Enable DHT (decentralized network) to find more peers","enableLPD":"Enable Local Peer Discovery to find more peers","enablePeX":"Enable Peer Exchange (PeX) to find more peers","encryptionMode":"Encryption Mode","moreInfo":"More Information","subheader":"Privacy"},"seedLimits":{"subheader":"Seed Limits","then":"Then","whenInactiveSeedingTimeReaches":"When inactive seeding time reaches","whenRatioReaches":"When ratio reaches","whenSeedingTimeReaches":"When seeding time reaches"},"torrentQueueing":{"downloadRateLimit":"Download rate threshold","excludeSlowTorrent":"Do not count slow torrents in these limits","maxActiveDownload":"Maximum active downloads","maxActiveTorrent":"Maximum active torrents","maxActiveUpload":"Maximum active uploads","subheader":"Torrent Queueing","torrentInactivityTimer":"Torrent inactivity timer","uploadRateLimit":"Upload rate threshold"}},"connection":{"connectionLimits":{"globalMaxConnection":"Global maximum number of connections","globalMaxUploadSlots":"Global maximum number of upload slots","perTorrentMaxConnection":"Maximum number of connections per torrent","perTorrentMaxUploadSlots":"Maximum number of upload slots per torrent","subheader":"Connection Limits"},"i2p":{"address":"I2P Host","disclaimer":"If \\"Mixed Mode\\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.","enabled":"Enable I2P","mixedMode":"Mixed Mode","port":"Port","rule":"Port value must be between 0 and 65535","subheader":"I2P (experimental)"},"ipFiltering":{"applyToTrackers":"Apply to trackers","bannedIps":"Manually banned IP addresses","bannedIpsHint":"One on each line","filterPath":"Filter path (.dat, .p2p, .p2b)","subheader":"IP Filtering"},"listeningPort":{"incomingConnectionPort":"Port used for incoming connections","randomPort":"Random Port","subheader":"Listening Port","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"protocol":"Peer connection protocol","proxy":{"auth":{"password":"Password","subtitle":"Authentication","tip":"Info: The password is saved unencrypted","username":"Username"},"bittorrent":"Use proxy for BitTorrent purposes","host":"Host","hostNameLookup":"Use proxy for hostname lookup","misc":"Use proxy for general purposes","peerConnections":"Use proxy for peer connections","port":"Port","rss":"Use proxy for RSS purposes","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"One filter per line","label":"Excluded file names"},"mailNotification":{"authEnabled":"Authentication","enabled":"Email notification upon download completion","from":"From","password":"Password","smtpServer":"SMTP server","sslEnabled":"This server requires a secure connection (SSL)","test":{"error":"Email request failed\\n{message}","label":"Send test email","success":"Email request sent!\\nCheck your inbox to confirm success"},"to":"To","username":"Username"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Are you sure you want to delete this item?","editItem":"Edit","monitoredFolderPath":"Monitored Folder","newItem":"New","noData":"No monitored folder yet","otherPath":"Other Path","saveType":"Override Save Location","subheader":"Monitored Folders"},"publicSettings":{"appendQBExtension":"Append .!qB extension to incomplete files","preAllocateDisk":"Pre-allocate disk space for all files","useUnwantedFolder":"Keep unselected files in \\".unwanted\\" folder"},"runExternalProgram":{"onAddedEnabled":"Run external program on torrent added","onAddedLabel":"Command","onFinishedEnabled":"Run external program on torrent finished","onFinishedLabel":"Command","subheader":"Run external program","supportParamC":"%C: Number of files","supportParamD":"%D: Save path","supportParamF":"%F: Content path (same as root path for multi-file torrent)","supportParamG":"%G: Tags (separated by comma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Category","supportParamN":"%N: Torrent name","supportParamR":"%R: Root path (first torrent subdirectory path)","supportParamT":"%T: Current tracker","supportParamTitle":"Supported parameters (case sensitive):","supportParamZ":"%Z: Torrent size (bytes)","tip":"Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Default Torrent Management Mode","categoryChangedTMM":"When Category Save Path changed","defaultSavePath":"Default Save Path (complete)","defaultTMMOptions":{"automatic":"Automatic","manual":"Manual"},"exportDir":"Copy .torrent files to","exportDirFinished":"Copy .torrent files for finished downloads to","keepIncomplete":"Default Download Path (incomplete torrents)","paramChangedTMMOptions":{"relocateTorrent":"Relocate torrent","switchToManual":"Switch torrent to Manual Mode"},"savePathChangedTMM":"When Default Save Path changed","subheader":"Saving Management","torrentChangedTMM":"When Torrent Category changed","useCategoryPathInManualMode":"Use Category paths in Manual Mode","useCategoryPathInManualModeHint":"Resolve relative Save Path against appropriate Category path instead of Default one"},"whenAddTorrent":{"addToTopOfQueue":"Add to top of queue","autoDeleteMode":"Delete .torrent files afterwards","doNotAutoStart":"Do not start the download automatically","mergeTrackers":"Merge trackers if torrent already exists","subheader":"When adding a torrent"}},"rss":{"autoDownloader":{"enable":"Enable RSS rules processing","subheader":"RSS Torrent Auto Downloader"},"reader":{"enableProcessing":"Enable fetching RSS feeds","feedsRefreshInterval":"Feeds refresh interval","maximumArticlesPerFeed":"Maximum number of articles per feed","sameHostRequestDelay":"Same host request delay","subheader":"RSS Reader"},"smartEpisodeFilter":{"downloadEpisodes":"Download REPACK/PROPER episodes","filters":"Filters","filtersHint":"One per line","subheader":"RSS Smart Episode Filter"},"useIdForRssLinks":"Use ID for RSS article link"},"saveSuccess":"Settings saved!","speed":{"download":"Download","scheduler":{"from":"From","selectButtonLabel":"Select time","subheader":"Schedule the use of alternative rate limits","to":"To","when":"When"},"settings":{"applyToPeersOnLan":"Apply rate limit to peers on LAN","applyToTransportOverhead":"Apply rate limit to transport overhead","applyToUtp":"Apply rate limit to µTP protocol"},"subheader":{"alternative":"Alternative Rate Limits","global":"Global Rate Limits","settings":"Rate Limits Settings"},"tip":"0 means unlimited","upload":"Upload"},"tabs":{"addons":{"enhanced_edition":"Enhanced edition"},"advanced":"Advanced","behavior":"Behavior","bittorrent":"BitTorrent","connection":"Connection","downloads":"Downloads","rss":"RSS","speed":"Speed","tagsAndCategories":"Tags & Categories","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Grid View","list":"List View","table":"Table View"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Available Categories:","createNewCategory":"Create new category","createNewTag":"Create new tag","deleteUnusedCategories":"Delete unused categories","deleteUnusedTags":"Delete unused tags","noCategories":"No categories yet","noTags":"No tags yet","tagsSubheader":"Available Tags:"},"title":"Settings","vuetorrent":{"general":{"check_new":"Check for new version","currentVersion":"Current Version","customTitle":"Custom title","darkVariants":"Dark theme variant","dateFormat":"Date Format","displayGraphLimits":"Display limits in graph","download":"Export settings","durationFormat":"Duration format","enableHashColors":"Enable generated chip colors","enableRatioColors":"Enable ratio colors","expandContent":"Expand content by default in Content view","fetchExternalIpInfo":"Fetch external IP info","fileContentInterval":"Torrent file content refresh interval","filterType":"Filters inclusion type","hideChipIfUnset":"Hide chips if unset","hideColoredChip":"Use text variant for chips","historySize":"History size on eligible fields","import":"Import Settings","isDrawerRight":"Right Drawer","isShutdownButtonVisible":"Show shutdown button","language":"Language","lightVariants":"Light theme variant","paginationSize":{"infinite_scroll":"Infinite scroll","label":"Pagination Size","warning":"This option can significantly affect performance with a lot of torrents"},"qbittorrentVersion":"qBittorrent Version","refreshInterval":"qBittorrent API refresh interval","registerMagnet":"Register magnet links","resetSettings":"Reset Settings","showAlltimeStat":"Show All-Time Stats","showCurrentSpeed":"Show Current Speed","showFilters":{"allFiltersEnabled":"All filters enabled","category":"Category","filtersEnabled":"{n} filters enabled","state":"State","tag":"Tag","title":"Show filters","tracker":"Tracker"},"showFreeSpace":"Show Free Space","showSessionStat":"Show Session Stats","showSpeedGraph":"Show Speed Graph","tip":"These settings are for the custom WebUI itself","useBinarySize":"Replace data sizes by binary units (kB -> KiB)","useBitSpeed":"Replace speed values by bits (kB/s -> kbps)","useEmojiState":"Prepend torrent states with emojis","vueTorrentTitle":"Tab title"},"torrentCard":{"grid":{"busyTip":"Properties to display for incomplete torrents in grid view","doneTip":"Properties to display for completed torrents in grid view"},"list":{"busyTip":"Properties to display for incomplete torrents in list view","doneTip":"Properties to display for completed torrents in list view"},"table":{"tip":"Properties to display for torrents in table view"}}},"webUI":{"authentication":{"banDuration":"Ban Duration","banDurationHint":"In seconds","bypassLocalhost":"Bypass authentication for clients on localhost","bypassWhitelist":"Bypass authentication for clients in whitelisted IP subnets","maxAttempts":"Max attempts","password":"Password","passwordPlaceholder":"(unchanged)","sessionTimeout":"Session timeout","sessionTimeoutHint":"In seconds","subheader":"Authentication","username":"Username","whitelistExamples":"Example: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Add custom HTTP headers","customHeadersHint":"One per line","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Domain name","password":"Password","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Register","subheader":"Update my dynamic domain name","username":"Username"},"https":{"certificate":"Certificate","key":"Key","subheader":"Use HTTPS","tip":"Information about certificates"},"interface":{"ipAddress":"IP Address","port":"Port","subheader":"Web User Interface","useAlternativeWebUI":"Use Alternative WebUI","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"proxiesList":"Trusted proxies list","proxiesListHint":"Seperate IPs with semicolon ( ; )","reverseProxySupport":"Enable reverse proxy support","security":{"clickjacking":"Enable clickjacking protection","csrf":"Enable Cross-Site Request Forgery (CSRF) protection","hostHeaderValidation":"Enable Host header validation","hostHeaderValidationHint":"Seperated with semi-colon ( ; )","secureCookie":"Enable cookie \\"secure\\" flag (requires HTTPS)","serverDomains":"Server Domains","subheader":"Security"}}}');
-    KN = {
+    KN = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Auto ban BT player peer","auto_ban_unknown_peer":"Auto ban unknown peer","auto_update_trackers":"Automatically update public trackers list","public_trackers":"Public trackers","trackers_list_url":"Customize Trackers URL List"}},"advanced":{"libtorrent":{"announceAllTiers":"Always announce to all tiers","announceAllTrackers":"Always announce to all trackers in a tier","announceIP":"IP address reported to trackers (requires restart)","coalesceReadsWrites":"Coalesce reads & writes (libtorrent < 2.0)","dhtBootstrapNodes":"DHT bootstrap nodes","dhtBootstrapNodesHint":"Resets to default if empty","disk":{"diskCache":"Disk cache (libtorrent < 2.0)","diskCacheExpiry":"Disk cache expiry interval (libtorrent < 2.0)","diskIoReadMode":"Disk IO read mode","diskIoType":"Disk IO Type (libtorrent >= 2.0; requires restart)","diskIoWriteMode":"Disk IO write mode","diskQueueSize":"Disk queue size","subheader":"Disk"},"i2p":{"inboundLength":"I2P inbound length","inboundQuantity":"I2P inbound quantity","invalidLength":"I2P length values must be between 0 and 7","invalidQuantity":"I2P quantity values must be between 1 and 16","outboundLength":"I2P outbound length","outboundQuantity":"I2P outbound quantity","restartNeeded":"Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)"},"maxConcurrentHTTPAnnounces":"Max concurrent HTTP announces","networking":{"outgoingPortsMax":"Outgoing ports (Max) [0: Disabled]","outgoingPortsMin":"Outgoing ports (Min) [0: Disabled]","peerTos":"DSCP value for connections to peers","subheader":"Networking","upnpLeaseDuration":"UPnP lease duration [0: Permanent lease]","utpTcpMixedModeAlgorithm":"μTP-TCP mixed mode algorithm"},"outgoingConnectionsPerSecond":"Outgoing connections per second","peerTurnover":"Peer turnover disconnect percentage","peerTurnoverCutoff":"Peer turnover threshold percentage","peerTurnoverInterval":"Peer turnover disconnect interval","pieceExtentAffinity":"Use piece extent affinity","requestQueueSize":"Maximum outstanding requests to a single peer","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Allow multiple connections from the same IP address","blockPeersOnPrivilegedPorts":"Disallow connection to peers on privileged ports","idnSupport":"Enable Internationalized Domain Name (IDN) support","mitigateSSRF":"Server-side request forgery (SSRF) mitigation","subheader":"Security","validateHTTPSTrackerCertificate":"Validate HTTPS tracker certificate"},"sendBufferLowWatermark":"Send buffer low watermark","sendBufferWatermark":"Send buffer watermark","sendBufferWatermarkFactor":"Send buffer watermark factor","sendUploadPieceSuggestions":"Send upload piece suggestions","socketBacklogSize":"Socket backlog size","socketReceiveBufferSize":"Socket receive buffer size","socketReceiveBufferSizeHint":"0: system default","socketSendBufferSize":"Socket send buffer size","socketSendBufferSizeHint":"0: system default","ssl":{"disclaimer":"The \\"SSL torrent\\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\\nEnable this feature only if you need it.","enabled":"Enable SSL torrents","listenPort":"Port used for SSL connections","listenPortHint":"Leave empty to auto-select","rule":"Port must be between 0 and 65535"},"stopTrackerTimeout":"Stop tracker timeout","subheader":"libtorrent Section","threads":{"asyncIoThreads":"Asynchronous I/O threads","bdecodeDepthLimit":"Bdecode depth limit","bdecodeTokenLimit":"Bdecode token limit","filePoolSize":"File pool size","hashingThreads":"Hashing threads (libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Upload choking algorithm","uploadSlotsBehavior":"Upload slots behavior"},"openDoc":"Open documentation","qbittorrent":{"allocatedRam":"Physical memory (RAM) usage limit (libtorrent >= 2.0)","appInstanceName":"App instance name","embeddedTracker":{"enable":"Enable embedded tracker","port":"Embedded tracker port","portForward":"Enable port forwarding for embedded tracker","title":"Embedded Tracker"},"enableMarkOfTheWeb":"Enable Mark-of-the-Web (MOTW) for downloaded files","enableMarkOfTheWebHint":"Require macOS or Windows","networking":{"ipAddress":{"all":"All addresses","allIPv4":"All IPv4 addresses","allIPv6":"All IPv6 addresses","label":"Optional IP address to bind to"},"networkInterfaces":{"any":"Any interface","label":"Network interface"},"title":"Networking"},"pythonExecutablePath":"Python executable path","pythonExecutablePathHint":"Auto detect if empty, require restart","reannounceOnIpPortChanged":"Reannounce to all trackers when IP or port changed","recheckOnCompletion":"Recheck torrents on completion","refreshInterval":"GUI Refresh interval","resolveCountries":"Resolve peer countries","resumeDataStorageType":{"label":"Resume data storage type (requires restart)","legacy":"Fastresume files","sqlite":"SQLite database (experimental)"},"saveInterval":"Save resume data interval","subheader":"qBittorrent Section","torrentContentRemovingMode":"Torrent content removing mode","torrentFileSizeLimit":".torrent file size limit"}},"behavior":{"logs":{"file_log_age":"Delete backup logs older than","file_log_backup_enabled":"Enable log file backup","file_log_delete_old":"Delete old backup logs","file_log_enabled":"Enable log files","file_log_max_size":"Backup the log file after","file_log_path":"Save path","subheader":"Logs management"},"performance_warning":"Log performance warning"},"bittorrent":{"autoAddTrackers":"Automatically append these trackers to new downloads","autoAddTrackersHint":"One tracker per line","maxActiveCheckingTorrents":"Max active checking torrents","privacy":{"enableAnonymous":"Enable anonymous mode","enableDHT":"Enable DHT (decentralized network) to find more peers","enableLPD":"Enable Local Peer Discovery to find more peers","enablePeX":"Enable Peer Exchange (PeX) to find more peers","encryptionMode":"Encryption Mode","moreInfo":"More Information","subheader":"Privacy"},"seedLimits":{"subheader":"Seed Limits","then":"Then","whenInactiveSeedingTimeReaches":"When inactive seeding time reaches","whenRatioReaches":"When ratio reaches","whenSeedingTimeReaches":"When seeding time reaches"},"torrentQueueing":{"downloadRateLimit":"Download rate threshold","excludeSlowTorrent":"Do not count slow torrents in these limits","maxActiveDownload":"Maximum active downloads","maxActiveTorrent":"Maximum active torrents","maxActiveUpload":"Maximum active uploads","subheader":"Torrent Queueing","torrentInactivityTimer":"Torrent inactivity timer","uploadRateLimit":"Upload rate threshold"}},"connection":{"connectionLimits":{"globalMaxConnection":"Global maximum number of connections","globalMaxUploadSlots":"Global maximum number of upload slots","perTorrentMaxConnection":"Maximum number of connections per torrent","perTorrentMaxUploadSlots":"Maximum number of upload slots per torrent","subheader":"Connection Limits"},"i2p":{"address":"I2P Host","disclaimer":"If \\"Mixed Mode\\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.","enabled":"Enable I2P","mixedMode":"Mixed Mode","port":"Port","rule":"Port value must be between 0 and 65535","subheader":"I2P (experimental)"},"ipFiltering":{"applyToTrackers":"Apply to trackers","bannedIps":"Manually banned IP addresses","bannedIpsHint":"One on each line","filterPath":"Filter path (.dat, .p2p, .p2b)","subheader":"IP Filtering"},"listeningPort":{"incomingConnectionPort":"Port used for incoming connections","randomPort":"Random Port","subheader":"Listening Port","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"protocol":"Peer connection protocol","proxy":{"auth":{"password":"Password","subtitle":"Authentication","tip":"Info: The password is saved unencrypted","username":"Username"},"bittorrent":"Use proxy for BitTorrent purposes","host":"Host","hostNameLookup":"Use proxy for hostname lookup","misc":"Use proxy for general purposes","peerConnections":"Use proxy for peer connections","port":"Port","rss":"Use proxy for RSS purposes","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"One filter per line","label":"Excluded file names"},"mailNotification":{"authEnabled":"Authentication","enabled":"Email notification upon download completion","from":"From","password":"Password","smtpServer":"SMTP server","sslEnabled":"This server requires a secure connection (SSL)","test":{"error":"Email request failed\\n{message}","label":"Send test email","success":"Email request sent!\\nCheck your inbox to confirm success"},"to":"To","username":"Username"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Are you sure you want to delete this item?","editItem":"Edit","monitoredFolderPath":"Monitored Folder","newItem":"New","noData":"No monitored folder yet","otherPath":"Other Path","saveType":"Override Save Location","subheader":"Monitored Folders"},"publicSettings":{"appendQBExtension":"Append .!qB extension to incomplete files","preAllocateDisk":"Pre-allocate disk space for all files","useUnwantedFolder":"Keep unselected files in \\".unwanted\\" folder"},"runExternalProgram":{"onAddedEnabled":"Run external program on torrent added","onAddedLabel":"Command","onFinishedEnabled":"Run external program on torrent finished","onFinishedLabel":"Command","subheader":"Run external program","supportParamC":"%C: Number of files","supportParamD":"%D: Save path","supportParamF":"%F: Content path (same as root path for multi-file torrent)","supportParamG":"%G: Tags (separated by comma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Category","supportParamN":"%N: Torrent name","supportParamR":"%R: Root path (first torrent subdirectory path)","supportParamT":"%T: Current tracker","supportParamTitle":"Supported parameters (case sensitive):","supportParamZ":"%Z: Torrent size (bytes)","tip":"Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Default Torrent Management Mode","categoryChangedTMM":"When Category Save Path changed","defaultSavePath":"Default Save Path (complete)","defaultTMMOptions":{"automatic":"Automatic","manual":"Manual"},"exportDir":"Copy .torrent files to","exportDirFinished":"Copy .torrent files for finished downloads to","keepIncomplete":"Default Download Path (incomplete torrents)","paramChangedTMMOptions":{"relocateTorrent":"Relocate torrent","switchToManual":"Switch torrent to Manual Mode"},"savePathChangedTMM":"When Default Save Path changed","subheader":"Saving Management","torrentChangedTMM":"When Torrent Category changed","useCategoryPathInManualMode":"Use Category paths in Manual Mode","useCategoryPathInManualModeHint":"Resolve relative Save Path against appropriate Category path instead of Default one"},"whenAddTorrent":{"addToTopOfQueue":"Add to top of queue","autoDeleteMode":"Delete .torrent files afterwards","doNotAutoStart":"Do not start the download automatically","mergeTrackers":"Merge trackers if torrent already exists","subheader":"When adding a torrent"}},"rss":{"autoDownloader":{"enable":"Enable RSS rules processing","subheader":"RSS Torrent Auto Downloader"},"reader":{"enableProcessing":"Enable fetching RSS feeds","feedsRefreshInterval":"Feeds refresh interval","maximumArticlesPerFeed":"Maximum number of articles per feed","sameHostRequestDelay":"Same host request delay","subheader":"RSS Reader"},"smartEpisodeFilter":{"downloadEpisodes":"Download REPACK/PROPER episodes","filters":"Filters","filtersHint":"One per line","subheader":"RSS Smart Episode Filter"},"useIdForRssLinks":"Use ID for RSS article link"},"saveSuccess":"Settings saved!","speed":{"download":"Download","scheduler":{"from":"From","selectButtonLabel":"Select time","subheader":"Schedule the use of alternative rate limits","to":"To","when":"When"},"settings":{"applyToPeersOnLan":"Apply rate limit to peers on LAN","applyToTransportOverhead":"Apply rate limit to transport overhead","applyToUtp":"Apply rate limit to µTP protocol"},"subheader":{"alternative":"Alternative Rate Limits","global":"Global Rate Limits","settings":"Rate Limits Settings"},"tip":"0 means unlimited","upload":"Upload"},"tabs":{"addons":{"enhanced_edition":"Enhanced edition"},"advanced":"Advanced","behavior":"Behavior","bittorrent":"BitTorrent","connection":"Connection","downloads":"Downloads","rss":"RSS","speed":"Speed","tagsAndCategories":"Tags & Categories","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Grid View","list":"List View","table":"Table View"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Available Categories:","createNewCategory":"Create new category","createNewTag":"Create new tag","deleteUnusedCategories":"Delete unused categories","deleteUnusedTags":"Delete unused tags","noCategories":"No categories yet","noTags":"No tags yet","tagsSubheader":"Available Tags:"},"title":"Settings","vuetorrent":{"general":{"check_new":"Check for new version","currentVersion":"Current Version","customTitle":"Custom title","darkVariants":"Dark theme variant","dateFormat":"Date Format","displayGraphLimits":"Display limits in graph","download":"Export settings","durationFormat":"Duration format","enableHashColors":"Enable generated chip colors","enableRatioColors":"Enable ratio colors","expandContent":"Expand content by default in Content view","fetchExternalIpInfo":"Fetch external IP info","fileContentInterval":"Torrent file content refresh interval","filterType":"Filters inclusion type","hideChipIfUnset":"Hide chips if unset","hideColoredChip":"Use text variant for chips","historySize":"History size on eligible fields","import":"Import Settings","isDrawerRight":"Right Drawer","isShutdownButtonVisible":"Show shutdown button","language":"Language","lightVariants":"Light theme variant","paginationSize":{"infinite_scroll":"Infinite scroll","label":"Pagination Size","warning":"This option can significantly affect performance with a lot of torrents"},"qbittorrentVersion":"qBittorrent Version","refreshInterval":"qBittorrent API refresh interval","registerMagnet":"Register magnet links","resetSettings":"Reset Settings","showAlltimeStat":"Show All-Time Stats","showCurrentSpeed":"Show Current Speed","showFilters":{"allFiltersEnabled":"All filters enabled","category":"Category","filtersEnabled":"{n} filters enabled","state":"State","tag":"Tag","title":"Show filters","tracker":"Tracker"},"showFreeSpace":"Show Free Space","showSessionStat":"Show Session Stats","showSpeedGraph":"Show Speed Graph","tip":"These settings are for the custom WebUI itself","useBinarySize":"Replace data sizes by binary units (kB -> KiB)","useBitSpeed":"Replace speed values by bits (kB/s -> kbps)","useEmojiState":"Prepend torrent states with emojis","vueTorrentTitle":"Tab title"},"torrentCard":{"grid":{"busyTip":"Properties to display for incomplete torrents in grid view","doneTip":"Properties to display for completed torrents in grid view"},"list":{"busyTip":"Properties to display for incomplete torrents in list view","doneTip":"Properties to display for completed torrents in list view"},"table":{"tip":"Properties to display for torrents in table view"}}},"webUI":{"authentication":{"banDuration":"Ban Duration","banDurationHint":"In seconds","bypassLocalhost":"Bypass authentication for clients on localhost","bypassWhitelist":"Bypass authentication for clients in whitelisted IP subnets","maxAttempts":"Max attempts","password":"Password","passwordPlaceholder":"(unchanged)","sessionTimeout":"Session timeout","sessionTimeoutHint":"In seconds","subheader":"Authentication","username":"Username","whitelistExamples":"Example: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Add custom HTTP headers","customHeadersHint":"One per line","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Domain name","password":"Password","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Register","subheader":"Update my dynamic domain name","username":"Username"},"https":{"certificate":"Certificate","key":"Key","subheader":"Use HTTPS","tip":"Information about certificates"},"interface":{"ipAddress":"IP Address","port":"Port","subheader":"Web User Interface","useAlternativeWebUI":"Use Alternative WebUI","useUPnP":"Use UPnP / NAT-PMP port forwarding from my router"},"proxiesList":"Trusted proxies list","proxiesListHint":"Seperate IPs with semicolon ( ; )","reverseProxySupport":"Enable reverse proxy support","security":{"clickjacking":"Enable clickjacking protection","csrf":"Enable Cross-Site Request Forgery (CSRF) protection","hostHeaderValidation":"Enable Host header validation","hostHeaderValidationHint":"Seperated with semi-colon ( ; )","secureCookie":"Enable cookie \\"secure\\" flag (requires HTTPS)","serverDomains":"Server Domains","subheader":"Security"}}}');
+    XN = {
         add: {
             error: "Error while adding torrents",
             pending: "Sending torrents...",
@@ -95971,8 +96013,9 @@ Errors may happen, use with caution.`
             new: "New version available!"
         }
     };
-    XN = {
+    JN = {
         actions: {
+            cookies: "Open Cookies Manager",
             delete: "Delete Torrents",
             logs: "Open Logs",
             pause: "Pause Torrents",
@@ -95984,6 +96027,7 @@ Errors may happen, use with caution.`
         },
         addTorrents: "Add Torrents",
         overflow: {
+            cookies: "Cookies Manager",
             delete: "Delete",
             logs: "qBittorrent Logs",
             pause: "Pause",
@@ -95995,7 +96039,7 @@ Errors may happen, use with caution.`
         },
         searchTorrents: "Search torrents"
     };
-    JN = {
+    ZN = {
         empty: {
             action: "Create new task",
             value: "No tasks registered"
@@ -96029,7 +96073,7 @@ Errors may happen, use with caution.`
         },
         title: "Torrent Creator"
     };
-    ZN = {
+    QN = {
         content: {
             fileInfo: "{n} file | {n} files",
             filter: {
@@ -96138,7 +96182,7 @@ Errors may happen, use with caution.`
             tier: "Tier: {n}"
         }
     };
-    QN = {
+    eO = {
         properties: {
             added_on: "Added On",
             amount_left: "Amount Left",
@@ -96235,30 +96279,31 @@ Errors may happen, use with caution.`
             uploading: "Uploading"
         }
     };
-    eO = {
+    tO = {
         minutes: "minute | minutes",
         seconds: "second | seconds"
     };
-    tO = {
+    aO = {
         _comments: NN,
         common: ON,
         constants: HN,
-        dashboard: VN,
-        dialogs: WN,
-        login: GN,
-        logs: $N,
-        navbar: UN,
-        rssArticles: jN,
-        searchEngine: YN,
-        settings: qN,
-        toast: KN,
-        topbar: XN,
-        torrentCreator: JN,
-        torrentDetail: ZN,
-        torrent: QN,
-        units: eO
+        cookiesManager: VN,
+        dashboard: WN,
+        dialogs: GN,
+        login: $N,
+        logs: UN,
+        navbar: jN,
+        rssArticles: YN,
+        searchEngine: qN,
+        settings: KN,
+        toast: XN,
+        topbar: JN,
+        torrentCreator: ZN,
+        torrentDetail: QN,
+        torrent: eO,
+        units: tO
     };
-    aO = {
+    rO = {
         cancel: "Cancelar",
         close: "Cerrar",
         delete: "Eliminar",
@@ -96279,7 +96324,7 @@ Errors may happen, use with caution.`
         useGlobalSettings: "Usar configuración global",
         yes: "Sí"
     };
-    rO = {
+    nO = {
         addStopped: {
             always: "Siempre",
             never: "Nunca",
@@ -96394,7 +96439,7 @@ Errors may happen, use with caution.`
             preferTcp: "Preferir TCP"
         }
     };
-    nO = {
+    iO = {
         displayMode: {
             grid: "Cuadrícula",
             list: "Lista",
@@ -96461,7 +96506,7 @@ Errors may happen, use with caution.`
         toggleSortOrder: "Orden inverso",
         torrentsCount: "No hay torrents | {n} torrent | {n} torrents"
     };
-    iO = {
+    oO = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "nombre1=valor1; nombre2=valor2; ...",
@@ -96642,7 +96687,7 @@ Pueden ocurrir errores, usar con precaución.`
 Pueden ocurrir errores, usar con precaución.`
         }
     };
-    oO = {
+    sO = {
         error: "¡Error al iniciar sesión!",
         password: "Contraseña",
         rules: {
@@ -96655,7 +96700,7 @@ Pueden ocurrir errores, usar con precaución.`
         title: "Iniciar sesión",
         username: "Usuario"
     };
-    sO = {
+    lO = {
         emptyLogList: "No se encontraron registros",
         filters: {
             query: "Buscar en el mensaje del registro",
@@ -96663,7 +96708,7 @@ Pueden ocurrir errores, usar con precaución.`
         },
         title: "Registros de qBittorrent"
     };
-    lO = {
+    uO = {
         addPanel: {
             torrentsPendingCount: "{n} torrent pendiente de subir | {n} torrents pendientes de subir"
         },
@@ -96732,7 +96777,7 @@ Pueden ocurrir errores, usar con precaución.`
             }
         }
     };
-    uO = {
+    cO = {
         feeds: {
             empty: {
                 action: "Crear fuente RSS"
@@ -96760,7 +96805,7 @@ Pueden ocurrir errores, usar con precaución.`
             }
         }
     };
-    cO = {
+    dO = {
         filters: {
             category: {
                 all: "Todo",
@@ -96796,8 +96841,8 @@ Pueden ocurrir errores, usar con precaución.`
         tabHeaderEmpty: "(Consulta vacía)",
         title: "Motor de búsqueda"
     };
-    dO = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Siempre anunciar a todos los niveles","announceAllTrackers":"Siempre anunciar a todos los rastreadores en un nivel","announceIP":"Dirección IP reportada a los trackers (requiere reinicio)","coalesceReadsWrites":"Unir lecturas y escrituras (libtorrent < 2.0)","disk":{"diskCache":"Caché de disco (libtorrent < 2.0)","diskCacheExpiry":"Intervalo de caducidad de la caché de disco (libtorrent < 2.0)","diskIoReadMode":"Modo de lectura de E/S de disco","diskIoType":"Tipo de E/S de disco (libtorrent >= 2.0; requiere reinicio)","diskIoWriteMode":"Modo de escritura de E/S de disco","diskQueueSize":"Tamaño de cola de disco","subheader":"Disco"},"maxConcurrentHTTPAnnounces":"Anuncios HTTP simultáneos máximos","networking":{"outgoingPortsMax":"Puertos de salida (Máx) [0: Desactivado]","outgoingPortsMin":"Puertos de salida (Mín) [0: Desactivado]","peerTos":"Valor DSCP para conexiones con pares","subheader":"Redes","upnpLeaseDuration":"Duración del arrendamiento UPnP [0: Arrendamiento permanente]","utpTcpMixedModeAlgorithm":"Algoritmo de modo mixto μTP-TCP"},"outgoingConnectionsPerSecond":"Conexiones salientes por segundo","peerTurnover":"Porcentaje de desconexión de pares","peerTurnoverCutoff":"Porcentaje umbral de desconexión de pares","peerTurnoverInterval":"Intervalo de desconexión de pares","pieceExtentAffinity":"Usar afinidad de extensión de pieza","requestQueueSize":"Máximo de solicitudes pendientes a un solo par","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Permitir múltiples conexiones desde la misma dirección IP","blockPeersOnPrivilegedPorts":"No permitir conexión a pares en puertos privilegiados","idnSupport":"Habilitar soporte para Nombres de Dominio Internacionalizados (IDN)","mitigateSSRF":"Mitigación de solicitud de falsificación de servidor (SSRF)","subheader":"Seguridad","validateHTTPSTrackerCertificate":"Validar certificado de tracker HTTPS"},"sendBufferLowWatermark":"Marca de agua baja del búfer de envío","sendBufferWatermark":"Marca de agua del búfer de envío","sendBufferWatermarkFactor":"Factor de marca de agua del búfer de envío","sendUploadPieceSuggestions":"Enviar sugerencias de piezas de carga","socketBacklogSize":"Tamaño de cola de espera del socket","socketReceiveBufferSize":"Tamaño del búfer de recepción del socket","socketReceiveBufferSizeHint":"0: valor predeterminado del sistema","socketSendBufferSize":"Tamaño del búfer de envío de socket","socketSendBufferSizeHint":"0: valor predeterminado del sistema","stopTrackerTimeout":"Tiempo de espera para detener el rastreador","subheader":"Sección de libtorrent","threads":{"asyncIoThreads":"Hilos de E/S asincrónicos","bdecodeDepthLimit":"Límite de profundidad de Bdecode","bdecodeTokenLimit":"Límite de tokens Bdecode","filePoolSize":"Tamaño del pool de archivos","hashingThreads":"Hilos de hash (libtorrent >= 2.0)","outstandingMemory":"Memoria pendiente al verificar torrents","subheader":"Hilos"},"uploadChokingAlgorithm":"Algoritmo de estrangulamiento de carga","uploadSlotsBehavior":"Comportamiento de ranuras de carga"},"openDoc":"Abrir documentación","qbittorrent":{"allocatedRam":"Límite de uso de memoria física (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Habilitar rastreador integrado","port":"Puerto del rastreador integrado","portForward":"Habilitar reenvío de puertos para el rastreador integrado","title":"Rastreador Integrado"},"networking":{"ipAddress":{"all":"Todas las direcciones","allIPv4":"Todas las direcciones IPv4","allIPv6":"Todas las direcciones IPv6","label":"Dirección IP opcional para enlazar"},"networkInterfaces":{"any":"Cualquier interfaz","label":"Interfaz de red"},"title":"Redes"},"reannounceOnIpPortChanged":"Volver a anunciar a todos los rastreadores cuando cambie la IP o el puerto","recheckOnCompletion":"Volver a comprobar torrents al finalizar","refreshInterval":"Intervalo de actualización de la interfaz gráfica de usuario","resolveCountries":"Resolver países de pares","resumeDataStorageType":{"label":"Tipo de almacenamiento de datos de reanudación (requiere reinicio)","legacy":"Archivos de reanudación rápida","sqlite":"Base de datos SQLite (experimental)"},"saveInterval":"Intervalo de guardado de datos de reanudación","subheader":"Sección de qBittorrent","torrentFileSizeLimit":"Límite de tamaño de archivo .torrent"}},"behavior":{"logs":{"file_log_age":"Eliminar registros de copia de seguridad anteriores a","file_log_backup_enabled":"Habilitar copia de seguridad de archivos de registro","file_log_delete_old":"Eliminar registros de copia de seguridad antiguos","file_log_enabled":"Habilitar archivos de registro","file_log_max_size":"Hacer una copia de seguridad del archivo de registro después de","file_log_path":"Ruta de guardado","subheader":"Gestión de registros"},"performance_warning":"Registrar advertencia de rendimiento"},"bittorrent":{"autoAddTrackers":"Agregar automáticamente estos trackers a las nuevas descargas","autoAddTrackersHint":"Un rastreador por línea","maxActiveCheckingTorrents":"Torrents máximos activos en verificación","privacy":{"enableAnonymous":"Activar modo anónimo","enableDHT":"Habilitar DHT (red descentralizada) para encontrar más pares","enableLPD":"Habilitar el Descubrimiento de Pares Locales para encontrar más pares","enablePeX":"Habilitar el Intercambio de Pares (PeX) para encontrar más pares","encryptionMode":"Modo de encriptación","moreInfo":"Más información","subheader":"Privacidad"},"seedLimits":{"subheader":"Límites de semillas","then":"Luego","whenInactiveSeedingTimeReaches":"Cuando el tiempo de siembra inactiva llega a","whenRatioReaches":"Cuando la relación alcance","whenSeedingTimeReaches":"Cuando el tiempo de siembra llega a"},"torrentQueueing":{"downloadRateLimit":"Umbral de velocidad de descarga","excludeSlowTorrent":"No contar los torrents lentos en estos límites","maxActiveDownload":"Descargas activas máximas","maxActiveTorrent":"Torrents máximos activos","maxActiveUpload":"Cargas activas máximas","subheader":"Cola de torrents","torrentInactivityTimer":"Temporizador de inactividad de torrentes","uploadRateLimit":"Umbral de velocidad de carga"}},"connection":{"connectionLimits":{"globalMaxConnection":"Número máximo global de conexiones","globalMaxUploadSlots":"Número máximo global de ranuras de carga","perTorrentMaxConnection":"Número máximo de conexiones por torrent","perTorrentMaxUploadSlots":"Número máximo de ranuras de carga por torrent","subheader":"Límites de conexión"},"ipFiltering":{"applyToTrackers":"Aplicar a rastreadores","bannedIps":"Direcciones IP prohibidas manualmente","bannedIpsHint":"Uno en cada línea","filterPath":"Ruta del filtro (.dat, .p2p, .p2b)","subheader":"Filtrado de IP"},"listeningPort":{"incomingConnectionPort":"Puerto utilizado para conexiones entrantes","randomPort":"Puerto aleatorio","subheader":"Puerto de escucha","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"protocol":"Protocolo de conexión de pares","proxy":{"auth":{"password":"Contraseña","subtitle":"Autenticación","tip":"Información: La contraseña se guarda sin cifrar","username":"Usuario"},"bittorrent":"Usar proxy para fines de BitTorrent","host":"Anfitrión","hostNameLookup":"Usar proxy para la búsqueda de nombres de host","misc":"Usar proxy para propósitos generales","peerConnections":"Usar proxy para conexiones de pares","port":"Puerto","rss":"Usar proxy para fines de RSS","subheader":"Servidor Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtro por línea","label":"Nombres de archivo excluidos"},"mailNotification":{"authEnabled":"Autenticación","enabled":"Notificación por correo electrónico al completar la descarga","from":"De","password":"Contraseña","smtpServer":"Servidor SMTP","sslEnabled":"Este servidor requiere una conexión segura (SSL)","to":"A","username":"Nombre de usuario"},"monitoredFolders":{"actions":"Acciones","confirmDelete":"¿Estás seguro de que deseas eliminar este elemento?","editItem":"Editar","monitoredFolderPath":"Carpeta Monitoreada","newItem":"Nuevo","noData":"Aún no hay carpetas monitoreadas","otherPath":"Otra ruta","saveType":"Sobrescribir ubicación de guardado","subheader":"Carpetas Monitoreadas"},"publicSettings":{"appendQBExtension":"Agregar extensión .!qB a archivos incompletos","preAllocateDisk":"Preasignar espacio en disco para todos los archivos"},"runExternalProgram":{"onAddedEnabled":"Ejecutar programa externo al agregar torrent","onAddedLabel":"Comando","onFinishedEnabled":"Ejecutar programa externo al finalizar torrent","onFinishedLabel":"Comando","subheader":"Ejecutar programa externo","supportParamC":"%C: Número de archivos","supportParamD":"%D: Ruta de guardado","supportParamF":"%F: Ruta del contenido (igual que la ruta raíz para torrents con múltiples archivos)","supportParamG":"%G: Etiquetas (separadas por coma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: ID del torrent","supportParamL":"%L: Categoría","supportParamN":"%N: Nombre del torrent","supportParamR":"%R: Ruta raíz (ruta del primer subdirectorio del torrent)","supportParamT":"%T: Rastreador actual","supportParamTitle":"Parámetros soportados (sensible a mayúsculas y minúsculas):","supportParamZ":"%Z: Tamaño del torrent (bytes)","tip":"Consejo: Encapsula el parámetro con comillas para evitar que el texto se corte en espacios en blanco (por ejemplo, \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Modo de gestión de torrents predeterminado","categoryChangedTMM":"Cuando cambia la Ruta de Guardado de Categoría","defaultSavePath":"Ruta de Guardado Predeterminada (completa)","defaultTMMOptions":{"automatic":"Automático","manual":"Manual"},"exportDir":"Copiar archivos .torrent a","exportDirFinished":"Copiar archivos .torrent de descargas finalizadas a","keepIncomplete":"Ruta de descarga predeterminada (torrents incompletos)","paramChangedTMMOptions":{"relocateTorrent":"Mover torrent","switchToManual":"Cambiar torrent a modo manual"},"savePathChangedTMM":"Cuando cambia la Ruta de Guardado Predeterminada","subheader":"Gestión de Guardado","torrentChangedTMM":"Cuando cambia la categoría del torrent"},"whenAddTorrent":{"addToTopOfQueue":"Agregar al principio de la cola","autoDeleteMode":"Eliminar archivos .torrent después","doNotAutoStart":"No iniciar la descarga automáticamente","mergeTrackers":"Combinar trackers si el torrent ya existe","subheader":"Al agregar un torrente"}},"rss":{"autoDownloader":{"enable":"Habilitar el procesamiento de reglas RSS","subheader":"Descargador Automático de Torrents RSS"},"reader":{"enableProcessing":"Habilitar la obtención de feeds RSS","feedsRefreshInterval":"Intervalo de actualización de feeds","maximumArticlesPerFeed":"Número máximo de artículos por fuente","subheader":"Lector de RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Descargar episodios REPACK/PROPER","filters":"Filtros","filtersHint":"Uno por línea","subheader":"Filtro inteligente de episodios RSS"},"useIdForRssLinks":"Usar ID para enlace de artículo RSS"},"saveSuccess":"¡Ajustes guardados!","speed":{"download":"Descargar","scheduler":{"from":"De","selectButtonLabel":"Seleccionar tiempo","subheader":"Programar el uso de límites de velocidad alternativos","to":"A","when":"Cuándo"},"settings":{"applyToPeersOnLan":"Aplicar límite de velocidad a pares en LAN","applyToTransportOverhead":"Aplicar límite de velocidad a la sobrecarga de transporte","applyToUtp":"Aplicar límite de velocidad al protocolo µTP"},"subheader":{"alternative":"Límites de velocidad alternativos","global":"Límites de velocidad globales","settings":"Configuración de límites de velocidad"},"tip":"0 significa ilimitado","upload":"Cargar"},"tabs":{"advanced":"Avanzado","behavior":"Comportamiento","bittorrent":"BitTorrent","connection":"Conexión","downloads":"Descargas","rss":"RSS","speed":"Velocidad","tagsAndCategories":"Etiquetas y Categorías","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Vista de cuadrícula","list":"Vista de lista","table":"Vista de tabla"}},"webui":"Interfaz Web"},"tagsAndCategories":{"categoriesSubheader":"Categorías disponibles:","createNewCategory":"Crear nueva categoría","createNewTag":"Crear nueva etiqueta","noCategories":"Aún no hay categorías","noTags":"Sin etiquetas todavía","tagsSubheader":"Etiquetas disponibles:"},"title":"Ajustes","vuetorrent":{"general":{"check_new":"Buscar nueva versión","currentVersion":"Versión Actual","customTitle":"Título personalizado","dateFormat":"Formato de fecha","download":"Exportar configuración","fileContentInterval":"Intervalo de actualización de contenido de archivo torrent","hideChipIfUnset":"Ocultar chips si no están establecidos","historySize":"Tamaño del historial en campos elegibles","import":"Importar ajustes","isDrawerRight":"Cajón derecho","isShutdownButtonVisible":"Mostrar botón de apagado","language":"Idioma","paginationSize":{"infinite_scroll":"Desplazamiento infinito","label":"Tamaño de paginación","warning":"El uso de valores altos puede afectar el rendimiento"},"qbittorrentVersion":"Versión de qBittorrent","refreshInterval":"Intervalo de actualización de la API de qBittorrent","registerMagnet":"Registrar enlaces magnéticos","resetSettings":"Restablecer ajustes","showAlltimeStat":"Mostrar estadísticas de todos los tiempos","showCurrentSpeed":"Mostrar velocidad actual","showFreeSpace":"Mostrar espacio libre","showSessionStat":"Mostrar estadísticas de sesión","showSpeedGraph":"Mostrar gráfico de velocidad","tip":"Estas configuraciones son para la propia interfaz de usuario web personalizada","useBinarySize":"Reemplazar tamaños de datos por unidades binarias (kB -> KiB)","useBitSpeed":"Reemplazar los valores de velocidad por bits (kB/s -> kbps)","vueTorrentTitle":"Título de la pestaña"},"torrentCard":{"grid":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de cuadrícula","doneTip":"Propiedades para mostrar de los torrents completados en la vista de cuadrícula"},"list":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de lista","doneTip":"Propiedades para mostrar de los torrents completados en la vista de lista"},"table":{"tip":"Propiedades para mostrar de los torrents en la vista de tabla"}}},"webUI":{"authentication":{"banDuration":"Duración del bloqueo","banDurationHint":"En segundos","bypassLocalhost":"Omitir autenticación para clientes en localhost","bypassWhitelist":"Omitir autenticación para clientes en subredes de IP en lista blanca","maxAttempts":"Intentos máximos","password":"Contraseña","passwordPlaceholder":"(sin cambios)","sessionTimeout":"Tiempo de espera de sesión","sessionTimeoutHint":"En segundos","subheader":"Autenticación","username":"Usuario","whitelistExamples":"Ejemplo: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Agregar encabezados HTTP personalizados","customHeadersHint":"Uno por línea","customHeadersPlaceholder":"Encabezado1: valor1\\nEncabezado2: valor2\\n...","dynDns":{"domainName":"Nombre de dominio","password":"Contraseña","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Registrar","subheader":"Actualizar mi nombre de dominio dinámico","username":"Usuario"},"https":{"certificate":"Certificado","key":"Clave","subheader":"Usar HTTPS","tip":"Información sobre certificados"},"interface":{"ipAddress":"Dirección IP","port":"Puerto","subheader":"Interfaz de Usuario Web","useAlternativeWebUI":"Usar interfaz web alternativa","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"proxiesList":"Lista de proxies confiables","proxiesListHint":"Separar IPs con punto y coma (;) ","reverseProxySupport":"Habilitar soporte para proxy inverso","security":{"clickjacking":"Habilitar protección contra clickjacking","csrf":"Habilitar protección contra falsificación de solicitudes en sitios cruzados (CSRF)","hostHeaderValidation":"Habilitar validación de encabezado de host","hostHeaderValidationHint":"Separado por punto y coma (;) ","secureCookie":"Habilitar la bandera \\"segura\\" de las cookies (requiere HTTPS)","serverDomains":"Dominios del servidor","subheader":"Seguridad"}}}');
-    hO = {
+    hO = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Siempre anunciar a todos los niveles","announceAllTrackers":"Siempre anunciar a todos los rastreadores en un nivel","announceIP":"Dirección IP reportada a los trackers (requiere reinicio)","coalesceReadsWrites":"Unir lecturas y escrituras (libtorrent < 2.0)","disk":{"diskCache":"Caché de disco (libtorrent < 2.0)","diskCacheExpiry":"Intervalo de caducidad de la caché de disco (libtorrent < 2.0)","diskIoReadMode":"Modo de lectura de E/S de disco","diskIoType":"Tipo de E/S de disco (libtorrent >= 2.0; requiere reinicio)","diskIoWriteMode":"Modo de escritura de E/S de disco","diskQueueSize":"Tamaño de cola de disco","subheader":"Disco"},"maxConcurrentHTTPAnnounces":"Anuncios HTTP simultáneos máximos","networking":{"outgoingPortsMax":"Puertos de salida (Máx) [0: Desactivado]","outgoingPortsMin":"Puertos de salida (Mín) [0: Desactivado]","peerTos":"Valor DSCP para conexiones con pares","subheader":"Redes","upnpLeaseDuration":"Duración del arrendamiento UPnP [0: Arrendamiento permanente]","utpTcpMixedModeAlgorithm":"Algoritmo de modo mixto μTP-TCP"},"outgoingConnectionsPerSecond":"Conexiones salientes por segundo","peerTurnover":"Porcentaje de desconexión de pares","peerTurnoverCutoff":"Porcentaje umbral de desconexión de pares","peerTurnoverInterval":"Intervalo de desconexión de pares","pieceExtentAffinity":"Usar afinidad de extensión de pieza","requestQueueSize":"Máximo de solicitudes pendientes a un solo par","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Permitir múltiples conexiones desde la misma dirección IP","blockPeersOnPrivilegedPorts":"No permitir conexión a pares en puertos privilegiados","idnSupport":"Habilitar soporte para Nombres de Dominio Internacionalizados (IDN)","mitigateSSRF":"Mitigación de solicitud de falsificación de servidor (SSRF)","subheader":"Seguridad","validateHTTPSTrackerCertificate":"Validar certificado de tracker HTTPS"},"sendBufferLowWatermark":"Marca de agua baja del búfer de envío","sendBufferWatermark":"Marca de agua del búfer de envío","sendBufferWatermarkFactor":"Factor de marca de agua del búfer de envío","sendUploadPieceSuggestions":"Enviar sugerencias de piezas de carga","socketBacklogSize":"Tamaño de cola de espera del socket","socketReceiveBufferSize":"Tamaño del búfer de recepción del socket","socketReceiveBufferSizeHint":"0: valor predeterminado del sistema","socketSendBufferSize":"Tamaño del búfer de envío de socket","socketSendBufferSizeHint":"0: valor predeterminado del sistema","stopTrackerTimeout":"Tiempo de espera para detener el rastreador","subheader":"Sección de libtorrent","threads":{"asyncIoThreads":"Hilos de E/S asincrónicos","bdecodeDepthLimit":"Límite de profundidad de Bdecode","bdecodeTokenLimit":"Límite de tokens Bdecode","filePoolSize":"Tamaño del pool de archivos","hashingThreads":"Hilos de hash (libtorrent >= 2.0)","outstandingMemory":"Memoria pendiente al verificar torrents","subheader":"Hilos"},"uploadChokingAlgorithm":"Algoritmo de estrangulamiento de carga","uploadSlotsBehavior":"Comportamiento de ranuras de carga"},"openDoc":"Abrir documentación","qbittorrent":{"allocatedRam":"Límite de uso de memoria física (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Habilitar rastreador integrado","port":"Puerto del rastreador integrado","portForward":"Habilitar reenvío de puertos para el rastreador integrado","title":"Rastreador Integrado"},"networking":{"ipAddress":{"all":"Todas las direcciones","allIPv4":"Todas las direcciones IPv4","allIPv6":"Todas las direcciones IPv6","label":"Dirección IP opcional para enlazar"},"networkInterfaces":{"any":"Cualquier interfaz","label":"Interfaz de red"},"title":"Redes"},"reannounceOnIpPortChanged":"Volver a anunciar a todos los rastreadores cuando cambie la IP o el puerto","recheckOnCompletion":"Volver a comprobar torrents al finalizar","refreshInterval":"Intervalo de actualización de la interfaz gráfica de usuario","resolveCountries":"Resolver países de pares","resumeDataStorageType":{"label":"Tipo de almacenamiento de datos de reanudación (requiere reinicio)","legacy":"Archivos de reanudación rápida","sqlite":"Base de datos SQLite (experimental)"},"saveInterval":"Intervalo de guardado de datos de reanudación","subheader":"Sección de qBittorrent","torrentFileSizeLimit":"Límite de tamaño de archivo .torrent"}},"behavior":{"logs":{"file_log_age":"Eliminar registros de copia de seguridad anteriores a","file_log_backup_enabled":"Habilitar copia de seguridad de archivos de registro","file_log_delete_old":"Eliminar registros de copia de seguridad antiguos","file_log_enabled":"Habilitar archivos de registro","file_log_max_size":"Hacer una copia de seguridad del archivo de registro después de","file_log_path":"Ruta de guardado","subheader":"Gestión de registros"},"performance_warning":"Registrar advertencia de rendimiento"},"bittorrent":{"autoAddTrackers":"Agregar automáticamente estos trackers a las nuevas descargas","autoAddTrackersHint":"Un rastreador por línea","maxActiveCheckingTorrents":"Torrents máximos activos en verificación","privacy":{"enableAnonymous":"Activar modo anónimo","enableDHT":"Habilitar DHT (red descentralizada) para encontrar más pares","enableLPD":"Habilitar el Descubrimiento de Pares Locales para encontrar más pares","enablePeX":"Habilitar el Intercambio de Pares (PeX) para encontrar más pares","encryptionMode":"Modo de encriptación","moreInfo":"Más información","subheader":"Privacidad"},"seedLimits":{"subheader":"Límites de semillas","then":"Luego","whenInactiveSeedingTimeReaches":"Cuando el tiempo de siembra inactiva llega a","whenRatioReaches":"Cuando la relación alcance","whenSeedingTimeReaches":"Cuando el tiempo de siembra llega a"},"torrentQueueing":{"downloadRateLimit":"Umbral de velocidad de descarga","excludeSlowTorrent":"No contar los torrents lentos en estos límites","maxActiveDownload":"Descargas activas máximas","maxActiveTorrent":"Torrents máximos activos","maxActiveUpload":"Cargas activas máximas","subheader":"Cola de torrents","torrentInactivityTimer":"Temporizador de inactividad de torrentes","uploadRateLimit":"Umbral de velocidad de carga"}},"connection":{"connectionLimits":{"globalMaxConnection":"Número máximo global de conexiones","globalMaxUploadSlots":"Número máximo global de ranuras de carga","perTorrentMaxConnection":"Número máximo de conexiones por torrent","perTorrentMaxUploadSlots":"Número máximo de ranuras de carga por torrent","subheader":"Límites de conexión"},"ipFiltering":{"applyToTrackers":"Aplicar a rastreadores","bannedIps":"Direcciones IP prohibidas manualmente","bannedIpsHint":"Uno en cada línea","filterPath":"Ruta del filtro (.dat, .p2p, .p2b)","subheader":"Filtrado de IP"},"listeningPort":{"incomingConnectionPort":"Puerto utilizado para conexiones entrantes","randomPort":"Puerto aleatorio","subheader":"Puerto de escucha","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"protocol":"Protocolo de conexión de pares","proxy":{"auth":{"password":"Contraseña","subtitle":"Autenticación","tip":"Información: La contraseña se guarda sin cifrar","username":"Usuario"},"bittorrent":"Usar proxy para fines de BitTorrent","host":"Anfitrión","hostNameLookup":"Usar proxy para la búsqueda de nombres de host","misc":"Usar proxy para propósitos generales","peerConnections":"Usar proxy para conexiones de pares","port":"Puerto","rss":"Usar proxy para fines de RSS","subheader":"Servidor Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtro por línea","label":"Nombres de archivo excluidos"},"mailNotification":{"authEnabled":"Autenticación","enabled":"Notificación por correo electrónico al completar la descarga","from":"De","password":"Contraseña","smtpServer":"Servidor SMTP","sslEnabled":"Este servidor requiere una conexión segura (SSL)","to":"A","username":"Nombre de usuario"},"monitoredFolders":{"actions":"Acciones","confirmDelete":"¿Estás seguro de que deseas eliminar este elemento?","editItem":"Editar","monitoredFolderPath":"Carpeta Monitoreada","newItem":"Nuevo","noData":"Aún no hay carpetas monitoreadas","otherPath":"Otra ruta","saveType":"Sobrescribir ubicación de guardado","subheader":"Carpetas Monitoreadas"},"publicSettings":{"appendQBExtension":"Agregar extensión .!qB a archivos incompletos","preAllocateDisk":"Preasignar espacio en disco para todos los archivos"},"runExternalProgram":{"onAddedEnabled":"Ejecutar programa externo al agregar torrent","onAddedLabel":"Comando","onFinishedEnabled":"Ejecutar programa externo al finalizar torrent","onFinishedLabel":"Comando","subheader":"Ejecutar programa externo","supportParamC":"%C: Número de archivos","supportParamD":"%D: Ruta de guardado","supportParamF":"%F: Ruta del contenido (igual que la ruta raíz para torrents con múltiples archivos)","supportParamG":"%G: Etiquetas (separadas por coma)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: ID del torrent","supportParamL":"%L: Categoría","supportParamN":"%N: Nombre del torrent","supportParamR":"%R: Ruta raíz (ruta del primer subdirectorio del torrent)","supportParamT":"%T: Rastreador actual","supportParamTitle":"Parámetros soportados (sensible a mayúsculas y minúsculas):","supportParamZ":"%Z: Tamaño del torrent (bytes)","tip":"Consejo: Encapsula el parámetro con comillas para evitar que el texto se corte en espacios en blanco (por ejemplo, \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Modo de gestión de torrents predeterminado","categoryChangedTMM":"Cuando cambia la Ruta de Guardado de Categoría","defaultSavePath":"Ruta de Guardado Predeterminada (completa)","defaultTMMOptions":{"automatic":"Automático","manual":"Manual"},"exportDir":"Copiar archivos .torrent a","exportDirFinished":"Copiar archivos .torrent de descargas finalizadas a","keepIncomplete":"Ruta de descarga predeterminada (torrents incompletos)","paramChangedTMMOptions":{"relocateTorrent":"Mover torrent","switchToManual":"Cambiar torrent a modo manual"},"savePathChangedTMM":"Cuando cambia la Ruta de Guardado Predeterminada","subheader":"Gestión de Guardado","torrentChangedTMM":"Cuando cambia la categoría del torrent"},"whenAddTorrent":{"addToTopOfQueue":"Agregar al principio de la cola","autoDeleteMode":"Eliminar archivos .torrent después","doNotAutoStart":"No iniciar la descarga automáticamente","mergeTrackers":"Combinar trackers si el torrent ya existe","subheader":"Al agregar un torrente"}},"rss":{"autoDownloader":{"enable":"Habilitar el procesamiento de reglas RSS","subheader":"Descargador Automático de Torrents RSS"},"reader":{"enableProcessing":"Habilitar la obtención de feeds RSS","feedsRefreshInterval":"Intervalo de actualización de feeds","maximumArticlesPerFeed":"Número máximo de artículos por fuente","subheader":"Lector de RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Descargar episodios REPACK/PROPER","filters":"Filtros","filtersHint":"Uno por línea","subheader":"Filtro inteligente de episodios RSS"},"useIdForRssLinks":"Usar ID para enlace de artículo RSS"},"saveSuccess":"¡Ajustes guardados!","speed":{"download":"Descargar","scheduler":{"from":"De","selectButtonLabel":"Seleccionar tiempo","subheader":"Programar el uso de límites de velocidad alternativos","to":"A","when":"Cuándo"},"settings":{"applyToPeersOnLan":"Aplicar límite de velocidad a pares en LAN","applyToTransportOverhead":"Aplicar límite de velocidad a la sobrecarga de transporte","applyToUtp":"Aplicar límite de velocidad al protocolo µTP"},"subheader":{"alternative":"Límites de velocidad alternativos","global":"Límites de velocidad globales","settings":"Configuración de límites de velocidad"},"tip":"0 significa ilimitado","upload":"Cargar"},"tabs":{"advanced":"Avanzado","behavior":"Comportamiento","bittorrent":"BitTorrent","connection":"Conexión","downloads":"Descargas","rss":"RSS","speed":"Velocidad","tagsAndCategories":"Etiquetas y Categorías","vuetorrent":{"general":"General","title":"VueTorrent","torrent_card":{"grid":"Vista de cuadrícula","list":"Vista de lista","table":"Vista de tabla"}},"webui":"Interfaz Web"},"tagsAndCategories":{"categoriesSubheader":"Categorías disponibles:","createNewCategory":"Crear nueva categoría","createNewTag":"Crear nueva etiqueta","noCategories":"Aún no hay categorías","noTags":"Sin etiquetas todavía","tagsSubheader":"Etiquetas disponibles:"},"title":"Ajustes","vuetorrent":{"general":{"check_new":"Buscar nueva versión","currentVersion":"Versión Actual","customTitle":"Título personalizado","dateFormat":"Formato de fecha","download":"Exportar configuración","fileContentInterval":"Intervalo de actualización de contenido de archivo torrent","hideChipIfUnset":"Ocultar chips si no están establecidos","historySize":"Tamaño del historial en campos elegibles","import":"Importar ajustes","isDrawerRight":"Cajón derecho","isShutdownButtonVisible":"Mostrar botón de apagado","language":"Idioma","paginationSize":{"infinite_scroll":"Desplazamiento infinito","label":"Tamaño de paginación","warning":"El uso de valores altos puede afectar el rendimiento"},"qbittorrentVersion":"Versión de qBittorrent","refreshInterval":"Intervalo de actualización de la API de qBittorrent","registerMagnet":"Registrar enlaces magnéticos","resetSettings":"Restablecer ajustes","showAlltimeStat":"Mostrar estadísticas de todos los tiempos","showCurrentSpeed":"Mostrar velocidad actual","showFreeSpace":"Mostrar espacio libre","showSessionStat":"Mostrar estadísticas de sesión","showSpeedGraph":"Mostrar gráfico de velocidad","tip":"Estas configuraciones son para la propia interfaz de usuario web personalizada","useBinarySize":"Reemplazar tamaños de datos por unidades binarias (kB -> KiB)","useBitSpeed":"Reemplazar los valores de velocidad por bits (kB/s -> kbps)","vueTorrentTitle":"Título de la pestaña"},"torrentCard":{"grid":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de cuadrícula","doneTip":"Propiedades para mostrar de los torrents completados en la vista de cuadrícula"},"list":{"busyTip":"Propiedades para mostrar de los torrents incompletos en la vista de lista","doneTip":"Propiedades para mostrar de los torrents completados en la vista de lista"},"table":{"tip":"Propiedades para mostrar de los torrents en la vista de tabla"}}},"webUI":{"authentication":{"banDuration":"Duración del bloqueo","banDurationHint":"En segundos","bypassLocalhost":"Omitir autenticación para clientes en localhost","bypassWhitelist":"Omitir autenticación para clientes en subredes de IP en lista blanca","maxAttempts":"Intentos máximos","password":"Contraseña","passwordPlaceholder":"(sin cambios)","sessionTimeout":"Tiempo de espera de sesión","sessionTimeoutHint":"En segundos","subheader":"Autenticación","username":"Usuario","whitelistExamples":"Ejemplo: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Agregar encabezados HTTP personalizados","customHeadersHint":"Uno por línea","customHeadersPlaceholder":"Encabezado1: valor1\\nEncabezado2: valor2\\n...","dynDns":{"domainName":"Nombre de dominio","password":"Contraseña","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Registrar","subheader":"Actualizar mi nombre de dominio dinámico","username":"Usuario"},"https":{"certificate":"Certificado","key":"Clave","subheader":"Usar HTTPS","tip":"Información sobre certificados"},"interface":{"ipAddress":"Dirección IP","port":"Puerto","subheader":"Interfaz de Usuario Web","useAlternativeWebUI":"Usar interfaz web alternativa","useUPnP":"Usar el reenvío de puertos UPnP / NAT-PMP desde mi router"},"proxiesList":"Lista de proxies confiables","proxiesListHint":"Separar IPs con punto y coma (;) ","reverseProxySupport":"Habilitar soporte para proxy inverso","security":{"clickjacking":"Habilitar protección contra clickjacking","csrf":"Habilitar protección contra falsificación de solicitudes en sitios cruzados (CSRF)","hostHeaderValidation":"Habilitar validación de encabezado de host","hostHeaderValidationHint":"Separado por punto y coma (;) ","secureCookie":"Habilitar la bandera \\"segura\\" de las cookies (requiere HTTPS)","serverDomains":"Dominios del servidor","subheader":"Seguridad"}}}');
+    mO = {
         add: {
             error: "Error al agregar torrents",
             pending: "Enviando torrents...",
@@ -96818,7 +96863,7 @@ Pueden ocurrir errores, usar con precaución.`
             new: "¡Nueva versión disponible!"
         }
     };
-    mO = {
+    fO = {
         actions: {
             delete: "Eliminar Torrents",
             logs: "Abrir registros",
@@ -96840,7 +96885,7 @@ Pueden ocurrir errores, usar con precaución.`
         },
         searchTorrents: "Buscar torrents"
     };
-    fO = {
+    pO = {
         content: {
             fileInfo: "{n} archivo | {n} archivos",
             filter_placeholder: "Buscar en el árbol de archivos",
@@ -96929,7 +96974,7 @@ Pueden ocurrir errores, usar con precaución.`
             tier: "Nivel: {n}"
         }
     };
-    pO = {
+    gO = {
         properties: {
             added_on: "Añadido el",
             amount_left: "Cantidad Restante",
@@ -97014,29 +97059,29 @@ Pueden ocurrir errores, usar con precaución.`
             uploading: "Subiendo"
         }
     };
-    gO = {
+    vO = {
         minutes: "minuto | minuto | minutos",
         seconds: "segundo | segundos | segundos"
     };
-    vO = {
-        common: aO,
-        constants: rO,
-        dashboard: nO,
-        dialogs: iO,
-        login: oO,
-        logs: sO,
-        navbar: lO,
-        rssArticles: uO,
-        searchEngine: cO,
-        settings: dO,
-        toast: hO,
-        topbar: mO,
-        torrentDetail: fO,
-        torrent: pO,
-        units: gO
+    yO = {
+        common: rO,
+        constants: nO,
+        dashboard: iO,
+        dialogs: oO,
+        login: sO,
+        logs: lO,
+        navbar: uO,
+        rssArticles: cO,
+        searchEngine: dO,
+        settings: hO,
+        toast: mO,
+        topbar: fO,
+        torrentDetail: pO,
+        torrent: gO,
+        units: vO
     };
-    yO = "Contenu généré par l'application Tolgee. NE JAMAIS MODIFIER MANUELLEMENT CAR CE SERA ÉCRASÉ";
-    bO = {
+    bO = "Contenu généré par l'application Tolgee. NE JAMAIS MODIFIER MANUELLEMENT CAR CE SERA ÉCRASÉ";
+    FO = {
         cancel: "Annuler",
         close: "Fermer",
         delete: "Supprimer",
@@ -97059,7 +97104,7 @@ Pueden ocurrir errores, usar con precaución.`
         useGlobalSettings: "Utiliser les paramètres globaux",
         yes: "Oui"
     };
-    FO = {
+    kO = {
         addStopped: {
             always: "Toujours",
             never: "Jamais",
@@ -97192,7 +97237,7 @@ Pueden ocurrir errores, usar con precaución.`
             preferTcp: "Préférer TCP"
         }
     };
-    kO = {
+    xO = {
         displayMode: {
             grid: "Grille",
             list: "Liste",
@@ -97260,7 +97305,7 @@ Pueden ocurrir errores, usar con precaución.`
         toggleSortOrder: "Inverser l'order de tri",
         torrentsCount: "Aucun torrent | {n} torrent | {n} torrents"
     };
-    xO = {
+    wO = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "nom1=valeur1; nom2=valeur2; ...",
@@ -97463,7 +97508,7 @@ Pueden ocurrir errores, usar con precaución.`
 Des erreurs peuvent survenir, à utiliser avec précaution.`
         }
     };
-    wO = {
+    SO = {
         error: "Echec de la connexion !",
         password: "Mot de passe",
         rules: {
@@ -97476,7 +97521,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         title: "Connexion",
         username: "Nom d'utilisateur"
     };
-    SO = {
+    CO = {
         emptyLogList: "Aucun logs trouvés",
         filters: {
             query: "Rechercher dans le corps des logs",
@@ -97484,7 +97529,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         },
         title: "Logs de qBittorrent"
     };
-    CO = {
+    AO = {
         addPanel: {
             torrentsPendingCount: "{n} torrent en attente d'ajout | {n} torrents en attente d'ajout"
         },
@@ -97554,7 +97599,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             }
         }
     };
-    AO = {
+    DO = {
         feeds: {
             empty: {
                 action: "Créer un flux RSS",
@@ -97596,7 +97641,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             rules: "Afficher les règles"
         }
     };
-    DO = {
+    TO = {
         filters: {
             category: {
                 all: "Tout",
@@ -97632,8 +97677,8 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         tabHeaderEmpty: "(Requête vide)",
         title: "Moteur de recherche"
     };
-    TO = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Bannir automatiquement le pair du lecteur BT","auto_ban_unknown_peer":"Bannir automatiquement les pairs inconnus","auto_update_trackers":"Mettre à jour automatiquement la liste des trackers publics","public_trackers":"Trackers publics","trackers_list_url":"Personnaliser la liste des URL des trackers"}},"advanced":{"libtorrent":{"announceAllTiers":"Toujours annoncer à tous les tiers","announceAllTrackers":"Toujours annoncer à tous les trackers du même tier","announceIP":"Adresse IP rapportée aux trackers (redémarrage nécessaire)","coalesceReadsWrites":"Fusionner les lectures et écritures (libtorrent < 2.0)","disk":{"diskCache":"Cache disque (libtorrent < 2.0)","diskCacheExpiry":"Intervalle d'expiration du cache disque (libtorrent < 2.0)","diskIoReadMode":"Mode de lecture des E/S du disque","diskIoType":"Type d'E/S du disque (libtorrent >= 2.0 ; nécessite un redémarrage)","diskIoWriteMode":"Mode d'écriture des E/S du disque","diskQueueSize":"Taille de la file d'attente du disque","subheader":"Disque"},"maxConcurrentHTTPAnnounces":"Annonces HTTP concurrentes max","networking":{"outgoingPortsMax":"Ports sortants (Max) [0 : Désactivé]","outgoingPortsMin":"Ports sortants (Min) [0 : Désactivé]","peerTos":"Valuer DSCP pour la connexion aux pairs","subheader":"Réseau","upnpLeaseDuration":"Durée du bail UPnP [0: bail permanent]","utpTcpMixedModeAlgorithm":"Algorithme mixte μTP-TCP"},"outgoingConnectionsPerSecond":"Connexions sortantes par seconde","peerTurnover":"Pourcentage de déconnexion des pairs","peerTurnoverCutoff":"Pourcentage du seuil de rotation des pairs","peerTurnoverInterval":"Intervalle de déconnexion de la rotation des pairs","pieceExtentAffinity":"Utiliser l'affinité par extension de morceau","requestQueueSize":"Nombre maximal de demandes en attente adressées à un seul pair","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Autoriser plusieurs connexions venant de la même adresse IP","blockPeersOnPrivilegedPorts":"Interdire la connexion à des pairs sur des ports privilégiés","idnSupport":"Activer la prise en charge des noms de domaine internationalisés (IDN)","mitigateSSRF":"Atténuation de la falsification des demandes côté serveur (SSRF)","subheader":"Sécurité","validateHTTPSTrackerCertificate":"Valider le certificat HTTPS du tracker"},"sendBufferLowWatermark":"Envoi du filigrane bas de la mémoire tampon","sendBufferWatermark":"Envoi du filigrane de la mémoire tampon","sendBufferWatermarkFactor":"Envoi du facteur de filigrane de la mémoire tampon","sendUploadPieceSuggestions":"Envoyer des suggestions de pièces à télécharger","socketBacklogSize":"Taille de l'arriéré de prises","socketReceiveBufferSize":"Taille de la mémoire tampon de réception du socket","socketReceiveBufferSizeHint":"0 : valeur par défaut du système","socketSendBufferSize":"Taille de la mémoire tampon d'envoi du socket","socketSendBufferSizeHint":"0 : valeur par défaut du système","ssl":{"rule":"Le port doit être compris entre 0 et 65535"},"stopTrackerTimeout":"Délai d'attente lors de l’arrêt du tracker","subheader":"Section libtorrent","threads":{"asyncIoThreads":"Threads d'E/S asynchrones","bdecodeDepthLimit":"Limite de profondeur Bdecode","bdecodeTokenLimit":"Limite de jeton Bdecode","filePoolSize":"Taille de la pool de fichiers","hashingThreads":"Fils de hachage (libtorrent >= 2.0)","outstandingMemory":"Mémoire exceptionnelle lors de la vérification des torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Télécharger l'algorithme d'étouffement","uploadSlotsBehavior":"Comportement des créneaux de téléchargement"},"openDoc":"Ouvrir la documentation","qbittorrent":{"allocatedRam":"Limite d'utilisation de la mémoire vive (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Activer le tracker embarqué","port":"Port du tracker embarqué","portForward":"Activer la redirection de port pour le tracker embarqué","title":"Tracker embarqué"},"enableMarkOfTheWebHint":"Nécessite macOS ou Windows","networking":{"ipAddress":{"all":"Toutes les adresses","allIPv4":"Toutes les adresses IPv4","allIPv6":"Toutes les adresses IPv6","label":"Adresse IP facultative à laquelle se lier"},"networkInterfaces":{"any":"N'importe quelle interface","label":"Interface réseau"},"title":"Réseau"},"reannounceOnIpPortChanged":"Annoncer à tous les trackers lorsque l'IP ou le port est modifié","recheckOnCompletion":"Revérifier les torrents à la fin","refreshInterval":"Intervalle de rafraîchissement de l'interface graphique","resolveCountries":"Résoudre les pays des pairs","resumeDataStorageType":{"label":"Type de stockage des données de reprise (nécessite un redémarrage)","legacy":"Fichiers fastresume","sqlite":"Base de données SQLite (expérimental)"},"saveInterval":"Intervalle de sauvegarde des données de reprise","subheader":"Section qBittorrent","torrentFileSizeLimit":"Limite de taille des fichiers .torrent"}},"behavior":{"logs":{"file_log_age":"Supprimer les archives des logs plus anciennes que","file_log_backup_enabled":"Activer l'archivage des fichiers de log","file_log_delete_old":"Supprimer les anciennes archives des logs","file_log_enabled":"Activer les fichiers de log","file_log_max_size":"Archiver les fichiers de log après","file_log_path":"Répertoire de destination","subheader":"Gestion des logs"},"performance_warning":"Loguer les avertissements de performance"},"bittorrent":{"autoAddTrackers":"Ajouter automatiquement ces trackers aux nouveaux téléchargements","autoAddTrackersHint":"Un tracker par ligne","maxActiveCheckingTorrents":"Nombre maximum de torrents en vérification actifs","privacy":{"enableAnonymous":"Activer le mode anonyme","enableDHT":"Activer le DHT (réseau décentralisé) pour trouver plus de pairs","enableLPD":"Activer la découverte de pairs locaux pour trouver plus de pairs","enablePeX":"Activer l'échange de pairs (PeX) pour trouver plus de pairs","encryptionMode":"Mode de chiffrage","moreInfo":"Plus d'informations","subheader":"Confidentialité"},"seedLimits":{"subheader":"Limites de seed","then":"Alors","whenInactiveSeedingTimeReaches":"Lorsque le temps de seed inactif atteint","whenRatioReaches":"Lorsque le ratio atteint","whenSeedingTimeReaches":"Lorsque le temps de seed atteint"},"torrentQueueing":{"downloadRateLimit":"Seuil du débit de téléchargement","excludeSlowTorrent":"Ne comptez pas les torrents lents dans ces limites.","maxActiveDownload":"Nombre maximum de téléchargements actifs","maxActiveTorrent":"Nombre maximum de torrents actifs","maxActiveUpload":"Nombre maximum d'envois actifs","subheader":"Mise en file d'attente des torrents","torrentInactivityTimer":"Minuterie d'inactivité des torrents","uploadRateLimit":"Seuil du taux de téléchargement"}},"connection":{"connectionLimits":{"globalMaxConnection":"Nombre maximum global de connexions","globalMaxUploadSlots":"Nombre maximum global d'emplacements d'envoi","perTorrentMaxConnection":"Nombre maximum de connexions par torrent","perTorrentMaxUploadSlots":"Nombre maximum d'emplacements d'envoi par torrent","subheader":"Limites de connexion"},"i2p":{"port":"Port"},"ipFiltering":{"applyToTrackers":"Appliquer aux trackers","bannedIps":"Adresses IP bannies manuellement","bannedIpsHint":"Un sur chaque ligne","filterPath":"Chemin filtrés (.dat, .p2p, .p2b)","subheader":"Filtrage d'IP"},"listeningPort":{"incomingConnectionPort":"Port utilisé pour les connexions entrantes","randomPort":"Port aléatoire","subheader":"Port d'écoute","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP de mon routeur"},"protocol":"Protocole de connexion entre pairs","proxy":{"auth":{"password":"Mot de passe","subtitle":"Authentification","tip":"Info : Le mot de passe est enregistré en clair","username":"Nom d'utilisateur"},"bittorrent":"Utiliser un proxy pour BitTorrent","host":"Hôte","hostNameLookup":"Utiliser un proxy pour la résolution des noms d'hôtes","misc":"Utiliser un proxy à des fins générales","peerConnections":"Utiliser un proxy pour les connexions entre pairs","port":"Port","rss":"Utiliser un proxy pour les flux RSS","subheader":"Serveur Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtre par ligne","label":"Exclusion des noms de fichiers"},"mailNotification":{"authEnabled":"Authentification","enabled":"Notification par courrier électronique à la fin du téléchargement","from":"De","password":"Mot de passe","smtpServer":"Serveur SMTP","sslEnabled":"Ce serveur nécessite une connexion sécurisée (SSL)","test":{"label":"Envoyer un email de test"},"to":"Pour","username":"Nom d'utilisateur"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Êtes-vous sûr de vouloir supprimer cet élément ?","editItem":"Modifier","monitoredFolderPath":"Dossier surveillé","newItem":"Nouveau","noData":"Pas encore de dossier surveillé","otherPath":"Autre chemin","saveType":"Remplacer l'emplacement de sauvegarde","subheader":"Dossiers surveillés"},"publicSettings":{"appendQBExtension":"Ajouter l'extension .!qB aux fichiers incomplets","preAllocateDisk":"Pré-allouer l'espace disque pour les fichiers"},"runExternalProgram":{"onAddedEnabled":"Exécuter un programme externe à l'ajout d'un torrent","onAddedLabel":"Commande","onFinishedEnabled":"Exécuter un programme externe sur le torrent terminé","onFinishedLabel":"Commande","subheader":"Exécuter un programme externe","supportParamC":"%C : Nombre de fichiers","supportParamD":"%D : Répertoire de destination","supportParamF":"%F : Chemin du contenu (identique à la racine pour les torrents multi-fichiers)","supportParamG":"%G : Étiquettes (séparées par une virgule)","supportParamI":"%I: Info hash v1","supportParamJ":"%J : Info hash v2","supportParamK":"%K : ID du torrent","supportParamL":"%L : Catégorie","supportParamN":"%N : Nom du torrent","supportParamR":"%R : Racine du chemin (chemin du premier sous-répertoire du torrent)","supportParamT":"%T : Tracker actuel","supportParamTitle":"Paramètres pris en charge (sensibles à la casse) :","supportParamZ":"%Z : Taille du torrent (octets)","tip":"Conseil : Encapsulez le paramètre avec des guillemets pour éviter que le texte ne soit coupé aux espaces (par exemple, \\"%N\\")."},"saveManagement":{"autoTMMEnabled":"Mode de gestion des torrents par défaut","categoryChangedTMM":"Lorsque le répertoire de destination de la catégorie est modifié","defaultSavePath":"Répertoire de destination par défaut (complet)","defaultTMMOptions":{"automatic":"Automatique","manual":"Manuel"},"exportDir":"Copier les fichiers .torrent vers","exportDirFinished":"Copier les fichiers .torrent pour les téléchargements terminés vers","keepIncomplete":"Chemin de téléchargement par défaut (incomplet)","paramChangedTMMOptions":{"relocateTorrent":"Déplacer le torrent","switchToManual":"Passer le torrent en mode manuel"},"savePathChangedTMM":"Lorsque le répertoire de destination par défaut est modifié","subheader":"Gestion de la sauvegarde","torrentChangedTMM":"Lorsque la catégorie des torrents a changé"},"whenAddTorrent":{"addToTopOfQueue":"Ajouter en haut de la file d'attente","autoDeleteMode":"Supprimer les fichiers .torrent ensuite","doNotAutoStart":"Ne pas lancer le téléchargement automatiquement","mergeTrackers":"Fusionner les trackers si le torrent existe déjà","subheader":"Lors de l'ajout d'un torrent"}},"rss":{"autoDownloader":{"enable":"Activer le traitement des règles RSS","subheader":"Téléchargement automatique de torrents via RSS"},"reader":{"enableProcessing":"Activer la récupération des flux RSS","feedsRefreshInterval":"Intervalle de rafraîchissement des flux","maximumArticlesPerFeed":"Nombre maximum d'articles par flux","subheader":"Lecteur RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Télécharger les épisodes REPACK/PROPER","filters":"Filtres","filtersHint":"Un par ligne","subheader":"Filtre intelligent pour les épisodes RSS"},"useIdForRssLinks":"Utiliser les ID pour les liens RSS"},"saveSuccess":"Paramètres sauvegardés !","speed":{"download":"Téléchargement","scheduler":{"from":"De","selectButtonLabel":"Sélectionner l'heure","subheader":"Programmer l'utilisation de limites de taux alternatives","to":"À","when":"Quand"},"settings":{"applyToPeersOnLan":"Appliquer une limite de débit aux pairs sur le réseau local","applyToTransportOverhead":"Appliquer une limite de taux aux frais généraux de transport","applyToUtp":"Appliquer une limite de débit au protocole µTP"},"subheader":{"alternative":"Limites de débit alternatif","global":"Limites de débit global","settings":"Réglages des limites de débit"},"tip":"0 signifie illimité","upload":"Partage"},"tabs":{"addons":{"enhanced_edition":"Édition améliorée"},"advanced":"Avancé","behavior":"Comportement","bittorrent":"BitTorrent","connection":"Connexion","downloads":"Téléchargements","rss":"RSS","speed":"Vitesse","tagsAndCategories":"Étiquettes & Catégories","vuetorrent":{"general":"Général","title":"VueTorrent","torrent_card":{"grid":"Affichage Grille","list":"Affichage Liste","table":"Affichage Tableau"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Catégories disponibles :","createNewCategory":"Créer une nouvelle catégorie","createNewTag":"Créer une nouvelle étiquette","noCategories":"Aucune catégorie pour le moment","noTags":"Aucune étiquette pour le moment","tagsSubheader":"Étiquettes disponibles :"},"title":"Paramètres","vuetorrent":{"general":{"check_new":"Vérifier une nouvelle version","currentVersion":"Version actuelle","customTitle":"Titre personnalisé","darkVariants":"Variante du thème sombre","dateFormat":"Format de la date","download":"Exporter les paramètres","enableHashColors":"Activer les couleurs générées sur les capsules","enableRatioColors":"Activer les couleurs de ratio","fileContentInterval":"Intervalle de rafraîchissement du contenu des torrents","hideChipIfUnset":"Masquer les capsules si non défini","hideColoredChip":"Utiliser la variante texte pour les puces","historySize":"Taille de l'historique sur les champs éligibles","import":"Importer les paramètres","isDrawerRight":"Menu latéral à droite","isShutdownButtonVisible":"Afficher le bouton d'arrêt","language":"Langue","lightVariants":"Variante du thème clair","paginationSize":{"infinite_scroll":"Défilement infini","label":"Taille de la pagination","warning":"L'utilisation de valeurs élevées peut affecter les performances"},"qbittorrentVersion":"Version de qBittorrent","refreshInterval":"Intervalle de rafraîchissement de l'API qBittorrent","registerMagnet":"Enregistrer les liens magnet","resetSettings":"Réinitialiser les paramètres","showAlltimeStat":"Afficher les statistiques globales","showCurrentSpeed":"Afficher la vitesse actuelle","showFreeSpace":"Afficher l'espace libre","showSessionStat":"Afficher les statistiques de la session","showSpeedGraph":"Afficher le graphique de vitesse","tip":"Ces paramètres concernent l'interface actuelle","useBinarySize":"Remplacer les tailles de données par des unités binaires (kB -> KiB)","useBitSpeed":"Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)","vueTorrentTitle":"Titre de l'onglet"},"torrentCard":{"grid":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage grille","doneTip":"Propriétés à afficher pour les torrents complets en affichage grille"},"list":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage liste","doneTip":"Propriétés à afficher pour les torrents complets en affichage liste"},"table":{"tip":"Propriétés à afficher pour les torrents en affichage tableau"}}},"webUI":{"authentication":{"banDuration":"Durée du ban","banDurationHint":"En secondes","bypassLocalhost":"Contourner l'authentification pour les clients sur localhost","bypassWhitelist":"Contournement de l'authentification pour les clients des sous-réseaux IP figurant sur la liste blanche","maxAttempts":"Nombre maximal de tentatives","password":"Mot de passe","passwordPlaceholder":"(inchangé)","sessionTimeout":"Délai d'expiration de la session","sessionTimeoutHint":"En secondes","subheader":"Authentification","username":"Nom d'utilisateur","whitelistExamples":"Exemple : 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Ajouter des en-têtes HTTP personnalisés","customHeadersHint":"Un par ligne","customHeadersPlaceholder":"En-tête1: valeur1\\nEn-tête2: valeur2\\n...","dynDns":{"domainName":"Nom de domaine","password":"Mot de passe","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"S'inscrire","subheader":"Mettre à jour mon nom de domaine dynamique","username":"Nom d'utilisateur"},"https":{"certificate":"Certificat","key":"Clé","subheader":"Utiliser HTTPS","tip":"Informations sur les certificats"},"interface":{"ipAddress":"Adresse IP","port":"Port","subheader":"Interface Utilisateur Web","useAlternativeWebUI":"Utiliser une autre interface web","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur"},"proxiesList":"Liste des proxys de confiance","proxiesListHint":"Séparer les IP par un point-virgule ( ; )","reverseProxySupport":"Activer la prise en charge du proxy inverse","security":{"clickjacking":"Activer la protection contre le détournement de clics","csrf":"Activer la protection contre la falsification des requêtes intersites (CSRF)","hostHeaderValidation":"Activer la validation de l'en-tête Host","hostHeaderValidationHint":"Séparés par un point-virgule ( ; )","secureCookie":"Activer le flag \\"secure\\" du cookie (nécessite HTTPS)","serverDomains":"Domaines du serveur","subheader":"Sécurité"}}}`);
-    EO = {
+    EO = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Bannir automatiquement le pair du lecteur BT","auto_ban_unknown_peer":"Bannir automatiquement les pairs inconnus","auto_update_trackers":"Mettre à jour automatiquement la liste des trackers publics","public_trackers":"Trackers publics","trackers_list_url":"Personnaliser la liste des URL des trackers"}},"advanced":{"libtorrent":{"announceAllTiers":"Toujours annoncer à tous les tiers","announceAllTrackers":"Toujours annoncer à tous les trackers du même tier","announceIP":"Adresse IP rapportée aux trackers (redémarrage nécessaire)","coalesceReadsWrites":"Fusionner les lectures et écritures (libtorrent < 2.0)","disk":{"diskCache":"Cache disque (libtorrent < 2.0)","diskCacheExpiry":"Intervalle d'expiration du cache disque (libtorrent < 2.0)","diskIoReadMode":"Mode de lecture des E/S du disque","diskIoType":"Type d'E/S du disque (libtorrent >= 2.0 ; nécessite un redémarrage)","diskIoWriteMode":"Mode d'écriture des E/S du disque","diskQueueSize":"Taille de la file d'attente du disque","subheader":"Disque"},"maxConcurrentHTTPAnnounces":"Annonces HTTP concurrentes max","networking":{"outgoingPortsMax":"Ports sortants (Max) [0 : Désactivé]","outgoingPortsMin":"Ports sortants (Min) [0 : Désactivé]","peerTos":"Valuer DSCP pour la connexion aux pairs","subheader":"Réseau","upnpLeaseDuration":"Durée du bail UPnP [0: bail permanent]","utpTcpMixedModeAlgorithm":"Algorithme mixte μTP-TCP"},"outgoingConnectionsPerSecond":"Connexions sortantes par seconde","peerTurnover":"Pourcentage de déconnexion des pairs","peerTurnoverCutoff":"Pourcentage du seuil de rotation des pairs","peerTurnoverInterval":"Intervalle de déconnexion de la rotation des pairs","pieceExtentAffinity":"Utiliser l'affinité par extension de morceau","requestQueueSize":"Nombre maximal de demandes en attente adressées à un seul pair","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Autoriser plusieurs connexions venant de la même adresse IP","blockPeersOnPrivilegedPorts":"Interdire la connexion à des pairs sur des ports privilégiés","idnSupport":"Activer la prise en charge des noms de domaine internationalisés (IDN)","mitigateSSRF":"Atténuation de la falsification des demandes côté serveur (SSRF)","subheader":"Sécurité","validateHTTPSTrackerCertificate":"Valider le certificat HTTPS du tracker"},"sendBufferLowWatermark":"Envoi du filigrane bas de la mémoire tampon","sendBufferWatermark":"Envoi du filigrane de la mémoire tampon","sendBufferWatermarkFactor":"Envoi du facteur de filigrane de la mémoire tampon","sendUploadPieceSuggestions":"Envoyer des suggestions de pièces à télécharger","socketBacklogSize":"Taille de l'arriéré de prises","socketReceiveBufferSize":"Taille de la mémoire tampon de réception du socket","socketReceiveBufferSizeHint":"0 : valeur par défaut du système","socketSendBufferSize":"Taille de la mémoire tampon d'envoi du socket","socketSendBufferSizeHint":"0 : valeur par défaut du système","ssl":{"rule":"Le port doit être compris entre 0 et 65535"},"stopTrackerTimeout":"Délai d'attente lors de l’arrêt du tracker","subheader":"Section libtorrent","threads":{"asyncIoThreads":"Threads d'E/S asynchrones","bdecodeDepthLimit":"Limite de profondeur Bdecode","bdecodeTokenLimit":"Limite de jeton Bdecode","filePoolSize":"Taille de la pool de fichiers","hashingThreads":"Fils de hachage (libtorrent >= 2.0)","outstandingMemory":"Mémoire exceptionnelle lors de la vérification des torrents","subheader":"Threads"},"uploadChokingAlgorithm":"Télécharger l'algorithme d'étouffement","uploadSlotsBehavior":"Comportement des créneaux de téléchargement"},"openDoc":"Ouvrir la documentation","qbittorrent":{"allocatedRam":"Limite d'utilisation de la mémoire vive (RAM) (libtorrent >= 2.0)","embeddedTracker":{"enable":"Activer le tracker embarqué","port":"Port du tracker embarqué","portForward":"Activer la redirection de port pour le tracker embarqué","title":"Tracker embarqué"},"enableMarkOfTheWebHint":"Nécessite macOS ou Windows","networking":{"ipAddress":{"all":"Toutes les adresses","allIPv4":"Toutes les adresses IPv4","allIPv6":"Toutes les adresses IPv6","label":"Adresse IP facultative à laquelle se lier"},"networkInterfaces":{"any":"N'importe quelle interface","label":"Interface réseau"},"title":"Réseau"},"reannounceOnIpPortChanged":"Annoncer à tous les trackers lorsque l'IP ou le port est modifié","recheckOnCompletion":"Revérifier les torrents à la fin","refreshInterval":"Intervalle de rafraîchissement de l'interface graphique","resolveCountries":"Résoudre les pays des pairs","resumeDataStorageType":{"label":"Type de stockage des données de reprise (nécessite un redémarrage)","legacy":"Fichiers fastresume","sqlite":"Base de données SQLite (expérimental)"},"saveInterval":"Intervalle de sauvegarde des données de reprise","subheader":"Section qBittorrent","torrentFileSizeLimit":"Limite de taille des fichiers .torrent"}},"behavior":{"logs":{"file_log_age":"Supprimer les archives des logs plus anciennes que","file_log_backup_enabled":"Activer l'archivage des fichiers de log","file_log_delete_old":"Supprimer les anciennes archives des logs","file_log_enabled":"Activer les fichiers de log","file_log_max_size":"Archiver les fichiers de log après","file_log_path":"Répertoire de destination","subheader":"Gestion des logs"},"performance_warning":"Loguer les avertissements de performance"},"bittorrent":{"autoAddTrackers":"Ajouter automatiquement ces trackers aux nouveaux téléchargements","autoAddTrackersHint":"Un tracker par ligne","maxActiveCheckingTorrents":"Nombre maximum de torrents en vérification actifs","privacy":{"enableAnonymous":"Activer le mode anonyme","enableDHT":"Activer le DHT (réseau décentralisé) pour trouver plus de pairs","enableLPD":"Activer la découverte de pairs locaux pour trouver plus de pairs","enablePeX":"Activer l'échange de pairs (PeX) pour trouver plus de pairs","encryptionMode":"Mode de chiffrage","moreInfo":"Plus d'informations","subheader":"Confidentialité"},"seedLimits":{"subheader":"Limites de seed","then":"Alors","whenInactiveSeedingTimeReaches":"Lorsque le temps de seed inactif atteint","whenRatioReaches":"Lorsque le ratio atteint","whenSeedingTimeReaches":"Lorsque le temps de seed atteint"},"torrentQueueing":{"downloadRateLimit":"Seuil du débit de téléchargement","excludeSlowTorrent":"Ne comptez pas les torrents lents dans ces limites.","maxActiveDownload":"Nombre maximum de téléchargements actifs","maxActiveTorrent":"Nombre maximum de torrents actifs","maxActiveUpload":"Nombre maximum d'envois actifs","subheader":"Mise en file d'attente des torrents","torrentInactivityTimer":"Minuterie d'inactivité des torrents","uploadRateLimit":"Seuil du taux de téléchargement"}},"connection":{"connectionLimits":{"globalMaxConnection":"Nombre maximum global de connexions","globalMaxUploadSlots":"Nombre maximum global d'emplacements d'envoi","perTorrentMaxConnection":"Nombre maximum de connexions par torrent","perTorrentMaxUploadSlots":"Nombre maximum d'emplacements d'envoi par torrent","subheader":"Limites de connexion"},"i2p":{"port":"Port"},"ipFiltering":{"applyToTrackers":"Appliquer aux trackers","bannedIps":"Adresses IP bannies manuellement","bannedIpsHint":"Un sur chaque ligne","filterPath":"Chemin filtrés (.dat, .p2p, .p2b)","subheader":"Filtrage d'IP"},"listeningPort":{"incomingConnectionPort":"Port utilisé pour les connexions entrantes","randomPort":"Port aléatoire","subheader":"Port d'écoute","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP de mon routeur"},"protocol":"Protocole de connexion entre pairs","proxy":{"auth":{"password":"Mot de passe","subtitle":"Authentification","tip":"Info : Le mot de passe est enregistré en clair","username":"Nom d'utilisateur"},"bittorrent":"Utiliser un proxy pour BitTorrent","host":"Hôte","hostNameLookup":"Utiliser un proxy pour la résolution des noms d'hôtes","misc":"Utiliser un proxy à des fins générales","peerConnections":"Utiliser un proxy pour les connexions entre pairs","port":"Port","rss":"Utiliser un proxy pour les flux RSS","subheader":"Serveur Proxy"}},"downloads":{"excludedFileNames":{"hint":"Un filtre par ligne","label":"Exclusion des noms de fichiers"},"mailNotification":{"authEnabled":"Authentification","enabled":"Notification par courrier électronique à la fin du téléchargement","from":"De","password":"Mot de passe","smtpServer":"Serveur SMTP","sslEnabled":"Ce serveur nécessite une connexion sécurisée (SSL)","test":{"label":"Envoyer un email de test"},"to":"Pour","username":"Nom d'utilisateur"},"monitoredFolders":{"actions":"Actions","confirmDelete":"Êtes-vous sûr de vouloir supprimer cet élément ?","editItem":"Modifier","monitoredFolderPath":"Dossier surveillé","newItem":"Nouveau","noData":"Pas encore de dossier surveillé","otherPath":"Autre chemin","saveType":"Remplacer l'emplacement de sauvegarde","subheader":"Dossiers surveillés"},"publicSettings":{"appendQBExtension":"Ajouter l'extension .!qB aux fichiers incomplets","preAllocateDisk":"Pré-allouer l'espace disque pour les fichiers"},"runExternalProgram":{"onAddedEnabled":"Exécuter un programme externe à l'ajout d'un torrent","onAddedLabel":"Commande","onFinishedEnabled":"Exécuter un programme externe sur le torrent terminé","onFinishedLabel":"Commande","subheader":"Exécuter un programme externe","supportParamC":"%C : Nombre de fichiers","supportParamD":"%D : Répertoire de destination","supportParamF":"%F : Chemin du contenu (identique à la racine pour les torrents multi-fichiers)","supportParamG":"%G : Étiquettes (séparées par une virgule)","supportParamI":"%I: Info hash v1","supportParamJ":"%J : Info hash v2","supportParamK":"%K : ID du torrent","supportParamL":"%L : Catégorie","supportParamN":"%N : Nom du torrent","supportParamR":"%R : Racine du chemin (chemin du premier sous-répertoire du torrent)","supportParamT":"%T : Tracker actuel","supportParamTitle":"Paramètres pris en charge (sensibles à la casse) :","supportParamZ":"%Z : Taille du torrent (octets)","tip":"Conseil : Encapsulez le paramètre avec des guillemets pour éviter que le texte ne soit coupé aux espaces (par exemple, \\"%N\\")."},"saveManagement":{"autoTMMEnabled":"Mode de gestion des torrents par défaut","categoryChangedTMM":"Lorsque le répertoire de destination de la catégorie est modifié","defaultSavePath":"Répertoire de destination par défaut (complet)","defaultTMMOptions":{"automatic":"Automatique","manual":"Manuel"},"exportDir":"Copier les fichiers .torrent vers","exportDirFinished":"Copier les fichiers .torrent pour les téléchargements terminés vers","keepIncomplete":"Chemin de téléchargement par défaut (incomplet)","paramChangedTMMOptions":{"relocateTorrent":"Déplacer le torrent","switchToManual":"Passer le torrent en mode manuel"},"savePathChangedTMM":"Lorsque le répertoire de destination par défaut est modifié","subheader":"Gestion de la sauvegarde","torrentChangedTMM":"Lorsque la catégorie des torrents a changé"},"whenAddTorrent":{"addToTopOfQueue":"Ajouter en haut de la file d'attente","autoDeleteMode":"Supprimer les fichiers .torrent ensuite","doNotAutoStart":"Ne pas lancer le téléchargement automatiquement","mergeTrackers":"Fusionner les trackers si le torrent existe déjà","subheader":"Lors de l'ajout d'un torrent"}},"rss":{"autoDownloader":{"enable":"Activer le traitement des règles RSS","subheader":"Téléchargement automatique de torrents via RSS"},"reader":{"enableProcessing":"Activer la récupération des flux RSS","feedsRefreshInterval":"Intervalle de rafraîchissement des flux","maximumArticlesPerFeed":"Nombre maximum d'articles par flux","subheader":"Lecteur RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Télécharger les épisodes REPACK/PROPER","filters":"Filtres","filtersHint":"Un par ligne","subheader":"Filtre intelligent pour les épisodes RSS"},"useIdForRssLinks":"Utiliser les ID pour les liens RSS"},"saveSuccess":"Paramètres sauvegardés !","speed":{"download":"Téléchargement","scheduler":{"from":"De","selectButtonLabel":"Sélectionner l'heure","subheader":"Programmer l'utilisation de limites de taux alternatives","to":"À","when":"Quand"},"settings":{"applyToPeersOnLan":"Appliquer une limite de débit aux pairs sur le réseau local","applyToTransportOverhead":"Appliquer une limite de taux aux frais généraux de transport","applyToUtp":"Appliquer une limite de débit au protocole µTP"},"subheader":{"alternative":"Limites de débit alternatif","global":"Limites de débit global","settings":"Réglages des limites de débit"},"tip":"0 signifie illimité","upload":"Partage"},"tabs":{"addons":{"enhanced_edition":"Édition améliorée"},"advanced":"Avancé","behavior":"Comportement","bittorrent":"BitTorrent","connection":"Connexion","downloads":"Téléchargements","rss":"RSS","speed":"Vitesse","tagsAndCategories":"Étiquettes & Catégories","vuetorrent":{"general":"Général","title":"VueTorrent","torrent_card":{"grid":"Affichage Grille","list":"Affichage Liste","table":"Affichage Tableau"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Catégories disponibles :","createNewCategory":"Créer une nouvelle catégorie","createNewTag":"Créer une nouvelle étiquette","noCategories":"Aucune catégorie pour le moment","noTags":"Aucune étiquette pour le moment","tagsSubheader":"Étiquettes disponibles :"},"title":"Paramètres","vuetorrent":{"general":{"check_new":"Vérifier une nouvelle version","currentVersion":"Version actuelle","customTitle":"Titre personnalisé","darkVariants":"Variante du thème sombre","dateFormat":"Format de la date","download":"Exporter les paramètres","enableHashColors":"Activer les couleurs générées sur les capsules","enableRatioColors":"Activer les couleurs de ratio","fileContentInterval":"Intervalle de rafraîchissement du contenu des torrents","hideChipIfUnset":"Masquer les capsules si non défini","hideColoredChip":"Utiliser la variante texte pour les puces","historySize":"Taille de l'historique sur les champs éligibles","import":"Importer les paramètres","isDrawerRight":"Menu latéral à droite","isShutdownButtonVisible":"Afficher le bouton d'arrêt","language":"Langue","lightVariants":"Variante du thème clair","paginationSize":{"infinite_scroll":"Défilement infini","label":"Taille de la pagination","warning":"L'utilisation de valeurs élevées peut affecter les performances"},"qbittorrentVersion":"Version de qBittorrent","refreshInterval":"Intervalle de rafraîchissement de l'API qBittorrent","registerMagnet":"Enregistrer les liens magnet","resetSettings":"Réinitialiser les paramètres","showAlltimeStat":"Afficher les statistiques globales","showCurrentSpeed":"Afficher la vitesse actuelle","showFreeSpace":"Afficher l'espace libre","showSessionStat":"Afficher les statistiques de la session","showSpeedGraph":"Afficher le graphique de vitesse","tip":"Ces paramètres concernent l'interface actuelle","useBinarySize":"Remplacer les tailles de données par des unités binaires (kB -> KiB)","useBitSpeed":"Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)","vueTorrentTitle":"Titre de l'onglet"},"torrentCard":{"grid":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage grille","doneTip":"Propriétés à afficher pour les torrents complets en affichage grille"},"list":{"busyTip":"Propriétés à afficher pour les torrents incomplets en affichage liste","doneTip":"Propriétés à afficher pour les torrents complets en affichage liste"},"table":{"tip":"Propriétés à afficher pour les torrents en affichage tableau"}}},"webUI":{"authentication":{"banDuration":"Durée du ban","banDurationHint":"En secondes","bypassLocalhost":"Contourner l'authentification pour les clients sur localhost","bypassWhitelist":"Contournement de l'authentification pour les clients des sous-réseaux IP figurant sur la liste blanche","maxAttempts":"Nombre maximal de tentatives","password":"Mot de passe","passwordPlaceholder":"(inchangé)","sessionTimeout":"Délai d'expiration de la session","sessionTimeoutHint":"En secondes","subheader":"Authentification","username":"Nom d'utilisateur","whitelistExamples":"Exemple : 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Ajouter des en-têtes HTTP personnalisés","customHeadersHint":"Un par ligne","customHeadersPlaceholder":"En-tête1: valeur1\\nEn-tête2: valeur2\\n...","dynDns":{"domainName":"Nom de domaine","password":"Mot de passe","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"S'inscrire","subheader":"Mettre à jour mon nom de domaine dynamique","username":"Nom d'utilisateur"},"https":{"certificate":"Certificat","key":"Clé","subheader":"Utiliser HTTPS","tip":"Informations sur les certificats"},"interface":{"ipAddress":"Adresse IP","port":"Port","subheader":"Interface Utilisateur Web","useAlternativeWebUI":"Utiliser une autre interface web","useUPnP":"Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur"},"proxiesList":"Liste des proxys de confiance","proxiesListHint":"Séparer les IP par un point-virgule ( ; )","reverseProxySupport":"Activer la prise en charge du proxy inverse","security":{"clickjacking":"Activer la protection contre le détournement de clics","csrf":"Activer la protection contre la falsification des requêtes intersites (CSRF)","hostHeaderValidation":"Activer la validation de l'en-tête Host","hostHeaderValidationHint":"Séparés par un point-virgule ( ; )","secureCookie":"Activer le flag \\"secure\\" du cookie (nécessite HTTPS)","serverDomains":"Domaines du serveur","subheader":"Sécurité"}}}`);
+    _O = {
         add: {
             error: "Erreur lors de l'ajout des torrents",
             pending: "Envoi des torrents...",
@@ -97655,7 +97700,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             new: "Nouvelle version disponible !"
         }
     };
-    _O = {
+    PO = {
         actions: {
             delete: "Supprimer les torrents",
             logs: "Ouvrir les logs",
@@ -97677,7 +97722,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         },
         searchTorrents: "Rechercher des torrents"
     };
-    PO = {
+    BO = {
         content: {
             fileInfo: "{n} fichier | {n} fichiers",
             filter: {
@@ -97777,7 +97822,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             tier: "Tier : {n}"
         }
     };
-    BO = {
+    MO = {
         properties: {
             added_on: "Ajouté le",
             amount_left: "Montant restant",
@@ -97870,29 +97915,29 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             uploading: "Envoi"
         }
     };
-    MO = {
+    RO = {
         minutes: "minute | minute | minutes",
         seconds: "seconde | seconde | secondes"
     };
-    RO = {
-        _comments: yO,
-        common: bO,
-        constants: FO,
-        dashboard: kO,
-        dialogs: xO,
-        login: wO,
-        logs: SO,
-        navbar: CO,
-        rssArticles: AO,
-        searchEngine: DO,
-        settings: TO,
-        toast: EO,
-        topbar: _O,
-        torrentDetail: PO,
-        torrent: BO,
-        units: MO
-    };
     LO = {
+        _comments: bO,
+        common: FO,
+        constants: kO,
+        dashboard: xO,
+        dialogs: wO,
+        login: SO,
+        logs: CO,
+        navbar: AO,
+        rssArticles: DO,
+        searchEngine: TO,
+        settings: EO,
+        toast: _O,
+        topbar: PO,
+        torrentDetail: BO,
+        torrent: MO,
+        units: RO
+    };
+    IO = {
         cancel: "Mégse",
         close: "Bezár",
         delete: "Törlés",
@@ -97913,7 +97958,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         useGlobalSettings: "Globális beállítások használata",
         yes: "Igen"
     };
-    IO = {
+    zO = {
         addStopped: {
             always: "Mindig",
             never: "Soha",
@@ -98028,7 +98073,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
             preferTcp: "TCP preferálása"
         }
     };
-    zO = {
+    NO = {
         displayMode: {
             grid: "Rács",
             list: "Lista",
@@ -98095,7 +98140,7 @@ Des erreurs peuvent survenir, à utiliser avec précaution.`
         toggleSortOrder: "Rendezési sorrend megfordítása",
         torrentsCount: "Nincs torrent | {n} torrent | {n} torrentek"
     };
-    NO = {
+    OO = {
         add: {
             cookie: "Sütik",
             cookie_placeholder: "név1=érték1; név2=érték2; ...",
@@ -98276,7 +98321,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
 Hibák fordulhatnak elő, óvatosan használja.`
         }
     };
-    OO = {
+    HO = {
         error: "Bejelentkezés sikertelen!",
         password: "Jelszó",
         rules: {
@@ -98289,7 +98334,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "Bejelentkezés",
         username: "Felhasználónév"
     };
-    HO = {
+    VO = {
         emptyLogList: "Nem található napló",
         filters: {
             query: "Keresés a naplóüzenetekben",
@@ -98297,7 +98342,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "qBittorrent naplók"
     };
-    VO = {
+    WO = {
         addPanel: {
             torrentsPendingCount: "{n} torrent vár feltöltésre | {n} torrent vár feltöltésre"
         },
@@ -98366,7 +98411,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    WO = {
+    GO = {
         feeds: {
             empty: {
                 action: "RSS hírcsatorna létrehozása"
@@ -98394,7 +98439,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    GO = {
+    $O = {
         filters: {
             category: {
                 all: "Összes",
@@ -98430,8 +98475,8 @@ Hibák fordulhatnak elő, óvatosan használja.`
         tabHeaderEmpty: "(Üres lekérdezés)",
         title: "Keresőmotor"
     };
-    $O = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Mindig hirdessen minden szinten","announceAllTrackers":"Mindig hirdessen minden követőn egy szinten","announceIP":"A követőknek jelentett IP-cím (újraindítás szükséges)","coalesceReadsWrites":"Olvasások és írások egyesítése (libtorrent < 2.0)","disk":{"diskCache":"Lemez gyorsítótár (libtorrent < 2.0)","diskCacheExpiry":"Lemez gyorsítótár lejárati intervalluma (libtorrent < 2.0)","diskIoReadMode":"Lemez IO olvasási mód","diskIoType":"Lemez IO Típus (libtorrent >= 2.0; újraindítás szükséges)","diskIoWriteMode":"Lemez IO írási mód","diskQueueSize":"Lemez várakozási sor mérete","subheader":"Lemez"},"maxConcurrentHTTPAnnounces":"Egyidejűleg maximális HTTP bejelentések","networking":{"outgoingPortsMax":"Kimenő portok (Max) [0: Letiltva]","outgoingPortsMin":"Kimenő portok (Min) [0: Letiltva]","peerTos":"DSCP érték a peerekhez való kapcsolódásokhoz","subheader":"Hálózat","upnpLeaseDuration":"UPnP bérleti időtartam [0: Állandó bérlet]","utpTcpMixedModeAlgorithm":"μTP-TCP vegyes mód algoritmus"},"outgoingConnectionsPerSecond":"Kimenő kapcsolatok másodpercenként","peerTurnover":"Peer cserélődés lekapcsolási százaléka","peerTurnoverCutoff":"Peer cserélődés küszöbértéke","peerTurnoverInterval":"Peer cserélődés lekapcsolási intervalluma","pieceExtentAffinity":"Darab kiterjedés affinitás használata","requestQueueSize":"Maximális kérések egy peerhez","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Több kapcsolat engedélyezése ugyanarról az IP-címről","blockPeersOnPrivilegedPorts":"Kapcsolódás tiltása privilégiumos portokon lévő peerekhez","idnSupport":"Nemzetközi Domain Név (IDN) támogatás engedélyezése","mitigateSSRF":"Szerveroldali kérés hamisítás (SSRF) mérséklése","subheader":"Biztonság","validateHTTPSTrackerCertificate":"HTTPS követő tanúsítványának érvényesítése"},"sendBufferLowWatermark":"Küldési puffer alacsony vízjel","sendBufferWatermark":"Küldési puffer vízjel","sendBufferWatermarkFactor":"Küldési puffer vízjel tényező","sendUploadPieceSuggestions":"Feltöltési darab javaslatok küldése","socketBacklogSize":"Socket várakozási sor mérete","socketReceiveBufferSize":"Socket fogadási puffer mérete","socketReceiveBufferSizeHint":"0: rendszer alapértelmezett","socketSendBufferSize":"Socket küldési puffer mérete","socketSendBufferSizeHint":"0: rendszer alapértelmezett","stopTrackerTimeout":"Követő időtúllépés leállítása","subheader":"libtorrent szakasz","threads":{"asyncIoThreads":"Aszinkron I/O szálak","bdecodeDepthLimit":"Bdecode mélység korlát","bdecodeTokenLimit":"Bdecode token korlát","filePoolSize":"Fájlpool mérete","hashingThreads":"Hashelési szálak (libtorrent >= 2.0)","outstandingMemory":"Kiemelkedő memória torrentek ellenőrzésekor","subheader":"Szálak"},"uploadChokingAlgorithm":"Feltöltési fulladás algoritmus","uploadSlotsBehavior":"Feltöltési slotok viselkedése"},"openDoc":"Dokumentáció megnyitása","qbittorrent":{"allocatedRam":"Fizikai memória (RAM) használati korlát (libtorrent >= 2.0)","embeddedTracker":{"enable":"Beágyazott követő engedélyezése","port":"Beágyazott követő port","portForward":"Port továbbítás engedélyezése a beágyazott követő számára","title":"Beágyazott követő"},"networking":{"ipAddress":{"all":"Minden cím","allIPv4":"Minden IPv4 cím","allIPv6":"Minden IPv6 cím","label":"Opcionális IP-cím a kötéshez"},"networkInterfaces":{"any":"Bármelyik interfész","label":"Hálózati interfész"},"title":"Hálózat"},"reannounceOnIpPortChanged":"Újrahirdetés minden követőnek, amikor az IP vagy a port megváltozik","recheckOnCompletion":"Torrentek újraellenőrzése a befejezéskor","refreshInterval":"GUI frissítési intervallum","resolveCountries":"Peer országok feloldása","resumeDataStorageType":{"label":"Folytatási adatok tárolási típusa (újraindítás szükséges)","legacy":"Gyorsfolytatás fájlok","sqlite":"SQLite adatbázis (kísérleti)"},"saveInterval":"Folytatási adatok mentési intervalluma","subheader":"qBittorrent szakasz","torrentFileSizeLimit":".torrent fájlméret korlát"}},"behavior":{"logs":{"file_log_age":"Régi naplófájlok törlése, ha régebbiek, mint","file_log_backup_enabled":"Naplófájl biztonsági mentés engedélyezése","file_log_delete_old":"Régi biztonsági mentési naplók törlése","file_log_enabled":"Naplófájlok engedélyezése","file_log_max_size":"A naplófájl biztonsági mentése után","file_log_path":"Mentési útvonal","subheader":"Naplókezelés"},"performance_warning":"Teljesítmény figyelmeztetés naplózása"},"bittorrent":{"autoAddTrackers":"Automatikusan ezeket a követőket adja hozzá az új letöltésekhez","autoAddTrackersHint":"Egy követő soronként","maxActiveCheckingTorrents":"Maximálisan aktív ellenőrző torrentek","privacy":{"enableAnonymous":"Névtelen mód engedélyezése","enableDHT":"DHT (decentralizált hálózat) engedélyezése több peer megtalálásához","enableLPD":"Helyi Peer Felfedezés engedélyezése több peer megtalálásához","enablePeX":"Peer Csere (PeX) engedélyezése több peer megtalálásához","encryptionMode":"Titkosítási mód","moreInfo":"További információ","subheader":"Adatvédelem"},"seedLimits":{"subheader":"Seed korlátok","then":"Akkor","whenInactiveSeedingTimeReaches":"Amikor az inaktív seedelési idő eléri","whenRatioReaches":"Amikor az arány eléri","whenSeedingTimeReaches":"Amikor a seedelési idő eléri"},"torrentQueueing":{"downloadRateLimit":"Letöltési sebesség küszöbérték","excludeSlowTorrent":"A lassú torrenteket ne számítsa bele ezekbe a korlátokba","maxActiveDownload":"Maximális aktív letöltések","maxActiveTorrent":"Maximális aktív torrentek","maxActiveUpload":"Maximális aktív feltöltések","subheader":"Torrent Sorbaállítás","torrentInactivityTimer":"Torrent inaktivitási időzítő","uploadRateLimit":"Feltöltési sebesség küszöbérték"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globális maximális kapcsolatok száma","globalMaxUploadSlots":"Globális maximális feltöltési slotok száma","perTorrentMaxConnection":"Maximális kapcsolatok száma torrentenként","perTorrentMaxUploadSlots":"Maximális feltöltési slotok száma torrentenként","subheader":"Kapcsolat korlátok"},"ipFiltering":{"applyToTrackers":"Alkalmazás követőkre","bannedIps":"Manuálisan kitiltott IP-címek","bannedIpsHint":"Minden egyes sorban egy","filterPath":"Szűrő útvonal (.dat, .p2p, .p2b)","subheader":"IP Szűrés"},"listeningPort":{"incomingConnectionPort":"Bejövő kapcsolatok portja","randomPort":"Véletlenszerű port","subheader":"Hallgatózó port","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"protocol":"Peer kapcsolatódási protokoll","proxy":{"auth":{"password":"Jelszó","subtitle":"Hitelesítés","tip":"Információ: A jelszó titkosítatlanul van mentve","username":"Felhasználónév"},"bittorrent":"Proxy használata BitTorrent célra","host":"Hoszt","hostNameLookup":"Proxy használata hosztnév lekérdezésre","misc":"Proxy használata általános célra","peerConnections":"Proxy használata peerkapcsolatokhoz","port":"Port","rss":"Proxy használata RSS célra","subheader":"Proxy Szerver"}},"downloads":{"excludedFileNames":{"hint":"Egy szűrő soronként","label":"Kizárt fájlnév"},"mailNotification":{"authEnabled":"Hitelesítés","enabled":"Email értesítés a letöltés befejezésekor","from":"Feladó","password":"Jelszó","smtpServer":"SMTP szerver","sslEnabled":"Ez a szerver biztonságos kapcsolatot (SSL) igényel","to":"Címzett","username":"Felhasználónév"},"monitoredFolders":{"actions":"Műveletek","confirmDelete":"Biztosan törölni szeretné ezt az elemet?","editItem":"Szerkesztés","monitoredFolderPath":"Megfigyelt Mappa","newItem":"Új","noData":"Még nincs megfigyelt mappa","otherPath":"Egyéb Útvonal","saveType":"Mentési hely felülbírálása","subheader":"Megfigyelt Mappák"},"publicSettings":{"appendQBExtension":"Append .!qB kiterjesztés a befejezetlen fájlokhoz","preAllocateDisk":"A lemezterület előzetes lefoglalása minden fájlhoz"},"runExternalProgram":{"onAddedEnabled":"Külső program futtatása a torrent hozzáadásakor","onAddedLabel":"Parancs","onFinishedEnabled":"Külső program futtatása a torrent befejezésekor","onFinishedLabel":"Parancs","subheader":"Külső program futtatása","supportParamC":"%C: Fájlok száma","supportParamD":"%D: Mentési útvonal","supportParamF":"%F: Tartalom útvonala (ugyanaz, mint a gyökér útvonal többfájlos torrent esetén)","supportParamG":"%G: Címkék (vesszővel elválasztva)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategória","supportParamN":"%N: Torrent név","supportParamR":"%R: Gyökér útvonal (az első torrent almappa útvonala)","supportParamT":"%T: Aktuális követő","supportParamTitle":"Támogatott paraméterek (kisbetű-érzékeny):","supportParamZ":"%Z: Torrent méret (bájtokban)","tip":"Tipp: A paraméter idézőjelek közé zárása elkerüli a szöveg szóköznél történő levágását (pl. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Alapértelmezett Torrent Kezelési Mód","categoryChangedTMM":"Amikor a Kategória Mentési Útvonala megváltozik","defaultSavePath":"Alapértelmezett Mentési Útvonal (befejezett)","defaultTMMOptions":{"automatic":"Automatikus","manual":"Kézi"},"exportDir":"Másolja a .torrent fájlokat ide","exportDirFinished":"Másolja a befejezett letöltések .torrent fájljait ide","keepIncomplete":"Alapértelmezett Letöltési Útvonal (befejezetlen torrentek)","paramChangedTMMOptions":{"relocateTorrent":"Torrent áthelyezése","switchToManual":"Torrent átkapcsolása Kézi Módra"},"savePathChangedTMM":"Amikor az Alapértelmezett Mentési Útvonal megváltozik","subheader":"Mentési Kezelés","torrentChangedTMM":"Amikor a Torrent Kategória megváltozik"},"whenAddTorrent":{"addToTopOfQueue":"Hozzáadás a sor elejéhez","autoDeleteMode":"A .torrent fájlok utólagos törlése","doNotAutoStart":"Ne indítsa el automatikusan a letöltést","mergeTrackers":"Követők összevonása, ha a torrent már létezik","subheader":"Amikor hozzáad egy torrentet"}},"rss":{"autoDownloader":{"enable":"RSS szabályok feldolgozásának engedélyezése","subheader":"RSS Torrent Automatikus Letöltő"},"reader":{"enableProcessing":"RSS hírcsatornák lekérdezésének engedélyezése","feedsRefreshInterval":"Hírcsatornák frissítési intervalluma","maximumArticlesPerFeed":"Cikkek maximális száma hírcsatornánként","subheader":"RSS Olvasó"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER epizódok letöltése","filters":"Szűrők","filtersHint":"Soronként egy","subheader":"RSS Okos Epizód Szűrő"},"useIdForRssLinks":"Azonosító használata az RSS cikk hivatkozásokhoz"},"saveSuccess":"Beállítások mentve!","speed":{"download":"Letöltés","scheduler":{"from":"Ettől","selectButtonLabel":"Időpont kiválasztása","subheader":"Alternatív sebességkorlátok használatának ütemezése","to":"Eddig","when":"Mikor"},"settings":{"applyToPeersOnLan":"Sebességkorlát alkalmazása a LAN-on lévő peerekre","applyToTransportOverhead":"Sebességkorlát alkalmazása a szállítási túlterhelésre","applyToUtp":"Sebességkorlát alkalmazása a µTP protokollra"},"subheader":{"alternative":"Alternatív Sebességkorlátok","global":"Globális Sebességkorlátok","settings":"Sebességkorlát Beállítások"},"tip":"0 korlátlan jelent","upload":"Feltöltés"},"tabs":{"advanced":"Haladó","behavior":"Viselkedés","bittorrent":"BitTorrent","connection":"Kapcsolat","downloads":"Letöltések","rss":"RSS","speed":"Sebesség","tagsAndCategories":"Címkék & Kategóriák","vuetorrent":{"general":"Általános","title":"VueTorrent","torrent_card":{"grid":"Rács Nézet","list":"Lista Nézet","table":"Táblázat Nézet"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Elérhető kategóriák:","createNewCategory":"Új kategória létrehozása","createNewTag":"Új címke létrehozása","noCategories":"Még nincsenek kategóriák","noTags":"Még nincsenek címkék","tagsSubheader":"Elérhető címkék:"},"title":"Beállítások","vuetorrent":{"general":{"check_new":"Új verzió keresése","currentVersion":"Jelenlegi verzió","customTitle":"Egyéni cím","dateFormat":"Dátumformátum","download":"Beállítások exportálása","fileContentInterval":"Torrent fájltartalom frissítési intervalluma","hideChipIfUnset":"Csempék elrejtése, ha nincsenek beállítva","historySize":"Előzmények mérete a jogosult mezőkön","import":"Beállítások importálása","isDrawerRight":"Jobb oldali fiók","isShutdownButtonVisible":"Leállítás gomb megjelenítése","language":"Nyelv","paginationSize":{"infinite_scroll":"Végtelen görgetés","label":"Lapozási méret","warning":"A magas értékek használata befolyásolhatja a teljesítményt"},"qbittorrentVersion":"qBittorrent verzió","refreshInterval":"qBittorrent API frissítési intervalluma","registerMagnet":"Mágnes linkek regisztrálása","resetSettings":"Beállítások visszaállítása","showAlltimeStat":"Összes idő statisztikájának megjelenítése","showCurrentSpeed":"Aktuális sebesség megjelenítése","showFreeSpace":"Szabad hely megjelenítése","showSessionStat":"Munkamenet statisztikájának megjelenítése","showSpeedGraph":"Sebességgrafikon megjelenítése","tip":"Ezek a beállítások a testreszabott WebUI-ra vonatkoznak","useBinarySize":"Az adatméretek bináris egységekre való cseréje (kB -> KiB)","useBitSpeed":"A sebességértékek bitekre való cseréje (kB/s -> kbps)","vueTorrentTitle":"Fül cím"},"torrentCard":{"grid":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai rács nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai rács nézetben"},"list":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai lista nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai lista nézetben"},"table":{"tip":"A torrentek megjelenítendő tulajdonságai táblázat nézetben"}}},"webUI":{"authentication":{"banDuration":"Kitiltás időtartama","banDurationHint":"Másodpercekben","bypassLocalhost":"Hitelesítés megkerülése a localhoston lévő kliensek számára","bypassWhitelist":"Hitelesítés megkerülése a fehérlistán szereplő IP-alhálózatokban lévő kliensek számára","maxAttempts":"Maximális próbálkozások száma","password":"Jelszó","passwordPlaceholder":"(változatlan)","sessionTimeout":"Munkamenet időkorlát","sessionTimeoutHint":"Másodpercekben","subheader":"Hitelesítés","username":"Felhasználónév","whitelistExamples":"Példa: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Egyéni HTTP fejlécek hozzáadása","customHeadersHint":"Soronként egy","customHeadersPlaceholder":"Fejléc1: érték1\\nFejléc2: érték2\\n...","dynDns":{"domainName":"Domain név","password":"Jelszó","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Regisztráció","subheader":"Dinamikus domain név frissítése","username":"Felhasználónév"},"https":{"certificate":"Tanúsítvány","key":"Kulcs","subheader":"HTTPS használata","tip":"Tanúsítványokkal kapcsolatos információk"},"interface":{"ipAddress":"IP-cím","port":"Port","subheader":"Web Felhasználói Felület","useAlternativeWebUI":"Alternatív WebUI használata","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"proxiesList":"Megbízható proxyk listája","proxiesListHint":"Az IP-címek pontosvesszővel ( ; ) elválasztva","reverseProxySupport":"Fordított proxy támogatás engedélyezése","security":{"clickjacking":"Clickjacking védelem engedélyezése","csrf":"Cross-Site Request Forgery (CSRF) védelem engedélyezése","hostHeaderValidation":"Host fejléc érvényesítésének engedélyezése","hostHeaderValidationHint":"Pontosvesszővel ( ; ) elválasztva","secureCookie":"Cookie \\"biztonságos\\" jelzőjének engedélyezése (HTTPS szükséges)","serverDomains":"Szerver Domainek","subheader":"Biztonság"}}}');
-    UO = {
+    UO = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"Mindig hirdessen minden szinten","announceAllTrackers":"Mindig hirdessen minden követőn egy szinten","announceIP":"A követőknek jelentett IP-cím (újraindítás szükséges)","coalesceReadsWrites":"Olvasások és írások egyesítése (libtorrent < 2.0)","disk":{"diskCache":"Lemez gyorsítótár (libtorrent < 2.0)","diskCacheExpiry":"Lemez gyorsítótár lejárati intervalluma (libtorrent < 2.0)","diskIoReadMode":"Lemez IO olvasási mód","diskIoType":"Lemez IO Típus (libtorrent >= 2.0; újraindítás szükséges)","diskIoWriteMode":"Lemez IO írási mód","diskQueueSize":"Lemez várakozási sor mérete","subheader":"Lemez"},"maxConcurrentHTTPAnnounces":"Egyidejűleg maximális HTTP bejelentések","networking":{"outgoingPortsMax":"Kimenő portok (Max) [0: Letiltva]","outgoingPortsMin":"Kimenő portok (Min) [0: Letiltva]","peerTos":"DSCP érték a peerekhez való kapcsolódásokhoz","subheader":"Hálózat","upnpLeaseDuration":"UPnP bérleti időtartam [0: Állandó bérlet]","utpTcpMixedModeAlgorithm":"μTP-TCP vegyes mód algoritmus"},"outgoingConnectionsPerSecond":"Kimenő kapcsolatok másodpercenként","peerTurnover":"Peer cserélődés lekapcsolási százaléka","peerTurnoverCutoff":"Peer cserélődés küszöbértéke","peerTurnoverInterval":"Peer cserélődés lekapcsolási intervalluma","pieceExtentAffinity":"Darab kiterjedés affinitás használata","requestQueueSize":"Maximális kérések egy peerhez","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Több kapcsolat engedélyezése ugyanarról az IP-címről","blockPeersOnPrivilegedPorts":"Kapcsolódás tiltása privilégiumos portokon lévő peerekhez","idnSupport":"Nemzetközi Domain Név (IDN) támogatás engedélyezése","mitigateSSRF":"Szerveroldali kérés hamisítás (SSRF) mérséklése","subheader":"Biztonság","validateHTTPSTrackerCertificate":"HTTPS követő tanúsítványának érvényesítése"},"sendBufferLowWatermark":"Küldési puffer alacsony vízjel","sendBufferWatermark":"Küldési puffer vízjel","sendBufferWatermarkFactor":"Küldési puffer vízjel tényező","sendUploadPieceSuggestions":"Feltöltési darab javaslatok küldése","socketBacklogSize":"Socket várakozási sor mérete","socketReceiveBufferSize":"Socket fogadási puffer mérete","socketReceiveBufferSizeHint":"0: rendszer alapértelmezett","socketSendBufferSize":"Socket küldési puffer mérete","socketSendBufferSizeHint":"0: rendszer alapértelmezett","stopTrackerTimeout":"Követő időtúllépés leállítása","subheader":"libtorrent szakasz","threads":{"asyncIoThreads":"Aszinkron I/O szálak","bdecodeDepthLimit":"Bdecode mélység korlát","bdecodeTokenLimit":"Bdecode token korlát","filePoolSize":"Fájlpool mérete","hashingThreads":"Hashelési szálak (libtorrent >= 2.0)","outstandingMemory":"Kiemelkedő memória torrentek ellenőrzésekor","subheader":"Szálak"},"uploadChokingAlgorithm":"Feltöltési fulladás algoritmus","uploadSlotsBehavior":"Feltöltési slotok viselkedése"},"openDoc":"Dokumentáció megnyitása","qbittorrent":{"allocatedRam":"Fizikai memória (RAM) használati korlát (libtorrent >= 2.0)","embeddedTracker":{"enable":"Beágyazott követő engedélyezése","port":"Beágyazott követő port","portForward":"Port továbbítás engedélyezése a beágyazott követő számára","title":"Beágyazott követő"},"networking":{"ipAddress":{"all":"Minden cím","allIPv4":"Minden IPv4 cím","allIPv6":"Minden IPv6 cím","label":"Opcionális IP-cím a kötéshez"},"networkInterfaces":{"any":"Bármelyik interfész","label":"Hálózati interfész"},"title":"Hálózat"},"reannounceOnIpPortChanged":"Újrahirdetés minden követőnek, amikor az IP vagy a port megváltozik","recheckOnCompletion":"Torrentek újraellenőrzése a befejezéskor","refreshInterval":"GUI frissítési intervallum","resolveCountries":"Peer országok feloldása","resumeDataStorageType":{"label":"Folytatási adatok tárolási típusa (újraindítás szükséges)","legacy":"Gyorsfolytatás fájlok","sqlite":"SQLite adatbázis (kísérleti)"},"saveInterval":"Folytatási adatok mentési intervalluma","subheader":"qBittorrent szakasz","torrentFileSizeLimit":".torrent fájlméret korlát"}},"behavior":{"logs":{"file_log_age":"Régi naplófájlok törlése, ha régebbiek, mint","file_log_backup_enabled":"Naplófájl biztonsági mentés engedélyezése","file_log_delete_old":"Régi biztonsági mentési naplók törlése","file_log_enabled":"Naplófájlok engedélyezése","file_log_max_size":"A naplófájl biztonsági mentése után","file_log_path":"Mentési útvonal","subheader":"Naplókezelés"},"performance_warning":"Teljesítmény figyelmeztetés naplózása"},"bittorrent":{"autoAddTrackers":"Automatikusan ezeket a követőket adja hozzá az új letöltésekhez","autoAddTrackersHint":"Egy követő soronként","maxActiveCheckingTorrents":"Maximálisan aktív ellenőrző torrentek","privacy":{"enableAnonymous":"Névtelen mód engedélyezése","enableDHT":"DHT (decentralizált hálózat) engedélyezése több peer megtalálásához","enableLPD":"Helyi Peer Felfedezés engedélyezése több peer megtalálásához","enablePeX":"Peer Csere (PeX) engedélyezése több peer megtalálásához","encryptionMode":"Titkosítási mód","moreInfo":"További információ","subheader":"Adatvédelem"},"seedLimits":{"subheader":"Seed korlátok","then":"Akkor","whenInactiveSeedingTimeReaches":"Amikor az inaktív seedelési idő eléri","whenRatioReaches":"Amikor az arány eléri","whenSeedingTimeReaches":"Amikor a seedelési idő eléri"},"torrentQueueing":{"downloadRateLimit":"Letöltési sebesség küszöbérték","excludeSlowTorrent":"A lassú torrenteket ne számítsa bele ezekbe a korlátokba","maxActiveDownload":"Maximális aktív letöltések","maxActiveTorrent":"Maximális aktív torrentek","maxActiveUpload":"Maximális aktív feltöltések","subheader":"Torrent Sorbaállítás","torrentInactivityTimer":"Torrent inaktivitási időzítő","uploadRateLimit":"Feltöltési sebesség küszöbérték"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globális maximális kapcsolatok száma","globalMaxUploadSlots":"Globális maximális feltöltési slotok száma","perTorrentMaxConnection":"Maximális kapcsolatok száma torrentenként","perTorrentMaxUploadSlots":"Maximális feltöltési slotok száma torrentenként","subheader":"Kapcsolat korlátok"},"ipFiltering":{"applyToTrackers":"Alkalmazás követőkre","bannedIps":"Manuálisan kitiltott IP-címek","bannedIpsHint":"Minden egyes sorban egy","filterPath":"Szűrő útvonal (.dat, .p2p, .p2b)","subheader":"IP Szűrés"},"listeningPort":{"incomingConnectionPort":"Bejövő kapcsolatok portja","randomPort":"Véletlenszerű port","subheader":"Hallgatózó port","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"protocol":"Peer kapcsolatódási protokoll","proxy":{"auth":{"password":"Jelszó","subtitle":"Hitelesítés","tip":"Információ: A jelszó titkosítatlanul van mentve","username":"Felhasználónév"},"bittorrent":"Proxy használata BitTorrent célra","host":"Hoszt","hostNameLookup":"Proxy használata hosztnév lekérdezésre","misc":"Proxy használata általános célra","peerConnections":"Proxy használata peerkapcsolatokhoz","port":"Port","rss":"Proxy használata RSS célra","subheader":"Proxy Szerver"}},"downloads":{"excludedFileNames":{"hint":"Egy szűrő soronként","label":"Kizárt fájlnév"},"mailNotification":{"authEnabled":"Hitelesítés","enabled":"Email értesítés a letöltés befejezésekor","from":"Feladó","password":"Jelszó","smtpServer":"SMTP szerver","sslEnabled":"Ez a szerver biztonságos kapcsolatot (SSL) igényel","to":"Címzett","username":"Felhasználónév"},"monitoredFolders":{"actions":"Műveletek","confirmDelete":"Biztosan törölni szeretné ezt az elemet?","editItem":"Szerkesztés","monitoredFolderPath":"Megfigyelt Mappa","newItem":"Új","noData":"Még nincs megfigyelt mappa","otherPath":"Egyéb Útvonal","saveType":"Mentési hely felülbírálása","subheader":"Megfigyelt Mappák"},"publicSettings":{"appendQBExtension":"Append .!qB kiterjesztés a befejezetlen fájlokhoz","preAllocateDisk":"A lemezterület előzetes lefoglalása minden fájlhoz"},"runExternalProgram":{"onAddedEnabled":"Külső program futtatása a torrent hozzáadásakor","onAddedLabel":"Parancs","onFinishedEnabled":"Külső program futtatása a torrent befejezésekor","onFinishedLabel":"Parancs","subheader":"Külső program futtatása","supportParamC":"%C: Fájlok száma","supportParamD":"%D: Mentési útvonal","supportParamF":"%F: Tartalom útvonala (ugyanaz, mint a gyökér útvonal többfájlos torrent esetén)","supportParamG":"%G: Címkék (vesszővel elválasztva)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategória","supportParamN":"%N: Torrent név","supportParamR":"%R: Gyökér útvonal (az első torrent almappa útvonala)","supportParamT":"%T: Aktuális követő","supportParamTitle":"Támogatott paraméterek (kisbetű-érzékeny):","supportParamZ":"%Z: Torrent méret (bájtokban)","tip":"Tipp: A paraméter idézőjelek közé zárása elkerüli a szöveg szóköznél történő levágását (pl. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Alapértelmezett Torrent Kezelési Mód","categoryChangedTMM":"Amikor a Kategória Mentési Útvonala megváltozik","defaultSavePath":"Alapértelmezett Mentési Útvonal (befejezett)","defaultTMMOptions":{"automatic":"Automatikus","manual":"Kézi"},"exportDir":"Másolja a .torrent fájlokat ide","exportDirFinished":"Másolja a befejezett letöltések .torrent fájljait ide","keepIncomplete":"Alapértelmezett Letöltési Útvonal (befejezetlen torrentek)","paramChangedTMMOptions":{"relocateTorrent":"Torrent áthelyezése","switchToManual":"Torrent átkapcsolása Kézi Módra"},"savePathChangedTMM":"Amikor az Alapértelmezett Mentési Útvonal megváltozik","subheader":"Mentési Kezelés","torrentChangedTMM":"Amikor a Torrent Kategória megváltozik"},"whenAddTorrent":{"addToTopOfQueue":"Hozzáadás a sor elejéhez","autoDeleteMode":"A .torrent fájlok utólagos törlése","doNotAutoStart":"Ne indítsa el automatikusan a letöltést","mergeTrackers":"Követők összevonása, ha a torrent már létezik","subheader":"Amikor hozzáad egy torrentet"}},"rss":{"autoDownloader":{"enable":"RSS szabályok feldolgozásának engedélyezése","subheader":"RSS Torrent Automatikus Letöltő"},"reader":{"enableProcessing":"RSS hírcsatornák lekérdezésének engedélyezése","feedsRefreshInterval":"Hírcsatornák frissítési intervalluma","maximumArticlesPerFeed":"Cikkek maximális száma hírcsatornánként","subheader":"RSS Olvasó"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER epizódok letöltése","filters":"Szűrők","filtersHint":"Soronként egy","subheader":"RSS Okos Epizód Szűrő"},"useIdForRssLinks":"Azonosító használata az RSS cikk hivatkozásokhoz"},"saveSuccess":"Beállítások mentve!","speed":{"download":"Letöltés","scheduler":{"from":"Ettől","selectButtonLabel":"Időpont kiválasztása","subheader":"Alternatív sebességkorlátok használatának ütemezése","to":"Eddig","when":"Mikor"},"settings":{"applyToPeersOnLan":"Sebességkorlát alkalmazása a LAN-on lévő peerekre","applyToTransportOverhead":"Sebességkorlát alkalmazása a szállítási túlterhelésre","applyToUtp":"Sebességkorlát alkalmazása a µTP protokollra"},"subheader":{"alternative":"Alternatív Sebességkorlátok","global":"Globális Sebességkorlátok","settings":"Sebességkorlát Beállítások"},"tip":"0 korlátlan jelent","upload":"Feltöltés"},"tabs":{"advanced":"Haladó","behavior":"Viselkedés","bittorrent":"BitTorrent","connection":"Kapcsolat","downloads":"Letöltések","rss":"RSS","speed":"Sebesség","tagsAndCategories":"Címkék & Kategóriák","vuetorrent":{"general":"Általános","title":"VueTorrent","torrent_card":{"grid":"Rács Nézet","list":"Lista Nézet","table":"Táblázat Nézet"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Elérhető kategóriák:","createNewCategory":"Új kategória létrehozása","createNewTag":"Új címke létrehozása","noCategories":"Még nincsenek kategóriák","noTags":"Még nincsenek címkék","tagsSubheader":"Elérhető címkék:"},"title":"Beállítások","vuetorrent":{"general":{"check_new":"Új verzió keresése","currentVersion":"Jelenlegi verzió","customTitle":"Egyéni cím","dateFormat":"Dátumformátum","download":"Beállítások exportálása","fileContentInterval":"Torrent fájltartalom frissítési intervalluma","hideChipIfUnset":"Csempék elrejtése, ha nincsenek beállítva","historySize":"Előzmények mérete a jogosult mezőkön","import":"Beállítások importálása","isDrawerRight":"Jobb oldali fiók","isShutdownButtonVisible":"Leállítás gomb megjelenítése","language":"Nyelv","paginationSize":{"infinite_scroll":"Végtelen görgetés","label":"Lapozási méret","warning":"A magas értékek használata befolyásolhatja a teljesítményt"},"qbittorrentVersion":"qBittorrent verzió","refreshInterval":"qBittorrent API frissítési intervalluma","registerMagnet":"Mágnes linkek regisztrálása","resetSettings":"Beállítások visszaállítása","showAlltimeStat":"Összes idő statisztikájának megjelenítése","showCurrentSpeed":"Aktuális sebesség megjelenítése","showFreeSpace":"Szabad hely megjelenítése","showSessionStat":"Munkamenet statisztikájának megjelenítése","showSpeedGraph":"Sebességgrafikon megjelenítése","tip":"Ezek a beállítások a testreszabott WebUI-ra vonatkoznak","useBinarySize":"Az adatméretek bináris egységekre való cseréje (kB -> KiB)","useBitSpeed":"A sebességértékek bitekre való cseréje (kB/s -> kbps)","vueTorrentTitle":"Fül cím"},"torrentCard":{"grid":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai rács nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai rács nézetben"},"list":{"busyTip":"A befejezetlen torrentek megjelenítendő tulajdonságai lista nézetben","doneTip":"A befejezett torrentek megjelenítendő tulajdonságai lista nézetben"},"table":{"tip":"A torrentek megjelenítendő tulajdonságai táblázat nézetben"}}},"webUI":{"authentication":{"banDuration":"Kitiltás időtartama","banDurationHint":"Másodpercekben","bypassLocalhost":"Hitelesítés megkerülése a localhoston lévő kliensek számára","bypassWhitelist":"Hitelesítés megkerülése a fehérlistán szereplő IP-alhálózatokban lévő kliensek számára","maxAttempts":"Maximális próbálkozások száma","password":"Jelszó","passwordPlaceholder":"(változatlan)","sessionTimeout":"Munkamenet időkorlát","sessionTimeoutHint":"Másodpercekben","subheader":"Hitelesítés","username":"Felhasználónév","whitelistExamples":"Példa: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Egyéni HTTP fejlécek hozzáadása","customHeadersHint":"Soronként egy","customHeadersPlaceholder":"Fejléc1: érték1\\nFejléc2: érték2\\n...","dynDns":{"domainName":"Domain név","password":"Jelszó","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Regisztráció","subheader":"Dinamikus domain név frissítése","username":"Felhasználónév"},"https":{"certificate":"Tanúsítvány","key":"Kulcs","subheader":"HTTPS használata","tip":"Tanúsítványokkal kapcsolatos információk"},"interface":{"ipAddress":"IP-cím","port":"Port","subheader":"Web Felhasználói Felület","useAlternativeWebUI":"Alternatív WebUI használata","useUPnP":"UPnP / NAT-PMP port továbbítás használata a routeremen"},"proxiesList":"Megbízható proxyk listája","proxiesListHint":"Az IP-címek pontosvesszővel ( ; ) elválasztva","reverseProxySupport":"Fordított proxy támogatás engedélyezése","security":{"clickjacking":"Clickjacking védelem engedélyezése","csrf":"Cross-Site Request Forgery (CSRF) védelem engedélyezése","hostHeaderValidation":"Host fejléc érvényesítésének engedélyezése","hostHeaderValidationHint":"Pontosvesszővel ( ; ) elválasztva","secureCookie":"Cookie \\"biztonságos\\" jelzőjének engedélyezése (HTTPS szükséges)","serverDomains":"Szerver Domainek","subheader":"Biztonság"}}}');
+    jO = {
         add: {
             error: "Hiba történt a torrentek hozzáadása közben",
             pending: "Torrentek küldése...",
@@ -98452,7 +98497,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             new: "Új verzió elérhető!"
         }
     };
-    jO = {
+    YO = {
         actions: {
             delete: "Torrentek törlése",
             logs: "Naplók megnyitása",
@@ -98474,7 +98519,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         searchTorrents: "Torrentek keresése"
     };
-    YO = {
+    qO = {
         content: {
             fileInfo: "{n} fájl | {n} fájlok",
             filter_placeholder: "Keresés a fájlfa-ban",
@@ -98563,7 +98608,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             tier: "Szint: {n}"
         }
     };
-    qO = {
+    KO = {
         properties: {
             added_on: "Hozzáadva",
             amount_left: "Hátralévő mennyiség",
@@ -98648,28 +98693,28 @@ Hibák fordulhatnak elő, óvatosan használja.`
             uploading: "Feltöltés"
         }
     };
-    KO = {
+    XO = {
         minutes: "perc | perc | percek",
         seconds: "másodperc | másodperc | másodpercek"
     };
-    XO = {
-        common: LO,
-        constants: IO,
-        dashboard: zO,
-        dialogs: NO,
-        login: OO,
-        logs: HO,
-        navbar: VO,
-        rssArticles: WO,
-        searchEngine: GO,
-        settings: $O,
-        toast: UO,
-        topbar: jO,
-        torrentDetail: YO,
-        torrent: qO,
-        units: KO
-    };
     JO = {
+        common: IO,
+        constants: zO,
+        dashboard: NO,
+        dialogs: OO,
+        login: HO,
+        logs: VO,
+        navbar: WO,
+        rssArticles: GO,
+        searchEngine: $O,
+        settings: UO,
+        toast: jO,
+        topbar: YO,
+        torrentDetail: qO,
+        torrent: KO,
+        units: XO
+    };
+    ZO = {
         cancel: "Annulla",
         close: "Chiudi",
         delete: "Elimina",
@@ -98685,7 +98730,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "Usa Impostazioni Globali",
         yes: "Sì"
     };
-    ZO = {
+    QO = {
         addStopped: {
             always: "Sempre",
             never: "Mai",
@@ -98799,7 +98844,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "Preferisci TCP"
         }
     };
-    QO = {
+    eH = {
         displayMode: {
             grid: "Griglia",
             list: "Lista",
@@ -98860,7 +98905,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "Ordinamento Inverso",
         torrentsCount: "Nessun Torrent | {n} Torrent | {n} Torrent"
     };
-    eH = {
+    tH = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "nome1=valore1; nome2=valore2; ...",
@@ -99000,7 +99045,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             warnEdit: "Modificare il nome dell'etichetta migrerà i torrent alla nuova etichetta. Potrebbero verificarsi errori, usare con cautela."
         }
     };
-    tH = {
+    aH = {
         error: "Accesso fallito!",
         password: "Password",
         rules: {
@@ -99013,7 +99058,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "Accedi",
         username: "Nome utente"
     };
-    aH = {
+    rH = {
         emptyLogList: "Nessun log trovato",
         filters: {
             query: "Cerca nel log",
@@ -99021,7 +99066,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "Log qBittorrent"
     };
-    rH = {
+    nH = {
         addPanel: {
             torrentsPendingCount: "{n} Torrent in attesa di Upload | {n} Torrent in attesa di Upload"
         },
@@ -99087,7 +99132,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    nH = {
+    iH = {
         feeds: {
             empty: {
                 action: "Crea Feed RSS"
@@ -99108,14 +99153,14 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    iH = {
+    oH = {
         add: {
             error: "Errore durante l'aggiunta dei torrent",
             pending: "Inviando torrent...",
             success: "{n} Torrent aggiunto | {n} Torrent aggiunti"
         }
     };
-    oH = {
+    sH = {
         peers: {
             fields: {
                 download: "Download",
@@ -99129,7 +99174,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    sH = {
+    lH = {
         properties: {
             avg_download_speed: "Velocità DL Media",
             avg_upload_speed: "Velocità UL Media",
@@ -99138,20 +99183,20 @@ Hibák fordulhatnak elő, óvatosan használja.`
             seeding_time_limit: "Limite Tempo di Seeding"
         }
     };
-    lH = {
-        common: JO,
-        constants: ZO,
-        dashboard: QO,
-        dialogs: eH,
-        login: tH,
-        logs: aH,
-        navbar: rH,
-        rssArticles: nH,
-        toast: iH,
-        torrentDetail: oH,
-        torrent: sH
-    };
     uH = {
+        common: ZO,
+        constants: QO,
+        dashboard: eH,
+        dialogs: tH,
+        login: aH,
+        logs: rH,
+        navbar: nH,
+        rssArticles: iH,
+        toast: oH,
+        torrentDetail: sH,
+        torrent: lH
+    };
+    cH = {
         cancel: "キャンセル",
         close: "閉じる",
         delete: "削除",
@@ -99174,7 +99219,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "グローバル設定を使用する",
         yes: "はい"
     };
-    cH = {
+    dH = {
         addStopped: {
             always: "常に",
             never: "一度もない",
@@ -99299,7 +99344,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "TCPを優先"
         }
     };
-    dH = {
+    hH = {
         displayMode: {
             grid: "グリッド",
             list: "リスト",
@@ -99367,7 +99412,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "並び順を変える",
         torrentsCount: "Torrentなし | {n}個のTorrent | {n}個のTorrent"
     };
-    hH = {
+    mH = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "name1=value1; name2=value2; ..",
@@ -99569,7 +99614,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             warnEdit: "タグ名を編集すると、Torrentが新しいタグに移行されます。エラーが発生する場合がありますので、注意して使用してください。"
         }
     };
-    mH = {
+    fH = {
         error: "ログインに失敗しました!",
         password: "パスワード",
         rules: {
@@ -99582,7 +99627,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "ログイン",
         username: "ユーザー名"
     };
-    fH = {
+    pH = {
         emptyLogList: "ログが見つかりません",
         filters: {
             query: "ログメッセージ内を検索",
@@ -99590,7 +99635,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "qBittorrentログ"
     };
-    pH = {
+    gH = {
         addPanel: {
             torrentsPendingCount: "{n}個のTorrentがアップロードを待機中 | {n}個のTorrentがアップロードを待機中"
         },
@@ -99659,7 +99704,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    gH = {
+    vH = {
         feeds: {
             empty: {
                 action: "RSSフィードを作成",
@@ -99701,7 +99746,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             rules: "ルールを表示"
         }
     };
-    vH = {
+    yH = {
         filters: {
             category: {
                 all: "全て",
@@ -99737,8 +99782,8 @@ Hibák fordulhatnak elő, óvatosan használja.`
         tabHeaderEmpty: "(空のクエリ)",
         title: "検索エンジン"
     };
-    yH = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BTプレイヤーピアを自動的にアクセス禁止","auto_ban_unknown_peer":"不明なピアの自動アクセス禁止","auto_update_trackers":"公開トラッカーリストを自動的に更新する","public_trackers":"公開トラッカー","trackers_list_url":"トラッカーURLリストをカスタマイズ"}},"advanced":{"libtorrent":{"announceAllTiers":"常にすべてのティアにアナウンスする","announceAllTrackers":"常にティア内のすべてのトラッカーにアナウンスする","announceIP":"トラッカーに報告するIPアドレス (再起動が必要)","coalesceReadsWrites":"読み取りと書き込みを合成 (libtorrent < 2.0)","disk":{"diskCache":"ディスクキャッシュ (libtorrent < 2.0)","diskCacheExpiry":"ディスクキャッシュ期限切れ間隔 (libtorrent < 2.0)","diskIoReadMode":"ディスクI/O読み取りモード","diskIoType":"ディスクI/Oタイプ (libtorrent >= 2.0、再起動が必要)","diskIoWriteMode":"ディスクI/O書き込みモード","diskQueueSize":"ディスクキューサイズ","subheader":"ディスク"},"maxConcurrentHTTPAnnounces":"HTTPアナウンスの最大同時接続数","networking":{"outgoingPortsMax":"送信ポート (最大) [0: 無効]","outgoingPortsMin":"送信ポート (最小) [0: 無効]","peerTos":" ピアに接続するサービスの種類 (ToS)","subheader":"ネットワーク","upnpLeaseDuration":"UPnPのリース期間 [0: 永続リース]","utpTcpMixedModeAlgorithm":"μTP-TCP混合モードアルゴリズム"},"outgoingConnectionsPerSecond":"1秒あたりの外部接続数","peerTurnover":"ピアターンオーバーの切断の割合","peerTurnoverCutoff":"ピアターンオーバーのしきい値の割合","peerTurnoverInterval":"ピアターンオーバーの切断の間隔","pieceExtentAffinity":"ピースのエクステントアフィニティを使用する","requestQueueSize":"1つのピアへ送信する未処理リクエストの最大数","security":{"allowMultipleConnectionsFromTheSameIPAddress":"同じIPアドレスから複数の接続を許可する","blockPeersOnPrivilegedPorts":"特権ポートでのピアへの接続を許可しない","idnSupport":"国際化ドメイン名 (IDN) に対応する","mitigateSSRF":"サーバーサイドリクエストフォージェリ (SSRF) 対策","subheader":"セキュリティ","validateHTTPSTrackerCertificate":"HTTPSトラッカーの証明書を検証する"},"sendBufferLowWatermark":"送信バッファーのウォーターマーク最小値","sendBufferWatermark":"送信バッファーのウォーターマーク","sendBufferWatermarkFactor":"送信バッファーのウォーターマーク係数","sendUploadPieceSuggestions":"アップロードピースの提案を送信する","socketBacklogSize":"ソケットで保留にできる接続待ちの数","socketReceiveBufferSize":"ソケットの受信バッファサイズ","socketReceiveBufferSizeHint":"0: システムデフォルト","socketSendBufferSize":"ソケットの送信バッファサイズ","socketSendBufferSizeHint":"0: システムデフォルト","stopTrackerTimeout":"トラッカーのタイムアウトを停止","subheader":"libtorrentセクション","threads":{"asyncIoThreads":"非同期I/Oスレッド数","bdecodeDepthLimit":"Bdecodeの深度制限","bdecodeTokenLimit":"Bdecodeのトークン制限","filePoolSize":"ファイルプールサイズ","hashingThreads":"ハッシュ化のスレッド数 (libtorrent >= 2.0)","outstandingMemory":"Torrentのチェックに使用するメモリー量","subheader":"スレッド"},"uploadChokingAlgorithm":"アップロードのチョークアルゴリズム","uploadSlotsBehavior":"アップロードスロットの動作"},"openDoc":"ドキュメントを開く","qbittorrent":{"allocatedRam":"物理メモリ (RAM) の使用限度 (libtorrent >= 2.0)","embeddedTracker":{"enable":"組み込みトラッカーを有効にする","port":"組み込みトラッカーのポート","portForward":"組み込みトラッカーのポート転送を有効にする","title":"組み込みトラッカー"},"networking":{"ipAddress":{"all":"すべてのアドレス","allIPv4":"すべてのIPv4アドレス","allIPv6":"すべてのIPv6アドレス","label":"バインドする任意のIPアドレス"},"networkInterfaces":{"any":"任意のインターフェース","label":"ネットワークインターフェース"},"title":"ネットワーク"},"reannounceOnIpPortChanged":"IPまたはポートに変更があった場合にすべてのトラッカーに再アナウンスする","recheckOnCompletion":"Torrentの完了時に再チェックする","refreshInterval":"GUI更新間隔","resolveCountries":"ピアの国籍を解決する","resumeDataStorageType":{"label":"再開データのストレージタイプ (再起動が必要)","legacy":"Fastresumeファイル","sqlite":"SQLiteデータベース (実験的)"},"saveInterval":"再開データの保存間隔","subheader":"qBittorrentセクション","torrentFileSizeLimit":".torrentファイルのサイズ制限"}},"behavior":{"logs":{"file_log_age":"より古いバックアップログを削除する","file_log_backup_enabled":"ログファイルのバックアップを有効にする","file_log_delete_old":"古いバックアップログを削除する","file_log_enabled":"ログファイルを有効にする","file_log_max_size":"ログファイルをバックアップする間隔","file_log_path":"保存先パス","subheader":"ログ管理"},"performance_warning":"パフォーマンス警告をログに記録する"},"bittorrent":{"autoAddTrackers":"以下のトラッカーを新しいダウンロードに自動追加する","autoAddTrackersHint":"1行につき1トラッカー","maxActiveCheckingTorrents":"Torrentをチェックする最大アクティブ数","privacy":{"enableAnonymous":"匿名モードを有効にする","enableDHT":"DHT (分散型ネットワーク) を有効にする (ピア検出数の向上)","enableLPD":"ローカルピア検出 (LPD) を有効にする (ピア検出数の向上)","enablePeX":"ピア交換 (PeX) を有効にする (ピア検出数の向上)","encryptionMode":"暗号化モード","moreInfo":"詳細情報","subheader":"プライバシー"},"seedLimits":{"subheader":"シード制限","then":"から","whenInactiveSeedingTimeReaches":"非アクティブシード時間制限に達したとき","whenRatioReaches":"共有比制限に達したとき","whenSeedingTimeReaches":"シード時間制限に達したとき"},"torrentQueueing":{"downloadRateLimit":"DL速度のしきい値","excludeSlowTorrent":"これらの制限で低速なTorrentは数に含めない","maxActiveDownload":"アクティブDL数の上限","maxActiveTorrent":"アクティブTorrent数の上限","maxActiveUpload":"アクティブUP数の上限","subheader":"Torrentキュー","torrentInactivityTimer":"Torrent非アクティブタイマー","uploadRateLimit":"UP速度のしきい値"}},"connection":{"connectionLimits":{"globalMaxConnection":"グローバル最大接続数","globalMaxUploadSlots":"最大アップロードスロット数","perTorrentMaxConnection":"Torrentごとの最大接続数","perTorrentMaxUploadSlots":"Torrentごとの最大アップロードスロット数","subheader":"接続制限"},"ipFiltering":{"applyToTrackers":"トラッカーに適用する","bannedIps":"手動でアクセス禁止にしたIPアドレス","bannedIpsHint":"1行に1つずつ","filterPath":"フィルターパス (.dat、.p2p、.p2b)","subheader":"IPフィルタリング"},"listeningPort":{"incomingConnectionPort":"受信接続に使用するポート","randomPort":"ランダムなポート","subheader":"接続待ちポート","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"protocol":"ピア接続プロトコル","proxy":{"auth":{"password":"パスワード","subtitle":"認証","tip":"注意: パスワードは暗号化されずに保存されます","username":"ユーザー名"},"bittorrent":"BitTorrentにプロキシを使用する","host":"ホスト","hostNameLookup":"ホスト名解決にプロキシを使用する","misc":"全般にプロキシを使用する","peerConnections":"ピア接続にプロキシを使用する","port":"ポート","rss":"RSSにプロキシを使用する","subheader":"プロキシサーバー"}},"downloads":{"excludedFileNames":{"hint":"1行に1つのフィルター","label":"除外ファイル名"},"mailNotification":{"authEnabled":"認証","enabled":"ダウンロード完了時のメール通知","from":"差出人(From)","password":"パスワード","smtpServer":"SMTPサーバー","sslEnabled":"このサーバーは安全な接続 (SSL) を必要とする","to":"宛先 (To)","username":"ユーザー名"},"monitoredFolders":{"actions":"アクション","confirmDelete":"このアイテムを削除してもよろしいですか?","editItem":"編集","monitoredFolderPath":"監視対象フォルダー","newItem":"新規","noData":"監視対象フォルダーはありません","otherPath":"その他のパス","saveType":"保存先を上書きする","subheader":"監視対象フォルダー"},"publicSettings":{"appendQBExtension":"未完了のファイルに.!qB拡張子を追加する","preAllocateDisk":"すべてのファイルにディスク領域を事前に割り当てる"},"runExternalProgram":{"onAddedEnabled":"Torrentの追加時に実行","onAddedLabel":"コマンド","onFinishedEnabled":"Torrentの完了時に実行","onFinishedLabel":"コマンド","subheader":"外部プログラムを実行","supportParamC":"%C: ファイル数","supportParamD":"%D: 保存先パス","supportParamF":"%F: コンテンツパス (複数ファイルTorrentのルートと同じ) ","supportParamG":"%G: タグ (カンマ区切り)","supportParamI":"%I: Infoハッシュ v1","supportParamJ":"%J: Infoハッシュ v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: カテゴリー","supportParamN":"%N: Torrent名","supportParamR":"%R: ルートパス (最初のTorrentサブディレクトリのパス)","supportParamT":"%T: 現在のトラッカー","supportParamTitle":"使用できるパラメーター (大文字と小文字を区別する) :","supportParamZ":"%Z: Torrentのサイズ (バイト)","tip":"ヒント: 空白でテキストが切り取られるのを避けるために、引用符でパラメータを囲んでください (例: \\"％N\\")"},"saveManagement":{"autoTMMEnabled":"デフォルトのTorrent管理モード","categoryChangedTMM":"カテゴリ保存パスが変更された場合","defaultSavePath":"デフォルトの保存先パス (完了時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":".torrentファイルのコピー先","exportDirFinished":"完了した.torrentファイルのコピー先","keepIncomplete":"ダウンロードパス (未完了時)","paramChangedTMMOptions":{"relocateTorrent":"Torrentを再配置","switchToManual":"Torrentを手動モードに切り替える"},"savePathChangedTMM":"デフォルトの保存パスが変更されたとき","subheader":"保存管理","torrentChangedTMM":"Torrentのカテゴリーが変更されたとき"},"whenAddTorrent":{"addToTopOfQueue":"キューの先頭に追加","autoDeleteMode":"追加後に.torrentファイルを削除する","doNotAutoStart":"ダウンロードを自動的に開始しない","mergeTrackers":"既存のTorrentにトラッカーをマージする","subheader":"Torrentの追加時"}},"rss":{"autoDownloader":{"enable":"RSSルール処理を有効にする","subheader":"RSS Torrent自動ダウンローダー"},"reader":{"enableProcessing":"RSSフィードの取得を有効にする","feedsRefreshInterval":"フィードの更新間隔","maximumArticlesPerFeed":"フィードごとの記事数の上限","subheader":"RSSリーダー"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPERエピソードをダウンロードする","filters":"フィルター","filtersHint":"1行に1つのフィルター","subheader":"RSS スマートエピソードフィルター"},"useIdForRssLinks":"RSS記事のリンクにIDを使用する"},"saveSuccess":"設定が保存されました!","speed":{"download":"ダウンロード","scheduler":{"from":"開始時間","selectButtonLabel":"時間を選択","subheader":"代替速度制限の使用をスケジュール","to":"終了時間","when":"いつ"},"settings":{"applyToPeersOnLan":"LAN上のピアに速度制限を適用する","applyToTransportOverhead":"トランスポートオーバーヘッドに速度制限を適用する","applyToUtp":"µTPプロトコルに速度制限を適用する"},"subheader":{"alternative":"代替速度制限","global":"グローバル速度制限","settings":"速度制限設定"},"tip":"0=無制限","upload":"アップロード"},"tabs":{"addons":{"enhanced_edition":"強化版"},"advanced":"高度な設定","behavior":"動作","bittorrent":"BitTorrent","connection":"接続","downloads":"ダウンロード","rss":"RSS","speed":"速度","tagsAndCategories":"タグ/カテゴリー","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"グリッドビュー","list":"リストビュー","table":"テーブルビュー"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"利用可能なカテゴリー:","createNewCategory":"新しいカテゴリーを作成","createNewTag":"新しいタグを作成","noCategories":"カテゴリーなし","noTags":"タグなし","tagsSubheader":"利用可能なタグ:"},"title":"設定","vuetorrent":{"general":{"check_new":"新しいバージョンを確認する","currentVersion":"現在のバージョン","customTitle":"カスタムタイトル","darkVariants":"ダークモード","dateFormat":"日付フォーマット","download":"設定のエクスポート","enableHashColors":"生成されたチップの色を有効にする","enableRatioColors":"共有比の色を有効にする","fileContentInterval":"Torrentファイルのコンテンツの更新間隔","hideChipIfUnset":"未設定の場合はチップを非表示にする","hideColoredChip":"チップのテキストバリアントを使用する","historySize":"対象フィールドの履歴サイズ","import":"設定のインポート","isDrawerRight":"右側のドロワー","isShutdownButtonVisible":"シャットダウンボタンを表示","language":"言語","lightVariants":"ライトモード","paginationSize":{"infinite_scroll":"無限スクロール","label":"ページネーションのサイズ","warning":"高い値を使用するとパフォーマンスに影響する可能性があります"},"qbittorrentVersion":"qBittorrentバージョン","refreshInterval":"qBittorrent API更新間隔","registerMagnet":"マグネットリンクを登録する","resetSettings":"設定をリセット","showAlltimeStat":"過去の統計を表示する","showCurrentSpeed":"現在の速度を表示する","showFreeSpace":"空き容量を表示する","showSessionStat":"セッション統計を表示する","showSpeedGraph":"速度グラフを表示する","tip":"これらの設定はカスタムWebUI自体のためのものです","useBinarySize":"データサイズの単位をバイナリ単位に置き換える (kB -> KiB)","useBitSpeed":"速度の値をビットに置き換える (kB/s -> kbps)","vueTorrentTitle":"タブのタイトル"},"torrentCard":{"grid":{"busyTip":"グリッドビューで表示する未完了のTorrentのプロパティ","doneTip":"グリッドビューで表示する完了したTorrentのプロパティ"},"list":{"busyTip":"リストビューで表示する未完了のTorrentのプロパティ","doneTip":"リストビューで表示する完了したTorrentのプロパティ"},"table":{"tip":"テーブルビューで表示するTorrentのプロパティ"}}},"webUI":{"authentication":{"banDuration":"アクセス禁止期間","banDurationHint":"秒単位","bypassLocalhost":"localhost上ではクライアントの認証を行わない","bypassWhitelist":"ホワイトリストに登録されたIPサブネット内のクライアントの認証を行わない","maxAttempts":"最大試行回数","password":"パスワード","passwordPlaceholder":"(変更なし)","sessionTimeout":"セッションタイムアウト","sessionTimeoutHint":"秒単位","subheader":"認証","username":"ユーザー名","whitelistExamples":"例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"カスタムHTTPヘッダーを追加する","customHeadersHint":"1行に1つのヘッダー","customHeadersPlaceholder":"Header1: 値1\\nHeader2: 値2\\n... ","dynDns":{"domainName":"ドメイン名","password":"パスワード","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"登録","subheader":"ダイナミックドメイン名を更新する","username":"ユーザー名"},"https":{"certificate":"証明書","key":"鍵","subheader":"HTTPSを使用する","tip":"証明書に関する情報"},"interface":{"ipAddress":"IPアドレス","port":"ポート","subheader":"Webユーザーインターフェース","useAlternativeWebUI":"代替WebUIを使用する","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"proxiesList":"信頼できるプロキシのリスト","proxiesListHint":"IPはセミコロン(;)で区切る","reverseProxySupport":"リバースプロキシのサポートを有効にする","security":{"clickjacking":"クリックジャッキング保護を有効にする","csrf":"クロスサイトリクエストフォージェリ(CSRF)保護を有効にする","hostHeaderValidation":"ホストヘッダー検証を有効にする","hostHeaderValidationHint":"セミコロン(;)で区切る","secureCookie":"CookieのSecureフラグを有効にする (HTTPSが必要)","serverDomains":"サーバードメイン","subheader":"セキュリティ"}}}');
-    bH = {
+    bH = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BTプレイヤーピアを自動的にアクセス禁止","auto_ban_unknown_peer":"不明なピアの自動アクセス禁止","auto_update_trackers":"公開トラッカーリストを自動的に更新する","public_trackers":"公開トラッカー","trackers_list_url":"トラッカーURLリストをカスタマイズ"}},"advanced":{"libtorrent":{"announceAllTiers":"常にすべてのティアにアナウンスする","announceAllTrackers":"常にティア内のすべてのトラッカーにアナウンスする","announceIP":"トラッカーに報告するIPアドレス (再起動が必要)","coalesceReadsWrites":"読み取りと書き込みを合成 (libtorrent < 2.0)","disk":{"diskCache":"ディスクキャッシュ (libtorrent < 2.0)","diskCacheExpiry":"ディスクキャッシュ期限切れ間隔 (libtorrent < 2.0)","diskIoReadMode":"ディスクI/O読み取りモード","diskIoType":"ディスクI/Oタイプ (libtorrent >= 2.0、再起動が必要)","diskIoWriteMode":"ディスクI/O書き込みモード","diskQueueSize":"ディスクキューサイズ","subheader":"ディスク"},"maxConcurrentHTTPAnnounces":"HTTPアナウンスの最大同時接続数","networking":{"outgoingPortsMax":"送信ポート (最大) [0: 無効]","outgoingPortsMin":"送信ポート (最小) [0: 無効]","peerTos":" ピアに接続するサービスの種類 (ToS)","subheader":"ネットワーク","upnpLeaseDuration":"UPnPのリース期間 [0: 永続リース]","utpTcpMixedModeAlgorithm":"μTP-TCP混合モードアルゴリズム"},"outgoingConnectionsPerSecond":"1秒あたりの外部接続数","peerTurnover":"ピアターンオーバーの切断の割合","peerTurnoverCutoff":"ピアターンオーバーのしきい値の割合","peerTurnoverInterval":"ピアターンオーバーの切断の間隔","pieceExtentAffinity":"ピースのエクステントアフィニティを使用する","requestQueueSize":"1つのピアへ送信する未処理リクエストの最大数","security":{"allowMultipleConnectionsFromTheSameIPAddress":"同じIPアドレスから複数の接続を許可する","blockPeersOnPrivilegedPorts":"特権ポートでのピアへの接続を許可しない","idnSupport":"国際化ドメイン名 (IDN) に対応する","mitigateSSRF":"サーバーサイドリクエストフォージェリ (SSRF) 対策","subheader":"セキュリティ","validateHTTPSTrackerCertificate":"HTTPSトラッカーの証明書を検証する"},"sendBufferLowWatermark":"送信バッファーのウォーターマーク最小値","sendBufferWatermark":"送信バッファーのウォーターマーク","sendBufferWatermarkFactor":"送信バッファーのウォーターマーク係数","sendUploadPieceSuggestions":"アップロードピースの提案を送信する","socketBacklogSize":"ソケットで保留にできる接続待ちの数","socketReceiveBufferSize":"ソケットの受信バッファサイズ","socketReceiveBufferSizeHint":"0: システムデフォルト","socketSendBufferSize":"ソケットの送信バッファサイズ","socketSendBufferSizeHint":"0: システムデフォルト","stopTrackerTimeout":"トラッカーのタイムアウトを停止","subheader":"libtorrentセクション","threads":{"asyncIoThreads":"非同期I/Oスレッド数","bdecodeDepthLimit":"Bdecodeの深度制限","bdecodeTokenLimit":"Bdecodeのトークン制限","filePoolSize":"ファイルプールサイズ","hashingThreads":"ハッシュ化のスレッド数 (libtorrent >= 2.0)","outstandingMemory":"Torrentのチェックに使用するメモリー量","subheader":"スレッド"},"uploadChokingAlgorithm":"アップロードのチョークアルゴリズム","uploadSlotsBehavior":"アップロードスロットの動作"},"openDoc":"ドキュメントを開く","qbittorrent":{"allocatedRam":"物理メモリ (RAM) の使用限度 (libtorrent >= 2.0)","embeddedTracker":{"enable":"組み込みトラッカーを有効にする","port":"組み込みトラッカーのポート","portForward":"組み込みトラッカーのポート転送を有効にする","title":"組み込みトラッカー"},"networking":{"ipAddress":{"all":"すべてのアドレス","allIPv4":"すべてのIPv4アドレス","allIPv6":"すべてのIPv6アドレス","label":"バインドする任意のIPアドレス"},"networkInterfaces":{"any":"任意のインターフェース","label":"ネットワークインターフェース"},"title":"ネットワーク"},"reannounceOnIpPortChanged":"IPまたはポートに変更があった場合にすべてのトラッカーに再アナウンスする","recheckOnCompletion":"Torrentの完了時に再チェックする","refreshInterval":"GUI更新間隔","resolveCountries":"ピアの国籍を解決する","resumeDataStorageType":{"label":"再開データのストレージタイプ (再起動が必要)","legacy":"Fastresumeファイル","sqlite":"SQLiteデータベース (実験的)"},"saveInterval":"再開データの保存間隔","subheader":"qBittorrentセクション","torrentFileSizeLimit":".torrentファイルのサイズ制限"}},"behavior":{"logs":{"file_log_age":"より古いバックアップログを削除する","file_log_backup_enabled":"ログファイルのバックアップを有効にする","file_log_delete_old":"古いバックアップログを削除する","file_log_enabled":"ログファイルを有効にする","file_log_max_size":"ログファイルをバックアップする間隔","file_log_path":"保存先パス","subheader":"ログ管理"},"performance_warning":"パフォーマンス警告をログに記録する"},"bittorrent":{"autoAddTrackers":"以下のトラッカーを新しいダウンロードに自動追加する","autoAddTrackersHint":"1行につき1トラッカー","maxActiveCheckingTorrents":"Torrentをチェックする最大アクティブ数","privacy":{"enableAnonymous":"匿名モードを有効にする","enableDHT":"DHT (分散型ネットワーク) を有効にする (ピア検出数の向上)","enableLPD":"ローカルピア検出 (LPD) を有効にする (ピア検出数の向上)","enablePeX":"ピア交換 (PeX) を有効にする (ピア検出数の向上)","encryptionMode":"暗号化モード","moreInfo":"詳細情報","subheader":"プライバシー"},"seedLimits":{"subheader":"シード制限","then":"から","whenInactiveSeedingTimeReaches":"非アクティブシード時間制限に達したとき","whenRatioReaches":"共有比制限に達したとき","whenSeedingTimeReaches":"シード時間制限に達したとき"},"torrentQueueing":{"downloadRateLimit":"DL速度のしきい値","excludeSlowTorrent":"これらの制限で低速なTorrentは数に含めない","maxActiveDownload":"アクティブDL数の上限","maxActiveTorrent":"アクティブTorrent数の上限","maxActiveUpload":"アクティブUP数の上限","subheader":"Torrentキュー","torrentInactivityTimer":"Torrent非アクティブタイマー","uploadRateLimit":"UP速度のしきい値"}},"connection":{"connectionLimits":{"globalMaxConnection":"グローバル最大接続数","globalMaxUploadSlots":"最大アップロードスロット数","perTorrentMaxConnection":"Torrentごとの最大接続数","perTorrentMaxUploadSlots":"Torrentごとの最大アップロードスロット数","subheader":"接続制限"},"ipFiltering":{"applyToTrackers":"トラッカーに適用する","bannedIps":"手動でアクセス禁止にしたIPアドレス","bannedIpsHint":"1行に1つずつ","filterPath":"フィルターパス (.dat、.p2p、.p2b)","subheader":"IPフィルタリング"},"listeningPort":{"incomingConnectionPort":"受信接続に使用するポート","randomPort":"ランダムなポート","subheader":"接続待ちポート","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"protocol":"ピア接続プロトコル","proxy":{"auth":{"password":"パスワード","subtitle":"認証","tip":"注意: パスワードは暗号化されずに保存されます","username":"ユーザー名"},"bittorrent":"BitTorrentにプロキシを使用する","host":"ホスト","hostNameLookup":"ホスト名解決にプロキシを使用する","misc":"全般にプロキシを使用する","peerConnections":"ピア接続にプロキシを使用する","port":"ポート","rss":"RSSにプロキシを使用する","subheader":"プロキシサーバー"}},"downloads":{"excludedFileNames":{"hint":"1行に1つのフィルター","label":"除外ファイル名"},"mailNotification":{"authEnabled":"認証","enabled":"ダウンロード完了時のメール通知","from":"差出人(From)","password":"パスワード","smtpServer":"SMTPサーバー","sslEnabled":"このサーバーは安全な接続 (SSL) を必要とする","to":"宛先 (To)","username":"ユーザー名"},"monitoredFolders":{"actions":"アクション","confirmDelete":"このアイテムを削除してもよろしいですか?","editItem":"編集","monitoredFolderPath":"監視対象フォルダー","newItem":"新規","noData":"監視対象フォルダーはありません","otherPath":"その他のパス","saveType":"保存先を上書きする","subheader":"監視対象フォルダー"},"publicSettings":{"appendQBExtension":"未完了のファイルに.!qB拡張子を追加する","preAllocateDisk":"すべてのファイルにディスク領域を事前に割り当てる"},"runExternalProgram":{"onAddedEnabled":"Torrentの追加時に実行","onAddedLabel":"コマンド","onFinishedEnabled":"Torrentの完了時に実行","onFinishedLabel":"コマンド","subheader":"外部プログラムを実行","supportParamC":"%C: ファイル数","supportParamD":"%D: 保存先パス","supportParamF":"%F: コンテンツパス (複数ファイルTorrentのルートと同じ) ","supportParamG":"%G: タグ (カンマ区切り)","supportParamI":"%I: Infoハッシュ v1","supportParamJ":"%J: Infoハッシュ v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: カテゴリー","supportParamN":"%N: Torrent名","supportParamR":"%R: ルートパス (最初のTorrentサブディレクトリのパス)","supportParamT":"%T: 現在のトラッカー","supportParamTitle":"使用できるパラメーター (大文字と小文字を区別する) :","supportParamZ":"%Z: Torrentのサイズ (バイト)","tip":"ヒント: 空白でテキストが切り取られるのを避けるために、引用符でパラメータを囲んでください (例: \\"％N\\")"},"saveManagement":{"autoTMMEnabled":"デフォルトのTorrent管理モード","categoryChangedTMM":"カテゴリ保存パスが変更された場合","defaultSavePath":"デフォルトの保存先パス (完了時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":".torrentファイルのコピー先","exportDirFinished":"完了した.torrentファイルのコピー先","keepIncomplete":"ダウンロードパス (未完了時)","paramChangedTMMOptions":{"relocateTorrent":"Torrentを再配置","switchToManual":"Torrentを手動モードに切り替える"},"savePathChangedTMM":"デフォルトの保存パスが変更されたとき","subheader":"保存管理","torrentChangedTMM":"Torrentのカテゴリーが変更されたとき"},"whenAddTorrent":{"addToTopOfQueue":"キューの先頭に追加","autoDeleteMode":"追加後に.torrentファイルを削除する","doNotAutoStart":"ダウンロードを自動的に開始しない","mergeTrackers":"既存のTorrentにトラッカーをマージする","subheader":"Torrentの追加時"}},"rss":{"autoDownloader":{"enable":"RSSルール処理を有効にする","subheader":"RSS Torrent自動ダウンローダー"},"reader":{"enableProcessing":"RSSフィードの取得を有効にする","feedsRefreshInterval":"フィードの更新間隔","maximumArticlesPerFeed":"フィードごとの記事数の上限","subheader":"RSSリーダー"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPERエピソードをダウンロードする","filters":"フィルター","filtersHint":"1行に1つのフィルター","subheader":"RSS スマートエピソードフィルター"},"useIdForRssLinks":"RSS記事のリンクにIDを使用する"},"saveSuccess":"設定が保存されました!","speed":{"download":"ダウンロード","scheduler":{"from":"開始時間","selectButtonLabel":"時間を選択","subheader":"代替速度制限の使用をスケジュール","to":"終了時間","when":"いつ"},"settings":{"applyToPeersOnLan":"LAN上のピアに速度制限を適用する","applyToTransportOverhead":"トランスポートオーバーヘッドに速度制限を適用する","applyToUtp":"µTPプロトコルに速度制限を適用する"},"subheader":{"alternative":"代替速度制限","global":"グローバル速度制限","settings":"速度制限設定"},"tip":"0=無制限","upload":"アップロード"},"tabs":{"addons":{"enhanced_edition":"強化版"},"advanced":"高度な設定","behavior":"動作","bittorrent":"BitTorrent","connection":"接続","downloads":"ダウンロード","rss":"RSS","speed":"速度","tagsAndCategories":"タグ/カテゴリー","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"グリッドビュー","list":"リストビュー","table":"テーブルビュー"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"利用可能なカテゴリー:","createNewCategory":"新しいカテゴリーを作成","createNewTag":"新しいタグを作成","noCategories":"カテゴリーなし","noTags":"タグなし","tagsSubheader":"利用可能なタグ:"},"title":"設定","vuetorrent":{"general":{"check_new":"新しいバージョンを確認する","currentVersion":"現在のバージョン","customTitle":"カスタムタイトル","darkVariants":"ダークモード","dateFormat":"日付フォーマット","download":"設定のエクスポート","enableHashColors":"生成されたチップの色を有効にする","enableRatioColors":"共有比の色を有効にする","fileContentInterval":"Torrentファイルのコンテンツの更新間隔","hideChipIfUnset":"未設定の場合はチップを非表示にする","hideColoredChip":"チップのテキストバリアントを使用する","historySize":"対象フィールドの履歴サイズ","import":"設定のインポート","isDrawerRight":"右側のドロワー","isShutdownButtonVisible":"シャットダウンボタンを表示","language":"言語","lightVariants":"ライトモード","paginationSize":{"infinite_scroll":"無限スクロール","label":"ページネーションのサイズ","warning":"高い値を使用するとパフォーマンスに影響する可能性があります"},"qbittorrentVersion":"qBittorrentバージョン","refreshInterval":"qBittorrent API更新間隔","registerMagnet":"マグネットリンクを登録する","resetSettings":"設定をリセット","showAlltimeStat":"過去の統計を表示する","showCurrentSpeed":"現在の速度を表示する","showFreeSpace":"空き容量を表示する","showSessionStat":"セッション統計を表示する","showSpeedGraph":"速度グラフを表示する","tip":"これらの設定はカスタムWebUI自体のためのものです","useBinarySize":"データサイズの単位をバイナリ単位に置き換える (kB -> KiB)","useBitSpeed":"速度の値をビットに置き換える (kB/s -> kbps)","vueTorrentTitle":"タブのタイトル"},"torrentCard":{"grid":{"busyTip":"グリッドビューで表示する未完了のTorrentのプロパティ","doneTip":"グリッドビューで表示する完了したTorrentのプロパティ"},"list":{"busyTip":"リストビューで表示する未完了のTorrentのプロパティ","doneTip":"リストビューで表示する完了したTorrentのプロパティ"},"table":{"tip":"テーブルビューで表示するTorrentのプロパティ"}}},"webUI":{"authentication":{"banDuration":"アクセス禁止期間","banDurationHint":"秒単位","bypassLocalhost":"localhost上ではクライアントの認証を行わない","bypassWhitelist":"ホワイトリストに登録されたIPサブネット内のクライアントの認証を行わない","maxAttempts":"最大試行回数","password":"パスワード","passwordPlaceholder":"(変更なし)","sessionTimeout":"セッションタイムアウト","sessionTimeoutHint":"秒単位","subheader":"認証","username":"ユーザー名","whitelistExamples":"例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"カスタムHTTPヘッダーを追加する","customHeadersHint":"1行に1つのヘッダー","customHeadersPlaceholder":"Header1: 値1\\nHeader2: 値2\\n... ","dynDns":{"domainName":"ドメイン名","password":"パスワード","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"登録","subheader":"ダイナミックドメイン名を更新する","username":"ユーザー名"},"https":{"certificate":"証明書","key":"鍵","subheader":"HTTPSを使用する","tip":"証明書に関する情報"},"interface":{"ipAddress":"IPアドレス","port":"ポート","subheader":"Webユーザーインターフェース","useAlternativeWebUI":"代替WebUIを使用する","useUPnP":"ルーターからのポート転送にUPnP/NAT-PMPを使用する"},"proxiesList":"信頼できるプロキシのリスト","proxiesListHint":"IPはセミコロン(;)で区切る","reverseProxySupport":"リバースプロキシのサポートを有効にする","security":{"clickjacking":"クリックジャッキング保護を有効にする","csrf":"クロスサイトリクエストフォージェリ(CSRF)保護を有効にする","hostHeaderValidation":"ホストヘッダー検証を有効にする","hostHeaderValidationHint":"セミコロン(;)で区切る","secureCookie":"CookieのSecureフラグを有効にする (HTTPSが必要)","serverDomains":"サーバードメイン","subheader":"セキュリティ"}}}');
+    FH = {
         add: {
             error: "Torrentの追加中にエラーが発生しました",
             pending: "Torrentを送信中...",
@@ -99760,7 +99805,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             new: "新しいバージョンが利用可能です!"
         }
     };
-    FH = {
+    kH = {
         actions: {
             delete: "Torrentを削除",
             logs: "ログを開く",
@@ -99782,7 +99827,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         searchTorrents: "Torrentを検索"
     };
-    kH = {
+    xH = {
         content: {
             fileInfo: "{n}ファイル | {n}ファイル",
             filter_placeholder: "ファイルツリー内を検索",
@@ -99873,7 +99918,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             tier: "Tier: {n}"
         }
     };
-    xH = {
+    wH = {
         properties: {
             added_on: "追加日時",
             amount_left: "残り",
@@ -99964,28 +100009,28 @@ Hibák fordulhatnak elő, óvatosan használja.`
             uploading: "アップロード中"
         }
     };
-    wH = {
+    SH = {
         minutes: "分 | 分 | 分",
         seconds: "秒 | 秒 | 秒"
     };
-    SH = {
-        common: uH,
-        constants: cH,
-        dashboard: dH,
-        dialogs: hH,
-        login: mH,
-        logs: fH,
-        navbar: pH,
-        rssArticles: gH,
-        searchEngine: vH,
-        settings: yH,
-        toast: bH,
-        topbar: FH,
-        torrentDetail: kH,
-        torrent: xH,
-        units: wH
-    };
     CH = {
+        common: cH,
+        constants: dH,
+        dashboard: hH,
+        dialogs: mH,
+        login: fH,
+        logs: pH,
+        navbar: gH,
+        rssArticles: vH,
+        searchEngine: yH,
+        settings: bH,
+        toast: FH,
+        topbar: kH,
+        torrentDetail: xH,
+        torrent: wH,
+        units: SH
+    };
+    AH = {
         cancel: "취소",
         close: "닫기",
         delete: "삭제",
@@ -100006,7 +100051,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "전역 설정 사용",
         yes: "예"
     };
-    AH = {
+    DH = {
         addStopped: {
             always: "항상",
             never: "절대 안함",
@@ -100121,7 +100166,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "TCP 우선"
         }
     };
-    DH = {
+    TH = {
         displayMode: {
             grid: "Grid",
             list: "목록",
@@ -100187,7 +100232,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "역순 정렬",
         torrentsCount: "토렌트 없음 | {n}개의 토렌트 | {n}개의 토렌트"
     };
-    TH = {
+    EH = {
         add: {
             cookie: "Cookies",
             cookie_placeholder: "NAME1=값1; NAME2=값2; ...",
@@ -100346,7 +100391,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
 오류가 발생할 수 있으니 주의해서 사용하세요.`
         }
     };
-    EH = {
+    _H = {
         error: "로그인에 실패했습니다!",
         password: "비밀번호",
         rules: {
@@ -100359,7 +100404,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         title: "로그인",
         username: "사용자 이름"
     };
-    _H = {
+    PH = {
         emptyLogList: "로그를 찾을 수 없음",
         filters: {
             query: "로그 메시지 검색",
@@ -100367,7 +100412,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         title: "qBittorrent 로그"
     };
-    PH = {
+    BH = {
         addPanel: {
             torrentsPendingCount: "업로드 대기 중인 토런트 {n}개"
         },
@@ -100435,7 +100480,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    BH = {
+    MH = {
         feeds: {
             empty: {
                 action: "RSS 피드 생성"
@@ -100463,7 +100508,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             }
         }
     };
-    MH = {
+    RH = {
         filters: {
             category: {
                 all: "모두",
@@ -100499,8 +100544,8 @@ Hibák fordulhatnak elő, óvatosan használja.`
         tabHeaderEmpty: "(검색어 없음)",
         title: "검색 엔진"
     };
-    RH = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"항상 모든 티어에게 알립니다","announceAllTrackers":"항상 같은 티어의 모든 트래커에게 알립니다.","announceIP":"트래커에 보고되는 IP 주소 (재시작 필요) ","coalesceReadsWrites":"읽기 및 쓰기 통합(libtorrent < 2.0)","disk":{"diskCache":"디스크 캐시 (libtorrent <2.0)","diskCacheExpiry":"디스크 캐시 만료 간격(libtorrent <2.0)","diskIoReadMode":"디스크 IO 읽기 모드","diskIoType":"디스크 IO 유형(libtorrent >= 2.0, 재시작 필요)","diskIoWriteMode":"디스크 IO 쓰기 모드","diskQueueSize":"디스크 큐 크기","subheader":"디스크"},"maxConcurrentHTTPAnnounces":"동시에 처리할 수 있는 최대 HTTP 알림 수","networking":{"outgoingPortsMax":"송신 포트(최대) [0: 사용 안 함]","outgoingPortsMin":"송신 포트(최소) [0: 사용 안 함]","peerTos":"피어 연결에 대한 DSCP 값","subheader":"네트워킹","upnpLeaseDuration":"UPnP 임대 기간 [0: 영구 임대] ","utpTcpMixedModeAlgorithm":"μTP-TCP 혼합 모드 알고리즘"},"outgoingConnectionsPerSecond":"초당 발신 연결 수","peerTurnover":"피어 전환 연결 해제 백분율","peerTurnoverCutoff":"피어 교체 임계치 백분율","peerTurnoverInterval":"피어 전환 연결 해제 간격","pieceExtentAffinity":"조각 범위 선호도 사용","requestQueueSize":"단일 피어에 대한 최대 미결 요청 수","security":{"allowMultipleConnectionsFromTheSameIPAddress":"동일한 IP 주소에서 여러 개의 연결 허용하기","blockPeersOnPrivilegedPorts":"권한 있는 포트에서는 피어에 대한 연결을 허용하지 않습니다.","idnSupport":"IDN(Internationalized Domain Name) 지원 사용","mitigateSSRF":"서버 측 요청 위조(SSRF) 완화","subheader":"보안","validateHTTPSTrackerCertificate":"HTTPS 트래커 인증서 유효성 검사"},"sendBufferLowWatermark":"버퍼 부족 워터마크 전송","sendBufferWatermark":"버퍼 워터마크 전송","sendBufferWatermarkFactor":"버퍼 워터마크 계수 보내기","sendUploadPieceSuggestions":"업로드 조각 제안 보내기","socketBacklogSize":"소켓 대기열 크기","socketReceiveBufferSize":"수신 소켓 버퍼 크기","socketReceiveBufferSizeHint":"0: 시스템 기본값","socketSendBufferSize":"전송 소켓 버퍼 크기","socketSendBufferSizeHint":"0: 시스템 기본값","stopTrackerTimeout":"트래커 시간 초과 중지","subheader":"libtorrent 섹션","threads":{"asyncIoThreads":"비동기 I/O 스레드","bdecodeDepthLimit":"B디코딩 깊이 제한","bdecodeTokenLimit":"Bdecode 토큰 제한","filePoolSize":"파일 Pool 크기","hashingThreads":"스레드 해싱(libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"스레드"},"uploadChokingAlgorithm":"업로드 차단 알고리즘","uploadSlotsBehavior":"업로드 슬롯 동작 방식"},"openDoc":"문서 열기","qbittorrent":{"allocatedRam":"물리적 메모리(RAM) 사용량 제한(libtorrent >= 2.0)","embeddedTracker":{"enable":"내장 트래커 활성화","port":"내장 트래커 포트","portForward":"내장 트래커를 위한 포트 포워딩 활성화","title":"내장 트래커"},"networking":{"ipAddress":{"all":"모든 주소","allIPv4":"모든 IPv4 주소","allIPv6":"모든 IPv6 주소","label":"바인딩(결합)할 IP 주소(선택 사항)"},"networkInterfaces":{"any":"모든 인터페이스","label":"네트워크 인터페이스"},"title":"네트워킹"},"reannounceOnIpPortChanged":"IP 또는 포트가 변경되면 모든 트래커에게 다시 알립니다.","recheckOnCompletion":"완료 시 다운로드 파일 무결성 검사","refreshInterval":"GUI 새로 고침 간격","resolveCountries":"피어국가 분석","resumeDataStorageType":{"label":"이어받기 데이터 저장 유형(qBittorrent 재시작 필요)","legacy":"Fastresume files","sqlite":"SQLite 데이터베이스(실험적)"},"saveInterval":"재개 데이터 저장 간격","subheader":"qBittorrent 섹션","torrentFileSizeLimit":".torrent 파일 크기 제한"}},"behavior":{"logs":{"file_log_age":"다음보다 오래된 백업 로그 삭제","file_log_backup_enabled":"로그 파일 백업 사용","file_log_delete_old":"이전 백업 로그 삭제","file_log_enabled":"로그 파일 사용","file_log_max_size":"다음에 로그 파일을 백업합니다.","file_log_path":"저장 경로","subheader":"로그 관리"},"performance_warning":"로그 성능 경고"},"bittorrent":{"autoAddTrackers":"새로운 다운로드에 이러한 트래커를 자동으로 추가합니다.","autoAddTrackersHint":"한 줄에 하나의 트래커","maxActiveCheckingTorrents":"최대 활성 토렌트 확인","privacy":{"enableAnonymous":"익명 모드 사용","enableDHT":"DHT(분산 네트워크)를 활성화하여 더 많은 피어 찾기","enableLPD":"로컬 피어 검색을 활성화하여 더 많은 피어 찾기","enablePeX":"피어 익스체인지(PeX)를 활성화하여 더 많은 피어 찾기","encryptionMode":"암호화 모드","moreInfo":"자세한 정보","subheader":"개인정보 보호"},"seedLimits":{"subheader":"시드 제한","then":"그런 다음","whenInactiveSeedingTimeReaches":"비활성 시딩 시간에 도달하면","whenRatioReaches":"비율에 도달하면","whenSeedingTimeReaches":"시딩 시간에 도달하면"},"torrentQueueing":{"downloadRateLimit":"다운로드 속도 임계값","excludeSlowTorrent":"이 제한에 느린 토렌트는 포함하지 않기","maxActiveDownload":"최대 활성 다운로드 수","maxActiveTorrent":"최대 활성 토렌트 수","maxActiveUpload":"최대 활성 업로드 수","subheader":"토렌트 대기열","torrentInactivityTimer":"토렌트 비활성 타이머","uploadRateLimit":"업로드 속도 제한"}},"connection":{"connectionLimits":{"globalMaxConnection":"전역 최대 연결 수","globalMaxUploadSlots":"전역 최대 업로드 슬롯 수","perTorrentMaxConnection":"토렌트 당 최대 연결 수","perTorrentMaxUploadSlots":"토렌트 당 최대 업로드 슬롯 수","subheader":"연결 제한"},"ipFiltering":{"applyToTrackers":"트래커에 적용하기","bannedIps":"수동으로 차단한 IP 주소","bannedIpsHint":"한 줄에 하나씩","filterPath":"필터 경로 (.dat, .p2p, .p2b)","subheader":"IP 필터링"},"listeningPort":{"incomingConnectionPort":"수신 연결에 사용되는 포트","randomPort":"무작위 포트","subheader":"수신 포트","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"protocol":"피어 연결 프로토콜","proxy":{"auth":{"password":"비밀번호","subtitle":"계정설정","tip":"정보: 비밀번호는 암호화되지 않은 상태로 저장됩니다.","username":"로그인 ID"},"bittorrent":"BitTorrent 용도로 Proxy 사용","host":"호스트","hostNameLookup":"호스트 이름 조회에 Proxy 사용","misc":"일반적인 용도로 Proxy 사용","peerConnections":"피어 연결에 Proxy 사용","port":"포트","rss":"RSS 용도로 Proxy 사용","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"한 줄에 하나의 필터","label":"제외된 파일 이름"},"mailNotification":{"authEnabled":"계정설정","enabled":"다운로드 완료 시 이메일 알림","from":"From","password":"비밀번호","smtpServer":"SMTP 서버","sslEnabled":"이 서버에는 보안 연결(SSL)이 필요합니다.","to":"To","username":"로그인 ID"},"monitoredFolders":{"actions":"작업","confirmDelete":"이 항목을 삭제하시겠습니까?","editItem":"편집","monitoredFolderPath":"모니터링(Watch) 폴더","newItem":"새로 만들기","noData":"아직 모니터링되는 폴더 없음","otherPath":"기타 경로","saveType":"저장 위치 재정의(Override Save Location)","subheader":"모니터링(Watch) 폴더"},"publicSettings":{"appendQBExtension":"완료되지 않은 파일에 .!qB 확장자 추가하기","preAllocateDisk":"다운로드할 파일에 대해 디스크 공간 사전 할당"},"runExternalProgram":{"onAddedEnabled":"토렌트 추가 후 외부 프로그램 실행","onAddedLabel":"커맨드","onFinishedEnabled":"토렌트 다운로드 완료 후 외부 프로그램 실행","onFinishedLabel":"커맨드","subheader":"외부 프로그램 실행","supportParamC":"%C: 파일 개수","supportParamD":"%D: 저장 경로","supportParamF":"%F: 콘텐츠 경로(다중 파일 토렌트의 루트 경로와 동일)","supportParamG":"%G: 태그(쉼표로 구분)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: 토렌트 ID","supportParamL":"%L: 카테고리","supportParamN":"%N: 토렌트 이름","supportParamR":"%R: 루트 경로 (첫 번째 토런트 하위 디렉터리 경로)","supportParamT":"%T: 현재 트래커","supportParamTitle":"지원되는 매개변수(대소문자 구분):","supportParamZ":"%Z: 토렌트 크기 (바이트)","tip":"팁: 공백에서 텍스트가 잘리는 것을 방지하려면 매개 변수를 따옴표로 묶으세요 (예: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"기본 토렌트 관리 모드","categoryChangedTMM":"카테고리 저장 경로가 변경된 경우","defaultSavePath":"기본 저장 경로 (완료)","defaultTMMOptions":{"automatic":"자동","manual":"수동"},"exportDir":".torrent 파일을 다음 위치로 복사","exportDirFinished":"다운로드가 완료된 .torrent 파일을 다음 위치로 복사","keepIncomplete":"기본 다운로드 경로(미완료된 토렌트)","paramChangedTMMOptions":{"relocateTorrent":"토렌트 이동하기","switchToManual":"토렌트를 수동 모드로 전환"},"savePathChangedTMM":"기본 저장 경로가 변경된 경우","subheader":"저장 관리","torrentChangedTMM":"토렌트 카테고리가 변경되었을 때"},"whenAddTorrent":{"addToTopOfQueue":"대기열 맨 위로 올리기","autoDeleteMode":"나중에 .torrent 파일 삭제","doNotAutoStart":"자동으로 다운로드 시작하지 않기","mergeTrackers":"토렌트가 이미 존재하는 경우 트래커 병합하기","subheader":"토렌트를 추가할 때"}},"rss":{"autoDownloader":{"enable":"RSS 규칙 처리 활성화","subheader":"RSS 토렌트 자동 다운로더"},"reader":{"enableProcessing":"RSS 피드 가져오기 활성화","feedsRefreshInterval":"피드 새로고침 간격","maximumArticlesPerFeed":"피드 당 수집할 최대 기사 수","subheader":"RSS 리더"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER 에피소드 다운로드","filters":"필터","filtersHint":"한 줄에 하나씩","subheader":"RSS Smart episode 필터"},"useIdForRssLinks":"RSS 피드에 ID사용"},"saveSuccess":"설정이 저장되었습니다!","speed":{"download":"다운로드","scheduler":{"from":"시작시간","selectButtonLabel":"시간 선택","subheader":"대체 속도 제한 사용 일정","to":"종료시간","when":"스케쥴"},"settings":{"applyToPeersOnLan":"LAN 내 피어에 대해 속도 제한 적용","applyToTransportOverhead":"Transport overhead에 대한 속도 제한 적용","applyToUtp":"µTP 프로토콜에 속도 제한 적용"},"subheader":{"alternative":"대체 속도 제한","global":"전역 속도 제한","settings":"속도 제한"},"tip":"0은 무제한을 의미합니다","upload":"업로드"},"tabs":{"advanced":"고급 설정","behavior":"동작","bittorrent":"BitTorrent","connection":"연결수","downloads":"다운로드","rss":"RSS","speed":"속도","tagsAndCategories":"태그 및 카테고리","vuetorrent":{"general":"일반","title":"VueTorrent","torrent_card":{"grid":"그리드 형식보기(Grid view)","list":"목록 형식 보기(List view)","table":"테이블 형식 보기(Table View)"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"사용 가능한 카테고리:","createNewCategory":"새 카테고리 만들기","createNewTag":"새 태그 만들기","noCategories":"아직 카테고리가 없습니다","noTags":"아직 태그가 없습니다","tagsSubheader":"사용 가능한 태그:"},"title":"설정","vuetorrent":{"general":{"check_new":"새 버전 확인","currentVersion":"현재 버전","customTitle":"사용자 지정 제목","dateFormat":"날짜 표시 형식","download":"설정 내보내기","fileContentInterval":"토렌트 진행사항 새로고침 간격","hideChipIfUnset":"설정되지 않은 경우 해당 옵션 숨기기","historySize":"대상 필드의 기록 크기","import":"설정 가져오기","isDrawerRight":"오른쪽 탭","isShutdownButtonVisible":"종료 버튼 표시","language":"표시 언어","paginationSize":{"infinite_scroll":"무한 스크롤","label":"Pagination 크기","warning":"높은 값을 사용하면 성능에 영향을 줄 수 있습니다."},"qbittorrentVersion":"qBittorrent 버전","refreshInterval":"qBittorrent API 새로 고침 간격","registerMagnet":"마그넷 링크 등록","resetSettings":"설정 초기화","showAlltimeStat":"역대 통계 보기","showCurrentSpeed":"현재 속도 표시","showFreeSpace":"여유 공간 표시","showSessionStat":"세션 통계 표시","showSpeedGraph":"속도 그래프 표시","tip":"이 설정은 사용자 지정 WebUI에 대한 설정입니다.","useBinarySize":"데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)","useBitSpeed":"속도 값 표시를 비트로 바꾸기(kB/s -> kbps)","vueTorrentTitle":"탭 제목"},"torrentCard":{"grid":{"busyTip":"그리드 보기에서 미완료된 토렌트에 대해 표시할 속성","doneTip":"그리드 보기에서 완료된 토렌트에 대해 표시할 속성"},"list":{"busyTip":"목록 보기에서 사용 중인 토렌트에 대해 표시할 속성","doneTip":"목록 보기에서 완료된 토렌트에 대해 표시할 속성"},"table":{"tip":"테이블 보기에서 토렌트에 대해 표시할 속성"}}},"webUI":{"authentication":{"banDuration":"차단 시간","banDurationHint":"초(seconds) 단위","bypassLocalhost":"localhost에서 접속할 시 로그인 절차 없음","bypassWhitelist":"아래 IP주소에 대해서는 로그인 절차 없이 접근 가능(Whitelist)","maxAttempts":"로그인 최대 시도 횟수","password":"비밀번호","passwordPlaceholder":"(변경 없음)","sessionTimeout":"세션 만료 시간","sessionTimeoutHint":"초(seconds) 단위","subheader":"계정설정","username":"로그인 ID","whitelistExamples":"예시: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"사용자 정의 HTTP 헤더 추가","customHeadersHint":"한 줄에 하나씩","customHeadersPlaceholder":"Header1: value1 Header2: value2 ...","dynDns":{"domainName":"도메인 주소","password":"비밀번호","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"등록","subheader":"DDNS 활성화","username":"로그인 ID"},"https":{"certificate":"인증서","key":"Key","subheader":"HTTPS 사용","tip":"인증서에 대한 정보"},"interface":{"ipAddress":"IP 주소","port":"포트","subheader":"웹 사용자 인터페이스","useAlternativeWebUI":"대체 WebUI 사용","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"proxiesList":"신뢰할 수 있는 프록시 목록","proxiesListHint":"IP 주소를 세미콜론( ;)으로 구분합니다","reverseProxySupport":"역방향 프록시(Reverse proxy) 지원 활성화","security":{"clickjacking":"클릭재킹(Clickjacking) 보호 활성화","csrf":"CSRF(사이트 간 요청 위조) 보호 활성화","hostHeaderValidation":"호스트 헤더 유효성 검사 사용","hostHeaderValidationHint":"세미콜론( ;)으로 구분합니다.","secureCookie":"\\"secure\\" cookie flag 활성화 (HTTPS필요)","serverDomains":"서버 도메인","subheader":"보안"}}}');
-    LH = {
+    LH = JSON.parse('{"advanced":{"libtorrent":{"announceAllTiers":"항상 모든 티어에게 알립니다","announceAllTrackers":"항상 같은 티어의 모든 트래커에게 알립니다.","announceIP":"트래커에 보고되는 IP 주소 (재시작 필요) ","coalesceReadsWrites":"읽기 및 쓰기 통합(libtorrent < 2.0)","disk":{"diskCache":"디스크 캐시 (libtorrent <2.0)","diskCacheExpiry":"디스크 캐시 만료 간격(libtorrent <2.0)","diskIoReadMode":"디스크 IO 읽기 모드","diskIoType":"디스크 IO 유형(libtorrent >= 2.0, 재시작 필요)","diskIoWriteMode":"디스크 IO 쓰기 모드","diskQueueSize":"디스크 큐 크기","subheader":"디스크"},"maxConcurrentHTTPAnnounces":"동시에 처리할 수 있는 최대 HTTP 알림 수","networking":{"outgoingPortsMax":"송신 포트(최대) [0: 사용 안 함]","outgoingPortsMin":"송신 포트(최소) [0: 사용 안 함]","peerTos":"피어 연결에 대한 DSCP 값","subheader":"네트워킹","upnpLeaseDuration":"UPnP 임대 기간 [0: 영구 임대] ","utpTcpMixedModeAlgorithm":"μTP-TCP 혼합 모드 알고리즘"},"outgoingConnectionsPerSecond":"초당 발신 연결 수","peerTurnover":"피어 전환 연결 해제 백분율","peerTurnoverCutoff":"피어 교체 임계치 백분율","peerTurnoverInterval":"피어 전환 연결 해제 간격","pieceExtentAffinity":"조각 범위 선호도 사용","requestQueueSize":"단일 피어에 대한 최대 미결 요청 수","security":{"allowMultipleConnectionsFromTheSameIPAddress":"동일한 IP 주소에서 여러 개의 연결 허용하기","blockPeersOnPrivilegedPorts":"권한 있는 포트에서는 피어에 대한 연결을 허용하지 않습니다.","idnSupport":"IDN(Internationalized Domain Name) 지원 사용","mitigateSSRF":"서버 측 요청 위조(SSRF) 완화","subheader":"보안","validateHTTPSTrackerCertificate":"HTTPS 트래커 인증서 유효성 검사"},"sendBufferLowWatermark":"버퍼 부족 워터마크 전송","sendBufferWatermark":"버퍼 워터마크 전송","sendBufferWatermarkFactor":"버퍼 워터마크 계수 보내기","sendUploadPieceSuggestions":"업로드 조각 제안 보내기","socketBacklogSize":"소켓 대기열 크기","socketReceiveBufferSize":"수신 소켓 버퍼 크기","socketReceiveBufferSizeHint":"0: 시스템 기본값","socketSendBufferSize":"전송 소켓 버퍼 크기","socketSendBufferSizeHint":"0: 시스템 기본값","stopTrackerTimeout":"트래커 시간 초과 중지","subheader":"libtorrent 섹션","threads":{"asyncIoThreads":"비동기 I/O 스레드","bdecodeDepthLimit":"B디코딩 깊이 제한","bdecodeTokenLimit":"Bdecode 토큰 제한","filePoolSize":"파일 Pool 크기","hashingThreads":"스레드 해싱(libtorrent >= 2.0)","outstandingMemory":"Outstanding memory when checking torrents","subheader":"스레드"},"uploadChokingAlgorithm":"업로드 차단 알고리즘","uploadSlotsBehavior":"업로드 슬롯 동작 방식"},"openDoc":"문서 열기","qbittorrent":{"allocatedRam":"물리적 메모리(RAM) 사용량 제한(libtorrent >= 2.0)","embeddedTracker":{"enable":"내장 트래커 활성화","port":"내장 트래커 포트","portForward":"내장 트래커를 위한 포트 포워딩 활성화","title":"내장 트래커"},"networking":{"ipAddress":{"all":"모든 주소","allIPv4":"모든 IPv4 주소","allIPv6":"모든 IPv6 주소","label":"바인딩(결합)할 IP 주소(선택 사항)"},"networkInterfaces":{"any":"모든 인터페이스","label":"네트워크 인터페이스"},"title":"네트워킹"},"reannounceOnIpPortChanged":"IP 또는 포트가 변경되면 모든 트래커에게 다시 알립니다.","recheckOnCompletion":"완료 시 다운로드 파일 무결성 검사","refreshInterval":"GUI 새로 고침 간격","resolveCountries":"피어국가 분석","resumeDataStorageType":{"label":"이어받기 데이터 저장 유형(qBittorrent 재시작 필요)","legacy":"Fastresume files","sqlite":"SQLite 데이터베이스(실험적)"},"saveInterval":"재개 데이터 저장 간격","subheader":"qBittorrent 섹션","torrentFileSizeLimit":".torrent 파일 크기 제한"}},"behavior":{"logs":{"file_log_age":"다음보다 오래된 백업 로그 삭제","file_log_backup_enabled":"로그 파일 백업 사용","file_log_delete_old":"이전 백업 로그 삭제","file_log_enabled":"로그 파일 사용","file_log_max_size":"다음에 로그 파일을 백업합니다.","file_log_path":"저장 경로","subheader":"로그 관리"},"performance_warning":"로그 성능 경고"},"bittorrent":{"autoAddTrackers":"새로운 다운로드에 이러한 트래커를 자동으로 추가합니다.","autoAddTrackersHint":"한 줄에 하나의 트래커","maxActiveCheckingTorrents":"최대 활성 토렌트 확인","privacy":{"enableAnonymous":"익명 모드 사용","enableDHT":"DHT(분산 네트워크)를 활성화하여 더 많은 피어 찾기","enableLPD":"로컬 피어 검색을 활성화하여 더 많은 피어 찾기","enablePeX":"피어 익스체인지(PeX)를 활성화하여 더 많은 피어 찾기","encryptionMode":"암호화 모드","moreInfo":"자세한 정보","subheader":"개인정보 보호"},"seedLimits":{"subheader":"시드 제한","then":"그런 다음","whenInactiveSeedingTimeReaches":"비활성 시딩 시간에 도달하면","whenRatioReaches":"비율에 도달하면","whenSeedingTimeReaches":"시딩 시간에 도달하면"},"torrentQueueing":{"downloadRateLimit":"다운로드 속도 임계값","excludeSlowTorrent":"이 제한에 느린 토렌트는 포함하지 않기","maxActiveDownload":"최대 활성 다운로드 수","maxActiveTorrent":"최대 활성 토렌트 수","maxActiveUpload":"최대 활성 업로드 수","subheader":"토렌트 대기열","torrentInactivityTimer":"토렌트 비활성 타이머","uploadRateLimit":"업로드 속도 제한"}},"connection":{"connectionLimits":{"globalMaxConnection":"전역 최대 연결 수","globalMaxUploadSlots":"전역 최대 업로드 슬롯 수","perTorrentMaxConnection":"토렌트 당 최대 연결 수","perTorrentMaxUploadSlots":"토렌트 당 최대 업로드 슬롯 수","subheader":"연결 제한"},"ipFiltering":{"applyToTrackers":"트래커에 적용하기","bannedIps":"수동으로 차단한 IP 주소","bannedIpsHint":"한 줄에 하나씩","filterPath":"필터 경로 (.dat, .p2p, .p2b)","subheader":"IP 필터링"},"listeningPort":{"incomingConnectionPort":"수신 연결에 사용되는 포트","randomPort":"무작위 포트","subheader":"수신 포트","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"protocol":"피어 연결 프로토콜","proxy":{"auth":{"password":"비밀번호","subtitle":"계정설정","tip":"정보: 비밀번호는 암호화되지 않은 상태로 저장됩니다.","username":"로그인 ID"},"bittorrent":"BitTorrent 용도로 Proxy 사용","host":"호스트","hostNameLookup":"호스트 이름 조회에 Proxy 사용","misc":"일반적인 용도로 Proxy 사용","peerConnections":"피어 연결에 Proxy 사용","port":"포트","rss":"RSS 용도로 Proxy 사용","subheader":"Proxy Server"}},"downloads":{"excludedFileNames":{"hint":"한 줄에 하나의 필터","label":"제외된 파일 이름"},"mailNotification":{"authEnabled":"계정설정","enabled":"다운로드 완료 시 이메일 알림","from":"From","password":"비밀번호","smtpServer":"SMTP 서버","sslEnabled":"이 서버에는 보안 연결(SSL)이 필요합니다.","to":"To","username":"로그인 ID"},"monitoredFolders":{"actions":"작업","confirmDelete":"이 항목을 삭제하시겠습니까?","editItem":"편집","monitoredFolderPath":"모니터링(Watch) 폴더","newItem":"새로 만들기","noData":"아직 모니터링되는 폴더 없음","otherPath":"기타 경로","saveType":"저장 위치 재정의(Override Save Location)","subheader":"모니터링(Watch) 폴더"},"publicSettings":{"appendQBExtension":"완료되지 않은 파일에 .!qB 확장자 추가하기","preAllocateDisk":"다운로드할 파일에 대해 디스크 공간 사전 할당"},"runExternalProgram":{"onAddedEnabled":"토렌트 추가 후 외부 프로그램 실행","onAddedLabel":"커맨드","onFinishedEnabled":"토렌트 다운로드 완료 후 외부 프로그램 실행","onFinishedLabel":"커맨드","subheader":"외부 프로그램 실행","supportParamC":"%C: 파일 개수","supportParamD":"%D: 저장 경로","supportParamF":"%F: 콘텐츠 경로(다중 파일 토렌트의 루트 경로와 동일)","supportParamG":"%G: 태그(쉼표로 구분)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: 토렌트 ID","supportParamL":"%L: 카테고리","supportParamN":"%N: 토렌트 이름","supportParamR":"%R: 루트 경로 (첫 번째 토런트 하위 디렉터리 경로)","supportParamT":"%T: 현재 트래커","supportParamTitle":"지원되는 매개변수(대소문자 구분):","supportParamZ":"%Z: 토렌트 크기 (바이트)","tip":"팁: 공백에서 텍스트가 잘리는 것을 방지하려면 매개 변수를 따옴표로 묶으세요 (예: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"기본 토렌트 관리 모드","categoryChangedTMM":"카테고리 저장 경로가 변경된 경우","defaultSavePath":"기본 저장 경로 (완료)","defaultTMMOptions":{"automatic":"자동","manual":"수동"},"exportDir":".torrent 파일을 다음 위치로 복사","exportDirFinished":"다운로드가 완료된 .torrent 파일을 다음 위치로 복사","keepIncomplete":"기본 다운로드 경로(미완료된 토렌트)","paramChangedTMMOptions":{"relocateTorrent":"토렌트 이동하기","switchToManual":"토렌트를 수동 모드로 전환"},"savePathChangedTMM":"기본 저장 경로가 변경된 경우","subheader":"저장 관리","torrentChangedTMM":"토렌트 카테고리가 변경되었을 때"},"whenAddTorrent":{"addToTopOfQueue":"대기열 맨 위로 올리기","autoDeleteMode":"나중에 .torrent 파일 삭제","doNotAutoStart":"자동으로 다운로드 시작하지 않기","mergeTrackers":"토렌트가 이미 존재하는 경우 트래커 병합하기","subheader":"토렌트를 추가할 때"}},"rss":{"autoDownloader":{"enable":"RSS 규칙 처리 활성화","subheader":"RSS 토렌트 자동 다운로더"},"reader":{"enableProcessing":"RSS 피드 가져오기 활성화","feedsRefreshInterval":"피드 새로고침 간격","maximumArticlesPerFeed":"피드 당 수집할 최대 기사 수","subheader":"RSS 리더"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER 에피소드 다운로드","filters":"필터","filtersHint":"한 줄에 하나씩","subheader":"RSS Smart episode 필터"},"useIdForRssLinks":"RSS 피드에 ID사용"},"saveSuccess":"설정이 저장되었습니다!","speed":{"download":"다운로드","scheduler":{"from":"시작시간","selectButtonLabel":"시간 선택","subheader":"대체 속도 제한 사용 일정","to":"종료시간","when":"스케쥴"},"settings":{"applyToPeersOnLan":"LAN 내 피어에 대해 속도 제한 적용","applyToTransportOverhead":"Transport overhead에 대한 속도 제한 적용","applyToUtp":"µTP 프로토콜에 속도 제한 적용"},"subheader":{"alternative":"대체 속도 제한","global":"전역 속도 제한","settings":"속도 제한"},"tip":"0은 무제한을 의미합니다","upload":"업로드"},"tabs":{"advanced":"고급 설정","behavior":"동작","bittorrent":"BitTorrent","connection":"연결수","downloads":"다운로드","rss":"RSS","speed":"속도","tagsAndCategories":"태그 및 카테고리","vuetorrent":{"general":"일반","title":"VueTorrent","torrent_card":{"grid":"그리드 형식보기(Grid view)","list":"목록 형식 보기(List view)","table":"테이블 형식 보기(Table View)"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"사용 가능한 카테고리:","createNewCategory":"새 카테고리 만들기","createNewTag":"새 태그 만들기","noCategories":"아직 카테고리가 없습니다","noTags":"아직 태그가 없습니다","tagsSubheader":"사용 가능한 태그:"},"title":"설정","vuetorrent":{"general":{"check_new":"새 버전 확인","currentVersion":"현재 버전","customTitle":"사용자 지정 제목","dateFormat":"날짜 표시 형식","download":"설정 내보내기","fileContentInterval":"토렌트 진행사항 새로고침 간격","hideChipIfUnset":"설정되지 않은 경우 해당 옵션 숨기기","historySize":"대상 필드의 기록 크기","import":"설정 가져오기","isDrawerRight":"오른쪽 탭","isShutdownButtonVisible":"종료 버튼 표시","language":"표시 언어","paginationSize":{"infinite_scroll":"무한 스크롤","label":"Pagination 크기","warning":"높은 값을 사용하면 성능에 영향을 줄 수 있습니다."},"qbittorrentVersion":"qBittorrent 버전","refreshInterval":"qBittorrent API 새로 고침 간격","registerMagnet":"마그넷 링크 등록","resetSettings":"설정 초기화","showAlltimeStat":"역대 통계 보기","showCurrentSpeed":"현재 속도 표시","showFreeSpace":"여유 공간 표시","showSessionStat":"세션 통계 표시","showSpeedGraph":"속도 그래프 표시","tip":"이 설정은 사용자 지정 WebUI에 대한 설정입니다.","useBinarySize":"데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)","useBitSpeed":"속도 값 표시를 비트로 바꾸기(kB/s -> kbps)","vueTorrentTitle":"탭 제목"},"torrentCard":{"grid":{"busyTip":"그리드 보기에서 미완료된 토렌트에 대해 표시할 속성","doneTip":"그리드 보기에서 완료된 토렌트에 대해 표시할 속성"},"list":{"busyTip":"목록 보기에서 사용 중인 토렌트에 대해 표시할 속성","doneTip":"목록 보기에서 완료된 토렌트에 대해 표시할 속성"},"table":{"tip":"테이블 보기에서 토렌트에 대해 표시할 속성"}}},"webUI":{"authentication":{"banDuration":"차단 시간","banDurationHint":"초(seconds) 단위","bypassLocalhost":"localhost에서 접속할 시 로그인 절차 없음","bypassWhitelist":"아래 IP주소에 대해서는 로그인 절차 없이 접근 가능(Whitelist)","maxAttempts":"로그인 최대 시도 횟수","password":"비밀번호","passwordPlaceholder":"(변경 없음)","sessionTimeout":"세션 만료 시간","sessionTimeoutHint":"초(seconds) 단위","subheader":"계정설정","username":"로그인 ID","whitelistExamples":"예시: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"사용자 정의 HTTP 헤더 추가","customHeadersHint":"한 줄에 하나씩","customHeadersPlaceholder":"Header1: value1 Header2: value2 ...","dynDns":{"domainName":"도메인 주소","password":"비밀번호","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"등록","subheader":"DDNS 활성화","username":"로그인 ID"},"https":{"certificate":"인증서","key":"Key","subheader":"HTTPS 사용","tip":"인증서에 대한 정보"},"interface":{"ipAddress":"IP 주소","port":"포트","subheader":"웹 사용자 인터페이스","useAlternativeWebUI":"대체 WebUI 사용","useUPnP":"UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"},"proxiesList":"신뢰할 수 있는 프록시 목록","proxiesListHint":"IP 주소를 세미콜론( ;)으로 구분합니다","reverseProxySupport":"역방향 프록시(Reverse proxy) 지원 활성화","security":{"clickjacking":"클릭재킹(Clickjacking) 보호 활성화","csrf":"CSRF(사이트 간 요청 위조) 보호 활성화","hostHeaderValidation":"호스트 헤더 유효성 검사 사용","hostHeaderValidationHint":"세미콜론( ;)으로 구분합니다.","secureCookie":"\\"secure\\" cookie flag 활성화 (HTTPS필요)","serverDomains":"서버 도메인","subheader":"보안"}}}');
+    IH = {
         add: {
             error: "토렌트 추가 중 오류",
             pending: "토렌트 전송 중...",
@@ -100521,7 +100566,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             new: "새 버전을 사용할 수 있습니다!"
         }
     };
-    IH = {
+    zH = {
         actions: {
             delete: "토렌트 삭제",
             logs: "Log 열기",
@@ -100543,7 +100588,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         },
         searchTorrents: "토렌트 검색"
     };
-    zH = {
+    NH = {
         content: {
             fileInfo: "{n} 파일 | {n} 파일",
             folderInfo: "{n} 디렉토리 | {n} 디렉토리",
@@ -100631,7 +100676,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             tier: "Tier: {n}"
         }
     };
-    NH = {
+    OH = {
         properties: {
             added_on: "추가 날짜",
             amount_left: "남은 양",
@@ -100707,28 +100752,28 @@ Hibák fordulhatnak elő, óvatosan használja.`
             uploading: "업로드 중"
         }
     };
-    OH = {
+    HH = {
         minutes: "분 | 분 | 분",
         seconds: "초 | 초 | 초"
     };
-    HH = {
-        common: CH,
-        constants: AH,
-        dashboard: DH,
-        dialogs: TH,
-        login: EH,
-        logs: _H,
-        navbar: PH,
-        rssArticles: BH,
-        searchEngine: MH,
-        settings: RH,
-        toast: LH,
-        topbar: IH,
-        torrentDetail: zH,
-        torrent: NH,
-        units: OH
-    };
     VH = {
+        common: AH,
+        constants: DH,
+        dashboard: TH,
+        dialogs: EH,
+        login: _H,
+        logs: PH,
+        navbar: BH,
+        rssArticles: MH,
+        searchEngine: RH,
+        settings: LH,
+        toast: IH,
+        topbar: zH,
+        torrentDetail: NH,
+        torrent: OH,
+        units: HH
+    };
+    WH = {
         cancel: "Annuleren",
         close: "Sluiten",
         delete: "Verwijderen",
@@ -100738,7 +100783,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         save: "Opslaan",
         selectAll: "Alles selecteren"
     };
-    WH = {
+    GH = {
         bittorrentProtocols: {
             tcp_utp: "TCP en μTP"
         },
@@ -100746,11 +100791,11 @@ Hibák fordulhatnak elő, óvatosan használja.`
             connected: "Verbonden"
         }
     };
-    GH = {
-        common: VH,
-        constants: WH
-    };
     $H = {
+        common: WH,
+        constants: GH
+    };
+    UH = {
         cancel: "Anuluj",
         close: "Zamknij",
         delete: "Usuń",
@@ -100771,7 +100816,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         useGlobalSettings: "Użyj ustawień globalnych",
         yes: "Tak"
     };
-    UH = {
+    jH = {
         addStopped: {
             always: "Zawsze",
             never: "Nigdy",
@@ -100886,7 +100931,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
             preferTcp: "Preferuj TCP"
         }
     };
-    jH = {
+    YH = {
         displayMode: {
             grid: "Siatka",
             list: "Lista",
@@ -100952,7 +100997,7 @@ Hibák fordulhatnak elő, óvatosan használja.`
         toggleSortOrder: "Odwróć kolejność sortowania",
         torrentsCount: "Brak torrentów | {n} torrent | {n} torrentów"
     };
-    YH = {
+    qH = {
         add: {
             cookie: "Ciasteczka",
             cookie_placeholder: "nazwa1=wartość1; nazwa2=wartość2; ...",
@@ -101133,7 +101178,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
 Mogą wystąpić błędy, należy zachować ostrożność.`
         }
     };
-    qH = {
+    KH = {
         error: "Logowanie nie powiodło się!",
         password: "Hasło",
         rules: {
@@ -101146,7 +101191,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         title: "Logowanie",
         username: "Nazwa użytkownika"
     };
-    KH = {
+    XH = {
         emptyLogList: "Nie znaleziono żadnych dzienników",
         filters: {
             query: "Szukaj w wiadomości dziennika",
@@ -101154,7 +101199,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         title: "Dzienniki qBittorrent"
     };
-    XH = {
+    JH = {
         addPanel: {
             torrentsPendingCount: "{n} torrent oczekujący na przesłanie | {n} torrentów oczekujących na przesłanie"
         },
@@ -101223,7 +101268,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    JH = {
+    ZH = {
         feeds: {
             empty: {
                 action: "Utwórz kanał RSS"
@@ -101251,7 +101296,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    ZH = {
+    QH = {
         filters: {
             category: {
                 all: "Wszystkie",
@@ -101287,8 +101332,8 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         tabHeaderEmpty: "(Puste zapytanie)",
         title: "Wyszukiwarka"
     };
-    QH = JSON.parse(`{"advanced":{"libtorrent":{"announceAllTiers":"Zawsze ogłaszaj do wszystkich poziomów","announceAllTrackers":"Zawsze ogłaszaj wszystkim trackerom na danym poziomie","announceIP":"Adres IP zgłaszany do trackerów (wymaga ponownego uruchomienia)","coalesceReadsWrites":"Łączenie odczytów i zapisów (libtorrent < 2.0)","disk":{"diskCache":"Pamięć podręczna dysku (libtorrent < 2.0)","diskCacheExpiry":"Interwał wygaśnięcia pamięci podręcznej dysku (libtorrent < 2.0)","diskIoReadMode":"Tryb odczytu dysku IO","diskIoType":"Typ wejścia/wyjścia dysku (libtorrent >= 2.0; wymaga ponownego uruchomienia)","diskIoWriteMode":"Tryb zapisu dysku IO","diskQueueSize":"Rozmiar kolejki dysku","subheader":"Dysk"},"maxConcurrentHTTPAnnounces":"Maksymalna liczba równoczesnych ogłoszeń HTTP","networking":{"outgoingPortsMax":"Porty wychodzące (maks.) [0: Wyłączone]","outgoingPortsMin":"Porty wychodzące (min.) [0: Wyłączone]","peerTos":"Wartość DSCP dla połączeń z peerami","subheader":"Sieć","upnpLeaseDuration":"Czas dzierżawy UPnP [0: Dzierżawa stała]","utpTcpMixedModeAlgorithm":"Algorytm mieszany μTP-TCP"},"outgoingConnectionsPerSecond":"Połączenia wychodzące na sekundę","peerTurnover":"Procent rozłączenia w przypadku wymiany peer'ów","peerTurnoverCutoff":"Procent prógu odłączenia w przypadku wymiany peer'ów","peerTurnoverInterval":"Interwał rozłączenia w przypadku wymiany peer'ów","pieceExtentAffinity":"Użyj powiązania zasięgu fragmentu","requestQueueSize":"Maksymalna liczba oczekujących żądań do jednego peer'a","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Zezwalaj na wiele połączeń z tego samego adresu IP","blockPeersOnPrivilegedPorts":"Zablokuj połączenia z peerami na uprzywilejowanych portach","idnSupport":"Włącz obsługę międzynarodowych nazw domenowych (IDN)","mitigateSSRF":"Zabezpieczenie przed podrobieniem żądania po stronie serwera (SSRF)","subheader":"Bezpieczeństwo","validateHTTPSTrackerCertificate":"Sprawdź ważność certyfikatu HTTPS tracker'a"},"sendBufferLowWatermark":"Minimalny próg buforowania wysyłania","sendBufferWatermark":"Wyślij buforowy znak wodny","sendBufferWatermarkFactor":"Wyślij współczynnik znaku wodnego bufora","sendUploadPieceSuggestions":"Wyślij sugestie dotyczące przesyłania fragmentów","socketBacklogSize":"Rozmiar kolejki gniazda","socketReceiveBufferSize":"Rozmiar bufora odbioru gniazda","socketReceiveBufferSizeHint":"0: domyślny systemowy","socketSendBufferSize":"Rozmiar bufora wysyłania gniazda","socketSendBufferSizeHint":"0: domyślny systemowy","stopTrackerTimeout":"Czas oczekiwania na zatrzymanie trackera","subheader":"Sekcja libtorrent","threads":{"asyncIoThreads":"Asynchroniczne wątki we/wy","bdecodeDepthLimit":"Limit głębokości Bdecode","bdecodeTokenLimit":"Limit tokenów Bdecode","filePoolSize":"Rozmiar puli plików","hashingThreads":"Wątki hashowania (libtorrent >= 2.0)","outstandingMemory":"Pamięć oczekująca podczas sprawdzania torrentów","subheader":"Wątki"},"uploadChokingAlgorithm":"Algorytm ograniczania wysyłania","uploadSlotsBehavior":"Zachowanie slotów wysyłania"},"openDoc":"Otwórz dokumentację","qbittorrent":{"allocatedRam":"Limit wykorzystania pamięci RAM (libtorrent >= 2.0)","embeddedTracker":{"enable":"Włącz wbudowany tracker","port":"Port wbudowanego trackera","portForward":"Włącz przekierowanie portów dla wbudowanego trackera","title":"Tracker wbudowany"},"networking":{"ipAddress":{"all":"Wszystkie adresy","allIPv4":"Wszystkie adresy IPv4","allIPv6":"Wszystkie adresy IPv6","label":"Opcjonalny adres IP do przypisania"},"networkInterfaces":{"any":"Dowolny interfejs","label":"Interfejs sieciowy"},"title":"Sieć"},"reannounceOnIpPortChanged":"Powiadom wszystkie trackery o zmianie adresu IP lub portu","recheckOnCompletion":"Sprawdź ponownie torrenty po zakończeniu","refreshInterval":"Interwał odświeżania GUI","resolveCountries":"Ustalaj kraje peerów","resumeDataStorageType":{"label":"Typ przechowywania danych wznawiania (wymaga ponownego uruchomienia)","legacy":"Pliki szybkiego wznowienia","sqlite":"Baza danych SQLite (eksperymentalna)"},"saveInterval":"Interwał zapisywania danych do wznowienia","subheader":"Sekcja qBittorrent","torrentFileSizeLimit":"Limit rozmiaru pliku .torrent"}},"behavior":{"logs":{"file_log_age":"Usuń dzienniki kopii zapasowych starsze niż","file_log_backup_enabled":"Włącz kopię zapasową pliku dziennika","file_log_delete_old":"Usuń stare dzienniki kopii zapasowych","file_log_enabled":"Włącz pliki dziennika","file_log_max_size":"Wykonaj kopię zapasową pliku dziennika po","file_log_path":"Ścieżka zapisu","subheader":"Zarządzanie logami"},"performance_warning":"Zapisz ostrzeżenie o wydajności"},"bittorrent":{"autoAddTrackers":"Automatycznie dodaj te trackery do nowych pobierań","autoAddTrackersHint":"Jeden tracker na wiersz","maxActiveCheckingTorrents":"Maksymalna liczba aktywnych sprawdzanych torrentów","privacy":{"enableAnonymous":"Włącz tryb anonimowy","enableDHT":"Włącz DHT (zdecentralizowaną sieć) aby znaleźć więcej peerów","enableLPD":"Włącz odkrywanie lokalnych peerów, aby znaleźć więcej peerów","enablePeX":"Włącz wymianę peerów (PeX), aby znaleźć więcej peerów","encryptionMode":"Tryb szyfrowania","moreInfo":"Więcej informacji","subheader":"Prywatność"},"seedLimits":{"subheader":"Limity seedowania","then":"Następnie","whenInactiveSeedingTimeReaches":"Gdy czas nieaktywnego seedowania osiągnie","whenRatioReaches":"Gdy stosunek osiągnie","whenSeedingTimeReaches":"Gdy czas seedowania osiągnie"},"torrentQueueing":{"downloadRateLimit":"Próg pobierania","excludeSlowTorrent":"Nie uwzględniaj wolnych torrentów w tych limitach","maxActiveDownload":"Maksymalna liczba aktywnych pobrań","maxActiveTorrent":"Maksymalna liczba aktywnych torrentów","maxActiveUpload":"Maksymalna liczba aktywnych wysyłek","subheader":"Kolejkowanie torrentów","torrentInactivityTimer":"Timer bezczynności torrenta","uploadRateLimit":"Próg wysyłania"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globalna maksymalna liczba połączeń","globalMaxUploadSlots":"Globalna maksymalna liczba slotów przesyłania plików","perTorrentMaxConnection":"Maksymalna liczba połączeń na torrent","perTorrentMaxUploadSlots":"Maksymalna liczba slotów przesyłania plików na torrent","subheader":"Limity połączeń"},"ipFiltering":{"applyToTrackers":"Zastosuj do trackerów","bannedIps":"Ręcznie zbanowane adresy IP","bannedIpsHint":"Jeden na każdej linii","filterPath":"Ścieżka filtru (.dat, .p2p, .p2b)","subheader":"Filtrowanie IP"},"listeningPort":{"incomingConnectionPort":"Port używany do przychodzących połączeń","randomPort":"Losowy port","subheader":"Port nasłuchu","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"protocol":"Protokół połączenia z peer'ami","proxy":{"auth":{"password":"Hasło","subtitle":"Uwierzytelnianie","tip":"Informacja: Hasło jest zapisane w postaci niezaszyfrowanej","username":"Nazwa użytkownika"},"bittorrent":"Użyj serwera proxy do celów BitTorrent","host":"Host","hostNameLookup":"Użyj serwera proxy do wyszukiwania nazw hostów","misc":"Użyj serwera proxy do celów ogólnych","peerConnections":"Użyj serwera proxy dla połączeń peer","port":"Port","rss":"Użyj serwera proxy do celów RSS","subheader":"Serwer proxy"}},"downloads":{"excludedFileNames":{"hint":"Jeden filtr na linię","label":"Wykluczone nazwy plików"},"mailNotification":{"authEnabled":"Uwierzytelnianie","enabled":"Powiadomienie e-mailem po zakończeniu pobierania","from":"Od","password":"Hasło","smtpServer":"Serwer SMTP","sslEnabled":"Ten serwer wymaga bezpiecznego połączenia (SSL) ","to":"Do","username":"Nazwa użytkownika"},"monitoredFolders":{"actions":"Akcje","confirmDelete":"Czy na pewno chcesz usunąć ten element?","editItem":"Edytuj","monitoredFolderPath":"Folder monitorowany","newItem":"Nowy","noData":"Nie ma jeszcze monitorowanego folderu","otherPath":"Inna ścieżka","saveType":"Zastąp lokalizację zapisu","subheader":"Foldery monitorowane"},"publicSettings":{"appendQBExtension":"Dodaj rozszerzenie .!qB do niekompletnych plików","preAllocateDisk":"Wstępna alokacja miejsca na dysku dla wszystkich plików"},"runExternalProgram":{"onAddedEnabled":"Uruchom program zewnętrzny po dodaniu torrenta","onAddedLabel":"Polecenie","onFinishedEnabled":"Uruchom program zewnętrzny po zakończeniu pobierania torrenta","onFinishedLabel":"Polecenie","subheader":"Uruchom program zewnętrzny","supportParamC":"%C: Liczba plików","supportParamD":"%D: Ścieżka zapisu","supportParamF":"%F: Ścieżka zawartości (taka sama jak ścieżka główna dla torrentów wieloplikowych)","supportParamG":"%G: Tagi (oddzielone przecinkami)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: Identyfikator torrenta","supportParamL":"%L: Kategoria","supportParamN":"%N: Nazwa torrenta","supportParamR":"%R: Ścieżka główna (ścieżka pierwszego podkatalogu torrenta) ","supportParamT":"%T: Bieżący tracker","supportParamTitle":"Obsługiwane parametry (z uwzględnieniem wielkości liter):","supportParamZ":"%Z: Rozmiar torrenta (bajty)","tip":"Porada: Obejmij parametr cudzysłowami, aby uniknąć przycięcia tekstu na białych znakach (np. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Domyślny tryb zarządzania torrentami","categoryChangedTMM":"Gdy zmieniono ścieżkę zapisu kategorii","defaultSavePath":"Domyślna ścieżka zapisu (kompletna)","defaultTMMOptions":{"automatic":"Automatyczne","manual":"Ręczne"},"exportDir":"Kopiuj pliki .torrent do","exportDirFinished":"Kopiuj pliki .torrent dla ukończonych pobierań do","keepIncomplete":"Domyślna ścieżka pobierania (niekompletne torrenty)","paramChangedTMMOptions":{"relocateTorrent":"Przenieś torrent","switchToManual":"Przełącz torrent w tryb ręczny"},"savePathChangedTMM":"Gdy zmieniono domyślną ścieżkę zapisu","subheader":"Zarządzanie zapisywaniem","torrentChangedTMM":"Gdy zmieniono kategorię torrenta"},"whenAddTorrent":{"addToTopOfQueue":"Dodaj na początek kolejki","autoDeleteMode":"Usuń pliki .torrent automatycznie","doNotAutoStart":"Nie uruchamiaj pobierania automatycznie","mergeTrackers":"Scal trackery, jeśli torrent już istnieje","subheader":"Podczas dodawania torrenta"}},"rss":{"autoDownloader":{"enable":"Włącz przetwarzanie reguł RSS","subheader":"Automatyczne pobieranie torrentów RSS"},"reader":{"enableProcessing":"Włącz pobieranie kanałów RSS","feedsRefreshInterval":"Interwał odświeżania kanałów","maximumArticlesPerFeed":"Maksymalna liczba artykułów na kanał","subheader":"Czytnik RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Pobierz odcinki REPACK/PROPER","filters":"Filtry","filtersHint":"Jeden na linię","subheader":"Filtr inteligentnych odcinków RSS"},"useIdForRssLinks":"Użyj identyfikatora linku do artykułu RSS"},"saveSuccess":"Ustawienia zapisane!","speed":{"download":"Pobieranie","scheduler":{"from":"Od","selectButtonLabel":"Wybierz czas","subheader":"Zaplanuj wykorzystanie alternatywnych limitów szybkości","to":"Do","when":"Kiedy"},"settings":{"applyToPeersOnLan":"Zastosuj limit prędkości dla peerów w sieci LAN","applyToTransportOverhead":"Zastosuj limit szybkości do nadmiaru transportu","applyToUtp":"Zastosuj limit prędkości dla protokołu µTP"},"subheader":{"alternative":"Alternatywne limity szybkości","global":"Ogólne limity szybkości","settings":"Ustawienia limitów szybkości"},"tip":"0 oznacza brak limitu","upload":"Wysyłanie"},"tabs":{"advanced":"Zaawansowane","behavior":"Zachowanie","bittorrent":"BitTorrent","connection":"Połączenie","downloads":"Pobrania","rss":"RSS","speed":"Prędkość","tagsAndCategories":"Tagi i kategorie","vuetorrent":{"general":"Ogólne","title":"VueTorrent","torrent_card":{"grid":"Widok siatki","list":"Widok listy","table":"Widok tabeli"}},"webui":"Interfejs WWW"},"tagsAndCategories":{"categoriesSubheader":"Dostępne kategorie:","createNewCategory":"Utwórz nową kategorię","createNewTag":"Utwórz nowy tag","noCategories":"Nie ma jeszcze kategorii","noTags":"Nie ma jeszcze tagów","tagsSubheader":"Dostępne tagi:"},"title":"Ustawienia","vuetorrent":{"general":{"check_new":"Sprawdź nową wersję","currentVersion":"Obecna wersja","customTitle":"Niestandardowy tytuł","dateFormat":"Format daty","download":"Eksportuj ustawienia","fileContentInterval":"Interwał odświeżania zawartości pliku torrent","hideChipIfUnset":"Ukryj elementy, jeśli nieustawione","historySize":"Rozmiar historii w kwalifikujących się polach","import":"Importuj ustawienia","isDrawerRight":"Prawy panel boczny","isShutdownButtonVisible":"Pokaż przycisk wyłączenia","language":"Język","paginationSize":{"infinite_scroll":"Nieskończone przewijanie","label":"Rozmiar paginacji","warning":"Używanie wysokich wartości może wpłynąć na wydajność"},"qbittorrentVersion":"Wersja qBittorrent","refreshInterval":"Interwał odświeżania API qBittorrent","registerMagnet":"Zarejestruj linki magnet","resetSettings":"Resetuj ustawienia","showAlltimeStat":"Pokaż statystyki ogólne","showCurrentSpeed":"Pokaż aktualną prędkość","showFreeSpace":"Pokaż wolne miejsce","showSessionStat":"Pokaż statystyki sesji","showSpeedGraph":"Pokaż wykres prędkości","tip":"Te ustawienia dotyczą niestandardowego interfejsu WebUI","useBinarySize":"Zastąp jednostki danych jednostkami binarnymi (kB -> KiB)","useBitSpeed":"Zamień wartości prędkości na bity (kB/s -> kbps)","vueTorrentTitle":"Tytuł karty"},"torrentCard":{"grid":{"busyTip":"Właściwości do wyświetlenia dla niekompletnych torrentów w widoku siatki","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku siatki"},"list":{"busyTip":"Właściwości do wyświetlenia dla zajętych torrentów w widoku listy","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku listy"},"table":{"tip":"Właściwości do wyświetlenia dla torrentów w widoku tabeli"}}},"webUI":{"authentication":{"banDuration":"Czas blokady","banDurationHint":"W sekundach","bypassLocalhost":"Pomiń uwierzytelnianie klientów na serwerze lokalnym","bypassWhitelist":"Pomiń uwierzytelnianie dla klientów w podsieciach IP na białej liście","maxAttempts":"Maksymalna liczba prób","password":"Hasło","passwordPlaceholder":"(bez zmian)","sessionTimeout":"Limit czasu sesji","sessionTimeoutHint":"W sekundach","subheader":"Uwierzytelnianie","username":"Nazwa użytkownika","whitelistExamples":"Przykład: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Dodaj niestandardowe nagłówki HTTP","customHeadersHint":"Jeden na linię","customHeadersPlaceholder":"Nagłówek1: wartość1\\nNagłówek2: wartość2\\n...","dynDns":{"domainName":"Nazwa domeny","password":"Hasło","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Zarejestruj","subheader":"Zaktualizuj moją dynamiczną nazwę domeny","username":"Nazwa użytkownika"},"https":{"certificate":"Certyfikat","key":"Klucz","subheader":"Użyj protokołu HTTPS","tip":"Informacje o certyfikatach"},"interface":{"ipAddress":"Adres IP","port":"Port","subheader":"Interfejs użytkownika","useAlternativeWebUI":"Użyj alternatywnego interfejsu WebUI","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"proxiesList":"Lista zaufanych serwerów proxy","proxiesListHint":"Oddzielaj adresy IP średnikiem ( ; )","reverseProxySupport":"Włącz obsługę odwrotnego proxy","security":{"clickjacking":"Włącz ochronę przed clickjackingiem","csrf":"Włącz ochronę przed atakami typu Cross-Site Request Forgery (CSRF)","hostHeaderValidation":"Włącz walidację nagłówka Host","hostHeaderValidationHint":"Oddzielone średnikiem ( ; ) ","secureCookie":"Włącz flagę \\"secure\\" dla ciasteczek (wymaga HTTPS)","serverDomains":"Domeny serwera","subheader":"Bezpieczeństwo"}}}`);
-    e9 = {
+    e9 = JSON.parse(`{"advanced":{"libtorrent":{"announceAllTiers":"Zawsze ogłaszaj do wszystkich poziomów","announceAllTrackers":"Zawsze ogłaszaj wszystkim trackerom na danym poziomie","announceIP":"Adres IP zgłaszany do trackerów (wymaga ponownego uruchomienia)","coalesceReadsWrites":"Łączenie odczytów i zapisów (libtorrent < 2.0)","disk":{"diskCache":"Pamięć podręczna dysku (libtorrent < 2.0)","diskCacheExpiry":"Interwał wygaśnięcia pamięci podręcznej dysku (libtorrent < 2.0)","diskIoReadMode":"Tryb odczytu dysku IO","diskIoType":"Typ wejścia/wyjścia dysku (libtorrent >= 2.0; wymaga ponownego uruchomienia)","diskIoWriteMode":"Tryb zapisu dysku IO","diskQueueSize":"Rozmiar kolejki dysku","subheader":"Dysk"},"maxConcurrentHTTPAnnounces":"Maksymalna liczba równoczesnych ogłoszeń HTTP","networking":{"outgoingPortsMax":"Porty wychodzące (maks.) [0: Wyłączone]","outgoingPortsMin":"Porty wychodzące (min.) [0: Wyłączone]","peerTos":"Wartość DSCP dla połączeń z peerami","subheader":"Sieć","upnpLeaseDuration":"Czas dzierżawy UPnP [0: Dzierżawa stała]","utpTcpMixedModeAlgorithm":"Algorytm mieszany μTP-TCP"},"outgoingConnectionsPerSecond":"Połączenia wychodzące na sekundę","peerTurnover":"Procent rozłączenia w przypadku wymiany peer'ów","peerTurnoverCutoff":"Procent prógu odłączenia w przypadku wymiany peer'ów","peerTurnoverInterval":"Interwał rozłączenia w przypadku wymiany peer'ów","pieceExtentAffinity":"Użyj powiązania zasięgu fragmentu","requestQueueSize":"Maksymalna liczba oczekujących żądań do jednego peer'a","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Zezwalaj na wiele połączeń z tego samego adresu IP","blockPeersOnPrivilegedPorts":"Zablokuj połączenia z peerami na uprzywilejowanych portach","idnSupport":"Włącz obsługę międzynarodowych nazw domenowych (IDN)","mitigateSSRF":"Zabezpieczenie przed podrobieniem żądania po stronie serwera (SSRF)","subheader":"Bezpieczeństwo","validateHTTPSTrackerCertificate":"Sprawdź ważność certyfikatu HTTPS tracker'a"},"sendBufferLowWatermark":"Minimalny próg buforowania wysyłania","sendBufferWatermark":"Wyślij buforowy znak wodny","sendBufferWatermarkFactor":"Wyślij współczynnik znaku wodnego bufora","sendUploadPieceSuggestions":"Wyślij sugestie dotyczące przesyłania fragmentów","socketBacklogSize":"Rozmiar kolejki gniazda","socketReceiveBufferSize":"Rozmiar bufora odbioru gniazda","socketReceiveBufferSizeHint":"0: domyślny systemowy","socketSendBufferSize":"Rozmiar bufora wysyłania gniazda","socketSendBufferSizeHint":"0: domyślny systemowy","stopTrackerTimeout":"Czas oczekiwania na zatrzymanie trackera","subheader":"Sekcja libtorrent","threads":{"asyncIoThreads":"Asynchroniczne wątki we/wy","bdecodeDepthLimit":"Limit głębokości Bdecode","bdecodeTokenLimit":"Limit tokenów Bdecode","filePoolSize":"Rozmiar puli plików","hashingThreads":"Wątki hashowania (libtorrent >= 2.0)","outstandingMemory":"Pamięć oczekująca podczas sprawdzania torrentów","subheader":"Wątki"},"uploadChokingAlgorithm":"Algorytm ograniczania wysyłania","uploadSlotsBehavior":"Zachowanie slotów wysyłania"},"openDoc":"Otwórz dokumentację","qbittorrent":{"allocatedRam":"Limit wykorzystania pamięci RAM (libtorrent >= 2.0)","embeddedTracker":{"enable":"Włącz wbudowany tracker","port":"Port wbudowanego trackera","portForward":"Włącz przekierowanie portów dla wbudowanego trackera","title":"Tracker wbudowany"},"networking":{"ipAddress":{"all":"Wszystkie adresy","allIPv4":"Wszystkie adresy IPv4","allIPv6":"Wszystkie adresy IPv6","label":"Opcjonalny adres IP do przypisania"},"networkInterfaces":{"any":"Dowolny interfejs","label":"Interfejs sieciowy"},"title":"Sieć"},"reannounceOnIpPortChanged":"Powiadom wszystkie trackery o zmianie adresu IP lub portu","recheckOnCompletion":"Sprawdź ponownie torrenty po zakończeniu","refreshInterval":"Interwał odświeżania GUI","resolveCountries":"Ustalaj kraje peerów","resumeDataStorageType":{"label":"Typ przechowywania danych wznawiania (wymaga ponownego uruchomienia)","legacy":"Pliki szybkiego wznowienia","sqlite":"Baza danych SQLite (eksperymentalna)"},"saveInterval":"Interwał zapisywania danych do wznowienia","subheader":"Sekcja qBittorrent","torrentFileSizeLimit":"Limit rozmiaru pliku .torrent"}},"behavior":{"logs":{"file_log_age":"Usuń dzienniki kopii zapasowych starsze niż","file_log_backup_enabled":"Włącz kopię zapasową pliku dziennika","file_log_delete_old":"Usuń stare dzienniki kopii zapasowych","file_log_enabled":"Włącz pliki dziennika","file_log_max_size":"Wykonaj kopię zapasową pliku dziennika po","file_log_path":"Ścieżka zapisu","subheader":"Zarządzanie logami"},"performance_warning":"Zapisz ostrzeżenie o wydajności"},"bittorrent":{"autoAddTrackers":"Automatycznie dodaj te trackery do nowych pobierań","autoAddTrackersHint":"Jeden tracker na wiersz","maxActiveCheckingTorrents":"Maksymalna liczba aktywnych sprawdzanych torrentów","privacy":{"enableAnonymous":"Włącz tryb anonimowy","enableDHT":"Włącz DHT (zdecentralizowaną sieć) aby znaleźć więcej peerów","enableLPD":"Włącz odkrywanie lokalnych peerów, aby znaleźć więcej peerów","enablePeX":"Włącz wymianę peerów (PeX), aby znaleźć więcej peerów","encryptionMode":"Tryb szyfrowania","moreInfo":"Więcej informacji","subheader":"Prywatność"},"seedLimits":{"subheader":"Limity seedowania","then":"Następnie","whenInactiveSeedingTimeReaches":"Gdy czas nieaktywnego seedowania osiągnie","whenRatioReaches":"Gdy stosunek osiągnie","whenSeedingTimeReaches":"Gdy czas seedowania osiągnie"},"torrentQueueing":{"downloadRateLimit":"Próg pobierania","excludeSlowTorrent":"Nie uwzględniaj wolnych torrentów w tych limitach","maxActiveDownload":"Maksymalna liczba aktywnych pobrań","maxActiveTorrent":"Maksymalna liczba aktywnych torrentów","maxActiveUpload":"Maksymalna liczba aktywnych wysyłek","subheader":"Kolejkowanie torrentów","torrentInactivityTimer":"Timer bezczynności torrenta","uploadRateLimit":"Próg wysyłania"}},"connection":{"connectionLimits":{"globalMaxConnection":"Globalna maksymalna liczba połączeń","globalMaxUploadSlots":"Globalna maksymalna liczba slotów przesyłania plików","perTorrentMaxConnection":"Maksymalna liczba połączeń na torrent","perTorrentMaxUploadSlots":"Maksymalna liczba slotów przesyłania plików na torrent","subheader":"Limity połączeń"},"ipFiltering":{"applyToTrackers":"Zastosuj do trackerów","bannedIps":"Ręcznie zbanowane adresy IP","bannedIpsHint":"Jeden na każdej linii","filterPath":"Ścieżka filtru (.dat, .p2p, .p2b)","subheader":"Filtrowanie IP"},"listeningPort":{"incomingConnectionPort":"Port używany do przychodzących połączeń","randomPort":"Losowy port","subheader":"Port nasłuchu","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"protocol":"Protokół połączenia z peer'ami","proxy":{"auth":{"password":"Hasło","subtitle":"Uwierzytelnianie","tip":"Informacja: Hasło jest zapisane w postaci niezaszyfrowanej","username":"Nazwa użytkownika"},"bittorrent":"Użyj serwera proxy do celów BitTorrent","host":"Host","hostNameLookup":"Użyj serwera proxy do wyszukiwania nazw hostów","misc":"Użyj serwera proxy do celów ogólnych","peerConnections":"Użyj serwera proxy dla połączeń peer","port":"Port","rss":"Użyj serwera proxy do celów RSS","subheader":"Serwer proxy"}},"downloads":{"excludedFileNames":{"hint":"Jeden filtr na linię","label":"Wykluczone nazwy plików"},"mailNotification":{"authEnabled":"Uwierzytelnianie","enabled":"Powiadomienie e-mailem po zakończeniu pobierania","from":"Od","password":"Hasło","smtpServer":"Serwer SMTP","sslEnabled":"Ten serwer wymaga bezpiecznego połączenia (SSL) ","to":"Do","username":"Nazwa użytkownika"},"monitoredFolders":{"actions":"Akcje","confirmDelete":"Czy na pewno chcesz usunąć ten element?","editItem":"Edytuj","monitoredFolderPath":"Folder monitorowany","newItem":"Nowy","noData":"Nie ma jeszcze monitorowanego folderu","otherPath":"Inna ścieżka","saveType":"Zastąp lokalizację zapisu","subheader":"Foldery monitorowane"},"publicSettings":{"appendQBExtension":"Dodaj rozszerzenie .!qB do niekompletnych plików","preAllocateDisk":"Wstępna alokacja miejsca na dysku dla wszystkich plików"},"runExternalProgram":{"onAddedEnabled":"Uruchom program zewnętrzny po dodaniu torrenta","onAddedLabel":"Polecenie","onFinishedEnabled":"Uruchom program zewnętrzny po zakończeniu pobierania torrenta","onFinishedLabel":"Polecenie","subheader":"Uruchom program zewnętrzny","supportParamC":"%C: Liczba plików","supportParamD":"%D: Ścieżka zapisu","supportParamF":"%F: Ścieżka zawartości (taka sama jak ścieżka główna dla torrentów wieloplikowych)","supportParamG":"%G: Tagi (oddzielone przecinkami)","supportParamI":"%I: Infohash v1","supportParamJ":"%J: Infohash v2","supportParamK":"%K: Identyfikator torrenta","supportParamL":"%L: Kategoria","supportParamN":"%N: Nazwa torrenta","supportParamR":"%R: Ścieżka główna (ścieżka pierwszego podkatalogu torrenta) ","supportParamT":"%T: Bieżący tracker","supportParamTitle":"Obsługiwane parametry (z uwzględnieniem wielkości liter):","supportParamZ":"%Z: Rozmiar torrenta (bajty)","tip":"Porada: Obejmij parametr cudzysłowami, aby uniknąć przycięcia tekstu na białych znakach (np. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Domyślny tryb zarządzania torrentami","categoryChangedTMM":"Gdy zmieniono ścieżkę zapisu kategorii","defaultSavePath":"Domyślna ścieżka zapisu (kompletna)","defaultTMMOptions":{"automatic":"Automatyczne","manual":"Ręczne"},"exportDir":"Kopiuj pliki .torrent do","exportDirFinished":"Kopiuj pliki .torrent dla ukończonych pobierań do","keepIncomplete":"Domyślna ścieżka pobierania (niekompletne torrenty)","paramChangedTMMOptions":{"relocateTorrent":"Przenieś torrent","switchToManual":"Przełącz torrent w tryb ręczny"},"savePathChangedTMM":"Gdy zmieniono domyślną ścieżkę zapisu","subheader":"Zarządzanie zapisywaniem","torrentChangedTMM":"Gdy zmieniono kategorię torrenta"},"whenAddTorrent":{"addToTopOfQueue":"Dodaj na początek kolejki","autoDeleteMode":"Usuń pliki .torrent automatycznie","doNotAutoStart":"Nie uruchamiaj pobierania automatycznie","mergeTrackers":"Scal trackery, jeśli torrent już istnieje","subheader":"Podczas dodawania torrenta"}},"rss":{"autoDownloader":{"enable":"Włącz przetwarzanie reguł RSS","subheader":"Automatyczne pobieranie torrentów RSS"},"reader":{"enableProcessing":"Włącz pobieranie kanałów RSS","feedsRefreshInterval":"Interwał odświeżania kanałów","maximumArticlesPerFeed":"Maksymalna liczba artykułów na kanał","subheader":"Czytnik RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Pobierz odcinki REPACK/PROPER","filters":"Filtry","filtersHint":"Jeden na linię","subheader":"Filtr inteligentnych odcinków RSS"},"useIdForRssLinks":"Użyj identyfikatora linku do artykułu RSS"},"saveSuccess":"Ustawienia zapisane!","speed":{"download":"Pobieranie","scheduler":{"from":"Od","selectButtonLabel":"Wybierz czas","subheader":"Zaplanuj wykorzystanie alternatywnych limitów szybkości","to":"Do","when":"Kiedy"},"settings":{"applyToPeersOnLan":"Zastosuj limit prędkości dla peerów w sieci LAN","applyToTransportOverhead":"Zastosuj limit szybkości do nadmiaru transportu","applyToUtp":"Zastosuj limit prędkości dla protokołu µTP"},"subheader":{"alternative":"Alternatywne limity szybkości","global":"Ogólne limity szybkości","settings":"Ustawienia limitów szybkości"},"tip":"0 oznacza brak limitu","upload":"Wysyłanie"},"tabs":{"advanced":"Zaawansowane","behavior":"Zachowanie","bittorrent":"BitTorrent","connection":"Połączenie","downloads":"Pobrania","rss":"RSS","speed":"Prędkość","tagsAndCategories":"Tagi i kategorie","vuetorrent":{"general":"Ogólne","title":"VueTorrent","torrent_card":{"grid":"Widok siatki","list":"Widok listy","table":"Widok tabeli"}},"webui":"Interfejs WWW"},"tagsAndCategories":{"categoriesSubheader":"Dostępne kategorie:","createNewCategory":"Utwórz nową kategorię","createNewTag":"Utwórz nowy tag","noCategories":"Nie ma jeszcze kategorii","noTags":"Nie ma jeszcze tagów","tagsSubheader":"Dostępne tagi:"},"title":"Ustawienia","vuetorrent":{"general":{"check_new":"Sprawdź nową wersję","currentVersion":"Obecna wersja","customTitle":"Niestandardowy tytuł","dateFormat":"Format daty","download":"Eksportuj ustawienia","fileContentInterval":"Interwał odświeżania zawartości pliku torrent","hideChipIfUnset":"Ukryj elementy, jeśli nieustawione","historySize":"Rozmiar historii w kwalifikujących się polach","import":"Importuj ustawienia","isDrawerRight":"Prawy panel boczny","isShutdownButtonVisible":"Pokaż przycisk wyłączenia","language":"Język","paginationSize":{"infinite_scroll":"Nieskończone przewijanie","label":"Rozmiar paginacji","warning":"Używanie wysokich wartości może wpłynąć na wydajność"},"qbittorrentVersion":"Wersja qBittorrent","refreshInterval":"Interwał odświeżania API qBittorrent","registerMagnet":"Zarejestruj linki magnet","resetSettings":"Resetuj ustawienia","showAlltimeStat":"Pokaż statystyki ogólne","showCurrentSpeed":"Pokaż aktualną prędkość","showFreeSpace":"Pokaż wolne miejsce","showSessionStat":"Pokaż statystyki sesji","showSpeedGraph":"Pokaż wykres prędkości","tip":"Te ustawienia dotyczą niestandardowego interfejsu WebUI","useBinarySize":"Zastąp jednostki danych jednostkami binarnymi (kB -> KiB)","useBitSpeed":"Zamień wartości prędkości na bity (kB/s -> kbps)","vueTorrentTitle":"Tytuł karty"},"torrentCard":{"grid":{"busyTip":"Właściwości do wyświetlenia dla niekompletnych torrentów w widoku siatki","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku siatki"},"list":{"busyTip":"Właściwości do wyświetlenia dla zajętych torrentów w widoku listy","doneTip":"Właściwości do wyświetlenia dla ukończonych torrentów w widoku listy"},"table":{"tip":"Właściwości do wyświetlenia dla torrentów w widoku tabeli"}}},"webUI":{"authentication":{"banDuration":"Czas blokady","banDurationHint":"W sekundach","bypassLocalhost":"Pomiń uwierzytelnianie klientów na serwerze lokalnym","bypassWhitelist":"Pomiń uwierzytelnianie dla klientów w podsieciach IP na białej liście","maxAttempts":"Maksymalna liczba prób","password":"Hasło","passwordPlaceholder":"(bez zmian)","sessionTimeout":"Limit czasu sesji","sessionTimeoutHint":"W sekundach","subheader":"Uwierzytelnianie","username":"Nazwa użytkownika","whitelistExamples":"Przykład: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Dodaj niestandardowe nagłówki HTTP","customHeadersHint":"Jeden na linię","customHeadersPlaceholder":"Nagłówek1: wartość1\\nNagłówek2: wartość2\\n...","dynDns":{"domainName":"Nazwa domeny","password":"Hasło","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Zarejestruj","subheader":"Zaktualizuj moją dynamiczną nazwę domeny","username":"Nazwa użytkownika"},"https":{"certificate":"Certyfikat","key":"Klucz","subheader":"Użyj protokołu HTTPS","tip":"Informacje o certyfikatach"},"interface":{"ipAddress":"Adres IP","port":"Port","subheader":"Interfejs użytkownika","useAlternativeWebUI":"Użyj alternatywnego interfejsu WebUI","useUPnP":"Użyj przekierowania portów UPnP / NAT-PMP z mojego routera"},"proxiesList":"Lista zaufanych serwerów proxy","proxiesListHint":"Oddzielaj adresy IP średnikiem ( ; )","reverseProxySupport":"Włącz obsługę odwrotnego proxy","security":{"clickjacking":"Włącz ochronę przed clickjackingiem","csrf":"Włącz ochronę przed atakami typu Cross-Site Request Forgery (CSRF)","hostHeaderValidation":"Włącz walidację nagłówka Host","hostHeaderValidationHint":"Oddzielone średnikiem ( ; ) ","secureCookie":"Włącz flagę \\"secure\\" dla ciasteczek (wymaga HTTPS)","serverDomains":"Domeny serwera","subheader":"Bezpieczeństwo"}}}`);
+    t9 = {
         add: {
             error: "Błąd podczas dodawania torrentów",
             pending: "Wysyłanie torrentów...",
@@ -101309,7 +101354,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             new: "Nowa wersja dostępna!"
         }
     };
-    t9 = {
+    a9 = {
         actions: {
             delete: "Usuń torrenty",
             logs: "Otwórz dzienniki",
@@ -101331,7 +101376,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         searchTorrents: "Szukaj torrentów"
     };
-    a9 = {
+    r9 = {
         content: {
             fileInfo: "{n} plik | {n} pliki | {n} plików",
             folderInfo: "{n} folder | {n} foldery | {n} folderów",
@@ -101419,7 +101464,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             tier: "Poziom: {n}"
         }
     };
-    r9 = {
+    n9 = {
         properties: {
             added_on: "Dodano",
             amount_left: "Pozostała ilość",
@@ -101496,29 +101541,29 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             uploading: "Wysyłanie"
         }
     };
-    n9 = {
+    i9 = {
         minutes: "minuta | minuty | minut",
         seconds: "sekunda | sekundy | sekund"
     };
-    i9 = {
-        common: $H,
-        constants: UH,
-        dashboard: jH,
-        dialogs: YH,
-        login: qH,
-        logs: KH,
-        navbar: XH,
-        rssArticles: JH,
-        searchEngine: ZH,
-        settings: QH,
-        toast: e9,
-        topbar: t9,
-        torrentDetail: a9,
-        torrent: r9,
-        units: n9
+    o9 = {
+        common: UH,
+        constants: jH,
+        dashboard: YH,
+        dialogs: qH,
+        login: KH,
+        logs: XH,
+        navbar: JH,
+        rssArticles: ZH,
+        searchEngine: QH,
+        settings: e9,
+        toast: t9,
+        topbar: a9,
+        torrentDetail: r9,
+        torrent: n9,
+        units: i9
     };
-    o9 = "Conteúdo gerado pelo aplicativo Tolgee. NUNCA EDITE MANUALMENTE, POIS SERÁ SOBRESCRITO";
-    s9 = {
+    s9 = "Conteúdo gerado pelo aplicativo Tolgee. NUNCA EDITE MANUALMENTE, POIS SERÁ SOBRESCRITO";
+    l9 = {
         cancel: "Cancelar",
         close: "Fechar",
         delete: "Excluir",
@@ -101541,7 +101586,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         useGlobalSettings: "Usar configurações globais",
         yes: "Sim"
     };
-    l9 = {
+    u9 = {
         addStopped: {
             always: "Sempre",
             never: "Nunca",
@@ -101662,7 +101707,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             preferTcp: "Preferir TCP"
         }
     };
-    u9 = {
+    c9 = {
         displayMode: {
             grid: "Grade",
             list: "Lista",
@@ -101707,7 +101752,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         searchInputLabel: "Buscar"
     };
-    c9 = {
+    d9 = {
         side: {
             filters: {
                 state: {
@@ -101716,14 +101761,14 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    d9 = {
-        _comments: o9,
-        common: s9,
-        constants: l9,
-        dashboard: u9,
-        navbar: c9
-    };
     h9 = {
+        _comments: s9,
+        common: l9,
+        constants: u9,
+        dashboard: c9,
+        navbar: d9
+    };
+    m9 = {
         auto: "Авто",
         cancel: "Отменить",
         close: "Закрыть",
@@ -101747,7 +101792,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         useGlobalSettings: "Использовать глобальные настройки",
         yes: "Да"
     };
-    m9 = {
+    f9 = {
         addStopped: {
             always: "Всегда",
             never: "Никогда",
@@ -101894,7 +101939,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             preferTcp: "Предпочитать TCP"
         }
     };
-    f9 = {
+    p9 = {
         displayMode: {
             grid: "Сетка",
             list: "Список",
@@ -101964,7 +102009,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         toggleSortOrder: "Обратный порядок сортировки",
         torrentsCount: "Нет торрентов | {n} торрент | {n} торрентов"
     };
-    p9 = {
+    g9 = {
         add: {
             cookie: "Куки",
             cookie_placeholder: "имя1=значение1; имя2=значение2; ...",
@@ -102212,7 +102257,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             urlSeeds: "URL-ы веб-сидов"
         }
     };
-    g9 = {
+    v9 = {
         error: "Ошибка входа!",
         password: "Пароль",
         pending: "Проверка статуса авторизации...",
@@ -102226,7 +102271,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         title: "Войти",
         username: "Логин"
     };
-    v9 = {
+    y9 = {
         emptyLogList: "Логи не найдены",
         filters: {
             query: "Найти в сообщениях лога",
@@ -102234,7 +102279,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         title: "Логи qBittorrent"
     };
-    y9 = {
+    b9 = {
         addPanel: {
             torrentsPendingCount: "{n} торрент(а) ожидает раздачи | {n} торрентов ожидает раздачи"
         },
@@ -102309,7 +102354,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             }
         }
     };
-    b9 = {
+    F9 = {
         feeds: {
             empty: {
                 action: "Создать RSS ленту",
@@ -102352,7 +102397,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             rules: "Показать правила"
         }
     };
-    F9 = {
+    k9 = {
         filters: {
             category: {
                 all: "Все",
@@ -102390,8 +102435,8 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         tabHeaderEmpty: "(Пустая очередь)",
         title: "Поиск торрентов"
     };
-    k9 = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Автоматический бан торрент-проигрывателей","auto_ban_unknown_peer":"Автоматический бан неизвестных пиров","auto_update_trackers":"Автоматическое обновление списка общедоступных трекеров","public_trackers":"Общедоступные трекеры","trackers_list_url":"Настройка списка URL трекеров"}},"advanced":{"libtorrent":{"announceAllTiers":"Всегда объявлять всем уровням","announceAllTrackers":"Всегда объявлять всем трекерам на уровне","announceIP":"IP-адрес, переданный трекерам (требуется перезагрузка)","coalesceReadsWrites":"Объединение операций чтения и записи (libtorrent < 2.0)","dhtBootstrapNodes":"Узлы начальной загрузки DHT","dhtBootstrapNodesHint":"Сброс на значение по умолчанию (если пусто)","disk":{"diskCache":"Кэш диска (libtorrent < 2.0)","diskCacheExpiry":"Интервал очистки кэша диска (libtorrent < 2.0)","diskIoReadMode":"Режим чтения ввода-вывода с диска","diskIoType":"Тип ввода-вывода диска (libtorrent >= 2.0; требует перезапуск)","diskIoWriteMode":"Режим записи ввода-вывода с диска","diskQueueSize":"Размер очереди диска","subheader":"Диск"},"i2p":{"inboundLength":"Длина входящего I2P","inboundQuantity":"Количество входящих I2P","invalidLength":"Значение длины I2P должно быть между 0 и 7","invalidQuantity":"Значение количества I2P должно быть между 1 и 16","outboundLength":"Длина исходящего I2P","outboundQuantity":"Количество исходящих I2P","restartNeeded":"Любые изменения в этих настройках вступят в силу при следующем восстановлении SAM соединения (путём перезапуска I2P или изменения адреса или порта I2P)"},"maxConcurrentHTTPAnnounces":"Максимальное количество одновременных анонсов HTTP","networking":{"outgoingPortsMax":"Максимум исходящих портов [0: отключено]","outgoingPortsMin":"Минимум исходящих портов [0: отключено]","peerTos":"Значение DSCP для подключений к пирам","subheader":"Networking","upnpLeaseDuration":"Срок аренды UPnP [0: постоянный]","utpTcpMixedModeAlgorithm":"Алгоритм смешанного режима µTP-TCP"},"outgoingConnectionsPerSecond":"Фактор отметки буфера отправки","peerTurnover":"Процент отключения от пира","peerTurnoverCutoff":"Пороговый процент текучести пира","peerTurnoverInterval":"Интервал отключения при смене пира","pieceExtentAffinity":"Группировать смежные части","requestQueueSize":"Максимальное количество невыполненных запросов к одному пиру","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Разрешить несколько подключений с одного и того же IP","blockPeersOnPrivilegedPorts":"Запретить подключение к пирам на привилегированных портах","idnSupport":"Включить поддержку интернационализированных доменных имен (IDN)","mitigateSSRF":"Предотвращение подделки запросов на стороне сервера (SSRF)","subheader":"Безопасность","validateHTTPSTrackerCertificate":"Проверка сертификата трекера HTTPS"},"sendBufferLowWatermark":"Минимальный размер буфера отправки","sendBufferWatermark":"Размер буфера отправки","sendBufferWatermarkFactor":"Коэффициент размера буфера отправки","sendUploadPieceSuggestions":"Отправлять предложения частей отдачи","socketBacklogSize":"Размер очереди сокета","socketReceiveBufferSize":"Размер буфера сокета на получение","socketReceiveBufferSizeHint":"0: по выбору системы","socketSendBufferSize":"Размер буфера сокета на отправку","socketSendBufferSizeHint":"0: по выбору системы","ssl":{"disclaimer":"Функция \\"SSL торрент\\" не стандартизирована, с ней не связаны BEP (BitTorrent Enhancement Proposals).\\nВключайте эту функцию только в том случае, если она вам нужна.","enabled":"Разрешить SSL торренты","listenPort":"Порт, используемый для SSL-соединений","listenPortHint":"Оставить пустым для авто выбора","rule":"Порт должен быть между 0 и 65535"},"stopTrackerTimeout":"Тайм-аут остановки трекера","subheader":"Раздел libtorrent","threads":{"asyncIoThreads":"Потоки асинхронного ввода-вывода","bdecodeDepthLimit":"Ограничение глубины Bdecode","bdecodeTokenLimit":"Ограничение токена Bdecode","filePoolSize":"Размер пула файлов","hashingThreads":"Потоки хеширования (libtorrent >= 2.0)","outstandingMemory":"Накладная память при проверке торрентов","subheader":"Потоки"},"uploadChokingAlgorithm":"Алгоритм подавления раздачи","uploadSlotsBehavior":"Поведение слотов для раздачи"},"openDoc":"Открыть документацию","qbittorrent":{"allocatedRam":"Предел использования оперативной памяти (libtorrent >= 2.0)","appInstanceName":"Имя экземпляра приложения","embeddedTracker":{"enable":"Включить встроенный трекер","port":"Порт встроенного трекера","portForward":"Включить переадресацию портов для встроенного трекера","title":"Встроенный трекер"},"enableMarkOfTheWeb":"Разрешить Mark-of-the-Web (MOTW) для загруженных файлов","enableMarkOfTheWebHint":"Требуется macOS или Windows","networking":{"ipAddress":{"all":"Все адреса","allIPv4":"Все IPv4 адреса","allIPv6":"Все IPv6 адреса","label":"Необязательный IP-адрес для привязки"},"networkInterfaces":{"any":"Любой интерфейс","label":"Сетевой интерфейс"},"title":"Связь"},"pythonExecutablePath":"Путь к исполняемому файлу Python","pythonExecutablePathHint":"Авто определение (если не заполнено), требуется перезагрузка","reannounceOnIpPortChanged":"Повторно уведомлять все трекеры об изменении IP-адреса или порта","recheckOnCompletion":"Перепроверка торрентов по завершении","refreshInterval":"Интервал обновления интерфейса","resolveCountries":"Разрешить пиры из других стран","resumeDataStorageType":{"label":"Тип хранилища для возобновления данных (требуется перезагрузка)","legacy":"Файлы для быстрого возобновления","sqlite":"База данных SQLite (экспериментально)"},"saveInterval":"Сохранить интервал возобновления данных","subheader":"Раздел qBittorrent","torrentContentRemovingMode":"Режим удаления контента торрента","torrentFileSizeLimit":"Ограничение размера файла .torrent"}},"behavior":{"logs":{"file_log_age":"Удалить бэкап логов старше...","file_log_backup_enabled":"Включить бэкап логов","file_log_delete_old":"Удалять старые бэкапы логов","file_log_enabled":"Разрешить логи","file_log_max_size":"Делать бэкап логов при размере...","file_log_path":"Путь хранения","subheader":"Управление логами"},"performance_warning":"Писать в лог о проблемах производительности"},"bittorrent":{"autoAddTrackers":"Автоматически добавлять эти трекеры к новым загрузкам","autoAddTrackersHint":"Один трекер на строку","maxActiveCheckingTorrents":"Максимум одновременных проверок торрентов","privacy":{"enableAnonymous":"Включить анонимный режим","enableDHT":"Включить DHT (децентрализованную сеть) для поиска пиров","enableLPD":"Искать пиров в вашей локальной сети","enablePeX":"Включить обмен пирами (PeX)","encryptionMode":"Режим шифрования","moreInfo":"Подробнее","subheader":"Конфиденциальность"},"seedLimits":{"subheader":"Ограничение сида","then":"Затем","whenInactiveSeedingTimeReaches":"По достижении предела без активности","whenRatioReaches":"По достижении рейтинга раздачи","whenSeedingTimeReaches":"По достижении времени сидирования"},"torrentQueueing":{"downloadRateLimit":"Порог скорости загрузки","excludeSlowTorrent":"Не учитывать медленные торренты в этих ограничениях","maxActiveDownload":"Максимум активных загрузок","maxActiveTorrent":"Максимум активных торрентов","maxActiveUpload":"Максимум активных раздач","subheader":"Работа с очередью торрентов","torrentInactivityTimer":"Таймер бездействия торрента","uploadRateLimit":"Порог скорости отдачи"}},"connection":{"connectionLimits":{"globalMaxConnection":"Глобальное максимальное количество соединений","globalMaxUploadSlots":"Глобальное максимальное количество слотов для раздачи","perTorrentMaxConnection":"Максимальное количество соединений на торрент","perTorrentMaxUploadSlots":"Максимальное количество слотов для раздачи на торрент","subheader":"Ограничение соединений"},"i2p":{"address":"Хост I2P","disclaimer":"Если включён \\"Смешанный режим\\", торрентам I2P также разрешается получать пиры из других источников, отличных от трекера, и подключаться к обычным IP-адресам, не обеспечивая никакой анонимности. Это может быть полезно, если пользователю не требуется анонимизация I2P, но нужна возможность подключаться к пирам I2P.","enabled":"Разрешить I2P","mixedMode":"Смешанный режим","port":"Порт","rule":"Значение порта должно быть между 0 и 65535","subheader":"I2P (экспериментально)"},"ipFiltering":{"applyToTrackers":"Применить к трекерам","bannedIps":"Вручную запрещённые IP-адреса","bannedIpsHint":"По одному на строку","filterPath":"Путь к фильтрам (.dat, .p2p, .p2b):","subheader":"Фильтрация по IP"},"listeningPort":{"incomingConnectionPort":"Используемый порт для входящих соединений","randomPort":"Случайный порт","subheader":"Прослушиваемый порт","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"protocol":"Протокол подключения к пирам","proxy":{"auth":{"password":"Пароль","subtitle":"Аутентификация","tip":"Примечание: Пароль хранится в незашифрованном виде","username":"Имя пользователя"},"bittorrent":"Использовать прокси для BitTorrent","host":"Хост","hostNameLookup":"Использовать прокси для поиска доменного имени хоста","misc":"Использовать прокси для общих целей","peerConnections":"Использовать прокси для соединения с пирами","port":"Порт","rss":"Использовать прокси только для RSS","subheader":"Прокси сервер"}},"downloads":{"excludedFileNames":{"hint":"Одно название файла на строку","label":"Исключенные имена файлов"},"mailNotification":{"authEnabled":"Авторизация","enabled":"Отправлять уведомление на Email, когда загрузка завершится","from":"От","password":"Пароль","smtpServer":"SMTP сервер","sslEnabled":"Этот сервер требует защищённое соединение (SSL)","test":{"error":"Не удалось отправить запрос по электронной почте\\n{message}","label":"Отправить тестовое электронное письмо","success":"Запрос отправлен по электронной почте!\\nПроверьте свой почтовый ящик, чтобы подтвердить"},"to":"Кому","username":"Логин"},"monitoredFolders":{"actions":"Действия","confirmDelete":"Вы уверены что хотите удалить эту запись?","editItem":"Редактировать","monitoredFolderPath":"Отслеживаемая папка","newItem":"Новая запись","noData":"Ещё нет отслеживаемых папок","otherPath":"Пользовательский путь","saveType":"Изменить путь сохранения на:","subheader":"Отслеживаемые папки"},"publicSettings":{"appendQBExtension":"Добавлять расширение .!qB к незавершённым файлам","preAllocateDisk":"Резервировать место на диске для всех файлов","useUnwantedFolder":"Хранить не выбранные файлы в папке \\".unwanted\\""},"runExternalProgram":{"onAddedEnabled":"Запустить внешнюю программу при добавлении торрента","onAddedLabel":"Команда","onFinishedEnabled":"Запустить внешнюю программу при завершении торрента","onFinishedLabel":"Команда","subheader":"Запускать внешнюю программу","supportParamC":"%C: Количество файлов","supportParamD":"%D: Путь сохранения","supportParamF":"%F: Папка содержимого (или корневая папка для торрентов с множеством файлов)","supportParamG":"%G: Метки (разделяются запятыми)","supportParamI":"%I: Хеш-сумма v1","supportParamJ":"%J: Хеш-сумма v2","supportParamK":"%K: ID торрента","supportParamL":"%L: Категория","supportParamN":"%N: Имя торрента","supportParamR":"%R: Корневая папка (главный путь для подкаталога торрента)","supportParamT":"%T: Текущий трекер","supportParamTitle":"Поддерживаемые параметры (с учетом регистра):","supportParamZ":"%Z: Размер торрента (в байтах)","tip":"Совет: Заключите параметр в кавычки, чтобы избежать обрезания текста по пробелам (вот так \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Автоматический режим управления торрентом по умолчанию","categoryChangedTMM":"При изменении пути сохранения у категории","defaultSavePath":"Путь сохранения по умолчанию","defaultTMMOptions":{"automatic":"Автоматически","manual":"Вручную"},"exportDir":"Копировать файлы .torrent в","exportDirFinished":"Для завершенный загрузок копировать файлы .torrent в","keepIncomplete":"Путь по умолчанию для незавершённых торрентов","paramChangedTMMOptions":{"relocateTorrent":"Переместить торрент","switchToManual":"Переключить торрент в Ручной Режим"},"savePathChangedTMM":"При изменении пути сохранения по умолчанию","subheader":"Управление сохранением","torrentChangedTMM":"При изменении категории торрента","useCategoryPathInManualMode":"Использовать пути Категорий в ручном режиме","useCategoryPathInManualModeHint":"Сопоставить относительный путь сохранения с соответствующим путем категории вместо пути по умолчанию"},"whenAddTorrent":{"addToTopOfQueue":"Добавить в начало очереди","autoDeleteMode":"Автоматически удалять файлы .torrent","doNotAutoStart":"Не начинать загрузку автоматически","mergeTrackers":"Объединить трекеры, если торрент уже есть","subheader":"При добавлении торрента"}},"rss":{"autoDownloader":{"enable":"Включить автозагрузку торрентов из RSS","subheader":"Автозагрузчик торрентов из RSS"},"reader":{"enableProcessing":"Включить получение RSS-лент","feedsRefreshInterval":"Интервал обновления лент","maximumArticlesPerFeed":"Максимум статей для ленты","sameHostRequestDelay":"Задержка запроса того же хоста","subheader":"Менеджер RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Загружать эпизоды REPACK/PROPER","filters":"Фильтры","filtersHint":"По одному на строку","subheader":"Умный фильтр эпизодов RSS"},"useIdForRssLinks":"Использовать ID для ссылки на статью RSS"},"saveSuccess":"Настройки сохранены!","speed":{"download":"Загрузка","scheduler":{"from":"С","selectButtonLabel":"Выбрать время","subheader":"Запланировать включение особых ограничений скорости","to":"До","when":"Когда"},"settings":{"applyToPeersOnLan":"Применять ограничения скорости к локальным пирам","applyToTransportOverhead":"Применять ограничения скорости к служебному трафику","applyToUtp":"Применять ограничения скорости к протоколу µTP"},"subheader":{"alternative":"Особые ограничения скорости","global":"Общие ограничения скорости","settings":"Настройки ограничений скорости"},"tip":"0 означает неограниченно","upload":"Раздача"},"tabs":{"addons":{"enhanced_edition":"Расширенная версия"},"advanced":"Дополнительно","behavior":"Поведение","bittorrent":"BitTorrent","connection":"Соединение","downloads":"Загрузки","rss":"RSS","speed":"Скорость","tagsAndCategories":"Теги и категории","vuetorrent":{"general":"Общее","title":"VueTorrent","torrent_card":{"grid":"Отображение сеткой","list":"Отображение списком","table":"Отображение таблицей"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Доступные категории:","createNewCategory":"Создать новую категорию","createNewTag":"Создать новый тег","deleteUnusedCategories":"Удалить неиспользуемые категории","deleteUnusedTags":"Удалить неиспользуемые теги","noCategories":"Категорий пока нет","noTags":"Тегов пока нет","tagsSubheader":"Доступные теги:"},"title":"Параметры","vuetorrent":{"general":{"check_new":"Проверить обновление","currentVersion":"Текущая версия","customTitle":"Настраиваемый заголовок","darkVariants":"Тёмная тема","dateFormat":"Формат даты","displayGraphLimits":"Отобразить ограничения на графике","download":"Экспортировать настройки","durationFormat":"Формат длительности","enableHashColors":"Разрешить генерируемые цвета хэша","enableRatioColors":"Разрешить цвета рейтинга","fetchExternalIpInfo":"Извлечение информации о внешнем IP","fileContentInterval":"Интервал обновления содержимого торрент-файла","filterType":"Фильтры «включительно»","hideChipIfUnset":"Скрыть фишки, если не настроено","hideColoredChip":"Использовать текстовый вариант для фишек","historySize":"Размер истории в подходящих полях","import":"Импортировать настройки","isDrawerRight":"Расположить боковую панель справа","isShutdownButtonVisible":"Показать кнопку выключения","language":"Язык","lightVariants":"Светлая тема","paginationSize":{"infinite_scroll":"Бесконечная прокрутка","label":"Количество торрентов на странице","warning":"Использование высоких значений может сказаться на производительности"},"qbittorrentVersion":"Версия qBittorrent","refreshInterval":"Интервал обновления qBittorrent API","registerMagnet":"Регистрировать магнитные ссылки","resetSettings":"Сбросить настройки","showAlltimeStat":"Показывать всю статистику","showCurrentSpeed":"Показывать текущую скорость","showFreeSpace":"Показывать свободное место","showSessionStat":"Показывать статистику сессии","showSpeedGraph":"Показывать график скорости","tip":"Общие настройки пользовательского WebUI","useBinarySize":"Заменить размеры данных двоичными единицами измерения (kB -> KiB)","useBitSpeed":"Заменить значения скорости на биты (kB/s -> kbps)","useEmojiState":"Добавлять к состоянию торрента эмодзи","vueTorrentTitle":"Заголовок вкладки"},"torrentCard":{"grid":{"busyTip":"Параметры отображения незавершённых торрентов в виде сетки","doneTip":"Параметры отображения завершённых торрентов в виде сетки"},"list":{"busyTip":"Параметры отображения незавершённых торрентов в виде списка","doneTip":"Параметры отображения завершённых торрентов в виде списка"},"table":{"tip":"Параметры отображения торрентов в виде таблицы"}}},"webUI":{"authentication":{"banDuration":"Время блокировки","banDurationHint":"В секундах","bypassLocalhost":"Пропускать аутентификацию клиентов для localhost","bypassWhitelist":"Пропускать аутентификацию клиентов для разрешённых подсетей","maxAttempts":"Максимум попыток","password":"Пароль","passwordPlaceholder":"(без изменений)","sessionTimeout":"Тайм-аут сессии","sessionTimeoutHint":"В секундах","subheader":"Аутентификация","username":"Имя пользователя","whitelistExamples":"Пример: 172.17.32.0/24, fdff:ffff:c8::/40"},"customHeaders":"Добавить пользовательские заголовки HTTP","customHeadersHint":"Одно значение на строку","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Доменное имя","password":"Пароль","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Регистрация","subheader":"Обновлять динамическое доменное имя","username":"Имя пользователя"},"https":{"certificate":"Сертификат","key":"Ключ","subheader":"Использовать HTTPS","tip":"Сведения о сертификатах"},"interface":{"ipAddress":"IP адрес","port":"Порт","subheader":"Веб-интерфейс пользователя","useAlternativeWebUI":"Использовать альтернативный WebUI","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"proxiesList":"Список доверенных прокси-серверов","proxiesListHint":"Перечисляйте IP через точку с запятой ( ; )","reverseProxySupport":"Включить поддержку обратного прокси-сервера","security":{"clickjacking":"Включить защиту от кликджекинга","csrf":"Включить защиту от межсайтовой подделки запроса (CSRF)","hostHeaderValidation":"Включить проверку заголовка хоста","hostHeaderValidationHint":"Перечисляйте через точку с запятой ( ; )","secureCookie":"Включить защиту куки (требует HTTPS)","serverDomains":"Домены сервера","subheader":"Безопасность"}}}');
-    x9 = {
+    x9 = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"Автоматический бан торрент-проигрывателей","auto_ban_unknown_peer":"Автоматический бан неизвестных пиров","auto_update_trackers":"Автоматическое обновление списка общедоступных трекеров","public_trackers":"Общедоступные трекеры","trackers_list_url":"Настройка списка URL трекеров"}},"advanced":{"libtorrent":{"announceAllTiers":"Всегда объявлять всем уровням","announceAllTrackers":"Всегда объявлять всем трекерам на уровне","announceIP":"IP-адрес, переданный трекерам (требуется перезагрузка)","coalesceReadsWrites":"Объединение операций чтения и записи (libtorrent < 2.0)","dhtBootstrapNodes":"Узлы начальной загрузки DHT","dhtBootstrapNodesHint":"Сброс на значение по умолчанию (если пусто)","disk":{"diskCache":"Кэш диска (libtorrent < 2.0)","diskCacheExpiry":"Интервал очистки кэша диска (libtorrent < 2.0)","diskIoReadMode":"Режим чтения ввода-вывода с диска","diskIoType":"Тип ввода-вывода диска (libtorrent >= 2.0; требует перезапуск)","diskIoWriteMode":"Режим записи ввода-вывода с диска","diskQueueSize":"Размер очереди диска","subheader":"Диск"},"i2p":{"inboundLength":"Длина входящего I2P","inboundQuantity":"Количество входящих I2P","invalidLength":"Значение длины I2P должно быть между 0 и 7","invalidQuantity":"Значение количества I2P должно быть между 1 и 16","outboundLength":"Длина исходящего I2P","outboundQuantity":"Количество исходящих I2P","restartNeeded":"Любые изменения в этих настройках вступят в силу при следующем восстановлении SAM соединения (путём перезапуска I2P или изменения адреса или порта I2P)"},"maxConcurrentHTTPAnnounces":"Максимальное количество одновременных анонсов HTTP","networking":{"outgoingPortsMax":"Максимум исходящих портов [0: отключено]","outgoingPortsMin":"Минимум исходящих портов [0: отключено]","peerTos":"Значение DSCP для подключений к пирам","subheader":"Networking","upnpLeaseDuration":"Срок аренды UPnP [0: постоянный]","utpTcpMixedModeAlgorithm":"Алгоритм смешанного режима µTP-TCP"},"outgoingConnectionsPerSecond":"Фактор отметки буфера отправки","peerTurnover":"Процент отключения от пира","peerTurnoverCutoff":"Пороговый процент текучести пира","peerTurnoverInterval":"Интервал отключения при смене пира","pieceExtentAffinity":"Группировать смежные части","requestQueueSize":"Максимальное количество невыполненных запросов к одному пиру","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Разрешить несколько подключений с одного и того же IP","blockPeersOnPrivilegedPorts":"Запретить подключение к пирам на привилегированных портах","idnSupport":"Включить поддержку интернационализированных доменных имен (IDN)","mitigateSSRF":"Предотвращение подделки запросов на стороне сервера (SSRF)","subheader":"Безопасность","validateHTTPSTrackerCertificate":"Проверка сертификата трекера HTTPS"},"sendBufferLowWatermark":"Минимальный размер буфера отправки","sendBufferWatermark":"Размер буфера отправки","sendBufferWatermarkFactor":"Коэффициент размера буфера отправки","sendUploadPieceSuggestions":"Отправлять предложения частей отдачи","socketBacklogSize":"Размер очереди сокета","socketReceiveBufferSize":"Размер буфера сокета на получение","socketReceiveBufferSizeHint":"0: по выбору системы","socketSendBufferSize":"Размер буфера сокета на отправку","socketSendBufferSizeHint":"0: по выбору системы","ssl":{"disclaimer":"Функция \\"SSL торрент\\" не стандартизирована, с ней не связаны BEP (BitTorrent Enhancement Proposals).\\nВключайте эту функцию только в том случае, если она вам нужна.","enabled":"Разрешить SSL торренты","listenPort":"Порт, используемый для SSL-соединений","listenPortHint":"Оставить пустым для авто выбора","rule":"Порт должен быть между 0 и 65535"},"stopTrackerTimeout":"Тайм-аут остановки трекера","subheader":"Раздел libtorrent","threads":{"asyncIoThreads":"Потоки асинхронного ввода-вывода","bdecodeDepthLimit":"Ограничение глубины Bdecode","bdecodeTokenLimit":"Ограничение токена Bdecode","filePoolSize":"Размер пула файлов","hashingThreads":"Потоки хеширования (libtorrent >= 2.0)","outstandingMemory":"Накладная память при проверке торрентов","subheader":"Потоки"},"uploadChokingAlgorithm":"Алгоритм подавления раздачи","uploadSlotsBehavior":"Поведение слотов для раздачи"},"openDoc":"Открыть документацию","qbittorrent":{"allocatedRam":"Предел использования оперативной памяти (libtorrent >= 2.0)","appInstanceName":"Имя экземпляра приложения","embeddedTracker":{"enable":"Включить встроенный трекер","port":"Порт встроенного трекера","portForward":"Включить переадресацию портов для встроенного трекера","title":"Встроенный трекер"},"enableMarkOfTheWeb":"Разрешить Mark-of-the-Web (MOTW) для загруженных файлов","enableMarkOfTheWebHint":"Требуется macOS или Windows","networking":{"ipAddress":{"all":"Все адреса","allIPv4":"Все IPv4 адреса","allIPv6":"Все IPv6 адреса","label":"Необязательный IP-адрес для привязки"},"networkInterfaces":{"any":"Любой интерфейс","label":"Сетевой интерфейс"},"title":"Связь"},"pythonExecutablePath":"Путь к исполняемому файлу Python","pythonExecutablePathHint":"Авто определение (если не заполнено), требуется перезагрузка","reannounceOnIpPortChanged":"Повторно уведомлять все трекеры об изменении IP-адреса или порта","recheckOnCompletion":"Перепроверка торрентов по завершении","refreshInterval":"Интервал обновления интерфейса","resolveCountries":"Разрешить пиры из других стран","resumeDataStorageType":{"label":"Тип хранилища для возобновления данных (требуется перезагрузка)","legacy":"Файлы для быстрого возобновления","sqlite":"База данных SQLite (экспериментально)"},"saveInterval":"Сохранить интервал возобновления данных","subheader":"Раздел qBittorrent","torrentContentRemovingMode":"Режим удаления контента торрента","torrentFileSizeLimit":"Ограничение размера файла .torrent"}},"behavior":{"logs":{"file_log_age":"Удалить бэкап логов старше...","file_log_backup_enabled":"Включить бэкап логов","file_log_delete_old":"Удалять старые бэкапы логов","file_log_enabled":"Разрешить логи","file_log_max_size":"Делать бэкап логов при размере...","file_log_path":"Путь хранения","subheader":"Управление логами"},"performance_warning":"Писать в лог о проблемах производительности"},"bittorrent":{"autoAddTrackers":"Автоматически добавлять эти трекеры к новым загрузкам","autoAddTrackersHint":"Один трекер на строку","maxActiveCheckingTorrents":"Максимум одновременных проверок торрентов","privacy":{"enableAnonymous":"Включить анонимный режим","enableDHT":"Включить DHT (децентрализованную сеть) для поиска пиров","enableLPD":"Искать пиров в вашей локальной сети","enablePeX":"Включить обмен пирами (PeX)","encryptionMode":"Режим шифрования","moreInfo":"Подробнее","subheader":"Конфиденциальность"},"seedLimits":{"subheader":"Ограничение сида","then":"Затем","whenInactiveSeedingTimeReaches":"По достижении предела без активности","whenRatioReaches":"По достижении рейтинга раздачи","whenSeedingTimeReaches":"По достижении времени сидирования"},"torrentQueueing":{"downloadRateLimit":"Порог скорости загрузки","excludeSlowTorrent":"Не учитывать медленные торренты в этих ограничениях","maxActiveDownload":"Максимум активных загрузок","maxActiveTorrent":"Максимум активных торрентов","maxActiveUpload":"Максимум активных раздач","subheader":"Работа с очередью торрентов","torrentInactivityTimer":"Таймер бездействия торрента","uploadRateLimit":"Порог скорости отдачи"}},"connection":{"connectionLimits":{"globalMaxConnection":"Глобальное максимальное количество соединений","globalMaxUploadSlots":"Глобальное максимальное количество слотов для раздачи","perTorrentMaxConnection":"Максимальное количество соединений на торрент","perTorrentMaxUploadSlots":"Максимальное количество слотов для раздачи на торрент","subheader":"Ограничение соединений"},"i2p":{"address":"Хост I2P","disclaimer":"Если включён \\"Смешанный режим\\", торрентам I2P также разрешается получать пиры из других источников, отличных от трекера, и подключаться к обычным IP-адресам, не обеспечивая никакой анонимности. Это может быть полезно, если пользователю не требуется анонимизация I2P, но нужна возможность подключаться к пирам I2P.","enabled":"Разрешить I2P","mixedMode":"Смешанный режим","port":"Порт","rule":"Значение порта должно быть между 0 и 65535","subheader":"I2P (экспериментально)"},"ipFiltering":{"applyToTrackers":"Применить к трекерам","bannedIps":"Вручную запрещённые IP-адреса","bannedIpsHint":"По одному на строку","filterPath":"Путь к фильтрам (.dat, .p2p, .p2b):","subheader":"Фильтрация по IP"},"listeningPort":{"incomingConnectionPort":"Используемый порт для входящих соединений","randomPort":"Случайный порт","subheader":"Прослушиваемый порт","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"protocol":"Протокол подключения к пирам","proxy":{"auth":{"password":"Пароль","subtitle":"Аутентификация","tip":"Примечание: Пароль хранится в незашифрованном виде","username":"Имя пользователя"},"bittorrent":"Использовать прокси для BitTorrent","host":"Хост","hostNameLookup":"Использовать прокси для поиска доменного имени хоста","misc":"Использовать прокси для общих целей","peerConnections":"Использовать прокси для соединения с пирами","port":"Порт","rss":"Использовать прокси только для RSS","subheader":"Прокси сервер"}},"downloads":{"excludedFileNames":{"hint":"Одно название файла на строку","label":"Исключенные имена файлов"},"mailNotification":{"authEnabled":"Авторизация","enabled":"Отправлять уведомление на Email, когда загрузка завершится","from":"От","password":"Пароль","smtpServer":"SMTP сервер","sslEnabled":"Этот сервер требует защищённое соединение (SSL)","test":{"error":"Не удалось отправить запрос по электронной почте\\n{message}","label":"Отправить тестовое электронное письмо","success":"Запрос отправлен по электронной почте!\\nПроверьте свой почтовый ящик, чтобы подтвердить"},"to":"Кому","username":"Логин"},"monitoredFolders":{"actions":"Действия","confirmDelete":"Вы уверены что хотите удалить эту запись?","editItem":"Редактировать","monitoredFolderPath":"Отслеживаемая папка","newItem":"Новая запись","noData":"Ещё нет отслеживаемых папок","otherPath":"Пользовательский путь","saveType":"Изменить путь сохранения на:","subheader":"Отслеживаемые папки"},"publicSettings":{"appendQBExtension":"Добавлять расширение .!qB к незавершённым файлам","preAllocateDisk":"Резервировать место на диске для всех файлов","useUnwantedFolder":"Хранить не выбранные файлы в папке \\".unwanted\\""},"runExternalProgram":{"onAddedEnabled":"Запустить внешнюю программу при добавлении торрента","onAddedLabel":"Команда","onFinishedEnabled":"Запустить внешнюю программу при завершении торрента","onFinishedLabel":"Команда","subheader":"Запускать внешнюю программу","supportParamC":"%C: Количество файлов","supportParamD":"%D: Путь сохранения","supportParamF":"%F: Папка содержимого (или корневая папка для торрентов с множеством файлов)","supportParamG":"%G: Метки (разделяются запятыми)","supportParamI":"%I: Хеш-сумма v1","supportParamJ":"%J: Хеш-сумма v2","supportParamK":"%K: ID торрента","supportParamL":"%L: Категория","supportParamN":"%N: Имя торрента","supportParamR":"%R: Корневая папка (главный путь для подкаталога торрента)","supportParamT":"%T: Текущий трекер","supportParamTitle":"Поддерживаемые параметры (с учетом регистра):","supportParamZ":"%Z: Размер торрента (в байтах)","tip":"Совет: Заключите параметр в кавычки, чтобы избежать обрезания текста по пробелам (вот так \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Автоматический режим управления торрентом по умолчанию","categoryChangedTMM":"При изменении пути сохранения у категории","defaultSavePath":"Путь сохранения по умолчанию","defaultTMMOptions":{"automatic":"Автоматически","manual":"Вручную"},"exportDir":"Копировать файлы .torrent в","exportDirFinished":"Для завершенный загрузок копировать файлы .torrent в","keepIncomplete":"Путь по умолчанию для незавершённых торрентов","paramChangedTMMOptions":{"relocateTorrent":"Переместить торрент","switchToManual":"Переключить торрент в Ручной Режим"},"savePathChangedTMM":"При изменении пути сохранения по умолчанию","subheader":"Управление сохранением","torrentChangedTMM":"При изменении категории торрента","useCategoryPathInManualMode":"Использовать пути Категорий в ручном режиме","useCategoryPathInManualModeHint":"Сопоставить относительный путь сохранения с соответствующим путем категории вместо пути по умолчанию"},"whenAddTorrent":{"addToTopOfQueue":"Добавить в начало очереди","autoDeleteMode":"Автоматически удалять файлы .torrent","doNotAutoStart":"Не начинать загрузку автоматически","mergeTrackers":"Объединить трекеры, если торрент уже есть","subheader":"При добавлении торрента"}},"rss":{"autoDownloader":{"enable":"Включить автозагрузку торрентов из RSS","subheader":"Автозагрузчик торрентов из RSS"},"reader":{"enableProcessing":"Включить получение RSS-лент","feedsRefreshInterval":"Интервал обновления лент","maximumArticlesPerFeed":"Максимум статей для ленты","sameHostRequestDelay":"Задержка запроса того же хоста","subheader":"Менеджер RSS"},"smartEpisodeFilter":{"downloadEpisodes":"Загружать эпизоды REPACK/PROPER","filters":"Фильтры","filtersHint":"По одному на строку","subheader":"Умный фильтр эпизодов RSS"},"useIdForRssLinks":"Использовать ID для ссылки на статью RSS"},"saveSuccess":"Настройки сохранены!","speed":{"download":"Загрузка","scheduler":{"from":"С","selectButtonLabel":"Выбрать время","subheader":"Запланировать включение особых ограничений скорости","to":"До","when":"Когда"},"settings":{"applyToPeersOnLan":"Применять ограничения скорости к локальным пирам","applyToTransportOverhead":"Применять ограничения скорости к служебному трафику","applyToUtp":"Применять ограничения скорости к протоколу µTP"},"subheader":{"alternative":"Особые ограничения скорости","global":"Общие ограничения скорости","settings":"Настройки ограничений скорости"},"tip":"0 означает неограниченно","upload":"Раздача"},"tabs":{"addons":{"enhanced_edition":"Расширенная версия"},"advanced":"Дополнительно","behavior":"Поведение","bittorrent":"BitTorrent","connection":"Соединение","downloads":"Загрузки","rss":"RSS","speed":"Скорость","tagsAndCategories":"Теги и категории","vuetorrent":{"general":"Общее","title":"VueTorrent","torrent_card":{"grid":"Отображение сеткой","list":"Отображение списком","table":"Отображение таблицей"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Доступные категории:","createNewCategory":"Создать новую категорию","createNewTag":"Создать новый тег","deleteUnusedCategories":"Удалить неиспользуемые категории","deleteUnusedTags":"Удалить неиспользуемые теги","noCategories":"Категорий пока нет","noTags":"Тегов пока нет","tagsSubheader":"Доступные теги:"},"title":"Параметры","vuetorrent":{"general":{"check_new":"Проверить обновление","currentVersion":"Текущая версия","customTitle":"Настраиваемый заголовок","darkVariants":"Тёмная тема","dateFormat":"Формат даты","displayGraphLimits":"Отобразить ограничения на графике","download":"Экспортировать настройки","durationFormat":"Формат длительности","enableHashColors":"Разрешить генерируемые цвета хэша","enableRatioColors":"Разрешить цвета рейтинга","fetchExternalIpInfo":"Извлечение информации о внешнем IP","fileContentInterval":"Интервал обновления содержимого торрент-файла","filterType":"Фильтры «включительно»","hideChipIfUnset":"Скрыть фишки, если не настроено","hideColoredChip":"Использовать текстовый вариант для фишек","historySize":"Размер истории в подходящих полях","import":"Импортировать настройки","isDrawerRight":"Расположить боковую панель справа","isShutdownButtonVisible":"Показать кнопку выключения","language":"Язык","lightVariants":"Светлая тема","paginationSize":{"infinite_scroll":"Бесконечная прокрутка","label":"Количество торрентов на странице","warning":"Использование высоких значений может сказаться на производительности"},"qbittorrentVersion":"Версия qBittorrent","refreshInterval":"Интервал обновления qBittorrent API","registerMagnet":"Регистрировать магнитные ссылки","resetSettings":"Сбросить настройки","showAlltimeStat":"Показывать всю статистику","showCurrentSpeed":"Показывать текущую скорость","showFreeSpace":"Показывать свободное место","showSessionStat":"Показывать статистику сессии","showSpeedGraph":"Показывать график скорости","tip":"Общие настройки пользовательского WebUI","useBinarySize":"Заменить размеры данных двоичными единицами измерения (kB -> KiB)","useBitSpeed":"Заменить значения скорости на биты (kB/s -> kbps)","useEmojiState":"Добавлять к состоянию торрента эмодзи","vueTorrentTitle":"Заголовок вкладки"},"torrentCard":{"grid":{"busyTip":"Параметры отображения незавершённых торрентов в виде сетки","doneTip":"Параметры отображения завершённых торрентов в виде сетки"},"list":{"busyTip":"Параметры отображения незавершённых торрентов в виде списка","doneTip":"Параметры отображения завершённых торрентов в виде списка"},"table":{"tip":"Параметры отображения торрентов в виде таблицы"}}},"webUI":{"authentication":{"banDuration":"Время блокировки","banDurationHint":"В секундах","bypassLocalhost":"Пропускать аутентификацию клиентов для localhost","bypassWhitelist":"Пропускать аутентификацию клиентов для разрешённых подсетей","maxAttempts":"Максимум попыток","password":"Пароль","passwordPlaceholder":"(без изменений)","sessionTimeout":"Тайм-аут сессии","sessionTimeoutHint":"В секундах","subheader":"Аутентификация","username":"Имя пользователя","whitelistExamples":"Пример: 172.17.32.0/24, fdff:ffff:c8::/40"},"customHeaders":"Добавить пользовательские заголовки HTTP","customHeadersHint":"Одно значение на строку","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"Доменное имя","password":"Пароль","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Регистрация","subheader":"Обновлять динамическое доменное имя","username":"Имя пользователя"},"https":{"certificate":"Сертификат","key":"Ключ","subheader":"Использовать HTTPS","tip":"Сведения о сертификатах"},"interface":{"ipAddress":"IP адрес","port":"Порт","subheader":"Веб-интерфейс пользователя","useAlternativeWebUI":"Использовать альтернативный WebUI","useUPnP":"Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"},"proxiesList":"Список доверенных прокси-серверов","proxiesListHint":"Перечисляйте IP через точку с запятой ( ; )","reverseProxySupport":"Включить поддержку обратного прокси-сервера","security":{"clickjacking":"Включить защиту от кликджекинга","csrf":"Включить защиту от межсайтовой подделки запроса (CSRF)","hostHeaderValidation":"Включить проверку заголовка хоста","hostHeaderValidationHint":"Перечисляйте через точку с запятой ( ; )","secureCookie":"Включить защиту куки (требует HTTPS)","serverDomains":"Домены сервера","subheader":"Безопасность"}}}');
+    w9 = {
         add: {
             error: "Ошибка при добавлении торрентов",
             pending: "Отправка торрентов...",
@@ -102413,7 +102458,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             new: "Доступна новая версия!"
         }
     };
-    w9 = {
+    S9 = {
         actions: {
             delete: "Удалить торренты",
             logs: "Открыть логи",
@@ -102437,7 +102482,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         searchTorrents: "Поиск торрентов"
     };
-    S9 = {
+    C9 = {
         empty: {
             action: "Создать новую задачу",
             value: "Нет задач"
@@ -102471,7 +102516,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         },
         title: "Создание торрента"
     };
-    C9 = {
+    A9 = {
         content: {
             fileInfo: "{n} файлов | {n} файл | {n} файла | {n} файлов",
             filter: {
@@ -102580,7 +102625,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             tier: "Ранг: {n}"
         }
     };
-    A9 = {
+    D9 = {
         properties: {
             added_on: "Добавлено",
             amount_left: "Осталось",
@@ -102677,29 +102722,29 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             uploading: "Раздача"
         }
     };
-    D9 = {
+    T9 = {
         minutes: "минут | минута | минуты | минут",
         seconds: "секунд | секунда | секунды | секунд"
     };
-    T9 = {
-        common: h9,
-        constants: m9,
-        dashboard: f9,
-        dialogs: p9,
-        login: g9,
-        logs: v9,
-        navbar: y9,
-        rssArticles: b9,
-        searchEngine: F9,
-        settings: k9,
-        toast: x9,
-        topbar: w9,
-        torrentCreator: S9,
-        torrentDetail: C9,
-        torrent: A9,
-        units: D9
-    };
     E9 = {
+        common: m9,
+        constants: f9,
+        dashboard: p9,
+        dialogs: g9,
+        login: v9,
+        logs: y9,
+        navbar: b9,
+        rssArticles: F9,
+        searchEngine: k9,
+        settings: x9,
+        toast: w9,
+        topbar: S9,
+        torrentCreator: C9,
+        torrentDetail: A9,
+        torrent: D9,
+        units: T9
+    };
+    _9 = {
         cancel: "İptal",
         close: "Kapat",
         delete: "Sil",
@@ -102722,7 +102767,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         useGlobalSettings: "Genel Ayarları Kullan",
         yes: "Evet"
     };
-    _9 = {
+    P9 = {
         addStopped: {
             always: "Her Zaman",
             never: "Asla",
@@ -102847,7 +102892,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
             preferTcp: "TCP'yi Tercih Et"
         }
     };
-    P9 = {
+    B9 = {
         displayMode: {
             grid: "Izgara",
             list: "Liste",
@@ -102915,7 +102960,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
         toggleSortOrder: "Sıralama düzenini tersine çevir",
         torrentsCount: "Torrent yok | {n} torrent | {n} torrent"
     };
-    B9 = {
+    M9 = {
         add: {
             cookie: "Çerezler",
             cookie_placeholder: "isim1=değer1; isim2=değer2; ...",
@@ -103117,7 +103162,7 @@ Mogą wystąpić błędy, należy zachować ostrożność.`
 Hatalar oluşabilir, dikkatli kullanın.`
         }
     };
-    M9 = {
+    R9 = {
         error: "Giriş başarısız oldu!",
         password: "Parola",
         rules: {
@@ -103130,7 +103175,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         title: "Giriş",
         username: "Kullanıcı Adı"
     };
-    R9 = {
+    L9 = {
         emptyLogList: "Günlük bulunamadı",
         filters: {
             query: "Günlük mesajında ara",
@@ -103138,7 +103183,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "qBittorrent Günlükleri"
     };
-    L9 = {
+    I9 = {
         addPanel: {
             torrentsPendingCount: "{n} torrent yüklenmeyi bekliyor | {n} torrent yüklenmeyi bekliyor"
         },
@@ -103207,7 +103252,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    I9 = {
+    z9 = {
         feeds: {
             empty: {
                 action: "RSS Beslemesi Oluştur",
@@ -103249,7 +103294,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             rules: "Kuralları göster"
         }
     };
-    z9 = {
+    N9 = {
         filters: {
             category: {
                 all: "Tümü",
@@ -103285,8 +103330,8 @@ Hatalar oluşabilir, dikkatli kullanın.`
         tabHeaderEmpty: "(Boş sorgu)",
         title: "Arama motoru"
     };
-    N9 = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BT oynatıcı eşini otomatik yasakla","auto_ban_unknown_peer":"Bilinmeyen eşleri otomatik yasakla","auto_update_trackers":"Genel izleyici listesini otomatik olarak güncelle","public_trackers":"Genel izleyiciler","trackers_list_url":"İzleyici URL Listesini Özelleştir"}},"advanced":{"libtorrent":{"announceAllTiers":"Her zaman tüm seviyelere duyuru yap","announceAllTrackers":"Her zaman bir seviyedeki tüm izleyicilere duyuru yap","announceIP":"İzleyicilere bildirilen IP adresi (yeniden başlatma gerektirir)","coalesceReadsWrites":"Okumaları ve yazmaları birleştir (libtorrent < 2.0) ","disk":{"diskCache":"Disk önbelleği (libtorrent < 2.0) ","diskCacheExpiry":"Disk önbelleği sona erme aralığı (libtorrent < 2.0)","diskIoReadMode":"Disk G/Ç okuma modu","diskIoType":"Disk G/Ç Türü (libtorrent >= 2.0; yeniden başlatma gerektirir)","diskIoWriteMode":"Disk G/Ç yazma modu","diskQueueSize":"Disk kuyruğu boyutu","subheader":"Disk"},"maxConcurrentHTTPAnnounces":"Maksimum eşzamanlı HTTP duyurusu","networking":{"outgoingPortsMax":"Giden bağlantı noktaları (Maks) [0: Devre dışı] ","outgoingPortsMin":"Giden bağlantı noktaları (Min) [0: Devre dışı] ","peerTos":"Eşlere yapılan bağlantılar için DSCP değeri","subheader":"Ağ Oluşturma","upnpLeaseDuration":"UPnP kiralama süresi [0: Kalıcı kiralama] ","utpTcpMixedModeAlgorithm":"μTP-TCP karışık mod algoritması"},"outgoingConnectionsPerSecond":"Saniye başına giden bağlantılar","peerTurnover":"Eş dönüşümü kopma yüzdesi","peerTurnoverCutoff":"Eş dönüşümü eşik yüzdesi","peerTurnoverInterval":"Eş dönüşümü kopma aralığı","pieceExtentAffinity":"Parça kapsamı yakınlığını kullan","requestQueueSize":"Tek bir eşe gönderilebilecek maksimum istek sayısı","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Aynı IP adresinden birden fazla bağlantıya izin ver","blockPeersOnPrivilegedPorts":"Ayrıcalıklı bağlantı noktalarındaki eşlere bağlantıyı engelle","idnSupport":"Uluslararası Alan Adı (IDN) desteğini etkinleştir","mitigateSSRF":"Sunucu taraflı istek sahteciliği (SSRF) önleme","subheader":"Güvenlik","validateHTTPSTrackerCertificate":"HTTPS izleyici sertifikasını doğrula"},"sendBufferLowWatermark":"Arabellek düşük filigranı gönder","sendBufferWatermark":"Arabellek filigranı gönder","sendBufferWatermarkFactor":"Arabellek filigran faktörü gönder","sendUploadPieceSuggestions":"Yükleme parçası önerilerini gönder","socketBacklogSize":"Soket biriktirme boyutu","socketReceiveBufferSize":"Soket alma arabelleği boyutu","socketReceiveBufferSizeHint":"0: sistem varsayılanı","socketSendBufferSize":"Soket gönderme arabelleği boyutu","socketSendBufferSizeHint":"0: sistem varsayılanı","stopTrackerTimeout":"İzleyici zaman aşımını durdur","subheader":"libtorrent Bölümü","threads":{"asyncIoThreads":"Eşzamansız G/Ç iş parçacıkları","bdecodeDepthLimit":"Bdecode derinlik sınırı","bdecodeTokenLimit":"Bdecode token sınırı","filePoolSize":"Dosya havuzu boyutu","hashingThreads":"Hash iş parçacıkları (libtorrent >= 2.0)","outstandingMemory":"Torrentleri kontrol ederken kullanılan en fazla bellek miktarı","subheader":"İş Parçacıkları"},"uploadChokingAlgorithm":"Yükleme boğulma algoritması","uploadSlotsBehavior":"Yükleme yuvaları davranışı"},"openDoc":"Belgeleri aç","qbittorrent":{"allocatedRam":"Fiziksel bellek (RAM) kullanım sınırı (libtorrent >= 2.0)","embeddedTracker":{"enable":"Yerleşik izleyiciyi etkinleştir","port":"Yerleşik izleyici bağlantı noktası","portForward":"Yerleşik izleyici için bağlantı noktası yönlendirmesini etkinleştir","title":"Yerleşik İzleyici"},"networking":{"ipAddress":{"all":"Tüm adresler","allIPv4":"Tüm IPv4 adresleri","allIPv6":"Tüm IPv6 adresleri","label":"Bağlanmak için isteğe bağlı IP adresi"},"networkInterfaces":{"any":"Herhangi bir arayüz","label":"Ağ arayüzü"},"title":"Ağ Oluşturma"},"reannounceOnIpPortChanged":"IP veya port değiştiğinde tüm izleyicilere yeniden duyuru yap","recheckOnCompletion":"Tamamlanınca torrentleri yeniden kontrol et","refreshInterval":"Arayüz Yenileme Aralığı","resolveCountries":"Eş ülke çözümleme","resumeDataStorageType":{"label":"Devam etme verisi depolama türü (yeniden başlatma gerektirir)","legacy":"Hızlı devam dosyaları","sqlite":"SQLite veritabanı (deneysel)"},"saveInterval":"Devam etme verisi kaydetme aralığı","subheader":"qBittorrent Bölümü","torrentFileSizeLimit":".torrent dosya boyutu sınırı"}},"behavior":{"logs":{"file_log_age":"Şu tarihten eski yedekleme günlüklerini sil","file_log_backup_enabled":"Günlük dosyası yedeklemesini etkinleştir","file_log_delete_old":"Eski yedekleme günlüklerini sil","file_log_enabled":"Günlük dosyalarını etkinleştir","file_log_max_size":"Günlük dosyasını şu boyuttan sonra yedekle","file_log_path":"Kaydetme yolu","subheader":"Günlük yönetimi"},"performance_warning":"Günlük performansı uyarısı"},"bittorrent":{"autoAddTrackers":"Yeni indirmelere otomatik olarak bu izleyicileri ekle","autoAddTrackersHint":"Satır başına bir izleyici","maxActiveCheckingTorrents":"Maksimum etkin kontrol edilen torrent sayısı","privacy":{"enableAnonymous":"Anonim modu etkinleştir","enableDHT":"Daha fazla eş bulmak için DHT'yi (merkezi olmayan ağ) etkinleştirin","enableLPD":"Daha fazla eş bulmak için Yerel Eş Bulma özelliğini etkinleştirin","enablePeX":"Daha fazla eş bulmak için Eş Değişimi (PeX) özelliğini etkinleştirin","encryptionMode":"Şifreleme Modu","moreInfo":"Daha Fazla Bilgi","subheader":"Gizlilik"},"seedLimits":{"subheader":"Seed Sınırı","then":"Yapılacak","whenInactiveSeedingTimeReaches":"Etkin olmayan seeding süresine ulaştığında","whenRatioReaches":"Orana ulaştığında","whenSeedingTimeReaches":"Seeding süresine ulaştığında"},"torrentQueueing":{"downloadRateLimit":"İndirme hızı eşiği","excludeSlowTorrent":"Yavaş torrentleri bu sınırlamalara dahil etme","maxActiveDownload":"Maksimum aktif indirmeler","maxActiveTorrent":"Maksimum aktif torrentler","maxActiveUpload":"Maksimum aktif yüklemeler","subheader":"Torrent Sıralama","torrentInactivityTimer":"Torrent hareketsizlik zamanlayıcısı","uploadRateLimit":"Yükleme hızı eşiği"}},"connection":{"connectionLimits":{"globalMaxConnection":"Genel maksimum bağlantı sayısı","globalMaxUploadSlots":"Genel maksimum yükleme alanı sayısı","perTorrentMaxConnection":"Torrent başına maksimum bağlantı sayısı","perTorrentMaxUploadSlots":"Torrent başına maksimum yükleme alanı sayısı","subheader":"Bağlantı Sınırları"},"ipFiltering":{"applyToTrackers":"İzleyicilere uygula","bannedIps":"Elle yasaklanan IP adresleri","bannedIpsHint":"Her satırda bir tane","filterPath":"Filtre yolu (.dat, .p2p, .p2b)","subheader":"IP Filtreleme"},"listeningPort":{"incomingConnectionPort":"Gelen bağlantılar için kullanılan bağlantı noktası","randomPort":"Rastgele Bağlantı Noktası","subheader":"Dinleme Bağlantı Noktası","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"protocol":"Eş bağlantı protokolü","proxy":{"auth":{"password":"Parola","subtitle":"Kimlik Doğrulama","tip":"Bilgi: Parola şifrelenmemiş olarak kaydedilir","username":"Kullanıcı Adı"},"bittorrent":"BitTorrent amaçları için proxy kullan","host":"Sunucu","hostNameLookup":"Ana bilgisayar adı çözümlemesi için proxy kullan","misc":"Genel amaçlar için proxy kullan","peerConnections":"Eş bağlantıları için proxy kullan","port":"Bağlantı Noktası","rss":"RSS amaçları için proxy kullan","subheader":"Proxy Sunucusu"}},"downloads":{"excludedFileNames":{"hint":"Satır başına bir filtre","label":"Hariç tutulan dosya adları"},"mailNotification":{"authEnabled":"Kimlik Doğrulama","enabled":"İndirme tamamlandığında e-posta bildirimi","from":"Kimden","password":"Parola","smtpServer":"SMTP sunucusu","sslEnabled":"Bu sunucu güvenli bir bağlantı (SSL) gerektirir","to":"Kime","username":"Kullanıcı Adı"},"monitoredFolders":{"actions":"Eylemler","confirmDelete":"Bu öğeyi silmek istediğinizden emin misiniz?","editItem":"Düzenle","monitoredFolderPath":"İzlenen Klasör","newItem":"Yeni","noData":"Henüz izlenen klasör yok","otherPath":"Diğer Yol","saveType":"Kaydetme Konumunu Geçersiz Kıl","subheader":"İzlenen Klasörler"},"publicSettings":{"appendQBExtension":"Tamamlanmamış dosyalara .!qB uzantısını ekle","preAllocateDisk":"Tüm dosyalar için disk alanını önceden ayırın"},"runExternalProgram":{"onAddedEnabled":"Torrent eklendiğinde harici programı çalıştır","onAddedLabel":"Komut","onFinishedEnabled":"Torrent tamamlandığında harici programı çalıştır","onFinishedLabel":"Komut","subheader":"Harici programı çalıştır","supportParamC":"%C: Dosya sayısı","supportParamD":"%D: Kaydetme yolu","supportParamF":"%F: İçerik yolu (çok dosyalı torrent için kök yolla aynı)","supportParamG":"%G: Etiketler (virgülle ayrılmış)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategori","supportParamN":"%N: Torrent ismi","supportParamR":"%R: Kök dizin (ilk torrent alt dizin yolu) ","supportParamT":"%T: Mevcut izleyici","supportParamTitle":"Desteklenen parametreler (büyük/küçük harf duyarlıdır):","supportParamZ":"%Z: Torrent boyutu (bayt)","tip":"İpucu: Metnin boşluklardan kesilmesini önlemek için parametreyi tırnak işaretleri içine alın (ör. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Varsayılan Torrent Yönetim Modu","categoryChangedTMM":"Kategori Kayıt Yolu değiştirildiğinde","defaultSavePath":"Varsayılan Kaydetme Yolu (tamamlanan)","defaultTMMOptions":{"automatic":"Otomatik","manual":"El ile"},"exportDir":".torrent dosyalarını şuraya kopyala","exportDirFinished":"Tamamlanan indirmeler için .torrent dosyalarını şuraya kopyala:","keepIncomplete":"Varsayılan İndirme Yolu (tamamlanmamış torrentler)","paramChangedTMMOptions":{"relocateTorrent":"Torrent'in yerini değiştir","switchToManual":"Torrent'i Manuel Moda geçir"},"savePathChangedTMM":"Varsayılan Kaydetme Yolu değiştirildiğinde","subheader":"Kaydetme Yönetimi","torrentChangedTMM":"Torrent Kategorisi değiştirildiğinde"},"whenAddTorrent":{"addToTopOfQueue":"Kuyruğun en üstüne ekle","autoDeleteMode":".torrent dosyalarını sonradan sil","doNotAutoStart":"İndirmeyi otomatik olarak başlatma","mergeTrackers":"Torrent zaten mevcutsa izleyicileri birleştir","subheader":"Torrent eklerken"}},"rss":{"autoDownloader":{"enable":"RSS kurallarının işlenmesini etkinleştirin","subheader":"RSS Torrent Otomatik İndirici"},"reader":{"enableProcessing":"RSS beslemelerini almayı etkinleştirin","feedsRefreshInterval":"Besleme yenileme aralığı","maximumArticlesPerFeed":"Besleme başına maksimum makale sayısı","subheader":"RSS Okuyucu"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER bölümlerini indirin","filters":"Filtreler","filtersHint":"Satır başına bir tane","subheader":"RSS Akıllı Bölüm Filtresi"},"useIdForRssLinks":"RSS makale bağlantısı için ID kullan"},"saveSuccess":"Ayarlar kaydedildi!","speed":{"download":"İndirme","scheduler":{"from":"Başlangıç","selectButtonLabel":"Zamanı seçin","subheader":"Alternatif hız sınırlarının kullanımını zamanlayın","to":"Bitiş","when":"Ne zaman"},"settings":{"applyToPeersOnLan":"LAN'daki eşlere hız sınırı uygula","applyToTransportOverhead":"Taşıma yüküne oran sınırı uygula","applyToUtp":"µTP protokolüne oran sınırı uygula"},"subheader":{"alternative":"Alternatif Oran Sınırları","global":"Genel Oran Sınırları","settings":"Oran Sınırları Ayarları"},"tip":"0 sınırsız anlamına gelir","upload":"Yükleme"},"tabs":{"addons":{"enhanced_edition":"Gelişmiş sürüm"},"advanced":"Gelişmiş","behavior":"Davranış","bittorrent":"BitTorrent","connection":"Bağlantı","downloads":"İndirilenler","rss":"RSS","speed":"Hız","tagsAndCategories":"Etiketler & Kategoriler","vuetorrent":{"general":"Genel","title":"VueTorrent","torrent_card":{"grid":"Izgara Görünümü","list":"Liste Görünümü","table":"Tablo Görünümü"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Mevcut Kategoriler:","createNewCategory":"Yeni kategori oluştur","createNewTag":"Yeni etiket oluştur","noCategories":"Henüz kategori yok","noTags":"Henüz etiket yok","tagsSubheader":"Mevcut Etiketler:"},"title":"Ayarlar","vuetorrent":{"general":{"check_new":"Yeni sürümü kontrol et","currentVersion":"Mevcut Sürüm","customTitle":"Özel başlık","darkVariants":"Koyu tema varyantı","dateFormat":"Tarih formatı","download":"Ayarları Dışa Aktar","enableHashColors":"Oluşturulmuş çip renklerini etkinleştir","enableRatioColors":"Oran renklerini etkinleştir","fileContentInterval":"Torrent dosyası içerik yenileme aralığı","hideChipIfUnset":"Ayarlanmamışsa çipleri gizle","hideColoredChip":"Çipler için metin varyantını kullan","historySize":"Uygun alanlarda geçmiş boyutu","import":"Ayarları İçe Aktar","isDrawerRight":"Sağ Çekmece","isShutdownButtonVisible":"Kapatma düğmesini göster","language":"Dil","lightVariants":"Açık tema varyantı","paginationSize":{"infinite_scroll":"Sonsuz kaydırma","label":"Sayfalama Boyutu","warning":"Yüksek değerler kullanmak performansı etkileyebilir"},"qbittorrentVersion":"qBittorrent Sürümü","refreshInterval":"qBittorrent API yenileme aralığı","registerMagnet":"Magnet bağlantılarını kaydet","resetSettings":"Ayarları Sıfırla","showAlltimeStat":"Tüm Zaman İstatistiklerini Göster","showCurrentSpeed":"Mevcut Hızı Göster","showFreeSpace":"Boş Alanı Göster","showSessionStat":"Oturum İstatistiklerini Göster","showSpeedGraph":"Hız Grafiğini Göster","tip":"Bu ayarlar özel WebUI'nin kendisi içindir","useBinarySize":"Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ","useBitSpeed":"Hız değerlerini bit cinsinden değiştir (kB/s -> kbps)","vueTorrentTitle":"Sekme başlığı"},"torrentCard":{"grid":{"busyTip":"Tamamlanmamış torrentler için ızgara görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için ızgara görünümünde gösterilecek özellikler"},"list":{"busyTip":"Tamamlanmamış torrentler için liste görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için liste görünümünde gösterilecek özellikler"},"table":{"tip":"Tablo görünümünde gösterilecek torrent özellikleri"}}},"webUI":{"authentication":{"banDuration":"Yasaklama Süresi","banDurationHint":"Saniye cinsinden","bypassLocalhost":"Localhost'taki istemciler için kimlik doğrulamasını atla","bypassWhitelist":"Beyaz listedeki IP alt ağlarındaki istemciler için kimlik doğrulamayı atlayın","maxAttempts":"Maksimum deneme sayısı","password":"Parola","passwordPlaceholder":"(değişmedi)","sessionTimeout":"Oturum zaman aşımı","sessionTimeoutHint":"Saniye cinsinden","subheader":"Kimlik Doğrulama","username":"Kullanıcı Adı","whitelistExamples":"Örnek: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Özel HTTP başlıkları ekle","customHeadersHint":"Satır başına bir tane","customHeadersPlaceholder":"Başlık1: değer1\\nBaşlık2: değer2\\n...","dynDns":{"domainName":"Alan adı","password":"Parola","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Kayıt Ol","subheader":"Dinamik alan adımı güncelle","username":"Kullanıcı Adı"},"https":{"certificate":"Sertifika","key":"Anahtar","subheader":"HTTPS kullan","tip":"Sertifikalar hakkında bilgi"},"interface":{"ipAddress":"IP Adresi","port":"Bağlantı Noktası","subheader":"Web Kullanıcı Arayüzü","useAlternativeWebUI":"Alternatif Web Arayüzünü Kullan","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"proxiesList":"Güvenilir proxy listesi","proxiesListHint":"IP'leri noktalı virgülle ( ; ) ayırın","reverseProxySupport":"Ters proxy desteğini etkinleştirin","security":{"clickjacking":"Tıklama korsanlığına karşı korumayı etkinleştir","csrf":"Çapraz Site İstek Sahtekarlığı (CSRF) korumasını etkinleştirin","hostHeaderValidation":"Ana bilgisayar başlığı doğrulamasını etkinleştir","hostHeaderValidationHint":"Noktalı virgülle ayrılmış ( ; )","secureCookie":"Çerez \\"güvenli\\" bayrağını etkinleştir (HTTPS gerektirir) ","serverDomains":"Sunucu Alan Adları","subheader":"Güvenlik"}}}`);
-    O9 = {
+    O9 = JSON.parse(`{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"BT oynatıcı eşini otomatik yasakla","auto_ban_unknown_peer":"Bilinmeyen eşleri otomatik yasakla","auto_update_trackers":"Genel izleyici listesini otomatik olarak güncelle","public_trackers":"Genel izleyiciler","trackers_list_url":"İzleyici URL Listesini Özelleştir"}},"advanced":{"libtorrent":{"announceAllTiers":"Her zaman tüm seviyelere duyuru yap","announceAllTrackers":"Her zaman bir seviyedeki tüm izleyicilere duyuru yap","announceIP":"İzleyicilere bildirilen IP adresi (yeniden başlatma gerektirir)","coalesceReadsWrites":"Okumaları ve yazmaları birleştir (libtorrent < 2.0) ","disk":{"diskCache":"Disk önbelleği (libtorrent < 2.0) ","diskCacheExpiry":"Disk önbelleği sona erme aralığı (libtorrent < 2.0)","diskIoReadMode":"Disk G/Ç okuma modu","diskIoType":"Disk G/Ç Türü (libtorrent >= 2.0; yeniden başlatma gerektirir)","diskIoWriteMode":"Disk G/Ç yazma modu","diskQueueSize":"Disk kuyruğu boyutu","subheader":"Disk"},"maxConcurrentHTTPAnnounces":"Maksimum eşzamanlı HTTP duyurusu","networking":{"outgoingPortsMax":"Giden bağlantı noktaları (Maks) [0: Devre dışı] ","outgoingPortsMin":"Giden bağlantı noktaları (Min) [0: Devre dışı] ","peerTos":"Eşlere yapılan bağlantılar için DSCP değeri","subheader":"Ağ Oluşturma","upnpLeaseDuration":"UPnP kiralama süresi [0: Kalıcı kiralama] ","utpTcpMixedModeAlgorithm":"μTP-TCP karışık mod algoritması"},"outgoingConnectionsPerSecond":"Saniye başına giden bağlantılar","peerTurnover":"Eş dönüşümü kopma yüzdesi","peerTurnoverCutoff":"Eş dönüşümü eşik yüzdesi","peerTurnoverInterval":"Eş dönüşümü kopma aralığı","pieceExtentAffinity":"Parça kapsamı yakınlığını kullan","requestQueueSize":"Tek bir eşe gönderilebilecek maksimum istek sayısı","security":{"allowMultipleConnectionsFromTheSameIPAddress":"Aynı IP adresinden birden fazla bağlantıya izin ver","blockPeersOnPrivilegedPorts":"Ayrıcalıklı bağlantı noktalarındaki eşlere bağlantıyı engelle","idnSupport":"Uluslararası Alan Adı (IDN) desteğini etkinleştir","mitigateSSRF":"Sunucu taraflı istek sahteciliği (SSRF) önleme","subheader":"Güvenlik","validateHTTPSTrackerCertificate":"HTTPS izleyici sertifikasını doğrula"},"sendBufferLowWatermark":"Arabellek düşük filigranı gönder","sendBufferWatermark":"Arabellek filigranı gönder","sendBufferWatermarkFactor":"Arabellek filigran faktörü gönder","sendUploadPieceSuggestions":"Yükleme parçası önerilerini gönder","socketBacklogSize":"Soket biriktirme boyutu","socketReceiveBufferSize":"Soket alma arabelleği boyutu","socketReceiveBufferSizeHint":"0: sistem varsayılanı","socketSendBufferSize":"Soket gönderme arabelleği boyutu","socketSendBufferSizeHint":"0: sistem varsayılanı","stopTrackerTimeout":"İzleyici zaman aşımını durdur","subheader":"libtorrent Bölümü","threads":{"asyncIoThreads":"Eşzamansız G/Ç iş parçacıkları","bdecodeDepthLimit":"Bdecode derinlik sınırı","bdecodeTokenLimit":"Bdecode token sınırı","filePoolSize":"Dosya havuzu boyutu","hashingThreads":"Hash iş parçacıkları (libtorrent >= 2.0)","outstandingMemory":"Torrentleri kontrol ederken kullanılan en fazla bellek miktarı","subheader":"İş Parçacıkları"},"uploadChokingAlgorithm":"Yükleme boğulma algoritması","uploadSlotsBehavior":"Yükleme yuvaları davranışı"},"openDoc":"Belgeleri aç","qbittorrent":{"allocatedRam":"Fiziksel bellek (RAM) kullanım sınırı (libtorrent >= 2.0)","embeddedTracker":{"enable":"Yerleşik izleyiciyi etkinleştir","port":"Yerleşik izleyici bağlantı noktası","portForward":"Yerleşik izleyici için bağlantı noktası yönlendirmesini etkinleştir","title":"Yerleşik İzleyici"},"networking":{"ipAddress":{"all":"Tüm adresler","allIPv4":"Tüm IPv4 adresleri","allIPv6":"Tüm IPv6 adresleri","label":"Bağlanmak için isteğe bağlı IP adresi"},"networkInterfaces":{"any":"Herhangi bir arayüz","label":"Ağ arayüzü"},"title":"Ağ Oluşturma"},"reannounceOnIpPortChanged":"IP veya port değiştiğinde tüm izleyicilere yeniden duyuru yap","recheckOnCompletion":"Tamamlanınca torrentleri yeniden kontrol et","refreshInterval":"Arayüz Yenileme Aralığı","resolveCountries":"Eş ülke çözümleme","resumeDataStorageType":{"label":"Devam etme verisi depolama türü (yeniden başlatma gerektirir)","legacy":"Hızlı devam dosyaları","sqlite":"SQLite veritabanı (deneysel)"},"saveInterval":"Devam etme verisi kaydetme aralığı","subheader":"qBittorrent Bölümü","torrentFileSizeLimit":".torrent dosya boyutu sınırı"}},"behavior":{"logs":{"file_log_age":"Şu tarihten eski yedekleme günlüklerini sil","file_log_backup_enabled":"Günlük dosyası yedeklemesini etkinleştir","file_log_delete_old":"Eski yedekleme günlüklerini sil","file_log_enabled":"Günlük dosyalarını etkinleştir","file_log_max_size":"Günlük dosyasını şu boyuttan sonra yedekle","file_log_path":"Kaydetme yolu","subheader":"Günlük yönetimi"},"performance_warning":"Günlük performansı uyarısı"},"bittorrent":{"autoAddTrackers":"Yeni indirmelere otomatik olarak bu izleyicileri ekle","autoAddTrackersHint":"Satır başına bir izleyici","maxActiveCheckingTorrents":"Maksimum etkin kontrol edilen torrent sayısı","privacy":{"enableAnonymous":"Anonim modu etkinleştir","enableDHT":"Daha fazla eş bulmak için DHT'yi (merkezi olmayan ağ) etkinleştirin","enableLPD":"Daha fazla eş bulmak için Yerel Eş Bulma özelliğini etkinleştirin","enablePeX":"Daha fazla eş bulmak için Eş Değişimi (PeX) özelliğini etkinleştirin","encryptionMode":"Şifreleme Modu","moreInfo":"Daha Fazla Bilgi","subheader":"Gizlilik"},"seedLimits":{"subheader":"Seed Sınırı","then":"Yapılacak","whenInactiveSeedingTimeReaches":"Etkin olmayan seeding süresine ulaştığında","whenRatioReaches":"Orana ulaştığında","whenSeedingTimeReaches":"Seeding süresine ulaştığında"},"torrentQueueing":{"downloadRateLimit":"İndirme hızı eşiği","excludeSlowTorrent":"Yavaş torrentleri bu sınırlamalara dahil etme","maxActiveDownload":"Maksimum aktif indirmeler","maxActiveTorrent":"Maksimum aktif torrentler","maxActiveUpload":"Maksimum aktif yüklemeler","subheader":"Torrent Sıralama","torrentInactivityTimer":"Torrent hareketsizlik zamanlayıcısı","uploadRateLimit":"Yükleme hızı eşiği"}},"connection":{"connectionLimits":{"globalMaxConnection":"Genel maksimum bağlantı sayısı","globalMaxUploadSlots":"Genel maksimum yükleme alanı sayısı","perTorrentMaxConnection":"Torrent başına maksimum bağlantı sayısı","perTorrentMaxUploadSlots":"Torrent başına maksimum yükleme alanı sayısı","subheader":"Bağlantı Sınırları"},"ipFiltering":{"applyToTrackers":"İzleyicilere uygula","bannedIps":"Elle yasaklanan IP adresleri","bannedIpsHint":"Her satırda bir tane","filterPath":"Filtre yolu (.dat, .p2p, .p2b)","subheader":"IP Filtreleme"},"listeningPort":{"incomingConnectionPort":"Gelen bağlantılar için kullanılan bağlantı noktası","randomPort":"Rastgele Bağlantı Noktası","subheader":"Dinleme Bağlantı Noktası","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"protocol":"Eş bağlantı protokolü","proxy":{"auth":{"password":"Parola","subtitle":"Kimlik Doğrulama","tip":"Bilgi: Parola şifrelenmemiş olarak kaydedilir","username":"Kullanıcı Adı"},"bittorrent":"BitTorrent amaçları için proxy kullan","host":"Sunucu","hostNameLookup":"Ana bilgisayar adı çözümlemesi için proxy kullan","misc":"Genel amaçlar için proxy kullan","peerConnections":"Eş bağlantıları için proxy kullan","port":"Bağlantı Noktası","rss":"RSS amaçları için proxy kullan","subheader":"Proxy Sunucusu"}},"downloads":{"excludedFileNames":{"hint":"Satır başına bir filtre","label":"Hariç tutulan dosya adları"},"mailNotification":{"authEnabled":"Kimlik Doğrulama","enabled":"İndirme tamamlandığında e-posta bildirimi","from":"Kimden","password":"Parola","smtpServer":"SMTP sunucusu","sslEnabled":"Bu sunucu güvenli bir bağlantı (SSL) gerektirir","to":"Kime","username":"Kullanıcı Adı"},"monitoredFolders":{"actions":"Eylemler","confirmDelete":"Bu öğeyi silmek istediğinizden emin misiniz?","editItem":"Düzenle","monitoredFolderPath":"İzlenen Klasör","newItem":"Yeni","noData":"Henüz izlenen klasör yok","otherPath":"Diğer Yol","saveType":"Kaydetme Konumunu Geçersiz Kıl","subheader":"İzlenen Klasörler"},"publicSettings":{"appendQBExtension":"Tamamlanmamış dosyalara .!qB uzantısını ekle","preAllocateDisk":"Tüm dosyalar için disk alanını önceden ayırın"},"runExternalProgram":{"onAddedEnabled":"Torrent eklendiğinde harici programı çalıştır","onAddedLabel":"Komut","onFinishedEnabled":"Torrent tamamlandığında harici programı çalıştır","onFinishedLabel":"Komut","subheader":"Harici programı çalıştır","supportParamC":"%C: Dosya sayısı","supportParamD":"%D: Kaydetme yolu","supportParamF":"%F: İçerik yolu (çok dosyalı torrent için kök yolla aynı)","supportParamG":"%G: Etiketler (virgülle ayrılmış)","supportParamI":"%I: Info hash v1","supportParamJ":"%J: Info hash v2","supportParamK":"%K: Torrent ID","supportParamL":"%L: Kategori","supportParamN":"%N: Torrent ismi","supportParamR":"%R: Kök dizin (ilk torrent alt dizin yolu) ","supportParamT":"%T: Mevcut izleyici","supportParamTitle":"Desteklenen parametreler (büyük/küçük harf duyarlıdır):","supportParamZ":"%Z: Torrent boyutu (bayt)","tip":"İpucu: Metnin boşluklardan kesilmesini önlemek için parametreyi tırnak işaretleri içine alın (ör. \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"Varsayılan Torrent Yönetim Modu","categoryChangedTMM":"Kategori Kayıt Yolu değiştirildiğinde","defaultSavePath":"Varsayılan Kaydetme Yolu (tamamlanan)","defaultTMMOptions":{"automatic":"Otomatik","manual":"El ile"},"exportDir":".torrent dosyalarını şuraya kopyala","exportDirFinished":"Tamamlanan indirmeler için .torrent dosyalarını şuraya kopyala:","keepIncomplete":"Varsayılan İndirme Yolu (tamamlanmamış torrentler)","paramChangedTMMOptions":{"relocateTorrent":"Torrent'in yerini değiştir","switchToManual":"Torrent'i Manuel Moda geçir"},"savePathChangedTMM":"Varsayılan Kaydetme Yolu değiştirildiğinde","subheader":"Kaydetme Yönetimi","torrentChangedTMM":"Torrent Kategorisi değiştirildiğinde"},"whenAddTorrent":{"addToTopOfQueue":"Kuyruğun en üstüne ekle","autoDeleteMode":".torrent dosyalarını sonradan sil","doNotAutoStart":"İndirmeyi otomatik olarak başlatma","mergeTrackers":"Torrent zaten mevcutsa izleyicileri birleştir","subheader":"Torrent eklerken"}},"rss":{"autoDownloader":{"enable":"RSS kurallarının işlenmesini etkinleştirin","subheader":"RSS Torrent Otomatik İndirici"},"reader":{"enableProcessing":"RSS beslemelerini almayı etkinleştirin","feedsRefreshInterval":"Besleme yenileme aralığı","maximumArticlesPerFeed":"Besleme başına maksimum makale sayısı","subheader":"RSS Okuyucu"},"smartEpisodeFilter":{"downloadEpisodes":"REPACK/PROPER bölümlerini indirin","filters":"Filtreler","filtersHint":"Satır başına bir tane","subheader":"RSS Akıllı Bölüm Filtresi"},"useIdForRssLinks":"RSS makale bağlantısı için ID kullan"},"saveSuccess":"Ayarlar kaydedildi!","speed":{"download":"İndirme","scheduler":{"from":"Başlangıç","selectButtonLabel":"Zamanı seçin","subheader":"Alternatif hız sınırlarının kullanımını zamanlayın","to":"Bitiş","when":"Ne zaman"},"settings":{"applyToPeersOnLan":"LAN'daki eşlere hız sınırı uygula","applyToTransportOverhead":"Taşıma yüküne oran sınırı uygula","applyToUtp":"µTP protokolüne oran sınırı uygula"},"subheader":{"alternative":"Alternatif Oran Sınırları","global":"Genel Oran Sınırları","settings":"Oran Sınırları Ayarları"},"tip":"0 sınırsız anlamına gelir","upload":"Yükleme"},"tabs":{"addons":{"enhanced_edition":"Gelişmiş sürüm"},"advanced":"Gelişmiş","behavior":"Davranış","bittorrent":"BitTorrent","connection":"Bağlantı","downloads":"İndirilenler","rss":"RSS","speed":"Hız","tagsAndCategories":"Etiketler & Kategoriler","vuetorrent":{"general":"Genel","title":"VueTorrent","torrent_card":{"grid":"Izgara Görünümü","list":"Liste Görünümü","table":"Tablo Görünümü"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"Mevcut Kategoriler:","createNewCategory":"Yeni kategori oluştur","createNewTag":"Yeni etiket oluştur","noCategories":"Henüz kategori yok","noTags":"Henüz etiket yok","tagsSubheader":"Mevcut Etiketler:"},"title":"Ayarlar","vuetorrent":{"general":{"check_new":"Yeni sürümü kontrol et","currentVersion":"Mevcut Sürüm","customTitle":"Özel başlık","darkVariants":"Koyu tema varyantı","dateFormat":"Tarih formatı","download":"Ayarları Dışa Aktar","enableHashColors":"Oluşturulmuş çip renklerini etkinleştir","enableRatioColors":"Oran renklerini etkinleştir","fileContentInterval":"Torrent dosyası içerik yenileme aralığı","hideChipIfUnset":"Ayarlanmamışsa çipleri gizle","hideColoredChip":"Çipler için metin varyantını kullan","historySize":"Uygun alanlarda geçmiş boyutu","import":"Ayarları İçe Aktar","isDrawerRight":"Sağ Çekmece","isShutdownButtonVisible":"Kapatma düğmesini göster","language":"Dil","lightVariants":"Açık tema varyantı","paginationSize":{"infinite_scroll":"Sonsuz kaydırma","label":"Sayfalama Boyutu","warning":"Yüksek değerler kullanmak performansı etkileyebilir"},"qbittorrentVersion":"qBittorrent Sürümü","refreshInterval":"qBittorrent API yenileme aralığı","registerMagnet":"Magnet bağlantılarını kaydet","resetSettings":"Ayarları Sıfırla","showAlltimeStat":"Tüm Zaman İstatistiklerini Göster","showCurrentSpeed":"Mevcut Hızı Göster","showFreeSpace":"Boş Alanı Göster","showSessionStat":"Oturum İstatistiklerini Göster","showSpeedGraph":"Hız Grafiğini Göster","tip":"Bu ayarlar özel WebUI'nin kendisi içindir","useBinarySize":"Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ","useBitSpeed":"Hız değerlerini bit cinsinden değiştir (kB/s -> kbps)","vueTorrentTitle":"Sekme başlığı"},"torrentCard":{"grid":{"busyTip":"Tamamlanmamış torrentler için ızgara görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için ızgara görünümünde gösterilecek özellikler"},"list":{"busyTip":"Tamamlanmamış torrentler için liste görünümünde gösterilecek özellikler","doneTip":"Tamamlanan torrentler için liste görünümünde gösterilecek özellikler"},"table":{"tip":"Tablo görünümünde gösterilecek torrent özellikleri"}}},"webUI":{"authentication":{"banDuration":"Yasaklama Süresi","banDurationHint":"Saniye cinsinden","bypassLocalhost":"Localhost'taki istemciler için kimlik doğrulamasını atla","bypassWhitelist":"Beyaz listedeki IP alt ağlarındaki istemciler için kimlik doğrulamayı atlayın","maxAttempts":"Maksimum deneme sayısı","password":"Parola","passwordPlaceholder":"(değişmedi)","sessionTimeout":"Oturum zaman aşımı","sessionTimeoutHint":"Saniye cinsinden","subheader":"Kimlik Doğrulama","username":"Kullanıcı Adı","whitelistExamples":"Örnek: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"Özel HTTP başlıkları ekle","customHeadersHint":"Satır başına bir tane","customHeadersPlaceholder":"Başlık1: değer1\\nBaşlık2: değer2\\n...","dynDns":{"domainName":"Alan adı","password":"Parola","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"Kayıt Ol","subheader":"Dinamik alan adımı güncelle","username":"Kullanıcı Adı"},"https":{"certificate":"Sertifika","key":"Anahtar","subheader":"HTTPS kullan","tip":"Sertifikalar hakkında bilgi"},"interface":{"ipAddress":"IP Adresi","port":"Bağlantı Noktası","subheader":"Web Kullanıcı Arayüzü","useAlternativeWebUI":"Alternatif Web Arayüzünü Kullan","useUPnP":"Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"},"proxiesList":"Güvenilir proxy listesi","proxiesListHint":"IP'leri noktalı virgülle ( ; ) ayırın","reverseProxySupport":"Ters proxy desteğini etkinleştirin","security":{"clickjacking":"Tıklama korsanlığına karşı korumayı etkinleştir","csrf":"Çapraz Site İstek Sahtekarlığı (CSRF) korumasını etkinleştirin","hostHeaderValidation":"Ana bilgisayar başlığı doğrulamasını etkinleştir","hostHeaderValidationHint":"Noktalı virgülle ayrılmış ( ; )","secureCookie":"Çerez \\"güvenli\\" bayrağını etkinleştir (HTTPS gerektirir) ","serverDomains":"Sunucu Alan Adları","subheader":"Güvenlik"}}}`);
+    H9 = {
         add: {
             error: "Torrentler eklenirken hata oluştu",
             pending: "Torrentler gönderiliyor...",
@@ -103308,7 +103353,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             new: "Yeni sürüm mevcut!"
         }
     };
-    H9 = {
+    V9 = {
         actions: {
             delete: "Torrentleri Sil",
             logs: "Günlükleri Aç",
@@ -103330,7 +103375,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         searchTorrents: "Torrentleri ara"
     };
-    V9 = {
+    W9 = {
         content: {
             fileInfo: "{n} dosya | {n} dosya",
             filter_placeholder: "Dosya ağacında ara",
@@ -103421,7 +103466,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             tier: "Seviye: {n} "
         }
     };
-    W9 = {
+    G9 = {
         properties: {
             added_on: "Eklendiği Tarih",
             amount_left: "Kalan Miktar",
@@ -103508,28 +103553,28 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "Yükleniyor"
         }
     };
-    G9 = {
+    $9 = {
         minutes: "dakika | dakika | dakika",
         seconds: "saniye | saniye | saniye"
     };
-    $9 = {
-        common: E9,
-        constants: _9,
-        dashboard: P9,
-        dialogs: B9,
-        login: M9,
-        logs: R9,
-        navbar: L9,
-        rssArticles: I9,
-        searchEngine: z9,
-        settings: N9,
-        toast: O9,
-        topbar: H9,
-        torrentDetail: V9,
-        torrent: W9,
-        units: G9
-    };
     U9 = {
+        common: _9,
+        constants: P9,
+        dashboard: B9,
+        dialogs: M9,
+        login: R9,
+        logs: L9,
+        navbar: I9,
+        rssArticles: z9,
+        searchEngine: N9,
+        settings: O9,
+        toast: H9,
+        topbar: V9,
+        torrentDetail: W9,
+        torrent: G9,
+        units: $9
+    };
+    j9 = {
         cancel: "Скасувати",
         close: "Закрити",
         delete: "Видалити",
@@ -103552,7 +103597,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         useGlobalSettings: "Використовувати глобальні налаштування",
         yes: "Так"
     };
-    j9 = {
+    Y9 = {
         addStopped: {
             always: "Завжди",
             never: "Ніколи",
@@ -103677,7 +103722,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             preferTcp: "Надавати перевагу TCP"
         }
     };
-    Y9 = {
+    q9 = {
         displayMode: {
             grid: "Сітка",
             list: "Список",
@@ -103744,7 +103789,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         toggleSortOrder: "Зворотній порядок сортування",
         torrentsCount: "Без торрента | {n} торренти | {n} торрентів"
     };
-    q9 = {
+    K9 = {
         add: {
             cookie: "Куки",
             cookie_placeholder: "name1=value1; name2=value2; ...",
@@ -103752,7 +103797,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             file_overflow: "+ {n} більше"
         }
     };
-    K9 = {
+    X9 = {
         side: {
             filters: {
                 state: {
@@ -103765,7 +103810,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    X9 = {
+    J9 = {
         properties: {
             avg_download_speed: "Середня швидкість завантаження",
             avg_upload_speed: "Середня швидкість роздачі",
@@ -103790,21 +103835,21 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "Роздача"
         }
     };
-    J9 = {
+    Z9 = {
         minutes: "хвилина | хвилини | хвилин",
         seconds: "секунда | секунди | секунд"
     };
-    Z9 = {
-        common: U9,
-        constants: j9,
-        dashboard: Y9,
-        dialogs: q9,
-        navbar: K9,
-        torrent: X9,
-        units: J9
+    Q9 = {
+        common: j9,
+        constants: Y9,
+        dashboard: q9,
+        dialogs: K9,
+        navbar: X9,
+        torrent: J9,
+        units: Z9
     };
-    Q9 = "由Tolgee生成。切勿手动修改否则将被覆盖";
-    eV = {
+    eV = "由Tolgee生成。切勿手动修改否则将被覆盖";
+    tV = {
         auto: "自动",
         cancel: "取消",
         close: "关闭",
@@ -103828,7 +103873,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         useGlobalSettings: "使用全局设置",
         yes: "是"
     };
-    tV = {
+    aV = {
         addStopped: {
             always: "总是",
             never: "从不",
@@ -103989,7 +104034,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             preferTcp: "优先使用 TCP"
         }
     };
-    aV = {
+    rV = {
         displayMode: {
             grid: "网格",
             list: "列表",
@@ -104059,7 +104104,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         toggleSortOrder: "反转排序",
         torrentsCount: "无种子 | {n} 个种子 | {n} 个种子"
     };
-    rV = {
+    nV = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "name1=value1; name2=value2; ...",
@@ -104318,7 +104363,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             urlSeeds: "Web种子URL"
         }
     };
-    nV = {
+    iV = {
         error: "登录失败！",
         password: "密码",
         pending: "正在检测身份验证状态...",
@@ -104332,7 +104377,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         title: "登录",
         username: "用户名"
     };
-    iV = {
+    oV = {
         emptyLogList: "未找到日志",
         filters: {
             query: "在日志信息中搜索",
@@ -104340,7 +104385,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "qBittorrent 日志"
     };
-    oV = {
+    sV = {
         addPanel: {
             torrentsPendingCount: "{n} 个种子等待上传 | {n} 个种子等待上传"
         },
@@ -104415,7 +104460,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    sV = {
+    lV = {
         feeds: {
             empty: {
                 action: "创建 RSS 订阅源",
@@ -104458,7 +104503,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             rules: "展示订阅规则"
         }
     };
-    lV = {
+    uV = {
         filters: {
             category: {
                 all: "全部",
@@ -104496,8 +104541,8 @@ Hatalar oluşabilir, dikkatli kullanın.`
         tabHeaderEmpty: "(空查询)",
         title: "搜索种子"
     };
-    uV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自动屏蔽BT用户","auto_ban_unknown_peer":"自动屏蔽未知用户","auto_update_trackers":"自动更新公共Trackers列表","public_trackers":"公共Trackers","trackers_list_url":"自定义Trackers链接列表"}},"advanced":{"libtorrent":{"announceAllTiers":"总是向所有等级的 Tracker 汇报","announceAllTrackers":"总是向同级的所有 Tracker 汇报","announceIP":"向 Tracker 报告的 IP 地址 (需要重启)","coalesceReadsWrites":"合并读写 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引导节点","dhtBootstrapNodesHint":"留空则重置为默认值","disk":{"diskCache":"磁盘缓存 (libtorrent < 2.0)","diskCacheExpiry":"磁盘缓存过期时间间隔 (libtorrent < 2.0)","diskIoReadMode":"磁盘 IO 读取模式","diskIoType":"磁盘 IO 类型 (libtorrent >= 2.0; 需要重启)","diskIoWriteMode":"磁盘 IO 写入模式","diskQueueSize":"磁盘队列大小","subheader":"磁盘"},"i2p":{"inboundLength":"I2P 入站长度","inboundQuantity":"I2P 入站会话数","invalidLength":"I2P 出入站长度必须介于 0 和 7 之间","invalidQuantity":"I2P 会话数必须介于 1 和 16 之间","outboundLength":"I2P 出站长度","outboundQuantity":"I2P 出站会话数","restartNeeded":"对这些设置的任何更改将在下次重新建立SAM连接时生效（通过重新启动I2P或更改I2P地址或端口）"},"maxConcurrentHTTPAnnounces":"最大并行 HTTP 发布数","networking":{"outgoingPortsMax":"传出端口 (上限) [0：禁用]","outgoingPortsMin":"传出端口 (下限) [0：禁用]","peerTos":"与 Peers 连接的服务类型 (ToS)","subheader":"网络","upnpLeaseDuration":"UPnP 租期 [0：永久]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式策略"},"outgoingConnectionsPerSecond":"每秒传出连接数","peerTurnover":"Peer 进出断开百分比","peerTurnoverCutoff":"Peer 进出阈值百分比","peerTurnoverInterval":"Peer 进出断开间隔","pieceExtentAffinity":"启用相连文件块下载模式","requestQueueSize":"单一 Peer 的最大未完成请求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允许来自同一 IP 地址的多个连接","blockPeersOnPrivilegedPorts":"禁止连接到特权端口上的 Peer","idnSupport":"启用国际化域名 (IDN) 支持","mitigateSSRF":"服务器端请求伪造 (SSRF) 缓解","subheader":"安全","validateHTTPSTrackerCertificate":"验证 HTTPS Tracker 证书"},"sendBufferLowWatermark":"发送缓冲区下限","sendBufferWatermark":"发送缓冲区上限","sendBufferWatermarkFactor":"发送缓冲区增长系数","sendUploadPieceSuggestions":"发送分块上传建议","socketBacklogSize":"Socket backlog 大小","socketReceiveBufferSize":"套接字接收缓冲区大小","socketReceiveBufferSizeHint":"0：系统默认","socketSendBufferSize":"套接字发送缓冲区大小","socketSendBufferSizeHint":"0：系统默认","ssl":{"disclaimer":"“SSL torrent”功能尚未标准化，没有与之相关的BEP（BitTorrent增强提案）。\\n仅在需要时启用此功能。","enabled":"启用SSL种子","listenPort":"用于 SSL 连接的端口","listenPortHint":"留空则自动选择","rule":"端口必须介于 0 和 65535 之间"},"stopTrackerTimeout":"Tracker 停止超时","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"异步 I/O 线程","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"文件池大小","hashingThreads":"哈希校验线程数 (libtorrent >= 2.0)","outstandingMemory":"校验时内存使用扩增量","subheader":"线程"},"uploadChokingAlgorithm":"上传连接策略","uploadSlotsBehavior":"上传窗口策略"},"openDoc":"打开文档","qbittorrent":{"allocatedRam":"物理内存 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"应用程序实例名称","embeddedTracker":{"enable":"启用内置 Tracker","port":"内置 Tracker 端口","portForward":"对内置 Tracker 启用端口转发","title":"内置 Tracker"},"enableMarkOfTheWeb":"为下载的文件启用网络标记 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有地址","allIPv4":"所有 IPv4 地址","allIPv6":"所有 IPv6 地址","label":"绑定的可选 IP 地址"},"networkInterfaces":{"any":"任意接口","label":"网络接口"},"title":"网络"},"pythonExecutablePath":"Python 可执行文件路径","pythonExecutablePathHint":"留空则自动检测，需要重启","reannounceOnIpPortChanged":"当 IP 或端口变更时重新向所有 Tracker汇报","recheckOnCompletion":"完成后重新校验种子","refreshInterval":"界面刷新间隔","resolveCountries":"解析用户所在国家","resumeDataStorageType":{"label":"恢复数据存储类型 (需重新启动)","legacy":"快速恢复文件","sqlite":"SQLite 数据库 (试验性)"},"saveInterval":"保存恢复数据间隔","subheader":"qBittorrent 部分","torrentContentRemovingMode":"种子内容删除模式","torrentFileSizeLimit":".torrent 文件大小限制"}},"behavior":{"logs":{"file_log_age":"删除早于以下时间的日志备份","file_log_backup_enabled":"启用日志备份","file_log_delete_old":"删除旧日志备份","file_log_enabled":"启用日志文件","file_log_max_size":"当文件大小达到以下值触发备份","file_log_path":"保存路径","subheader":"日志管理"},"performance_warning":"记录性能警告"},"bittorrent":{"autoAddTrackers":"自动将这些 Tracker 添加到新下载","autoAddTrackersHint":"每行一个 Tracker","maxActiveCheckingTorrents":"最大活跃校验种子数","privacy":{"enableAnonymous":"启用匿名模式","enableDHT":"启用 DHT (去中心化网络) 以找到更多用户","enableLPD":"启用本地用户发现以找到更多用户","enablePeX":"启用用户交换 (PeX) 以找到更多用户","encryptionMode":"加密模式","moreInfo":"更多信息","subheader":"隐私"},"seedLimits":{"subheader":"做种限制","then":"随后","whenInactiveSeedingTimeReaches":"当非活跃做种时长达到","whenRatioReaches":"当分享率达到","whenSeedingTimeReaches":"当做种时长达到"},"torrentQueueing":{"downloadRateLimit":"下载速率阈值","excludeSlowTorrent":"在这些限制中不计算慢速种子","maxActiveDownload":"最大活跃下载数","maxActiveTorrent":"最大活跃种子数","maxActiveUpload":"最大活跃上传数","subheader":"种子队列","torrentInactivityTimer":"种子非活跃计时器","uploadRateLimit":"上传速率阈值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全局最大连接数","globalMaxUploadSlots":"全局最大上传数","perTorrentMaxConnection":"每个种子的最大连接数","perTorrentMaxUploadSlots":"单个种子最大上传数","subheader":"连接限制"},"i2p":{"address":"I2P 主机","disclaimer":"如果启用了“混合模式”，I2P种子将被允许从跟踪器以外的其他来源获取对等体，并连接到常规IP，不提供任何匿名化。如果用户对I2P的匿名化不感兴趣，但仍希望能够连接到I2P对等体，这可能会很有用。","enabled":"启用 I2P","mixedMode":"混合模式","port":"端口","rule":"端口必须介于 0 和 65535 之间","subheader":"I2P（实验性）"},"ipFiltering":{"applyToTrackers":"应用于 Tracker","bannedIps":"手动禁止的 IP 地址","bannedIpsHint":"每行一个","filterPath":"过滤器路径 (.dat、.p2p、.p2b)","subheader":"IP 过滤"},"listeningPort":{"incomingConnectionPort":"用于传入连接的端口","randomPort":"随机端口","subheader":"监听端口","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"protocol":"Peer连接协议","proxy":{"auth":{"password":"密码","subtitle":"身份验证","tip":"注意：密码将以未加密形式保存","username":"用户名"},"bittorrent":"为BitTorrent进程启用代理","host":"主机","hostNameLookup":"为主机名查找启用代理","misc":"为常规进程启用代理 (如更新, 搜索)","peerConnections":"为用户对等连接启用代理","port":"端口","rss":"为RSS订阅启用代理","subheader":"代理服务器"}},"downloads":{"excludedFileNames":{"hint":"每行一个过滤器","label":"排除的文件名"},"mailNotification":{"authEnabled":"身份验证","enabled":"下载完成后发送电子邮件通知","from":"发件人","password":"密码","smtpServer":"SMTP 服务器","sslEnabled":"此服务器需要安全连接 (SSL)","test":{"error":"邮件发送失败\\n{message}","label":"发送测试邮件","success":"测试邮件已发送！\\n请检查您的收件箱以确认配置成功"},"to":"收件人","username":"用户名"},"monitoredFolders":{"actions":"操作","confirmDelete":"确定要删除此项目吗？","editItem":"编辑","monitoredFolderPath":"监视文件夹","newItem":"新建","noData":"暂无监视文件夹","otherPath":"其他路径","saveType":"覆盖保存位置","subheader":"监视文件夹"},"publicSettings":{"appendQBExtension":"为未完成的文件添加 .!qB 后缀名","preAllocateDisk":"为所有文件预分配磁盘空间","useUnwantedFolder":"将未选择的文件保存在“.unwanted”文件夹中"},"runExternalProgram":{"onAddedEnabled":"添加种子时运行外部程序：","onAddedLabel":"命令","onFinishedEnabled":"种子下载完成时运行外部程序：","onFinishedLabel":"命令","subheader":"运行外部程序","supportParamC":"%C：文件数","supportParamD":"%D：保存路径","supportParamF":"%F：内容路径 (多文件种子的根路径相同)","supportParamG":"%G：标签 (用逗号分隔)","supportParamI":"%I：哈希值 v1","supportParamJ":"%J：哈希值 v2","supportParamK":"%K：种子 ID","supportParamL":"%L：分类","supportParamN":"%N：种子名称","supportParamR":"%R：根路径 (第一个种子子目录路径)","supportParamT":"%T：当前 Tracker","supportParamTitle":"支持的参数 (区分大小写)：","supportParamZ":"%Z：种子大小 (字节)","tip":"提示：使用引号将参数封装起来，以避免文本在空格处被截断 (例如，\\"%N\\")"},"saveManagement":{"autoTMMEnabled":"默认种子管理模式","categoryChangedTMM":"当分类保存路径更改时","defaultSavePath":"默认保存路径（完成时）","defaultTMMOptions":{"automatic":"自动","manual":"手动"},"exportDir":"将 .torrent 文件复制到","exportDirFinished":"将已完成下载的 .torrent 文件复制到","keepIncomplete":"默认下载路径（未完成的种子）","paramChangedTMMOptions":{"relocateTorrent":"重新定位种子","switchToManual":"将种子切换到手动模式"},"savePathChangedTMM":"当默认保存路径更改时","subheader":"保存管理","torrentChangedTMM":"当种子分类更改时","useCategoryPathInManualMode":"在手动模式中使用类别路径","useCategoryPathInManualModeHint":"根据适当的类别路径解析相对保存路径，而不是默认路径"},"whenAddTorrent":{"addToTopOfQueue":"添加到队列首位","autoDeleteMode":"下载完成后删除 .torrent 文件","doNotAutoStart":"不自动开始下载","mergeTrackers":"如果种子已存在，则合并Tracker","subheader":"添加种子时"}},"rss":{"autoDownloader":{"enable":"启用 RSS 规则处理","subheader":"RSS 种子自动下载器"},"reader":{"enableProcessing":"启用获取 RSS 订阅","feedsRefreshInterval":"订阅源刷新间隔","maximumArticlesPerFeed":"每个订阅源的最大文章数","sameHostRequestDelay":"相同主机请求延迟","subheader":"RSS 阅读器"},"smartEpisodeFilter":{"downloadEpisodes":"下载 REPACK/PROPER 剧集","filters":"过滤器","filtersHint":"每行一个","subheader":"RSS 智能剧集过滤器"},"useIdForRssLinks":"在 RSS 文章链接中使用 ID"},"saveSuccess":"设置已成功保存！","speed":{"download":"下载","scheduler":{"from":"开始时间","selectButtonLabel":"选择时间","subheader":"定时使用备用速率限制","to":"结束时间","when":"何时"},"settings":{"applyToPeersOnLan":"将速率限制应用于本地网络上的用户","applyToTransportOverhead":"将速率限制应用于传输总开销","applyToUtp":"将速率限制应用于 µTP 协议"},"subheader":{"alternative":"备用速率限制","global":"全局速率限制","settings":"速率限制设置"},"tip":"0 表示无限制","upload":"上传"},"tabs":{"addons":{"enhanced_edition":"增强版"},"advanced":"高级","behavior":"行为","bittorrent":"BitTorrent","connection":"连接","downloads":"下载","rss":"RSS","speed":"速度","tagsAndCategories":"标签和分类","vuetorrent":{"general":"常规设置","title":"VueTorrent","torrent_card":{"grid":"网格视图","list":"列表视图","table":"表格视图"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"可用分类：","createNewCategory":"创建新分类","createNewTag":"创建新标签","deleteUnusedCategories":"删除未使用的类别","deleteUnusedTags":"删除未使用的标签","noCategories":"暂无分类","noTags":"暂无标签","tagsSubheader":"可用标签："},"title":"设置","vuetorrent":{"general":{"check_new":"检查新版本","currentVersion":"当前版本","customTitle":"自定义标题","darkVariants":"深色模式样式","dateFormat":"日期格式","displayGraphLimits":"在图表中显示速度限制","download":"导出设置","durationFormat":"持续时间显示格式","enableHashColors":"启用自动生成的卡片颜色","enableRatioColors":"启用彩色的分享率","expandContent":"在内容视图中默认展开内容","fetchExternalIpInfo":"获取外部 IP 信息","fileContentInterval":"种子文件内容刷新间隔","filterType":"过滤器组合类型","hideChipIfUnset":"未设置时隐藏卡片","hideColoredChip":"为卡片使用文本模式","historySize":"符合条件字段的历史大小","import":"导入设置","isDrawerRight":"侧边栏居右显示","isShutdownButtonVisible":"显示关闭按钮","language":"语言","lightVariants":"浅色模式样式","paginationSize":{"infinite_scroll":"无限滚动","label":"分页大小","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 刷新间隔","registerMagnet":"注册为磁力链程序","resetSettings":"重置设置","showAlltimeStat":"显示全局统计数据","showCurrentSpeed":"显示当前速度","showFreeSpace":"显示剩余空间","showSessionStat":"显示本次会话统计","showSpeedGraph":"显示速度图表","tip":"这些设置适用于自定义WebUI","useBinarySize":"以KiB表示文件大小 (kB -> KiB)","useBitSpeed":"以kbps表示速度 (kB/s -> kbps)","useEmojiState":"在种子状态前添加表情符号","vueTorrentTitle":"VueTorrent 标题"},"torrentCard":{"grid":{"busyTip":"在网格视图中为未完成的种子显示的属性","doneTip":"在网格视图中为已完成的种子显示的属性"},"list":{"busyTip":"在列表视图中为未完成的种子显示的属性","doneTip":"在列表视图中为已完成的种子显示的属性"},"table":{"tip":"在表格视图中为种子显示的属性"}}},"webUI":{"authentication":{"banDuration":"封禁持续时间","banDurationHint":"以秒为单位","bypassLocalhost":"对本地主机上的客户端跳过身份验证","bypassWhitelist":"对 IP 子网白名单中的客户端跳过身份验证","maxAttempts":"最大尝试次数","password":"密码","passwordPlaceholder":"(不更改)","sessionTimeout":"会话超时","sessionTimeoutHint":"以秒为单位","subheader":"身份验证","username":"用户名","whitelistExamples":"示例：192.168.1.0/24，fdff:ffff:c8::/40"},"customHeaders":"添加自定义 HTTP 标头","customHeadersHint":"每行一个","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"域名","password":"密码","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"注册","subheader":"更新我的动态域名","username":"用户名"},"https":{"certificate":"证书","key":"密钥","subheader":"使用 HTTPS","tip":"证书相关信息"},"interface":{"ipAddress":"IP 地址","port":"端口","subheader":"Web 用户界面 (远程控制)","useAlternativeWebUI":"使用备用 WebUI","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"proxiesList":"受信任的代理服务器列表","proxiesListHint":"使用分号 ( ; ) 分隔 IP","reverseProxySupport":"启用反向代理支持","security":{"clickjacking":"启用点击劫持保护","csrf":"启用跨站点请求伪造 (CSRF) 保护","hostHeaderValidation":"启用主机头验证","hostHeaderValidationHint":"使用分号 ( ; ) 分隔","secureCookie":"启用 Cookie 安全标志 (需要 HTTPS)","serverDomains":"服务器域名","subheader":"安全"}}}');
-    cV = {
+    cV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自动屏蔽BT用户","auto_ban_unknown_peer":"自动屏蔽未知用户","auto_update_trackers":"自动更新公共Trackers列表","public_trackers":"公共Trackers","trackers_list_url":"自定义Trackers链接列表"}},"advanced":{"libtorrent":{"announceAllTiers":"总是向所有等级的 Tracker 汇报","announceAllTrackers":"总是向同级的所有 Tracker 汇报","announceIP":"向 Tracker 报告的 IP 地址 (需要重启)","coalesceReadsWrites":"合并读写 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引导节点","dhtBootstrapNodesHint":"留空则重置为默认值","disk":{"diskCache":"磁盘缓存 (libtorrent < 2.0)","diskCacheExpiry":"磁盘缓存过期时间间隔 (libtorrent < 2.0)","diskIoReadMode":"磁盘 IO 读取模式","diskIoType":"磁盘 IO 类型 (libtorrent >= 2.0; 需要重启)","diskIoWriteMode":"磁盘 IO 写入模式","diskQueueSize":"磁盘队列大小","subheader":"磁盘"},"i2p":{"inboundLength":"I2P 入站长度","inboundQuantity":"I2P 入站会话数","invalidLength":"I2P 出入站长度必须介于 0 和 7 之间","invalidQuantity":"I2P 会话数必须介于 1 和 16 之间","outboundLength":"I2P 出站长度","outboundQuantity":"I2P 出站会话数","restartNeeded":"对这些设置的任何更改将在下次重新建立SAM连接时生效（通过重新启动I2P或更改I2P地址或端口）"},"maxConcurrentHTTPAnnounces":"最大并行 HTTP 发布数","networking":{"outgoingPortsMax":"传出端口 (上限) [0：禁用]","outgoingPortsMin":"传出端口 (下限) [0：禁用]","peerTos":"与 Peers 连接的服务类型 (ToS)","subheader":"网络","upnpLeaseDuration":"UPnP 租期 [0：永久]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式策略"},"outgoingConnectionsPerSecond":"每秒传出连接数","peerTurnover":"Peer 进出断开百分比","peerTurnoverCutoff":"Peer 进出阈值百分比","peerTurnoverInterval":"Peer 进出断开间隔","pieceExtentAffinity":"启用相连文件块下载模式","requestQueueSize":"单一 Peer 的最大未完成请求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允许来自同一 IP 地址的多个连接","blockPeersOnPrivilegedPorts":"禁止连接到特权端口上的 Peer","idnSupport":"启用国际化域名 (IDN) 支持","mitigateSSRF":"服务器端请求伪造 (SSRF) 缓解","subheader":"安全","validateHTTPSTrackerCertificate":"验证 HTTPS Tracker 证书"},"sendBufferLowWatermark":"发送缓冲区下限","sendBufferWatermark":"发送缓冲区上限","sendBufferWatermarkFactor":"发送缓冲区增长系数","sendUploadPieceSuggestions":"发送分块上传建议","socketBacklogSize":"Socket backlog 大小","socketReceiveBufferSize":"套接字接收缓冲区大小","socketReceiveBufferSizeHint":"0：系统默认","socketSendBufferSize":"套接字发送缓冲区大小","socketSendBufferSizeHint":"0：系统默认","ssl":{"disclaimer":"“SSL torrent”功能尚未标准化，没有与之相关的BEP（BitTorrent增强提案）。\\n仅在需要时启用此功能。","enabled":"启用SSL种子","listenPort":"用于 SSL 连接的端口","listenPortHint":"留空则自动选择","rule":"端口必须介于 0 和 65535 之间"},"stopTrackerTimeout":"Tracker 停止超时","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"异步 I/O 线程","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"文件池大小","hashingThreads":"哈希校验线程数 (libtorrent >= 2.0)","outstandingMemory":"校验时内存使用扩增量","subheader":"线程"},"uploadChokingAlgorithm":"上传连接策略","uploadSlotsBehavior":"上传窗口策略"},"openDoc":"打开文档","qbittorrent":{"allocatedRam":"物理内存 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"应用程序实例名称","embeddedTracker":{"enable":"启用内置 Tracker","port":"内置 Tracker 端口","portForward":"对内置 Tracker 启用端口转发","title":"内置 Tracker"},"enableMarkOfTheWeb":"为下载的文件启用网络标记 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有地址","allIPv4":"所有 IPv4 地址","allIPv6":"所有 IPv6 地址","label":"绑定的可选 IP 地址"},"networkInterfaces":{"any":"任意接口","label":"网络接口"},"title":"网络"},"pythonExecutablePath":"Python 可执行文件路径","pythonExecutablePathHint":"留空则自动检测，需要重启","reannounceOnIpPortChanged":"当 IP 或端口变更时重新向所有 Tracker汇报","recheckOnCompletion":"完成后重新校验种子","refreshInterval":"界面刷新间隔","resolveCountries":"解析用户所在国家","resumeDataStorageType":{"label":"恢复数据存储类型 (需重新启动)","legacy":"快速恢复文件","sqlite":"SQLite 数据库 (试验性)"},"saveInterval":"保存恢复数据间隔","subheader":"qBittorrent 部分","torrentContentRemovingMode":"种子内容删除模式","torrentFileSizeLimit":".torrent 文件大小限制"}},"behavior":{"logs":{"file_log_age":"删除早于以下时间的日志备份","file_log_backup_enabled":"启用日志备份","file_log_delete_old":"删除旧日志备份","file_log_enabled":"启用日志文件","file_log_max_size":"当文件大小达到以下值触发备份","file_log_path":"保存路径","subheader":"日志管理"},"performance_warning":"记录性能警告"},"bittorrent":{"autoAddTrackers":"自动将这些 Tracker 添加到新下载","autoAddTrackersHint":"每行一个 Tracker","maxActiveCheckingTorrents":"最大活跃校验种子数","privacy":{"enableAnonymous":"启用匿名模式","enableDHT":"启用 DHT (去中心化网络) 以找到更多用户","enableLPD":"启用本地用户发现以找到更多用户","enablePeX":"启用用户交换 (PeX) 以找到更多用户","encryptionMode":"加密模式","moreInfo":"更多信息","subheader":"隐私"},"seedLimits":{"subheader":"做种限制","then":"随后","whenInactiveSeedingTimeReaches":"当非活跃做种时长达到","whenRatioReaches":"当分享率达到","whenSeedingTimeReaches":"当做种时长达到"},"torrentQueueing":{"downloadRateLimit":"下载速率阈值","excludeSlowTorrent":"在这些限制中不计算慢速种子","maxActiveDownload":"最大活跃下载数","maxActiveTorrent":"最大活跃种子数","maxActiveUpload":"最大活跃上传数","subheader":"种子队列","torrentInactivityTimer":"种子非活跃计时器","uploadRateLimit":"上传速率阈值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全局最大连接数","globalMaxUploadSlots":"全局最大上传数","perTorrentMaxConnection":"每个种子的最大连接数","perTorrentMaxUploadSlots":"单个种子最大上传数","subheader":"连接限制"},"i2p":{"address":"I2P 主机","disclaimer":"如果启用了“混合模式”，I2P种子将被允许从跟踪器以外的其他来源获取对等体，并连接到常规IP，不提供任何匿名化。如果用户对I2P的匿名化不感兴趣，但仍希望能够连接到I2P对等体，这可能会很有用。","enabled":"启用 I2P","mixedMode":"混合模式","port":"端口","rule":"端口必须介于 0 和 65535 之间","subheader":"I2P（实验性）"},"ipFiltering":{"applyToTrackers":"应用于 Tracker","bannedIps":"手动禁止的 IP 地址","bannedIpsHint":"每行一个","filterPath":"过滤器路径 (.dat、.p2p、.p2b)","subheader":"IP 过滤"},"listeningPort":{"incomingConnectionPort":"用于传入连接的端口","randomPort":"随机端口","subheader":"监听端口","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"protocol":"Peer连接协议","proxy":{"auth":{"password":"密码","subtitle":"身份验证","tip":"注意：密码将以未加密形式保存","username":"用户名"},"bittorrent":"为BitTorrent进程启用代理","host":"主机","hostNameLookup":"为主机名查找启用代理","misc":"为常规进程启用代理 (如更新, 搜索)","peerConnections":"为用户对等连接启用代理","port":"端口","rss":"为RSS订阅启用代理","subheader":"代理服务器"}},"downloads":{"excludedFileNames":{"hint":"每行一个过滤器","label":"排除的文件名"},"mailNotification":{"authEnabled":"身份验证","enabled":"下载完成后发送电子邮件通知","from":"发件人","password":"密码","smtpServer":"SMTP 服务器","sslEnabled":"此服务器需要安全连接 (SSL)","test":{"error":"邮件发送失败\\n{message}","label":"发送测试邮件","success":"测试邮件已发送！\\n请检查您的收件箱以确认配置成功"},"to":"收件人","username":"用户名"},"monitoredFolders":{"actions":"操作","confirmDelete":"确定要删除此项目吗？","editItem":"编辑","monitoredFolderPath":"监视文件夹","newItem":"新建","noData":"暂无监视文件夹","otherPath":"其他路径","saveType":"覆盖保存位置","subheader":"监视文件夹"},"publicSettings":{"appendQBExtension":"为未完成的文件添加 .!qB 后缀名","preAllocateDisk":"为所有文件预分配磁盘空间","useUnwantedFolder":"将未选择的文件保存在“.unwanted”文件夹中"},"runExternalProgram":{"onAddedEnabled":"添加种子时运行外部程序：","onAddedLabel":"命令","onFinishedEnabled":"种子下载完成时运行外部程序：","onFinishedLabel":"命令","subheader":"运行外部程序","supportParamC":"%C：文件数","supportParamD":"%D：保存路径","supportParamF":"%F：内容路径 (多文件种子的根路径相同)","supportParamG":"%G：标签 (用逗号分隔)","supportParamI":"%I：哈希值 v1","supportParamJ":"%J：哈希值 v2","supportParamK":"%K：种子 ID","supportParamL":"%L：分类","supportParamN":"%N：种子名称","supportParamR":"%R：根路径 (第一个种子子目录路径)","supportParamT":"%T：当前 Tracker","supportParamTitle":"支持的参数 (区分大小写)：","supportParamZ":"%Z：种子大小 (字节)","tip":"提示：使用引号将参数封装起来，以避免文本在空格处被截断 (例如，\\"%N\\")"},"saveManagement":{"autoTMMEnabled":"默认种子管理模式","categoryChangedTMM":"当分类保存路径更改时","defaultSavePath":"默认保存路径（完成时）","defaultTMMOptions":{"automatic":"自动","manual":"手动"},"exportDir":"将 .torrent 文件复制到","exportDirFinished":"将已完成下载的 .torrent 文件复制到","keepIncomplete":"默认下载路径（未完成的种子）","paramChangedTMMOptions":{"relocateTorrent":"重新定位种子","switchToManual":"将种子切换到手动模式"},"savePathChangedTMM":"当默认保存路径更改时","subheader":"保存管理","torrentChangedTMM":"当种子分类更改时","useCategoryPathInManualMode":"在手动模式中使用类别路径","useCategoryPathInManualModeHint":"根据适当的类别路径解析相对保存路径，而不是默认路径"},"whenAddTorrent":{"addToTopOfQueue":"添加到队列首位","autoDeleteMode":"下载完成后删除 .torrent 文件","doNotAutoStart":"不自动开始下载","mergeTrackers":"如果种子已存在，则合并Tracker","subheader":"添加种子时"}},"rss":{"autoDownloader":{"enable":"启用 RSS 规则处理","subheader":"RSS 种子自动下载器"},"reader":{"enableProcessing":"启用获取 RSS 订阅","feedsRefreshInterval":"订阅源刷新间隔","maximumArticlesPerFeed":"每个订阅源的最大文章数","sameHostRequestDelay":"相同主机请求延迟","subheader":"RSS 阅读器"},"smartEpisodeFilter":{"downloadEpisodes":"下载 REPACK/PROPER 剧集","filters":"过滤器","filtersHint":"每行一个","subheader":"RSS 智能剧集过滤器"},"useIdForRssLinks":"在 RSS 文章链接中使用 ID"},"saveSuccess":"设置已成功保存！","speed":{"download":"下载","scheduler":{"from":"开始时间","selectButtonLabel":"选择时间","subheader":"定时使用备用速率限制","to":"结束时间","when":"何时"},"settings":{"applyToPeersOnLan":"将速率限制应用于本地网络上的用户","applyToTransportOverhead":"将速率限制应用于传输总开销","applyToUtp":"将速率限制应用于 µTP 协议"},"subheader":{"alternative":"备用速率限制","global":"全局速率限制","settings":"速率限制设置"},"tip":"0 表示无限制","upload":"上传"},"tabs":{"addons":{"enhanced_edition":"增强版"},"advanced":"高级","behavior":"行为","bittorrent":"BitTorrent","connection":"连接","downloads":"下载","rss":"RSS","speed":"速度","tagsAndCategories":"标签和分类","vuetorrent":{"general":"常规设置","title":"VueTorrent","torrent_card":{"grid":"网格视图","list":"列表视图","table":"表格视图"}},"webui":"WebUI"},"tagsAndCategories":{"categoriesSubheader":"可用分类：","createNewCategory":"创建新分类","createNewTag":"创建新标签","deleteUnusedCategories":"删除未使用的类别","deleteUnusedTags":"删除未使用的标签","noCategories":"暂无分类","noTags":"暂无标签","tagsSubheader":"可用标签："},"title":"设置","vuetorrent":{"general":{"check_new":"检查新版本","currentVersion":"当前版本","customTitle":"自定义标题","darkVariants":"深色模式样式","dateFormat":"日期格式","displayGraphLimits":"在图表中显示速度限制","download":"导出设置","durationFormat":"持续时间显示格式","enableHashColors":"启用自动生成的卡片颜色","enableRatioColors":"启用彩色的分享率","expandContent":"在内容视图中默认展开内容","fetchExternalIpInfo":"获取外部 IP 信息","fileContentInterval":"种子文件内容刷新间隔","filterType":"过滤器组合类型","hideChipIfUnset":"未设置时隐藏卡片","hideColoredChip":"为卡片使用文本模式","historySize":"符合条件字段的历史大小","import":"导入设置","isDrawerRight":"侧边栏居右显示","isShutdownButtonVisible":"显示关闭按钮","language":"语言","lightVariants":"浅色模式样式","paginationSize":{"infinite_scroll":"无限滚动","label":"分页大小","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 刷新间隔","registerMagnet":"注册为磁力链程序","resetSettings":"重置设置","showAlltimeStat":"显示全局统计数据","showCurrentSpeed":"显示当前速度","showFreeSpace":"显示剩余空间","showSessionStat":"显示本次会话统计","showSpeedGraph":"显示速度图表","tip":"这些设置适用于自定义WebUI","useBinarySize":"以KiB表示文件大小 (kB -> KiB)","useBitSpeed":"以kbps表示速度 (kB/s -> kbps)","useEmojiState":"在种子状态前添加表情符号","vueTorrentTitle":"VueTorrent 标题"},"torrentCard":{"grid":{"busyTip":"在网格视图中为未完成的种子显示的属性","doneTip":"在网格视图中为已完成的种子显示的属性"},"list":{"busyTip":"在列表视图中为未完成的种子显示的属性","doneTip":"在列表视图中为已完成的种子显示的属性"},"table":{"tip":"在表格视图中为种子显示的属性"}}},"webUI":{"authentication":{"banDuration":"封禁持续时间","banDurationHint":"以秒为单位","bypassLocalhost":"对本地主机上的客户端跳过身份验证","bypassWhitelist":"对 IP 子网白名单中的客户端跳过身份验证","maxAttempts":"最大尝试次数","password":"密码","passwordPlaceholder":"(不更改)","sessionTimeout":"会话超时","sessionTimeoutHint":"以秒为单位","subheader":"身份验证","username":"用户名","whitelistExamples":"示例：192.168.1.0/24，fdff:ffff:c8::/40"},"customHeaders":"添加自定义 HTTP 标头","customHeadersHint":"每行一个","customHeadersPlaceholder":"Header1: value1\\nHeader2: value2\\n...","dynDns":{"domainName":"域名","password":"密码","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"注册","subheader":"更新我的动态域名","username":"用户名"},"https":{"certificate":"证书","key":"密钥","subheader":"使用 HTTPS","tip":"证书相关信息"},"interface":{"ipAddress":"IP 地址","port":"端口","subheader":"Web 用户界面 (远程控制)","useAlternativeWebUI":"使用备用 WebUI","useUPnP":"使用 UPnP / NAT-PMP 端口转发"},"proxiesList":"受信任的代理服务器列表","proxiesListHint":"使用分号 ( ; ) 分隔 IP","reverseProxySupport":"启用反向代理支持","security":{"clickjacking":"启用点击劫持保护","csrf":"启用跨站点请求伪造 (CSRF) 保护","hostHeaderValidation":"启用主机头验证","hostHeaderValidationHint":"使用分号 ( ; ) 分隔","secureCookie":"启用 Cookie 安全标志 (需要 HTTPS)","serverDomains":"服务器域名","subheader":"安全"}}}');
+    dV = {
         add: {
             error: "添加种子时出错",
             pending: "正在上传...",
@@ -104519,7 +104564,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             new: "新版本可用！"
         }
     };
-    dV = {
+    hV = {
         actions: {
             delete: "删除种子",
             logs: "打开日志",
@@ -104543,7 +104588,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         searchTorrents: "搜索种子"
     };
-    hV = {
+    mV = {
         empty: {
             action: "创建新任务",
             value: "未设置任务"
@@ -104577,7 +104622,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "种子创建器"
     };
-    mV = {
+    fV = {
         content: {
             fileInfo: "{n} 个文件 | {n} 个文件",
             filter: {
@@ -104686,7 +104731,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             tier: "层级：{n}"
         }
     };
-    fV = {
+    pV = {
         properties: {
             added_on: "添加时间",
             amount_left: "剩余大小",
@@ -104783,31 +104828,31 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "上传中"
         }
     };
-    pV = {
+    gV = {
         minutes: "分钟",
         seconds: "秒"
     };
-    gV = {
-        _comments: Q9,
-        common: eV,
-        constants: tV,
-        dashboard: aV,
-        dialogs: rV,
-        login: nV,
-        logs: iV,
-        navbar: oV,
-        rssArticles: sV,
-        searchEngine: lV,
-        settings: uV,
-        toast: cV,
-        topbar: dV,
-        torrentCreator: hV,
-        torrentDetail: mV,
-        torrent: fV,
-        units: pV
+    vV = {
+        _comments: eV,
+        common: tV,
+        constants: aV,
+        dashboard: rV,
+        dialogs: nV,
+        login: iV,
+        logs: oV,
+        navbar: sV,
+        rssArticles: lV,
+        searchEngine: uV,
+        settings: cV,
+        toast: dV,
+        topbar: hV,
+        torrentCreator: mV,
+        torrentDetail: fV,
+        torrent: pV,
+        units: gV
     };
-    vV = "僅從Tolgee生成，請不要手動修改不然會被推翻";
-    yV = {
+    yV = "僅從Tolgee生成，請不要手動修改不然會被推翻";
+    bV = {
         auto: "自動",
         cancel: "取消",
         close: "關閉",
@@ -104831,7 +104876,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         useGlobalSettings: "使用全域設定",
         yes: "是"
     };
-    bV = {
+    FV = {
         addStopped: {
             always: "總是",
             never: "永不",
@@ -104992,7 +105037,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             preferTcp: "偏好 TCP"
         }
     };
-    FV = {
+    kV = {
         displayMode: {
             grid: "網格",
             list: "清單",
@@ -105062,7 +105107,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         toggleSortOrder: "反轉排序",
         torrentsCount: "無種子 | {n} 個種子 | {n} 個種子"
     };
-    kV = {
+    xV = {
         add: {
             cookie: "Cookie",
             cookie_placeholder: "名稱1=值1; 名稱2=值2; ...",
@@ -105321,7 +105366,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             urlSeeds: "Web 種子 URL"
         }
     };
-    xV = {
+    wV = {
         error: "登入失敗！",
         password: "密碼",
         pending: "正在檢測驗證狀態...",
@@ -105335,7 +105380,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         title: "登入",
         username: "使用者名稱"
     };
-    wV = {
+    SV = {
         emptyLogList: "未找到日誌",
         filters: {
             query: "在日誌信息中搜尋",
@@ -105343,7 +105388,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "qBittorrent 日誌"
     };
-    SV = {
+    CV = {
         addPanel: {
             torrentsPendingCount: "{n} 個種子待上傳 | {n} 個種子待上傳"
         },
@@ -105418,7 +105463,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     };
-    CV = {
+    AV = {
         feeds: {
             empty: {
                 action: "新增 RSS 訂閱源",
@@ -105461,7 +105506,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             rules: "顯示訂閱規則"
         }
     };
-    AV = {
+    DV = {
         filters: {
             category: {
                 all: "所有",
@@ -105499,8 +105544,8 @@ Hatalar oluşabilir, dikkatli kullanın.`
         tabHeaderEmpty: "(空查詢)",
         title: "搜尋種子"
     };
-    DV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自動禁止BT用戶","auto_ban_unknown_peer":"自動禁止未知用戶","auto_update_trackers":"自動更新公開跟蹤器清單","public_trackers":"公開跟蹤器","trackers_list_url":"自定義跟蹤器連結清單"}},"advanced":{"libtorrent":{"announceAllTiers":"總是發佈到所有追蹤者群組","announceAllTrackers":"總是發佈到同一追蹤者群組內的所有追蹤者","announceIP":"向追蹤器回報的 IP 位置 (需要重新啟動)","coalesceReadsWrites":"合併讀寫 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引導節點","dhtBootstrapNodesHint":"如果為空則重置為預設值","disk":{"diskCache":"硬碟快取 (libtorrent < 2.0)","diskCacheExpiry":"硬碟快取過期區間 (libtorrent < 2.0)","diskIoReadMode":"硬碟 IO 讀取模式","diskIoType":"硬碟 IO 類型 (libtorrent >= 2.0; 需要重新啟動)","diskIoWriteMode":"硬碟 IO 寫入模式","diskQueueSize":"硬碟佇列大小","subheader":"硬碟"},"i2p":{"inboundLength":"I2P 入站長度","inboundQuantity":"I2P 入站數量","invalidLength":"I2P 長度值必須介於 0 到 7 之間","invalidQuantity":"I2P 數量值必須介於 1 到 16 之間","outboundLength":"I2P 出站長度","outboundQuantity":"I2P 出站數量","restartNeeded":"這些設定的任何變更將在下次重新建立 SAM 連接時生效（通過重新啟動 I2P 或更改 I2P 地址或端口）"},"maxConcurrentHTTPAnnounces":"最大並行 HTTP 發佈","networking":{"outgoingPortsMax":"連出埠（最大）[0: 停用]","outgoingPortsMin":"連出埠（最小）[0: 停用]","peerTos":"連接到用戶的 DSCP 值","subheader":"網路","upnpLeaseDuration":"UPnP 租約期限 [0: 永久租約]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式演算法"},"outgoingConnectionsPerSecond":"每秒對外連線數","peerTurnover":"用戶流動斷線百分比","peerTurnoverCutoff":"用戶流動閾值百分比","peerTurnoverInterval":"用戶流動斷線區間","pieceExtentAffinity":"使用分塊範圍關聯","requestQueueSize":"對單個用戶的最多未完成請求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允許從同一個 IP 位置而來的多重連線","blockPeersOnPrivilegedPorts":"不允許連線到在特權連接埠上的用戶","idnSupport":"啟用國際化域名 (IDN)支援","mitigateSSRF":"伺服器端請求偽造 (SSRF) 緩解","subheader":"安全","validateHTTPSTrackerCertificate":"驗證 HTTPS 追蹤器憑證"},"sendBufferLowWatermark":"傳送緩衝低浮水印","sendBufferWatermark":"傳送緩衝浮水印","sendBufferWatermarkFactor":"傳送緩衝浮水印因子","sendUploadPieceSuggestions":"傳送上傳分塊建議","socketBacklogSize":"Socket 紀錄檔大小","socketReceiveBufferSize":"Socket 接收緩衝大小","socketReceiveBufferSizeHint":"0: 系統預設值","socketSendBufferSize":"Socket 傳送緩衝大小","socketSendBufferSizeHint":"0: 系統預設值","ssl":{"disclaimer":"「SSL torrent」功能並非標準化，沒有與之相關的 BEP（BitTorrent 增強提案）。\\n僅在需要時啟用此功能。","enabled":"啟用 SSL 種子","listenPort":"SSL 連線時使用的埠","listenPortHint":"留空以自動選擇","rule":"端口必須介於 0 到 65535 之間"},"stopTrackerTimeout":"停止追蹤者逾時","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"異步 I/O 執行緒","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"檔案叢集大小","hashingThreads":"雜湊執行緒 (libtorrent >= 2.0)","outstandingMemory":"檢查種子時的未完成記憶體","subheader":"執行緒"},"uploadChokingAlgorithm":"上傳演算法","uploadSlotsBehavior":"上傳通道行為"},"openDoc":"開啟文檔","qbittorrent":{"allocatedRam":"實體記憶體 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"應用程式實例名稱","embeddedTracker":{"enable":"啟用嵌入追蹤者","port":"嵌入追蹤者埠","portForward":"為嵌入追蹤者啟用連接埠轉發","title":"嵌入追蹤者"},"enableMarkOfTheWeb":"啟用下載文件的網頁標記 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有位置","allIPv4":"所有 IPv4 位置","allIPv6":"所有 IPv6 位置","label":"可選擇綁定的 IP 位置"},"networkInterfaces":{"any":"任何介面","label":"網路介面"},"title":"網路"},"pythonExecutablePath":"Python 可執行檔路徑","pythonExecutablePathHint":"如果為空則自動檢測，需要重新啟動","reannounceOnIpPortChanged":"當 IP 或連接埠變更時通知所有追蹤者","recheckOnCompletion":"完成後重新檢查種子","refreshInterval":"介面重新整理區間","resolveCountries":"解析用戶國家","resumeDataStorageType":{"label":"恢復數據儲存類型 (需要重新啟動)","legacy":"快速恢復檔案","sqlite":"SQLite 數據庫 (實驗性)"},"saveInterval":"儲存復原資料區間","subheader":"qBittorrent 部分","torrentContentRemovingMode":"種子內容移除模式","torrentFileSizeLimit":".torrent 檔案大小限制"}},"behavior":{"logs":{"file_log_age":"刪除早於以下時間的備份日誌","file_log_backup_enabled":"啟用日誌備份","file_log_delete_old":"移除舊的備份日誌","file_log_enabled":"啟用日誌文件","file_log_max_size":"備份日誌當","file_log_path":"儲存路徑","subheader":"日誌管理"},"performance_warning":"日誌效能警告"},"bittorrent":{"autoAddTrackers":"自動新增這些追蹤者至新的下載中","autoAddTrackersHint":"每行一個追蹤者","maxActiveCheckingTorrents":"最大活躍的正在檢查種子數","privacy":{"enableAnonymous":"啟用匿名模式","enableDHT":"啟用 DHT (分散式網絡) 以尋找更多用戶","enableLPD":"啟用本地用戶搜尋以尋找更多用戶","enablePeX":"啟用用戶交換 (PeX) 以尋找更多用戶","encryptionMode":"加密模式","moreInfo":"更多資訊","subheader":"隱私"},"seedLimits":{"subheader":"做種限制","then":"然後","whenInactiveSeedingTimeReaches":"當閒置做種時間達到","whenRatioReaches":"當分享率達到","whenSeedingTimeReaches":"當做種時間達到"},"torrentQueueing":{"downloadRateLimit":"下載速率閾值","excludeSlowTorrent":"不要在這些限制範圍內計算速率慢的種子","maxActiveDownload":"最大活躍下載數","maxActiveTorrent":"最大活躍種子數","maxActiveUpload":"最大活躍上傳數","subheader":"種子佇列","torrentInactivityTimer":"種子閒置計時器","uploadRateLimit":"上傳速率閾值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全域最大連線數","globalMaxUploadSlots":"全域上傳通道最大數","perTorrentMaxConnection":"單個種子的最大連線數","perTorrentMaxUploadSlots":"單個種子的上傳通道最大數","subheader":"連線限制"},"i2p":{"address":"I2P 主機","disclaimer":"如果啟用了「混合模式」，I2P種子允許從追蹤器以外的其他來源獲取同伴，並連接到常規IP，這不提供任何匿名化。如果用戶對I2P的匿名化不感興趣，但仍希望能夠連接到I2P同伴，這可能會有用。","enabled":"啟用 I2P","mixedMode":"混合模式","port":"埠","rule":"端口值必須介於 0 到 65535 之間","subheader":"I2P（實驗性）"},"ipFiltering":{"applyToTrackers":"套用到追蹤者","bannedIps":"手動封鎖的 IP 位置","bannedIpsHint":"每行一個","filterPath":"過濾器路徑 (.dat, .p2p, .p2b)","subheader":"IP 過濾"},"listeningPort":{"incomingConnectionPort":"連入連線時使用的埠","randomPort":"隨機連接埠","subheader":"監聽埠","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"protocol":"用戶連線協定","proxy":{"auth":{"password":"密碼","subtitle":"驗證","tip":"資訊: 密碼以未加密的形式儲存","username":"使用者名稱"},"bittorrent":"對 BitTorrent 使用代理","host":"主機","hostNameLookup":"為主機名稱查詢使用代理","misc":"對一般用途使用代理","peerConnections":"使用代理來連線用戶","port":"埠","rss":"對 RSS 使用代理","subheader":"代理伺服器"}},"downloads":{"excludedFileNames":{"hint":"每行一個檔案名稱","label":"排除的檔案名稱"},"mailNotification":{"authEnabled":"驗證","enabled":"下載完成時使用電子郵件通知","from":"從","password":"密碼","smtpServer":"SMTP 伺服器","sslEnabled":"這個伺服器需要加密連線 (SSL)","test":{"error":"電子郵件發送失敗\\n{message}","label":"發送測試電子郵件","success":"電子郵件請求已發送！\\n檢查您的收件箱以確認成功"},"to":"到","username":"使用者名稱"},"monitoredFolders":{"actions":"動作","confirmDelete":"你確認想要移除此項目？","editItem":"編輯","monitoredFolderPath":"已監視的資料夾","newItem":"新增","noData":"沒有已監視的資料夾","otherPath":"其他路徑","saveType":"覆寫儲存位置","subheader":"已監視的資料夾"},"publicSettings":{"appendQBExtension":"在未完成檔案加上 .!qB 副檔名","preAllocateDisk":"為所有檔案事先分配硬碟空間","useUnwantedFolder":"將未選擇的文件保存在 \\".unwanted\\" 文件夾中"},"runExternalProgram":{"onAddedEnabled":"當新增種子時執行外部程式:","onAddedLabel":"命令","onFinishedEnabled":"當種子下載結束時執行外部程式:","onFinishedLabel":"命令","subheader":"執行外部程式","supportParamC":"%C: 檔案數","supportParamD":"%D: 儲存路徑","supportParamF":"%F: 內容路徑 (與多檔案種子的根路徑相同)","supportParamG":"%G: 標籤 (以逗號分隔)","supportParamI":"%I: 資訊雜湊值 v1","supportParamJ":"%J: 資訊雜湊值 v2","supportParamK":"%K: 種子 ID","supportParamL":"%L: 分類","supportParamN":"%N: 種子名稱","supportParamR":"%R: 根路徑 (第一個種子的子目錄路徑)","supportParamT":"%T: 當前的追蹤者","supportParamTitle":"支援的參數（區分大小寫）：","supportParamZ":"%Z: 種子大小 (位元組 byte)","tip":"提示: 把參數以引號包起來以避免被空格切斷 (例如: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"預設種子管理模式","categoryChangedTMM":"當分類儲存路徑變更時","defaultSavePath":"預設儲存路徑 (完成時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":"複製 .torrent 檔案到","exportDirFinished":"複製已完成的 .torrent 檔案到","keepIncomplete":"預設下載路徑 (未完成的種子)","paramChangedTMMOptions":{"relocateTorrent":"重新定位種子","switchToManual":"切換種子至手動模式"},"savePathChangedTMM":"當預設儲存路徑變更時","subheader":"存檔管理","torrentChangedTMM":"當種子分類變更時","useCategoryPathInManualMode":"在手動模式中使用分類路徑","useCategoryPathInManualModeHint":"針對適當的類別路徑解析相對儲存路徑，而不是預設路徑"},"whenAddTorrent":{"addToTopOfQueue":"新增至佇列頂部","autoDeleteMode":"事後移除 .torrent 檔案","doNotAutoStart":"不要自動開始下載","mergeTrackers":"如果 torrent 已存在則合併追蹤者","subheader":"當新增種子時"}},"rss":{"autoDownloader":{"enable":"啟用 RSS 規則處理","subheader":"RSS 種子自動下載器"},"reader":{"enableProcessing":"啟用抓取 RSS 訂閱","feedsRefreshInterval":"訂閱源更新區間","maximumArticlesPerFeed":"每個訂閱源的最大文章數","sameHostRequestDelay":"相同主機請求延遲","subheader":"RSS 閱讀器"},"smartEpisodeFilter":{"downloadEpisodes":"下載 REPACK/PROPER 章節","filters":"過濾器","filtersHint":"每行一個","subheader":"RSS 智慧型章節過濾器"},"useIdForRssLinks":"在 RSS 文章連結中使用 ID"},"saveSuccess":"設定儲存成功！","speed":{"download":"下載","scheduler":{"from":"從","selectButtonLabel":"選擇時間","subheader":"預約使用替補速率限制","to":"到","when":"何時"},"settings":{"applyToPeersOnLan":"套用速率限制至 LAN 上的用戶","applyToTransportOverhead":"套用速率限制至傳輸負載","applyToUtp":"套用速率限制至 µTP 協定"},"subheader":{"alternative":"替補速率限制","global":"全域速率限制","settings":"速率限制設定"},"tip":"0 代表無限制","upload":"上傳"},"tabs":{"addons":{"enhanced_edition":"加強版"},"advanced":"進階","behavior":"行為","bittorrent":"BitTorrent","connection":"連線","downloads":"下載","rss":"RSS","speed":"速率","tagsAndCategories":"標籤和分類","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"網格檢視","list":"清單檢視","table":"表格檢視"}},"webui":"網頁介面"},"tagsAndCategories":{"categoriesSubheader":"可用分類:","createNewCategory":"新增新分類","createNewTag":"新增新標籤","deleteUnusedCategories":"刪除未使用的分類","deleteUnusedTags":"刪除未使用的標籤","noCategories":"尚無分類","noTags":"尚無標籤","tagsSubheader":"可用標籤:"},"title":"設定","vuetorrent":{"general":{"check_new":"檢查新版本","currentVersion":"當前版本","customTitle":"自訂標題","darkVariants":"深色界面式樣","dateFormat":"日期格式","displayGraphLimits":"在圖表裡顯示速度限制","download":"匯出設定","durationFormat":"持續時間顯示格式","enableHashColors":"啟用自動生成的卡片顏色","enableRatioColors":"啟用彩色的分享率","expandContent":"在內容視圖中默認展開內容","fetchExternalIpInfo":"獲取外部 IP 資訊","fileContentInterval":"種子檔案內容更新區間","filterType":"過濾器組合類別","hideChipIfUnset":"未設置時隱藏塊","hideColoredChip":"為卡片使用文本模式","historySize":"符合條件欄位的歷史大小","import":"匯入設定","isDrawerRight":"側邊欄居右顯示","isShutdownButtonVisible":"顯示結束按鈕","language":"語言","lightVariants":"淺色界面式樣","paginationSize":{"infinite_scroll":"無限滾動","label":"每頁展示數量","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 更新區間","registerMagnet":"註冊磁力連結","resetSettings":"重置設定","showAlltimeStat":"顯示歷史狀態","showCurrentSpeed":"顯示當前速率","showFreeSpace":"顯示剩餘空間","showSessionStat":"顯示會話狀態","showSpeedGraph":"顯示速率圖表","tip":"這些設定適用於自訂WebUI","useBinarySize":"以二進位制取代容量單位 (kB -> KiB)","useBitSpeed":"以位元取代速率單位 (kB/s -> kbps)","useEmojiState":"在種子狀態前加上表情符號","vueTorrentTitle":"VueTorrent 標題"},"torrentCard":{"grid":{"busyTip":"在網格檢視中為未完成的種子顯示的屬性","doneTip":"在網格檢視中為已完成的種子顯示的屬性"},"list":{"busyTip":"在清單檢視中為未完成的種子顯示的屬性","doneTip":"在清單檢視中為已完成的種子顯示的屬性"},"table":{"tip":"在表格檢視中為種子顯示的屬性"}}},"webUI":{"authentication":{"banDuration":"封鎖時長","banDurationHint":"秒","bypassLocalhost":"跳過本機客戶端的驗證","bypassWhitelist":"跳過白名單內 IP 子網中客戶端的驗證","maxAttempts":"最大嘗試次數","password":"密碼","passwordPlaceholder":"(不變更)","sessionTimeout":"會話逾時","sessionTimeoutHint":"秒","subheader":"驗證","username":"使用者名稱","whitelistExamples":"範例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"新增自訂 HTTP 標頭","customHeadersHint":"每行一個","customHeadersPlaceholder":"標頭1: 鍵值1\\n標頭2: 鍵值2\\n...","dynDns":{"domainName":"網域名稱","password":"密碼","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"註冊","subheader":"更新我的動態網域名稱","username":"使用者名稱"},"https":{"certificate":"憑證","key":"鍵值","subheader":"使用 HTTPS","tip":"關於憑證的資訊"},"interface":{"ipAddress":"IP 位置","port":"埠","subheader":"網頁介面 (遠端控制)","useAlternativeWebUI":"使用替補 WebUI","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"proxiesList":"受信任的代理伺服器清單","proxiesListHint":"使用分號分隔 IP ( ; )","reverseProxySupport":"啟用反向代理支援","security":{"clickjacking":"啟用點選劫持保護","csrf":"啟用跨站請求偽造 (CSRF) 保護","hostHeaderValidation":"啟用主機標頭驗證","hostHeaderValidationHint":"使用分號分隔 ( ; )","secureCookie":"啟用Cookie 安全旗標（需要 HTTPS）","serverDomains":"伺服器網域","subheader":"安全"}}}');
-    TV = {
+    TV = JSON.parse('{"addons":{"enhanced_edition":{"auto_ban_bt_player_peer":"自動禁止BT用戶","auto_ban_unknown_peer":"自動禁止未知用戶","auto_update_trackers":"自動更新公開跟蹤器清單","public_trackers":"公開跟蹤器","trackers_list_url":"自定義跟蹤器連結清單"}},"advanced":{"libtorrent":{"announceAllTiers":"總是發佈到所有追蹤者群組","announceAllTrackers":"總是發佈到同一追蹤者群組內的所有追蹤者","announceIP":"向追蹤器回報的 IP 位置 (需要重新啟動)","coalesceReadsWrites":"合併讀寫 (libtorrent < 2.0)","dhtBootstrapNodes":"DHT 引導節點","dhtBootstrapNodesHint":"如果為空則重置為預設值","disk":{"diskCache":"硬碟快取 (libtorrent < 2.0)","diskCacheExpiry":"硬碟快取過期區間 (libtorrent < 2.0)","diskIoReadMode":"硬碟 IO 讀取模式","diskIoType":"硬碟 IO 類型 (libtorrent >= 2.0; 需要重新啟動)","diskIoWriteMode":"硬碟 IO 寫入模式","diskQueueSize":"硬碟佇列大小","subheader":"硬碟"},"i2p":{"inboundLength":"I2P 入站長度","inboundQuantity":"I2P 入站數量","invalidLength":"I2P 長度值必須介於 0 到 7 之間","invalidQuantity":"I2P 數量值必須介於 1 到 16 之間","outboundLength":"I2P 出站長度","outboundQuantity":"I2P 出站數量","restartNeeded":"這些設定的任何變更將在下次重新建立 SAM 連接時生效（通過重新啟動 I2P 或更改 I2P 地址或端口）"},"maxConcurrentHTTPAnnounces":"最大並行 HTTP 發佈","networking":{"outgoingPortsMax":"連出埠（最大）[0: 停用]","outgoingPortsMin":"連出埠（最小）[0: 停用]","peerTos":"連接到用戶的 DSCP 值","subheader":"網路","upnpLeaseDuration":"UPnP 租約期限 [0: 永久租約]","utpTcpMixedModeAlgorithm":"μTP-TCP 混合模式演算法"},"outgoingConnectionsPerSecond":"每秒對外連線數","peerTurnover":"用戶流動斷線百分比","peerTurnoverCutoff":"用戶流動閾值百分比","peerTurnoverInterval":"用戶流動斷線區間","pieceExtentAffinity":"使用分塊範圍關聯","requestQueueSize":"對單個用戶的最多未完成請求","security":{"allowMultipleConnectionsFromTheSameIPAddress":"允許從同一個 IP 位置而來的多重連線","blockPeersOnPrivilegedPorts":"不允許連線到在特權連接埠上的用戶","idnSupport":"啟用國際化域名 (IDN)支援","mitigateSSRF":"伺服器端請求偽造 (SSRF) 緩解","subheader":"安全","validateHTTPSTrackerCertificate":"驗證 HTTPS 追蹤器憑證"},"sendBufferLowWatermark":"傳送緩衝低浮水印","sendBufferWatermark":"傳送緩衝浮水印","sendBufferWatermarkFactor":"傳送緩衝浮水印因子","sendUploadPieceSuggestions":"傳送上傳分塊建議","socketBacklogSize":"Socket 紀錄檔大小","socketReceiveBufferSize":"Socket 接收緩衝大小","socketReceiveBufferSizeHint":"0: 系統預設值","socketSendBufferSize":"Socket 傳送緩衝大小","socketSendBufferSizeHint":"0: 系統預設值","ssl":{"disclaimer":"「SSL torrent」功能並非標準化，沒有與之相關的 BEP（BitTorrent 增強提案）。\\n僅在需要時啟用此功能。","enabled":"啟用 SSL 種子","listenPort":"SSL 連線時使用的埠","listenPortHint":"留空以自動選擇","rule":"端口必須介於 0 到 65535 之間"},"stopTrackerTimeout":"停止追蹤者逾時","subheader":"libtorrent 部分","threads":{"asyncIoThreads":"異步 I/O 執行緒","bdecodeDepthLimit":"Bdecode 深度限制","bdecodeTokenLimit":"Bdecode 令牌限制","filePoolSize":"檔案叢集大小","hashingThreads":"雜湊執行緒 (libtorrent >= 2.0)","outstandingMemory":"檢查種子時的未完成記憶體","subheader":"執行緒"},"uploadChokingAlgorithm":"上傳演算法","uploadSlotsBehavior":"上傳通道行為"},"openDoc":"開啟文檔","qbittorrent":{"allocatedRam":"實體記憶體 (RAM) 使用限制 (libtorrent >= 2.0)","appInstanceName":"應用程式實例名稱","embeddedTracker":{"enable":"啟用嵌入追蹤者","port":"嵌入追蹤者埠","portForward":"為嵌入追蹤者啟用連接埠轉發","title":"嵌入追蹤者"},"enableMarkOfTheWeb":"啟用下載文件的網頁標記 (MOTW)","enableMarkOfTheWebHint":"需要 macOS 或 Windows","networking":{"ipAddress":{"all":"所有位置","allIPv4":"所有 IPv4 位置","allIPv6":"所有 IPv6 位置","label":"可選擇綁定的 IP 位置"},"networkInterfaces":{"any":"任何介面","label":"網路介面"},"title":"網路"},"pythonExecutablePath":"Python 可執行檔路徑","pythonExecutablePathHint":"如果為空則自動檢測，需要重新啟動","reannounceOnIpPortChanged":"當 IP 或連接埠變更時通知所有追蹤者","recheckOnCompletion":"完成後重新檢查種子","refreshInterval":"介面重新整理區間","resolveCountries":"解析用戶國家","resumeDataStorageType":{"label":"恢復數據儲存類型 (需要重新啟動)","legacy":"快速恢復檔案","sqlite":"SQLite 數據庫 (實驗性)"},"saveInterval":"儲存復原資料區間","subheader":"qBittorrent 部分","torrentContentRemovingMode":"種子內容移除模式","torrentFileSizeLimit":".torrent 檔案大小限制"}},"behavior":{"logs":{"file_log_age":"刪除早於以下時間的備份日誌","file_log_backup_enabled":"啟用日誌備份","file_log_delete_old":"移除舊的備份日誌","file_log_enabled":"啟用日誌文件","file_log_max_size":"備份日誌當","file_log_path":"儲存路徑","subheader":"日誌管理"},"performance_warning":"日誌效能警告"},"bittorrent":{"autoAddTrackers":"自動新增這些追蹤者至新的下載中","autoAddTrackersHint":"每行一個追蹤者","maxActiveCheckingTorrents":"最大活躍的正在檢查種子數","privacy":{"enableAnonymous":"啟用匿名模式","enableDHT":"啟用 DHT (分散式網絡) 以尋找更多用戶","enableLPD":"啟用本地用戶搜尋以尋找更多用戶","enablePeX":"啟用用戶交換 (PeX) 以尋找更多用戶","encryptionMode":"加密模式","moreInfo":"更多資訊","subheader":"隱私"},"seedLimits":{"subheader":"做種限制","then":"然後","whenInactiveSeedingTimeReaches":"當閒置做種時間達到","whenRatioReaches":"當分享率達到","whenSeedingTimeReaches":"當做種時間達到"},"torrentQueueing":{"downloadRateLimit":"下載速率閾值","excludeSlowTorrent":"不要在這些限制範圍內計算速率慢的種子","maxActiveDownload":"最大活躍下載數","maxActiveTorrent":"最大活躍種子數","maxActiveUpload":"最大活躍上傳數","subheader":"種子佇列","torrentInactivityTimer":"種子閒置計時器","uploadRateLimit":"上傳速率閾值"}},"connection":{"connectionLimits":{"globalMaxConnection":"全域最大連線數","globalMaxUploadSlots":"全域上傳通道最大數","perTorrentMaxConnection":"單個種子的最大連線數","perTorrentMaxUploadSlots":"單個種子的上傳通道最大數","subheader":"連線限制"},"i2p":{"address":"I2P 主機","disclaimer":"如果啟用了「混合模式」，I2P種子允許從追蹤器以外的其他來源獲取同伴，並連接到常規IP，這不提供任何匿名化。如果用戶對I2P的匿名化不感興趣，但仍希望能夠連接到I2P同伴，這可能會有用。","enabled":"啟用 I2P","mixedMode":"混合模式","port":"埠","rule":"端口值必須介於 0 到 65535 之間","subheader":"I2P（實驗性）"},"ipFiltering":{"applyToTrackers":"套用到追蹤者","bannedIps":"手動封鎖的 IP 位置","bannedIpsHint":"每行一個","filterPath":"過濾器路徑 (.dat, .p2p, .p2b)","subheader":"IP 過濾"},"listeningPort":{"incomingConnectionPort":"連入連線時使用的埠","randomPort":"隨機連接埠","subheader":"監聽埠","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"protocol":"用戶連線協定","proxy":{"auth":{"password":"密碼","subtitle":"驗證","tip":"資訊: 密碼以未加密的形式儲存","username":"使用者名稱"},"bittorrent":"對 BitTorrent 使用代理","host":"主機","hostNameLookup":"為主機名稱查詢使用代理","misc":"對一般用途使用代理","peerConnections":"使用代理來連線用戶","port":"埠","rss":"對 RSS 使用代理","subheader":"代理伺服器"}},"downloads":{"excludedFileNames":{"hint":"每行一個檔案名稱","label":"排除的檔案名稱"},"mailNotification":{"authEnabled":"驗證","enabled":"下載完成時使用電子郵件通知","from":"從","password":"密碼","smtpServer":"SMTP 伺服器","sslEnabled":"這個伺服器需要加密連線 (SSL)","test":{"error":"電子郵件發送失敗\\n{message}","label":"發送測試電子郵件","success":"電子郵件請求已發送！\\n檢查您的收件箱以確認成功"},"to":"到","username":"使用者名稱"},"monitoredFolders":{"actions":"動作","confirmDelete":"你確認想要移除此項目？","editItem":"編輯","monitoredFolderPath":"已監視的資料夾","newItem":"新增","noData":"沒有已監視的資料夾","otherPath":"其他路徑","saveType":"覆寫儲存位置","subheader":"已監視的資料夾"},"publicSettings":{"appendQBExtension":"在未完成檔案加上 .!qB 副檔名","preAllocateDisk":"為所有檔案事先分配硬碟空間","useUnwantedFolder":"將未選擇的文件保存在 \\".unwanted\\" 文件夾中"},"runExternalProgram":{"onAddedEnabled":"當新增種子時執行外部程式:","onAddedLabel":"命令","onFinishedEnabled":"當種子下載結束時執行外部程式:","onFinishedLabel":"命令","subheader":"執行外部程式","supportParamC":"%C: 檔案數","supportParamD":"%D: 儲存路徑","supportParamF":"%F: 內容路徑 (與多檔案種子的根路徑相同)","supportParamG":"%G: 標籤 (以逗號分隔)","supportParamI":"%I: 資訊雜湊值 v1","supportParamJ":"%J: 資訊雜湊值 v2","supportParamK":"%K: 種子 ID","supportParamL":"%L: 分類","supportParamN":"%N: 種子名稱","supportParamR":"%R: 根路徑 (第一個種子的子目錄路徑)","supportParamT":"%T: 當前的追蹤者","supportParamTitle":"支援的參數（區分大小寫）：","supportParamZ":"%Z: 種子大小 (位元組 byte)","tip":"提示: 把參數以引號包起來以避免被空格切斷 (例如: \\"%N\\")"},"saveManagement":{"autoTMMEnabled":"預設種子管理模式","categoryChangedTMM":"當分類儲存路徑變更時","defaultSavePath":"預設儲存路徑 (完成時)","defaultTMMOptions":{"automatic":"自動","manual":"手動"},"exportDir":"複製 .torrent 檔案到","exportDirFinished":"複製已完成的 .torrent 檔案到","keepIncomplete":"預設下載路徑 (未完成的種子)","paramChangedTMMOptions":{"relocateTorrent":"重新定位種子","switchToManual":"切換種子至手動模式"},"savePathChangedTMM":"當預設儲存路徑變更時","subheader":"存檔管理","torrentChangedTMM":"當種子分類變更時","useCategoryPathInManualMode":"在手動模式中使用分類路徑","useCategoryPathInManualModeHint":"針對適當的類別路徑解析相對儲存路徑，而不是預設路徑"},"whenAddTorrent":{"addToTopOfQueue":"新增至佇列頂部","autoDeleteMode":"事後移除 .torrent 檔案","doNotAutoStart":"不要自動開始下載","mergeTrackers":"如果 torrent 已存在則合併追蹤者","subheader":"當新增種子時"}},"rss":{"autoDownloader":{"enable":"啟用 RSS 規則處理","subheader":"RSS 種子自動下載器"},"reader":{"enableProcessing":"啟用抓取 RSS 訂閱","feedsRefreshInterval":"訂閱源更新區間","maximumArticlesPerFeed":"每個訂閱源的最大文章數","sameHostRequestDelay":"相同主機請求延遲","subheader":"RSS 閱讀器"},"smartEpisodeFilter":{"downloadEpisodes":"下載 REPACK/PROPER 章節","filters":"過濾器","filtersHint":"每行一個","subheader":"RSS 智慧型章節過濾器"},"useIdForRssLinks":"在 RSS 文章連結中使用 ID"},"saveSuccess":"設定儲存成功！","speed":{"download":"下載","scheduler":{"from":"從","selectButtonLabel":"選擇時間","subheader":"預約使用替補速率限制","to":"到","when":"何時"},"settings":{"applyToPeersOnLan":"套用速率限制至 LAN 上的用戶","applyToTransportOverhead":"套用速率限制至傳輸負載","applyToUtp":"套用速率限制至 µTP 協定"},"subheader":{"alternative":"替補速率限制","global":"全域速率限制","settings":"速率限制設定"},"tip":"0 代表無限制","upload":"上傳"},"tabs":{"addons":{"enhanced_edition":"加強版"},"advanced":"進階","behavior":"行為","bittorrent":"BitTorrent","connection":"連線","downloads":"下載","rss":"RSS","speed":"速率","tagsAndCategories":"標籤和分類","vuetorrent":{"general":"一般","title":"VueTorrent","torrent_card":{"grid":"網格檢視","list":"清單檢視","table":"表格檢視"}},"webui":"網頁介面"},"tagsAndCategories":{"categoriesSubheader":"可用分類:","createNewCategory":"新增新分類","createNewTag":"新增新標籤","deleteUnusedCategories":"刪除未使用的分類","deleteUnusedTags":"刪除未使用的標籤","noCategories":"尚無分類","noTags":"尚無標籤","tagsSubheader":"可用標籤:"},"title":"設定","vuetorrent":{"general":{"check_new":"檢查新版本","currentVersion":"當前版本","customTitle":"自訂標題","darkVariants":"深色界面式樣","dateFormat":"日期格式","displayGraphLimits":"在圖表裡顯示速度限制","download":"匯出設定","durationFormat":"持續時間顯示格式","enableHashColors":"啟用自動生成的卡片顏色","enableRatioColors":"啟用彩色的分享率","expandContent":"在內容視圖中默認展開內容","fetchExternalIpInfo":"獲取外部 IP 資訊","fileContentInterval":"種子檔案內容更新區間","filterType":"過濾器組合類別","hideChipIfUnset":"未設置時隱藏塊","hideColoredChip":"為卡片使用文本模式","historySize":"符合條件欄位的歷史大小","import":"匯入設定","isDrawerRight":"側邊欄居右顯示","isShutdownButtonVisible":"顯示結束按鈕","language":"語言","lightVariants":"淺色界面式樣","paginationSize":{"infinite_scroll":"無限滾動","label":"每頁展示數量","warning":"使用过高的值可能会影响性能"},"qbittorrentVersion":"qBittorrent 版本","refreshInterval":"qBittorrent API 更新區間","registerMagnet":"註冊磁力連結","resetSettings":"重置設定","showAlltimeStat":"顯示歷史狀態","showCurrentSpeed":"顯示當前速率","showFreeSpace":"顯示剩餘空間","showSessionStat":"顯示會話狀態","showSpeedGraph":"顯示速率圖表","tip":"這些設定適用於自訂WebUI","useBinarySize":"以二進位制取代容量單位 (kB -> KiB)","useBitSpeed":"以位元取代速率單位 (kB/s -> kbps)","useEmojiState":"在種子狀態前加上表情符號","vueTorrentTitle":"VueTorrent 標題"},"torrentCard":{"grid":{"busyTip":"在網格檢視中為未完成的種子顯示的屬性","doneTip":"在網格檢視中為已完成的種子顯示的屬性"},"list":{"busyTip":"在清單檢視中為未完成的種子顯示的屬性","doneTip":"在清單檢視中為已完成的種子顯示的屬性"},"table":{"tip":"在表格檢視中為種子顯示的屬性"}}},"webUI":{"authentication":{"banDuration":"封鎖時長","banDurationHint":"秒","bypassLocalhost":"跳過本機客戶端的驗證","bypassWhitelist":"跳過白名單內 IP 子網中客戶端的驗證","maxAttempts":"最大嘗試次數","password":"密碼","passwordPlaceholder":"(不變更)","sessionTimeout":"會話逾時","sessionTimeoutHint":"秒","subheader":"驗證","username":"使用者名稱","whitelistExamples":"範例: 192.168.1.0/24, fdff:ffff:c8::/40"},"customHeaders":"新增自訂 HTTP 標頭","customHeadersHint":"每行一個","customHeadersPlaceholder":"標頭1: 鍵值1\\n標頭2: 鍵值2\\n...","dynDns":{"domainName":"網域名稱","password":"密碼","providers":{"dynDns":"DynDNS","noIp":"NO-IP"},"registerBtn":"註冊","subheader":"更新我的動態網域名稱","username":"使用者名稱"},"https":{"certificate":"憑證","key":"鍵值","subheader":"使用 HTTPS","tip":"關於憑證的資訊"},"interface":{"ipAddress":"IP 位置","port":"埠","subheader":"網頁介面 (遠端控制)","useAlternativeWebUI":"使用替補 WebUI","useUPnP":"使用從路由器轉送的 UPnP / NAT-PMP 連接埠"},"proxiesList":"受信任的代理伺服器清單","proxiesListHint":"使用分號分隔 IP ( ; )","reverseProxySupport":"啟用反向代理支援","security":{"clickjacking":"啟用點選劫持保護","csrf":"啟用跨站請求偽造 (CSRF) 保護","hostHeaderValidation":"啟用主機標頭驗證","hostHeaderValidationHint":"使用分號分隔 ( ; )","secureCookie":"啟用Cookie 安全旗標（需要 HTTPS）","serverDomains":"伺服器網域","subheader":"安全"}}}');
+    EV = {
         add: {
             error: "新增種子時出錯",
             pending: "正在傳送種子...",
@@ -105522,7 +105567,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             new: "新版本已發佈!"
         }
     };
-    EV = {
+    _V = {
         actions: {
             delete: "移除種子",
             logs: "開啟日誌",
@@ -105546,7 +105591,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         searchTorrents: "搜尋種子"
     };
-    _V = {
+    PV = {
         empty: {
             action: "新增新任務",
             value: "未有配置的任務"
@@ -105580,7 +105625,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
         },
         title: "種子創建器"
     };
-    PV = {
+    BV = {
         content: {
             fileInfo: "{n} 個檔案 | {n} 個檔案",
             filter: {
@@ -105689,7 +105734,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             tier: "層: {n}"
         }
     };
-    BV = {
+    MV = {
         properties: {
             added_on: "新增於",
             amount_left: "剩餘大小",
@@ -105786,30 +105831,30 @@ Hatalar oluşabilir, dikkatli kullanın.`
             uploading: "上傳中"
         }
     };
-    MV = {
+    RV = {
         minutes: "分鐘",
         seconds: "秒"
     };
-    RV = {
-        _comments: vV,
-        common: yV,
-        constants: bV,
-        dashboard: FV,
-        dialogs: kV,
-        login: xV,
-        logs: wV,
-        navbar: SV,
-        rssArticles: CV,
-        searchEngine: AV,
-        settings: DV,
-        toast: TV,
-        topbar: EV,
-        torrentCreator: _V,
-        torrentDetail: PV,
-        torrent: BV,
-        units: MV
+    LV = {
+        _comments: yV,
+        common: bV,
+        constants: FV,
+        dashboard: kV,
+        dialogs: xV,
+        login: wV,
+        logs: SV,
+        navbar: CV,
+        rssArticles: AV,
+        searchEngine: DV,
+        settings: TV,
+        toast: EV,
+        topbar: _V,
+        torrentCreator: PV,
+        torrentDetail: BV,
+        torrent: MV,
+        units: RV
     };
-    eG = [
+    tG = [
         {
             title: "čeština",
             value: "cs"
@@ -105875,31 +105920,31 @@ Hatalar oluşabilir, dikkatli kullanın.`
             value: "zh-Hant"
         }
     ];
-    LV = {
+    IV = {
         cs: zN,
-        en: tO,
-        es: vO,
-        fr: RO,
-        hu: XO,
-        it: lH,
-        ja: SH,
-        ko: HH,
-        nl: GH,
-        pl: i9,
-        "pt-BR": d9,
-        ru: T9,
-        tr: $9,
-        uk: Z9,
-        "zh-Hans": gV,
-        "zh-Hant": RV
+        en: aO,
+        es: yO,
+        fr: LO,
+        hu: JO,
+        it: uH,
+        ja: CH,
+        ko: VH,
+        nl: $H,
+        pl: o9,
+        "pt-BR": h9,
+        ru: E9,
+        tr: U9,
+        uk: Q9,
+        "zh-Hans": vV,
+        "zh-Hant": LV
     };
-    IV = "en";
     zV = "en";
-    NV = zx({
+    NV = "en";
+    OV = zx({
         legacy: !1,
-        locale: IV,
-        fallbackLocale: zV,
-        messages: LV,
+        locale: zV,
+        fallbackLocale: NV,
+        messages: IV,
         pluralRules: {
             ru: (t, e)=>{
                 if (t === 0) return 0;
@@ -105908,7 +105953,7 @@ Hatalar oluşabilir, dikkatli kullanın.`
             }
         }
     });
-    OV = {
+    HV = {
         autoClose: 1500,
         clearOnUrlChange: !1,
         containerId: gr.POSITION.BOTTOM_RIGHT,
@@ -105925,6 +105970,6 @@ Hatalar oluşabilir, dikkatli kullanın.`
     }));
     const px = Hx(A4);
     px.config.performance = !0;
-    px.use(mk).use(_N).use(NV).use(Vx, OV).use(fx).mount("#app");
+    px.use(mk).use(_N).use(OV).use(Vx, HV).use(fx).mount("#app");
 })();
-export { bh as $, Rh as A, Ys as B, ri as C, ei as D, Bl as E, zi as F, zr as G, jb as H, IA as I, qs as J, Nl as K, rt as L, Mh as M, Hs as N, L4 as O, Y6 as P, zf as Q, sa as R, cW as S, Nt as T, Zr as U, ya as V, zl as W, Za as X, lW as Y, oa as Z, Fo as _, Pe as a, Pv as a$, Ee as a0, U6 as a1, Te as a2, Im as a3, FN as a4, cx as a5, uW as a6, IT as a7, mW as a8, g1 as a9, tb as aA, Lw as aB, Iw as aC, Rw as aD, Mw as aE, Bw as aF, Tw as aG, Dw as aH, Ew as aI, Qy as aJ, Aw as aK, Cw as aL, ro as aM, no as aN, _w as aO, Pw as aP, ti as aQ, Vt as aR, y3 as aS, bn as aT, Zt as aU, _h as aV, f3 as aW, Us as aX, S0 as aY, m3 as aZ, eG as a_, js as aa, WV as ab, nb as ac, Yr as ad, u1 as ae, w0 as af, rb as ag, az as ah, kl as ai, LT as aj, Sd as ak, fW as al, F3 as am, qr as an, j0 as ao, ub as ap, Ci as aq, GV as ar, n4 as as, H4 as at, FR as au, Pl as av, hN as aw, Y0 as ax, Br as ay, eb as az, Jm as b, Bv as b0, Nn as b1, Ln as b2, Rn as b3, Xm as b4, vW as b5, hl as b6, Oz as b7, zz as b8, Go as b9, ab as bA, RT as bB, gW as bC, pW as bD, dW as bE, yW as bF, v3 as bG, ZI as ba, tf as bb, i4 as bc, Fh as bd, Ym as be, qm as bf, a2 as bg, qF as bh, KF as bi, Ws as bj, Ie as bk, Em as bl, eo as bm, Ze as bn, Ir as bo, Al as bp, hW as bq, mi as br, cT as bs, Sr as bt, r2 as bu, n2 as bv, jm as bw, i2 as bx, Vz as by, e2 as bz, Dl as c, Xn as d, Kn as e, _r as f, lz as g, Qb as h, Ii as i, ln as j, Le as k, Tn as l, af as m, C0 as n, xa as o, nh as p, qe as q, _a as r, tt as s, Pn as t, Wt as u, Pr as v, Pa as w, om as x, s1 as y, o1 as z, __tla };
+export { bh as $, Rh as A, Ys as B, ri as C, ei as D, Bl as E, zi as F, zr as G, jb as H, IA as I, qs as J, Nl as K, rt as L, Mh as M, Hs as N, L4 as O, Y6 as P, zf as Q, sa as R, dW as S, Nt as T, Zr as U, ya as V, zl as W, Za as X, uW as Y, oa as Z, Fo as _, Pe as a, Pv as a$, Ee as a0, U6 as a1, Te as a2, Im as a3, FN as a4, cx as a5, cW as a6, IT as a7, fW as a8, g1 as a9, tb as aA, Lw as aB, Iw as aC, Rw as aD, Mw as aE, Bw as aF, Tw as aG, Dw as aH, Ew as aI, Qy as aJ, Aw as aK, Cw as aL, ro as aM, no as aN, _w as aO, Pw as aP, ti as aQ, Vt as aR, y3 as aS, bn as aT, Zt as aU, _h as aV, f3 as aW, Us as aX, S0 as aY, m3 as aZ, tG as a_, js as aa, GV as ab, nb as ac, Yr as ad, u1 as ae, w0 as af, rb as ag, az as ah, kl as ai, LT as aj, Sd as ak, pW as al, F3 as am, qr as an, j0 as ao, ub as ap, Ci as aq, $V as ar, n4 as as, H4 as at, FR as au, Pl as av, hN as aw, Y0 as ax, Br as ay, eb as az, Jm as b, Bv as b0, Nn as b1, Ln as b2, Rn as b3, Xm as b4, yW as b5, hl as b6, Oz as b7, zz as b8, Go as b9, ab as bA, RT as bB, vW as bC, gW as bD, hW as bE, bW as bF, v3 as bG, ZI as ba, tf as bb, i4 as bc, Fh as bd, Ym as be, qm as bf, a2 as bg, qF as bh, KF as bi, Ws as bj, Ie as bk, Em as bl, eo as bm, Ze as bn, Ir as bo, Al as bp, mW as bq, mi as br, cT as bs, Sr as bt, r2 as bu, n2 as bv, jm as bw, i2 as bx, Vz as by, e2 as bz, Dl as c, Xn as d, Kn as e, _r as f, lz as g, Qb as h, Ii as i, ln as j, Le as k, Tn as l, af as m, C0 as n, xa as o, nh as p, qe as q, _a as r, tt as s, Pn as t, Wt as u, Pr as v, Pa as w, om as x, s1 as y, o1 as z, __tla };
