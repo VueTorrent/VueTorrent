@@ -45,34 +45,36 @@ const darkVariants = readonly([
 
 type FilterKey = 'state' | 'category' | 'tag' | 'tracker'
 
-const {showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
+const { showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
 
 interface FilterOption {
-  title: string;
-  value: FilterKey;
+  title: string
+  value: FilterKey
 }
 
 const filterOptions: FilterOption[] = [
   { title: t('settings.vuetorrent.general.showFilters.state'), value: 'state' },
   { title: t('settings.vuetorrent.general.showFilters.category'), value: 'category' },
   { title: t('settings.vuetorrent.general.showFilters.tag'), value: 'tag' },
-  { title: t('settings.vuetorrent.general.showFilters.tracker'), value: 'tracker' },
+  { title: t('settings.vuetorrent.general.showFilters.tracker'), value: 'tracker' }
 ]
 
-const filterToggles  = {
-  'state': showFilterState,
-  'category': showFilterCategory,
-  'tag': showFilterTag,
-  'tracker': showFilterTracker,
+const filterToggles = {
+  state: showFilterState,
+  category: showFilterCategory,
+  tag: showFilterTag,
+  tracker: showFilterTracker
 }
 
 const filters = computed({
-  get: () => { return filterOptions.filter(option => filterToggles[option.value].value).map(option => option.value) },
+  get: () => {
+    return filterOptions.filter(option => filterToggles[option.value].value).map(option => option.value)
+  },
   set(newSelectedValues) {
     filterOptions.forEach(option => {
-        filterToggles[option.value].value = newSelectedValues.includes(option.value)
+      filterToggles[option.value].value = newSelectedValues.includes(option.value)
     })
-  },
+  }
 })
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
@@ -261,15 +263,10 @@ function openDurationFormatHelp() {
           <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" :label="t('settings.vuetorrent.general.filterType')" />
         </v-col>
         <v-col cols="12" md="3">
-          <v-select
-            v-model="filters"
-            :items="filterOptions"
-            :label="t('settings.vuetorrent.general.showFilters.title')"
-            multiple
-          >
+          <v-select v-model="filters" :items="filterOptions" :label="t('settings.vuetorrent.general.showFilters.title')" multiple>
             <template v-slot:selection="{ item, index }">
-              <span v-if="index === 0 && filters.length === 1" >{{ item.title }}</span>
-              <span v-else-if="index === 0 && filters.length < 4" >{{ t('settings.vuetorrent.general.showFilters.filtersEnabled', filters.length) }}</span>
+              <span v-if="index === 0 && filters.length === 1">{{ item.title }}</span>
+              <span v-else-if="index === 0 && filters.length < 4">{{ t('settings.vuetorrent.general.showFilters.filtersEnabled', filters.length) }}</span>
               <span v-else-if="index === 0 && filters.length <= 4">{{ t('settings.vuetorrent.general.showFilters.allFiltersEnabled', filters.length) }}</span>
             </template>
           </v-select>

@@ -32,6 +32,7 @@
     },
     "auto_delete_mode": {
       "always": "总是",
+      "if_added": "如果已添加",
       "never": "从不"
     },
     "bittorrentProtocols": {
@@ -59,7 +60,8 @@
     "diskIoType": {
       "default": "默认",
       "memoryMappedFiles": "文件映射",
-      "posixCompliant": "兼容POSIX"
+      "posixCompliant": "兼容POSIX",
+      "simplePreadPwrite": "简单的 pread/pwrite"
     },
     "encryption": {
       "forceOff": "禁用加密",
@@ -77,6 +79,20 @@
       "mixed": "混合",
       "normal": "正常",
       "unwanted": "不需要"
+    },
+    "file_type": {
+      "archive": "归档",
+      "audio": "音频",
+      "book": "书籍",
+      "document": "文档",
+      "executable": "可执行文件",
+      "image": "图像",
+      "information": "信息",
+      "no_ext": "（无扩展名）",
+      "script": "脚本",
+      "subtitle": "字幕",
+      "unknown": "未知",
+      "video": "视频"
     },
     "filter_type": {
       "conjunctive": "结合过滤器（与）",
@@ -119,6 +135,7 @@
     "themes": {
       "dark": {
         "legacy": "旧版",
+        "oled": "OLED",
         "redesigned": "重绘版"
       },
       "light": {
@@ -180,12 +197,14 @@
       "advanced": {
         "auto_tmm": "自动种子管理（ATM）",
         "download_path": "设置下载路径",
+        "edit_trackers": "编辑 Trackers",
         "f_l_prio": "首/尾优先级",
         "reannounce": "强制重新汇报",
         "recheck": "强制重新校验",
         "rename": "重命名种子",
         "save_path": "设置保存路径",
         "seq_dl": "顺序下载",
+        "super_seeding": "超级做种模式",
         "title": "高级"
       },
       "category": {
@@ -274,6 +293,23 @@
       "submit": "添加种子",
       "title": "添加种子"
     },
+    "bulkEditTrackers": {
+      "add": "要添加的 Trackers",
+      "edit": {
+        "result": "{rejected}/{total} 个请求失败\\n{reason}",
+        "row": {
+          "add": "添加行",
+          "new_url": "新 tracker URL",
+          "old_url": "旧 tracker URL",
+          "rules": {
+            "invalid_url": "无效的 URL"
+          }
+        },
+        "title": "要替换的 Trackers"
+      },
+      "remove": "要移除的 Trackers",
+      "title": "批量编辑 Trackers"
+    },
     "bulkRenameFiles": {
       "col_origin_name": "原名称",
       "col_result_name": "结果",
@@ -302,11 +338,23 @@
       },
       "warnEdit": "编辑分类名称将会将种子迁移到新分类。\n可能会出现错误，请谨慎使用。"
     },
+    "confirm": {
+      "banPeers": "您确实要禁止该用户吗？",
+      "deleteCategory": "您确实要删除此类别吗？",
+      "deleteFeed": "您确实要删除此 RSS feed 吗？",
+      "deleteRule": "您确实要删除此 RSS 规则吗？",
+      "deleteTag": "您确实要删除此标签吗？",
+      "deleteUnusedCategories": "您确实要删除所有未使用的类别吗？",
+      "deleteUnusedTags": "您确实要删除所有未使用的标签吗？",
+      "startAll": "您确定要启动所有 torrents 吗？",
+      "stopAll": "您确定要停止所有 torrents 吗？"
+    },
     "connectionStatus": {
       "dht_nodes": "DHT 节点",
       "externalIp": "外部 IP 地址",
+      "fetch_disabled": "已禁用 IP 数据获取",
       "fetch_geo_failed": "无法获取地理位置信息",
-      "fetch_isp_failed": "无法获取ISP信息",
+      "fetch_isp_failed": "无法获取互联网服务提供商信息",
       "geo_details": "地理位置信息",
       "isp_details": "ISP信息",
       "noExternalIp": "无法从日志中识别",
@@ -454,6 +502,7 @@
         "outputFileExtension": "输出路径必须以 .torrent 结尾",
         "sourcePathRequired": "必须填写源路径"
       },
+      "source": "源",
       "sourcePath": "要包含在 torrent 中的文件",
       "startSeeding": "立即开始做种",
       "title": "创建新任务",
@@ -493,6 +542,10 @@
       "bottom_actions": {
         "alt_speed": "切换备用速度",
         "conn_status": "连接状态：{status}",
+        "dark_mode": "浅色模式 | 深色模式 | 跟随系统设置",
+        "dark_mode.dark": "深色模式",
+        "dark_mode.light": "浅色模式",
+        "dark_mode.system": "跟随系统设置",
         "logout": "注销",
         "shutdown": "关闭 qBittorrent"
       },
@@ -518,6 +571,7 @@
         },
         "tracker": {
           "empty": "(未跟踪)",
+          "not_working": "(未工作)",
           "title": "Tracker 过滤器"
         }
       },
@@ -544,10 +598,10 @@
       "active_filters": {
         "category": "分类过滤器：{value}",
         "menu_label": "已激活过滤器：{n} | 已激活过滤器：{n}",
-        "multiple_category": "分类过滤器: {n} 个类别",
-        "multiple_state": "状态过滤器: {n} 个状态",
-        "multiple_tag": "标签过滤器: {n} 个标签",
-        "multiple_tracker": "Tracker 过滤器: {n} Trackers",
+        "multiple_category": "分类过滤器: {n} 个激活",
+        "multiple_state": "状态过滤器: {n} 个激活",
+        "multiple_tag": "标签过滤器: {n} 个激活",
+        "multiple_tracker": "Tracker 过滤器: {n} 个激活",
         "state": "状态过滤器: {value}",
         "tag": "标签过滤器：{value}",
         "text": "文本过滤器：{value}",
@@ -568,7 +622,8 @@
       "item": {
         "author": "作者：{author}",
         "category": "分类：{category}",
-        "feedName": "订阅源名称：{name}"
+        "feedName": "订阅源名称：{name}",
+        "new": "新建"
       },
       "markAllAsRead": "全部标记为已读",
       "markAsRead": "标记为已读",
@@ -1013,6 +1068,8 @@
       "categoriesSubheader": "可用分类：",
       "createNewCategory": "创建新分类",
       "createNewTag": "创建新标签",
+      "deleteUnusedCategories": "删除未使用的类别",
+      "deleteUnusedTags": "删除未使用的标签",
       "noCategories": "暂无分类",
       "noTags": "暂无标签",
       "tagsSubheader": "可用标签："
@@ -1030,6 +1087,8 @@
         "durationFormat": "持续时间显示格式",
         "enableHashColors": "启用自动生成的卡片颜色",
         "enableRatioColors": "启用彩色的分享率",
+        "expandContent": "在内容视图中默认展开内容",
+        "fetchExternalIpInfo": "获取外部 IP 信息",
         "fileContentInterval": "种子文件内容刷新间隔",
         "filterType": "过滤器组合类型",
         "hideChipIfUnset": "未设置时隐藏卡片",
@@ -1190,6 +1249,7 @@
       "pieceSize": "分片大小",
       "private": "是否私有？",
       "progress": "进度",
+      "source": "源",
       "sourcePath": "源路径",
       "status": "任务状态",
       "taskID": "任务 ID",
@@ -1351,6 +1411,7 @@
       "global_speed": "全局速度",
       "global_volume": "全局容量",
       "hash": "哈希值",
+      "has_metadata": "具有元数据",
       "inactive_seeding_time_limit": "非活跃做种时长限制",
       "infohash_v1": "哈希值 v1",
       "infohash_v2": "哈希值 v2",
@@ -1363,12 +1424,15 @@
       "num_leechs": "用户数 (已连接)",
       "num_seeds": "做种者数 (已连接)",
       "peers": "用户",
+      "popularity": "受欢迎程度",
       "priority": "优先级",
+      "private": "是否私有",
       "progress": "进度",
       "progress_bar": "进度条",
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
       "reannounce": "下次重新汇报时间",
+      "root_path": "根目录路径",
       "save_path": "保存路径",
       "seeding_time": "做种时长",
       "seeding_time_limit": "做种时长限制",

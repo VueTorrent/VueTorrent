@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useMaindataStore, useVueTorrentStore, useExternalIpStore } from '@/stores'
+import { useExternalIpStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -9,9 +9,9 @@ const props = defineProps<{
 }>()
 
 const { isOpened } = useDialog(props.guid)
+const externalIpStore = useExternalIpStore()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
-const externalIpStore = useExternalIpStore()
 
 const connectionStatusColor = computed(() => {
   switch (maindataStore.serverState?.connection_status) {

@@ -1110,16 +1110,16 @@
         "resetSettings": "Reset Settings",
         "showAlltimeStat": "Show All-Time Stats",
         "showCurrentSpeed": "Show Current Speed",
-        "showFreeSpace": "Show Free Space",
         "showFilters": {
           "allFiltersEnabled": "All filters enabled",
           "category": "Category",
           "filtersEnabled": "{n} filters enabled",
           "state": "State",
           "tag": "Tag",
-          "title":"Show filters",
+          "title": "Show filters",
           "tracker": "Tracker"
         },
+        "showFreeSpace": "Show Free Space",
         "showSessionStat": "Show Session Stats",
         "showSpeedGraph": "Show Speed Graph",
         "tip": "These settings are for the custom WebUI itself",

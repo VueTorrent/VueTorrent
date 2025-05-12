@@ -32,6 +32,7 @@
     },
     "auto_delete_mode": {
       "always": "總是",
+      "if_added": "如果已添加",
       "never": "永不"
     },
     "bittorrentProtocols": {
@@ -59,7 +60,8 @@
     "diskIoType": {
       "default": "預設",
       "memoryMappedFiles": "記憶體對映檔案",
-      "posixCompliant": "遵循 POSIX"
+      "posixCompliant": "遵循 POSIX",
+      "simplePreadPwrite": "簡單的 pread/pwrite"
     },
     "encryption": {
       "forceOff": "停用加密",
@@ -77,6 +79,20 @@
       "mixed": "混合",
       "normal": "一般",
       "unwanted": "不要下載"
+    },
+    "file_type": {
+      "archive": "歸檔",
+      "audio": "音訊",
+      "book": "書籍",
+      "document": "檔",
+      "executable": "可執行檔",
+      "image": "圖像",
+      "information": "資訊",
+      "no_ext": "（無 ext）",
+      "script": "腳本",
+      "subtitle": "字幕",
+      "unknown": "未知",
+      "video": "影片"
     },
     "filter_type": {
       "conjunctive": "結合過濾器（與）",
@@ -119,6 +135,7 @@
     "themes": {
       "dark": {
         "legacy": "傳統",
+        "oled": "OLED",
         "redesigned": "重制版"
       },
       "light": {
@@ -180,12 +197,14 @@
       "advanced": {
         "auto_tmm": "自動種子管理 （ATM）",
         "download_path": "設定下載路徑",
+        "edit_trackers": "編輯追蹤者",
         "f_l_prio": "首末優先",
         "reannounce": "強制重新發佈",
         "recheck": "強制重新檢查",
         "rename": "重新命名",
         "save_path": "設置儲存路徑",
         "seq_dl": "順序下載",
+        "super_seeding": "超級做種模式",
         "title": "進階"
       },
       "category": {
@@ -274,6 +293,23 @@
       "submit": "新增種子",
       "title": "新增種子"
     },
+    "bulkEditTrackers": {
+      "add": "要新增的追蹤者",
+      "edit": {
+        "result": "{rejected}/{total} 個請求失敗\\n{reason}",
+        "row": {
+          "add": "新增行",
+          "new_url": "新追蹤者連結",
+          "old_url": "舊追蹤者連結",
+          "rules": {
+            "invalid_url": "無效的連結"
+          }
+        },
+        "title": "要替換的追踪者"
+      },
+      "remove": "要移除的追蹤者",
+      "title": "批量編輯追蹤者"
+    },
     "bulkRenameFiles": {
       "col_origin_name": "原名稱",
       "col_result_name": "結果",
@@ -302,9 +338,21 @@
       },
       "warnEdit": "編輯分類名稱會將種子轉移至新分類。\n有可能會發生錯誤，請謹慎使用。"
     },
+    "confirm": {
+      "banPeers": "您确实要禁止该用户吗？",
+      "deleteCategory": "您確實要刪除該分類嗎？",
+      "deleteFeed": "您確實要刪除該 RSS訂閱源嗎？",
+      "deleteRule": "您確實要刪除該 RSS 規則嗎？",
+      "deleteTag": "您確實要刪除該標籤嗎？",
+      "deleteUnusedCategories": "您確實要刪除所有未使用的分類嗎？",
+      "deleteUnusedTags": "您確實要刪除所有未使用的標籤嗎？",
+      "startAll": "你確認想要開始所有種子嗎？",
+      "stopAll": "你確認想要停止所有種子嗎？"
+    },
     "connectionStatus": {
       "dht_nodes": "DHT 節點",
       "externalIp": "外部 IP 位置",
+      "fetch_disabled": "已禁用獲取IP數據",
       "fetch_geo_failed": "無法取得地理位置資訊",
       "fetch_isp_failed": "無法取得ISP資訊",
       "geo_details": "地理位置資訊",
@@ -454,6 +502,7 @@
         "outputFileExtension": "輸出路徑必須以 .torrent 結尾",
         "sourcePathRequired": "必須填寫來源路徑"
       },
+      "source": "來源",
       "sourcePath": "要包含在 torrent 中的檔案",
       "startSeeding": "立即開始做種",
       "title": "新增新任務",
@@ -493,6 +542,10 @@
       "bottom_actions": {
         "alt_speed": "替補速率限制",
         "conn_status": "連線狀態：{status}",
+        "dark_mode": "淺色模式 | 深色模式 | 跟隨系統設定",
+        "dark_mode.dark": "深色模式",
+        "dark_mode.light": "淺色模式",
+        "dark_mode.system": "跟隨系統設定",
         "logout": "登出",
         "shutdown": "結束 qBittorrent"
       },
@@ -518,6 +571,7 @@
         },
         "tracker": {
           "empty": "(未追蹤)",
+          "not_working": "（沒有運作）",
           "title": "追蹤者過濾器"
         }
       },
@@ -544,10 +598,10 @@
       "active_filters": {
         "category": "分類過濾器：{value}",
         "menu_label": "啟用中的過濾器: {n} | 啟用中的過濾器: {n}",
-        "multiple_category": "分類過濾器: {n} 個分類",
-        "multiple_state": "狀態過濾器: {n} 種狀態",
-        "multiple_tag": "標籤過濾器: {n} 個標籤",
-        "multiple_tracker": "追蹤者過濾器: {n} 個追蹤者",
+        "multiple_category": "分類過濾器: {n} 個啟用",
+        "multiple_state": "狀態過濾器: {n} 個啟用",
+        "multiple_tag": "標籤過濾器: {n} 個啟用",
+        "multiple_tracker": "追蹤者過濾器: {n} 個啟用",
         "state": "狀態過濾器: {value}",
         "tag": "標籤過濾器: {value}",
         "text": "文本過濾器: {value}",
@@ -568,7 +622,8 @@
       "item": {
         "author": "作者: {author}",
         "category": "分類: {category}",
-        "feedName": "訂閱源名稱: {name}"
+        "feedName": "訂閱源名稱: {name}",
+        "new": "新增"
       },
       "markAllAsRead": "標記全部項目為已讀",
       "markAsRead": "標註為已讀",
@@ -1013,6 +1068,8 @@
       "categoriesSubheader": "可用分類:",
       "createNewCategory": "新增新分類",
       "createNewTag": "新增新標籤",
+      "deleteUnusedCategories": "刪除未使用的分類",
+      "deleteUnusedTags": "刪除未使用的標籤",
       "noCategories": "尚無分類",
       "noTags": "尚無標籤",
       "tagsSubheader": "可用標籤:"
@@ -1030,6 +1087,8 @@
         "durationFormat": "持續時間顯示格式",
         "enableHashColors": "啟用自動生成的卡片顏色",
         "enableRatioColors": "啟用彩色的分享率",
+        "expandContent": "在內容視圖中默認展開內容",
+        "fetchExternalIpInfo": "獲取外部 IP 資訊",
         "fileContentInterval": "種子檔案內容更新區間",
         "filterType": "過濾器組合類別",
         "hideChipIfUnset": "未設置時隱藏塊",
@@ -1190,6 +1249,7 @@
       "pieceSize": "區塊大小",
       "private": "是否私有？",
       "progress": "進度",
+      "source": "來源",
       "sourcePath": "來源路徑",
       "status": "任務狀態",
       "taskID": "任務 ID",
@@ -1351,6 +1411,7 @@
       "global_speed": "全域速率",
       "global_volume": "全域大小",
       "hash": "雜湊值",
+      "has_metadata": "具有元資料",
       "inactive_seeding_time_limit": "閒置做種時間限制",
       "infohash_v1": "資訊雜湊值 v1",
       "infohash_v2": "資訊雜湊值 v2",
@@ -1363,12 +1424,15 @@
       "num_leechs": "用戶 (已連線)",
       "num_seeds": "種子 (已連線)",
       "peers": "用戶",
+      "popularity": "受歡迎程度",
       "priority": "優先級",
+      "private": "是否私密的",
       "progress": "進度",
       "progress_bar": "進度列",
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
       "reannounce": "下次重新發佈时间",
+      "root_path": "根節點路徑",
       "save_path": "儲存路徑",
       "seeding_time": "做種時間",
       "seeding_time_limit": "做種時間限制",
