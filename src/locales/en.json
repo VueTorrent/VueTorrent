@@ -357,7 +357,7 @@
       "fetch_isp_failed": "Unable to fetch ISP details",
       "geo_details": "Geolocation details",
       "isp_details": "ISP details",
-      "noExternalIp": "Unable to detect from logs",
+      "noExternalIp": "Unable to detect External IP Address",
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
     },

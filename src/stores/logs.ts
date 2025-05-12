@@ -13,7 +13,6 @@ export const useLogStore = defineStore(
   () => {
     const logs = ref<Log[]>([])
     const externalIp = ref<string>()
-    const lastFetchedIp = ref<string>()
     const reverseSort = ref<boolean>(false)
     const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
     const logMessageFilter = ref('')
@@ -74,7 +73,6 @@ export const useLogStore = defineStore(
         logTask.clear()
         logs.value = []
         externalIp.value = undefined
-        lastFetchedIp.value = undefined
         logTypeFilter.value = [LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL]
         logMessageFilter.value = ''
       }
