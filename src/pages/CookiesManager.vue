@@ -29,9 +29,9 @@ const headers = computed(() => [
   { title: t('cookiesManager.table.domain'), key: 'domain' },
   { title: t('cookiesManager.table.path'), key: 'path' },
   { title: t('cookiesManager.table.name'), key: 'name' },
-  { title: t('cookiesManager.table.value'), key: 'value', cellProps: { 'class': 'wrap-anywhere' } },
+  { title: t('cookiesManager.table.value'), key: 'value', cellProps: { class: 'wrap-anywhere' } },
   { title: t('cookiesManager.table.expiration_date'), key: 'expirationDate' },
-  { key: 'actions', sortable: false, nowrap: true },
+  { key: 'actions', sortable: false, nowrap: true }
 ])
 
 function openCookieFormDialog(cookie?: Cookie) {
@@ -56,7 +56,7 @@ function deleteCookie(cookie: Cookie) {
 function clearCookies() {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.clearCookies'),
-    yesColor: "error",
+    yesColor: 'error',
     onConfirm: async () => {
       await cookieStore.clearCookies(true)
     }

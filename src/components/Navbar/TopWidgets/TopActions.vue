@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores'
-import { storeToRefs } from 'pinia'
 
 defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEngine', 'openRssArticles', 'openTorrentCreator', 'openCookiesManager', 'openLogs', 'openSettings'])
 
 const appStore = useAppStore()
-const { usesQbit5 } = storeToRefs(appStore)
 </script>
 
 <template>

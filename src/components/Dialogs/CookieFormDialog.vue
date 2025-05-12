@@ -28,13 +28,15 @@ const rules = [
 ]
 
 const isFormValid = ref(false)
-const formData = reactive(new Cookie({
-  name: '',
-  value: '',
-  domain: '',
-  path: '',
-  expirationDate: 0
-}))
+const formData = reactive(
+  new Cookie({
+    name: '',
+    value: '',
+    domain: '',
+    path: '',
+    expirationDate: 0
+  })
+)
 
 const expirationDate = computed({
   get: () => {

@@ -57,6 +57,6 @@ export const useCookieStore = defineStore('cookies', () => {
     addCookie,
     removeCookie,
     clearCookies,
-    importCookies,
+    importCookies
   }
 })
