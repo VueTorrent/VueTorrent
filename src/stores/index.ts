@@ -2,6 +2,7 @@ import { useAddTorrentStore } from './addTorrents'
 import { useAppStore } from './app'
 import { useCategoryStore } from './categories'
 import { useContentStore } from './content'
+import { useCookieStore } from './cookies'
 import { useDashboardStore } from './dashboard'
 import { useDialogStore } from './dialog'
 import { useGlobalStore } from './global'
@@ -24,6 +25,7 @@ export {
   useAppStore,
   useCategoryStore,
   useContentStore,
+  useCookieStore,
   useDashboardStore,
   useDialogStore,
   useGlobalStore,

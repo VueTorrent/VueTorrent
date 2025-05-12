@@ -3,6 +3,7 @@ import { getEmptyParams } from './AddTorrentParams'
 import type AppPreferences from './AppPreferences'
 import type BuildInfo from './BuildInfo'
 import type Category from './Category'
+import type Cookie from './Cookie'
 import type Feed from './Feed'
 import type FeedArticle from './FeedArticle'
 import type { FeedRule, LegacyFeedRule } from './FeedRule'
@@ -31,6 +32,7 @@ export type {
   AppPreferences,
   BuildInfo,
   Category,
+  Cookie,
   ServerState,
   Tracker,
   RawQbitTorrent,

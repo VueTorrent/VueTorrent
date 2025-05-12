@@ -65,6 +65,10 @@ function openTorrentCreator() {
   router.push({ name: 'torrentCreator' })
 }
 
+function openCookiesManager() {
+  router.push({ name: 'cookiesManager' })
+}
+
 function openLogs() {
   router.push({ name: 'logs' })
 }
@@ -91,6 +95,7 @@ function openSettings() {
     @openSettings="openSettings"
     @openRssArticles="openRssArticles"
     @openTorrentCreator="openTorrentCreator"
+    @openCookiesManager="openCookiesManager"
     @pauseTorrents="pauseTorrents"
     @resumeTorrents="resumeTorrents" />
   <TopActions
@@ -101,6 +106,7 @@ function openSettings() {
     @openSettings="openSettings"
     @openRssArticles="openRssArticles"
     @openTorrentCreator="openTorrentCreator"
+    @openCookiesManager="openCookiesManager"
     @pauseTorrents="pauseTorrents"
     @resumeTorrents="resumeTorrents" />
 </template>
