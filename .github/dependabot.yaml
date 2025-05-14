@@ -29,7 +29,7 @@ updates:
         - '@vue/*'
         - '*vue*'
         - 'vuetify'
-        - '*vuetify*
+        - '*vuetify*'
       other:
         patterns:
         - '*'
