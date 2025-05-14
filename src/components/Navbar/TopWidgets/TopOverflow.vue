@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores'
-import { storeToRefs } from 'pinia'
 
-defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEngine', 'openRssArticles', 'openTorrentCreator', 'openLogs', 'openSettings'])
+defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEngine', 'openRssArticles', 'openTorrentCreator', 'openCookiesManager', 'openLogs', 'openSettings'])
 
-const { usesQbit5 } = storeToRefs(useAppStore())
+const appStore = useAppStore()
 </script>
 
 <template>
@@ -45,9 +44,15 @@ const { usesQbit5 } = storeToRefs(useAppStore())
         </template>
       </v-list-item>
 
-      <v-list-item v-if="usesQbit5" :title="$t('topbar.overflow.torrentCreator')" @click="$emit('openTorrentCreator')">
+      <v-list-item v-if="appStore.isFeatureAvailable('5')" :title="$t('topbar.overflow.torrentCreator')" @click="$emit('openTorrentCreator')">
         <template v-slot:prepend>
           <v-icon>mdi-file-plus</v-icon>
+        </template>
+      </v-list-item>
+
+      <v-list-item v-if="appStore.isFeatureAvailable('5.1')" :title="$t('topbar.overflow.cookies')" @click="$emit('openCookiesManager')">
+        <template v-slot:prepend>
+          <v-icon>mdi-cookie</v-icon>
         </template>
       </v-list-item>
 

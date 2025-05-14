@@ -4,6 +4,7 @@ import {
   AppPreferences,
   BuildInfo,
   Category,
+  Cookie,
   Feed,
   FeedRule,
   Log,
@@ -78,6 +79,17 @@ export default interface IProvider {
    * @throws 404 if directory doesn't exists
    */
   getDirectoryContent(dirPath: string, mode?: DirectoryContentMode): Promise<string[] | null>
+
+  /**
+   * Returns all registered cookies
+   */
+  getCookies(): Promise<Cookie[]>
+
+  /**
+   * Creates cookies
+   * @param cookies
+   */
+  setCookies(cookies: Cookie[]): Promise<void>
 
   /// AuthController ///
 
