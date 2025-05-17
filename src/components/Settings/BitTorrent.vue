@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { Encryption, ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { useAppStore } from '@/stores'
 
 const { t } = useI18nUtils()
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
 const encyptionModeOptions = ref([
@@ -18,6 +20,16 @@ const thenTypes = ref([
   { title: t('constants.shareLimitAction.removeTorrentAndFiles'), value: ShareLimitAction.REMOVE_TORRENT_AND_FILES },
   { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING }
 ])
+
+const trackerUrlListItems = computed<string[]>(() => {
+  if (preferenceStore.preferences?.add_trackers_url_list) {
+    return preferenceStore.preferences.add_trackers_url_list
+      .split('\n')
+      .map(tracker => tracker.trim())
+      .filter(tracker => tracker !== '')
+  }
+  return []
+})
 </script>
 
 <template>
@@ -213,6 +225,26 @@ const thenTypes = ref([
         persistent-hint
         :hint="t('settings.bittorrent.autoAddTrackersHint')" />
     </v-list-item>
+
+    <template v-if="appStore.isFeatureAvailable('5.1.0')">
+      <v-list-item>
+        <v-checkbox v-model="preferenceStore.preferences!.add_trackers_from_url_enabled" hide-details :label="t('settings.bittorrent.autoAddTrackersFromUrl')" />
+      </v-list-item>
+      <v-list-item>
+        <v-text-field v-model="preferenceStore.preferences!.add_trackers_url" :disabled="!preferenceStore.preferences!.add_trackers_from_url_enabled" />
+      </v-list-item>
+      <v-list-item v-if="preferenceStore.preferences!.add_trackers_from_url_enabled && trackerUrlListItems.length > 0" width="100%">
+        <v-list-subheader>{{ t('settings.bittorrent.trackersFetchedFromUrl') }}</v-list-subheader>
+        <v-card outlined>
+          <v-virtual-scroll :items="trackerUrlListItems" height="180" item-height="36">
+            <template v-slot:default="{ item }">
+              <v-list-item dense class="px-2" :title="item" />
+              <v-divider />
+            </template>
+          </v-virtual-scroll>
+        </v-card>
+      </v-list-item>
+    </template>
   </v-list>
 </template>
 

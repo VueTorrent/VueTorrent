@@ -28,6 +28,12 @@ export default interface AppPreferences {
   add_trackers: string
   /** Enable automatic adding of trackers to new torrents */
   add_trackers_enabled: boolean
+  /** Enable automatic adding of trackers from provided url to new torrents */
+  add_trackers_from_url_enabled: boolean
+  /** URL to fetch trackers from */
+  add_trackers_url: string
+  /** List of trackers fetched from URL */
+  readonly add_trackers_url_list: string
   /** Alternative global download speed limit in KiB/s */
   alt_dl_limit: number
   /** Alternative global upload speed limit in KiB/s */
