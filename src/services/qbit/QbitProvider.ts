@@ -5,6 +5,7 @@ import type {
   AppPreferences,
   BuildInfo,
   Category,
+  Cookie,
   Feed,
   FeedRule,
   Log,
@@ -105,7 +106,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async shutdownApp(): Promise<boolean> {
-    return this.axios.post('/app/shutdown').then(
+    return this.post('/app/shutdown').then(
       () => true,
       () => false
     )
@@ -124,22 +125,29 @@ export default class QBitProvider implements IProvider {
   }
 
   async sendTestEmail(): Promise<void> {
-    return this.axios.post('/app/sendTestEmail')
+    await this.post('/app/sendTestEmail')
   }
 
   async getDirectoryContent(dirPath: string, mode?: DirectoryContentMode): Promise<string[] | null> {
     return this.post('/app/getDirectoryContent', { dirPath, mode }, { validateStatus: code => code < 500 }).then(res => (res.status === 200 ? res.data : null))
   }
 
+  async getCookies(): Promise<Cookie[]> {
+    return this.axios.get('/app/cookies').then(r => r.data)
+  }
+
+  async setCookies(cookies: Cookie[]): Promise<void> {
+    await this.post('/app/setCookies', { cookies: JSON.stringify(cookies) })
+  }
+
   /// AuthController ///
 
   async login(params: LoginPayload): Promise<AxiosResponse<string, string>> {
-    const payload = new URLSearchParams(params as Parameters)
-    return this.axios.post('/auth/login', payload, { validateStatus: () => true })
+    return this.post('/auth/login', params, { validateStatus: () => true })
   }
 
   async logout(): Promise<void> {
-    return this.axios.post('/auth/logout')
+    await this.post('/auth/logout')
   }
 
   /// LogController ///

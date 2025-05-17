@@ -16,6 +16,7 @@ import type {
   AppPreferences,
   BuildInfo,
   Category,
+  Cookie,
   Feed,
   FeedRule,
   Log,
@@ -175,7 +176,7 @@ export default class MockProvider implements IProvider {
   }
 
   async getVersion(): Promise<ApplicationVersion> {
-    return this.generateResponse({ result: '5.0.0' })
+    return this.generateResponse({ result: '5.1.0' })
   }
 
   async getPreferences(): Promise<AppPreferences> {
@@ -451,6 +452,25 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({
       result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } })
     })
+  }
+
+  getCookies(): Promise<Cookie[]> {
+    return this.generateResponse({
+      result: faker.helpers.multiple(
+        () => ({
+          name: faker.word.words({ count: 1 }),
+          domain: faker.internet.domainName(),
+          value: faker.word.words({ count: 1 }),
+          path: '/',
+          expirationDate: faker.date.future().getTime() / 1000
+        }),
+        { count: { min: 1, max: 15 } }
+      )
+    })
+  }
+
+  setCookies(_: Cookie[]): Promise<void> {
+    return this.generateResponse()
   }
 
   /// AuthController ///

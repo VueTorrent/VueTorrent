@@ -11,7 +11,7 @@ type pptData = { active: boolean; order: number }
 
 // TODO: Use `keyof Torrent` instead of `DashboardProperty` and remove sortKey, needs storage migration
 type pptMetadataBase<T> = { titleKey: string; value: (t: Torrent) => T }
-type pptMetadataAmount = { type: DashboardPropertyType.AMOUNT; props: pptMetadataBase<number> & { total?: (t: Torrent) => number } }
+export type pptMetadataAmount = { type: DashboardPropertyType.AMOUNT; props: pptMetadataBase<number> & { total?: (t: Torrent) => number } }
 type pptMetadataBoolean = { type: DashboardPropertyType.BOOLEAN; props: pptMetadataBase<boolean> }
 export type pptMetadataChip = {
   type: DashboardPropertyType.CHIP

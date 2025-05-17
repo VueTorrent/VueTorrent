@@ -4,7 +4,7 @@ import FilterSelectSingle from '@/components/Navbar/SideWidgets/FilterSelectSing
 import { useI18nUtils } from '@/composables'
 import { FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
-import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore, useVueTorrentStore} from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, Ref } from 'vue'
 
@@ -25,7 +25,7 @@ const {
   trackerFilterType
 } = storeToRefs(useTorrentStore())
 const { hostnameTrackers } = storeToRefs(useTrackerStore())
-const {showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
+const { showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)

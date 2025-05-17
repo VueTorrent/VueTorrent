@@ -23,7 +23,7 @@ updates:
       framework:
         patterns:
         - '@vue/*'
-        - 'vue*'
-      other:
-        patterns:
-        - '*'
+        - '*vue*'
+        - '*vuetify*'
+      patch:
+        update-types: ["patch"]

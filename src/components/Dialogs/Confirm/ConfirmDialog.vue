@@ -42,7 +42,7 @@ function onConfirm() {
       <v-card-text v-if="$slots.default">
         <slot />
       </v-card-text>
-      <v-card-text v-else-if="text">
+      <v-card-text v-else-if="text" class="text-pre">
         {{ text }}
       </v-card-text>
 

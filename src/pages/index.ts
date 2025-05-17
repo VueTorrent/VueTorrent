@@ -32,6 +32,11 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('./TorrentCreator.vue')
   },
   {
+    name: 'cookiesManager',
+    path: '/cookies',
+    component: () => import('./CookiesManager.vue')
+  },
+  {
     name: 'torrentDetail',
     path: '/torrent/:hash/:tab?',
     component: () => import('./TorrentDetail.vue')

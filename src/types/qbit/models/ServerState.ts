@@ -11,6 +11,7 @@ export default interface ServerState {
   dl_rate_limit: number
   free_space_on_disk: number
   global_ratio: string
+  last_external_address_v4: string
   queued_io_jobs: number
   queueing: boolean
   read_cache_hits: string
