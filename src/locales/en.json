@@ -4,6 +4,7 @@
     "auto": "Auto",
     "cancel": "Cancel",
     "close": "Close",
+    "create": "Create",
     "delete": "Delete",
     "disable": "Disable",
     "disabled": "Disabled",
@@ -21,6 +22,7 @@
     "search": "Search",
     "selectAll": "Select All",
     "selectNone": "Select None",
+    "submit": "Submit",
     "useGlobalSettings": "Use Global Settings",
     "yes": "Yes"
   },
@@ -185,6 +187,23 @@
       "preferTcp": "Prefer TCP"
     }
   },
+  "cookiesManager": {
+    "clear": "Clear all cookies",
+    "create": "Add new cookie",
+    "empty": {
+      "action": "Add new cookie",
+      "value": "No cookies registered"
+    },
+    "import": "Import cookies",
+    "table": {
+      "name": "Cookie Name",
+      "value": "Cookie Value",
+      "domain": "Domain Name",
+      "path": "Path",
+      "expiration_date": "Expiration Date"
+    },
+    "title": "Cookies Manager"
+  },
   "dashboard": {
     "displayMode": {
       "grid": "Grid",
@@ -340,7 +359,9 @@
     },
     "confirm": {
       "banPeers": "Do you really want to ban this peer?",
+      "clearCookies": "Do you really want to clear all cookies?",
       "deleteCategory": "Do you really want to remove this category?",
+      "deleteCookie": "Do you really want to remove this cookie?",
       "deleteFeed": "Do you really want to remove this RSS feed?",
       "deleteRule": "Do you really want to remove this RSS rule?",
       "deleteTag": "Do you really want to remove this tag?",
@@ -360,6 +381,27 @@
       "noExternalIp": "Unable to detect External IP Address",
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
+    },
+    "cookiesImport": {
+      "title": "Import cookies",
+      "type": {
+        "label": "Type of data to import",
+        "json": "JSON",
+        "netscape": "Netscape",
+        "header": "Header value"
+      },
+      "input": "Cookie data"
+    },
+    "cookiesManager": {
+      "title": "Cookie form",
+      "name": "Cookie Name",
+      "value": "Cookie Value",
+      "domain": "Domain Name",
+      "path": "Path",
+      "expiration_date": "Expiration Date",
+      "rules": {
+        "duplicate": "This cookie already exists"
+      }
     },
     "delete": {
       "deleteWithFiles": "Delete files with torrent",
@@ -1222,6 +1264,7 @@
   },
   "topbar": {
     "actions": {
+      "cookies": "Open Cookies Manager",
       "delete": "Delete Torrents",
       "logs": "Open Logs",
       "pause": "Pause Torrents",
@@ -1233,6 +1276,7 @@
     },
     "addTorrents": "Add Torrents",
     "overflow": {
+      "cookies": "Cookies Manager",
       "delete": "Delete",
       "logs": "qBittorrent Logs",
       "pause": "Pause",

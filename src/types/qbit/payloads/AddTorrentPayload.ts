@@ -9,7 +9,10 @@ export default interface AddTorrentPayload {
   category?: string
   /** Content layout used when creating the torrent */
   contentLayout?: ContentLayout
-  /** Cookie sent to download the files using HTTP(S) */
+  /**
+   * Cookie sent to download the files using HTTP(S)
+   * @deprecated since 5.1.0, use /app/setCookies instead
+   */
   cookie?: string
   /** Set torrent download speed limit. Unit in bytes/second */
   dlLimit?: number

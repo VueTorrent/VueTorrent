@@ -15,21 +15,15 @@ updates:
       env:
         patterns:
         - '*node*'
-        - 'vite'
         - '*vite*'
       lint:
         patterns:
-        - 'eslint'
         - '*eslint*'
-        - 'prettier'
         - '*prettier*'
       framework:
         patterns:
-        - 'vue'
         - '@vue/*'
         - '*vue*'
-        - 'vuetify'
-        - '*vuetify*
-      other:
-        patterns:
-        - '*'
+        - '*vuetify*'
+      patch:
+        update-types: ["patch"]
