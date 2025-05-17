@@ -877,6 +877,7 @@
     },
     "bittorrent": {
       "autoAddTrackers": "Automatically append these trackers to new downloads",
+      "autoAddTrackersFromUrl": "Automatically append trackers from URL to new downloads",
       "autoAddTrackersHint": "One tracker per line",
       "maxActiveCheckingTorrents": "Max active checking torrents",
       "privacy": {
@@ -904,7 +905,8 @@
         "subheader": "Torrent Queueing",
         "torrentInactivityTimer": "Torrent inactivity timer",
         "uploadRateLimit": "Upload rate threshold"
-      }
+      },
+      "trackersFetchedFromUrl": "Trackers fetched from URL"
     },
     "connection": {
       "connectionLimits": {
