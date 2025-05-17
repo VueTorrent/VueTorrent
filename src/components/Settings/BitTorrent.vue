@@ -6,8 +6,8 @@ import { useI18nUtils } from '@/composables'
 import { useAppStore } from '@/stores'
 
 const { t } = useI18nUtils()
-const preferenceStore = usePreferenceStore()
 const appStore = useAppStore()
+const preferenceStore = usePreferenceStore()
 
 const encyptionModeOptions = ref([
   { title: t('constants.encryption.preferEncryption'), value: Encryption.PREFER_ENCRYPTION },
