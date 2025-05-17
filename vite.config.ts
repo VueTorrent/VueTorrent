@@ -21,27 +21,10 @@ export default defineConfig(({ mode }) => {
       outDir: mode === 'demo' ? './vuetorrent-demo' : './vuetorrent/public',
       rollupOptions: {
         output: {
-          manualChunks(id) {
-            if (id.includes('/src/composables/')) {
-              return 'composables'
-            }
-            if (id.includes('/src/stores/')) {
-              return 'stores'
-            }
-            if (id.includes('node_modules/vuetify')) {
-              return 'vuetify'
-            }
-            if (
-              id.includes('node_modules/vue') ||
-              id.includes('node_modules/vue-router') ||
-              id.includes('node_modules/vue-i18n') ||
-              id.includes('node_modules/vue3-toastify') ||
-              id.includes('node_modules/vuedraggable') ||
-              id.includes('node_modules/pinia') ||
-              id.includes('node_modules/pinia-persistence-plugin')
-            ) {
-              return 'vue'
-            }
+          manualChunks: {
+            // apexcharts: ['apexcharts', 'vue3-apexcharts'],
+            vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-persistence-plugin'],
+            vuetify: ['vuetify']
           }
         }
       }
