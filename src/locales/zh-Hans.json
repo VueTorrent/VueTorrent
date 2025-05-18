@@ -95,8 +95,8 @@
       "video": "视频"
     },
     "filter_type": {
-      "conjunctive": "结合过滤器（与）",
-      "disjunctive": "选择过滤器（或）"
+      "conjunctive": "逻辑与过滤 (AND)",
+      "disjunctive": "逻辑或过滤 (OR)"
     },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "默认保存路径",
@@ -994,7 +994,7 @@
         "addToTopOfQueue": "添加到队列首位",
         "autoDeleteMode": "下载完成后删除 .torrent 文件",
         "doNotAutoStart": "不自动开始下载",
-        "mergeTrackers": "如果种子已存在，则合并Tracker",
+        "mergeTrackers": "如果种子已存在，则合并 Tracker",
         "subheader": "添加种子时"
       }
     },
@@ -1088,7 +1088,7 @@
         "enableHashColors": "启用自动生成的卡片颜色",
         "enableRatioColors": "启用彩色的分享率",
         "expandContent": "在内容视图中默认展开内容",
-        "fetchExternalIpInfo": "获取外部 IP 信息",
+        "fetchExternalIpInfo": "获取外部 IP 地址信息",
         "fileContentInterval": "种子文件内容刷新间隔",
         "filterType": "过滤器组合类型",
         "hideChipIfUnset": "未设置时隐藏卡片",
@@ -1114,8 +1114,8 @@
         "showSessionStat": "显示本次会话统计",
         "showSpeedGraph": "显示速度图表",
         "tip": "这些设置适用于自定义WebUI",
-        "useBinarySize": "以KiB表示文件大小 (kB -> KiB)",
-        "useBitSpeed": "以kbps表示速度 (kB/s -> kbps)",
+        "useBinarySize": "以二进制单位表示数据大小 (kB -> KiB)",
+        "useBitSpeed": "以比特表示速度值 (kB/s -> kbps)",
         "useEmojiState": "在种子状态前添加表情符号",
         "vueTorrentTitle": "VueTorrent 标题"
       },
@@ -1432,7 +1432,7 @@
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
       "reannounce": "下次重新汇报时间",
-      "root_path": "根目录路径",
+      "root_path": "根路径",
       "save_path": "保存路径",
       "seeding_time": "做种时长",
       "seeding_time_limit": "做种时长限制",

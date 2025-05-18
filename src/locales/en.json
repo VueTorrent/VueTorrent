@@ -196,11 +196,11 @@
     },
     "import": "Import cookies",
     "table": {
-      "name": "Cookie Name",
-      "value": "Cookie Value",
       "domain": "Domain Name",
+      "expiration_date": "Expiration Date",
+      "name": "Cookie Name",
       "path": "Path",
-      "expiration_date": "Expiration Date"
+      "value": "Cookie Value"
     },
     "title": "Cookies Manager"
   },
@@ -383,25 +383,25 @@
       "total_peer_connections": "Active peer connections"
     },
     "cookiesImport": {
+      "input": "Cookie data",
       "title": "Import cookies",
       "type": {
-        "label": "Type of data to import",
+        "header": "Header value",
         "json": "JSON",
-        "netscape": "Netscape",
-        "header": "Header value"
-      },
-      "input": "Cookie data"
+        "label": "Type of data to import",
+        "netscape": "Netscape"
+      }
     },
     "cookiesManager": {
-      "title": "Cookie form",
-      "name": "Cookie Name",
-      "value": "Cookie Value",
       "domain": "Domain Name",
-      "path": "Path",
       "expiration_date": "Expiration Date",
+      "name": "Cookie Name",
+      "path": "Path",
       "rules": {
         "duplicate": "This cookie already exists"
-      }
+      },
+      "title": "Cookie form",
+      "value": "Cookie Value"
     },
     "delete": {
       "deleteWithFiles": "Delete files with torrent",
