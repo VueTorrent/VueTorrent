@@ -11,16 +11,19 @@ type pptData = { active: boolean; order: number }
 
 // TODO: Use `keyof Torrent` instead of `DashboardProperty` and remove sortKey, needs storage migration
 type pptMetadataBase<T> = { titleKey: string; value: (t: Torrent) => T }
-type pptMetadataAmount = { type: DashboardPropertyType.AMOUNT; props: pptMetadataBase<number> & { total?: (t: Torrent) => number } }
+export type pptMetadataAmount = { type: DashboardPropertyType.AMOUNT; props: pptMetadataBase<number> & { total?: (t: Torrent) => number } }
 type pptMetadataBoolean = { type: DashboardPropertyType.BOOLEAN; props: pptMetadataBase<boolean> }
-type pptMetadataChip = { type: DashboardPropertyType.CHIP; props: pptMetadataBase<string[]> & { emptyValueKey: string; color: (t: Torrent) => string; enableHashColor?: boolean } }
+export type pptMetadataChip = {
+  type: DashboardPropertyType.CHIP
+  props: pptMetadataBase<string[]> & { emptyValueKey: string; color: (t: Torrent) => string; enableHashColor?: boolean }
+}
 type pptMetadataData = { type: DashboardPropertyType.DATA; props: pptMetadataBase<number> }
 type pptMetadataDatetime = { type: DashboardPropertyType.DATETIME; props: pptMetadataBase<number> }
 type pptMetadataDuration = { type: DashboardPropertyType.DURATION; props: pptMetadataBase<number> & { unit: DurationUnitType } }
 type pptMetadataPercent = { type: DashboardPropertyType.PERCENT; props: pptMetadataBase<number> & { color: (t: Torrent) => string } }
 type pptMetadataRelative = { type: DashboardPropertyType.RELATIVE; props: pptMetadataBase<number> }
 type pptMetadataSpeed = { type: DashboardPropertyType.SPEED; props: pptMetadataBase<number> }
-type pptMetadataText = { type: DashboardPropertyType.TEXT; props: pptMetadataBase<string> & { color?: (v: Torrent) => string } }
+export type pptMetadataText = { type: DashboardPropertyType.TEXT; props: pptMetadataBase<string> & { color?: (v: Torrent) => string } }
 
 type pptMetadata = { qbitVersion?: string; sortKey: keyof Torrent } & (
   | pptMetadataAmount
