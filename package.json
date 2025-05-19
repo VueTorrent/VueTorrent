@@ -31,7 +31,7 @@
     "axios": "^1.9.0",
     "dayjs": "^1.11.13",
     "lodash.debounce": "^4.0.8",
-    "pinia": "^2.3.1",
+    "pinia": "^3.0.2",
     "pinia-persistence-plugin": "^0.0.7",
     "pixi.js": "^8.9.2",
     "uuid": "^11.1.0",
