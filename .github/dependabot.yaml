@@ -25,5 +25,6 @@ updates:
         - '@vue/*'
         - '*vue*'
         - '*vuetify*'
+        - '*pinia*'
       patch:
         update-types: ["patch"]
