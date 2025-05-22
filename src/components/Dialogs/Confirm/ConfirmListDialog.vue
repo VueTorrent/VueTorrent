@@ -13,6 +13,11 @@ defineProps<{
   yesColor?: string
   yesText?: string
 }>()
+
+defineEmits<{
+  confirm: []
+  cancel: []
+}>()
 </script>
 
 <template>
