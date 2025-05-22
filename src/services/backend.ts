@@ -4,6 +4,10 @@ class BackendProvider {
   private axios: AxiosInstance
   private up: boolean = false
 
+  get isUp() {
+    return this.up
+  }
+
   constructor() {
     let baseURL = `${location.origin}${location.pathname}`
     if (!baseURL.endsWith('/')) baseURL += '/'
@@ -89,7 +93,7 @@ class BackendProvider {
   }
 
   async update() {
-    return this.axios.get('/update')
+    return this.axios.get('/update').then(res => res.data)
   }
 }
 
