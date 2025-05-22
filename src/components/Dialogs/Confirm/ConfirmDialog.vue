@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog, useI18nUtils } from '@/composables'
-import { onBeforeMount, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 
 const props = defineProps<{
   guid: string
@@ -45,7 +45,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 }
 
-onBeforeMount(() => {
+onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
 })
 
