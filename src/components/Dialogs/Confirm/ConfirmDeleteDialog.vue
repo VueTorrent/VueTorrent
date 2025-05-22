@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 import { useAppStore, useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -47,22 +47,6 @@ async function submit() {
     await router.push({ name: 'dashboard' })
   }
 }
-
-function handleKeyboardShortcuts(e: KeyboardEvent) {
-  if (e.key === 'Enter') {
-    e.preventDefault()
-    submit()
-    return true
-  }
-}
-
-onBeforeMount(() => {
-  document.addEventListener('keydown', handleKeyboardShortcuts)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeyboardShortcuts)
-})
 </script>
 
 <template>
