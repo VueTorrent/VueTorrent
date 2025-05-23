@@ -3,6 +3,7 @@ import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
 import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
+import { backend } from '@/services/backend'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { DarkLegacy, DarkRedesigned, DarkOled, LightLegacy, LightRedesigned } from '@/themes'
@@ -158,6 +159,14 @@ const registerMagnetHandler = () => {
 
 const checkNewVersion = async () => {
   if (vueTorrentVersion.value === 'DEV') return
+
+  if (backend.isUp) {
+    await backend
+      .update()
+      .then(msg => toast.success(msg, { autoClose: 3000 }))
+      .catch(err => toast.error(`${err.status} ${err.message}`, { autoClose: 5000 }))
+    return
+  }
 
   const latest = await github.getVersion()
   if (`v${vueTorrentVersion.value}` === latest) {
