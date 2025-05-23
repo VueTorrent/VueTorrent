@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.25.0](https://github.com/VueTorrent/VueTorrent/compare/v2.24.2...v2.25.0) (2025-05-23)
+
+
+### Features
+
+* **5.1.0:** append tracker from url to new downloads ([#2288](https://github.com/VueTorrent/VueTorrent/issues/2288)) ([5a3836d](https://github.com/VueTorrent/VueTorrent/commit/5a3836d7ae6182db3294685b73201ec962b12878))
+* **5.1.0:** fetch external IP from sync endpoint ([#2271](https://github.com/VueTorrent/VueTorrent/issues/2271)) ([d1834cf](https://github.com/VueTorrent/VueTorrent/commit/d1834cfc564dee45bc432c17b01f63470977586e))
+* **5.1:** Add cookies manager ([#2275](https://github.com/VueTorrent/VueTorrent/issues/2275)) ([2884f9c](https://github.com/VueTorrent/VueTorrent/commit/2884f9c17fa343e628622e34b2b2bf35bbad7bf1))
+* Add confirmation dialogs ([#2253](https://github.com/VueTorrent/VueTorrent/issues/2253)) ([5803d0d](https://github.com/VueTorrent/VueTorrent/commit/5803d0dbe821efa187b30be480e712275f28329e))
+* **backend:** Allows for manual update using "check new version" button ([#2307](https://github.com/VueTorrent/VueTorrent/issues/2307)) ([b3799b6](https://github.com/VueTorrent/VueTorrent/commit/b3799b6b6c39f7ca7ff06d9310f33197fce93fb8))
+* **Navbar:** Add confirmation when starting/stopping all torrents ([#2267](https://github.com/VueTorrent/VueTorrent/issues/2267)) ([cde8378](https://github.com/VueTorrent/VueTorrent/commit/cde8378346e891f87e8481496838267e06e2009d))
+* **Navbar:** Add options to hide filters ([#2269](https://github.com/VueTorrent/VueTorrent/issues/2269)) ([20be5b8](https://github.com/VueTorrent/VueTorrent/commit/20be5b86e7d0a62108a99988a9bc7c4d5b2f4183))
+
+
+### Improvements
+
+* Reduce build size ([#2290](https://github.com/VueTorrent/VueTorrent/issues/2290)) ([ea551fc](https://github.com/VueTorrent/VueTorrent/commit/ea551fcdbb68a7187132b44498c1f72ca015bcd3))
+
 ## [2.24.2](https://github.com/VueTorrent/VueTorrent/compare/v2.24.1...v2.24.2) (2025-04-22)
 
 ### Bug Fixes
