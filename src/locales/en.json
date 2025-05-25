@@ -730,7 +730,12 @@
     "runSearch": "Search",
     "stopSearch": "Stop",
     "tabHeaderEmpty": "(Empty query)",
-    "title": "Search engine"
+    "title": "Search engine",
+    "tooltip": {
+      "open_link": "Open link in new tab",
+      "append_queue": "Append to torrent queue",
+      "download": "Download using plugin"
+    }
   },
   "settings": {
     "addons": {

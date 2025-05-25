@@ -81,13 +81,12 @@ function deleteTab() {
   tabIndex.value = Math.min(tabIndex.value, searchData.value.length - 1)
 }
 
-function downloadTorrent(result: SearchResult) {
-  if (appStore.usesQbit5) {
-    searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!)
-  } else {
-    addTorrentStore.pushTorrentToQueue(result.fileUrl)
-  }
+function pushToQueue(result: SearchResult) {
+  addTorrentStore.pushTorrentToQueue(result.fileUrl)
+}
 
+function downloadTorrent(result: SearchResult) {
+  searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!)
   result.downloaded = true
 }
 
@@ -285,7 +284,9 @@ onBeforeUnmount(() => {
               </v-col>
               <v-col cols="3" class="item-actions">
                 <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+                <v-btn icon="mdi-plus-box-multiple" variant="text" density="compact" @click="pushToQueue(item)" />
                 <v-btn
+                  v-if="appStore.usesQbit5"
                   :icon="item.downloaded ? 'mdi-check' : 'mdi-download'"
                   :color="item.downloaded && 'accent'"
                   variant="text"
@@ -316,8 +317,30 @@ onBeforeUnmount(() => {
             {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}
           </template>
           <template v-slot:[`item.actions`]="{ item }">
-            <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
-            <v-btn :icon="item.downloaded ? 'mdi-check' : 'mdi-download'" :color="item.downloaded && 'accent'" variant="text" density="compact" @click="downloadTorrent(item)" />
+            <v-tooltip :text="$t('searchEngine.tooltip.open_link')" location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn v-bind="props" icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+              </template>
+            </v-tooltip>
+
+            <v-tooltip :text="$t('searchEngine.tooltip.append_queue')" location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn v-bind="props" icon="mdi-plus-box-multiple" variant="text" density="compact" @click="pushToQueue(item)" />
+              </template>
+            </v-tooltip>
+
+            <v-tooltip :text="$t('searchEngine.tooltip.download')" location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn
+                  v-if="appStore.usesQbit5"
+                  v-bind="props"
+                  :icon="item.downloaded ? 'mdi-check' : 'mdi-download'"
+                  :color="item.downloaded && 'accent'"
+                  variant="text"
+                  density="compact"
+                  @click="downloadTorrent(item)" />
+              </template>
+            </v-tooltip>
           </template>
         </v-data-table>
       </v-list-item>
