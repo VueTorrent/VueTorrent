@@ -4,9 +4,9 @@
 
 ### Features
 
-- **5.1.0:** append tracker from url to new downloads ([#2288](https://github.com/VueTorrent/VueTorrent/issues/2288))
+- **5.1:** append tracker from url to new downloads ([#2288](https://github.com/VueTorrent/VueTorrent/issues/2288))
   ([5a3836d](https://github.com/VueTorrent/VueTorrent/commit/5a3836d7ae6182db3294685b73201ec962b12878))
-- **5.1.0:** fetch external IP from sync endpoint ([#2271](https://github.com/VueTorrent/VueTorrent/issues/2271))
+- **5.1:** fetch external IP from sync endpoint ([#2271](https://github.com/VueTorrent/VueTorrent/issues/2271))
   ([d1834cf](https://github.com/VueTorrent/VueTorrent/commit/d1834cfc564dee45bc432c17b01f63470977586e))
 - **5.1:** Add cookies manager ([#2275](https://github.com/VueTorrent/VueTorrent/issues/2275))
   ([2884f9c](https://github.com/VueTorrent/VueTorrent/commit/2884f9c17fa343e628622e34b2b2bf35bbad7bf1))
