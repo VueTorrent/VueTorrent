@@ -127,9 +127,9 @@ describe('torrent state string and color', () => {
     torrentStates.forEach(state => {
       const mockTorrent = { state } as Torrent
       const expectedStateString = getTorrentStateString(state)
-    const expectedStateColor = getTorrentStateColor(state)
-    expect(stateMetadata.props.value!(mockTorrent)).toEqual([expectedStateString])
-    expect(stateMetadata.props.color!(mockTorrent)).toBe(expectedStateColor)
+      const expectedStateColor = getTorrentStateColor(state)
+      expect(stateMetadata.props.value!(mockTorrent)).toEqual([expectedStateString])
+      expect(stateMetadata.props.color!(mockTorrent)).toBe(expectedStateColor)
     })
     expect(stateMetadata.props.enableHashColor).toBeUndefined()
     expect(stateMetadata.props.emptyValueKey).toBe('torrent.state.unknown')
@@ -178,12 +178,10 @@ describe('DashboardDefaults Extended Coverage', () => {
               if (propKey === DashboardProperty.TRACKER) mockTorrentChip = { ...mockTorrentChip, trackerDomain: 'tracker.com' }
               if (propKey === DashboardProperty.STATE) mockTorrentChip = { ...mockTorrentChip, state: TorrentState.DOWNLOADING }
 
-
               const valueResult = metadata.props?.value(mockTorrentChip as Torrent)
               if (valueResult !== undefined && Array.isArray(valueResult)) {
                 expect(Array.isArray(valueResult)).toBe(true)
               } else if (propKey === DashboardProperty.STATE && valueResult !== undefined) {
-                
                 expect(Array.isArray(valueResult)).toBe(true)
               }
             }
@@ -280,7 +278,7 @@ describe('DashboardDefaults Extended Coverage', () => {
         expect(meta.props.total!(mockTorrent)).toBe(15)
       })
 
-      const chipColorTests: { prop: DashboardProperty; expectedColor: string; valueProp: keyof Torrent, sampleValue: any }[] = [
+      const chipColorTests: { prop: DashboardProperty; expectedColor: string; valueProp: keyof Torrent; sampleValue: any }[] = [
         { prop: DashboardProperty.BASENAME_DOWNLOAD_PATH, expectedColor: 'primary', valueProp: 'basename_download_path', sampleValue: 'file.iso' },
         { prop: DashboardProperty.BASENAME_SAVE_PATH, expectedColor: 'primary', valueProp: 'basename_save_path', sampleValue: 'file.iso' },
         { prop: DashboardProperty.CATEGORY, expectedColor: 'category', valueProp: 'category', sampleValue: 'movies' },
@@ -326,71 +324,70 @@ describe('DashboardDefaults Extended Coverage', () => {
         })
       })
 
-      const simpleNumericProps: {prop: DashboardProperty, unit?: string}[] = [
-        {prop: DashboardProperty.ADDED_ON},
-        {prop: DashboardProperty.AMOUNT_LEFT},
-        {prop: DashboardProperty.AVG_DOWNLOAD_SPEED},
-        {prop: DashboardProperty.AVG_UPLOAD_SPEED},
-        {prop: DashboardProperty.COMPLETED_ON},
-        {prop: DashboardProperty.DOWNLOAD_LIMIT},
-        {prop: DashboardProperty.DOWNLOAD_SPEED},
-        {prop: DashboardProperty.DOWNLOADED},
-        {prop: DashboardProperty.DOWNLOADED_SESSION},
-        {prop: DashboardProperty.GLOBAL_SPEED},
-        {prop: DashboardProperty.GLOBAL_VOLUME},
-        {prop: DashboardProperty.INACTIVE_SEEDING_TIME_LIMIT, unit: 'm'},
-        {prop: DashboardProperty.LAST_ACTIVITY},
-        {prop: DashboardProperty.PRIORITY},
-        {prop: DashboardProperty.SEEDING_TIME, unit: 's'},
-        {prop: DashboardProperty.SEEDING_TIME_LIMIT, unit: 'm'},
-        {prop: DashboardProperty.SEEN_COMPLETE},
-        {prop: DashboardProperty.SIZE},
-        {prop: DashboardProperty.TIME_ACTIVE, unit: 's'},
-        {prop: DashboardProperty.TOTAL_SIZE},
-        {prop: DashboardProperty.UPLOAD_LIMIT},
-        {prop: DashboardProperty.UPLOAD_SPEED},
-        {prop: DashboardProperty.UPLOADED},
-        {prop: DashboardProperty.UPLOADED_SESSION},
-      ];
+      const simpleNumericProps: { prop: DashboardProperty; unit?: string }[] = [
+        { prop: DashboardProperty.ADDED_ON },
+        { prop: DashboardProperty.AMOUNT_LEFT },
+        { prop: DashboardProperty.AVG_DOWNLOAD_SPEED },
+        { prop: DashboardProperty.AVG_UPLOAD_SPEED },
+        { prop: DashboardProperty.COMPLETED_ON },
+        { prop: DashboardProperty.DOWNLOAD_LIMIT },
+        { prop: DashboardProperty.DOWNLOAD_SPEED },
+        { prop: DashboardProperty.DOWNLOADED },
+        { prop: DashboardProperty.DOWNLOADED_SESSION },
+        { prop: DashboardProperty.GLOBAL_SPEED },
+        { prop: DashboardProperty.GLOBAL_VOLUME },
+        { prop: DashboardProperty.INACTIVE_SEEDING_TIME_LIMIT, unit: 'm' },
+        { prop: DashboardProperty.LAST_ACTIVITY },
+        { prop: DashboardProperty.PRIORITY },
+        { prop: DashboardProperty.SEEDING_TIME, unit: 's' },
+        { prop: DashboardProperty.SEEDING_TIME_LIMIT, unit: 'm' },
+        { prop: DashboardProperty.SEEN_COMPLETE },
+        { prop: DashboardProperty.SIZE },
+        { prop: DashboardProperty.TIME_ACTIVE, unit: 's' },
+        { prop: DashboardProperty.TOTAL_SIZE },
+        { prop: DashboardProperty.UPLOAD_LIMIT },
+        { prop: DashboardProperty.UPLOAD_SPEED },
+        { prop: DashboardProperty.UPLOADED },
+        { prop: DashboardProperty.UPLOADED_SESSION }
+      ]
 
-      simpleNumericProps.forEach(({prop, unit}) => {
+      simpleNumericProps.forEach(({ prop, unit }) => {
         it(`${prop}: value should return t.${propsMetadata[prop].sortKey} ${unit ? `(unit: ${unit})` : ''}`, () => {
-          const meta = propsMetadata[prop] as any;
-          const sortKey = meta.sortKey as keyof Torrent;
-          const mockTorrent = { [sortKey]: 12345 } as unknown as Torrent;
-          const expectedValue = (prop === DashboardProperty.PRIORITY) ? '12345' : 12345;
-          expect(meta.props.value(mockTorrent)).toBe(expectedValue);
+          const meta = propsMetadata[prop] as any
+          const sortKey = meta.sortKey as keyof Torrent
+          const mockTorrent = { [sortKey]: 12345 } as unknown as Torrent
+          const expectedValue = prop === DashboardProperty.PRIORITY ? '12345' : 12345
+          expect(meta.props.value(mockTorrent)).toBe(expectedValue)
           if (unit) {
-            expect(meta.props.unit).toBe(unit);
+            expect(meta.props.unit).toBe(unit)
           }
-        });
-      });
-
+        })
+      })
 
       const booleanProps: DashboardProperty[] = [
         DashboardProperty.AUTO_TMM,
         DashboardProperty.FIRST_LAST_PIECE_PRIORITY,
         DashboardProperty.FORCED,
         DashboardProperty.HAS_METADATA,
-        DashboardProperty.PRIVATE, 
+        DashboardProperty.PRIVATE,
         DashboardProperty.SEQUENTIAL_DOWNLOADS,
-        DashboardProperty.SUPER_SEEDING,
-      ];
+        DashboardProperty.SUPER_SEEDING
+      ]
       booleanProps.forEach(propKey => {
         it(`${propKey}: value should return t.${propsMetadata[propKey].sortKey}`, () => {
-          const meta = propsMetadata[propKey];
-          const sortKey = meta.sortKey as keyof Torrent;
-          let mockTorrentTrue = { [sortKey]: true } as unknown as Torrent;
-          expect(meta.props.value(mockTorrentTrue)).toBe(true);
-          let mockTorrentFalse = { [sortKey]: false } as unknown as Torrent;
-          expect(meta.props.value(mockTorrentFalse)).toBe(false);
+          const meta = propsMetadata[propKey]
+          const sortKey = meta.sortKey as keyof Torrent
+          let mockTorrentTrue = { [sortKey]: true } as unknown as Torrent
+          expect(meta.props.value(mockTorrentTrue)).toBe(true)
+          let mockTorrentFalse = { [sortKey]: false } as unknown as Torrent
+          expect(meta.props.value(mockTorrentFalse)).toBe(false)
 
           if (propKey === DashboardProperty.PRIVATE) {
-            const mockTorrentUndefined = { [sortKey]: undefined } as unknown as Torrent;
-             expect(meta.props.value(mockTorrentUndefined)).toBe(false);
+            const mockTorrentUndefined = { [sortKey]: undefined } as unknown as Torrent
+            expect(meta.props.value(mockTorrentUndefined)).toBe(false)
           }
-        });
-      });
+        })
+      })
     })
   })
 })
