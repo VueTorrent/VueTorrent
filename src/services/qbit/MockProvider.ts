@@ -1078,7 +1078,9 @@ export default class MockProvider implements IProvider {
             fileUrl: 'https://www.example.com/torrent/SDb4v2op8wm',
             nbLeechers: 0,
             nbSeeders: 0,
-            siteUrl: 'https://www.example.com'
+            siteUrl: 'https://www.example.com',
+            engineName: 'Example',
+            pubDate: new Date().getTime() / 1000
           }
         ],
         status: 'Stopped',
