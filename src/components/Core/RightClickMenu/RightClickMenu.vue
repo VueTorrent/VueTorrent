@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { isMac } from '@/helpers'
 import RightClickMenuEntry from './RightClickMenuEntry.vue'
+import { useKeyModifier } from '@vueuse/core'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 
 defineProps<{
@@ -7,11 +9,14 @@ defineProps<{
 }>()
 
 const rightClickMenuVisible = defineModel<boolean>({ required: true })
+
+const isCtrlPressed = useKeyModifier(isMac ? 'Meta' : 'Control', { initial: false })
 </script>
 
 <template>
-  <v-menu v-if="rightClickMenuVisible" v-model="rightClickMenuVisible" activator="parent" close-on-content-click transition="slide-y-transition" scroll-strategy="none">
+  <v-menu v-if="rightClickMenuVisible" v-model="rightClickMenuVisible" activator="parent" :close-on-content-click="!isCtrlPressed" transition="slide-y-transition" scroll-strategy="none">
     <v-list>
+      <v-list-item>close-on-content-click: {{ !isCtrlPressed }}</v-list-item>
       <slot name="top" />
       <v-divider v-if="$slots.top" thickness="3" />
 
