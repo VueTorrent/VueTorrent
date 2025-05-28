@@ -138,6 +138,7 @@ function toggleSelectMode() {
         :label="t('dashboard.sortLabel')"
         density="compact"
         hide-details
+        :menu-props="{ contentClass: 'wide-scrollbar' }"
         variant="solo-filled"
         :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
     </div>
