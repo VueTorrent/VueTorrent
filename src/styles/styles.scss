@@ -84,6 +84,6 @@ tr.ripple-fix {
 }
 
 /* Wider scrollbar for menus (Other than firefox) */
-.wide-scrollbar .v-list::-webkit-scrollbar {
-  width: 1rem;
+.v-list::-webkit-scrollbar {
+  width: 0.8rem;
 }
