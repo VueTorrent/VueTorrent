@@ -86,7 +86,7 @@ function disableFilter(value: T) {
     </v-list-item-title>
     <v-select
       :model-value="[...includeValues, ...excludeValues]"
-      :items="items"
+      :items="items.sort((a, b) => a.title.localeCompare(b.title))"
       :placeholder="t('navbar.side.filters.disabled')"
       bg-color="secondary"
       class="text-accent pt-1"
