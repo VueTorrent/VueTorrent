@@ -4,7 +4,7 @@ import { FilterState, FilterType } from '@/constants/vuetorrent'
 import { arrayRemove } from '@/helpers'
 import { computed } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   title: string
   items: { title: string; value: T }[]
   filterType: FilterType
@@ -21,6 +21,11 @@ const excludeValues = defineModel<Array<T>>('exclude', { required: true })
 const { t } = useI18nUtils()
 
 const filterCount = computed(() => includeValues.value.length + excludeValues.value.length)
+
+// Computed items sorted by title
+const orderedItems = computed(() => {
+  return props.items.sort((a, b) => a.title.localeCompare(b.title))
+})
 
 function getValueState(value: T) {
   if (includeValues.value.includes(value)) {
@@ -86,7 +91,7 @@ function disableFilter(value: T) {
     </v-list-item-title>
     <v-select
       :model-value="[...includeValues, ...excludeValues]"
-      :items="items.sort((a, b) => a.title.localeCompare(b.title))"
+      :items="orderedItems"
       :placeholder="t('navbar.side.filters.disabled')"
       bg-color="secondary"
       class="text-accent pt-1"

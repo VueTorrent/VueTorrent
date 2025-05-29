@@ -1,7 +1,8 @@
 <script setup lang="ts" generic="T">
 import { useI18nUtils } from '@/composables'
+import { computed } from 'vue';
 
-defineProps<{
+const props = defineProps<{
   title: string
   items: { title: string; value: T }[]
 }>()
@@ -16,6 +17,11 @@ defineEmits<{
 
 const modelValue = defineModel<T[]>({ required: true })
 
+// Computed items sorted by title
+const orderedItems = computed(() => {
+  return props.items.sort((a, b) => a.title.localeCompare(b.title))
+})
+
 const { t } = useI18nUtils()
 </script>
 
@@ -26,7 +32,7 @@ const { t } = useI18nUtils()
     </v-list-item-title>
     <v-select
       v-model="modelValue"
-      :items="items"
+      :items="orderedItems"
       :placeholder="t('navbar.side.filters.disabled')"
       bg-color="secondary"
       class="text-accent pt-1"
