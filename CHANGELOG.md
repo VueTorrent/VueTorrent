@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.25.1](https://github.com/VueTorrent/VueTorrent/compare/v2.25.0...v2.25.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* **Filters:** Sort alphabetically ([#2318](https://github.com/VueTorrent/VueTorrent/issues/2318)) ([7ebdb2f](https://github.com/VueTorrent/VueTorrent/commit/7ebdb2f652f648ab67d4bf8d0d6ba16dfc44115f))
+
+
+### Improvements
+
+* **Right Click Menu:** Hold Ctrl/Cmd to keep menu open after click ([#2316](https://github.com/VueTorrent/VueTorrent/issues/2316)) ([8efd77a](https://github.com/VueTorrent/VueTorrent/commit/8efd77a571557ca34dd96252efd93cbde6826e50))
+* **Search Engine:** Add button to append to queue on qbit 5.X ([#2309](https://github.com/VueTorrent/VueTorrent/issues/2309)) ([1ab19e7](https://github.com/VueTorrent/VueTorrent/commit/1ab19e7ac23f9a4cd99a0bc0b056c152244fd14e))
+* Widen menu dropdown scrollbar ([#2317](https://github.com/VueTorrent/VueTorrent/issues/2317)) ([d96a22a](https://github.com/VueTorrent/VueTorrent/commit/d96a22a74010fa45083262846d3143bb145d4de4))
+
 ## [2.25.0](https://github.com/VueTorrent/VueTorrent/compare/v2.24.2...v2.25.0) (2025-05-23)
 
 ### Features
