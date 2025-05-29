@@ -82,3 +82,8 @@ tr.ripple-fix {
 .ios-margin {
   margin-top: calc(env(safe-area-inset-top) * 0.5);
 }
+
+/* Wider scrollbar for menus (Other than firefox) */
+.v-list::-webkit-scrollbar {
+  width: 0.8rem;
+}
