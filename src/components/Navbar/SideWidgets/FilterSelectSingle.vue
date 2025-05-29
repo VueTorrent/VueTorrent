@@ -19,7 +19,8 @@ const modelValue = defineModel<T[]>({ required: true })
 
 // Computed items sorted by title
 const orderedItems = computed(() => {
-  return props.items.sort((a, b) => a.title.localeCompare(b.title))
+  const sortedArray = [...props.items].sort((a, b) => comparators.text.asc(a.title, b.title))
+  return sortedArray
 })
 
 const { t } = useI18nUtils()

@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T">
 import { useI18nUtils } from '@/composables'
 import { FilterState, FilterType } from '@/constants/vuetorrent'
-import { arrayRemove } from '@/helpers'
+import { arrayRemove, comparators } from '@/helpers'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -24,7 +24,8 @@ const filterCount = computed(() => includeValues.value.length + excludeValues.va
 
 // Computed items sorted by title
 const orderedItems = computed(() => {
-  return props.items.sort((a, b) => a.title.localeCompare(b.title))
+  const sortedArray = [...props.items].sort((a, b) => comparators.text.asc(a.title, b.title))
+  return sortedArray
 })
 
 function getValueState(value: T) {
