@@ -1,10 +1,10 @@
 <script setup lang="ts" generic="T">
 import { useI18nUtils } from '@/composables'
 import { FilterState, FilterType } from '@/constants/vuetorrent'
-import { arrayRemove } from '@/helpers'
+import { arrayRemove, comparators } from '@/helpers'
 import { computed } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   title: string
   items: { title: string; value: T }[]
   filterType: FilterType
@@ -21,6 +21,12 @@ const excludeValues = defineModel<Array<T>>('exclude', { required: true })
 const { t } = useI18nUtils()
 
 const filterCount = computed(() => includeValues.value.length + excludeValues.value.length)
+
+// Computed items sorted by title
+const orderedItems = computed(() => {
+  const sortedArray = [...props.items].sort((a, b) => comparators.text.asc(a.title, b.title))
+  return sortedArray
+})
 
 function getValueState(value: T) {
   if (includeValues.value.includes(value)) {
@@ -86,7 +92,7 @@ function disableFilter(value: T) {
     </v-list-item-title>
     <v-select
       :model-value="[...includeValues, ...excludeValues]"
-      :items="items"
+      :items="orderedItems"
       :placeholder="t('navbar.side.filters.disabled')"
       bg-color="secondary"
       class="text-accent pt-1"
