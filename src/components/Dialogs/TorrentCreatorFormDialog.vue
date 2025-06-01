@@ -128,7 +128,7 @@ const close = () => {
             <v-col cols="12">
               <v-textarea v-model="formData.urlSeeds" hide-details :label="t('dialogs.torrentCreator.urlSeeds')" />
             </v-col>
-            <v-col v-if="appStore.isFeatureAvailable('5.0.3')" cols="12">
+            <v-col v-if="appStore.isFeatureAvailable('5.1.0')" cols="12">
               <v-textarea v-model="formData.source" hide-details :label="t('dialogs.torrentCreator.source')" />
             </v-col>
             <v-col cols="12">

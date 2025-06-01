@@ -34,6 +34,7 @@ export default interface TorrentCreatorParams {
   /**
    * Source metadata field
    * used for cross-seeding by some private trackers
+   * @since 5.1.0
    */
   source?: string
   /**

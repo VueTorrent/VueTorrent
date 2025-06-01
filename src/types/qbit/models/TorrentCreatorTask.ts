@@ -47,6 +47,7 @@ export default interface TorrentCreatorTask {
   /**
    * Source metadata field
    * used for cross-seeding by some private trackers
+   * @since 5.1.0
    */
   source?: string
   timeAdded: string
