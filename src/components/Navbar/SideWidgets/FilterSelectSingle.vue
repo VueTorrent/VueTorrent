@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T">
 import { useI18nUtils } from '@/composables'
-import { comparators } from '@/helpers';
-import { computed } from 'vue';
+import { comparators } from '@/helpers'
+import { useSorted } from '@vueuse/core'
 
 const props = defineProps<{
   title: string
@@ -18,11 +18,7 @@ defineEmits<{
 
 const modelValue = defineModel<T[]>({ required: true })
 
-// Computed items sorted by title
-const orderedItems = computed(() => {
-  const sortedArray = [...props.items].sort((a, b) => comparators.text.asc(a.title, b.title))
-  return sortedArray
-})
+const orderedItems = useSorted(() => props.items, (a, b) => comparators.text.asc(a.title, b.title))
 
 const { t } = useI18nUtils()
 </script>

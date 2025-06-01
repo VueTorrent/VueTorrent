@@ -2,6 +2,7 @@
 import { useI18nUtils } from '@/composables'
 import { FilterState, FilterType } from '@/constants/vuetorrent'
 import { arrayRemove, comparators } from '@/helpers'
+import { useSorted } from '@vueuse/core'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -22,11 +23,7 @@ const { t } = useI18nUtils()
 
 const filterCount = computed(() => includeValues.value.length + excludeValues.value.length)
 
-// Computed items sorted by title
-const orderedItems = computed(() => {
-  const sortedArray = [...props.items].sort((a, b) => comparators.text.asc(a.title, b.title))
-  return sortedArray
-})
+const orderedItems = useSorted(() => props.items, (a, b) => comparators.text.asc(a.title, b.title))
 
 function getValueState(value: T) {
   if (includeValues.value.includes(value)) {
