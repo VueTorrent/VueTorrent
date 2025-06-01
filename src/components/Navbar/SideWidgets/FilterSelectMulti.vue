@@ -23,7 +23,10 @@ const { t } = useI18nUtils()
 
 const filterCount = computed(() => includeValues.value.length + excludeValues.value.length)
 
-const orderedItems = useSorted(() => props.items, (a, b) => comparators.text.asc(a.title, b.title))
+const orderedItems = useSorted(
+  () => props.items,
+  (a, b) => comparators.text.asc(a.title, b.title)
+)
 
 function getValueState(value: T) {
   if (includeValues.value.includes(value)) {

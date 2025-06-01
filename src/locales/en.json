@@ -733,9 +733,9 @@
     "tabHeaderEmpty": "(Empty query)",
     "title": "Search engine",
     "tooltip": {
-      "open_link": "Open link in new tab",
       "append_queue": "Append to torrent queue",
-      "download": "Download using plugin"
+      "download": "Download using plugin",
+      "open_link": "Open link in new tab"
     }
   },
   "settings": {
