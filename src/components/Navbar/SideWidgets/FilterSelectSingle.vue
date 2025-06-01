@@ -18,7 +18,10 @@ defineEmits<{
 
 const modelValue = defineModel<T[]>({ required: true })
 
-const orderedItems = useSorted(() => props.items, (a, b) => comparators.text.asc(a.title, b.title))
+const orderedItems = useSorted(
+  () => props.items,
+  (a, b) => comparators.text.asc(a.title, b.title)
+)
 
 const { t } = useI18nUtils()
 </script>
