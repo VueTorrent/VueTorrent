@@ -289,6 +289,7 @@
         "category": "Category",
         "download_limit": "Download limit",
         "download_path": "Download Path (when incomplete)",
+        "forced": "Forced state",
         "inactive_seeding_time_limit": "Inactive seeding time limit",
         "limit_collapse": "Configure limits",
         "limit_hint": "-1 to disable, -2 or empty to use global value",

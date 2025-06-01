@@ -58,6 +58,7 @@ export const useAddTorrentStore = defineStore(
       addTorrentParams.content_layout = preferenceStore.preferences!.torrent_content_layout
       addTorrentParams.download_limit = undefined
       addTorrentParams.download_path = preferenceStore.preferences!.temp_path_enabled ? preferenceStore.preferences!.temp_path : undefined
+      addTorrentParams.forced = undefined
       addTorrentParams.inactive_seeding_time_limit = undefined
       addTorrentParams.ratio_limit = undefined
       addTorrentParams.save_path = preferenceStore.preferences!.save_path

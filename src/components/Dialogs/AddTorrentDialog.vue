@@ -57,6 +57,7 @@ function submit() {
     dlLimit: addTorrentParams.value.download_limit,
     downloadPath: addTorrentParams.value.download_path,
     firstLastPiecePrio: form.value.firstLastPiecePrio,
+    forced: addTorrentParams.value.forced,
     inactiveSeedingTimeLimit: addTorrentParams.value.inactive_seeding_time_limit,
     paused: addTorrentParams.value.stopped,
     stopped: addTorrentParams.value.stopped,
