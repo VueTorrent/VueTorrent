@@ -2,7 +2,7 @@
 import HistoryField from '@/components/Core/HistoryField.vue'
 import { AppPreferences } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { useCategoryStore, usePreferenceStore, useTagStore } from '@/stores'
+import { useAppStore, useCategoryStore, usePreferenceStore, useTagStore } from '@/stores'
 import { AddTorrentParams } from '@/types/qbit/models'
 import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
@@ -10,6 +10,7 @@ import { useI18nUtils } from '@/composables'
 const form = defineModel<AddTorrentParams>({ required: true })
 
 const { t } = useI18nUtils()
+const appStore = useAppStore()
 const categoryStore = useCategoryStore()
 const preferenceStore = usePreferenceStore()
 const tagStore = useTagStore()
@@ -231,6 +232,9 @@ defineExpose({ saveFields })
     </v-col>
     <v-col cols="12" md="6">
       <v-checkbox v-model="form.use_auto_tmm" :label="t('dialogs.add.params.use_auto_tmm')" color="accent" density="compact" hide-details />
+    </v-col>
+    <v-col cols="12" md="6" v-if="appStore.isFeatureAvailable('5.1.0')">
+      <v-checkbox v-model="form.forced" :label="t('dialogs.add.params.forced')" color="accent" density="compact" hide-details />
     </v-col>
   </v-row>
 

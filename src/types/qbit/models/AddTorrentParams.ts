@@ -13,6 +13,12 @@ export default interface AddTorrentParams {
   download_limit?: number
   /** Torrent download path */
   download_path?: string
+  /**
+   * Whether torrent should be started in forced state
+   * @default false
+   * @since 5.1.0
+   */
+  forced?: boolean
   /** Inactive upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
   inactive_seeding_time_limit?: number
   /** Torrent operating mode (used for forced state) */

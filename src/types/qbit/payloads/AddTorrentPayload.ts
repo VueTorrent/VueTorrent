@@ -21,8 +21,17 @@ export default interface AddTorrentPayload {
    * Otherwise, use `savepath` or default save path
    */
   downloadPath?: string
-  /** Prioritize download first last piece */
+  /**
+   * Prioritize download first last piece
+   * @default false
+   */
   firstLastPiecePrio?: boolean
+  /**
+   * Whether torrent should be started in forced state
+   * @default false
+   * @since 5.1.0
+   */
+  forced?: boolean
   /**
    * Set inactive torrent seeding time limit. Unit in minutes
    * - -1 to disable
