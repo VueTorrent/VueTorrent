@@ -44,6 +44,11 @@ export default interface AppPreferences {
   alternative_webui_path: string
   /** IP address reported to trackers */
   announce_ip: string
+  /**
+   * Port reported to trackers
+   * @since 5.1.0
+   */
+  announce_port?: number
   /** True always announce to all tiers */
   announce_to_all_tiers: boolean
   /** True always announce to all trackers in a tier */
@@ -467,6 +472,36 @@ export default interface AppPreferences {
   i2p_inbound_length?: number
   /** SAM session number of hops for I2P outbound tunnels */
   i2p_outbound_length?: number
+  /**
+   * Whether a deletion confirmation should be shown, for WebUI only
+   * @since 5.1.0
+   */
+  confirm_torrent_deletion?: boolean
+  /**
+   * Whether a recheck confirmation should be shown, for WebUI only
+   * @since 5.1.0
+   */
+  confirm_torrent_recheck?: boolean
+  /**
+   * Time between stats measurements, in minutes
+   * @since 5.1.0
+   */
+  save_statistics_interval?: number
+  /**
+   * Whether SSL errors should be ignored
+   * @since 5.1.0
+   */
+  ignore_ssl_errors?: boolean
+  /**
+   * Whether external IP address should be displayed in the status bar, WebUI only
+   * @since 5.1.0
+   */
+  status_bar_external_ip?: boolean
+  /**
+   * Hostname resolver cache TTL
+   * @since 5.1.0
+   */
+  hostname_cache_ttl?: number
 }
 
 /** Preferences extension from Enhanced qBittorrent edition */

@@ -57,6 +57,11 @@ export default interface TorrentProperties {
   popularity?: number
   /** Whether torrent is private or not */
   private?: boolean
+  /**
+   * Torrent progress (percentage/100)
+   * @since 5.1.0
+   */
+  progress?: number
   /** Number of seconds until the next announce */
   reannounce: number
   /** Torrent save path, similar to `save_path` */
