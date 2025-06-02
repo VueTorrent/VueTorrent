@@ -9,6 +9,7 @@ import { FileType, extMap, typesMap } from './FileIcon'
 import { FilterState } from './FilterState'
 import { FilterType } from './FilterType'
 import { HistoryKey } from './HistoryKey'
+import { QbitStatus } from './QbitStatus'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
 import { TorrentState, emojiStateMap, stateQbitToVt, stateVtToQbit } from './TorrentState'
@@ -34,6 +35,7 @@ export {
   FilterState,
   FilterType,
   HistoryKey,
+  QbitStatus,
   ThemeMode,
   TitleOptions,
   TorrentState,

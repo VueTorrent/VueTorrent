@@ -11,6 +11,7 @@ import { useLogStore } from './logs'
 import { useMaindataStore } from './maindata'
 import { useNavbarStore } from './navbar'
 import { usePreferenceStore } from './preferences'
+import { useQbitStore } from './qbit'
 import { useRssStore } from './rss'
 import { useSearchEngineStore } from './searchEngine'
 import { useTagStore } from './tags'
@@ -36,6 +37,7 @@ export {
   useMaindataStore,
   useNavbarStore,
   usePreferenceStore,
+  useQbitStore,
   useRssStore,
   useSearchEngineStore,
   useTagStore,

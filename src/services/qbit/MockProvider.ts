@@ -1023,6 +1023,10 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async setFeedRefreshInterval(_0: string, _1: number): Promise<void> {
+    return this.generateResponse()
+  }
+
   async renameRule(_0: string, _1: string): Promise<void> {
     return this.generateResponse()
   }
@@ -1316,7 +1320,7 @@ export default class MockProvider implements IProvider {
 
   /// TorrentsController ///
 
-  async getTorrents(_?: GetTorrentPayload): Promise<QbitTorrent[]> {
+  async getTorrents(_?: GetTorrentPayload): Promise<(QbitTorrent & { trackers?: Tracker[] })[]> {
     return this.generateResponse({
       result: MockProvider.hashes.map(hash => ({ ...this.generateMockedTorrent(hash), hash }))
     })
@@ -1611,6 +1615,10 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async setTorrentTags(_0: string[], _1: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
   async removeTorrentTag(_0: string[], _1?: string[]): Promise<void> {
     return this.generateResponse()
   }
@@ -1659,6 +1667,24 @@ export default class MockProvider implements IProvider {
 
   async setSSLParameters(_0: string, _1: SSLParameters): Promise<boolean> {
     return this.generateResponse({ result: true })
+  }
+
+  getWebSeeds(_: string): Promise<{ url: string }[]> {
+    return this.generateResponse({
+      result: faker.helpers.multiple(() => ({ url: faker.internet.url() }), { count: { min: 0, max: 15 } })
+    })
+  }
+
+  addWebSeeds(_0: string, _1: string): Promise<void> {
+    return this.generateResponse()
+  }
+
+  editWebSeed(_0: string, _1: string, _2: string): Promise<void> {
+    return this.generateResponse()
+  }
+
+  removeWebSeeds(_0: string, _1: string): Promise<void> {
+    return this.generateResponse()
   }
 
   /// TransferController ///

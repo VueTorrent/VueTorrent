@@ -154,6 +154,14 @@ export default interface IProvider {
   setFeedUrl(path: string, url: string): Promise<void>
 
   /**
+   * Sets the refresh interval for a specific RSS feed
+   * @param path Feed name
+   * @param refreshInterval New interval to set between refresh, in seconds
+   * @since TODO
+   */
+  setFeedRefreshInterval(path: string, refreshInterval: number): Promise<void>
+
+  /**
    * Rename a rule
    * @param ruleName Old rule name
    * @param newRuleName New rule name
@@ -313,7 +321,7 @@ export default interface IProvider {
    * Get torrents
    * @param payload Response modifiers
    */
-  getTorrents(payload?: GetTorrentPayload): Promise<QbitTorrent[]>
+  getTorrents(payload?: GetTorrentPayload): Promise<(QbitTorrent & { trackers?: Tracker[] })[]>
 
   /**
    * Get the torrent trackers
@@ -452,8 +460,6 @@ export default interface IProvider {
    */
   getTorrentsCount(): Promise<number>
 
-  /// TransferController ///
-
   /**
    * Set the torrent share limits
    * @param hashes Torrent hashes
@@ -511,7 +517,7 @@ export default interface IProvider {
 
   /**
    * Remove trackers from torrents
-   * @param hash Torrent hash
+   * @param hash Torrent hash or '*' for all torrents
    * @param trackers Trackers to remove
    * @throws 404 if hash doesn't exist
    */
@@ -553,6 +559,13 @@ export default interface IProvider {
    * @param tags Tags to add
    */
   addTorrentTag(hashes: string[], tags: string[]): Promise<void>
+
+  /**
+   * Overwrites tags from torrents
+   * @param hashes Torrent hashes
+   * @param tags Tags to set
+   */
+  setTorrentTags(hashes: string[], tags: string[]): Promise<void>
 
   /**
    * Remove tags to torrents
@@ -614,6 +627,37 @@ export default interface IProvider {
 
   /** TODO */
   setSSLParameters(hash: string, params: SSLParameters): Promise<boolean>
+
+  /**
+   * Get registered web seeds for a torrent
+   */
+  getWebSeeds(hash: string): Promise<{ url: string }[]>
+
+  /**
+   * TODO
+   * Add web seed URLs to the torrent
+   * @param hash Torrent hash
+   * @param urls pipe-separated list of urls
+   * @since 5.1.0
+   */
+  addWebSeeds(hash: string, urls: string): Promise<void>
+
+  /**
+   * TODO
+   * Edit web seed URL to the torrent
+   * @param hash Torrent hash
+   * @param origUrl old URL
+   * @param newUrl new URL
+   */
+  editWebSeed(hash: string, origUrl: string, newUrl: string): Promise<void>
+
+  /**
+   * TODO
+   * Remove web seed URLs to the torrent
+   * @param hash Torrent hash
+   * @param urls pipe-separated list of urls
+   */
+  removeWebSeeds(hash: string, urls: string): Promise<void>
 
   /// TransferController ///
 
