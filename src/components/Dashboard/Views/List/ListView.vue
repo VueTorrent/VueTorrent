@@ -28,8 +28,9 @@ const dashboardStore = useDashboardStore()
     <v-list-item
       v-for="torrent in paginatedTorrents"
       :id="`torrent-${torrent.hash}`"
-      :class="display.mobile ? 'mb-2' : 'mb-4'"
-      class="pa-0"
+      :key="torrent.hash"
+      :class="['pa-0', display.mobile ? 'mb-2' : 'mb-4']"
+      data-custom-context-menu
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
       @touchcancel="$emit('endPress')"
       @touchend="$emit('endPress')"
