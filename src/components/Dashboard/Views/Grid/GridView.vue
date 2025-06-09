@@ -25,12 +25,14 @@ const dashboardStore = useDashboardStore()
   <v-row id="torrentList" class="ma-0 overflow-y-auto" :style="`max-height: ${height}px`">
     <v-col
       v-for="torrent in paginatedTorrents"
+      :key="torrent.hash"
       cols="12"
       lg="3"
       md="4"
       sm="6"
       xl="2"
       class="pb-0"
+      data-custom-context-menu
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
       @touchcancel="$emit('endPress')"
       @touchend="$emit('endPress')"

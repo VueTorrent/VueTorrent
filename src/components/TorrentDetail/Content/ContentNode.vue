@@ -93,6 +93,7 @@ function getNodeSubtitle(node: TreeNode) {
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
     @click.stop="toggleInternalSelection($event, node)"
+    data-custom-context-menu
     @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
       <!-- Selection checkbox -->

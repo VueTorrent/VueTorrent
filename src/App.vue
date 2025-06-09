@@ -61,14 +61,10 @@ const blockContextMenu = () => {
     if (!event.target) return
 
     const targetNode = event.target as Element
-    const nodeName = targetNode.nodeName.toLowerCase()
-    const nodeType = targetNode.getAttribute('type')?.toLowerCase() ?? ''
-
-    if (['textarea', 'a', 'img'].includes(nodeName)) return
-    if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
-
-    event.preventDefault()
-    return false
+    if (targetNode.closest('[data-custom-context-menu]')) {
+      event.preventDefault()
+      return false
+    }
   })
 }
 
