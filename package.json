@@ -50,7 +50,7 @@
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^22.15.30",
     "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.32.1",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vitest/coverage-v8": "^3.2.3",
