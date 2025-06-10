@@ -33,7 +33,7 @@
     "lodash.debounce": "^4.0.8",
     "pinia": "^3.0.2",
     "pinia-persistence-plugin": "^0.0.7",
-    "pixi.js": "^8.9.2",
+    "pixi.js": "^8.10.1",
     "uuid": "^11.1.0",
     "vite-plugin-vuetify": "^2.1.1",
     "vue": "^3.5.16",
