@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.26.0](https://github.com/VueTorrent/VueTorrent/compare/v2.25.0...v2.26.0) (2025-06-12)
+
+
+### Features
+
+* **5.1:** Add forced state in Add Torrent form ([#2321](https://github.com/VueTorrent/VueTorrent/issues/2321)) ([8e2787e](https://github.com/VueTorrent/VueTorrent/commit/8e2787ee8c0b78ecf8d0ac93a8554f4f9b65eb11))
+* default browser context menu where applications context menu is not present ([#2330](https://github.com/VueTorrent/VueTorrent/issues/2330)) ([d029ec8](https://github.com/VueTorrent/VueTorrent/commit/d029ec84d104c937a4e4a4abc154f8680f7bede9))
+* **Overview:** Show piece state overview ([#2336](https://github.com/VueTorrent/VueTorrent/issues/2336)) ([60b49c9](https://github.com/VueTorrent/VueTorrent/commit/60b49c969eec3b658bae565149b121f4f15a8850))
+
+
+### Bug Fixes
+
+* **Filters:** Sort alphabetically ([#2318](https://github.com/VueTorrent/VueTorrent/issues/2318)) ([7ebdb2f](https://github.com/VueTorrent/VueTorrent/commit/7ebdb2f652f648ab67d4bf8d0d6ba16dfc44115f))
+
+
+### Improvements
+
+* **Right Click Menu:** Hold Ctrl/Cmd to keep menu open after click ([#2316](https://github.com/VueTorrent/VueTorrent/issues/2316)) ([8efd77a](https://github.com/VueTorrent/VueTorrent/commit/8efd77a571557ca34dd96252efd93cbde6826e50))
+* **Search Engine:** Add button to append to queue on qbit 5.X ([#2309](https://github.com/VueTorrent/VueTorrent/issues/2309)) ([1ab19e7](https://github.com/VueTorrent/VueTorrent/commit/1ab19e7ac23f9a4cd99a0bc0b056c152244fd14e))
+* Widen menu dropdown scrollbar ([#2317](https://github.com/VueTorrent/VueTorrent/issues/2317)) ([d96a22a](https://github.com/VueTorrent/VueTorrent/commit/d96a22a74010fa45083262846d3143bb145d4de4))
+
 ## [2.25.0](https://github.com/VueTorrent/VueTorrent/compare/v2.24.2...v2.25.0) (2025-05-23)
 
 ### Features
