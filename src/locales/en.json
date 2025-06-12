@@ -1371,6 +1371,9 @@
       "downloaded": "Downloaded",
       "fetchingMetadata": "Fetching...",
       "fileCount": "Selected Files",
+      "piece_canvas_dialog": {
+        "title": "Piece state oveview"
+      },
       "pieceCount": "{owned} / {total} ({pieceSize})",
       "ratio": "Ratio",
       "selectedFileSize": "Selected Files' Size",
