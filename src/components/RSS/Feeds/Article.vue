@@ -17,7 +17,7 @@ const rssStore = useRssStore()
 </script>
 
 <template>
-  <v-list-item :class="{ 'rss-read': value.isRead }" @click="$emit('click')" @contextmenu="$emit('markAsRead')">
+  <v-list-item :class="{ 'rss-read': value.isRead }" data-custom-context-menu @click="$emit('click')" @contextmenu="$emit('markAsRead')">
     <div class="d-flex">
       <div>
         <v-list-item-title class="d-flex align-center ga-3 wrap-anywhere" style="white-space: unset">
