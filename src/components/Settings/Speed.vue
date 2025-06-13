@@ -48,10 +48,10 @@ const altDlLimit = computed({
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="upLimit" hide-details suffix="kiB/s" :label="t('settings.speed.upload')" />
+              <v-text-field v-model="upLimit" hide-details suffix="kB/s" :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="dlLimit" hide-details suffix="kiB/s" :label="t('settings.speed.download')" />
+              <v-text-field v-model="dlLimit" hide-details suffix="kB/s" :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
 
@@ -67,10 +67,10 @@ const altDlLimit = computed({
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="altUpLimit" hide-details suffix="kiB/s" :label="t('settings.speed.upload')" />
+              <v-text-field v-model="altUpLimit" hide-details suffix="kB/s" :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="altDlLimit" hide-details suffix="kiB/s" :label="t('settings.speed.download')" />
+              <v-text-field v-model="altDlLimit" hide-details suffix="kB/s" :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
 
