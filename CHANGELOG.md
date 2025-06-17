@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.26.1](https://github.com/VueTorrent/VueTorrent/compare/v2.26.0...v2.26.1) (2025-06-17)
+
+
+### Bug Fixes
+
+* **RSS:** Disable default context menu on articles ([#2338](https://github.com/VueTorrent/VueTorrent/issues/2338)) ([a694d7f](https://github.com/VueTorrent/VueTorrent/commit/a694d7fc9d5a71e1443d170f61acc21284db4d8e))
+* **Settings:** Use correct upload and download speed limit units ([#2341](https://github.com/VueTorrent/VueTorrent/issues/2341)) ([a1afeda](https://github.com/VueTorrent/VueTorrent/commit/a1afedaa828f1eebcd6be0390d1002d22d43a165))
+
 ## [2.26.0](https://github.com/VueTorrent/VueTorrent/compare/v2.25.0...v2.26.0) (2025-06-12)
 
 ### Features
