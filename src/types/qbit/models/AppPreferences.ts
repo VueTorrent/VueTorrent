@@ -291,7 +291,7 @@ export default interface AppPreferences {
   proxy_type: ProxyType
   /** Username for proxy authentication */
   proxy_username: string
-  /** True if torrent queuing is enabled */
+  /** True if torrent queueing is enabled */
   queueing_enabled: boolean
   /** True if the port is randomly selected */
   random_port: boolean

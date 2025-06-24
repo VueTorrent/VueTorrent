@@ -23,7 +23,7 @@ const vueTorrentStore = useVueTorrentStore()
 
 <template>
   <v-sheet
-    :class="{ 'cursor-pointer': !!$.vnode.props?.onClick }"
+    :class="{ 'flex-grow-1': true, 'cursor-pointer': !!$.vnode.props?.onClick }"
     :color="active ? 'secondary-lighten-1' : 'secondary'"
     rounded="lg"
     class="py-3"

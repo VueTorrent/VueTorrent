@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import StatSection from './StatSection.vue'
 import DataCard from '@/components/Core/DataCard.vue'
 import StringCard from '@/components/Core/StringCard.vue'
 import { useI18nUtils } from '@/composables'
@@ -17,16 +18,11 @@ const ratio = computed(() => (props.session ? undefined : maindataStore.serverSt
 </script>
 
 <template>
-  <v-card variant="flat" class="inherit-bg">
-    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
-      {{ title }}
-    </v-card-title>
-    <v-card-text class="px-0 pb-0">
-      <div class="d-flex flex-column flex-gap-row">
-        <DataCard :title="$t('navbar.side.stats.downloaded')" :value="download" color="download" icon="mdi-arrow-down" />
-        <DataCard :title="$t('navbar.side.stats.uploaded')" :value="upload" color="upload" icon="mdi-arrow-up" />
-        <StringCard v-if="!session" :title="$t('navbar.side.stats.ratio')" :value="ratio" color="ratio" />
-      </div>
-    </v-card-text>
-  </v-card>
+  <StatSection :title="title">
+    <div class="d-flex flex-row flex-gap-column">
+      <DataCard :value="download" color="download" icon="mdi-download" />
+      <DataCard :value="upload" color="upload" icon="mdi-upload" />
+      <StringCard v-if="!session" :value="ratio" color="ratio" icon="mdi-compare-horizontal" />
+    </div>
+  </StatSection>
 </template>

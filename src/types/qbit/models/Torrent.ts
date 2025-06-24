@@ -72,7 +72,7 @@ export interface RawTorrent {
    * @since 5.0.0
    */
   popularity?: number
-  /** Torrent priority. Returns -1 if queuing is disabled or torrent is in seed mode */
+  /** Torrent priority. Returns -1 if queueing is disabled or torrent is in seed mode */
   priority: number
   /**
    * Whether torrent is private or not

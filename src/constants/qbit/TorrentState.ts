@@ -15,7 +15,7 @@ export enum TorrentState {
   PAUSED_DL = 'pausedDL',
   /** Torrent is stopped and has NOT finished downloading */
   STOPPED_DL = 'stoppedDL',
-  /** Queuing is enabled and torrent is queued for download */
+  /** queueing is enabled and torrent is queued for download */
   QUEUED_DL = 'queuedDL',
   /** Torrent is forced to uploading and ignore queue limit */
   FORCED_UP = 'forcedUP',
@@ -30,7 +30,7 @@ export enum TorrentState {
   PAUSED_UP = 'pausedUP',
   /** Torrent is stopped and has finished downloading */
   STOPPED_UP = 'stoppedUP',
-  /** Queuing is enabled and torrent is queued for upload */
+  /** queueing is enabled and torrent is queued for upload */
   QUEUED_UP = 'queuedUP',
   /** Same as checkingUP, but torrent has NOT finished downloading */
   CHECKING_DL = 'checkingDL',
