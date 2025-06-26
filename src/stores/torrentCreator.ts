@@ -1,7 +1,7 @@
-import qbit from '@/services/qbit'
-import { TorrentCreatorParams, TorrentCreatorTask } from '@/types/qbit/models'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import qbit from '@/services/qbit'
+import { TorrentCreatorParams, TorrentCreatorTask } from '@/types/qbit/models'
 
 export const useTorrentCreatorStore = defineStore('torrentCreator', () => {
   const tasks = ref<TorrentCreatorTask[]>([])

@@ -1,9 +1,10 @@
 <script setup lang="ts" generic="T">
+import { vOnLongPress } from '@vueuse/components'
+import { useSorted } from '@vueuse/core'
+import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { FilterState, FilterType } from '@/constants/vuetorrent'
 import { arrayRemove, comparators } from '@/helpers'
-import { useSorted } from '@vueuse/core'
-import { computed } from 'vue'
 
 const props = defineProps<{
   title: string
@@ -102,16 +103,16 @@ function disableFilter(value: T) {
       variant="solo">
       <template #prepend>
         <v-tooltip location="right" :text="t(filterType === FilterType.CONJUNCTIVE ? 'constants.filter_type.conjunctive' : 'constants.filter_type.disjunctive')">
-          <template #activator="{ props }">
-            <v-icon v-bind="props" :icon="filterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" @click="$emit('toggleFilterType')" />
+          <template #activator="{ props: tooltipProps }">
+            <v-icon v-bind="tooltipProps" :icon="filterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" @click="$emit('toggleFilterType')" />
           </template>
         </v-tooltip>
       </template>
-      <template v-slot:prepend-item>
+      <template #prepend-item>
         <v-list-item :title="t('common.disable')" @click="$emit('disable')" />
         <v-divider />
       </template>
-      <template v-slot:selection="{ item, index }">
+      <template #selection="{ item, index }">
         <span v-if="index === 0 && filterCount === 1" class="text-accent">
           {{ item.title }}
         </span>
@@ -120,7 +121,13 @@ function disableFilter(value: T) {
         </span>
       </template>
       <template #item="{ item }">
-        <v-list-item :title="item.title" :class="getClassColor(item.value)" data-custom-context-menu @click="toggleValue(item.value)" @contextmenu="disableFilter(item.value)">
+        <v-list-item
+          v-on-long-press="() => disableFilter(item.value)"
+          :title="item.title"
+          :class="getClassColor(item.value)"
+          data-custom-context-menu
+          @click="toggleValue(item.value)"
+          @contextmenu="disableFilter(item.value)">
           <template #prepend>
             <v-icon :icon="getIcon(item.value)" />
           </template>

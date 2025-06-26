@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import FeedIcon from './FeedIcon.vue'
-import { FeedState } from '@/constants/vuetorrent'
-import { useRssStore } from '@/stores'
-import { Feed as FeedType } from '@/types/qbit/models'
 import { useArrayUnique } from '@vueuse/core'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import Feed from './Feed.vue'
+import FeedIcon from './FeedIcon.vue'
+import { FeedState } from '@/constants/vuetorrent'
+import { useRssStore } from '@/stores'
+import { Feed as FeedType } from '@/types/qbit/models'
 
 defineProps<{
   height?: number
@@ -24,12 +24,9 @@ const router = useRouter()
 const rssStore = useRssStore()
 
 const currentFeed = computed({
-  get() {
-    return router.currentRoute.value.params.feedId as string | undefined
-  },
+  get: () => router.currentRoute.value.params.feedId as string | undefined,
   set(feedId) {
-    router.replace({ name: 'rssArticles', params: { tab: 'feeds', feedId } })
-    emit('update', feedId)
+    void router.replace({ name: 'rssArticles', params: { tab: 'feeds', feedId } }).then(() => emit('update', feedId))
   }
 })
 const filteredFeedIds = useArrayUnique(() => rssStore.filteredArticles.map(art => art.feedId))
@@ -81,19 +78,19 @@ function getFeedState(feed: FeedType) {
         <v-spacer />
 
         <v-tooltip :text="$t('rssArticles.feeds.markAllAsRead')" location="top">
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <v-btn v-if="getUnreadCount() > 0" v-bind="props" icon="mdi-email-open" density="comfortable" variant="plain" @click="rssStore.markAllAsRead()" />
           </template>
         </v-tooltip>
 
         <v-tooltip :text="$t('rssArticles.feeds.refreshAllFeeds')" location="top">
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <v-btn v-if="allState !== FeedState.LOADING" v-bind="props" icon="mdi-sync" density="comfortable" variant="plain" @click="refreshAllFeeds()" />
           </template>
         </v-tooltip>
 
         <v-tooltip :text="$t('rssArticles.feeds.empty.action')" location="top">
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <v-btn v-bind="props" icon="mdi-plus" density="comfortable" variant="plain" @click="$emit('createFeed')" />
           </template>
         </v-tooltip>
@@ -103,6 +100,7 @@ function getFeedState(feed: FeedType) {
     <template v-for="feed in rssStore.feeds">
       <v-list-item
         v-if="(!rssStore.filters.unread || getUnreadCount(feed) > 0) && (rssStore.filters.title == '' || !filteredFeedIds.length || filteredFeedIds.includes(feed.uid))"
+        :key="feed.uid"
         :active="currentFeed === feed.uid"
         :class="getUnreadCount(feed) > 0 ? 'text-accent' : ''"
         color="accent"
@@ -112,10 +110,10 @@ function getFeedState(feed: FeedType) {
           :title="getFeedTitle(feed)"
           :state="getFeedState(feed)"
           :unread-count="getUnreadCount(feed)"
-          @readFeed="readFeed(feed)"
-          @refreshFeed="$emit('refreshFeed', feed)"
-          @editFeed="$emit('editFeed', feed)"
-          @deleteFeed="$emit('deleteFeed', feed)" />
+          @read-feed="readFeed(feed)"
+          @refresh-feed="$emit('refreshFeed', feed)"
+          @edit-feed="$emit('editFeed', feed)"
+          @delete-feed="$emit('deleteFeed', feed)" />
       </v-list-item>
     </template>
   </v-list>

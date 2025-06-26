@@ -1,8 +1,8 @@
-import { AppPreferencesPayload } from '@/types/qbit/payloads'
-import { ref } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import AppPreferences from '@/types/qbit/models/AppPreferences'
+import { ref } from 'vue'
 import qbit from '@/services/qbit'
+import AppPreferences from '@/types/qbit/models/AppPreferences'
+import { AppPreferencesPayload } from '@/types/qbit/payloads'
 
 export const usePreferenceStore = defineStore(
   'preferences',

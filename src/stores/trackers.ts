@@ -1,9 +1,9 @@
-import { comparators, extractHostname } from '@/helpers'
-import qbit from '@/services/qbit'
 import { useSorted } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, shallowRef, triggerRef } from 'vue'
+import { comparators, extractHostname } from '@/helpers'
+import qbit from '@/services/qbit'
 
 export const useTrackerStore = defineStore('trackers', () => {
   /** Key: tracker domain, values: torrent hashes */
@@ -33,7 +33,9 @@ export const useTrackerStore = defineStore('trackers', () => {
       hashes.forEach(hash => {
         const domains = tot.get(hash)
         if (domains) {
-          !domains.includes(domain) && domains.push(domain)
+          if (!domains.includes(domain)) {
+            domains.push(domain)
+          }
         } else {
           tot.set(hash, [domain])
         }

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { formatTimeSec } from '@/helpers'
+import { storeToRefs } from 'pinia'
 import InfoBase from './InfoBase.vue'
+import { formatTimeSec } from '@/helpers'
 import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
 
 const props = defineProps<{ torrent: Torrent }>()
 
@@ -23,12 +23,16 @@ const torrentValues = [
   <v-expansion-panel :title="$t('torrentDetail.info.datetime_values')">
     <v-expansion-panel-text>
       <v-row>
-        <InfoBase v-for="ppt in torrentValues">
-          <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
-          <template v-if="ppt.getter() > 0" v-slot:text>
+        <InfoBase v-for="ppt in torrentValues" :key="ppt.title">
+          <template #title>
+            {{ $t(`torrent.properties.${ppt.title}`) }}
+          </template>
+          <template v-if="ppt.getter() > 0" #text>
             {{ formatTimeSec(ppt.getter(), dateFormat) }}
           </template>
-          <template v-else v-slot:text> {{ $t('dashboard.not_complete') }}</template>
+          <template v-else #text>
+            {{ $t('dashboard.not_complete') }}
+          </template>
         </InfoBase>
       </v-row>
     </v-expansion-panel-text>

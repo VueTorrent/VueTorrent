@@ -1,6 +1,6 @@
-import { FilePriority } from '@/constants/qbit'
 import { beforeEach, expect, test } from 'vitest'
 import { TreeFile, TreeFolder } from './TreeObjects'
+import { FilePriority } from '@/constants/qbit'
 
 const file_unwanted = new TreeFile(
   {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { useCookieStore } from '@/stores'
 import { Cookie } from '@/types/vuetorrent'
-import { computed, onBeforeMount, reactive, ref } from 'vue'
 
 const props = defineProps<{
   guid: string
@@ -79,7 +79,7 @@ async function submit() {
   close()
 }
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 
@@ -129,8 +129,12 @@ onBeforeMount(() => {
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-btn :disabled="!isFormValid" color="accent" @click="submit">{{ t('common.submit') }}</v-btn>
-        <v-btn color="error" @click="close">{{ t('common.close') }}</v-btn>
+        <v-btn :disabled="!isFormValid" color="accent" @click="submit">
+          {{ t('common.submit') }}
+        </v-btn>
+        <v-btn color="error" @click="close">
+          {{ t('common.close') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

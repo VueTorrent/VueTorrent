@@ -1,4 +1,4 @@
-name: Test Core Components
+name: Test build
 on:
   pull_request:
     types:

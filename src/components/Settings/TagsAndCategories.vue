@@ -11,7 +11,7 @@ const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const tagStore = useTagStore()
 
-async function deleteTag(tagName: string) {
+function deleteTag(tagName: string) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteTag'),
     text: tagName,
@@ -23,7 +23,7 @@ async function deleteTag(tagName: string) {
   })
 }
 
-async function deleteUnusedTags() {
+function deleteUnusedTags() {
   dialogStore.confirmListAction({
     title: t('dialogs.confirm.deleteUnusedTags'),
     items: tagStore.unusedTags,
@@ -34,7 +34,7 @@ async function deleteUnusedTags() {
   })
 }
 
-async function deleteCategory(category: Category) {
+function deleteCategory(category: Category) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteTag'),
     text: category.name,
@@ -46,7 +46,7 @@ async function deleteCategory(category: Category) {
   })
 }
 
-async function deleteUnusedCategories() {
+function deleteUnusedCategories() {
   dialogStore.confirmListAction({
     title: t('dialogs.confirm.deleteUnusedCategories'),
     items: categoryStore.unusedCategories,
@@ -70,9 +70,11 @@ function openCategoryFormDialog(initialCategory?: Category) {
   <v-row>
     <!-- Tags -->
     <v-col cols="12" sm="6">
-      <v-list-subheader class="ml-2">{{ t('settings.tagsAndCategories.tagsSubheader') }}</v-list-subheader>
+      <v-list-subheader class="ml-2">
+        {{ t('settings.tagsAndCategories.tagsSubheader') }}
+      </v-list-subheader>
 
-      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="tag in tagStore.tags">
+      <v-sheet v-for="tag in tagStore.tags" :key="tag" rounded="xl" class="d-flex align-center gap">
         <div class="pl-4 py-1 wrap-anywhere">{{ tag }} ({{ tagStore.torrentsByTag[tag] ?? 0 }})</div>
         <v-spacer />
         <div class="d-flex">
@@ -97,9 +99,11 @@ function openCategoryFormDialog(initialCategory?: Category) {
 
     <!-- Categories -->
     <v-col cols="12" sm="6">
-      <v-list-subheader class="ml-2">{{ t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
+      <v-list-subheader class="ml-2">
+        {{ t('settings.tagsAndCategories.categoriesSubheader') }}
+      </v-list-subheader>
 
-      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in categoryStore.categories">
+      <v-sheet v-for="category in categoryStore.categories" :key="category.name" rounded="xl" class="d-flex align-center gap">
         <div class="pl-4 py-1 wrap-anywhere">{{ category.name }} ({{ categoryStore.torrentsByCategory[category.name] ?? 0 }})</div>
         <v-spacer />
         <div class="d-flex">

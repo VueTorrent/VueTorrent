@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables'
-import { useContentStore } from '@/stores'
 import { nextTick, onBeforeMount, reactive, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
+import { useDialog, useI18nUtils } from '@/composables'
+import { useContentStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
@@ -38,7 +37,7 @@ async function submit() {
   close()
 }
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 
@@ -46,12 +45,12 @@ onBeforeMount(() => {
   formData.newName = props.oldName
 
   if (props.isFolder) {
-    nextTick(() => input.value?.select())
+    void nextTick(() => input.value?.select())
   } else {
     const startIndex = formData.newName.lastIndexOf('/')
     const endIndex = formData.newName.lastIndexOf('.')
 
-    nextTick(() => {
+    void nextTick(() => {
       input.value?.setSelectionRange(startIndex + 1, endIndex == -1 ? formData.newName.length : endIndex)
     })
   }
@@ -63,15 +62,19 @@ onBeforeMount(() => {
     <v-card>
       <v-card-title>{{ t('dialogs.moveTorrentFile.title', 1 + Number(isFolder)) }}</v-card-title>
       <v-card-text>
-        <v-form v-model="isFormValid" ref="form" @submit.prevent>
+        <v-form ref="form" v-model="isFormValid" @submit.prevent>
           <v-text-field v-if="oldName" :model-value="oldName" disabled :label="$t('dialogs.moveTorrentFile.oldName')" />
-          <v-text-field v-model="formData.newName" ref="input" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
+          <v-text-field ref="input" v-model="formData.newName" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="error" @click="close">{{ $t('common.cancel') }}</v-btn>
-        <v-btn color="accent" :disabled="!isFormValid" @click="submit">{{ $t('common.save') }}</v-btn>
+        <v-btn color="error" @click="close">
+          {{ $t('common.cancel') }}
+        </v-btn>
+        <v-btn color="accent" :disabled="!isFormValid" @click="submit">
+          {{ $t('common.save') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

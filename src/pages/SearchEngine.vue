@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useI18nUtils, useSearchQuery } from '@/composables'
@@ -6,10 +10,6 @@ import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useDisplay } from 'vuetify'
 
 const { mobile } = useDisplay()
 const router = useRouter()
@@ -86,8 +86,7 @@ function pushToQueue(result: SearchResult) {
 }
 
 function downloadTorrent(result: SearchResult) {
-  searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!)
-  result.downloaded = true
+  void searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!).then(() => (result.downloaded = true))
 }
 
 function openResultLink(result: SearchResult) {
@@ -96,17 +95,19 @@ function openResultLink(result: SearchResult) {
 
 async function runNewSearch() {
   await searchEngineStore.runNewSearch(selectedTab.value)
-  selectedTab.value.timer = setInterval(() => refreshResults(selectedTab.value), 1000)
+  selectedTab.value.timer = setInterval(() => void refreshResults(selectedTab.value), 1000)
   queryInput.value?.saveValueToHistory()
 }
 
 async function stopSearch(tab: SearchData) {
   await searchEngineStore.stopSearch(tab)
-  !!tab.timer && clearInterval(tab.timer)
+  if (tab.timer) {
+    clearInterval(tab.timer)
+  }
 }
 
 function stopAllSearch() {
-  searchData.value.forEach(stopSearch)
+  void Promise.allSettled(searchData.value.map(stopSearch))
 }
 
 async function refreshResults(tab: SearchData) {
@@ -115,8 +116,8 @@ async function refreshResults(tab: SearchData) {
   }
 }
 
-const goHome = () => {
-  router.push({ name: 'dashboard' })
+function goHome() {
+  void router.push({ name: 'dashboard' })
 }
 
 function openPluginManagerDialog() {
@@ -140,7 +141,7 @@ onBeforeMount(async () => {
   } else {
     searchData.value.forEach((tab: SearchData) => {
       if (tab.id && tab.id !== 0) {
-        tab.timer = setInterval(() => searchEngineStore.refreshResults(tab), 1000)
+        tab.timer = setInterval(() => void searchEngineStore.refreshResults(tab), 1000)
       }
     })
   }
@@ -192,9 +193,9 @@ onBeforeUnmount(() => {
         <v-row class="mt-1">
           <v-col cols="12" md="6">
             <HistoryField
+              ref="queryInput"
               v-model="selectedTab.query"
               :history-key="HistoryKey.SEARCH_ENGINE_QUERY"
-              ref="queryInput"
               autofocus
               density="compact"
               hide-details
@@ -240,12 +241,12 @@ onBeforeUnmount(() => {
       <v-list-item class="text-select">
         <v-data-table
           v-if="mobile"
+          v-model:items-per-page="selectedTab.itemsPerPage"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
-          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
-          :items-per-page.sync="selectedTab.itemsPerPage">
-          <template v-slot:top>
+          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
+          <template #top>
             <v-row>
               <v-col cols="12">
                 <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
@@ -255,32 +256,60 @@ onBeforeUnmount(() => {
           <template #item="{ item, index }">
             <v-divider v-if="index !== 0" />
             <v-row class="row-mobile ma-0 pa-3">
-              <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.fileName') }}</v-col>
-              <v-col cols="6" class="item-value-large">{{ item.fileName }}</v-col>
+              <v-col cols="6" class="item-header-large">
+                {{ t('searchEngine.headers.fileName') }}
+              </v-col>
+              <v-col cols="6" class="item-value-large">
+                {{ item.fileName }}
+              </v-col>
 
               <template v-if="appStore.usesQbit5">
-                <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.engineName') }}</v-col>
-                <v-col cols="6" class="item-value-large">{{ item.engineName }}</v-col>
+                <v-col cols="6" class="item-header-large">
+                  {{ t('searchEngine.headers.engineName') }}
+                </v-col>
+                <v-col cols="6" class="item-value-large">
+                  {{ item.engineName }}
+                </v-col>
 
-                <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.pubDate') }}</v-col>
-                <v-col cols="6" class="item-value-large">{{ item.pubDate === -1 ? t('common.NA') : formatTimeSec(item.pubDate!, dateFormat) }}</v-col>
+                <v-col cols="6" class="item-header-large">
+                  {{ t('searchEngine.headers.pubDate') }}
+                </v-col>
+                <v-col cols="6" class="item-value-large">
+                  {{ item.pubDate === -1 ? t('common.NA') : formatTimeSec(item.pubDate!, dateFormat) }}
+                </v-col>
               </template>
               <template v-else>
-                <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.siteUrl') }}</v-col>
-                <v-col cols="6" class="item-value-large">{{ item.siteUrl }}</v-col>
+                <v-col cols="6" class="item-header-large">
+                  {{ t('searchEngine.headers.siteUrl') }}
+                </v-col>
+                <v-col cols="6" class="item-value-large">
+                  {{ item.siteUrl }}
+                </v-col>
               </template>
 
               <v-col cols="3" class="item-container">
-                <div class="item-header-small">{{ t('searchEngine.headers.fileSize') }}</div>
-                <div class="item-value-small">{{ formatData(item.fileSize, useBinarySize) }}</div>
+                <div class="item-header-small">
+                  {{ t('searchEngine.headers.fileSize') }}
+                </div>
+                <div class="item-value-small">
+                  {{ formatData(item.fileSize, useBinarySize) }}
+                </div>
               </v-col>
               <v-col cols="3" class="item-container">
-                <div class="item-header-small">{{ t('searchEngine.headers.nbSeeders') }}</div>
-                <div class="item-value-small">{{ item.nbSeeders }}</div>
+                <div class="item-header-small">
+                  {{ t('searchEngine.headers.nbSeeders') }}
+                </div>
+                <div class="item-value-small">
+                  {{ item.nbSeeders }}
+                </div>
               </v-col>
               <v-col cols="3" class="item-container">
-                <div class="item-header-small">{{ t('searchEngine.headers.nbLeechers') }}</div>
-                <div class="item-value-small">{{ item.nbLeechers }}</div>
+                <div class="item-header-small">
+                  {{ t('searchEngine.headers.nbLeechers') }}
+                </div>
+                <div class="item-value-small">
+                  {{ item.nbLeechers }}
+                </div>
               </v-col>
               <v-col cols="3" class="item-actions">
                 <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
@@ -298,39 +327,39 @@ onBeforeUnmount(() => {
         </v-data-table>
         <v-data-table
           v-else
+          v-model:items-per-page="selectedTab.itemsPerPage"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"
-          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
-          :items-per-page.sync="selectedTab.itemsPerPage">
-          <template v-slot:top>
+          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
+          <template #top>
             <v-row>
               <v-col cols="12">
                 <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
               </v-col>
             </v-row>
           </template>
-          <template v-slot:[`item.fileSize`]="{ item }">
+          <template #[`item.fileSize`]="{ item }">
             {{ formatData(item.fileSize, useBinarySize) }}
           </template>
-          <template v-slot:[`item.pubDate`]="{ value }">
+          <template #[`item.pubDate`]="{ value }">
             {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}
           </template>
-          <template v-slot:[`item.actions`]="{ item }">
+          <template #[`item.actions`]="{ item }">
             <v-tooltip :text="$t('searchEngine.tooltip.open_link')" location="top">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
               </template>
             </v-tooltip>
 
             <v-tooltip :text="$t('searchEngine.tooltip.append_queue')" location="top">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-plus-box-multiple" variant="text" density="compact" @click="pushToQueue(item)" />
               </template>
             </v-tooltip>
 
             <v-tooltip :text="$t('searchEngine.tooltip.download')" location="top">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn
                   v-if="appStore.usesQbit5"
                   v-bind="props"

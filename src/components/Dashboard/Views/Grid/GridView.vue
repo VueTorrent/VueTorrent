@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import GridTorrent from '@/components/Dashboard/Views/Grid/GridTorrent.vue'
+import { vOnLongPress } from '@vueuse/components'
+import GridTorrent from './GridTorrent.vue'
 import { getTorrentStateColor } from '@/helpers'
 import { useDashboardStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
@@ -14,8 +15,6 @@ defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
-  startPress: [e: Touch, torrent: TorrentType]
-  endPress: []
 }>()
 
 const dashboardStore = useDashboardStore()
@@ -26,6 +25,7 @@ const dashboardStore = useDashboardStore()
     <v-col
       v-for="torrent in paginatedTorrents"
       :key="torrent.hash"
+      v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
       cols="12"
       lg="3"
       md="4"
@@ -34,10 +34,6 @@ const dashboardStore = useDashboardStore()
       class="pb-0"
       data-custom-context-menu
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
-      @touchcancel="$emit('endPress')"
-      @touchend="$emit('endPress')"
-      @touchmove="$emit('endPress')"
-      @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
       @dblclick="$emit('onTorrentDblClick', torrent)">
       <div class="d-flex align-center" style="height: 100%; width: 100%">
         <v-expand-x-transition>
@@ -49,7 +45,7 @@ const dashboardStore = useDashboardStore()
             variant="text"
             @click="$emit('onCheckboxClick', $event, torrent)" />
         </v-expand-x-transition>
-        <GridTorrent :torrent="torrent" @onTorrentClick="(e, t) => $emit('onTorrentClick', e, t)" />
+        <GridTorrent :torrent="torrent" @on-torrent-click="(e, t) => $emit('onTorrentClick', e, t)" />
       </div>
     </v-col>
   </v-row>

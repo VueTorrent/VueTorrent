@@ -1,5 +1,5 @@
-import { formatPercent, toPrecision } from './number'
 import { expect, test } from 'vitest'
+import { formatPercent, toPrecision } from './number'
 
 test('helpers/number/toPrecision', () => {
   expect(toPrecision(0, 3)).toBe('0.00')

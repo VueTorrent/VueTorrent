@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { computed, onBeforeMount, ref } from 'vue'
 import { useDialog } from '@/composables'
 import { useMaindataStore, useTorrentStore } from '@/stores'
-import { computed, onBeforeMount, ref } from 'vue'
 
 type ShareType = 'global' | 'disabled' | 'enabled'
 const GLOBAL = -2
@@ -55,7 +55,7 @@ async function submit() {
   close()
 }
 
-onBeforeMount(async () => {
+onBeforeMount(() => {
   const torrent = torrentStore.getTorrentByHash(props.hashes[0])
   if (!torrent) {
     return close()
@@ -122,8 +122,12 @@ onBeforeMount(async () => {
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="error" @click="close">{{ $t('common.cancel') }}</v-btn>
-        <v-btn color="accent" :disabled="!isFormValid" @click="submit">{{ $t('common.save') }}</v-btn>
+        <v-btn color="error" @click="close">
+          {{ $t('common.cancel') }}
+        </v-btn>
+        <v-btn color="accent" :disabled="!isFormValid" @click="submit">
+          {{ $t('common.save') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

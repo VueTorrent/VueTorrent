@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables'
-import { useTagStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
+import { useDialog, useI18nUtils } from '@/composables'
+import { useTagStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
@@ -28,7 +27,7 @@ async function submit() {
   if (!isFormValid.value) return
 
   let tagSent
-  if (!!props.initialTag) {
+  if (props.initialTag) {
     tagSent = [tagName.value]
     await tagStore.editTag(props.initialTag, tagName.value)
   } else {
@@ -41,7 +40,7 @@ async function submit() {
   close()
 }
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 
@@ -55,11 +54,11 @@ onBeforeMount(() => {
     <v-card>
       <v-card-title>{{ $t(`dialogs.tag.title.${initialTag ? 'rename' : 'create'}`) }}</v-card-title>
       <v-card-text>
-        <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
+        <v-form ref="form" v-model="isFormValid" @submit.prevent @keydown.enter.prevent="submit">
           <v-text-field v-if="initialTag" :model-value="initialTag" disabled :label="$t('dialogs.tag.oldName')" />
           <v-text-field v-model="tagName" :rules="rules" autofocus :hint="$t('dialogs.tag.hint')" :label="$t('dialogs.tag.name')" />
           <v-scroll-x-transition>
-            <div class="text-warning" v-if="!!initialTag && initialTag !== tagName">
+            <div v-if="!!initialTag && initialTag !== tagName" class="text-warning">
               <v-icon>mdi-alert</v-icon>
               {{ $t('dialogs.tag.warnEdit') }}
             </div>
@@ -68,8 +67,12 @@ onBeforeMount(() => {
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="error" @click="close">{{ $t('common.cancel') }}</v-btn>
-        <v-btn color="accent" :disabled="!isFormValid" @click="submit">{{ $t('common.save') }}</v-btn>
+        <v-btn color="error" @click="close">
+          {{ $t('common.cancel') }}
+        </v-btn>
+        <v-btn color="accent" :disabled="!isFormValid" @click="submit">
+          {{ $t('common.save') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { useIntervalFn } from '@vueuse/core'
+import { nextTick, onBeforeUnmount, reactive, ref, shallowReadonly, watch } from 'vue'
+import { useTask } from 'vue-concurrency'
+import { onBeforeRouteUpdate } from 'vue-router'
+import { useI18nUtils } from '@/composables'
 import { TrackerStatus } from '@/constants/qbit'
 import { useTorrentStore, useTrackerStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { useIntervalFn } from '@vueuse/core'
-import { nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowReadonly, watch } from 'vue'
-import { useTask } from 'vue-concurrency'
-import { useI18nUtils } from '@/composables'
-import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -68,7 +68,7 @@ function openEditTrackerDialog(tracker: Tracker) {
   editTrackerDialog.oldUrl = tracker.url
   editTrackerDialog.newUrl = tracker.url
 
-  nextTick(() => {
+  void nextTick(() => {
     const input = document.getElementById('input') as HTMLInputElement
     input?.select()
   })
@@ -126,7 +126,7 @@ const {
   isActive: isTimerActive,
   resume: resumeTimer,
   pause: pauseTimer
-} = useIntervalFn(trackerTask.perform, 5000, {
+} = useIntervalFn(() => void trackerTask.perform(), 5000, {
   immediate: true,
   immediateCallback: true
 })
@@ -146,12 +146,10 @@ watch(
   v => {
     if (v && !timerForcedPause.value) resume()
     else pause()
-  }
+  },
+  { immediate: true }
 )
 
-onMounted(() => {
-  props.isActive && resume()
-})
 onBeforeUnmount(() => {
   pause()
 })
@@ -169,8 +167,8 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
           <v-text-field v-model="filter" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line clearable />
 
           <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
-            <template #activator="{ props }">
-              <v-btn v-bind="props" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
+            <template #activator="{ props: tooltipProps }">
+              <v-btn v-bind="tooltipProps" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
             </template>
           </v-tooltip>
         </div>
@@ -199,8 +197,8 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
 
     <div class="d-flex my-3 flex-gap align-center justify-center">
       <v-dialog v-model="addTrackersDialog" max-width="750px">
-        <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.trackers.addTrackers.title')" color="accent" />
+        <template #activator="{ props: dialogProps }">
+          <v-btn v-bind="dialogProps" variant="flat" :text="t('torrentDetail.trackers.addTrackers.title')" color="accent" />
         </template>
         <v-card :title="$t('torrentDetail.trackers.addTrackers.title')">
           <v-card-text>
@@ -209,8 +207,12 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
 
           <v-card-actions>
             <v-spacer />
-            <v-btn color="error" @click="closeAddDialog">{{ t('common.cancel') }}</v-btn>
-            <v-btn color="accent" @click="addTrackers">{{ t('common.ok') }}</v-btn>
+            <v-btn color="error" @click="closeAddDialog">
+              {{ t('common.cancel') }}
+            </v-btn>
+            <v-btn color="accent" @click="addTrackers">
+              {{ t('common.ok') }}
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -229,8 +231,8 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
         <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
           <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
           <v-text-field
-            v-model="editTrackerDialog.newUrl"
             id="input"
+            v-model="editTrackerDialog.newUrl"
             :rules="editTrackerRules"
             :label="$t('torrentDetail.trackers.editTracker.newUrl')"
             autofocus
@@ -240,8 +242,12 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
 
       <v-card-actions>
         <v-spacer />
-        <v-btn color="error" :disabled="!editTrackerDialog.isFormValid" @click="editTrackerDialog.isVisible = false">{{ t('common.cancel') }} </v-btn>
-        <v-btn color="accent" @click="editTracker">{{ t('common.ok') }}</v-btn>
+        <v-btn color="error" :disabled="!editTrackerDialog.isFormValid" @click="editTrackerDialog.isVisible = false">
+          {{ t('common.cancel') }}
+        </v-btn>
+        <v-btn color="accent" @click="editTracker">
+          {{ t('common.ok') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

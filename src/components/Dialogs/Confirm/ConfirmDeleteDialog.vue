@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
-import { useAppStore, useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 import { useRoute, useRouter } from 'vue-router'
+import ConfirmListDialog from './ConfirmListDialog.vue'
+import { useI18nUtils } from '@/composables'
+import { useAppStore, useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
@@ -55,16 +55,16 @@ async function submit() {
     :guid="guid"
     :title="t('dialogs.delete.title', selection.length)"
     :items="selectionNames"
-    :noText="t('common.cancel')"
-    yesColor="error"
-    :yesText="t('common.delete')"
+    :no-text="t('common.cancel')"
+    yes-color="error"
+    :yes-text="t('common.delete')"
     @confirm="submit">
     <div class="d-flex flex-row flex-gap align-center">
       <v-btn :disabled="deleteWithFiles === deletePref" color="accent" variant="text" icon="mdi-content-save" @click="saveDeleteState" />
       <v-checkbox v-model="deleteWithFiles" hide-details :label="t('dialogs.delete.deleteWithFiles')" />
     </div>
     <v-scroll-x-transition>
-      <div class="text-red" v-show="deleteWithFiles">
+      <div v-show="deleteWithFiles" class="text-red">
         <v-icon>mdi-alert</v-icon>
         {{ t('dialogs.delete.warnDelete') }}
       </div>

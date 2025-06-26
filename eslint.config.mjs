@@ -1,36 +1,99 @@
-import globals from 'globals'
+import importAlias from '@dword-design/eslint-plugin-import-alias'
+import js from '@eslint/js'
+import { configureVueProject, defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import eslintConfigPrettier from 'eslint-config-prettier/flat'
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 import importPlugin from 'eslint-plugin-import'
+import pluginPrettier from 'eslint-plugin-prettier/recommended'
 import pluginVue from 'eslint-plugin-vue'
-import prettier from 'eslint-plugin-prettier'
-import vueTsEslintConfig from '@vue/eslint-config-typescript'
+import { globalIgnores } from 'eslint/config'
 
-export default [
-  importPlugin.flatConfigs.recommended,
+configureVueProject({
+  tsSyntaxInTemplates: true,
+  scriptLangs: ['ts'],
+  rootDir: import.meta.dirname
+})
+
+export default defineConfigWithVueTs(
+  globalIgnores(['./*', '!src/**']),
   {
-    ignores: ['**/.gitignore', '**/.release-please-manifest.json', '**/public/', '**/.github/']
+    settings: {
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+          project: './tsconfig.json'
+        })
+      ],
+      'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json'
+        }
+      }
+    }
   },
+  js.configs.recommended,
+  importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
+  importAlias.configs.recommended,
+  pluginVue.configs['flat/recommended'],
+  vueTsConfigs.recommendedTypeChecked,
+  eslintConfigPrettier,
+  pluginPrettier,
   {
-    plugins: {
-      vue: pluginVue.configs.recommended,
-      prettier
-    },
-    languageOptions: {
-      globals: {
-        ...globals.node,
-        ...globals.browser,
-        ...globals.es2016
-      },
-      ecmaVersion: 2020,
-      sourceType: 'module'
-    },
     rules: {
-      ...vueTsEslintConfig.rules,
-      'vue/require-default-prop': 'off',
+      '@dword-design/import-alias/prefer-alias': [
+        'warn',
+        {
+          alias: {
+            '@': './src'
+          }
+        }
+      ],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true
+        }
+      ],
+      '@typescript-eslint/switch-exhaustiveness-check': ['warn', { considerDefaultExhaustiveForUnions: true }],
+      'func-style': ['error', 'declaration', { allowArrowFunctions: false, allowTypeAnnotation: false }],
+      'import/extensions': ['error', 'never', { checkTypeImports: true, pattern: { json: 'always' } }],
+      'import/no-named-as-default': 'off',
+      'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
+      'import/no-useless-path-segments': ['error', { noUselessIndex: true }],
+      'import/order': [
+        'error',
+        {
+          alphabetize: {
+            caseInsensitive: true,
+            order: 'asc'
+          }
+        }
+      ],
+      'prefer-const': [
+        'error',
+        {
+          destructuring: 'all'
+        }
+      ],
+      'vue/first-attribute-linebreak': [
+        'error',
+        {
+          singleline: 'beside',
+          multiline: 'below'
+        }
+      ],
       'vue/multi-word-component-names': 'off',
-      'vue/first-attribute-linebreak': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      'prefer-const': 'off',
-      'sort-imports': 'warn'
+      'vue/require-default-prop': 'off'
     }
   }
-]
+)

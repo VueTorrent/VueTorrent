@@ -1,3 +1,6 @@
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import axios, { AxiosResponse } from 'axios'
+import type IProvider from './IProvider'
 import type { FilePriority } from '@/constants/qbit'
 import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
 import type {
@@ -23,9 +26,6 @@ import type {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import type { AxiosInstance, AxiosRequestConfig } from 'axios'
-import axios, { AxiosResponse } from 'axios'
-import type IProvider from './IProvider'
 
 type Parameters = Record<string, any>
 
@@ -155,12 +155,17 @@ export default class QBitProvider implements IProvider {
   async getLogs(afterId?: number, logsToInclude?: LogType): Promise<Log[]> {
     const includeFilter = logsToInclude ?? LogType.ALL
 
+    const filterMaskInfo = (includeFilter & LogType.INFO) as LogType
+    const filterMaskNormal = (includeFilter & LogType.NORMAL) as LogType
+    const filterMaskWarning = (includeFilter & LogType.WARNING) as LogType
+    const filterMaskCritical = (includeFilter & LogType.CRITICAL) as LogType
+
     const params = {
       last_known_id: afterId,
-      info: (includeFilter & LogType.INFO) == LogType.INFO,
-      normal: (includeFilter & LogType.NORMAL) == LogType.NORMAL,
-      warning: (includeFilter & LogType.WARNING) == LogType.WARNING,
-      critical: (includeFilter & LogType.CRITICAL) == LogType.CRITICAL
+      info: filterMaskInfo === LogType.INFO,
+      normal: filterMaskNormal === LogType.NORMAL,
+      warning: filterMaskWarning === LogType.WARNING,
+      critical: filterMaskCritical === LogType.CRITICAL
     }
 
     return this.axios.get('/log/main', { params }).then(r => r.data)
@@ -464,7 +469,7 @@ export default class QBitProvider implements IProvider {
       const formData = new FormData()
       for (const [key, value] of Object.entries(params || {})) {
         if (value !== undefined) {
-          formData.set(key, value)
+          formData.set(key, String(value))
         }
       }
 
@@ -477,7 +482,11 @@ export default class QBitProvider implements IProvider {
       // magnet links
       data = new URLSearchParams((params || {}) as Parameters)
     }
-    !!urls && data.set('urls', urls)
+
+    if (urls) {
+      data.set('urls', urls)
+    }
+
     return this.axios.post('/torrents/add', data)
   }
 

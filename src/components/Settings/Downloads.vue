@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { computed, nextTick, onBeforeMount, ref, watch } from 'vue'
+import { toast } from 'vue3-toastify'
+import { useI18nUtils } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
-import { computed, nextTick, onBeforeMount, ref, watch } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { toast } from 'vue3-toastify'
 
 type MonitoredFolder = { monitoredFolderPath: string; saveType: ScanDirs | -1; otherPath: string }
 
@@ -78,7 +78,7 @@ const addStoppedEnabled = computed({
   }
 })
 
-onBeforeMount(async () => {
+onBeforeMount(() => {
   isExportDirEnabled.value = preferenceStore.preferences!.export_dir.length > 0
   isExportDirFinEnabled.value = preferenceStore.preferences!.export_dir_fin.length > 0
 
@@ -114,22 +114,25 @@ watch(
   }
 )
 
-const editItem = (item: MonitoredFolder) => {
+function editItem(item: MonitoredFolder) {
   monitoredFoldersEditedIndex.value = monitoredFoldersData.value.indexOf(item)
   monitoredFoldersEditedItem.value = { ...item }
   monitoredFoldersDialog.value = true
 }
-const deleteItem = (item: MonitoredFolder) => {
+
+function deleteItem(item: MonitoredFolder) {
   monitoredFoldersEditedIndex.value = monitoredFoldersData.value.indexOf(item)
   monitoredFoldersEditedItem.value = { ...item }
   monitoredFoldersDialogDelete.value = true
 }
-const deleteItemConfirm = () => {
+
+function deleteItemConfirm() {
   monitoredFoldersData.value.splice(monitoredFoldersEditedIndex.value, 1)
   convertSettings()
   closeDeleteDialog()
 }
-const save = () => {
+
+function save() {
   if (monitoredFoldersEditedIndex.value > -1) {
     Object.assign(monitoredFoldersData.value[monitoredFoldersEditedIndex.value], monitoredFoldersEditedItem.value)
   } else {
@@ -138,28 +141,33 @@ const save = () => {
   convertSettings()
   closeDialog()
 }
-const convertSettings = () => {
+
+function convertSettings() {
   const scan_dirs = {} as Record<string, AppPreferences.ScanDirs>
   monitoredFoldersData.value.forEach(folder => {
     scan_dirs[folder.monitoredFolderPath] = folder.saveType === -1 ? folder.otherPath : folder.saveType
   })
   preferenceStore.preferences!.scan_dirs = scan_dirs
 }
-const closeDialog = async () => {
+
+function closeDialog() {
   monitoredFoldersDialog.value = false
-  await nextTick()
-  monitoredFoldersEditedItem.value = { ...monitoredFoldersDefaultItem.value }
-  monitoredFoldersEditedIndex.value = -1
+  void nextTick(() => {
+    monitoredFoldersEditedItem.value = { ...monitoredFoldersDefaultItem.value }
+    monitoredFoldersEditedIndex.value = -1
+  })
 }
-const closeDeleteDialog = async () => {
+
+function closeDeleteDialog() {
   monitoredFoldersDialogDelete.value = false
-  await nextTick()
-  monitoredFoldersEditedItem.value = { ...monitoredFoldersDefaultItem.value }
-  monitoredFoldersEditedIndex.value = -1
+  void nextTick(() => {
+    monitoredFoldersEditedItem.value = { ...monitoredFoldersDefaultItem.value }
+    monitoredFoldersEditedIndex.value = -1
+  })
 }
 
 async function sendTestEmail() {
-  appStore
+  return appStore
     .sendTestEmail()
     .then(() => toast.success(t('settings.downloads.mailNotification.test.success')))
     .catch(err => toast.error(t('settings.downloads.mailNotification.test.error', { message: err.message })))
@@ -233,7 +241,7 @@ async function sendTestEmail() {
             :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
         </v-col>
 
-        <v-col cols="12" v-if="appStore.usesQbit5" class="py-0">
+        <v-col v-if="appStore.usesQbit5" cols="12" class="py-0">
           <v-checkbox
             v-model="preferenceStore.preferences!.use_category_paths_in_manual_mode"
             hide-details
@@ -282,13 +290,13 @@ async function sendTestEmail() {
     <v-divider />
 
     <v-data-table :mobile="null" class="my-4" :headers="monitoredFoldersHeaders" :items="monitoredFoldersData">
-      <template v-slot:top>
+      <template #top>
         <v-toolbar flat>
           <v-toolbar-title>{{ t('settings.downloads.monitoredFolders.subheader') }}</v-toolbar-title>
           <v-divider inset vertical />
           <v-spacer />
           <v-dialog v-model="monitoredFoldersDialog" max-width="500px">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-btn color="primary" variant="flat" dark class="mb-2" v-bind="props">
                 {{ t('settings.downloads.monitoredFolders.newItem') }}
               </v-btn>
@@ -313,8 +321,8 @@ async function sendTestEmail() {
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
-                        :disabled="monitoredFoldersEditedItem.saveType !== -1"
                         v-model="monitoredFoldersEditedItem.otherPath"
+                        :disabled="monitoredFoldersEditedItem.saveType !== -1"
                         :label="t('settings.downloads.monitoredFolders.otherPath')" />
                     </v-col>
                   </v-row>
@@ -323,32 +331,42 @@ async function sendTestEmail() {
 
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="accent darken-1" @click="closeDialog">{{ t('common.cancel') }}</v-btn>
-                <v-btn color="accent darken-1" @click="save">{{ t('common.save') }}</v-btn>
+                <v-btn color="accent darken-1" @click="closeDialog">
+                  {{ t('common.cancel') }}
+                </v-btn>
+                <v-btn color="accent darken-1" @click="save">
+                  {{ t('common.save') }}
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
           <v-dialog v-model="monitoredFoldersDialogDelete" max-width="500px">
             <v-card>
-              <v-card-title class="text-h5">{{ t('settings.downloads.monitoredFolders.confirmDelete') }}</v-card-title>
+              <v-card-title class="text-h5">
+                {{ t('settings.downloads.monitoredFolders.confirmDelete') }}
+              </v-card-title>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="blue darken-1" @click="closeDeleteDialog">{{ t('common.cancel') }}</v-btn>
-                <v-btn color="blue darken-1" @click="deleteItemConfirm">{{ t('common.ok') }}</v-btn>
+                <v-btn color="blue darken-1" @click="closeDeleteDialog">
+                  {{ t('common.cancel') }}
+                </v-btn>
+                <v-btn color="blue darken-1" @click="deleteItemConfirm">
+                  {{ t('common.ok') }}
+                </v-btn>
                 <v-spacer />
               </v-card-actions>
             </v-card>
           </v-dialog>
         </v-toolbar>
       </template>
-      <template v-slot:[`item.saveType`]="{ item }">
+      <template #[`item.saveType`]="{ item }">
         {{ monitoredFoldersMonitorTypeOptions.find(value => value.value === item.saveType)?.title }}
       </template>
-      <template v-slot:[`item.actions`]="{ item }">
-        <v-icon size="small" @click="editItem(item)">mdi-pencil</v-icon>
-        <v-icon size="small" @click="deleteItem(item)">mdi-delete</v-icon>
+      <template #[`item.actions`]="{ item }">
+        <v-icon size="small" @click="editItem(item)"> mdi-pencil </v-icon>
+        <v-icon size="small" @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
-      <template v-slot:no-data>
+      <template #no-data>
         {{ t('settings.downloads.monitoredFolders.noData') }}
       </template>
     </v-data-table>
@@ -435,7 +453,9 @@ async function sendTestEmail() {
     </v-list-item>
 
     <v-list-item v-if="appStore.usesQbit5">
-      <v-btn color="primary" @click="sendTestEmail">{{ t('settings.downloads.mailNotification.test.label') }}</v-btn>
+      <v-btn color="primary" @click="sendTestEmail">
+        {{ t('settings.downloads.mailNotification.test.label') }}
+      </v-btn>
     </v-list-item>
 
     <v-divider class="mt-3" />

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { isMac } from '@/helpers'
-import RightClickMenuEntry from './RightClickMenuEntry.vue'
 import { useKeyModifier } from '@vueuse/core'
+import RightClickMenuEntry from './RightClickMenuEntry.vue'
+import { isMac } from '@/helpers'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 
 defineProps<{
@@ -27,7 +27,7 @@ const isCtrlPressed = useKeyModifier(isMac ? 'Meta' : 'Control', { initial: fals
 
       <v-virtual-scroll :items="menuData" item-height="48" renderless>
         <template #default="{ item }">
-          <RightClickMenuEntry :entryData="item" />
+          <RightClickMenuEntry :entry-data="item" />
         </template>
       </v-virtual-scroll>
 

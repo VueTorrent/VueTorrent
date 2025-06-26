@@ -1,4 +1,4 @@
-import { TorrentState as QbitTorrentState } from '../qbit/TorrentState'
+import { TorrentState as QbitTorrentState } from '@/constants/qbit/TorrentState'
 
 export enum TorrentState {
   /** Unknown status */

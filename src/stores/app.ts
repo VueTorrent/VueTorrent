@@ -1,7 +1,7 @@
-import qbit from '@/services/qbit'
-import { BuildInfo } from '@/types/qbit/models'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import qbit from '@/services/qbit'
+import { BuildInfo } from '@/types/qbit/models'
 
 export const useAppStore = defineStore('app', () => {
   const isAuthenticated = ref(false)
@@ -9,7 +9,7 @@ export const useAppStore = defineStore('app', () => {
   const buildInfo = ref<BuildInfo>()
 
   const usesQbit5 = computed(() => isFeatureAvailable('5'))
-  const usesLibtorrent1 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '1' && !usesLibtorrent2)
+  const usesLibtorrent1 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '1' && !usesLibtorrent2.value)
   const usesLibtorrent2 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '2')
 
   async function fetchAuthStatus() {

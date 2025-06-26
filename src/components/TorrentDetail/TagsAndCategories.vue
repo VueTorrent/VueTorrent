@@ -33,7 +33,7 @@ async function toggleTag(tag: string) {
           <v-list>
             <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.tags') }}</v-list-subheader>
 
-            <v-list-item v-for="tag in tagStore.tags" variant="text" color="accent" :title="tag" :active="torrent.tags?.includes(tag)" @click="toggleTag(tag)" />
+            <v-list-item v-for="tag in tagStore.tags" :key="tag" variant="text" color="accent" :title="tag" :active="torrent.tags?.includes(tag)" @click="toggleTag(tag)" />
           </v-list>
         </v-col>
 
@@ -43,6 +43,7 @@ async function toggleTag(tag: string) {
 
             <v-list-item
               v-for="category in categoryStore.categories"
+              :key="category.name"
               variant="text"
               color="accent"
               :title="category.name"

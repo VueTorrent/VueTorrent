@@ -1,9 +1,9 @@
 import { ThemeDefinition } from 'vuetify'
-import DarkRedesigned from './dark/redesigned'
 import DarkLegacy from './dark/legacy'
 import DarkOled from './dark/oled'
-import LightRedesigned from './light/redesigned'
+import DarkRedesigned from './dark/redesigned'
 import LightLegacy from './light/legacy'
+import LightRedesigned from './light/redesigned'
 
 const themes = [DarkLegacy, DarkRedesigned, DarkOled, LightLegacy, LightRedesigned]
 

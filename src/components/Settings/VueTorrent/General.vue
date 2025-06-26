@@ -1,16 +1,16 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, readonly, ref } from 'vue'
+import { toast } from 'vue3-toastify'
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
+import { useI18nUtils } from '@/composables'
 import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
 import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { backend } from '@/services/backend'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { DarkLegacy, DarkRedesigned, DarkOled, LightLegacy, LightRedesigned } from '@/themes'
-import { storeToRefs } from 'pinia'
-import { computed, readonly, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { toast } from 'vue3-toastify'
+import { DarkLegacy, DarkOled, DarkRedesigned, LightLegacy, LightRedesigned } from '@/themes'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -119,13 +119,13 @@ const paginationSizeMessages = computed(() =>
   vueTorrentStore.paginationSize === -1 || vueTorrentStore.paginationSize >= 250 ? t('settings.vuetorrent.general.paginationSize.warning') : ''
 )
 
-const resetSettings = () => {
+function resetSettings() {
   localStorage.clear()
   sessionStorage.clear()
   location.reload()
 }
 
-const downloadSettings = () => {
+function downloadSettings() {
   const settings = localStorage.getItem('vuetorrent_webuiSettings')
   if (!settings) return
 
@@ -142,11 +142,11 @@ const downloadSettings = () => {
   document.body.removeChild(a)
 }
 
-const importSettings = () => {
+function importSettings() {
   dialogStore.createDialog(ImportSettingsDialog)
 }
 
-const registerMagnetHandler = () => {
+function registerMagnetHandler() {
   if (typeof navigator.registerProtocolHandler !== 'function') {
     toast.error(t('toast.magnet_handler.not_supported'))
     return
@@ -157,7 +157,7 @@ const registerMagnetHandler = () => {
   toast.success(t('toast.magnet_handler.registered'))
 }
 
-const checkNewVersion = async () => {
+async function checkNewVersion() {
   if (vueTorrentVersion.value === 'DEV') return
 
   if (backend.isUp) {
@@ -273,7 +273,7 @@ function openDurationFormatHelp() {
         </v-col>
         <v-col cols="12" md="3">
           <v-select v-model="filters" :items="filterOptions" :label="t('settings.vuetorrent.general.showFilters.title')" multiple>
-            <template v-slot:selection="{ item, index }">
+            <template #selection="{ item, index }">
               <span v-if="index === 0 && filters.length === 1">{{ item.title }}</span>
               <span v-else-if="index === 0 && filters.length < 4">{{ t('settings.vuetorrent.general.showFilters.filtersEnabled', filters.length) }}</span>
               <span v-else-if="index === 0 && filters.length <= 4">{{ t('settings.vuetorrent.general.showFilters.allFiltersEnabled', filters.length) }}</span>
@@ -286,8 +286,8 @@ function openDurationFormatHelp() {
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM"
             v-model="vueTorrentStore.uiTitleCustom"
+            :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM"
             hide-details
             :label="t('settings.vuetorrent.general.customTitle')" />
         </v-col>
@@ -316,7 +316,7 @@ function openDurationFormatHelp() {
             :label="t('settings.vuetorrent.general.dateFormat')"
             :placeholder="defaultDateFormat"
             append-inner-icon="mdi-help-circle"
-            @click:appendInner="openDateFormatHelp" />
+            @click:append-inner="openDateFormatHelp" />
         </v-col>
         <v-col cols="12" md="3">
           <v-text-field
@@ -326,7 +326,7 @@ function openDurationFormatHelp() {
             :label="t('settings.vuetorrent.general.durationFormat')"
             :placeholder="defaultDurationFormat"
             append-inner-icon="mdi-help-circle"
-            @click:appendInner="openDurationFormatHelp" />
+            @click:append-inner="openDurationFormatHelp" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -344,7 +344,9 @@ function openDurationFormatHelp() {
         </v-col>
 
         <v-col cols="6" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }} </v-btn>
+          <v-btn color="primary" @click="registerMagnetHandler">
+            {{ t('settings.vuetorrent.general.registerMagnet') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -358,7 +360,9 @@ function openDurationFormatHelp() {
           </h3>
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="checkNewVersion">{{ t('settings.vuetorrent.general.check_new') }} </v-btn>
+          <v-btn color="primary" @click="checkNewVersion">
+            {{ t('settings.vuetorrent.general.check_new') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -366,13 +370,19 @@ function openDurationFormatHelp() {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="4" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="importSettings">{{ t('settings.vuetorrent.general.import') }}</v-btn>
+          <v-btn color="primary" @click="importSettings">
+            {{ t('settings.vuetorrent.general.import') }}
+          </v-btn>
         </v-col>
         <v-col cols="12" sm="4" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="downloadSettings">{{ t('settings.vuetorrent.general.download') }}</v-btn>
+          <v-btn color="primary" @click="downloadSettings">
+            {{ t('settings.vuetorrent.general.download') }}
+          </v-btn>
         </v-col>
         <v-col cols="12" sm="4" class="d-flex align-center justify-center">
-          <v-btn color="red" @click="resetSettings">{{ t('settings.vuetorrent.general.resetSettings') }}</v-btn>
+          <v-btn color="red" @click="resetSettings">
+            {{ t('settings.vuetorrent.general.resetSettings') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>

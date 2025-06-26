@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables'
+import { onBeforeMount, reactive, ref } from 'vue'
+import { VForm } from 'vuetify/components/VForm'
+import { useDialog, useI18nUtils } from '@/composables'
 import { useCategoryStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { onBeforeMount, reactive, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
@@ -31,7 +30,7 @@ const formData = reactive<Category>({
 async function submit() {
   if (!isFormValid.value) return
 
-  if (!!props.initialCategory) {
+  if (props.initialCategory) {
     await categoryStore.editCategory(formData, props.initialCategory.name === formData.name ? undefined : props.initialCategory.name)
   } else {
     await categoryStore.createCategory(formData)
@@ -42,7 +41,7 @@ async function submit() {
   close()
 }
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 
@@ -57,12 +56,12 @@ onBeforeMount(() => {
     <v-card>
       <v-card-title>{{ $t(`dialogs.category.title.${initialCategory ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>
-        <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
+        <v-form ref="form" v-model="isFormValid" @submit.prevent @keydown.enter.prevent="submit">
           <v-text-field v-if="!!initialCategory" :model-value="initialCategory.name" disabled :label="$t('dialogs.category.oldName')" />
           <v-text-field v-model="formData.name" :rules="nameRules" :autofocus="!initialCategory" :label="$t('dialogs.category.name')" />
           <v-text-field v-model="formData.savePath" :autofocus="!!initialCategory" :label="$t('dialogs.category.savePath')" />
           <v-scroll-x-transition>
-            <div class="text-warning" v-if="!!initialCategory && initialCategory.name !== formData.name">
+            <div v-if="!!initialCategory && initialCategory.name !== formData.name" class="text-warning">
               <v-icon>mdi-alert</v-icon>
               {{ $t('dialogs.category.warnEdit') }}
             </div>
@@ -71,8 +70,12 @@ onBeforeMount(() => {
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="error" @click="close">{{ $t('common.cancel') }}</v-btn>
-        <v-btn color="accent" :disabled="!isFormValid" @click="submit">{{ $t('common.save') }}</v-btn>
+        <v-btn color="error" @click="close">
+          {{ $t('common.cancel') }}
+        </v-btn>
+        <v-btn color="accent" :disabled="!isFormValid" @click="submit">
+          {{ $t('common.save') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

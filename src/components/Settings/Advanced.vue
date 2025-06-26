@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, onBeforeMount, ref } from 'vue'
+import { useI18nUtils } from '@/composables'
 import {
   DiskIOMode,
   DiskIOType,
@@ -10,9 +13,6 @@ import {
 } from '@/constants/qbit/AppPreferences'
 import qbit from '@/services/qbit'
 import { useAppStore, usePreferenceStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -486,7 +486,9 @@ onBeforeMount(async () => {
       <v-list-item>
         <v-row>
           <v-col cols="12">
-            <h5 class="font-italic">{{ t('settings.advanced.libtorrent.i2p.restartNeeded') }}</h5>
+            <h5 class="font-italic">
+              {{ t('settings.advanced.libtorrent.i2p.restartNeeded') }}
+            </h5>
           </v-col>
 
           <v-col cols="12">

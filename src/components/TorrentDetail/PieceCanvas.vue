@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { FilePriority, PieceState } from '@/constants/qbit'
-import { TorrentState } from '@/constants/vuetorrent'
-import { getTorrentStateColor } from '@/helpers'
-import { useContentStore, useVueTorrentStore } from '@/stores'
-import { Torrent } from '@/types/vuetorrent'
 import IntervalTree from '@flatten-js/interval-tree'
 import { useIntervalFn } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
@@ -11,6 +6,11 @@ import { Application, Graphics } from 'pixi.js'
 import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { useTheme } from 'vuetify'
+import { FilePriority, PieceState } from '@/constants/qbit'
+import { TorrentState } from '@/constants/vuetorrent'
+import { getTorrentStateColor } from '@/helpers'
+import { useContentStore, useVueTorrentStore } from '@/stores'
+import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -117,6 +117,7 @@ onMounted(() => {
     .init({ antialias: true, width: canvas.value?.width, height: canvas.value?.height, canvas: canvas.value })
     .then(() => (app.value = application))
     .then(() => props.isActive && resume())
+    .catch(() => (app.value = undefined))
 })
 
 onBeforeUnmount(() => {
@@ -128,8 +129,8 @@ onBeforeRouteLeave(() => !isPieceCanvasOverviewOpened.value)
 
 <template>
   <v-dialog v-model="isPieceCanvasOverviewOpened">
-    <template v-slot:activator="{ props }">
-      <canvas v-bind="props" ref="canvas" class="cursor-pointer" width="4096" height="20" />
+    <template #activator="{ props: dialogProps }">
+      <canvas v-bind="dialogProps" ref="canvas" class="cursor-pointer" width="4096" height="20" />
     </template>
 
     <v-card>

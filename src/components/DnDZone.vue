@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import { useI18nUtils } from '@/composables'
-import { useAddTorrentStore, useAppStore, useDialogStore, useTorrentStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
+import AddTorrentDialog from './Dialogs/AddTorrentDialog.vue'
+import { useI18nUtils } from '@/composables'
+import { useAddTorrentStore, useAppStore, useDialogStore, useTorrentStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const route = useRoute()
@@ -19,7 +19,7 @@ const queueZoneRef = ref<HTMLDivElement>()
 const downloadZoneRef = ref<HTMLDivElement>()
 const { isOverDropZone: isOverDndZone } = useDropZone(dndZoneRef)
 const { isOverDropZone: isOverQueueZone } = useDropZone(queueZoneRef, { onDrop: onQueueDrop })
-const { isOverDropZone: isOverDownloadZone } = useDropZone(downloadZoneRef, { onDrop: onDownloadDrop })
+const { isOverDropZone: isOverDownloadZone } = useDropZone(downloadZoneRef, { onDrop: (files, event) => void onDownloadDrop(files, event) })
 
 function onDragEnter() {
   const routeName = route.name as string
@@ -54,7 +54,7 @@ function extractPasteData(event: ClipboardEvent): [File[], string[]] {
   const files: File[] = Array.from(clipboardData.items)
     .filter(item => item.kind === 'file')
     .map(item => item.getAsFile())
-    .filter((file): file is File => !!file)
+    .filter(file => !!file)
     .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
 
   const links = clipboardData
@@ -131,7 +131,7 @@ onUnmounted(() => {
       <div v-show="isOverDndZone" ref="queueZoneRef" :class="['h-50', isOverQueueZone ? 'dnd-bg-active' : 'dnd-bg']">
         <div class="d-flex align-center justify-center h-100">
           <div class="d-flex flex-column align-center justify-center dnd-zone-border text-accent">
-            <v-icon size="75">mdi-cloud-upload</v-icon>
+            <v-icon size="75"> mdi-cloud-upload </v-icon>
             <span>{{ $t('dialogs.add.drop_label') }}</span>
           </div>
         </div>
@@ -142,7 +142,7 @@ onUnmounted(() => {
       <div v-show="isOverDndZone" ref="downloadZoneRef" :class="['h-50', isOverDownloadZone ? 'dnd-bg-active' : 'dnd-bg']">
         <div class="d-flex align-center justify-center h-100">
           <div class="d-flex flex-column align-center justify-center dnd-zone-border text-accent">
-            <v-icon size="75">mdi-download</v-icon>
+            <v-icon size="75"> mdi-download </v-icon>
             <span>{{ $t('dialogs.add.instant_drop_label') }}</span>
           </div>
         </div>

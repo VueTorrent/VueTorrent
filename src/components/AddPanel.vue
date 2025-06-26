@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import AddTorrentDialog from './Dialogs/AddTorrentDialog.vue'
 import { useAddTorrentStore, useDialogStore } from '@/stores'
 
 const addTorrentStore = useAddTorrentStore()
@@ -11,7 +11,7 @@ function openAddTorrentDialog() {
 </script>
 
 <template>
-  <v-bottom-navigation :active="addTorrentStore.pendingTorrentsCount > 0" class="cursor-pointer" v-touch="{ up: openAddTorrentDialog }" @click="openAddTorrentDialog">
+  <v-bottom-navigation v-touch="{ up: openAddTorrentDialog }" :active="addTorrentStore.pendingTorrentsCount > 0" class="cursor-pointer" @click="openAddTorrentDialog">
     <v-list-item :title="$t('navbar.addPanel.torrentsPendingCount', addTorrentStore.pendingTorrentsCount)" />
     <v-spacer />
     <v-list-item>

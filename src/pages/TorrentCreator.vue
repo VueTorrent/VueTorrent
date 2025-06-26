@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import TorrentCreatorFormDialog from '@/components/Dialogs/TorrentCreatorFormDialog.vue'
-import { useI18nUtils } from '@/composables'
-import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
-import { useAppStore, useDialogStore, useTorrentCreatorStore, useVueTorrentStore } from '@/stores'
-import { TorrentCreatorTask } from '@/types/qbit/models'
 import { useIntervalFn } from '@vueuse/core'
-import dayjs from '@/plugins/dayjs'
+import DOMPurify from 'dompurify'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onBeforeUnmount } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
+import TorrentCreatorFormDialog from '@/components/Dialogs/TorrentCreatorFormDialog.vue'
+import { useI18nUtils } from '@/composables'
+import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
 import { basename, downloadFile, formatData, formatPercent } from '@/helpers'
+import dayjs from '@/plugins/dayjs'
+import { useAppStore, useDialogStore, useTorrentCreatorStore, useVueTorrentStore } from '@/stores'
+import { TorrentCreatorTask } from '@/types/qbit/models'
 
 const { height: deviceHeight } = useDisplay()
 const router = useRouter()
@@ -30,7 +31,7 @@ const {
   isActive: isTimerActive,
   pause,
   resume
-} = useIntervalFn(torrentCreatorTasksTask.perform, 1000, {
+} = useIntervalFn(() => void torrentCreatorTasksTask.perform(), 1000, {
   immediate: true,
   immediateCallback: true
 })
@@ -75,7 +76,7 @@ const torrentFormatMap: Record<TorrentFormat, string> = {
 }
 
 function openTorrentCreatorFormDialog() {
-  dialogStore.createDialog(TorrentCreatorFormDialog, {}, torrentCreatorStore.fetchTasks)
+  dialogStore.createDialog(TorrentCreatorFormDialog, {}, () => void torrentCreatorStore.fetchTasks())
 }
 
 async function downloadTorrent(item: TorrentCreatorTask) {
@@ -98,8 +99,16 @@ async function deleteTask(item: TorrentCreatorTask) {
   forceFetch()
 }
 
-const goHome = () => {
-  router.push({ name: 'dashboard' })
+function sanitizeHtml(html?: string) {
+  if (!html?.length) {
+    return ''
+  }
+
+  return DOMPurify.sanitize(html, { USE_PROFILES: { html: true } }).replaceAll('\n', '<br>')
+}
+
+function goHome() {
+  void router.push({ name: 'dashboard' })
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
@@ -113,7 +122,7 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
   }
 }
 
-onBeforeMount(async () => {
+onBeforeMount(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   torrentCreatorTasksTask.perform()
 })
@@ -193,12 +202,12 @@ onBeforeUnmount(() => {
             {{ formatData(value, vueTorrentStore.useBinarySize, 0) }}
           </template>
           <template #[`item.private`]="{ value }">
-            <v-icon v-if="value" color="accent">mdi-check-bold</v-icon>
-            <v-icon v-else color="error">mdi-close-thick</v-icon>
+            <v-icon v-if="value" color="accent"> mdi-check-bold </v-icon>
+            <v-icon v-else color="error"> mdi-close-thick </v-icon>
           </template>
           <template #[`item.optimizeAlignment`]="{ value }">
-            <v-icon v-if="value" color="accent">mdi-check-bold</v-icon>
-            <v-icon v-else color="error">mdi-close-thick</v-icon>
+            <v-icon v-if="value" color="accent"> mdi-check-bold </v-icon>
+            <v-icon v-else color="error"> mdi-close-thick </v-icon>
           </template>
           <template #[`item.timeAdded`]="{ value }">
             <div class="text-no-wrap">
@@ -220,7 +229,7 @@ onBeforeUnmount(() => {
               <template #activator="{ props }">
                 <div class="text-no-wrap">
                   <span>{{ t('torrentCreator.table.trackers.activator', value.filter((v: string) => v.length).length) }}</span>
-                  <v-icon class="ml-1" v-bind="props">mdi-information</v-icon>
+                  <v-icon class="ml-1" v-bind="props"> mdi-information </v-icon>
                 </div>
               </template>
 
@@ -235,8 +244,10 @@ onBeforeUnmount(() => {
 
                 <v-card-text>
                   <v-list>
-                    <template v-for="tracker in value">
-                      <v-list-item v-if="tracker">{{ tracker }}</v-list-item>
+                    <template v-for="(tracker, i) in value" :key="i">
+                      <v-list-item v-if="tracker">
+                        {{ tracker }}
+                      </v-list-item>
                       <v-divider v-else />
                     </template>
                   </v-list>
@@ -250,7 +261,7 @@ onBeforeUnmount(() => {
               <template #activator="{ props }">
                 <div class="text-no-wrap">
                   <span>{{ t('torrentCreator.table.urlSeeds.activator', value.filter((v: string) => v.length).length) }}</span>
-                  <v-icon class="ml-1" v-bind="props">mdi-information</v-icon>
+                  <v-icon class="ml-1" v-bind="props"> mdi-information </v-icon>
                 </div>
               </template>
 
@@ -265,8 +276,10 @@ onBeforeUnmount(() => {
 
                 <v-card-text>
                   <v-list>
-                    <template v-for="url in value.filter((v: string) => v.length)">
-                      <v-list-item v-if="url">{{ url }}</v-list-item>
+                    <template v-for="(url, i) in value.filter((v: string) => v.length)">
+                      <v-list-item v-if="url" :key="i">
+                        {{ url }}
+                      </v-list-item>
                     </template>
                   </v-list>
                 </v-card-text>
@@ -275,10 +288,12 @@ onBeforeUnmount(() => {
             <span v-else>{{ t('common.none') }}</span>
           </template>
           <template #[`item.comment`]="{ value }">
-            <div class="text-no-wrap" v-html="value?.length ? value.replaceAll('\n', '<br>') : ''" />
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div class="text-no-wrap" v-html="sanitizeHtml(value)" />
           </template>
           <template #[`item.errorMessage`]="{ value }">
-            <div class="text-no-wrap" v-html="value?.length ? value.replaceAll('\n', '<br>') : ''" />
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div class="text-no-wrap" v-html="sanitizeHtml(value)" />
           </template>
           <template #[`item.actions`]="{ item }">
             <v-btn

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import AddTorrentParamsForm from './AddTorrentParamsForm.vue'
-import { AddTorrentParams } from '@/types/qbit/models'
 import { ref } from 'vue'
+import AddTorrentParamsForm from './AddTorrentParamsForm.vue'
 import { useI18nUtils } from '@/composables'
+import { AddTorrentParams } from '@/types/qbit/models'
 
 const addTorrentParams = defineModel<AddTorrentParams>({ required: true })
 const isOpened = defineModel<boolean>('isOpened')

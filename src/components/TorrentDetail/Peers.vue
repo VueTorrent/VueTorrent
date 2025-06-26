@@ -1,12 +1,13 @@
 <script lang="ts" setup>
+import { useIntervalFn } from '@vueuse/core'
+import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
+import { useTask } from 'vue-concurrency'
+import { onBeforeRouteUpdate } from 'vue-router'
+import { useI18nUtils } from '@/composables'
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
 import { useDialogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { useIntervalFn } from '@vueuse/core'
-import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -17,26 +18,6 @@ const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
-
-function sortHost(a: PeerType, b: PeerType) {
-  const ipA = a.ip.split('.').map(Number)
-  const ipB = b.ip.split('.').map(Number)
-
-  for (let i = 0; i < 4; i++) {
-    if (ipA[i] !== ipB[i]) {
-      return ipA[i] - ipB[i]
-    }
-  }
-
-  return a.port - b.port
-}
-
-function sortCountry(a: PeerType, b: PeerType) {
-  if (a.country && !b.country) return -1
-  if (!a.country && b.country) return 1
-  if (a.country === b.country) return sortHost(a, b)
-  return a.country!.localeCompare(b.country!)
-}
 
 const headers = readonly([
   { nowrap: true, key: 'actions', sortable: false },
@@ -63,7 +44,31 @@ const filter = ref('')
 const addPeersDialog = ref(false)
 const newPeers = ref('')
 
+const syncPeersTask = useTask(function* () {
+  yield syncPeers()
+}).drop()
+
 const items = computed<PeerType[]>(() => Array.from(torrentPeers.value.entries()).map(([host, peer]) => ({ ...peer, host })))
+
+function sortHost(a: PeerType, b: PeerType) {
+  const ipA = a.ip.split('.').map(Number)
+  const ipB = b.ip.split('.').map(Number)
+
+  for (let i = 0; i < 4; i++) {
+    if (ipA[i] !== ipB[i]) {
+      return ipA[i] - ipB[i]
+    }
+  }
+
+  return a.port - b.port
+}
+
+function sortCountry(a: PeerType, b: PeerType) {
+  if (a.country && !b.country) return -1
+  if (!a.country && b.country) return 1
+  if (a.country === b.country) return sortHost(a, b)
+  return a.country!.localeCompare(b.country!)
+}
 
 function updatePeers(peers: Record<string, Peer>) {
   Object.entries(peers).forEach(([k, v]) => {
@@ -84,8 +89,8 @@ async function syncPeers() {
   if (response.full_update) {
     torrentPeers.value = new Map(Object.entries(response.peers!))
   } else {
-    response.peers_removed && cleanPeers(response.peers_removed)
-    response.peers && updatePeers(response.peers)
+    if (response.peers_removed) cleanPeers(response.peers_removed)
+    if (response.peers) updatePeers(response.peers)
   }
 }
 
@@ -102,7 +107,7 @@ function closeAddDialog() {
   newPeers.value = ''
 }
 
-async function banPeer(peer: PeerType) {
+function banPeer(peer: PeerType) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.banPeers'),
     text: peer.host,
@@ -119,7 +124,7 @@ const {
   isActive: isTimerActive,
   pause,
   resume
-} = useIntervalFn(syncPeers, 2000, {
+} = useIntervalFn(() => void syncPeersTask.perform(), 2000, {
   immediate: true,
   immediateCallback: true
 })
@@ -144,8 +149,8 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
           <v-text-field v-model="filter" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line clearable />
 
           <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
-            <template #activator="{ props }">
-              <v-btn v-bind="props" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
+            <template #activator="{ props: tooltipProps }">
+              <v-btn v-bind="tooltipProps" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
             </template>
           </v-tooltip>
         </div>
@@ -170,7 +175,7 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
 
       <template #[`item.country`]="{ item }">
         <div v-if="showCountryFlags" class="cursor-help" :title="item.country">
-          <span v-if="!item.country_code"></span>
+          <span v-if="!item.country_code" />
           <img v-else-if="isWindows" :alt="codeToFlag(item.country_code).char" :src="codeToFlag(item.country_code).url" :title="item.country" style="max-width: 32px" />
           <span v-else :title="item.country">{{ codeToFlag(item.country_code).char }}</span>
         </div>
@@ -180,7 +185,9 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
         <div v-if="item.flags" class="cursor-help" :title="item.flags_desc">
           {{ item.flags }}
         </div>
-        <div v-else>{{ $t('common.none') }}</div>
+        <div v-else>
+          {{ $t('common.none') }}
+        </div>
       </template>
 
       <template #[`item.dl_speed`]="{ item }">
@@ -214,8 +221,8 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
 
     <div class="d-flex my-3 flex-gap align-center justify-center">
       <v-dialog v-model="addPeersDialog" max-width="750px">
-        <template v-slot:activator="{ props }">
-          <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.peers.addPeers.title')" color="accent" />
+        <template #activator="{ props: dialogProps }">
+          <v-btn v-bind="dialogProps" variant="flat" :text="t('torrentDetail.peers.addPeers.title')" color="accent" />
         </template>
         <v-card :title="$t('torrentDetail.peers.addPeers.title')">
           <v-card-text>
@@ -228,8 +235,12 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
 
           <v-card-actions>
             <v-spacer />
-            <v-btn color="error" @click="closeAddDialog">{{ t('common.cancel') }}</v-btn>
-            <v-btn color="accent" @click="addPeers">{{ t('common.ok') }}</v-btn>
+            <v-btn color="error" @click="closeAddDialog">
+              {{ t('common.cancel') }}
+            </v-btn>
+            <v-btn color="accent" @click="addPeers">
+              {{ t('common.ok') }}
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>

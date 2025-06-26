@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import { useAddTorrentStore, useDialogStore } from '@/stores'
 import { onBeforeMount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import { useAddTorrentStore, useDialogStore } from '@/stores'
 
 const route = useRoute()
 const router = useRouter()

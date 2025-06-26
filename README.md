@@ -63,10 +63,11 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 - Clone the repo
 - `npm install`
 - `npm start`
-- `npm run lint` (to format the code)
+- `npm run lint` (to check for problems in code)
+- `npm run lint:fix` (to fix common problems)
 - `docker-compose up -d` (starts a qbittorrent docker, optional)
 - Open the WebUI on localhost with the default credentials
-  - See #1720 for more details
+  - See [#1720](https://github.com/VueTorrent/VueTorrent/issues/1720) for more details
 - Make sure WebUI > "Host header validation" is disabled in the qBittorrent preferences
 - Edit `env.development` to tweak your dev environment (e.g. mocked data)
 
@@ -104,7 +105,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 
 ## Important Information
 
-VueTorrent is a **WebUI** (think of it as a "visual skin") that uses qBittorrent's API, enabling compatibility with automation solutions like the Servarr stack.
+VueTorrent is a **WebUI** (think of it as a "visual skin") that uses qBittorrent's WebAPI, enabling full compatibility with automation solutions like the *arr stack.
 
 Everything that is compatible with the classic qBittorrent WebUI will work regardless of the WebUI you chose to use, whether its VueTorrent or another one.
 

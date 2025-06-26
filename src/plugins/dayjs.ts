@@ -1,4 +1,4 @@
-import dayjs from 'dayjs'
+import dayjs, { extend } from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import updateLocale from 'dayjs/plugin/updateLocale'
@@ -21,9 +21,9 @@ const config = {
   rounding: Math.floor
 }
 
-dayjs.extend(duration)
-dayjs.extend(relativeTime, config)
-dayjs.extend(updateLocale)
+extend(duration)
+extend(relativeTime, config)
+extend(updateLocale)
 
 dayjs.updateLocale('en', {
   relativeTime: {

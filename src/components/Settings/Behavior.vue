@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { FileLogAgeType } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
 import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { FileLogAgeType } from '@/constants/qbit/AppPreferences'
+import { usePreferenceStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()

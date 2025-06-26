@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 import TRC from '@/components/Dashboard/RightClick.vue'
 import Toolbar from '@/components/Dashboard/Toolbar.vue'
 import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
@@ -10,10 +14,6 @@ import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
-import { useDisplay } from 'vuetify'
 
 const { height: deviceHeight, mdAndDown } = useDisplay()
 const { t } = useI18nUtils()
@@ -30,7 +30,7 @@ const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRI
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
 
 const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
-const rightClickProperties = reactive<RightClickProperties>({
+const rightClickProperties = ref<RightClickProperties>({
   isVisible: false,
   offset: [0, 0]
 })
@@ -67,7 +67,7 @@ function toggleSearchFilter(forceState?: boolean) {
       searchInput?.focus()
     })
   }
-  nextTick(() => {
+  void nextTick(() => {
     const searchInput = document.getElementById('searchInput')
     searchInput?.blur()
   })
@@ -83,7 +83,7 @@ function toggleSelectAll() {
 
 function goToInfo(torrent: TorrentType) {
   if (!isSelectionMultiple.value) {
-    router.push({ name: 'torrentDetail', params: { hash: torrent.hash } })
+    void router.push({ name: 'torrentDetail', params: { hash: torrent.hash } })
   }
 }
 
@@ -97,13 +97,13 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
 }
 
 async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
-  if (rightClickProperties.isVisible) {
-    rightClickProperties.isVisible = false
+  if (rightClickProperties.value.isVisible) {
+    rightClickProperties.value.isVisible = false
     await nextTick()
   }
 
-  rightClickProperties.isVisible = true
-  rightClickProperties.offset = [e.pageX, e.pageY]
+  rightClickProperties.value.isVisible = true
+  rightClickProperties.value.offset = [e.pageX, e.pageY]
 
   if (!isSelectionMultiple.value) {
     dashboardStore.unselectAllTorrents()
@@ -112,21 +112,6 @@ async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) 
     dashboardStore.selectTorrent(torrent.hash)
   }
 }
-
-// mobile long press
-const timer = ref<NodeJS.Timeout>()
-
-function startPress(e: Touch, torrent: TorrentType) {
-  timer.value = setTimeout(() => {
-    onTorrentRightClick(e, torrent)
-  }, 500)
-}
-
-function endPress() {
-  clearTimeout(timer.value)
-}
-
-// END mobile long press
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) {
@@ -147,7 +132,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (doesCommand(e) && e.key === 'f') {
     const searchInput = document.getElementById('searchInput')
     if (document.activeElement !== searchInput) {
-      toggleSearchFilter(true)
+      void toggleSearchFilter(true)
       e.preventDefault()
       return true
     }
@@ -157,7 +142,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === 'Escape') {
     const searchInput = document.getElementById('searchInput')
     if (document.activeElement === searchInput) {
-      toggleSearchFilter(false)
+      void toggleSearchFilter(false)
     } else {
       isSelectionMultiple.value = false
       dashboardStore.unselectAllTorrents()
@@ -182,7 +167,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === '/') {
     const searchInput = document.getElementById('searchInput')
     if (document.activeElement !== searchInput) {
-      router.push({ name: 'searchEngine' })
+      void router.push({ name: 'searchEngine' })
       e.preventDefault()
     }
     return true
@@ -190,7 +175,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 }
 
 watch(
-  () => rightClickProperties.isVisible,
+  () => rightClickProperties.value.isVisible,
   newValue => {
     if (!newValue && !isSelectionMultiple.value) {
       dashboardStore.unselectAllTorrents()
@@ -215,7 +200,7 @@ onBeforeUnmount(() => {
       <v-expand-transition>
         <v-card v-show="isSelectionMultiple" color="transparent" flat>
           <v-tooltip :text="t('common.selectAll')" location="bottom">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-btn
                 :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
                 class="text-grey"
@@ -232,44 +217,40 @@ onBeforeUnmount(() => {
     </v-row>
 
     <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
-      <p class="text-grey">{{ t('common.emptyList') }}</p>
+      <p class="text-grey">
+        {{ t('common.emptyList') }}
+      </p>
     </div>
 
     <ListView
       v-else-if="isListView"
       :height="height"
       :paginated-torrents="paginatedTorrents"
-      @onCheckboxClick="onTorrentClick"
-      @onTorrentClick="onTorrentClick"
-      @onTorrentDblClick="goToInfo"
-      @onTorrentRightClick="onTorrentRightClick"
-      @startPress="startPress"
-      @endPress="endPress" />
+      @on-checkbox-click="onTorrentClick"
+      @on-torrent-click="onTorrentClick"
+      @on-torrent-dbl-click="goToInfo"
+      @on-torrent-right-click="onTorrentRightClick" />
     <GridView
       v-else-if="isGridView"
       :height="height"
       :paginated-torrents="paginatedTorrents"
-      @onCheckboxClick="onTorrentClick"
-      @onTorrentClick="onTorrentClick"
-      @onTorrentDblClick="goToInfo"
-      @onTorrentRightClick="onTorrentRightClick"
-      @startPress="startPress"
-      @endPress="endPress" />
+      @on-checkbox-click="onTorrentClick"
+      @on-torrent-click="onTorrentClick"
+      @on-torrent-dbl-click="goToInfo"
+      @on-torrent-right-click="onTorrentRightClick" />
     <TableView
       v-else-if="isTableView"
       :height="height"
       :paginated-torrents="paginatedTorrents"
-      @onCheckboxClick="onTorrentClick"
-      @onTorrentClick="onTorrentClick"
-      @onTorrentDblClick="goToInfo"
-      @onTorrentRightClick="onTorrentRightClick"
-      @startPress="startPress"
-      @endPress="endPress" />
+      @on-checkbox-click="onTorrentClick"
+      @on-torrent-click="onTorrentClick"
+      @on-torrent-dbl-click="goToInfo"
+      @on-torrent-right-click="onTorrentRightClick" />
 
     <div v-if="!isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>
 
-  <TRC :right-click-properties="rightClickProperties" />
+  <TRC v-model="rightClickProperties" />
 </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import InfoBase from './InfoBase.vue'
 import { formatData } from '@/helpers'
 import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import InfoBase from './InfoBase.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
 
@@ -27,9 +27,13 @@ const torrentValues = [
   <v-expansion-panel :title="$t('torrentDetail.info.data_values')">
     <v-expansion-panel-text>
       <v-row>
-        <InfoBase v-for="ppt in torrentValues">
-          <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
-          <template v-slot:text>{{ formatData(ppt.getter(), useBinarySize) }}</template>
+        <InfoBase v-for="ppt in torrentValues" :key="ppt.title">
+          <template #title>
+            {{ $t(`torrent.properties.${ppt.title}`) }}
+          </template>
+          <template #text>
+            {{ formatData(ppt.getter(), useBinarySize) }}
+          </template>
         </InfoBase>
       </v-row>
     </v-expansion-panel-text>

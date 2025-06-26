@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import Draggable from 'vuedraggable'
 import DashboardItem from '@/components/Settings/VueTorrent/DashboardItem.vue'
 import { TorrentProperty } from '@/constants/vuetorrent'
 import { useVueTorrentStore } from '@/stores'
-import { computed } from 'vue'
-import Draggable from 'vuedraggable'
 
 const vueTorrentStore = useVueTorrentStore()
 
@@ -20,8 +20,13 @@ function setActiveToAll(active: boolean) {
   properties.value = properties.value.map(property => ({ ...property, active }))
 }
 
-const selectNone = () => setActiveToAll(false)
-const selectAll = () => setActiveToAll(true)
+function selectNone() {
+  setActiveToAll(false)
+}
+
+function selectAll() {
+  setActiveToAll(true)
+}
 </script>
 
 <template>
@@ -43,7 +48,8 @@ const selectAll = () => setActiveToAll(true)
 
         <v-table>
           <draggable v-model="properties" item-key="name" tag="tbody" handle=".dnd-handle">
-            <template v-slot:item="{ element }">
+            <!--suppress VueUnrecognizedSlot -->
+            <template #item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(element)" />
             </template>
           </draggable>

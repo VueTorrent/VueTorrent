@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import { useTorrentStore } from '@/stores'
 
 defineProps<{
   title: string

@@ -1,11 +1,12 @@
 <script lang="ts" setup>
+import DOMPurify from 'dompurify'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 import Feeds from '@/components/RSS/Feeds/Feeds.vue'
 import Rules from '@/components/RSS/Rules/Rules.vue'
 import { useDialogStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
-import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useDisplay } from 'vuetify'
 
 const { height: deviceHeight, mobile } = useDisplay({ mobileBreakpoint: 'md' })
 const route = useRoute()
@@ -36,12 +37,11 @@ function openRssArticle(article: RssArticle) {
 
 function toggleFeedsView() {
   const tab = route.params.tab === 'rules' ? 'feeds' : 'rules'
-  router.replace({ name: 'rssArticles', params: { tab } })
-  rssStore.lastView = tab
+  void router.replace({ name: 'rssArticles', params: { tab } }).then(() => (rssStore.lastView = tab))
 }
 
 function goHome() {
-  router.push({ name: 'dashboard' })
+  void router.push({ name: 'dashboard' })
 }
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
@@ -82,7 +82,7 @@ onUnmounted(() => {
       </v-col>
     </v-row>
 
-    <Feeds v-if="feedsView" :height="height" :mobile="mobile" @openArticle="openRssArticle" />
+    <Feeds v-if="feedsView" :height="height" :mobile="mobile" @open-article="openRssArticle" />
     <Rules v-else :height="height" />
   </div>
 
@@ -96,7 +96,8 @@ onUnmounted(() => {
       </v-card-title>
 
       <v-card-text>
-        <div class="description-container" v-html="rssDescription.content" />
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="description-container" v-html="DOMPurify.sanitize(rssDescription.content)" />
       </v-card-text>
     </v-card>
   </v-dialog>

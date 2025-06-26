@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
-import { useContentStore, useDialogStore } from '@/stores'
-import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import { VVirtualScroll } from 'vuetify/components/VVirtualScroll'
 import ContentNode from './ContentNode.vue'
+import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
+import { useContentStore, useDialogStore } from '@/stores'
+import { Torrent, TreeNode } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -43,21 +43,6 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
     lastSelected.value = node.fullName
   }
 }
-
-// mobile long press
-const timer = ref<NodeJS.Timeout>()
-
-function startPress(e: Touch, node: TreeNode) {
-  timer.value = setTimeout(() => {
-    onRightClick(e, node)
-  }, 500)
-}
-
-function endPress() {
-  clearTimeout(timer.value)
-}
-
-// END mobile long press
 
 watch(
   () => props.isActive,
@@ -129,7 +114,7 @@ function handleKeyboardInput(e: KeyboardEvent) {
       contentStore.openNode(e, flatTree.value[oldCursor])
       break
     case KeyNames.Spacebar:
-      contentStore.toggleFileSelection(...selectedNodes.value).then()
+      void contentStore.toggleFileSelection(...selectedNodes.value)
       break
   }
 
@@ -149,27 +134,21 @@ function handleKeyboardInput(e: KeyboardEvent) {
       <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" @keydown.stop />
 
       <v-tooltip :text="$t('torrentDetail.content.filter.activator')" location="bottom">
-        <template #activator="{ props }">
-          <v-btn v-bind="props" icon="mdi-select-multiple" color="primary" @click="openFilterDialog" />
+        <template #activator="{ props: tooltipProps }">
+          <v-btn v-bind="tooltipProps" icon="mdi-select-multiple" color="primary" @click="openFilterDialog" />
         </template>
       </v-tooltip>
 
       <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
-        <template #activator="{ props }">
-          <v-btn v-bind="props" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
+        <template #activator="{ props: tooltipProps }">
+          <v-btn v-bind="tooltipProps" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
         </template>
       </v-tooltip>
     </div>
 
     <v-virtual-scroll ref="scrollView" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
-        <ContentNode
-          :node="item"
-          @touchcancel="endPress"
-          @touchend="endPress"
-          @touchmove="endPress"
-          @touchstart="startPress($event.touches.item(0)!, item)"
-          @onRightClick="(e, node) => onRightClick(e, node)" />
+        <ContentNode :node="item" @on-right-click="(e, node) => onRightClick(e, node)" />
       </template>
     </v-virtual-scroll>
   </v-card>

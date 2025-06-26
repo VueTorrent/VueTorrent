@@ -1,13 +1,14 @@
 <script lang="ts" setup>
+import { vOnLongPress } from '@vueuse/components'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import Header from './Header.vue'
+import TableTorrent from './TableTorrent.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { comparators, getTorrentStateColor } from '@/helpers'
 import { useAppStore, useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent, Torrent as TorrentType } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import Header from './Header.vue'
-import TableTorrent from './TableTorrent.vue'
 
 defineProps<{
   height: number
@@ -19,8 +20,6 @@ defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
-  startPress: [e: Touch, torrent: TorrentType]
-  endPress: []
 }>()
 
 const { t, getTorrentStateString } = useI18nUtils()
@@ -55,7 +54,9 @@ function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
 
-const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3` : '']
+function getTorrentRowColorClass(torrent: TorrentType) {
+  return [isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3` : '']
+}
 </script>
 
 <template>
@@ -75,25 +76,22 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
         <template v-for="header in columns" :key="header.key">
           <th v-if="header.key === 'statusIndicator'" class="px-1" />
           <th v-else-if="header.key === 'multipleSelectionCheckbox'" />
-          <Header v-else :title="header.title!" :sortKey="header.key!" @onHeaderClick="onHeaderClick(header.key as keyof Torrent)" />
+          <Header v-else :title="header.title!" :sort-key="header.key!" @on-header-click="onHeaderClick(header.key as keyof Torrent)" />
         </template>
       </tr>
     </template>
 
     <template #item="{ item: torrent }">
       <tr
-        :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         v-ripple
+        v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
+        :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         data-custom-context-menu
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
-        @touchcancel="$emit('endPress')"
-        @touchend="$emit('endPress')"
-        @touchmove="$emit('endPress')"
-        @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">
         <v-tooltip top>
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <td v-bind="props" :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
           </template>
           {{ getTorrentStateString(torrent.state) }}
@@ -107,7 +105,9 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
             @click.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
 
-        <td class="torrent-name text-no-wrap">{{ torrent.name }}</td>
+        <td class="torrent-name text-no-wrap">
+          {{ torrent.name }}
+        </td>
         <TableTorrent :torrent="torrent" />
       </tr>
     </template>

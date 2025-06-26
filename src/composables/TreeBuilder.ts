@@ -1,8 +1,8 @@
+import toSorted from 'array.prototype.tosorted'
+import { computed, MaybeRefOrGetter, shallowRef, toValue, watchEffect } from 'vue'
 import { comparators } from '@/helpers'
 import { TorrentFile } from '@/types/qbit/models'
 import { TreeFile, TreeFolder, TreeNode } from '@/types/vuetorrent'
-import toSorted from 'array.prototype.tosorted'
-import { computed, MaybeRefOrGetter, shallowRef, toValue, watchEffect } from 'vue'
 
 function getEmptyRoot() {
   return new TreeFolder('(root)', '')
@@ -12,7 +12,7 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedIte
   const tree = shallowRef(getEmptyRoot())
 
   const flatTree = computed(() => {
-    const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
+    function flatten(node: TreeNode, parentPath: string): TreeNode[] {
       const path = parentPath === '' ? node.name : parentPath + '/' + node.name
 
       if (node.type === 'folder' && toValue(openedItems).has(node.fullName)) {

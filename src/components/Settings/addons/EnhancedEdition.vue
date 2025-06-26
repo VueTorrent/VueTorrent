@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { usePreferenceStore } from '@/stores'
 import { EnhancedAppPreferences } from '@/types/qbit/models/AppPreferences'
-import { computed } from 'vue'
 
 const preferenceStore = usePreferenceStore()
 

@@ -1,8 +1,8 @@
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
-import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { AllowedComponentProps, Component, computed, shallowRef, triggerRef, VNodeProps } from 'vue'
+import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
+import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 
 type ComponentProps<C extends Component> = C extends new (...args: any) => any ? Omit<InstanceType<C>['$props'], keyof VNodeProps | keyof AllowedComponentProps> : never
 
@@ -10,7 +10,7 @@ type DialogTemplate<C extends Component> = {
   component: C
   props: ComponentProps<C>
   guid: string
-  onClose?: () => any | Promise<any>
+  onClose?: () => void
 }
 
 export const useDialogStore = defineStore('dialogs', () => {
@@ -18,11 +18,7 @@ export const useDialogStore = defineStore('dialogs', () => {
 
   const hasActiveDialog = computed(() => dialogs.value.size > 0)
 
-  function isDialogOpened(guid: string) {
-    return dialogs.value.has(guid)
-  }
-
-  function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>, onClose?: () => any | Promise<any>) {
+  function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>, onClose?: () => void) {
     const guid = uuidv4()
     dialogs.value.set(guid, {
       component,
@@ -55,7 +51,6 @@ export const useDialogStore = defineStore('dialogs', () => {
   return {
     dialogs,
     hasActiveDialog,
-    isDialogOpened,
     createDialog,
     deleteDialog,
     confirmAction,

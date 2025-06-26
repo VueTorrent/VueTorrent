@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import PasswordField from '@/components/Core/PasswordField.vue'
-import { useAppStore } from '@/stores'
-import { LoginPayload } from '@/types/qbit/payloads'
 import { onMounted, reactive, ref, watchEffect } from 'vue'
-import { useI18nUtils } from '@/composables'
 import { useRoute, useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
+import PasswordField from '@/components/Core/PasswordField.vue'
+import { useI18nUtils } from '@/composables'
+import { useAppStore } from '@/stores'
+import { LoginPayload } from '@/types/qbit/payloads'
 
 const { t } = useI18nUtils()
 const router = useRouter()
@@ -24,7 +24,7 @@ const rules = {
   password: [(v: string) => !!v || t('login.rules.password_required')]
 }
 
-const login = async () => {
+async function login() {
   if (!rulesOk.value) return
   const response = await appStore.login(loginForm.username, loginForm.password)
 
@@ -35,19 +35,18 @@ const login = async () => {
     let message = t('login.error')
 
     if (response.status !== 200) {
-      message += `
-Error code: ${response.status} (${response.data})`
+      message += `\nError code: ${response.status} (${response.data})`
     }
 
     toast.error(message)
   }
 }
 
-const redirectOnSuccess = () => {
+function redirectOnSuccess() {
   if (route.query.redirect) {
-    router.push(route.query.redirect as string)
+    void router.push(route.query.redirect as string)
   } else {
-    router.push({ name: 'dashboard' })
+    void router.push({ name: 'dashboard' })
   }
 }
 
@@ -72,27 +71,27 @@ watchEffect(() => {
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
           <v-text-field
-            v-model="loginForm.username"
             id="username"
+            v-model="loginForm.username"
             name="username"
             :label="t('login.username')"
             autofocus
             :rules="rules.username"
-            @keydown.enter.prevent="login"
-            variant="outlined">
-            <template v-slot:prepend>
+            variant="outlined"
+            @keydown.enter.prevent="login">
+            <template #prepend>
               <v-icon color="accent" icon="mdi-account" />
             </template>
           </v-text-field>
 
           <PasswordField
-            v-model="loginForm.password"
             id="password"
+            v-model="loginForm.password"
             :label="t('login.password')"
             :rules="rules.password"
             prepend-icon="mdi-lock"
-            @keydown.enter.prevent="login"
-            variant="outlined" />
+            variant="outlined"
+            @keydown.enter.prevent="login" />
         </v-form>
       </v-card-text>
       <v-card-actions>

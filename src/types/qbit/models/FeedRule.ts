@@ -1,5 +1,5 @@
+import { AddTorrentParams } from '.'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
-import { AddTorrentParams } from '@/types/qbit/models'
 
 export interface LegacyFeedRule {
   /** Torrent save path

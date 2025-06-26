@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import FilterSelectMulti from '@/components/Navbar/SideWidgets/FilterSelectMulti.vue'
-import FilterSelectSingle from '@/components/Navbar/SideWidgets/FilterSelectSingle.vue'
+import { storeToRefs } from 'pinia'
+import { computed, Ref } from 'vue'
+import FilterSelectMulti from './FilterSelectMulti.vue'
+import FilterSelectSingle from './FilterSelectSingle.vue'
 import { useI18nUtils } from '@/composables'
 import { FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
 import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore, useVueTorrentStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { computed, Ref } from 'vue'
 
 const { t, getTorrentStateString } = useI18nUtils()
 const { categories: _categories, torrentsByCategory } = storeToRefs(useCategoryStore())
@@ -79,8 +79,13 @@ function toggleFilterType(ref: Ref<FilterType>) {
   }
 }
 
-const toggleTagFilterType = () => toggleFilterType(tagFilterType)
-const toggleTrackerFilterType = () => toggleFilterType(trackerFilterType)
+function toggleTagFilterType() {
+  toggleFilterType(tagFilterType)
+}
+
+function toggleTrackerFilterType() {
+  toggleFilterType(trackerFilterType)
+}
 
 const activeStatuses = [
   TorrentState.UPLOADING,
@@ -159,9 +164,9 @@ function disableTrackerFilter() {
       v-model:exclude="tagFilterExclude"
       :title="t('navbar.side.filters.tag.title')"
       :items="tags"
-      :filterType="tagFilterType"
+      :filter-type="tagFilterType"
       @disable="disableTagFilter"
-      @toggleFilterType="toggleTagFilterType" />
+      @toggle-filter-type="toggleTagFilterType" />
 
     <FilterSelectMulti
       v-if="showFilterTracker"
@@ -169,8 +174,8 @@ function disableTrackerFilter() {
       v-model:exclude="trackerFilterExclude"
       :title="t('navbar.side.filters.tracker.title')"
       :items="trackers"
-      :filterType="trackerFilterType"
+      :filter-type="trackerFilterType"
       @disable="disableTrackerFilter"
-      @toggleFilterType="toggleTrackerFilterType" />
+      @toggle-filter-type="toggleTrackerFilterType" />
   </v-list>
 </template>

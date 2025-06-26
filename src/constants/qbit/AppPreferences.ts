@@ -1,13 +1,13 @@
 export enum AutoDeleteMode {
-  NEVER,
-  IF_ADDED,
-  ALWAYS
+  NEVER = 0,
+  IF_ADDED = 1,
+  ALWAYS = 2
 }
 
 export enum BitTorrentProtocol {
-  TCP_uTP,
-  TCP,
-  uTP
+  TCP_uTP = 0,
+  TCP = 1,
+  uTP = 2
 }
 
 export enum ContentLayout {
@@ -17,21 +17,21 @@ export enum ContentLayout {
 }
 
 export enum DynDnsService {
-  USE_DYNDNS,
-  USE_NOIP,
+  USE_DYNDNS = 0,
+  USE_NOIP = 1,
   USE_NONE = -1
 }
 
 export enum Encryption {
-  PREFER_ENCRYPTION,
-  FORCE_ON,
-  FORCE_OFF
+  PREFER_ENCRYPTION = 0,
+  FORCE_ON = 1,
+  FORCE_OFF = 2
 }
 
 export enum FileLogAgeType {
-  DAYS,
-  MONTHS,
-  YEARS
+  DAYS = 0,
+  MONTHS = 1,
+  YEARS = 2
 }
 
 export enum ShareLimitAction {
@@ -55,23 +55,23 @@ export enum ResumeDataStorageType {
 }
 
 export enum ScanDirsEnum {
-  MONITORED_FOLDER,
-  DEFAULT_SAVE_PATH
+  MONITORED_FOLDER = 0,
+  DEFAULT_SAVE_PATH = 1
 }
 
 export type ScanDirs = ScanDirsEnum | string
 
 export enum SchedulerDays {
-  EVERY_DAY,
-  EVERY_WEEKDAY,
-  EVERY_WEEKEND,
-  EVERY_MONDAY,
-  EVERY_TUESDAY,
-  EVERY_WEDNESDAY,
-  EVERY_THURSDAY,
-  EVERY_FRIDAY,
-  EVERY_SATURDAY,
-  EVERY_SUNDAY
+  EVERY_DAY = 0,
+  EVERY_WEEKDAY = 1,
+  EVERY_WEEKEND = 2,
+  EVERY_MONDAY = 3,
+  EVERY_TUESDAY = 4,
+  EVERY_WEDNESDAY = 5,
+  EVERY_THURSDAY = 6,
+  EVERY_FRIDAY = 7,
+  EVERY_SATURDAY = 8,
+  EVERY_SUNDAY = 9
 }
 
 export enum StopCondition {
@@ -86,30 +86,30 @@ export enum TorrentContentRemoveOption {
 }
 
 export enum UploadChokingAlgorithm {
-  ROUND_ROBIN,
-  FASTEST_UPLOAD,
-  ANTI_LEECH
+  ROUND_ROBIN = 0,
+  FASTEST_UPLOAD = 1,
+  ANTI_LEECH = 2
 }
 
 export enum UploadSlotsBehavior {
-  FIXED_SLOTS,
-  UPLOAD_RATE_BASED
+  FIXED_SLOTS = 0,
+  UPLOAD_RATE_BASED = 1
 }
 
 export enum UtpTcpMixedMode {
-  PREFER_TCP,
-  PEER_PROPORTIONAL
+  PREFER_TCP = 0,
+  PEER_PROPORTIONAL = 1
 }
 
 export enum DiskIOType {
-  DEFAULT,
-  MEMORY_MAPPED_FILES,
-  POSIX_COMPLIANT,
-  SIMPLE_PREAD_PWRITE
+  DEFAULT = 0,
+  MEMORY_MAPPED_FILES = 1,
+  POSIX_COMPLIANT = 2,
+  SIMPLE_PREAD_PWRITE = 3
 }
 
 export enum DiskIOMode {
-  DISABLE_OS_CACHE,
-  ENABLE_OS_CACHE,
-  WRITE_THROUGH
+  DISABLE_OS_CACHE = 0,
+  ENABLE_OS_CACHE = 1,
+  WRITE_THROUGH = 2
 }

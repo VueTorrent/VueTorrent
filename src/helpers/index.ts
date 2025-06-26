@@ -1,13 +1,13 @@
 import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateValue } from './colors'
 import comparators, { Comparator, isObjectEqual } from './comparators'
-import { formatDataValue, formatDataUnit, formatData } from './data'
-import { QBIT_MAX_ETA, INFINITY_SYMBOL, formatEta, formatTimeMs, formatTimeSec, formatDuration } from './datetime'
+import { formatData, formatDataUnit, formatDataValue } from './data'
+import { formatDuration, formatEta, formatTimeMs, formatTimeSec, INFINITY_SYMBOL, QBIT_MAX_ETA } from './datetime'
 import { arrayRemove } from './misc'
-import { toPrecision, formatPercent } from './number'
-import { basename, splitExt, getFileIcon, getExtType, getTypeIcon } from './path'
-import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
-import { isWindows, isMac, doesCommand, openLink, downloadFile } from './system'
-import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, containsUrl, isValidUri, codeToFlag, normalize } from './text'
+import { formatPercent, toPrecision } from './number'
+import { basename, getExtType, getFileIcon, getTypeIcon, splitExt } from './path'
+import { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
+import { doesCommand, downloadFile, isMac, isWindows, openLink } from './system'
+import { capitalize, codeToFlag, containsUrl, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
 
 export {
   getColorFromName,

@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { computed, reactive } from 'vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { FileType } from '@/constants/vuetorrent'
 import { comparators, formatData, getExtType, getTypeIcon, splitExt } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
-import { computed, reactive } from 'vue'
 
 const props = defineProps<{
   guid: string
@@ -35,6 +35,7 @@ const fileExtensionsByType = computed(() =>
     {} as Record<FileType, string[]>
   )
 )
+
 const extensionItems = computed(() =>
   Object.entries(fileExtensionsByType.value)
     .sort(([typeA, _1], [typeB, _2]) => {
@@ -43,7 +44,7 @@ const extensionItems = computed(() =>
       return comparators.text.asc(typeA, typeB)
     })
     .flatMap(([type, extensions]) => [
-      { props: { header: t(`constants.file_type.${type}`), icon: getTypeIcon(type as FileType) } },
+      { props: { header: t(`constants.file_type.${type}`), icon: getTypeIcon(type) } },
       ...extensions.map(ext => ({ title: ext ? `.${ext}` : t(`constants.file_type.no_ext`), value: ext })),
       { props: { divider: true } }
     ])
@@ -86,18 +87,18 @@ const filterPreview = computed(() =>
 const filterPreviewSize = computed(() => filterPreview.value.reduce((prev, curr) => prev + curr.size, 0))
 
 function exclude() {
-  contentStore.setFilePriority(
-    filterPreview.value.map(value => value.index),
-    FilePriority.DO_NOT_DOWNLOAD
-  )
-  close()
+  void contentStore
+    .setFilePriority(
+      filterPreview.value.map(value => value.index),
+      FilePriority.DO_NOT_DOWNLOAD
+    )
+    .then(close)
 }
 
 function include() {
   // Don't change already selected files' priority
   const fileIdx = filterPreview.value.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
-  contentStore.setFilePriority(fileIdx, FilePriority.NORMAL)
-  close()
+  void contentStore.setFilePriority(fileIdx, FilePriority.NORMAL).then(close)
 }
 
 function close() {
@@ -121,13 +122,13 @@ function close() {
           </v-col>
           <v-col cols="8">
             <v-select v-model="filters.extensions" :items="extensionItems" :placeholder="t('common.disabled')" persistent-placeholder multiple hide-details>
-              <template #item="{ props }">
-                <v-list-subheader v-if="props.header">
-                  <v-icon>{{ props.icon }}</v-icon>
-                  {{ props.header }}
+              <template #item="{ props: itemProps }">
+                <v-list-subheader v-if="itemProps.header">
+                  <v-icon>{{ itemProps.icon }}</v-icon>
+                  {{ itemProps.header }}
                 </v-list-subheader>
-                <v-divider v-else-if="props.divider" />
-                <v-list-item v-else v-bind="props" />
+                <v-divider v-else-if="itemProps.divider" />
+                <v-list-item v-else v-bind="itemProps" />
               </template>
             </v-select>
           </v-col>
@@ -156,15 +157,15 @@ function close() {
               density="compact"
               thumb-label="always"
               hide-details>
-              <template v-slot:thumb-label="{ modelValue }">
+              <template #thumb-label="{ modelValue }">
                 <div style="white-space: nowrap">
                   {{ formatData(modelValue, vuetorrentStore.useBinarySize) }}
                 </div>
               </template>
-              <template v-slot:prepend>
+              <template #prepend>
                 <v-text-field v-model="filters.size[0]" hide-spin-buttons density="compact" style="width: 130px" type="number" variant="outlined" hide-details single-line />
               </template>
-              <template v-slot:append>
+              <template #append>
                 <v-text-field v-model="filters.size[1]" hide-spin-buttons density="compact" style="width: 130px" type="number" variant="outlined" hide-details single-line />
               </template>
             </v-range-slider>
@@ -183,8 +184,12 @@ function close() {
         </v-row>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="error" @click="exclude">{{ t('torrentDetail.content.filter.exclude') }}</v-btn>
-        <v-btn color="success" @click="include">{{ t('torrentDetail.content.filter.include') }}</v-btn>
+        <v-btn color="error" @click="exclude">
+          {{ t('torrentDetail.content.filter.exclude') }}
+        </v-btn>
+        <v-btn color="success" @click="include">
+          {{ t('torrentDetail.content.filter.include') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

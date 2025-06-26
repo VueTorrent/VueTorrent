@@ -1,5 +1,5 @@
-import colors from 'vuetify/util/colors'
-import { getVariables } from '../global'
+import { grey, red } from 'vuetify/util/colors'
+import { getVariables } from '@/themes/global'
 
 export default {
   id: 'dark-legacy',
@@ -11,8 +11,8 @@ export default {
       navbar: '#273845',
       download: '#5BB974',
       background: '#121212',
-      selected: colors.grey.darken1,
-      red: colors.red.accent3,
+      selected: grey.darken1,
+      red: red.accent3,
       ...getVariables(true)
     }
   }

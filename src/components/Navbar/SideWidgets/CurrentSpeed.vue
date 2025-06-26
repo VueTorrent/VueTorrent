@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import SpeedCard from '@/components/Core/SpeedCard.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
 
 const { t } = useI18nUtils()
 const { serverState } = storeToRefs(useMaindataStore())
@@ -56,15 +56,15 @@ const isUploadingFilterActive = computed(() => uploadingStates.every(state => st
           </v-col>
 
           <template v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)">
-            <v-col cols="6" v-if="serverState.dl_rate_limit" class="px-1 pt-0">
+            <v-col v-if="serverState.dl_rate_limit" cols="6" class="px-1 pt-0">
               <SpeedCard icon="mdi-arrow-collapse-down" color="download" :value="serverState.dl_rate_limit" />
             </v-col>
-            <v-col cols="6" v-else />
+            <v-col v-else cols="6" />
 
-            <v-col cols="6" v-if="serverState.up_rate_limit" class="px-1 pt-0">
+            <v-col v-if="serverState.up_rate_limit" cols="6" class="px-1 pt-0">
               <SpeedCard icon="mdi-arrow-collapse-up" color="upload" :value="serverState.up_rate_limit" />
             </v-col>
-            <v-col cols="6" v-else />
+            <v-col v-else cols="6" />
           </template>
         </v-row>
       </v-sheet>

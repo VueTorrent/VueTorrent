@@ -1,8 +1,8 @@
+import { storeToRefs } from 'pinia'
+import { useI18n } from 'vue-i18n'
 import { emojiStateMap, TorrentState } from '@/constants/vuetorrent'
 import { getTorrentStateValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
 
 export function useI18nUtils() {
   const i18n = useI18n()

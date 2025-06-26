@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed, reactive, ref } from 'vue'
+import { toast } from 'vue3-toastify'
 import { useDialog, useI18nUtils } from '@/composables'
 import { useCookieStore } from '@/stores'
 import { Cookie } from '@/types/vuetorrent'
-import { computed, reactive, ref } from 'vue'
-import { toast } from 'vue3-toastify'
 
 const props = defineProps<{
   guid: string
@@ -141,7 +141,7 @@ async function submit() {
   }
 }
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 </script>
@@ -177,8 +177,12 @@ const close = () => {
         </template>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="accent" @click="submit">{{ t('common.submit') }}</v-btn>
-        <v-btn color="error" @click="close">{{ t('common.close') }}</v-btn>
+        <v-btn color="accent" @click="submit">
+          {{ t('common.submit') }}
+        </v-btn>
+        <v-btn color="error" @click="close">
+          {{ t('common.close') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

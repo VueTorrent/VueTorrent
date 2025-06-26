@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed, onBeforeMount, ref, watch } from 'vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
+import { useI18nUtils } from '@/composables'
 import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
-import { computed, onBeforeMount, ref, watch } from 'vue'
-import { useI18nUtils } from '@/composables'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -30,14 +30,14 @@ const max_uploads_per_torrent_enabled = ref(false)
 
 const portRule = [(v: number) => (v >= 0 && v <= 65535) || t('settings.connection.i2p.rule')]
 
-const generateRandomPort = () => {
+function generateRandomPort() {
   // source: https://github.com/qbittorrent/qBittorrent/blob/d83b2a61311b0dc3bc31ee52d1b9eaac715c3cdf/src/webui/www/private/views/preferences.html#L1729-L1734
   const min = 1024
   const max = 65535
   preferenceStore.preferences!.listen_port = Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-onBeforeMount(async () => {
+onBeforeMount(() => {
   max_conn_enabled.value = preferenceStore.preferences!.max_connec > 0
   max_conn_per_torrent_enabled.value = preferenceStore.preferences!.max_connec_per_torrent > 0
   max_uploads_enabled.value = preferenceStore.preferences!.max_uploads > 0
@@ -89,7 +89,9 @@ watch(
             :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }} </v-btn>
+          <v-btn color="primary" @click="generateRandomPort">
+            {{ t('settings.connection.listeningPort.randomPort') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -187,7 +189,9 @@ watch(
           </v-col>
 
           <v-col cols="12" class="pt-0">
-            <h5 class="text-warning font-italic">{{ t('settings.connection.i2p.disclaimer') }}</h5>
+            <h5 class="text-warning font-italic">
+              {{ t('settings.connection.i2p.disclaimer') }}
+            </h5>
           </v-col>
         </v-row>
       </v-list-item>
@@ -272,7 +276,9 @@ watch(
     </v-list-item>
 
     <v-list-item>
-      <h5 class="font-italic">{{ t('settings.connection.proxy.auth.tip') }}</h5>
+      <h5 class="font-italic">
+        {{ t('settings.connection.proxy.auth.tip') }}
+      </h5>
     </v-list-item>
 
     <v-divider />

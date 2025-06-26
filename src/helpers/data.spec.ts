@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { formatDataValue, formatDataUnit, formatData } from './data'
+import { formatData, formatDataUnit, formatDataValue } from './data'
 
 test('helpers/data/formatDataValue', () => {
   expect(formatDataValue(0, false)).toBe('0')

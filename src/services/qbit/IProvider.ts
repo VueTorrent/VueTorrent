@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 import { DirectoryContentMode, FilePriority, LogType, PieceState } from '@/constants/qbit'
 import {
   ApplicationVersion,
@@ -22,7 +23,6 @@ import {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import { AxiosResponse } from 'axios'
 
 export default interface IProvider {
   /// AppController ///

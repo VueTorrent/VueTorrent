@@ -1,3 +1,9 @@
+import { useMediaQuery } from '@vueuse/core'
+import { acceptHMRUpdate, defineStore } from 'pinia'
+import { computed, reactive, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useTheme } from 'vuetify'
+import { useI18nUtils } from '@/composables'
 import {
   DashboardProperty,
   defaultDateFormat,
@@ -10,12 +16,6 @@ import {
   TorrentProperty
 } from '@/constants/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
-import { useMediaQuery } from '@vueuse/core'
-import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, reactive, ref, watch } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { useRouter } from 'vue-router'
-import { useTheme } from 'vuetify'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',

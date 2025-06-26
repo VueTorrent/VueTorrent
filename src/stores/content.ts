@@ -1,8 +1,3 @@
-import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
-import { FilePriority } from '@/constants/qbit'
-import qbit from '@/services/qbit'
-import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
@@ -10,6 +5,11 @@ import { useTask } from 'vue-concurrency'
 import { useRoute } from 'vue-router'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
+import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
+import { FilePriority } from '@/constants/qbit'
+import qbit from '@/services/qbit'
+import { TorrentFile } from '@/types/qbit/models'
+import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
@@ -46,18 +46,18 @@ export const useContentStore = defineStore('content', () => {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
-      action: () => renameNode(selectedNode.value!)
+      action: () => void renameNode(selectedNode.value!)
     },
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
-      action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
+      action: () => void bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
       text: t('torrentDetail.content.invert_priority'),
       icon: 'mdi-checkbox-intermediate-variant',
-      action: invertPrioritySelection
+      action: () => void invertPrioritySelection()
     },
     {
       text: t('torrentDetail.content.priority'),
@@ -66,22 +66,22 @@ export const useContentStore = defineStore('content', () => {
         {
           text: t('constants.file_priority.max'),
           icon: 'mdi-arrow-up',
-          action: () => setFilePriority(selectedIds.value, FilePriority.MAXIMAL)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.MAXIMAL)
         },
         {
           text: t('constants.file_priority.high'),
           icon: 'mdi-arrow-top-right',
-          action: () => setFilePriority(selectedIds.value, FilePriority.HIGH)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.HIGH)
         },
         {
           text: t('constants.file_priority.normal'),
           icon: 'mdi-minus',
-          action: () => setFilePriority(selectedIds.value, FilePriority.NORMAL)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.NORMAL)
         },
         {
           text: t('constants.file_priority.unwanted'),
           icon: 'mdi-cancel',
-          action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD)
         }
       ]
     },
@@ -111,7 +111,7 @@ export const useContentStore = defineStore('content', () => {
     isActive: isTimerActive,
     pause: pauseTimer,
     resume: resumeTimer
-  } = useIntervalFn(updateFileTreeTask.perform, fileContentInterval, {
+  } = useIntervalFn(() => void updateFileTreeTask.perform(), fileContentInterval, {
     immediate: false,
     immediateCallback: true
   })
@@ -128,13 +128,13 @@ export const useContentStore = defineStore('content', () => {
       isFolder: node.type === 'folder',
       oldName: node.fullName
     }
-    dialogStore.createDialog(MoveTorrentFileDialog, payload, updateFileTreeTask.perform)
+    dialogStore.createDialog(MoveTorrentFileDialog, payload, () => void updateFileTreeTask.perform())
   }
 
   async function bulkRename(node: TreeFolder) {
     const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
     const payload = { hash: hash.value, node }
-    dialogStore.createDialog(BulkRenameFilesDialog, payload, updateFileTreeTask.perform)
+    dialogStore.createDialog(BulkRenameFilesDialog, payload, () => void updateFileTreeTask.perform())
   }
 
   async function invertPrioritySelection() {
@@ -241,12 +241,9 @@ export const useContentStore = defineStore('content', () => {
     renameTorrentFile,
     renameTorrentFolder,
     setFilePriority,
-    fetchFiles,
     fetchPieceState,
     openNode,
     closeNode,
-    collapseAll,
-    expandAll,
     toggleFileSelection,
     $reset: () => {
       pauseTimer()

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, onMounted, onUnmounted } from 'vue'
+import { toast } from 'vue3-toastify'
+import PieceCanvas from './PieceCanvas.vue'
 import ColoredChip from '@/components/Core/ColoredChip.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
@@ -6,13 +10,9 @@ import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vu
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl, containsUrl } from '@/helpers'
+import { containsUrl, formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed, onMounted, onUnmounted } from 'vue'
-import { toast } from 'vue3-toastify'
-import PieceCanvas from './PieceCanvas.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -48,7 +48,7 @@ const ratioColor = computed(() => {
 async function copyHash() {
   try {
     await navigator.clipboard.writeText(props.torrent.hash)
-  } catch (error) {
+  } catch (_) {
     toast.error(t('toast.copy.error'))
     return
   }
@@ -68,7 +68,7 @@ function openMoveTorrentFileDialog() {
       isFolder: false,
       oldName: torrentFileName.value
     },
-    contentStore.updateFileTreeTask.perform
+    () => void contentStore.updateFileTreeTask.perform()
   )
 }
 
@@ -104,17 +104,19 @@ onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
 })
 
-onUnmounted(async () => {
+onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
 </script>
 
 <template>
   <v-card v-if="torrent">
-    <v-card-title class="text-wrap">{{ torrent.name }}</v-card-title>
+    <v-card-title class="text-wrap">
+      {{ torrent.name }}
+    </v-card-title>
     <v-card-subtitle>
       <div>
-        <span v-for="commentPart in splitByUrl(comment)">
+        <span v-for="(commentPart, i) in splitByUrl(comment)" :key="i">
           <a v-if="containsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
           <span v-else>{{ commentPart }}</span>
         </span>
@@ -132,7 +134,7 @@ onUnmounted(async () => {
           <v-row>
             <v-col cols="4">
               <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100" :model-value="torrent?.progress * 100 || 0" :width="15">
-                <template v-slot>
+                <template #default>
                   <span v-if="isFetchingMetadata">{{ $t('torrentDetail.overview.fetchingMetadata') }}</span>
                   <v-icon v-else-if="torrent.progress === 1" icon="mdi-check" size="x-large" />
                   <span v-else>{{ formatPercent(torrent.progress) }}</span>
@@ -144,7 +146,7 @@ onUnmounted(async () => {
                 <span>{{ $t('torrentDetail.overview.waitingForMetadata') }}</span>
               </div>
               <div v-else>
-                <PieceCanvas :torrent="torrent" :isActive="isActive" />
+                <PieceCanvas :torrent="torrent" :is-active="isActive" />
               </div>
 
               <div v-if="torrentPieceCount > 0">
@@ -178,7 +180,9 @@ onUnmounted(async () => {
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.fileCount') }}:</div>
               <div>{{ selectedFiles.length }} / {{ torrentFileCount }}</div>
-              <div v-if="selectedFiles.length === 1">{{ torrentFileName }}</div>
+              <div v-if="selectedFiles.length === 1">
+                {{ torrentFileName }}
+              </div>
               <v-btn v-if="selectedFiles.length === 1" icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentFileDialog" />
             </v-col>
           </v-row>
@@ -220,7 +224,7 @@ onUnmounted(async () => {
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tags') }}:</div>
               <div v-if="torrent.tags.length" class="d-flex flex-wrap flex-gap-row-small flex-gap-column">
-                <ColoredChip v-for="tag in torrent.tags" default-color="tag" :value="tag" />
+                <ColoredChip v-for="tag in torrent.tags" :key="tag" default-color="tag" :value="tag" />
               </div>
               <ColoredChip v-else :disabled="true" default-color="tag" :value="$t('navbar.side.filters.tag.empty')" />
             </v-col>
@@ -236,7 +240,9 @@ onUnmounted(async () => {
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.ratio') }}:</div>
-              <div :class="ratioColor">{{ torrent.ratio }}</div>
+              <div :class="ratioColor">
+                {{ torrent.ratio }}
+              </div>
             </v-col>
           </v-row>
 

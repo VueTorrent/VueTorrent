@@ -1,17 +1,23 @@
-import i18n from '@/plugins/i18n'
-import vuetify from '@/plugins/vuetify'
 import { createTestingPinia } from '@pinia/testing'
 import { mount, VueWrapper } from '@vue/test-utils'
 import { afterEach, describe, expect } from 'vitest'
 import { ref } from 'vue'
 import MixedButton from './MixedButton.vue'
+import i18n from '@/plugins/i18n'
+import vuetify from '@/plugins/vuetify'
 
 const icon = 'mdi-home'
 const text = 'test value'
 
-const getLeftIconElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-icon-left"]')
-const getRightIconElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-icon-right"]')
-const getTextElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-text"]')
+function getLeftIconElement(el: VueWrapper) {
+  return el.find('[data-testid="mixedbtn-icon-left"]')
+}
+function getRightIconElement(el: VueWrapper) {
+  return el.find('[data-testid="mixedbtn-icon-right"]')
+}
+function getTextElement(el: VueWrapper) {
+  return el.find('[data-testid="mixedbtn-text"]')
+}
 
 const mobileRef = ref(true)
 

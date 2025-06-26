@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, onBeforeMount, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 import CookieFormDialog from '@/components/Dialogs/CookieFormDialog.vue'
 import CookieImportDialog from '@/components/Dialogs/CookieImportDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { formatTimeSec } from '@/helpers'
 import { useCookieStore, useDialogStore, useVueTorrentStore } from '@/stores'
 import { Cookie } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
-import { useDisplay } from 'vuetify'
 
 const { height: deviceHeight } = useDisplay()
 const router = useRouter()
@@ -35,11 +35,11 @@ const headers = computed(() => [
 ])
 
 function openCookieFormDialog(cookie?: Cookie) {
-  dialogStore.createDialog(CookieFormDialog, { initialCookie: cookie }, cookieStore.cookiesFetchTask.perform)
+  dialogStore.createDialog(CookieFormDialog, { initialCookie: cookie }, () => void cookieStore.cookiesFetchTask.perform())
 }
 
 function openCookieImportDialog() {
-  dialogStore.createDialog(CookieImportDialog, {}, cookieStore.cookiesFetchTask.perform)
+  dialogStore.createDialog(CookieImportDialog, {}, () => void cookieStore.cookiesFetchTask.perform())
 }
 
 function deleteCookie(cookie: Cookie) {
@@ -63,8 +63,8 @@ function clearCookies() {
   })
 }
 
-const goHome = () => {
-  router.push({ name: 'dashboard' })
+function goHome() {
+  void router.push({ name: 'dashboard' })
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
@@ -78,7 +78,7 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
   }
 }
 
-onBeforeMount(async () => {
+onBeforeMount(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   cookieStore.cookiesFetchTask.perform()
 })

@@ -1,15 +1,15 @@
-import { useSearchQuery, useTorrentBuilder } from '@/composables'
-import { comparatorMap, FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
-import qbit from '@/services/qbit'
-import { RawQbitTorrent } from '@/types/qbit/models'
-import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useAppStore } from './app'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTrackerStore } from './trackers'
+import { useSearchQuery, useTorrentBuilder } from '@/composables'
+import { comparatorMap, FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
+import qbit from '@/services/qbit'
+import { RawQbitTorrent } from '@/types/qbit/models'
+import { AddTorrentPayload } from '@/types/qbit/payloads'
+import { Torrent as VtTorrent } from '@/types/vuetorrent'
 
 export const useTorrentStore = defineStore(
   'torrents',
@@ -120,11 +120,14 @@ export const useTorrentStore = defineStore(
 
     const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
-    type matchFn = (t: VtTorrent) => boolean
-    const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
-    const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
-    const matchTag: matchFn = t => {
-      const matcher = (tag: string | null) => {
+    function matchStatus(t: VtTorrent): boolean {
+      return statusFilter.value.includes(t.state)
+    }
+    function matchCategory(t: VtTorrent): boolean {
+      return categoryFilter.value.includes(t.category)
+    }
+    function matchTag(t: VtTorrent): boolean {
+      function matcher(tag: string | null) {
         if (tag === null) {
           return t.tags.length === 0
         }
@@ -138,10 +141,10 @@ export const useTorrentStore = defineStore(
           return Array.from(tagFilterInclude.value).some(matcher) || Array.from(tagFilterExclude.value).some(t => !matcher(t))
       }
     }
-    const matchTracker: matchFn = t => {
+    function matchTracker(t: VtTorrent) {
       const torrentTrackers = trackerStore.torrentHostnameTrackers.get(t.hash) ?? []
 
-      const matcher = (tracker: string | TrackerSpecialFilter) => {
+      function matcher(tracker: string | TrackerSpecialFilter) {
         switch (tracker) {
           case TrackerSpecialFilter.UNTRACKED:
             return torrentTrackers.length === 0
@@ -162,10 +165,19 @@ export const useTorrentStore = defineStore(
 
     const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
       const matchResults = []
-      statusFilter.value.length > 0 && isStatusFilterActive.value && matchResults.push(matchStatus(torrent))
-      categoryFilter.value.length > 0 && isCategoryFilterActive.value && matchResults.push(matchCategory(torrent))
-      tagFilterInclude.value.length + tagFilterExclude.value.length > 0 && isTagFilterActive.value && matchResults.push(matchTag(torrent))
-      trackerFilterInclude.value.length + trackerFilterExclude.value.length > 0 && isTrackerFilterActive.value && matchResults.push(matchTracker(torrent))
+
+      if (statusFilter.value.length > 0 && isStatusFilterActive.value) {
+        matchResults.push(matchStatus(torrent))
+      }
+      if (categoryFilter.value.length > 0 && isCategoryFilterActive.value) {
+        matchResults.push(matchCategory(torrent))
+      }
+      if (tagFilterInclude.value.length + tagFilterExclude.value.length > 0 && isTagFilterActive.value) {
+        matchResults.push(matchTag(torrent))
+      }
+      if (trackerFilterInclude.value.length + trackerFilterExclude.value.length > 0 && isTrackerFilterActive.value) {
+        matchResults.push(matchTracker(torrent))
+      }
 
       if (matchResults.length === 0) {
         return true

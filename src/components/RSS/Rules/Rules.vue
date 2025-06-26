@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { onBeforeMount, onUnmounted } from 'vue'
+import Rule from './Rule.vue'
 import RssRuleDialog from '@/components/Dialogs/RssRuleDialog.vue'
 import { useDialogStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
-import { onBeforeMount, onUnmounted } from 'vue'
-import Rule from './Rule.vue'
 
 defineProps<{
   height: number
@@ -34,10 +34,10 @@ onUnmounted(() => {
     </v-empty-state>
   </v-card>
 
-  <template v-else id="rss-rules" class="pa-3">
+  <div v-else id="rss-rules" class="pa-3">
     <v-row class="mt-2">
-      <v-col cols="12" sm="6" lg="3" v-for="rule in rssStore.rules">
-        <Rule :value="rule" @openRule="openRuleDialog" />
+      <v-col v-for="rule in rssStore.rules" :key="rule.name" cols="12" sm="6" lg="3">
+        <Rule :value="rule" @open-rule="openRuleDialog" />
       </v-col>
     </v-row>
 
@@ -48,5 +48,5 @@ onUnmounted(() => {
         </v-btn>
       </v-col>
     </v-row>
-  </template>
+  </div>
 </template>

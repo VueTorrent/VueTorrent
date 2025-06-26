@@ -21,9 +21,9 @@ defineEmits<{
 </script>
 
 <template>
-  <ConfirmDialog :guid="guid" :title="title" :noColor="noColor" :noText="noText" :yesColor="yesColor" :yesText="yesText" @cancel="$emit('cancel')" @confirm="$emit('confirm')">
+  <ConfirmDialog :guid="guid" :title="title" :no-color="noColor" :no-text="noText" :yes-color="yesColor" :yes-text="yesText" @cancel="$emit('cancel')" @confirm="$emit('confirm')">
     <div class="d-flex flex-wrap flex-gap-small">
-      <span class="pa-1 border wrap-anywhere" v-for="item in items">{{ item }}</span>
+      <span v-for="item in items" :key="item" class="pa-1 border wrap-anywhere">{{ item }}</span>
     </div>
 
     <slot />

@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { Encryption, ShareLimitAction } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
-import { useAppStore } from '@/stores'
+import { Encryption, ShareLimitAction } from '@/constants/qbit/AppPreferences'
+import { useAppStore, usePreferenceStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -237,7 +236,7 @@ const trackerUrlListItems = computed<string[]>(() => {
         <v-list-subheader>{{ t('settings.bittorrent.trackersFetchedFromUrl') }}</v-list-subheader>
         <v-card outlined>
           <v-virtual-scroll :items="trackerUrlListItems" height="180" item-height="36">
-            <template v-slot:default="{ item }">
+            <template #default="{ item }">
               <v-list-item dense class="px-2" :title="item" />
               <v-divider />
             </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 import ItemAmount from '@/components/Dashboard/DashboardItems/ItemAmount.vue'
 import ItemBoolean from '@/components/Dashboard/DashboardItems/ItemBoolean.vue'
 import ItemChip from '@/components/Dashboard/DashboardItems/ItemChip.vue'
@@ -14,8 +16,6 @@ import { comparators, getTorrentStateColor } from '@/helpers'
 import { useAppStore, useVueTorrentStore } from '@/stores'
 import { useDashboardStore } from '@/stores/dashboard'
 import { Torrent } from '@/types/vuetorrent'
-import { computed } from 'vue'
-import { useTheme } from 'vuetify'
 
 const props = defineProps<{ torrent: Torrent }>()
 
@@ -30,12 +30,12 @@ const dashboardStore = useDashboardStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => {
-  let ppts = props.torrent.progress === 1 ? vuetorrentStore.doneGridProperties : vuetorrentStore.busyGridProperties
+  const ppts = props.torrent.progress === 1 ? vuetorrentStore.doneGridProperties : vuetorrentStore.busyGridProperties
 
   return ppts.filter(ppt => ppt.active && appStore.isFeatureAvailable(ppt.qbitVersion)).sort((a, b) => comparators.numeric.asc(a.order, b.order))
 })
 
-const getComponent = (type: DashboardPropertyType) => {
+function getComponent(type: DashboardPropertyType) {
   switch (type) {
     case DashboardPropertyType.AMOUNT:
       return ItemAmount
@@ -72,11 +72,13 @@ const stateColor = computed(() => current.value.colors[getTorrentStateColor(prop
     height="100%"
     :color="isTorrentSelected ? `${getTorrentStateColor(torrent.state)}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">
-    <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
+    <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">
+      {{ torrent.name }}
+    </v-card-title>
     <v-card-text>
       <div class="d-flex flex-gap flex-wrap">
         <template v-for="ppt in torrentProperties">
-          <component v-if="ppt.props" :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" />
+          <component :is="getComponent(ppt.type)" v-if="ppt.props" :key="ppt.name" :torrent="torrent" v-bind="ppt.props" />
         </template>
       </div>
     </v-card-text>

@@ -1,10 +1,10 @@
-import i18n from '@/plugins/i18n'
-import vuetify from '@/plugins/vuetify'
 import { createTestingPinia } from '@pinia/testing'
 import { mount, VueWrapper } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import DataCard from './DataCard.vue'
+import i18n from '@/plugins/i18n'
+import vuetify from '@/plugins/vuetify'
 
 const title = 'Downloaded'
 const value = 10000

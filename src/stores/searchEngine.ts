@@ -1,9 +1,9 @@
-import qbit from '@/services/qbit'
-import { SearchPlugin } from '@/types/qbit/models'
-import { SearchData } from '@/types/vuetorrent'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
+import qbit from '@/services/qbit'
+import { SearchPlugin } from '@/types/qbit/models'
+import { SearchData } from '@/types/vuetorrent'
 
 export const useSearchEngineStore = defineStore(
   'searchEngine',
