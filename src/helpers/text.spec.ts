@@ -1,4 +1,4 @@
-import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, containsUrl, titleCase, isValidUri } from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, containsUrl, titleCase, isValidUri, normalize } from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {
@@ -119,4 +119,10 @@ test('helpers/text/codeToFlag', () => {
 
   expect(codeToFlag('it').char).toBe('🇮🇹')
   expect(codeToFlag('it').url).toBe('https://cdn.jsdelivr.net/npm/twemoji/2/svg/1f1ee-1f1f9.svg')
+})
+
+test('helpers/text/normalize', () => {
+  expect(normalize('crème brûlée')).toBe('creme brulee')
+  expect(normalize('ąśćńżóźćęç')).toBe('ascnzozcec')
+  expect(normalize('áéíóú ÁÉÍÓÚ üÜ')).toBe('aeiou aeiou uu')
 })

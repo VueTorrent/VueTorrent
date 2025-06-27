@@ -1,4 +1,5 @@
 import { computed, MaybeRefOrGetter, toValue } from 'vue'
+import { normalize } from '@/helpers/text.ts'
 
 export function useSearchQuery<T>(
   items: MaybeRefOrGetter<T[]>,
@@ -8,7 +9,10 @@ export function useSearchQuery<T>(
 ) {
   const results = computed(() => {
     const searchItems = toValue(items) ?? []
-    const tokens = (toValue(searchQuery) ?? '').trim().toLowerCase().split(/[ ,]/i).filter(Boolean)
+    const tokens = normalize(toValue(searchQuery) ?? '')
+      .trim()
+      .split(/[ ,]/i)
+      .filter(Boolean)
     const inclusionTokens = tokens.filter(token => !token.startsWith('-'))
     const exclusionTokens = tokens.filter(token => token.startsWith('-')).map(token => token.slice(1))
     const res = searchItems.filter(item => handleIncludeTokens(item, inclusionTokens) && handleExcludeTokens(item, exclusionTokens))
@@ -19,7 +23,7 @@ export function useSearchQuery<T>(
     return tokens.every(token => {
       let value = getter(item)
       if (!Array.isArray(value)) value = [value]
-      return value.some(v => v.toLowerCase().indexOf(token) !== -1)
+      return value.some(v => normalize(v).indexOf(token) !== -1)
     })
   }
 
@@ -27,7 +31,7 @@ export function useSearchQuery<T>(
     return !tokens.some(token => {
       let value = getter(item)
       if (!Array.isArray(value)) value = [value]
-      return value.some(v => v.toLowerCase().indexOf(token) !== -1)
+      return value.some(v => normalize(v).indexOf(token) !== -1)
     })
   }
 
