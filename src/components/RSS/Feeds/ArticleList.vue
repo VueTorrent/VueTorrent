@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import Article from './Article.vue'
 import { useArrayPagination } from '@/composables'
 import { openLink } from '@/helpers'
 import { useAddTorrentStore, useRssStore, useVueTorrentStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import Article from './Article.vue'
 
 defineProps<{
   height?: number
@@ -48,10 +48,15 @@ async function markAsRead(item: RssArticle) {
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
     </v-list-item>
 
-    <template v-for="(article, index) in paginatedResults">
+    <template v-for="(article, index) in paginatedResults" :key="index">
       <v-divider v-if="index > 0" />
 
-      <Article :value="article" @click="$emit('articleClicked', article)" @markAsRead="markAsRead(article)" @open="openArticleLink(article)" @download="downloadArticle(article)" />
+      <Article
+        :value="article"
+        @click="$emit('articleClicked', article)"
+        @mark-as-read="markAsRead(article)"
+        @open="openArticleLink(article)"
+        @download="downloadArticle(article)" />
     </template>
 
     <v-list-item v-if="articles.length === 0">

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
+import { useRouter } from 'vue-router'
+import { toast } from 'vue3-toastify'
 import EnhancedEdition from '@/components/Settings/addons/EnhancedEdition.vue'
 import Advanced from '@/components/Settings/Advanced.vue'
 import Behavior from '@/components/Settings/Behavior.vue'
@@ -15,9 +18,6 @@ import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Tabl
 import WebUI from '@/components/Settings/WebUI.vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, usePreferenceStore } from '@/stores'
-import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
-import { useRouter } from 'vue-router'
-import { toast } from 'vue3-toastify'
 
 const router = useRouter()
 const { t } = useI18nUtils()
@@ -49,7 +49,7 @@ const innerTabV = ref('general')
 
 const isEnhancedEdition = computed(() => preferenceStore.preferences && Object.keys(preferenceStore.preferences).includes('public_trackers'))
 
-const saveSettings = async () => {
+async function saveSettings() {
   await preferenceStore.setPreferences()
   toast.success(t('settings.saveSuccess'))
   await preferenceStore.fetchPreferences()
@@ -66,8 +66,8 @@ const saveSettings = async () => {
   }
 }
 
-const goHome = () => {
-  router.push({ name: 'dashboard' })
+function goHome() {
+  void router.push({ name: 'dashboard' })
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
 
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
-          <v-tab v-for="{ text, value } in tabsV" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: 'vuetorrent', subtab: value } }" />
+          <v-tab v-for="{ text, value } in tabsV" :key="value" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: 'vuetorrent', subtab: value } }" />
         </v-tabs>
 
         <v-window v-model="innerTabV" :touch="false">

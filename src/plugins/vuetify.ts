@@ -1,10 +1,10 @@
 import 'vuetify/styles'
-import themes, { DarkRedesigned } from '@/themes'
+import '@mdi/font/css/materialdesignicons.css'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import '@mdi/font/css/materialdesignicons.css'
 import { VTimePicker } from 'vuetify/labs/VTimePicker'
+import themeMap, { DarkRedesigned } from '@/themes'
 
 export default createVuetify({
   components: {
@@ -47,6 +47,6 @@ export default createVuetify({
       lighten: 3,
       darken: 3
     },
-    themes
+    themes: themeMap
   }
 })

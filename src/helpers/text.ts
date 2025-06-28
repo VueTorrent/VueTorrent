@@ -25,7 +25,7 @@ export function extractHostname(url: string): string {
 }
 
 export function getDomainBody(string: string): string {
-  const match = string.match(/:\/\/([^\/]+\.)?([^\/.]+)\.[^\/.:]+/i)
+  const match = string.match(/:\/\/([^/]+\.)?([^/.]+)\.[^/.:]+/i)
   if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
     return match[2]
   } else {
@@ -47,8 +47,9 @@ export function getDomainBody(string: string): string {
  *
  * Path (Optional): should match any string appended to the URL
  */
-const getUrlRegExp = () =>
-  new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi)
+function getUrlRegExp() {
+  return new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi)
+}
 
 export function splitByUrl(data: string) {
   const urls = data.match(getUrlRegExp())
@@ -86,7 +87,7 @@ export function isValidUri(data: string, allowedProtocols: string[] = ['http:', 
   try {
     const parsedURL = new URL(data)
     return allowedProtocols.includes(parsedURL.protocol)
-  } catch (e) {
+  } catch (_) {
     return false
   }
 }

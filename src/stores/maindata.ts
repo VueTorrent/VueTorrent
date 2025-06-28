@@ -1,6 +1,3 @@
-import qbit from '@/services/qbit'
-import { ServerState } from '@/types/qbit/models'
-import { isFullUpdate } from '@/types/qbit/responses'
 import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { ref, shallowRef, watch } from 'vue'
@@ -13,6 +10,9 @@ import { useTagStore } from './tags'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
+import qbit from '@/services/qbit'
+import { ServerState } from '@/types/qbit/models'
+import { isFullUpdate } from '@/types/qbit/responses'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
@@ -33,7 +33,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     yield updateMaindata()
   }).drop()
 
-  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(maindataTask.perform, refreshInterval, {
+  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(() => void maindataTask.perform(), refreshInterval, {
     immediate: false,
     immediateCallback: true
   })
@@ -116,7 +116,6 @@ export const useMaindataStore = defineStore('maindata', () => {
   return {
     rid,
     serverState,
-    updateMaindata,
     syncTorrentPeers,
     addTorrentPeers,
     banPeers,

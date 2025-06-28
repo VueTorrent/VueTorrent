@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T">
+import { useSorted } from '@vueuse/core'
 import { useI18nUtils } from '@/composables'
 import { comparators } from '@/helpers'
-import { useSorted } from '@vueuse/core'
 
 const props = defineProps<{
   title: string
@@ -41,12 +41,12 @@ const { t } = useI18nUtils()
       hide-details
       multiple
       variant="solo">
-      <template v-slot:prepend-item>
+      <template #prepend-item>
         <v-list-item :title="t('common.disable')" @click="$emit('disable')" />
-        <slot name="prepend-item"></slot>
+        <slot name="prepend-item" />
         <v-divider />
       </template>
-      <template v-slot:selection="{ item, index }">
+      <template #selection="{ item, index }">
         <span v-if="index === 0 && modelValue.length === 1" class="text-accent">{{ item.title }}</span>
         <span v-else-if="index === 0" class="text-accent">{{ t('navbar.side.filters.activeFilter', modelValue.length) }}</span>
       </template>

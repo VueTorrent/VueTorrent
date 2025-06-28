@@ -1,7 +1,7 @@
-import qbit from '@/services/qbit'
-import { TorrentProperties } from '@/types/qbit/models'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref } from 'vue'
+import qbit from '@/services/qbit'
+import { TorrentProperties } from '@/types/qbit/models'
 
 export const useTorrentDetailStore = defineStore(
   'torrentDetail',

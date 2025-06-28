@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import DataCard from '@/components/Core/DataCard.vue'
 import StringCard from '@/components/Core/StringCard.vue'
-import { useMaindataStore } from '@/stores'
-import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { useMaindataStore } from '@/stores'
 
 const props = defineProps<{ session: boolean }>()
 
@@ -18,7 +18,9 @@ const ratio = computed(() => (props.session ? undefined : maindataStore.serverSt
 
 <template>
   <v-card variant="flat" class="inherit-bg">
-    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">{{ title }}</v-card-title>
+    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
+      {{ title }}
+    </v-card-title>
     <v-card-text class="px-0 pb-0">
       <div class="d-flex flex-column flex-gap-row">
         <DataCard :title="$t('navbar.side.stats.downloaded')" :value="download" color="download" icon="mdi-arrow-down" />

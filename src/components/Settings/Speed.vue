@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { SchedulerDays } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { SchedulerDays } from '@/constants/qbit/AppPreferences'
+import { usePreferenceStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()
@@ -56,7 +56,9 @@ const altDlLimit = computed({
           </v-row>
 
           <v-list-item>
-            <h5 class="font-italic">{{ t('settings.speed.tip') }}</h5>
+            <h5 class="font-italic">
+              {{ t('settings.speed.tip') }}
+            </h5>
           </v-list-item>
         </v-col>
 
@@ -75,7 +77,9 @@ const altDlLimit = computed({
           </v-row>
 
           <v-list-item>
-            <h5 class="font-italic">{{ t('settings.speed.tip') }}</h5>
+            <h5 class="font-italic">
+              {{ t('settings.speed.tip') }}
+            </h5>
           </v-list-item>
         </v-col>
       </v-row>

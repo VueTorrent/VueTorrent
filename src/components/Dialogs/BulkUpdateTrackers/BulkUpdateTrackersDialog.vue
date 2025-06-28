@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import TrackersEditField from '@/components/Dialogs/BulkUpdateTrackers/TrackersEditField.vue'
-import { useDialog, useI18nUtils } from '@/composables'
-import { comparators } from '@/helpers'
-import { useTrackerStore } from '@/stores'
 import { useSorted } from '@vueuse/core'
 import { reactive, ref } from 'vue'
 import { toast } from 'vue3-toastify'
 import { VForm } from 'vuetify/components/VForm'
+import TrackersEditField from './TrackersEditField.vue'
+import { useDialog, useI18nUtils } from '@/composables'
+import { comparators } from '@/helpers'
+import { useTrackerStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
@@ -33,7 +33,7 @@ function close() {
 
 async function submit() {
   loading.value = true
-  trackerStore
+  await trackerStore
     .bulkUpdateTrackers(props.hashes, {
       add: formData.add,
       replace: formData.edit,
@@ -61,7 +61,7 @@ async function submit() {
         </v-toolbar>
       </v-card-title>
       <v-card-text>
-        <v-form v-model="isFormValid" ref="form">
+        <v-form ref="form" v-model="isFormValid">
           <v-list>
             <v-list-subheader :title="t('dialogs.bulkEditTrackers.add')" />
             <v-list-item>
@@ -69,7 +69,7 @@ async function submit() {
             </v-list-item>
 
             <v-list-subheader :title="t('dialogs.bulkEditTrackers.edit.title')" />
-            <TrackersEditField v-model="formData.edit" :allTrackers="allTrackers" />
+            <TrackersEditField v-model="formData.edit" :all-trackers="allTrackers" />
 
             <v-list-subheader :title="t('dialogs.bulkEditTrackers.remove')" />
             <v-list-item>
@@ -79,8 +79,12 @@ async function submit() {
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="error" @click="close">{{ t('common.cancel') }}</v-btn>
-        <v-btn color="accent" :disabled="!isFormValid" :loading="loading" @click="submit">{{ t('common.save') }} </v-btn>
+        <v-btn color="error" @click="close">
+          {{ t('common.cancel') }}
+        </v-btn>
+        <v-btn color="accent" :disabled="!isFormValid" :loading="loading" @click="submit">
+          {{ t('common.save') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

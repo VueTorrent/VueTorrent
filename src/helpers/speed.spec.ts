@@ -1,5 +1,5 @@
-import { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
 import { expect, test } from 'vitest'
+import { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
 
 test('helpers/speed/formatSpeedValue', () => {
   expect(formatSpeedValue(0, false)).toBe('0')

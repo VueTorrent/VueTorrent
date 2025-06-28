@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import debounce from 'lodash.debounce'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import ArticleList from './ArticleList.vue'
+import FeedList from './FeedList.vue'
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
-import debounce from 'lodash.debounce'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
-import ArticleList from './ArticleList.vue'
-import FeedList from './FeedList.vue'
 
 const props = defineProps<{
   height: number
@@ -48,7 +48,7 @@ async function refreshFeed(item: Feed) {
   rssStore.resumeFeedTimer()
 }
 
-async function deleteFeed(item: Feed) {
+function deleteFeed(item: Feed) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteFeed'),
     text: item.name,
@@ -83,18 +83,18 @@ onUnmounted(() => {
 
     <!-- Mobile layout -->
     <template v-if="mobile">
-      <ArticleList :height="rowHeight" @articleClicked="article => $emit('openArticle', article)" />
+      <ArticleList :height="rowHeight" @article-clicked="article => $emit('openArticle', article)" />
 
       <v-bottom-sheet v-model="bottomSheetVisible" max-height="550">
-        <template v-slot:activator="{ props }">
-          <v-btn class="fab" v-bind="props" color="accent" icon="mdi-format-list-bulleted" size="large" />
+        <template #activator="{ props: sheetProps }">
+          <v-btn class="fab" v-bind="sheetProps" color="accent" icon="mdi-format-list-bulleted" size="large" />
         </template>
         <FeedList
           @update="bottomSheetVisible = false"
-          @createFeed="() => openFeedDialog()"
-          @editFeed="feed => openFeedDialog(feed)"
-          @deleteFeed="feed => deleteFeed(feed)"
-          @refreshFeed="feed => refreshFeed(feed)" />
+          @create-feed="() => openFeedDialog()"
+          @edit-feed="feed => openFeedDialog(feed)"
+          @delete-feed="feed => deleteFeed(feed)"
+          @refresh-feed="feed => refreshFeed(feed)" />
       </v-bottom-sheet>
     </template>
 
@@ -103,14 +103,14 @@ onUnmounted(() => {
       <v-col cols="4">
         <FeedList
           :height="rowHeight"
-          @createFeed="() => openFeedDialog()"
-          @editFeed="feed => openFeedDialog(feed)"
-          @deleteFeed="feed => deleteFeed(feed)"
-          @refreshFeed="feed => refreshFeed(feed)" />
+          @create-feed="() => openFeedDialog()"
+          @edit-feed="feed => openFeedDialog(feed)"
+          @delete-feed="feed => deleteFeed(feed)"
+          @refresh-feed="feed => refreshFeed(feed)" />
       </v-col>
 
       <v-col cols="8">
-        <ArticleList :height="rowHeight" @articleClicked="article => $emit('openArticle', article)" />
+        <ArticleList :height="rowHeight" @article-clicked="article => $emit('openArticle', article)" />
       </v-col>
     </v-row>
   </v-card>

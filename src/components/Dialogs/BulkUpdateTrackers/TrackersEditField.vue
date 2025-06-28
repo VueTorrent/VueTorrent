@@ -24,8 +24,8 @@ function deleteRow(index: number) {
 </script>
 
 <template>
-  <v-list-item v-for="(trackerData, i) in selectedTrackers">
-    <TrackerEditRow :modelValue="trackerData" :availableTrackers="remainingTrackers" @update:modelValue="v => updateRow(i, v)" @delete="deleteRow(i)" />
+  <v-list-item v-for="(trackerData, i) in selectedTrackers" :key="i">
+    <TrackerEditRow :model-value="trackerData" :available-trackers="remainingTrackers" @update:model-value="v => updateRow(i, v)" @delete="deleteRow(i)" />
   </v-list-item>
 
   <v-list-item>

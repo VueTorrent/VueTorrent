@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { TinyColor } from '@ctrl/tinycolor'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useI18nUtils } from '@/composables'
-import { TinyColor } from '@ctrl/tinycolor'
+import { ThemeMode } from '@/constants/vuetorrent'
 import { getColorFromName } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 
@@ -33,7 +34,7 @@ function transformColor(color: TinyColor) {
   else return color
 }
 
-const isDarkOledTheme = computed(() => vueTorrentStore.theme.mode === 'dark' && vueTorrentStore.theme.dark === 'dark-oled')
+const isDarkOledTheme = computed(() => vueTorrentStore.theme.mode === ThemeMode.DARK && vueTorrentStore.theme.dark === 'dark-oled')
 const chipColor = computed(() => (props.disabled || !enableHashColors.value ? props.defaultColor : getColorFromName(props.value, transformColor)))
 const rawChipColor = computed(() => (props.disabled || !enableHashColors.value ? getThemeColor(props.defaultColor) : getColorFromName(props.value, transformColor)))
 const chipValue = computed(() => (props.disabled ? props.disabledValue || props.value || t('common.none') : props.value))

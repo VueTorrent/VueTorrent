@@ -1,8 +1,8 @@
-import qbit from '@/services/qbit'
-import { Cookie } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useTask } from 'vue-concurrency'
+import qbit from '@/services/qbit'
+import { Cookie } from '@/types/vuetorrent'
 
 export const useCookieStore = defineStore('cookies', () => {
   const cookies = ref<Cookie[]>([])
@@ -43,8 +43,7 @@ export const useCookieStore = defineStore('cookies', () => {
 
   async function importCookies(cookies: Cookie[], syncData: boolean = false) {
     cookies.forEach(cookie => {
-      removeCookie(cookie)
-      addCookie(cookie)
+      void removeCookie(cookie).then(() => addCookie(cookie))
     })
     if (syncData) {
       await syncCookies()

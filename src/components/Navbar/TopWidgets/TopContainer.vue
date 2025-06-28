@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
-import { useI18nUtils } from '@/composables'
-import { useDashboardStore, useDialogStore, useRssStore, useTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
 import TopOverflow from './TopOverflow.vue'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
+import { useI18nUtils } from '@/composables'
+import { useDashboardStore, useDialogStore, useRssStore, useTorrentStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const route = useRoute()
@@ -24,7 +24,7 @@ function openAddTorrentDialog() {
 }
 
 async function resumeTorrents() {
-  const onConfirm = async () => {
+  async function onConfirm() {
     await torrentStore.resumeTorrents(hashes.value)
   }
 
@@ -36,7 +36,7 @@ async function resumeTorrents() {
 }
 
 async function pauseTorrents() {
-  const onConfirm = async () => {
+  async function onConfirm() {
     await torrentStore.pauseTorrents(hashes.value)
   }
 
@@ -54,33 +54,33 @@ function deleteTorrents() {
 }
 
 function openSearchEngine() {
-  router.push({ name: 'searchEngine' })
+  void router.push({ name: 'searchEngine' })
 }
 
 function openRssArticles() {
-  router.push({ name: 'rssArticles', params: { tab: rssStore.lastView } })
+  void router.push({ name: 'rssArticles', params: { tab: rssStore.lastView } })
 }
 
 function openTorrentCreator() {
-  router.push({ name: 'torrentCreator' })
+  void router.push({ name: 'torrentCreator' })
 }
 
 function openCookiesManager() {
-  router.push({ name: 'cookiesManager' })
+  void router.push({ name: 'cookiesManager' })
 }
 
 function openLogs() {
-  router.push({ name: 'logs' })
+  void router.push({ name: 'logs' })
 }
 
 function openSettings() {
-  router.push({ name: 'settings' })
+  void router.push({ name: 'settings' })
 }
 </script>
 
 <template>
   <v-tooltip :text="$t('topbar.addTorrents')" location="bottom">
-    <template v-slot:activator="{ props }">
+    <template #activator="{ props }">
       <v-btn icon="mdi-plus" v-bind="props" @click="openAddTorrentDialog" />
     </template>
   </v-tooltip>
@@ -89,26 +89,26 @@ function openSettings() {
 
   <TopOverflow
     v-if="$vuetify.display.smAndDown"
-    @deleteTorrents="deleteTorrents"
-    @openLogs="openLogs"
-    @openSearchEngine="openSearchEngine"
-    @openSettings="openSettings"
-    @openRssArticles="openRssArticles"
-    @openTorrentCreator="openTorrentCreator"
-    @openCookiesManager="openCookiesManager"
-    @pauseTorrents="pauseTorrents"
-    @resumeTorrents="resumeTorrents" />
+    @delete-torrents="deleteTorrents"
+    @open-logs="openLogs"
+    @open-search-engine="openSearchEngine"
+    @open-settings="openSettings"
+    @open-rss-articles="openRssArticles"
+    @open-torrent-creator="openTorrentCreator"
+    @open-cookies-manager="openCookiesManager"
+    @pause-torrents="pauseTorrents"
+    @resume-torrents="resumeTorrents" />
   <TopActions
     v-else
-    @deleteTorrents="deleteTorrents"
-    @openLogs="openLogs"
-    @openSearchEngine="openSearchEngine"
-    @openSettings="openSettings"
-    @openRssArticles="openRssArticles"
-    @openTorrentCreator="openTorrentCreator"
-    @openCookiesManager="openCookiesManager"
-    @pauseTorrents="pauseTorrents"
-    @resumeTorrents="resumeTorrents" />
+    @delete-torrents="deleteTorrents"
+    @open-logs="openLogs"
+    @open-search-engine="openSearchEngine"
+    @open-settings="openSettings"
+    @open-rss-articles="openRssArticles"
+    @open-torrent-creator="openTorrentCreator"
+    @open-cookies-manager="openCookiesManager"
+    @pause-torrents="pauseTorrents"
+    @resume-torrents="resumeTorrents" />
 </template>
 
 <style scoped></style>

@@ -27,7 +27,7 @@ const vuetorrentStore = useVueTorrentStore()
           <v-text-field v-model.number="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.reader.maximumArticlesPerFeed')" />
         </v-col>
 
-        <v-col cols="12" md="4" v-if="appStore.usesQbit5" class="pt-0">
+        <v-col v-if="appStore.usesQbit5" cols="12" md="4" class="pt-0">
           <v-text-field
             v-model.number="preferenceStore.preferences!.rss_fetch_delay"
             type="number"

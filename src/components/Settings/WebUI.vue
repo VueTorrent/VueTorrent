@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
+import { useI18nUtils } from '@/composables'
 import { openLink } from '@/helpers'
 import { usePreferenceStore } from '@/stores'
-import { computed, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 
 const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()

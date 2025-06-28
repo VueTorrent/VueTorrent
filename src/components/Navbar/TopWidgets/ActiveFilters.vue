@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import { useDisplay } from 'vuetify'
 import { useI18nUtils } from '@/composables'
 import { FilterState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { getTorrentStateColor } from '@/helpers'
 import { useTorrentStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import { useDisplay } from 'vuetify'
 
 const { mobile } = useDisplay()
 const { t, getTorrentStateString } = useI18nUtils()
@@ -147,7 +147,7 @@ function resetTrackerFilter() {
 
 <template>
   <v-menu close-delay="5" open-delay="0" :close-on-content-click="false" :open-on-click="mobile" open-on-hover open-on-focus>
-    <template v-slot:activator="{ props }">
+    <template #activator="{ props }">
       <v-slide-x-transition>
         <v-chip
           v-if="filterPresentCount > 0"
@@ -158,8 +158,10 @@ function resetTrackerFilter() {
           closable
           @click="mobile ? undefined : toggleAllFilters()"
           @click:close="resetAllFilters()">
-          <template v-slot:prepend>
-            <v-icon class="mr-1" @click.stop="mobile ? toggleAllFilters() : undefined">{{ globalFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
+          <template #prepend>
+            <v-icon class="mr-1" @click.stop="mobile ? toggleAllFilters() : undefined">
+              {{ globalFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
+            </v-icon>
           </template>
           {{ t('navbar.top.active_filters.menu_label', filterActiveCount) }}
         </v-chip>
@@ -168,22 +170,28 @@ function resetTrackerFilter() {
 
     <div class="d-flex flex-column flex-gap-row mt-3">
       <v-chip v-if="isTextFilterPresent" :color="textFilterColor" variant="elevated" closable @click="toggleTextFilter()" @click:close="resetTextFilter()">
-        <template v-slot:prepend>
-          <v-icon class="mr-1">{{ isTextFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
+        <template #prepend>
+          <v-icon class="mr-1">
+            {{ isTextFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
+          </v-icon>
         </template>
         {{ t('navbar.top.active_filters.text', { value: textFilter }) }}
       </v-chip>
 
       <template v-if="isStatusFilterPresent">
         <v-chip v-if="statusFilter.length === 1" :color="singleStatusFilterColor" variant="elevated" closable @click="toggleStatusFilter()" @click:close="resetStatusFilter()">
-          <template v-slot:prepend>
-            <v-icon class="mr-1">{{ isStatusFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
+          <template #prepend>
+            <v-icon class="mr-1">
+              {{ isStatusFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
+            </v-icon>
           </template>
           {{ t('navbar.top.active_filters.state', { value: getTorrentStateString(statusFilter[0]) }) }}
         </v-chip>
         <v-chip v-else :color="statusFilterColor" variant="elevated" closable @click="toggleStatusFilter()" @click:close="resetStatusFilter()">
-          <template v-slot:prepend>
-            <v-icon class="mr-1">{{ isStatusFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
+          <template #prepend>
+            <v-icon class="mr-1">
+              {{ isStatusFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
+            </v-icon>
           </template>
           {{ t('navbar.top.active_filters.multiple_state', statusFilter.length) }}
         </v-chip>
@@ -191,7 +199,7 @@ function resetTrackerFilter() {
 
       <template v-if="isCategoryFilterPresent">
         <v-chip v-if="categoryFilter.length === 1" :color="categoryFilterColor" variant="elevated" closable @click="toggleCategoryFilter()" @click:close="resetCategoryFilter()">
-          <template v-slot:prepend>
+          <template #prepend>
             <v-icon class="mr-1">
               {{ isCategoryFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
             </v-icon>
@@ -199,7 +207,7 @@ function resetTrackerFilter() {
           {{ t('navbar.top.active_filters.category', { value: categoryFilter[0] === '' ? t('navbar.side.filters.category.empty') : categoryFilter[0] }) }}
         </v-chip>
         <v-chip v-else :color="categoryFilterColor" variant="elevated" closable @click="toggleCategoryFilter()" @click:close="resetCategoryFilter()">
-          <template v-slot:prepend>
+          <template #prepend>
             <v-icon class="mr-1">
               {{ isCategoryFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
             </v-icon>
@@ -210,7 +218,7 @@ function resetTrackerFilter() {
 
       <template v-if="isTagFilterPresent">
         <v-chip v-if="aggregatedTagFilters.length === 1" :color="tagFilterColor" variant="elevated" closable @click="toggleTagFilter()" @click:close="resetTagFilter()">
-          <template v-slot:prepend>
+          <template #prepend>
             <v-icon class="mr-1">
               {{ isTagFilterActive ? (aggregatedTagFilters[0].state === FilterState.EXCLUDED ? 'mdi-filter-minus' : 'mdi-filter-plus') : 'mdi-filter-off' }}
             </v-icon>
@@ -218,8 +226,10 @@ function resetTrackerFilter() {
           {{ t('navbar.top.active_filters.tag', { value: aggregatedTagFilters[0].value === null ? t('navbar.side.filters.tag.empty') : aggregatedTagFilters[0].value }) }}
         </v-chip>
         <v-chip v-else :color="tagFilterColor" variant="elevated" closable @click="toggleTagFilter()" @click:close="resetTagFilter()">
-          <template v-slot:prepend>
-            <v-icon class="mr-1">{{ isTagFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
+          <template #prepend>
+            <v-icon class="mr-1">
+              {{ isTagFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
+            </v-icon>
           </template>
           {{ t('navbar.top.active_filters.multiple_tag', aggregatedTagFilters.length) }}
         </v-chip>
@@ -233,7 +243,7 @@ function resetTrackerFilter() {
           closable
           @click="toggleTrackerFilter()"
           @click:close="resetTrackerFilter()">
-          <template v-slot:prepend>
+          <template #prepend>
             <v-icon class="mr-1">
               {{ isTrackerFilterActive ? (aggregatedTrackerFilters[0].state === FilterState.EXCLUDED ? 'mdi-filter-minus' : 'mdi-filter-plus') : 'mdi-filter-off' }}
             </v-icon>
@@ -247,7 +257,7 @@ function resetTrackerFilter() {
           <span v-else>{{ t('navbar.top.active_filters.tracker', { value: aggregatedTrackerFilters[0].value }) }}</span>
         </v-chip>
         <v-chip v-else :color="trackerFilterColor" variant="elevated" closable @click:close="resetTrackerFilter()">
-          <template v-slot:prepend>
+          <template #prepend>
             <v-icon class="mr-1">
               {{ isTrackerFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
             </v-icon>

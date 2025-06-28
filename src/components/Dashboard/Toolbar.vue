@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, mergeProps } from 'vue'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 import { useI18nUtils } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
 import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed, mergeProps } from 'vue'
 
 const { t } = useI18nUtils()
 
@@ -103,14 +103,14 @@ function toggleSelectMode() {
   <TorrentSearchbar v-if="$vuetify.display.mdAndDown" class="my-2" />
   <div class="d-flex mb-2 align-center">
     <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
       </template>
     </v-tooltip>
     <v-menu>
-      <template v-slot:activator="{ props: menu }">
+      <template #activator="{ props: menu }">
         <v-tooltip :text="t('dashboard.displayMode.title')" location="top">
-          <template v-slot:activator="{ props: tooltip }">
+          <template #activator="{ props: tooltip }">
             <v-btn icon v-bind="mergeProps(menu, tooltip)" variant="plain">
               <v-icon v-if="displayMode === DashboardDisplayMode.LIST" icon="mdi-view-list" />
               <v-icon v-if="displayMode === DashboardDisplayMode.GRID" icon="mdi-view-grid" />
@@ -126,20 +126,20 @@ function toggleSelectMode() {
       </v-list>
     </v-menu>
     <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" v-bind="props" variant="plain" @click="inverseSort()" />
       </template>
     </v-tooltip>
     <div class="d-flex align-center pl-2">
       <v-select
         :model-value="sortOption.value"
-        @update:model-value="setSortOption"
         :items="torrentSortOptions"
         :label="t('dashboard.sortLabel')"
         density="compact"
         hide-details
         variant="solo-filled"
-        :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
+        :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`"
+        @update:model-value="setSortOption" />
     </div>
 
     <v-spacer />

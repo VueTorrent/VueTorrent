@@ -1,13 +1,13 @@
-import { useSearchQuery } from '@/composables'
-import qbit from '@/services/qbit'
-import { Feed, FeedRule } from '@/types/qbit/models'
-import { RssArticle } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
+
 import { toast } from 'vue3-toastify'
+import { useI18nUtils, useSearchQuery } from '@/composables'
+import qbit from '@/services/qbit'
+import { Feed, FeedRule } from '@/types/qbit/models'
+import { RssArticle } from '@/types/vuetorrent'
 
 export const useRssStore = defineStore(
   'rss',
@@ -34,11 +34,11 @@ export const useRssStore = defineStore(
     )
 
     const { t } = useI18nUtils()
-    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(fetchFeeds, 5000, {
+    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeeds(), 5000, {
       immediate: false,
       immediateCallback: true
     })
-    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(fetchRules, 5000, {
+    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRules(), 5000, {
       immediate: false,
       immediateCallback: true
     })
@@ -121,7 +121,7 @@ export const useRssStore = defineStore(
       const feedNames = keyMap.value[articleId]
       if (!feedNames) return
 
-      const promises: Promise<any>[] = []
+      const promises: Promise<void>[] = []
       feedNames.forEach(feedName => promises.push(qbit.markAsRead(feedName, articleId)))
       await Promise.all(promises)
 

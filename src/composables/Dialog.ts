@@ -1,5 +1,5 @@
-import { useDialogStore } from '@/stores/dialog'
 import { computed, onUnmounted, ref } from 'vue'
+import { useDialogStore } from '@/stores/dialog'
 
 export function useDialog(guid: string) {
   const hndlDialog = ref(true)

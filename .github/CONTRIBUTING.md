@@ -24,11 +24,11 @@ If it is a new idea, open a new issue providing as much detail about your enhanc
 Follow these steps for submitting a pull request to VueTorrent:
 
 1. Fork the VueTorrent/VueTorrent repository and create your branch from `master`.
-1. Describe your proposed changes in the pull request description. Link to any related issues.
-1. Make sure the pull request only includes changes related to your enhancement or bug fix.
-1. Follow the existing code style and conventions used in the VueTorrent codebase and don't forget to `npm run lint` your changes!
-1. Run existing tests and write new tests for your changes as needed.
-1. Open the pull request!
+2. Describe your proposed changes in the pull request description. Link to any related issues.
+3. Make sure the pull request only includes changes related to your enhancement or bug fix.
+4. Follow the existing code style and conventions used in the VueTorrent codebase and don't forget to `npm run lint` your changes!
+5. Run existing tests and write new tests for your changes as needed.
+6. Open the pull request!
 
 VueTorrent maintainers will review it and provide feedback if additional changes are needed. When everything's good, we'll merge your PR!
 
@@ -46,4 +46,4 @@ Instead head to our [Discord server](https://discord.gg/KDQP7fR467) or contact u
 To propose changes to the project's wiki, you can open an issue using the "Wiki edit proposal" template.
 
 1. Provide a description of which part of the documentation this proposal will address.
-1. Attach changes by following the field's description.
+2. Attach changes by following the field's description.

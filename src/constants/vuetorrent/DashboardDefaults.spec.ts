@@ -1,23 +1,21 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { propsData, propsMetadata, pptMetadataText, pptMetadataChip, type pptMetadataAmount } from './DashboardDefaults'
+import { createTestingPinia } from '@pinia/testing'
+import { defineStore, setActivePinia, storeToRefs } from 'pinia'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { ref } from 'vue'
+import { useTheme } from 'vuetify'
+import { type pptMetadataAmount, pptMetadataChip, pptMetadataText, propsData, propsMetadata } from './DashboardDefaults'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
-import type { Torrent } from '@/types/vuetorrent'
-import { TorrentState } from '@/constants/vuetorrent'
-import { getRatioColor, getTorrentStateColor, formatEta, formatDuration } from '@/helpers' // formatEta, formatDuration for type hints if needed, or direct use of mocked fns
-
-import { setActivePinia, storeToRefs, defineStore } from 'pinia'
-import { createTestingPinia } from '@pinia/testing'
-import { useTheme } from 'vuetify'
-import { ref } from 'vue'
+import { TorrentState } from "."
 import { useI18nUtils } from '@/composables'
+import { formatDuration, formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
 
-vi.mock('@/helpers', async importOriginal => {
-  const actual = (await importOriginal()) as Record<string, any>
+import type { Torrent } from '@/types/vuetorrent'
+
+vi.mock(import('@/helpers'), async importOriginal => {
+  const actual = await importOriginal()
   return {
     ...actual,
-    getRatioColor: actual.getRatioColor,
-    getTorrentStateColor: actual.getTorrentStateColor,
     formatEta: vi.fn((eta, _forced) => `formatted_eta_${eta}`),
     formatDuration: vi.fn((duration, unit, _format) => `formatted_duration_${duration}_${unit}`)
   }
@@ -93,10 +91,10 @@ describe('torrent ratio limit string', () => {
     const ratioLimitMetadata = propsMetadata[DashboardProperty.RATIO_LIMIT] as pptMetadataText
     const { t } = useI18nUtils()
 
-    expect(ratioLimitMetadata.props.value!({ ratio_limit: -1 } as Torrent)).toBe(t('common.disabled'))
-    expect(ratioLimitMetadata.props.value!({ ratio_limit: -2 } as Torrent)).toBe(t('common.global_value'))
-    expect(ratioLimitMetadata.props.value!({ ratio_limit: 1 } as Torrent)).toBe('1')
-    expect(ratioLimitMetadata.props.value!({ ratio_limit: 2 } as Torrent)).toBe('2')
+    expect(ratioLimitMetadata.props.value({ ratio_limit: -1 } as Torrent)).toBe(t('common.disabled'))
+    expect(ratioLimitMetadata.props.value({ ratio_limit: -2 } as Torrent)).toBe(t('common.global_value'))
+    expect(ratioLimitMetadata.props.value({ ratio_limit: 1 } as Torrent)).toBe('1')
+    expect(ratioLimitMetadata.props.value({ ratio_limit: 2 } as Torrent)).toBe('2')
   })
 })
 
@@ -128,8 +126,8 @@ describe('torrent state string and color', () => {
       const mockTorrent = { state } as Torrent
       const expectedStateString = getTorrentStateString(state)
       const expectedStateColor = getTorrentStateColor(state)
-      expect(stateMetadata.props.value!(mockTorrent)).toEqual([expectedStateString])
-      expect(stateMetadata.props.color!(mockTorrent)).toBe(expectedStateColor)
+      expect(stateMetadata.props.value(mockTorrent)).toEqual([expectedStateString])
+      expect(stateMetadata.props.color(mockTorrent)).toBe(expectedStateColor)
     })
     expect(stateMetadata.props.enableHashColor).toBeUndefined()
     expect(stateMetadata.props.emptyValueKey).toBe('torrent.state.unknown')
@@ -140,12 +138,10 @@ describe('DashboardDefaults Extended Coverage', () => {
   describe('propsData', () => {
     it('should have valid entries for all DashboardProperty keys', () => {
       Object.values(DashboardProperty).forEach(propKey => {
-        if (typeof propKey === 'string') {
-          const data = propsData[propKey as DashboardProperty]
-          expect(data).toBeDefined()
-          expect(typeof data.active).toBe('boolean')
-          expect(typeof data.order).toBe('number')
-        }
+        const data = propsData[propKey as DashboardProperty]
+        expect(data).toBeDefined()
+        expect(typeof data.active).toBe('boolean')
+        expect(typeof data.order).toBe('number')
       })
     })
   })
@@ -153,55 +149,64 @@ describe('DashboardDefaults Extended Coverage', () => {
   describe('propsMetadata', () => {
     describe('General Structure and Basic Props', () => {
       Object.values(DashboardProperty).forEach(propKey => {
-        if (typeof propKey === 'string') {
-          it(`should have valid metadata for ${propKey}`, () => {
-            const metadata = propsMetadata[propKey as DashboardProperty]
-            expect(metadata).toBeDefined()
-            expect(typeof metadata.type).toBe('string')
-            expect(Object.values(DashboardPropertyType).includes(metadata.type as DashboardPropertyType)).toBe(true)
-            expect(metadata.props).toBeDefined()
-            expect(typeof metadata.props.titleKey).toBe('string')
-            expect(typeof metadata.props.value).toBe('function')
-            expect(typeof metadata.sortKey).toBe('string')
+        it(`should have valid metadata for ${ propKey }`, () => {
+          const metadata = propsMetadata[propKey as DashboardProperty]
+          expect(metadata).toBeDefined()
+          expect(typeof metadata.type).toBe('string')
+          expect(Object.values(DashboardPropertyType).includes(metadata.type as DashboardPropertyType)).toBe(true)
+          expect(metadata.props).toBeDefined()
+          expect(typeof metadata.props.titleKey).toBe('string')
+          expect(typeof metadata.props.value).toBe('function')
+          expect(typeof metadata.sortKey).toBe('string')
 
-            const mockTorrentBase = { [metadata.sortKey]: 'test_value' } as any
+          const mockTorrentBase = { [metadata.sortKey]: 'test_value' } as any
 
-            if (metadata.type === DashboardPropertyType.BOOLEAN) {
-              const mockTorrentBoolean = { ...mockTorrentBase, [metadata.sortKey]: true } as unknown as Torrent
-              expect(typeof metadata.props.value(mockTorrentBoolean)).toBe('boolean')
-            } else if (metadata.type === DashboardPropertyType.CHIP) {
-              let mockTorrentChip: Partial<Torrent> = { ...mockTorrentBase, [metadata.sortKey]: ['chip_value'] }
-              if (propKey === DashboardProperty.CATEGORY) mockTorrentChip = { ...mockTorrentChip, category: 'cat1' }
-              if (propKey === DashboardProperty.TAGS) mockTorrentChip = { ...mockTorrentChip, tags: ['tag1'] }
-              if (propKey === DashboardProperty.BASENAME_DOWNLOAD_PATH) mockTorrentChip = { ...mockTorrentChip, basename_download_path: 'file.txt' }
-              if (propKey === DashboardProperty.BASENAME_SAVE_PATH) mockTorrentChip = { ...mockTorrentChip, basename_save_path: 'file.txt' }
-              if (propKey === DashboardProperty.TRACKER) mockTorrentChip = { ...mockTorrentChip, trackerDomain: 'tracker.com' }
-              if (propKey === DashboardProperty.STATE) mockTorrentChip = { ...mockTorrentChip, state: TorrentState.DOWNLOADING }
-
-              const valueResult = metadata.props?.value(mockTorrentChip as Torrent)
-              if (valueResult !== undefined && Array.isArray(valueResult)) {
-                expect(Array.isArray(valueResult)).toBe(true)
-              } else if (propKey === DashboardProperty.STATE && valueResult !== undefined) {
-                expect(Array.isArray(valueResult)).toBe(true)
-              }
+          if (metadata.type === DashboardPropertyType.BOOLEAN) {
+            const mockTorrentBoolean = { ...mockTorrentBase, [metadata.sortKey]: true } as unknown as Torrent
+            expect(typeof metadata.props.value(mockTorrentBoolean)).toBe('boolean')
+          } else if (metadata.type === DashboardPropertyType.CHIP) {
+            let mockTorrentChip: Partial<Torrent> = { ...mockTorrentBase, [metadata.sortKey]: ['chip_value'] }
+            if (propKey === DashboardProperty.CATEGORY) mockTorrentChip = { ...mockTorrentChip, category: 'cat1' }
+            if (propKey === DashboardProperty.TAGS) mockTorrentChip = { ...mockTorrentChip, tags: ['tag1'] }
+            if (propKey === DashboardProperty.BASENAME_DOWNLOAD_PATH) mockTorrentChip = {
+              ...mockTorrentChip,
+              basename_download_path: 'file.txt'
             }
-          })
+            if (propKey === DashboardProperty.BASENAME_SAVE_PATH) mockTorrentChip = {
+              ...mockTorrentChip,
+              basename_save_path: 'file.txt'
+            }
+            if (propKey === DashboardProperty.TRACKER) mockTorrentChip = {
+              ...mockTorrentChip,
+              trackerDomain: 'tracker.com'
+            }
+            if (propKey === DashboardProperty.STATE) mockTorrentChip = {
+              ...mockTorrentChip,
+              state: TorrentState.DOWNLOADING
+            }
 
-          const qbitVersionProps = [
-            DashboardProperty.COMMENT,
-            DashboardProperty.HAS_METADATA,
-            DashboardProperty.POPULARITY,
-            DashboardProperty.PRIVATE,
-            DashboardProperty.REANNOUNCE,
-            DashboardProperty.ROOT_PATH
-          ]
-          if (qbitVersionProps.includes(propKey as DashboardProperty)) {
-            it(`should have qbitVersion for ${propKey}`, () => {
-              const metadata = propsMetadata[propKey as DashboardProperty]
-              expect(metadata.qbitVersion).toBeDefined()
-              expect(typeof metadata.qbitVersion).toBe('string')
-            })
+            const valueResult = metadata.props?.value(mockTorrentChip as Torrent)
+            if (valueResult !== undefined && Array.isArray(valueResult)) {
+              expect(Array.isArray(valueResult)).toBe(true)
+            } else if (propKey === DashboardProperty.STATE && valueResult !== undefined) {
+              expect(Array.isArray(valueResult)).toBe(true)
+            }
           }
+        })
+        const qbitVersionProps = [
+          DashboardProperty.COMMENT,
+          DashboardProperty.HAS_METADATA,
+          DashboardProperty.POPULARITY,
+          DashboardProperty.PRIVATE,
+          DashboardProperty.REANNOUNCE,
+          DashboardProperty.ROOT_PATH
+        ]
+        if (qbitVersionProps.includes(propKey as DashboardProperty)) {
+          it(`should have qbitVersion for ${ propKey }`, () => {
+            const metadata = propsMetadata[propKey as DashboardProperty]
+            expect(metadata.qbitVersion).toBeDefined()
+            expect(typeof metadata.qbitVersion).toBe('string')
+          })
         }
       })
     })
@@ -318,7 +323,7 @@ describe('DashboardDefaults Extended Coverage', () => {
       simpleTextProps.forEach(propKey => {
         it(`${propKey}: value should return t.${propsMetadata[propKey].sortKey}`, () => {
           const meta = propsMetadata[propKey]
-          const sortKey = meta.sortKey as keyof Torrent
+          const sortKey = meta.sortKey
           const mockTorrent = { [sortKey]: 'test string' } as unknown as Torrent
           expect(meta.props.value(mockTorrent)).toBe('test string')
         })
@@ -376,10 +381,10 @@ describe('DashboardDefaults Extended Coverage', () => {
       booleanProps.forEach(propKey => {
         it(`${propKey}: value should return t.${propsMetadata[propKey].sortKey}`, () => {
           const meta = propsMetadata[propKey]
-          const sortKey = meta.sortKey as keyof Torrent
-          let mockTorrentTrue = { [sortKey]: true } as unknown as Torrent
+          const sortKey = meta.sortKey
+          const mockTorrentTrue = { [sortKey]: true } as unknown as Torrent
           expect(meta.props.value(mockTorrentTrue)).toBe(true)
-          let mockTorrentFalse = { [sortKey]: false } as unknown as Torrent
+          const mockTorrentFalse = { [sortKey]: false } as unknown as Torrent
           expect(meta.props.value(mockTorrentFalse)).toBe(false)
 
           if (propKey === DashboardProperty.PRIVATE) {

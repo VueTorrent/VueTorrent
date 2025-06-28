@@ -1,11 +1,11 @@
-import { useArrayPagination } from '@/composables'
-import { DashboardDisplayMode } from '@/constants/vuetorrent'
-import { formatData } from '@/helpers'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
-import { useI18nUtils } from '@/composables'
+
 import { useTorrentStore } from './torrents'
 import { useVueTorrentStore } from './vuetorrent'
+import { useArrayPagination, useI18nUtils } from '@/composables'
+import { DashboardDisplayMode } from '@/constants/vuetorrent'
+import { formatData } from '@/helpers'
 
 export const useDashboardStore = defineStore(
   'dashboard',
@@ -28,7 +28,7 @@ export const useDashboardStore = defineStore(
         const selectedSize = selectedTorrents.value
           .map(hash => torrentStore.getTorrentByHash(hash))
           .filter(torrent => torrent !== undefined)
-          .map(torrent => torrent!.size)
+          .map(torrent => torrent.size)
           .reduce((partial, size) => partial + size, 0)
 
         return t('dashboard.selectedTorrentsCount', {

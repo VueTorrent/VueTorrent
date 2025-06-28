@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { formatDuration } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
-import { Torrent } from '@/types/vuetorrent'
 import { DurationUnitType } from 'dayjs/plugin/duration'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import { formatDuration } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
+import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{
   torrent: Torrent

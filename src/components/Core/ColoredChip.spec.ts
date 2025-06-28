@@ -1,9 +1,9 @@
-import i18n from '@/plugins/i18n'
-import vuetify from '@/plugins/vuetify'
 import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import ColoredChip from './ColoredChip.vue'
+import i18n from '@/plugins/i18n'
+import vuetify from '@/plugins/vuetify'
 
 const defaultColor = 'default'
 const disabledValue = 'disabled value'

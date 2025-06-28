@@ -1,5 +1,5 @@
-import { FileType } from '@/constants/vuetorrent'
 import { basename, getExtType, getFileIcon, getTypeIcon, splitExt } from './path'
+import { FileType } from '@/constants/vuetorrent'
 
 describe('helpers/path/basename', () => {
   test('*NIX :: should return basename on files', () => {

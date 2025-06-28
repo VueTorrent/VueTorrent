@@ -1,10 +1,10 @@
-import { comparators } from '@/helpers'
-import qbit from '@/services/qbit'
-import { Category } from '@/types/qbit/models'
 import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, shallowRef, triggerRef } from 'vue'
 import { useTorrentStore } from './torrents'
+import { comparators } from '@/helpers'
+import qbit from '@/services/qbit'
+import { Category } from '@/types/qbit/models'
 
 export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */

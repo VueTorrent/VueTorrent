@@ -1,3 +1,6 @@
+import { faker } from '@faker-js/faker/locale/en'
+import { AxiosResponse } from 'axios'
+import IProvider from './IProvider'
 import {
   ConnectionStatus,
   DirectoryContentMode,
@@ -36,9 +39,6 @@ import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import { faker } from '@faker-js/faker/locale/en'
-import { AxiosResponse } from 'axios'
-import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
@@ -145,18 +145,29 @@ export default class MockProvider implements IProvider {
   /**
    * Generate a configurable Promise
    * @param options Promise options
-   * @param options.result Result of the Promise
-   * @param options.shouldResolve Should the Promise resolve or reject
-   * @param options.delay Delay in milliseconds before resolving the Promise
+   * @param options.result Result of the Promise (required if shouldResolve is true)
+   * @param options.reason Rejection reason (required if shouldResolve is false)
+   * @param options.shouldResolve Should the Promise resolve or reject (default: true)
+   * @param options.delay Delay in milliseconds before resolving/rejecting the Promise (default: 0)
    * @private
    */
-  private async generateResponse<T, E>(options?: { result?: T; reason?: E; shouldResolve?: boolean; delay?: number }): Promise<T> {
-    const { result, reason, shouldResolve = true, delay = 0 } = options || {}
+  private async generateResponse<T, E extends Error>(
+    options?: { shouldResolve?: true; result?: T; delay?: number } | { shouldResolve: false; reason: E; delay?: number }
+  ): Promise<T> {
+    const { result, reason, shouldResolve = true, delay = 0 } = options || ({} as any)
 
-    if (delay > 0) {
-      return new Promise<T>((resolve, reject) => setTimeout(() => (shouldResolve ? resolve(result!) : reject(reason)), delay))
-    }
-    return new Promise<T>((resolve, reject) => (shouldResolve ? resolve(result!) : reject(reason)))
+    return new Promise<T>((resolve, reject) => {
+      function action() {
+        if (shouldResolve) {
+          resolve(result as T)
+        } else {
+          reject(reason as Error)
+        }
+      }
+
+      if (delay > 0) setTimeout(action, delay)
+      else action()
+    })
   }
 
   /// AppController ///
@@ -1171,7 +1182,7 @@ export default class MockProvider implements IProvider {
       write_cache_overload: '0'
     }
 
-    return this.generateResponse<MaindataResponse, void>({
+    return this.generateResponse({
       result: {
         full_update: !rid ? true : undefined,
         rid: rid ?? 1,
@@ -1185,11 +1196,21 @@ export default class MockProvider implements IProvider {
   }
 
   async syncTorrentPeers(_: string, rid?: number): Promise<TorrentPeersResponse> {
-    const rndmConnType = () => faker.helpers.arrayElement(['BT', 'μTP', 'WEB'])
-    const rndmCountry = () => faker.location.country()
-    const rndmCountryCode = () => faker.location.countryCode()
-    const rndmSpeed = () => faker.number.int({ min: 0, max: 50_000_000 }) // [0; 50 Mo/s]
-    const rndmData = () => faker.number.int({ min: 0, max: 5_000_000_000 }) // [0; 5 Go]
+    function rndmConnType() {
+      return faker.helpers.arrayElement(['BT', 'μTP', 'WEB'])
+    }
+    function rndmCountry() {
+      return faker.location.country()
+    }
+    function rndmCountryCode() {
+      return faker.location.countryCode()
+    }
+    function rndmSpeed() {
+      return faker.number.int({ min: 0, max: 50_000_000 }) // [0; 50 MB/s]
+    }
+    function rndmData() {
+      return faker.number.int({ min: 0, max: 5_000_000_000 }) // [0; 5 GB]
+    }
 
     const ip1 = faker.internet.ipv4()
     const port1 = faker.internet.port()
@@ -1323,7 +1344,9 @@ export default class MockProvider implements IProvider {
   }
 
   async getTorrentTrackers(_: string): Promise<Tracker[]> {
-    const getRndmValue = () => faker.number.int({ min: 0, max: 1000 })
+    function getRndmValue() {
+      return faker.number.int({ min: 0, max: 1000 })
+    }
 
     return this.generateResponse({
       result: [

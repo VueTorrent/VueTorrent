@@ -5,6 +5,7 @@ import { useContentStore } from './content'
 import { useCookieStore } from './cookies'
 import { useDashboardStore } from './dashboard'
 import { useDialogStore } from './dialog'
+import { useExternalIpStore } from './externalIp'
 import { useGlobalStore } from './global'
 import { useHistoryStore } from './history'
 import { useLogStore } from './logs'
@@ -19,7 +20,6 @@ import { useTorrentDetailStore } from './torrentDetail'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
-import { useExternalIpStore } from './externalIp'
 
 export {
   useAddTorrentStore,

@@ -1,14 +1,13 @@
 <script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import { computed, onBeforeMount, ref } from 'vue'
+import { toast } from 'vue3-toastify'
+import AddTorrentParamsForm from './AddTorrentParamsForm.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
-import AddTorrentParamsForm from '@/components/Dialogs/AddTorrentParamsForm.vue'
-import { useDialog } from '@/composables'
+import { useDialog, useI18nUtils } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { useAddTorrentStore, useAppStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { toast } from 'vue3-toastify'
 
 const props = withDefaults(
   defineProps<{
@@ -74,7 +73,7 @@ function submit() {
   }
 
   const torrentsCount = files.value.length + urls.value.split('\n').filter(url => url.trim().length).length
-  toast
+  void toast
     .promise(
       torrentStore.addTorrents(files.value, urls.value, payload),
       {
@@ -132,12 +131,12 @@ onBeforeMount(() => {
               persistent-hint
               prepend-icon=""
               variant="outlined">
-              <template v-slot:prepend>
-                <v-icon color="accent">mdi-paperclip</v-icon>
+              <template #prepend>
+                <v-icon color="accent"> mdi-paperclip </v-icon>
               </template>
-              <template v-slot:selection="{ fileNames }">
+              <template #selection="{ fileNames }">
                 <template v-for="(filename, index) in fileNames">
-                  <v-chip v-if="index < fileOverflowDisplayLimit" class="mr-2" color="accent" label size="small">
+                  <v-chip v-if="index < fileOverflowDisplayLimit" :key="index" class="mr-2" color="accent" label size="small">
                     {{ filename }}
                   </v-chip>
                 </template>
@@ -148,29 +147,29 @@ onBeforeMount(() => {
             </v-file-input>
 
             <v-textarea v-model="urls" :label="t('dialogs.add.links')" clearable>
-              <template v-slot:prepend>
-                <v-icon color="accent">mdi-link</v-icon>
+              <template #prepend>
+                <v-icon color="accent"> mdi-link </v-icon>
               </template>
             </v-textarea>
 
             <v-slide-y-transition>
               <HistoryField
                 v-if="!!urls && !appStore.isFeatureAvailable('5.1.0')"
-                v-model="cookie"
-                :historyKey="HistoryKey.COOKIE"
                 ref="cookieField"
+                v-model="cookie"
+                :history-key="HistoryKey.COOKIE"
                 clearable
                 :label="$t('dialogs.add.cookie')"
                 :placeholder="$t('dialogs.add.cookie_placeholder')">
-                <template v-slot:prepend>
-                  <v-icon color="accent">mdi-cookie</v-icon>
+                <template #prepend>
+                  <v-icon color="accent"> mdi-cookie </v-icon>
                 </template>
               </HistoryField>
             </v-slide-y-transition>
 
             <v-text-field v-model="rename" clearable hide-details :label="$t('dialogs.add.rename')">
-              <template v-slot:prepend>
-                <v-icon color="accent">mdi-rename</v-icon>
+              <template #prepend>
+                <v-icon color="accent"> mdi-rename </v-icon>
               </template>
             </v-text-field>
           </v-col>
@@ -185,7 +184,7 @@ onBeforeMount(() => {
           </v-col>
         </v-row>
 
-        <AddTorrentParamsForm v-model="addTorrentParams" ref="addTorrentParamsForm" />
+        <AddTorrentParamsForm ref="addTorrentParamsForm" v-model="addTorrentParams" />
       </v-card-text>
 
       <v-card-actions class="mb-2">

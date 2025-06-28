@@ -1,6 +1,6 @@
-import { HistoryKey } from '@/constants/vuetorrent'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
+import { HistoryKey } from '@/constants/vuetorrent'
 
 type History = Partial<Record<HistoryKey, string[]>>
 
@@ -39,7 +39,7 @@ export const useHistoryStore = defineStore(
       getHistory,
       $reset: () => {
         for (const [key] of Object.entries(_history)) {
-          delete _history[key as HistoryKey]
+          delete _history[key]
         }
       }
     }

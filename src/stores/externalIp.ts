@@ -1,6 +1,6 @@
+import { useStorage, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, watch } from 'vue'
-import { whenever, useStorage } from '@vueuse/core'
 import { useLogStore } from './logs'
 import { useMaindataStore } from './maindata'
 import { useVueTorrentStore } from './vuetorrent'
@@ -37,7 +37,7 @@ export const useExternalIpStore = defineStore('externalIP', () => {
 
   watch(externalIp, fetchGeoAndIspDetails)
   whenever(fetchExternalIpInfo, fetchGeoAndIspDetails)
-  fetchGeoAndIspDetails()
+  void fetchGeoAndIspDetails()
 
   return {
     externalIp,

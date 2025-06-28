@@ -1,7 +1,7 @@
-import { isObjectEqual } from '@/helpers'
-import { backend } from '@/services/backend'
 import { Store } from 'pinia'
 import { shallowRef } from 'vue'
+import { isObjectEqual } from '@/helpers'
+import { backend } from '@/services/backend'
 
 export function useBackendSync(store: Store, key: string, config: { blacklist?: string[]; whitelist?: string[] } = {}) {
   const cancelWatcherCallback = shallowRef(() => {})
@@ -50,7 +50,7 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
 
   function registerWatcher() {
     cancelWatcherCallback.value = store.$subscribe(() => {
-      saveState()
+      void saveState()
     })
   }
 

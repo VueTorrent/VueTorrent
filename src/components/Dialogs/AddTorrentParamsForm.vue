@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
+import { useI18nUtils } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { useAppStore, useCategoryStore, usePreferenceStore, useTagStore } from '@/stores'
 import { AddTorrentParams } from '@/types/qbit/models'
-import { computed, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 
 const form = defineModel<AddTorrentParams>({ required: true })
 
@@ -95,7 +95,7 @@ const inactiveSeedingTimeLimit = computed({
   set: val => (form.value.inactive_seeding_time_limit = val || undefined)
 })
 
-const onCategoryChanged = () => {
+function onCategoryChanged() {
   const category = categoryStore.getCategoryFromName(form.value.category)
   if (category && category.savePath.length > 0) {
     form.value.save_path = category.savePath
@@ -126,10 +126,10 @@ defineExpose({ saveFields })
         hide-details
         multiple
         autocomplete="tags">
-        <template v-slot:prepend>
-          <v-icon color="accent">mdi-tag</v-icon>
+        <template #prepend>
+          <v-icon color="accent"> mdi-tag </v-icon>
         </template>
-        <template v-slot:no-data>
+        <template #no-data>
           <v-list-item>
             <v-list-item-title v-if="tagSearch?.length > 0">
               {{ t('dialogs.add.params.no_tags_match', { query: tagSearch }) }}
@@ -152,11 +152,11 @@ defineExpose({ saveFields })
         clearable
         hide-details
         autocomplete="categories"
-        @update:modelValue="onCategoryChanged">
-        <template v-slot:prepend>
-          <v-icon color="accent">mdi-label</v-icon>
+        @update:model-value="onCategoryChanged">
+        <template #prepend>
+          <v-icon color="accent"> mdi-label </v-icon>
         </template>
-        <template v-slot:no-data>
+        <template #no-data>
           <v-list-item>
             <v-list-item-title v-if="categorySearch?.length > 0">
               {{ t('dialogs.add.params.no_categories_match', { query: categorySearch }) }}
@@ -171,28 +171,28 @@ defineExpose({ saveFields })
 
     <v-col cols="12">
       <HistoryField
+        ref="downloadPathField"
         v-model="downloadPath"
         :history-key="HistoryKey.TORRENT_PATH"
-        ref="downloadPathField"
         :disabled="form.use_auto_tmm"
         :label="t('dialogs.add.params.download_path')"
         hide-details>
-        <template v-slot:prepend>
-          <v-icon color="accent">mdi-tray-arrow-down</v-icon>
+        <template #prepend>
+          <v-icon color="accent"> mdi-tray-arrow-down </v-icon>
         </template>
       </HistoryField>
     </v-col>
 
     <v-col cols="12">
       <HistoryField
+        ref="savePathField"
         v-model="form.save_path"
         :history-key="HistoryKey.TORRENT_PATH"
-        ref="savePathField"
         :disabled="form.use_auto_tmm"
         :label="t('dialogs.add.params.save_path')"
         hide-details>
-        <template v-slot:prepend>
-          <v-icon color="accent">mdi-content-save</v-icon>
+        <template #prepend>
+          <v-icon color="accent"> mdi-content-save </v-icon>
         </template>
       </HistoryField>
     </v-col>
@@ -233,7 +233,7 @@ defineExpose({ saveFields })
     <v-col cols="12" md="6">
       <v-checkbox v-model="form.use_auto_tmm" :label="t('dialogs.add.params.use_auto_tmm')" color="accent" density="compact" hide-details />
     </v-col>
-    <v-col cols="12" md="6" v-if="appStore.isFeatureAvailable('5.1.0')">
+    <v-col v-if="appStore.isFeatureAvailable('5.1.0')" cols="12" md="6">
       <v-checkbox v-model="form.forced" :label="t('dialogs.add.params.forced')" color="accent" density="compact" hide-details />
     </v-col>
   </v-row>
@@ -246,15 +246,15 @@ defineExpose({ saveFields })
             <v-row>
               <v-col cols="12" md="6">
                 <v-text-field v-model.number="downloadLimit" :label="$t('dialogs.add.params.download_limit')" hide-details suffix="KiB/s" type="number">
-                  <template v-slot:prepend>
-                    <v-icon color="accent">mdi-download</v-icon>
+                  <template #prepend>
+                    <v-icon color="accent"> mdi-download </v-icon>
                   </template>
                 </v-text-field>
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field v-model.number="uploadLimit" :label="$t('dialogs.add.params.upload_limit')" hide-details suffix="KiB/s" type="number">
-                  <template v-slot:prepend>
-                    <v-icon color="accent">mdi-upload</v-icon>
+                  <template #prepend>
+                    <v-icon color="accent"> mdi-upload </v-icon>
                   </template>
                 </v-text-field>
               </v-col>

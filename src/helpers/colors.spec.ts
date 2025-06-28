@@ -1,6 +1,6 @@
-import { TorrentState } from '@/constants/vuetorrent'
 import { expect, test } from 'vitest'
 import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateValue } from './colors'
+import { TorrentState } from '@/constants/vuetorrent'
 
 test('helpers/colors/getColorFromName', () => {
   expect(getColorFromName('foo')).toBe('#7b2fde')

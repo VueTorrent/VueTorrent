@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDialog, useI18nUtils } from '@/composables'
 import { onMounted, onUnmounted } from 'vue'
+import { useDialog, useI18nUtils } from '@/composables'
 
 const props = defineProps<{
   guid: string
@@ -20,7 +20,7 @@ const emit = defineEmits(['confirm', 'cancel'])
 const { t } = useI18nUtils()
 const { isOpened } = useDialog(props.guid)
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 
@@ -68,8 +68,12 @@ onUnmounted(() => {
 
       <v-card-actions>
         <v-spacer />
-        <v-btn :color="noColor" @click="onCancel">{{ noText ?? t('common.no') }}</v-btn>
-        <v-btn :color="yesColor" @click="onConfirm">{{ yesText ?? t('common.yes') }}</v-btn>
+        <v-btn :color="noColor" @click="onCancel">
+          {{ noText ?? t('common.no') }}
+        </v-btn>
+        <v-btn :color="yesColor" @click="onConfirm">
+          {{ yesText ?? t('common.yes') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

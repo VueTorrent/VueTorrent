@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Torrent } from '@/types/vuetorrent'
 import PanelBoolean from './PanelBoolean.vue'
 import PanelData from './PanelData.vue'
 import PanelDatetime from './PanelDatetime.vue'
@@ -7,6 +6,7 @@ import PanelDuration from './PanelDuration.vue'
 import PanelLongText from './PanelLongText.vue'
 import PanelSpeed from './PanelSpeed.vue'
 import PanelText from './PanelText.vue'
+import { Torrent } from '@/types/vuetorrent'
 
 defineProps<{ torrent: Torrent; isActive: boolean }>()
 </script>

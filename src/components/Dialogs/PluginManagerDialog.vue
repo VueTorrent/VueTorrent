@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { VForm } from 'vuetify/components/VForm'
 import MixedButton from '@/components/Core/MixedButton.vue'
-import { useDialog } from '@/composables'
+import { useDialog, useI18nUtils } from '@/composables'
 import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
-import { ref } from 'vue'
-import { useI18nUtils } from '@/composables'
-import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
@@ -49,11 +48,7 @@ async function installNewPlugin() {
   await searchEngineStore.installSearchPlugin(installInput.value)
   installInput.value = ''
 
-  setTimeout(() => {
-    searchEngineStore.fetchSearchPlugins().then(() => {
-      loading.value = false
-    })
-  }, 1000)
+  setTimeout(() => void searchEngineStore.fetchSearchPlugins().then(() => (loading.value = false)), 1000)
 }
 
 async function uninstallPlugin(plugin: SearchPlugin) {
@@ -65,7 +60,7 @@ async function uninstallPlugin(plugin: SearchPlugin) {
   loading.value = false
 }
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 
@@ -86,8 +81,8 @@ function closeInstallDialog() {
 
         <MixedButton icon="mdi-update" :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
         <v-dialog v-model="installisOpened">
-          <template v-slot:activator="{ props }">
-            <MixedButton icon="mdi-toy-brick-plus" :text="$t('dialogs.pluginManager.install.activator')" v-bind="props" color="primary" />
+          <template #activator="{ props: dialogProps }">
+            <MixedButton icon="mdi-toy-brick-plus" :text="$t('dialogs.pluginManager.install.activator')" v-bind="dialogProps" color="primary" />
           </template>
 
           <v-card :title="$t('dialogs.pluginManager.install.title')">
@@ -98,8 +93,12 @@ function closeInstallDialog() {
             </v-card-text>
             <v-card-actions>
               <v-spacer />
-              <v-btn color="error" @click="closeInstallDialog">{{ $t('common.cancel') }}</v-btn>
-              <v-btn color="accent" @click="installNewPlugin">{{ $t('common.ok') }}</v-btn>
+              <v-btn color="error" @click="closeInstallDialog">
+                {{ $t('common.cancel') }}
+              </v-btn>
+              <v-btn color="accent" @click="installNewPlugin">
+                {{ $t('common.ok') }}
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -112,20 +111,22 @@ function closeInstallDialog() {
           :items="searchEngineStore.searchPlugins"
           :sort-by="[{ key: 'fullName', order: 'asc' }]"
           :loading="loading">
-          <template v-slot:[`item.enabled`]="{ item }">
+          <template #[`item.enabled`]="{ item }">
             <v-checkbox-btn :model-value="item.enabled" @click="onTogglePlugin(item)" />
           </template>
-          <template v-slot:[`item.url`]="{ item }">
+          <template #[`item.url`]="{ item }">
             <a :href="item.url" :title="item.name">{{ item.url }}</a>
           </template>
-          <template v-slot:[`item.actions`]="{ item }">
+          <template #[`item.actions`]="{ item }">
             <v-icon color="red" icon="mdi-delete" @click="uninstallPlugin(item)" />
           </template>
         </v-data-table>
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="accent" @click="close">{{ $t('common.close') }}</v-btn>
+        <v-btn color="accent" @click="close">
+          {{ $t('common.close') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

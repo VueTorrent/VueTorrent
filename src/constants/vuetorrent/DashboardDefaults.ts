@@ -1,11 +1,11 @@
-import { useI18nUtils } from '@/composables'
-import { formatDuration, formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
-import { Torrent } from '@/types/vuetorrent'
 import { DurationUnitType } from 'dayjs/plugin/duration'
 import { storeToRefs } from 'pinia'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
+import { useI18nUtils } from '@/composables'
+import { formatDuration, formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
+import { Torrent } from '@/types/vuetorrent'
 
 type pptData = { active: boolean; order: number }
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
-import { computed } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; value: (t: Torrent) => number; color: (T: Torrent) => string }>()
 

@@ -1,7 +1,7 @@
-import { AddTorrentParams } from '@/types/qbit/models'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
 import { usePreferenceStore } from './preferences'
+import { AddTorrentParams } from '@/types/qbit/models'
 
 export const useAddTorrentStore = defineStore(
   'addTorrents',

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import debounce from 'lodash.debounce'
-import { useTorrentStore } from '@/stores'
+import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { useTorrentStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const torrentStore = useTorrentStore()

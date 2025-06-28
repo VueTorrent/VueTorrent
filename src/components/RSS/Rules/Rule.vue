@@ -20,13 +20,13 @@ async function toggleRule(rule: FeedRule) {
   rssStore.resumeRuleTimer()
 }
 
-async function deleteRule(rule: FeedRule) {
+function deleteRule(rule: FeedRule) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteRule'),
     text: rule.name,
     yesColor: 'error',
     onConfirm: async () => {
-      await rssStore.deleteRule(rule.name!)
+      await rssStore.deleteRule(rule.name)
       rssStore.resumeRuleTimer()
     }
   })
@@ -35,7 +35,9 @@ async function deleteRule(rule: FeedRule) {
 
 <template>
   <v-sheet rounded="xl" class="d-flex align-center">
-    <div class="pl-4">{{ value.name }}</div>
+    <div class="pl-4">
+      {{ value.name }}
+    </div>
     <v-spacer />
     <div>
       <v-btn
@@ -47,13 +49,13 @@ async function deleteRule(rule: FeedRule) {
         @click="toggleRule(value)" />
 
       <v-tooltip :text="$t('common.edit')" location="top">
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn v-bind="props" class="my-2 mr-2" icon="mdi-pencil" variant="plain" density="compact" @click="$emit('openRule', value)" />
         </template>
       </v-tooltip>
 
       <v-tooltip :text="$t('common.delete')" location="top">
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <v-btn v-bind="props" class="my-2 mr-2" icon="mdi-delete" color="red" variant="plain" density="compact" @click="deleteRule(value)" />
         </template>
       </v-tooltip>

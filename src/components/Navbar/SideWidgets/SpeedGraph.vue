@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { formatSpeed } from '@/helpers'
-import dayjs from '@/plugins/dayjs'
-import { useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { ApexOptions } from 'apexcharts'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 import VueApexCharts from 'vue3-apexcharts'
 import { useTheme } from 'vuetify'
+import { useI18nUtils } from '@/composables'
+import { formatSpeed } from '@/helpers'
+import dayjs from '@/plugins/dayjs'
+import { useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const theme = useTheme()

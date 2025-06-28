@@ -1,9 +1,9 @@
-import { comparators } from '@/helpers'
-import qbit from '@/services/qbit'
 import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, shallowRef, triggerRef } from 'vue'
 import { useTorrentStore } from './torrents'
+import { comparators } from '@/helpers'
+import qbit from '@/services/qbit'
 
 export const useTagStore = defineStore('tags', () => {
   const _tags = shallowRef<Set<string>>(new Set())

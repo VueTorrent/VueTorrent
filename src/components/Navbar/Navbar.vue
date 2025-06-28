@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
@@ -12,6 +11,7 @@ import TransferStats from './SideWidgets/TransferStats.vue'
 import ActiveFilters from './TopWidgets/ActiveFilters.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
+import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 
 const router = useRouter()
 const dashboardStore = useDashboardStore()
@@ -21,17 +21,17 @@ const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSe
 
 const showFilters = computed(() => showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
 
-const toggleDrawer = () => {
+function toggleDrawer() {
   isDrawerOpen.value = !isDrawerOpen.value
 }
 
-const goHome = () => {
-  router.push({ name: 'dashboard' })
+function goHome() {
+  void router.push({ name: 'dashboard' })
 }
 </script>
 
 <template>
-  <v-navigation-drawer class="ios-padding" v-model="isDrawerOpen" :location="isDrawerRight ? 'right' : 'left'" color="navbar" disable-route-watcher>
+  <v-navigation-drawer v-model="isDrawerOpen" class="ios-padding" :location="isDrawerRight ? 'right' : 'left'" color="navbar" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
       <v-list-item v-if="showCurrentSpeed">
         <CurrentSpeed />
@@ -63,7 +63,7 @@ const goHome = () => {
         </div>
       </v-list-item>
     </v-list>
-    <template v-slot:append>
+    <template #append>
       <BottomActions />
     </template>
   </v-navigation-drawer>

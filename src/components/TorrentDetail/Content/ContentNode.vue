@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { vOnLongPress } from '@vueuse/components'
+import { storeToRefs } from 'pinia'
+import { computed, triggerRef } from 'vue'
+import { useDisplay } from 'vuetify'
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { doesCommand, formatData, getFileIcon } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
-import { computed, triggerRef } from 'vue'
-import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
   node: TreeNode
@@ -90,10 +91,11 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <div
+    v-on-long-press="e => $emit('onRightClick', e, node)"
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
-    @click.stop="toggleInternalSelection($event, node)"
     data-custom-context-menu
+    @click.stop="toggleInternalSelection($event, node)"
     @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
       <!-- Selection checkbox -->
@@ -120,7 +122,9 @@ function getNodeSubtitle(node: TreeNode) {
 
       <!-- Node content -->
       <div class="d-flex flex-column overflow-hidden text-no-wrap mr-3">
-        <div :class="`text-${getNodeColor(node)}`">{{ node.name }}</div>
+        <div :class="`text-${getNodeColor(node)}`">
+          {{ node.name }}
+        </div>
         <div class="text-grey">
           {{ getNodeSubtitle(node) }}
         </div>
@@ -130,11 +134,11 @@ function getNodeSubtitle(node: TreeNode) {
 
       <!-- Priority icon -->
       <div class="d-flex align-center">
-        <v-icon v-if="node.priority === FilePriority.MAXIMAL" color="error">mdi-arrow-up</v-icon>
-        <v-icon v-else-if="node.priority === FilePriority.HIGH" color="warning">mdi-arrow-top-right</v-icon>
-        <v-icon v-else-if="node.priority === FilePriority.NORMAL">mdi-minus</v-icon>
-        <v-icon v-else-if="node.priority === FilePriority.MIXED">mdi-tilde</v-icon>
-        <v-icon v-else-if="node.priority === FilePriority.DO_NOT_DOWNLOAD" color="grey">mdi-cancel</v-icon>
+        <v-icon v-if="node.priority === FilePriority.MAXIMAL" color="error"> mdi-arrow-up </v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.HIGH" color="warning"> mdi-arrow-top-right </v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.NORMAL"> mdi-minus </v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.MIXED"> mdi-tilde </v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.DO_NOT_DOWNLOAD" color="grey"> mdi-cancel </v-icon>
       </div>
     </div>
     <v-progress-linear :model-value="node.progress" :max="1" :color="getNodeColor(node)" rounded="sm" />

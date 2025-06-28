@@ -1,13 +1,13 @@
-import timezoneMock from 'timezone-mock'
+import { register, unregister } from 'timezone-mock'
 import { describe, expect, test } from 'vitest'
 import { formatDuration, formatEta, formatTimeMs, formatTimeSec, INFINITY_SYMBOL, QBIT_MAX_ETA } from './datetime'
 
 beforeAll(() => {
-  timezoneMock.register('UTC')
+  register('UTC')
 })
 
 afterAll(() => {
-  timezoneMock.unregister()
+  unregister()
 })
 
 describe('helpers/datetime/formatEta', () => {

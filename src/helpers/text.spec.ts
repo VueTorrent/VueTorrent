@@ -1,5 +1,7 @@
-import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, containsUrl, titleCase, isValidUri, normalize } from './text'
+// noinspection HttpUrlsUsage
+
 import { expect, test } from 'vitest'
+import { capitalize, codeToFlag, containsUrl, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
 
 test('helpers/text/titleCase', () => {
   expect(titleCase('hello world')).toBe('Hello World')

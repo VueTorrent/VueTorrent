@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { stateQbitToVt, stateVtToQbit, TorrentState } from './TorrentState'
-import { TorrentState as QbitTorrentState } from '../qbit/TorrentState'
+import { TorrentState as QbitTorrentState } from '@/constants/qbit/TorrentState'
 
 describe('stateQbitToVt', () => {
   it('should map all QbitTorrentState values correctly', () => {

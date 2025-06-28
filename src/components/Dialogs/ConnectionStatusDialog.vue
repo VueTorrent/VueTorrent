@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useExternalIpStore, useMaindataStore, useVueTorrentStore } from '@/stores'
-import { computed } from 'vue'
 
 const props = defineProps<{
   guid: string
@@ -26,7 +26,7 @@ const connectionStatusColor = computed(() => {
   }
 })
 
-const close = () => {
+function close() {
   isOpened.value = false
 }
 </script>
@@ -81,7 +81,9 @@ const close = () => {
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="error" @click="close">{{ $t('common.close') }}</v-btn>
+        <v-btn color="error" @click="close">
+          {{ $t('common.close') }}
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

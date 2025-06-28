@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import RightClickMenu from '@/components/Core/RightClickMenu'
 import Content from '@/components/TorrentDetail/Content'
 import Info from '@/components/TorrentDetail/Info/Info.vue'
@@ -8,9 +11,6 @@ import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
 import { useI18nUtils } from '@/composables'
 import { useContentStore, useDialogStore, useGlobalStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18nUtils()
@@ -37,7 +37,7 @@ const isFirstTorrent = computed(() => torrentIndex.value === 0)
 const isLastTorrent = computed(() => torrentIndex.value === torrentStore.processedTorrents.length - 1)
 
 function goToTorrentIndex(index: number) {
-  router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[index].hash } }).then(res => !res && globalStore.forceReload())
+  void router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[index].hash } }).then(res => !res && globalStore.forceReload())
 }
 
 function goToFirstTorrent() {
@@ -57,7 +57,7 @@ function goToLastTorrent() {
 }
 
 function goHome() {
-  router.push({ name: 'dashboard' })
+  void router.push({ name: 'dashboard' })
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
@@ -82,12 +82,12 @@ watch(router.currentRoute, updateTabHandle, {
 })
 
 watch(torrent, () => {
-  torrentDetailStore.fetchProperties(hash.value)
+  void torrentDetailStore.fetchProperties(hash.value)
 })
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  torrentDetailStore.fetchProperties(hash.value)
+  void torrentDetailStore.fetchProperties(hash.value)
   contentStore.updateFileTreeTask.perform()
 })
 onBeforeUnmount(() => {
@@ -117,11 +117,11 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab v-for="{ text, value } in tabs" :value="value" :text="text" replace :to="{ name: 'torrentDetail', params: { hash, tab: value } }" />
+        <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :text="text" replace :to="{ name: 'torrentDetail', params: { hash, tab: value } }" />
       </v-tabs>
     </v-row>
 
-    <v-window v-model="tab" :touch="false" v-if="torrent">
+    <v-window v-if="torrent" v-model="tab" :touch="false">
       <v-window-item value="overview">
         <Overview :torrent="torrent" :is-active="tab === 'overview'" />
       </v-window-item>

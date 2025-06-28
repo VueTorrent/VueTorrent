@@ -1,6 +1,6 @@
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
-import { AppPreferences } from '@/types/qbit/models'
+import { AppPreferences } from '.'
 import { TorrentOperatingMode } from '@/constants/qbit'
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
 
 export default interface AddTorrentParams {
   /** Whether this torrent should be added at the top of the waiting queue */
@@ -55,7 +55,7 @@ export function getEmptyParams(prefs?: AppPreferences): AddTorrentParams {
     download_limit: prefs?.dl_limit,
     upload_limit: prefs?.up_limit,
     use_download_path: !!prefs?.temp_path,
-    download_path: !!prefs?.temp_path ? prefs?.temp_path : '',
+    download_path: prefs?.temp_path ? prefs?.temp_path : '',
     stopped: prefs?.add_stopped_enabled ?? prefs?.start_paused_enabled,
     use_auto_tmm: prefs?.auto_tmm_enabled,
     ratio_limit: -2,

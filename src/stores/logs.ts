@@ -1,12 +1,12 @@
+import toSorted from 'array.prototype.tosorted'
+import { acceptHMRUpdate, defineStore } from 'pinia'
+import { computed, ref } from 'vue'
+import { useTask } from 'vue-concurrency'
 import { useArrayPagination, useSearchQuery } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
-import toSorted from 'array.prototype.tosorted'
-import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { useTask } from 'vue-concurrency'
 
 export const useLogStore = defineStore(
   'logs',
@@ -38,7 +38,7 @@ export const useLogStore = defineStore(
 
       const newLogs = await qbit.getLogs(afterId)
       logs.value.push(...newLogs)
-      await extractExternalIpFromLogs(newLogs)
+      extractExternalIpFromLogs(newLogs)
     }
 
     async function cleanAndFetchLogs() {
@@ -49,7 +49,7 @@ export const useLogStore = defineStore(
       cleanFetchLock.value = false
     }
 
-    async function extractExternalIpFromLogs(logsToParse: Log[]) {
+    function extractExternalIpFromLogs(logsToParse: Log[]) {
       const log = logsToParse.find(log => log.message.includes('Detected external IP.'))
       if (!log) return
 

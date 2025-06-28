@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { isValidUri } from '@/helpers'
 import { useTrackerStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
 
 defineProps<{
   availableTrackers: string[]

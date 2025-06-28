@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { useDebounceFn } from '@vueuse/core'
+import { ref } from 'vue'
 import { DirectoryContentMode } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { useAppStore } from '@/stores'
-import { useDebounceFn } from '@vueuse/core'
-import { ref } from 'vue'
 
 defineProps<{
   title: string
