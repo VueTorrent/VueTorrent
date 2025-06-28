@@ -7,7 +7,7 @@ import { toPrecision, formatPercent } from './number'
 import { basename, splitExt, getFileIcon, getExtType, getTypeIcon } from './path'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
 import { isWindows, isMac, doesCommand, openLink, downloadFile } from './system'
-import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, containsUrl, isValidUri, codeToFlag } from './text'
+import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, containsUrl, isValidUri, codeToFlag, normalize } from './text'
 
 export {
   getColorFromName,
@@ -48,7 +48,8 @@ export {
   splitByUrl,
   containsUrl,
   isValidUri,
-  codeToFlag
+  codeToFlag,
+  normalize
 }
 
 export type { Comparator }
