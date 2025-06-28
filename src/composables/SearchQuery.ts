@@ -1,5 +1,5 @@
 import { computed, MaybeRefOrGetter, toValue } from 'vue'
-import { normalize } from '@/helpers/text.ts'
+import { normalize } from '@/helpers'
 
 export function useSearchQuery<T>(
   items: MaybeRefOrGetter<T[]>,
