@@ -1,0 +1,1 @@
+window.onerror=function(r,e,n,o,t){let l="";o&&(l+="\ncolumn: "+o),t&&(l+="\nerror: "+t);const u="Error: "+r+"\nurl: "+e+"\nline: "+n+l;"true"===sessionStorage.getItem("vuetorrent_mounted")?console.error(u):alert(u)}
