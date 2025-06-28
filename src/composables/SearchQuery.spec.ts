@@ -1,5 +1,5 @@
+import { describe, expect, test } from 'vitest'
 import { useSearchQuery } from './SearchQuery'
-import { expect, test, describe } from 'vitest'
 
 describe('composables/SearchQuery', () => {
   test('should return all items when search query is empty', () => {
@@ -59,5 +59,26 @@ describe('composables/SearchQuery', () => {
     const { results: res2 } = useSearchQuery([item1, item2], '567', item => [item.title, item.hash])
     expect(res1.value).toEqual([item1, item2])
     expect(res2.value).toEqual([item2])
+  })
+
+  test('should match diacritics in search query', () => {
+    const ITEM_WITH_MIXED_ACCENTS = 'crème brûlée'
+    const ITEM_WITHOUT_ACCENTS = 'creme brulee'
+    const ITEM_WITH_ACCENTS = 'áéíóú ÁÉÍÓÚ üÜ'
+    const AZERTY = 'azerty'
+
+    // Query accents with no accents
+    const { results: res1 } = useSearchQuery([ITEM_WITH_MIXED_ACCENTS, AZERTY], ITEM_WITHOUT_ACCENTS, item => item)
+    // Query accents with accents
+    const { results: res2 } = useSearchQuery([ITEM_WITH_ACCENTS, AZERTY], ITEM_WITH_ACCENTS, item => item)
+    // Query no accents with accents
+    const { results: res3 } = useSearchQuery([ITEM_WITHOUT_ACCENTS, AZERTY], ITEM_WITH_MIXED_ACCENTS, item => item)
+    // Query no accents with no accents
+    const { results: res4 } = useSearchQuery([AZERTY], AZERTY, item => item)
+
+    expect(res1.value).toEqual([ITEM_WITH_MIXED_ACCENTS])
+    expect(res2.value).toEqual([ITEM_WITH_ACCENTS])
+    expect(res3.value).toEqual([ITEM_WITHOUT_ACCENTS])
+    expect(res4.value).toEqual([AZERTY])
   })
 })

@@ -104,3 +104,10 @@ export function codeToFlag(code: string) {
     url
   }
 }
+
+export function normalize(data: string) {
+  return data
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+}
