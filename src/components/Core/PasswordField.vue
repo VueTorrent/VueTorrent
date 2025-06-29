@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { computed, ref, useAttrs } from 'vue'
+import { computed, ref } from 'vue'
 
 defineProps<{
     hideIcon?: boolean
     prependIcon?: string
 }>()
 
-const attrs = useAttrs()
 const showPassword = ref(false)
 
 function toggleShow() {
@@ -18,13 +17,7 @@ const icon = computed(() => (showPassword.value ? 'mdi-eye' : 'mdi-eye-off'))
 </script>
 
 <template>
-    <v-text-field
-        v-bind="attrs"
-        name="password"
-        :type="type"
-        :append-inner-icon="hideIcon ? '' : icon"
-        @click:append-inner="toggleShow"
-    >
+  <v-text-field name="password" :type="type" :append-inner-icon="hideIcon ? '' : icon" @click:append-inner="toggleShow">
         <template v-if="prependIcon" #prepend>
             <v-icon color="accent" :icon="prependIcon" />
         </template>

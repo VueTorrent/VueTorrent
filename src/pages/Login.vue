@@ -91,7 +91,6 @@ watchEffect(() => {
                 v-model="loginForm.password"
                 autocomplete="current-password"
                 aria-autocomplete="current-password"
-                type="password"
                 :label="t('login.password')"
                 :rules="rules.password"
                 prepend-icon="mdi-lock"

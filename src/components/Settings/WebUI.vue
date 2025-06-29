@@ -72,11 +72,13 @@ function registerDynDNS() {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.web_ui_username" hide-details :label="t('settings.webUI.authentication.username')" />
+          <v-text-field v-model="preferenceStore.preferences!.web_ui_username" autocomplete="username" aria-autocomplete="username" hide-details :label="t('settings.webUI.authentication.username')" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
             v-model="webUiPassword"
+            autocomplete="new-password"
+            aria-autocomplete="new-password"
             autocapitalize="off"
             hide-details
             persistent-placeholder
