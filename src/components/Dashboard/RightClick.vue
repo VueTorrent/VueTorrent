@@ -30,6 +30,7 @@ const preferenceStore = usePreferenceStore()
 const tagStore = useTagStore()
 const torrentStore = useTorrentStore()
 
+const isAllTorrentsSelected = computed(() => torrentStore.torrents.length <= dashboardStore.selectedTorrents.length)
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
 const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
@@ -360,29 +361,58 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     text: t('dashboard.right_click.copy.title'),
     icon: 'mdi-content-copy',
     disabled: !window.isSecureContext,
-    hidden: isMultiple.value,
     children: [
       {
         text: t('dashboard.right_click.copy.name'),
         icon: 'mdi-alphabetical-variant',
-        action: () => torrent.value && void copyValue(torrent.value.name)
+        action: () => void copyValue(torrents.value.map(t => t.name).join('\n'))
       },
       {
         text: t('dashboard.right_click.copy.hash'),
         icon: 'mdi-pound',
-        action: () => void copyValue(hash.value)
+        action: () => void copyValue(torrents.value.map(t => t.hash).join('\n'))
       },
       {
         text: t('dashboard.right_click.copy.magnet'),
         icon: 'mdi-magnet',
-        action: () => torrent.value && void copyValue(torrent.value.magnet)
+        action: () => void copyValue(torrents.value.map(t => t.magnet).join('\n'))
       },
       {
         text: t('dashboard.right_click.copy.comment'),
         icon: 'mdi-comment-text',
         hidden: !appStore.isFeatureAvailable('5.0.0'),
         disabled: !torrent.value?.comment,
-        action: () => torrent.value && void copyValue(torrent.value.comment)
+        action: () => void copyValue(torrents.value.map(t => t.comment).join('\n\n'))
+      }
+    ]
+  },
+  {
+    text: t('dashboard.right_click.selection.title'),
+    icon: 'mdi-select',
+    children: [
+      {
+        text: t('common.selectNone'),
+        icon: 'mdi-select',
+        hidden: !dashboardStore.isSelectionMultiple,
+        action: () => dashboardStore.unselectAllTorrents()
+      },
+      {
+        text: t('common.selectAll'),
+        icon: 'mdi-select-all',
+        hidden: isAllTorrentsSelected.value,
+        action: () => dashboardStore.selectAllTorrents()
+      },
+      {
+        text: t('dashboard.right_click.selection.disable_select_mode'),
+        icon: 'mdi-checkbox-blank-outline',
+        hidden: !dashboardStore.isSelectionMultiple,
+        action: () => (dashboardStore.isSelectionMultiple = false)
+      },
+      {
+        text: t('dashboard.right_click.selection.enable_select_mode'),
+        icon: 'mdi-checkbox-marked',
+        hidden: dashboardStore.isSelectionMultiple,
+        action: () => (dashboardStore.isSelectionMultiple = true)
       }
     ]
   },
