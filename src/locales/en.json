@@ -247,6 +247,11 @@
         "title": "Set queue position",
         "top": "To top"
       },
+      "selection": {
+        "disable_select_mode": "Disable select mode",
+        "enable_select_mode": "Enable select mode",
+        "title": "Selection"
+      },
       "speed_limit": {
         "download": "Set download limit",
         "share": "Set share limit",
