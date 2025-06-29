@@ -70,32 +70,32 @@ watchEffect(() => {
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
-            <v-text-field
-                id="username"
-                v-model="loginForm.username"
-                name="username"
-                autocomplete="username"
-                aria-autocomplete="username"
-                :label="t('login.username')"
-                autofocus
-                :rules="rules.username"
-                variant="outlined"
-                @keydown.enter.prevent="login">
-                <template #prepend>
-                    <v-icon color="accent" icon="mdi-account" />
-                </template>
-            </v-text-field>
+          <v-text-field
+            id="username"
+            v-model="loginForm.username"
+            name="username"
+            autocomplete="username"
+            aria-autocomplete="username"
+            :label="t('login.username')"
+            autofocus
+            :rules="rules.username"
+            variant="outlined"
+            @keydown.enter.prevent="login">
+            <template #prepend>
+              <v-icon color="accent" icon="mdi-account" />
+            </template>
+          </v-text-field>
 
-            <PasswordField
-                id="password"
-                v-model="loginForm.password"
-                autocomplete="current-password"
-                aria-autocomplete="current-password"
-                :label="t('login.password')"
-                :rules="rules.password"
-                prepend-icon="mdi-lock"
-                variant="outlined"
-                @keydown.enter.prevent="login" />
+          <PasswordField
+            id="password"
+            v-model="loginForm.password"
+            autocomplete="current-password"
+            aria-autocomplete="current-password"
+            :label="t('login.password')"
+            :rules="rules.password"
+            prepend-icon="mdi-lock"
+            variant="outlined"
+            @keydown.enter.prevent="login" />
         </v-form>
       </v-card-text>
       <v-card-actions>
