@@ -74,6 +74,8 @@ watchEffect(() => {
             id="username"
             v-model="loginForm.username"
             name="username"
+            autocomplete="username"
+            aria-autocomplete="username"
             :label="t('login.username')"
             autofocus
             :rules="rules.username"
@@ -87,6 +89,8 @@ watchEffect(() => {
           <PasswordField
             id="password"
             v-model="loginForm.password"
+            autocomplete="current-password"
+            aria-autocomplete="current-password"
             :label="t('login.password')"
             :rules="rules.password"
             prepend-icon="mdi-lock"
