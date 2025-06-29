@@ -288,6 +288,7 @@
         "category": "Категория",
         "download_limit": "Ограничение загрузки",
         "download_path": "Путь загрузки (до завершения)",
+        "forced": "Принудительно",
         "inactive_seeding_time_limit": "Ограничение по времени неактивного сидирования",
         "limit_collapse": "Настроить ограничения",
         "limit_hint": "-1 для отключения, -2 или оставить пустым для общих настроек",
@@ -729,7 +730,12 @@
     "runSearch": "Поиск",
     "stopSearch": "Остановить",
     "tabHeaderEmpty": "(Пустая очередь)",
-    "title": "Поиск торрентов"
+    "title": "Поиск торрентов",
+    "tooltip": {
+      "append_queue": "Добавить в очередь торрентов",
+      "download": "Скачивание с использованием плагина",
+      "open_link": "Открыть ссылку в новой вкладке"
+    }
   },
   "settings": {
     "addons": {
@@ -1364,6 +1370,9 @@
       "downloaded": "Загружено",
       "fetchingMetadata": "Обновляется...",
       "fileCount": "Файлов выбрано",
+      "piece_canvas_dialog": {
+        "title": "Обзор состояния"
+      },
       "pieceCount": "{owned} / {total} ({pieceSize})",
       "ratio": "Рейтинг",
       "selectedFileSize": "Размер выбранных файлов",
