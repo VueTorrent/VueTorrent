@@ -18,7 +18,7 @@ export const useDashboardStore = defineStore(
 
     const { t } = useI18nUtils()
     const torrentStore = useTorrentStore()
-    const { processedTorrents, torrents } = storeToRefs(torrentStore)
+    const { processedTorrents } = storeToRefs(torrentStore)
     const { paginationSize, useBinarySize } = storeToRefs(useVueTorrentStore())
 
     const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(processedTorrents, paginationSize, _page)
@@ -87,8 +87,8 @@ export const useDashboardStore = defineStore(
 
     function selectAllTorrents() {
       isSelectionMultiple.value = true
-      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...torrents.value.map(t => t.hash))
-      latestSelectedTorrent.value = torrents.value[0]?.hash
+      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...processedTorrents.value.map(t => t.hash))
+      latestSelectedTorrent.value = processedTorrents.value[0]?.hash
     }
 
     function unselectAllTorrents() {
@@ -123,7 +123,6 @@ export const useDashboardStore = defineStore(
       isTorrentInSelection,
       selectTorrent,
       selectTorrents,
-      unselectTorrent,
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
