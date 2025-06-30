@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.27.0](https://github.com/VueTorrent/VueTorrent/compare/v2.26.0...v2.27.0) (2025-06-29)
+
+
+### Features
+
+* **dev:** Update linter config ([#2356](https://github.com/VueTorrent/VueTorrent/issues/2356)) ([236c9c7](https://github.com/VueTorrent/VueTorrent/commit/236c9c7d8c87b1e3fea53b7222b85d10cd549b6e))
+* **search:** Handle accents while searching ([#2357](https://github.com/VueTorrent/VueTorrent/issues/2357)) ([6686c21](https://github.com/VueTorrent/VueTorrent/commit/6686c212b0c2716ab522e72337e171c7d709e02b))
+
+
+### Bug Fixes
+
+* **login:** Improve compatibility with password managers ([#2361](https://github.com/VueTorrent/VueTorrent/issues/2361)) ([3755069](https://github.com/VueTorrent/VueTorrent/commit/37550691901ff1c005b25bc650295a7e8adf5cf9))
+* **RSS:** Disable default context menu on articles ([#2338](https://github.com/VueTorrent/VueTorrent/issues/2338)) ([a694d7f](https://github.com/VueTorrent/VueTorrent/commit/a694d7fc9d5a71e1443d170f61acc21284db4d8e))
+* **Settings:** Use correct upload and download speed limit units ([#2341](https://github.com/VueTorrent/VueTorrent/issues/2341)) ([a1afeda](https://github.com/VueTorrent/VueTorrent/commit/a1afedaa828f1eebcd6be0390d1002d22d43a165))
+
 ## [2.26.0](https://github.com/VueTorrent/VueTorrent/compare/v2.25.0...v2.26.0) (2025-06-12)
 
 ### Features
