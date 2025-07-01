@@ -388,6 +388,24 @@
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
     },
+    "stats": {
+      "title": "Statistics",
+      "user_statistics": "User statistics",
+      "all_time_upload": "All-time upload",
+      "all_time_download": "All-time download",
+      "all_time_share_ratio": "All-time share ratio",
+      "session_waste": "Session waste",
+      "connected_peers": "Connected peers",
+      "cache_statistics": "Cache statistics",
+      "read_cache_hits": "Read cache hits",
+      "total_buffer_size": "Total buffer size",
+      "performance_statistics": "Performance statistics",
+      "write_cache_overload": "Write cache overload",
+      "read_cache_overload": "Read cache overload",
+      "queued_io_jobs": "Queued I/O jobs",
+      "average_time_in_queue": "Average time in queue",
+      "total_queued_size": "Total queued size"
+    },
     "cookiesImport": {
       "input": "Cookie data",
       "title": "Import cookies",
@@ -595,6 +613,7 @@
         "dark_mode.light": "Light mode",
         "dark_mode.system": "Follow system settings",
         "logout": "Logout",
+        "statistics": "Statistics",
         "shutdown": "Shutdown qBittorrent"
       },
       "current_speed": {

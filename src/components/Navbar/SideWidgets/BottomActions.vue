@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { toast } from 'vue3-toastify'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
+import StatsDialog from '@/components/Dialogs/StatsDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
 import { ThemeMode } from '@/constants/vuetorrent'
@@ -65,6 +66,10 @@ function openConnectionStatusDialog() {
   dialogStore.createDialog(ConnectionStatusDialog)
 }
 
+function openStatsDialog() {
+  dialogStore.createDialog(StatsDialog)
+}
+
 function openConfirmShutdownDialog() {
   dialogStore.confirmAction({
     title: t('dialogs.shutdown.title'),
@@ -89,6 +94,14 @@ function openConfirmShutdownDialog() {
       <v-tooltip :text="t('navbar.side.bottom_actions.logout')" location="top">
         <template #activator="{ props }">
           <v-btn variant="plain" icon="mdi-exit-to-app" v-bind="props" @click="logout" />
+        </template>
+      </v-tooltip>
+    </v-col>
+
+    <v-col class="d-flex justify-center">
+      <v-tooltip :text="t('navbar.side.bottom_actions.statistics')" location="top">
+        <template #activator="{ props }">
+          <v-btn variant="plain" icon="mdi-chart-bar" v-bind="props" @click="openStatsDialog" />
         </template>
       </v-tooltip>
     </v-col>
