@@ -35,7 +35,6 @@
     "client_mode": "focus-existing"
   },
   "name": "VueTorrent",
-  "orientation": "any",
   "protocol_handlers": [
     {
       "protocol": "magnet",
