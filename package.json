@@ -25,7 +25,7 @@
     "@fontsource/roboto-mono": "^5.2.6",
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
-    "@vueuse/components": "^13.4.0",
+    "@vueuse/components": "^13.5.0",
     "@vueuse/core": "^13.4.0",
     "@zip.js/zip.js": "^2.7.63",
     "apexcharts": "^4.7.0",
@@ -41,12 +41,12 @@
     "vite-plugin-vuetify": "^2.1.1",
     "vue": "^3.5.17",
     "vue-concurrency": "^5.0.3",
-    "vue-i18n": "^11.1.7",
+    "vue-i18n": "^11.1.9",
     "vue-router": "^4.5.1",
     "vue3-apexcharts": "^1.8.0",
     "vue3-toastify": "^0.2.8",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.8.11"
+    "vuetify": "^3.8.12"
   },
   "devDependencies": {
     "@dword-design/eslint-plugin-import-alias": "^6.0.3",
@@ -57,14 +57,14 @@
     "@types/uuid": "^10.0.0",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vitest/coverage-v8": "^3.2.4",
-    "@vue/eslint-config-typescript": "^14.5.1",
+    "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.1",
-    "eslint-plugin-vue": "^10.2.0",
+    "eslint-plugin-vue": "^10.3.0",
     "globals": "^16.2.0",
     "jsdom": "^26.1.0",
     "lightningcss": "^1.30.1",
@@ -75,6 +75,6 @@
     "vite": "^7.0.0",
     "vite-plugin-top-level-await": "^1.5.0",
     "vitest": "^3.2.4",
-    "vue-tsc": "^2.2.10"
+    "vue-tsc": "^3.0.1"
   }
 }
