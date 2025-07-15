@@ -272,12 +272,12 @@
     },
     "searchInputLabel": "Search",
     "selectAll": "(Un)select All (Ctrl + A)",
-    "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})",
+    "selectedTorrentsCount": "No torrents | {count} of {total} torrents ({size}) | {count} of {total} torrents ({size})",
     "sortLabel": "Sort by",
     "toggleSearchFilter": "Toggle search filter",
     "toggleSelectMode": "Toggle select mode",
     "toggleSortOrder": "Reverse sort order",
-    "torrentsCount": "No torrent | {n} torrent | {n} torrents"
+    "torrentsCount": "No torrents | {n} torrent | {n} torrents"
   },
   "dialogs": {
     "add": {
