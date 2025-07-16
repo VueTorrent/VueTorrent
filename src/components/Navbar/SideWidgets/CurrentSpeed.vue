@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import StatSection from './StatSection.vue'
-import SpeedCard from '@/components/Core/SpeedCard.vue'
+import SpeedCard from '@/components/Core/Cards/SpeedCard.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
@@ -29,30 +29,46 @@ function selectUploading() {
 
 const isDownloadingFilterActive = computed(() => downloadingStates.every(state => statusFilter.value.includes(state)) && downloadingStates.length === statusFilter.value.length)
 const isUploadingFilterActive = computed(() => uploadingStates.every(state => statusFilter.value.includes(state)) && uploadingStates.length === statusFilter.value.length)
+
+const isLimitDefined = computed(() => !!serverState.value?.dl_rate_limit || !!serverState.value?.up_rate_limit)
+const downloadValue = computed(() => {
+  if (displayGraphLimits && isLimitDefined.value && serverState.value?.dl_rate_limit) {
+    return [serverState.value?.dl_info_speed ?? 0, serverState.value?.dl_rate_limit ?? 0]
+  }
+  return serverState.value?.dl_info_speed ?? 0
+})
+const uploadValue = computed(() => {
+  if (displayGraphLimits && isLimitDefined.value && serverState.value?.up_rate_limit) {
+    return [serverState.value?.up_info_speed ?? 0, serverState.value?.up_rate_limit ?? 0]
+  }
+  return serverState.value?.up_info_speed ?? 0
+})
 </script>
 
 <template>
   <StatSection :title="t('navbar.side.current_speed.title')">
     <div class="d-flex flex-row flex-gap-column">
       <SpeedCard
+        orientation="row"
         icon="mdi-arrow-down"
         color="download"
-        :value="serverState?.dl_info_speed ?? 0"
+        :value="downloadValue"
         :active="isDownloadingFilterActive"
         @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
       <SpeedCard
+        orientation="row"
         icon="mdi-arrow-up"
         color="upload"
-        :value="serverState?.up_info_speed ?? 0"
+        :value="uploadValue"
         :active="isUploadingFilterActive"
         @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
     </div>
-    <div v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)" class="d-flex flex-row flex-gap-column">
-      <SpeedCard v-if="serverState.dl_rate_limit" icon="mdi-arrow-collapse-down" color="download" :value="serverState.dl_rate_limit" />
-      <div v-else />
+<!--    <div v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)" class="d-flex flex-row flex-gap-column">-->
+<!--      <SpeedCard v-if="" orientation="row" icon="mdi-arrow-collapse-down" color="download" :value="serverState.dl_rate_limit" />-->
+<!--      <div v-else />-->
 
-      <SpeedCard v-if="serverState.up_rate_limit" icon="mdi-arrow-collapse-up" color="upload" :value="serverState.up_rate_limit" />
-      <div v-else />
-    </div>
+<!--      <SpeedCard v-if="" orientation="row" icon="mdi-arrow-collapse-up" color="upload" :value="serverState.up_rate_limit" />-->
+<!--      <div v-else />-->
+<!--    </div>-->
   </StatSection>
 </template>

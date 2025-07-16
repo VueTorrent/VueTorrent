@@ -13,9 +13,7 @@ import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
 import { emojiStateMap, stateQbitToVt, stateVtToQbit, TorrentState } from './TorrentState'
 import { TrackerSpecialFilter } from './TrackerSpecialFilter'
-
-const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
-const defaultDurationFormat = 'Y[Y] M[M] D[d] H[h] m[m] s[s]'
+import { defaultDateFormat, defaultDurationFormat, QBIT_MAX_ETA, INFINITY_SYMBOL } from './values'
 
 export {
   comparatorMap,
@@ -42,5 +40,7 @@ export {
   stateVtToQbit,
   TrackerSpecialFilter,
   defaultDateFormat,
-  defaultDurationFormat
+  defaultDurationFormat,
+  QBIT_MAX_ETA,
+  INFINITY_SYMBOL
 }

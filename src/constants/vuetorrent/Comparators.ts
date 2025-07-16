@@ -1,4 +1,5 @@
-import { comparators, QBIT_MAX_ETA } from '@/helpers'
+import { QBIT_MAX_ETA } from './values'
+import { comparators } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
 
 const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boolean) => number> = {

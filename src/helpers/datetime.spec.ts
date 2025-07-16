@@ -1,6 +1,7 @@
 import { register, unregister } from 'timezone-mock'
 import { describe, expect, test } from 'vitest'
-import { formatDuration, formatEta, formatTimeMs, formatTimeSec, INFINITY_SYMBOL, QBIT_MAX_ETA } from './datetime'
+import { formatDuration, formatEta, formatTimeMs, formatTimeSec } from './datetime'
+import { INFINITY_SYMBOL, QBIT_MAX_ETA } from '@/constants/vuetorrent'
 
 beforeAll(() => {
   register('UTC')

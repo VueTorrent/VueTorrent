@@ -5,14 +5,25 @@ import BottomActions from './SideWidgets/BottomActions.vue'
 import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
 import Filters from './SideWidgets/Filters.vue'
 import FreeSpace from './SideWidgets/FreeSpace.vue'
+import PerformanceStats from './SideWidgets/PerformanceStats.vue'
 import SpeedGraph from './SideWidgets/SpeedGraph.vue'
 import TransferStats from './SideWidgets/TransferStats.vue'
 import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSessionStat, showFreeSpace, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } =
-  storeToRefs(useVueTorrentStore())
+const {
+  isDrawerRight,
+  showCurrentSpeed,
+  showSpeedGraph,
+  showTransferStats,
+  showPerformanceStats,
+  showFreeSpace,
+  showFilterState,
+  showFilterCategory,
+  showFilterTag,
+  showFilterTracker
+} = storeToRefs(useVueTorrentStore())
 
 const showFilters = computed(() => showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
 </script>
@@ -28,26 +39,24 @@ const showFilters = computed(() => showFilterState.value || showFilterCategory.v
         <SpeedGraph />
       </v-list-item>
 
-      <v-list-item v-if="showAlltimeStat">
-        <TransferStats :session="false" />
-      </v-list-item>
-
-      <v-list-item v-if="showSessionStat">
-        <TransferStats :session="true" />
+      <v-list-item v-if="showTransferStats">
+        <TransferStats />
       </v-list-item>
 
       <v-list-item v-if="showFreeSpace">
         <FreeSpace />
       </v-list-item>
 
+      <v-list-item v-if="showPerformanceStats">
+        <PerformanceStats />
+      </v-list-item>
+
       <v-list-item v-if="showFilters">
         <Filters />
       </v-list-item>
 
-      <v-list-item density="compact">
-        <div class="d-flex justify-center text-accent text-select">
-          {{ dashboardStore.torrentCountString }}
-        </div>
+      <v-list-item density="compact" class="d-flex justify-center text-accent text-select">
+        {{ dashboardStore.torrentCountString }}
       </v-list-item>
     </v-list>
     <template #append>

@@ -32,8 +32,8 @@ export const useVueTorrentStore = defineStore(
     const showFilterTag = ref(true)
     const showFilterTracker = ref(true)
     const showSpeedGraph = ref(true)
-    const showSessionStat = ref(true)
-    const showAlltimeStat = ref(true)
+    const showTransferStats = ref(true)
+    const showPerformanceStats = ref(true)
     const showCurrentSpeed = ref(true)
     const showSpeedInTitle = ref(false)
     /** @deprecated */
@@ -248,14 +248,14 @@ export const useVueTorrentStore = defineStore(
       language,
       paginationSize,
       refreshInterval,
-      showAlltimeStat,
+      showTransferStats,
+      showPerformanceStats,
       showCurrentSpeed,
       showFreeSpace,
       showFilterState,
       showFilterCategory,
       showFilterTag,
       showFilterTracker,
-      showSessionStat,
       showSpeedGraph,
       showSpeedInTitle,
       uiTitleType,
@@ -304,8 +304,8 @@ export const useVueTorrentStore = defineStore(
         showFilterTag.value = true
         showFilterTracker.value = true
         showSpeedGraph.value = true
-        showSessionStat.value = true
-        showAlltimeStat.value = true
+        showTransferStats.value = true
+        showPerformanceStats.value = true
         showCurrentSpeed.value = true
         showSpeedInTitle.value = false
         deleteWithFiles.value = false

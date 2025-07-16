@@ -649,15 +649,9 @@
         "upload_limit_label": "Upload limit"
       },
       "stats": {
-        "alltime": {
-          "title": "Alltime Stats"
-        },
         "downloaded": "Downloaded",
         "free_space": "Free Space",
         "ratio": "Ratio",
-        "session": {
-          "title": "Session Stats"
-        },
         "uploaded": "Uploaded"
       }
     },
@@ -1182,7 +1176,6 @@
         "refreshInterval": "qBittorrent API refresh interval",
         "registerMagnet": "Register magnet links",
         "resetSettings": "Reset Settings",
-        "showAlltimeStat": "Show All-Time Stats",
         "showCurrentSpeed": "Show Current Speed",
         "showFilters": {
           "allFiltersEnabled": "All filters enabled",
@@ -1194,8 +1187,9 @@
           "tracker": "Tracker"
         },
         "showFreeSpace": "Show Free Space",
-        "showSessionStat": "Show Session Stats",
         "showSpeedGraph": "Show Speed Graph",
+        "showTransferStats": "Show Transfer Stats",
+        "showPerformanceStats": "Show Performance Stats",
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",

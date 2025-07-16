@@ -1,8 +1,6 @@
 import { DurationUnitType } from 'dayjs/plugin/duration'
+import { INFINITY_SYMBOL, QBIT_MAX_ETA } from '@/constants/vuetorrent'
 import dayjs from '@/plugins/dayjs'
-
-export const QBIT_MAX_ETA = 8_640_000 // 100 days
-export const INFINITY_SYMBOL = '∞'
 
 export function formatEta(value: number, isForced: boolean = false): string {
   const MAX_UNITS = 2 // Will display 2 units max, from highest to lowest

@@ -3,8 +3,8 @@ import { mount, VueWrapper } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import DataCard from './DataCard.vue'
-import i18n from '@/plugins/i18n'
-import vuetify from '@/plugins/vuetify'
+import i18n from '@/plugins/i18n.ts'
+import vuetify from '@/plugins/vuetify.ts'
 
 const title = 'Downloaded'
 const value = 10000

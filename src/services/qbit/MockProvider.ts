@@ -13,7 +13,7 @@ import {
   TorrentState,
 } from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
-import { QBIT_MAX_ETA } from '@/helpers'
+import { QBIT_MAX_ETA } from '@/constants/vuetorrent'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -1153,11 +1153,11 @@ export default class MockProvider implements IProvider {
     const alltime_dl = faker.number.int({ min: 0, max: 50_000_000_000_000 }) // [0 B; 50 TB]
     const alltime_ul = faker.number.int({ min: 0, max: 50_000_000_000_000 }) // [0 B; 50 TB]
     const dl_rate_limit = 0
-    const up_rate_limit = 5_000_000
+    const up_rate_limit = 0
     const server_state = {
       alltime_dl,
       alltime_ul,
-      average_time_queue: 0,
+      average_time_queue: faker.number.int({ min: 0, max: 2_000 }),
       connection_status: faker.helpers.enumValue(ConnectionStatus),
       dht_nodes: faker.number.int({ min: 0, max: 1000 }),
       dl_info_data: faker.number.int({ min: 0, max: 100_000_000_000 }), // [0 B; 100 GB]
@@ -1165,7 +1165,7 @@ export default class MockProvider implements IProvider {
       dl_rate_limit,
       free_space_on_disk: faker.number.int({ min: 0, max: 500_000_000_000 }), // [0 B; 500 GB]
       global_ratio: (alltime_ul / alltime_dl).toFixed(2),
-      queued_io_jobs: 0,
+      queued_io_jobs: faker.number.int({ min: 0, max: 1500 }),
       queueing: false,
       read_cache_hits: '0',
       read_cache_overload: '0',
