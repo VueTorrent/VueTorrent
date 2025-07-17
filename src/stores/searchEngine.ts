@@ -21,10 +21,10 @@ export const useSearchEngineStore = defineStore(
         filters: {
           title: '',
           category: 'all',
-          plugin: 'enabled'
+          plugin: 'enabled',
         },
         results: [],
-        timer: null
+        timer: null,
       })
     }
 
@@ -93,14 +93,14 @@ export const useSearchEngineStore = defineStore(
         searchData.value = []
         searchPlugins.value = []
         createNewTab()
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: sessionStorage }]
-    }
+      storageItems: [{ storage: sessionStorage }],
+    },
   }
 )
 

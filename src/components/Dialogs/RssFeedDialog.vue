@@ -18,7 +18,7 @@ const form = ref<VForm>()
 const isFormValid = ref(false)
 const formData = reactive({
   name: '',
-  url: ''
+  url: '',
 })
 
 const nameRules = [(v: string) => !!v || t('dialogs.rss.feed.rules.name_required')]

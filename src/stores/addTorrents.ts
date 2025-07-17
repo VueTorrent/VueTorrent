@@ -85,14 +85,14 @@ export const useAddTorrentStore = defineStore(
       $reset: () => {
         isFirstInit.value = false
         resetForm()
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: sessionStorage, excludePaths: ['files'] }]
-    }
+      storageItems: [{ storage: sessionStorage, excludePaths: ['files'] }],
+    },
   }
 )
 

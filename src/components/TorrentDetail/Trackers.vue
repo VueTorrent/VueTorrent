@@ -24,11 +24,11 @@ const headers = [
   { nowrap: true, title: t('torrentDetail.trackers.fields.num_downloaded'), key: 'num_downloaded' },
   { nowrap: true, title: t('torrentDetail.trackers.fields.num_leeches'), key: 'num_leeches' },
   { nowrap: true, title: t('torrentDetail.trackers.fields.msg'), key: 'msg' },
-  { nowrap: true, key: 'actions', sortable: false }
+  { nowrap: true, key: 'actions', sortable: false },
 ]
 const sortBy = shallowReadonly<{ key: string; order?: boolean | 'asc' | 'desc' }[]>([
   { key: 'tier', order: 'asc' },
-  { key: 'url', order: 'asc' }
+  { key: 'url', order: 'asc' },
 ])
 const filter = ref('')
 
@@ -60,7 +60,7 @@ const editTrackerDialog = reactive({
   isVisible: false,
   isFormValid: false,
   oldUrl: '',
-  newUrl: ''
+  newUrl: '',
 })
 
 function openEditTrackerDialog(tracker: Tracker) {
@@ -125,10 +125,10 @@ const timerForcedPause = ref(false)
 const {
   isActive: isTimerActive,
   resume: resumeTimer,
-  pause: pauseTimer
+  pause: pauseTimer,
 } = useIntervalFn(() => void trackerTask.perform(), 5000, {
   immediate: true,
-  immediateCallback: true
+  immediateCallback: true,
 })
 
 function pause() {

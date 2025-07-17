@@ -26,6 +26,6 @@ export default createI18n({
         return 2
       }
       return choicesLength < 4 ? 2 : 3
-    }
-  }
+    },
+  },
 })

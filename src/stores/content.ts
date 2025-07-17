@@ -21,7 +21,7 @@ export const useContentStore = defineStore('content', () => {
 
   const rightClickProperties = reactive<RightClickProperties>({
     isVisible: false,
-    offset: [0, 0]
+    offset: [0, 0],
   })
   const isFirstRun = shallowRef(true)
   const cachedFiles = shallowRef<TorrentFile[]>([])
@@ -46,18 +46,18 @@ export const useContentStore = defineStore('content', () => {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
-      action: () => void renameNode(selectedNode.value!)
+      action: () => void renameNode(selectedNode.value!),
     },
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
-      action: () => void bulkRename(toRaw(selectedNode.value!) as TreeFolder)
+      action: () => void bulkRename(toRaw(selectedNode.value!) as TreeFolder),
     },
     {
       text: t('torrentDetail.content.invert_priority'),
       icon: 'mdi-checkbox-intermediate-variant',
-      action: () => void invertPrioritySelection()
+      action: () => void invertPrioritySelection(),
     },
     {
       text: t('torrentDetail.content.priority'),
@@ -66,35 +66,35 @@ export const useContentStore = defineStore('content', () => {
         {
           text: t('constants.file_priority.max'),
           icon: 'mdi-arrow-up',
-          action: () => void setFilePriority(selectedIds.value, FilePriority.MAXIMAL)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.MAXIMAL),
         },
         {
           text: t('constants.file_priority.high'),
           icon: 'mdi-arrow-top-right',
-          action: () => void setFilePriority(selectedIds.value, FilePriority.HIGH)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.HIGH),
         },
         {
           text: t('constants.file_priority.normal'),
           icon: 'mdi-minus',
-          action: () => void setFilePriority(selectedIds.value, FilePriority.NORMAL)
+          action: () => void setFilePriority(selectedIds.value, FilePriority.NORMAL),
         },
         {
           text: t('constants.file_priority.unwanted'),
           icon: 'mdi-cancel',
-          action: () => void setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD)
-        }
-      ]
+          action: () => void setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD),
+        },
+      ],
     },
     {
       text: 'Collapse All',
       icon: 'mdi-unfold-less-horizontal',
-      action: collapseAll
+      action: collapseAll,
     },
     {
       text: 'Expand All',
       icon: 'mdi-unfold-more-horizontal',
-      action: expandAll
-    }
+      action: expandAll,
+    },
   ])
 
   const updateFileTreeTask = useTask(function* () {
@@ -110,10 +110,10 @@ export const useContentStore = defineStore('content', () => {
   const {
     isActive: isTimerActive,
     pause: pauseTimer,
-    resume: resumeTimer
+    resume: resumeTimer,
   } = useIntervalFn(() => void updateFileTreeTask.perform(), fileContentInterval, {
     immediate: false,
-    immediateCallback: true
+    immediateCallback: true,
   })
 
   async function updateFileTree() {
@@ -126,7 +126,7 @@ export const useContentStore = defineStore('content', () => {
     const payload = {
       hash: hash.value,
       isFolder: node.type === 'folder',
-      oldName: node.fullName
+      oldName: node.fullName,
     }
     dialogStore.createDialog(MoveTorrentFileDialog, payload, () => void updateFileTreeTask.perform())
   }
@@ -254,7 +254,7 @@ export const useContentStore = defineStore('content', () => {
       cachedFiles.value = []
       openedItems.value = new Set([''])
       isFirstRun.value = true
-    }
+    },
   }
 })
 

@@ -27,7 +27,7 @@ const tabs = [
   { text: t('torrentDetail.tabs.trackers'), value: 'trackers' },
   { text: t('torrentDetail.tabs.peers'), value: 'peers' },
   { text: t('torrentDetail.tabs.content'), value: 'content' },
-  { text: t('torrentDetail.tabs.tagsAndCategories'), value: 'tagsAndCategories' }
+  { text: t('torrentDetail.tabs.tagsAndCategories'), value: 'tagsAndCategories' },
 ]
 
 const hash = computed(() => router.currentRoute.value.params.hash as string)
@@ -78,7 +78,7 @@ function updateTabHandle() {
 }
 
 watch(router.currentRoute, updateTabHandle, {
-  immediate: true
+  immediate: true,
 })
 
 watch(torrent, () => {

@@ -27,6 +27,6 @@ export const useTorrentCreatorStore = defineStore('torrentCreator', () => {
     fetchTasks,
     createTask,
     deleteTask,
-    downloadTorrent
+    downloadTorrent,
   }
 })

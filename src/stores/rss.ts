@@ -22,7 +22,7 @@ export const useRssStore = defineStore(
 
     const filters = reactive({
       title: '',
-      unread: false
+      unread: false,
     })
 
     const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
@@ -36,11 +36,11 @@ export const useRssStore = defineStore(
     const { t } = useI18nUtils()
     const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeeds(), 5000, {
       immediate: false,
-      immediateCallback: true
+      immediateCallback: true,
     })
     const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRules(), 5000, {
       immediate: false,
-      immediateCallback: true
+      immediateCallback: true,
     })
 
     async function refreshFeed(feedName: string) {
@@ -61,7 +61,7 @@ export const useRssStore = defineStore(
         savePath: ruleDef.torrentParams.save_path,
         assignedCategory: ruleDef.torrentParams.category,
         addPaused: ruleDef.torrentParams.stopped,
-        torrentContentLayout: ruleDef.torrentParams.content_layout
+        torrentContentLayout: ruleDef.torrentParams.content_layout,
       })
     }
 
@@ -106,7 +106,7 @@ export const useRssStore = defineStore(
             _articles.value.push({
               feedId: feed.uid,
               parsedDate: new Date(article.date),
-              ...article
+              ...article,
             })
           }
         })
@@ -141,10 +141,10 @@ export const useRssStore = defineStore(
         {
           pending: t('rssArticles.feeds.promise.pending'),
           error: t('rssArticles.feeds.promise.error'),
-          success: t('rssArticles.feeds.promise.success', unreadArticlesCount)
+          success: t('rssArticles.feeds.promise.success', unreadArticlesCount),
         },
         {
-          autoClose: 1500
+          autoClose: 1500,
         }
       )
       await fetchFeeds()
@@ -196,14 +196,14 @@ export const useRssStore = defineStore(
         filters.unread = false
         pauseFeedTimer()
         pauseRuleTimer()
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: sessionStorage }]
-    }
+      storageItems: [{ storage: sessionStorage }],
+    },
   }
 )
 

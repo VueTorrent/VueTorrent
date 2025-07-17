@@ -31,7 +31,7 @@ const headers = computed(() => [
   { title: t('cookiesManager.table.name'), key: 'name' },
   { title: t('cookiesManager.table.value'), key: 'value', cellProps: { class: 'wrap-anywhere' } },
   { title: t('cookiesManager.table.expiration_date'), key: 'expirationDate' },
-  { key: 'actions', sortable: false, nowrap: true }
+  { key: 'actions', sortable: false, nowrap: true },
 ])
 
 function openCookieFormDialog(cookie?: Cookie) {
@@ -49,7 +49,7 @@ function deleteCookie(cookie: Cookie) {
     yesColor: 'error',
     onConfirm: async () => {
       await cookieStore.removeCookie(cookie, true)
-    }
+    },
   })
 }
 
@@ -59,7 +59,7 @@ function clearCookies() {
     yesColor: 'error',
     onConfirm: async () => {
       await cookieStore.clearCookies(true)
-    }
+    },
   })
 }
 

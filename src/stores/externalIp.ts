@@ -48,7 +48,7 @@ export const useExternalIpStore = defineStore('externalIP', () => {
       geoDetails.value = null
       ispDetails.value = null
       lastFetchedIp.value = undefined
-    }
+    },
   }
 })
 

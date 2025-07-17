@@ -11,13 +11,13 @@ const preferenceStore = usePreferenceStore()
 const encyptionModeOptions = ref([
   { title: t('constants.encryption.preferEncryption'), value: Encryption.PREFER_ENCRYPTION },
   { title: t('constants.encryption.forceOn'), value: Encryption.FORCE_ON },
-  { title: t('constants.encryption.forceOff'), value: Encryption.FORCE_OFF }
+  { title: t('constants.encryption.forceOff'), value: Encryption.FORCE_OFF },
 ])
 const thenTypes = ref([
   { title: t('constants.shareLimitAction.stopTorrent'), value: ShareLimitAction.STOP_TORRENT },
   { title: t('constants.shareLimitAction.removeTorrent'), value: ShareLimitAction.REMOVE_TORRENT },
   { title: t('constants.shareLimitAction.removeTorrentAndFiles'), value: ShareLimitAction.REMOVE_TORRENT_AND_FILES },
-  { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING }
+  { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING },
 ])
 
 const trackerUrlListItems = computed<string[]>(() => {

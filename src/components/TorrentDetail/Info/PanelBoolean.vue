@@ -12,12 +12,12 @@ const { properties } = storeToRefs(useTorrentDetailStore())
 
 const auto_tmm = computed({
   get: () => props.torrent.auto_tmm,
-  set: value => void torrentStore.toggleAutoTmm([props.torrent.hash], value)
+  set: value => void torrentStore.toggleAutoTmm([props.torrent.hash], value),
 })
 
 const f_l_piece_prio = computed({
   get: () => props.torrent.f_l_piece_prio,
-  set: () => void torrentStore.toggleFLPiecePrio([props.torrent.hash])
+  set: () => void torrentStore.toggleFLPiecePrio([props.torrent.hash]),
 })
 
 const forced = computed({
@@ -28,17 +28,17 @@ const forced = computed({
     } else {
       void torrentStore.resumeTorrents([props.torrent.hash])
     }
-  }
+  },
 })
 
 const seq_dl = computed({
   get: () => props.torrent.seq_dl,
-  set: () => void torrentStore.toggleSeqDl([props.torrent.hash])
+  set: () => void torrentStore.toggleSeqDl([props.torrent.hash]),
 })
 
 const super_seeding = computed({
   get: () => props.torrent.super_seeding,
-  set: value => void torrentStore.setSuperSeeding([props.torrent.hash], value)
+  set: value => void torrentStore.setSuperSeeding([props.torrent.hash], value),
 })
 </script>
 

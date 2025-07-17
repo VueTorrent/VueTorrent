@@ -51,5 +51,5 @@ export type {
   SearchJob,
   SearchStatus,
   SearchResult,
-  Log
+  Log,
 }

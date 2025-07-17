@@ -33,7 +33,7 @@ const rules = [(v: string) => !!v]
 const headers = readonly([
   { fixed: true, sortable: false, key: 'selected', width: '50px' },
   { title: t('dialogs.bulkRenameFiles.col_origin_name'), sortable: false, key: 'name' },
-  { title: t('dialogs.bulkRenameFiles.col_result_name'), sortable: false, key: 'targetName' }
+  { title: t('dialogs.bulkRenameFiles.col_result_name'), sortable: false, key: 'targetName' },
 ])
 
 type ItemRow<T extends TreeNode = TreeNode> = Pick<T, 'name' | 'fullName' | 'type'> & {
@@ -64,7 +64,7 @@ function parseNode(node: TreeNode, parentItem?: ItemRow, indent: number = 0) {
     selected: false,
     type: node.type,
     /** keep the corresponding node, for expand/collapse folder */
-    node
+    node,
   }
   items.push(item)
   if (node.type === 'folder') {

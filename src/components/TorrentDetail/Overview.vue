@@ -66,7 +66,7 @@ function openMoveTorrentFileDialog() {
     {
       hash: props.torrent.hash,
       isFolder: false,
-      oldName: torrentFileName.value
+      oldName: torrentFileName.value,
     },
     () => void contentStore.updateFileTreeTask.perform()
   )
@@ -155,7 +155,7 @@ onUnmounted(() => {
                     t('torrentDetail.overview.pieceCount', {
                       owned: torrentPieceOwned,
                       total: torrentPieceCount,
-                      pieceSize
+                      pieceSize,
                     })
                   }}
                 </span>

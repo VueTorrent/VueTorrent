@@ -8,7 +8,7 @@ export default {
     colors: {
       ...DarkLegacy.theme.colors,
       'torrent-ul_stalled': blue.darken4,
-      'torrent-uploading': teal.darken2
-    }
-  }
+      'torrent-uploading': teal.darken2,
+    },
+  },
 }

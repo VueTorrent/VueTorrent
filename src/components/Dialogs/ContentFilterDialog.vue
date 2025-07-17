@@ -46,33 +46,33 @@ const extensionItems = computed(() =>
     .flatMap(([type, extensions]) => [
       { props: { header: t(`constants.file_type.${type}`), icon: getTypeIcon(type) } },
       ...extensions.map(ext => ({ title: ext ? `.${ext}` : t(`constants.file_type.no_ext`), value: ext })),
-      { props: { divider: true } }
+      { props: { divider: true } },
     ])
 )
 
 const priorityOptions = [
   {
     title: t('constants.file_priority.unwanted'),
-    value: FilePriority.DO_NOT_DOWNLOAD
+    value: FilePriority.DO_NOT_DOWNLOAD,
   },
   {
     title: t('constants.file_priority.normal'),
-    value: FilePriority.NORMAL
+    value: FilePriority.NORMAL,
   },
   {
     title: t('constants.file_priority.high'),
-    value: FilePriority.HIGH
+    value: FilePriority.HIGH,
   },
   {
     title: t('constants.file_priority.max'),
-    value: FilePriority.MAXIMAL
-  }
+    value: FilePriority.MAXIMAL,
+  },
 ]
 
 const filters = reactive<{ extensions: string[]; priority: FilePriority[]; size: [number, number] }>({
   extensions: [],
   priority: [],
-  size: sizeBoundaries.value
+  size: sizeBoundaries.value,
 })
 
 const filterPreview = computed(() =>
@@ -177,7 +177,7 @@ function close() {
               t('torrentDetail.content.filter.preview', {
                 count: filterPreview.length,
                 total: contentStore.cachedFiles.length,
-                size: formatData(filterPreviewSize, vuetorrentStore.useBinarySize)
+                size: formatData(filterPreviewSize, vuetorrentStore.useBinarySize),
               })
             }}
           </v-col>

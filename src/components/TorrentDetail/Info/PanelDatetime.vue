@@ -15,7 +15,7 @@ const torrentValues = [
   { title: 'completed_on', getter: () => props.torrent.completed_on },
   { title: 'creation_date', getter: () => properties.value?.creation_date ?? 0 },
   { title: 'last_activity', getter: () => props.torrent.last_activity },
-  { title: 'seen_complete', getter: () => props.torrent.seen_complete }
+  { title: 'seen_complete', getter: () => props.torrent.seen_complete },
 ]
 </script>
 

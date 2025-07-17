@@ -4,5 +4,5 @@ export enum LogType {
   INFO = 1 << 1,
   WARNING = 1 << 2,
   CRITICAL = 1 << 3,
-  ALL = NORMAL | INFO | WARNING | CRITICAL
+  ALL = NORMAL | INFO | WARNING | CRITICAL,
 }

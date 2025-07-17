@@ -44,13 +44,13 @@ export const useCategoryStore = defineStore('categories', () => {
       if (oldCat) {
         const newCat = {
           name: qbitCat.name ?? oldCat.name,
-          savePath: qbitCat.savePath ?? oldCat.savePath
+          savePath: qbitCat.savePath ?? oldCat.savePath,
         }
         _categoryMap.value.set(catName, newCat)
       } else {
         _categoryMap.value.set(catName, {
           name: qbitCat.name ?? catName,
-          savePath: qbitCat.savePath ?? ''
+          savePath: qbitCat.savePath ?? '',
         })
       }
     }
@@ -113,7 +113,7 @@ export const useCategoryStore = defineStore('categories', () => {
     $reset: () => {
       _categoryMap.value.clear()
       triggerRef(_categoryMap)
-    }
+    },
   }
 })
 

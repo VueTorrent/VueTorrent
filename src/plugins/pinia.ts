@@ -8,7 +8,7 @@ pinia.use(
     storeKeysPrefix: 'vuetorrent',
     persistenceDefault: false,
     ensureAsyncStorageUpdateOrder: true,
-    debug: import.meta.env.DEV
+    debug: import.meta.env.DEV,
   })
 )
 

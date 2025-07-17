@@ -16,5 +16,5 @@ export enum FilterState {
   STALLED_DOWNLOADING = 'stalled_downloading',
   CHECKING = 'checking',
   MOVING = 'moving',
-  ERRORED = 'errored'
+  ERRORED = 'errored',
 }

@@ -10,7 +10,7 @@ export function useDialog(guid: string) {
     set: v => {
       hndlDialog.value = v
       if (!v) deleteDialog()
-    }
+    },
   })
 
   function deleteDialog() {

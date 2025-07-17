@@ -34,10 +34,10 @@ const headers = computed(() => [
   ...(appStore.usesQbit5
     ? [
         { title: t('searchEngine.headers.engineName'), key: 'engineName' },
-        { title: t('searchEngine.headers.pubDate'), key: 'pubDate' }
+        { title: t('searchEngine.headers.pubDate'), key: 'pubDate' },
       ]
     : [{ title: t('searchEngine.headers.siteUrl'), key: 'siteUrl' }]),
-  { title: '', key: 'actions', sortable: false }
+  { title: '', key: 'actions', sortable: false },
 ])
 const categories = [
   { title: t('searchEngine.filters.category.movies'), value: 'movies' },
@@ -47,7 +47,7 @@ const categories = [
   { title: t('searchEngine.filters.category.anime'), value: 'anime' },
   { title: t('searchEngine.filters.category.software'), value: 'software' },
   { title: t('searchEngine.filters.category.pictures'), value: 'pictures' },
-  { title: t('searchEngine.filters.category.books'), value: 'books' }
+  { title: t('searchEngine.filters.category.books'), value: 'books' },
 ]
   .sort((a, b) => comparators.text.asc(a.title, b.title))
   .toSpliced(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
@@ -59,7 +59,7 @@ const plugins = computed(() => [
     .filter(plugin => plugin.enabled)
     .map(plugin => plugin.name)
     .sort(comparators.text.asc)
-    .map(name => ({ title: name, value: name }))
+    .map(name => ({ title: name, value: name })),
 ])
 
 const selectedTab = computed<SearchData>(() => searchData.value[tabIndex.value] ?? {})

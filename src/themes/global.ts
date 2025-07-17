@@ -2,7 +2,7 @@ import { amber, blue, blueGrey, deepOrange, green, grey, indigo, lightBlue, ligh
 
 export const statusColors = {
   enabled: '#4F738D',
-  disabled: '#35495E'
+  disabled: '#35495E',
 }
 
 export function getVariables(dark: boolean) {
@@ -52,6 +52,6 @@ export function getVariables(dark: boolean) {
     'torrent-ul_queued': dark ? blueGrey.darken1 : blueGrey.lighten3,
     'torrent-ul_stalled': dark ? blue.lighten1 : lightBlue.lighten3,
     'torrent-unknown': dark ? grey.darken3 : grey.lighten2,
-    'torrent-uploading': dark ? indigo.darken2 : lightBlue.lighten1
+    'torrent-uploading': dark ? indigo.darken2 : lightBlue.lighten1,
   }
 }

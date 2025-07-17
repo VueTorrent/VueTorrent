@@ -117,7 +117,7 @@ export const useTrackerStore = defineStore('trackers', () => {
     return {
       fulfilled: promisesResult[0],
       rejected: promisesResult[1],
-      total: promisesResult[0] + promisesResult[1].length
+      total: promisesResult[0] + promisesResult[1].length,
     }
   }
 
@@ -135,7 +135,7 @@ export const useTrackerStore = defineStore('trackers', () => {
     $reset: () => {
       _trackerMap.value.clear()
       triggerRef(_trackerMap)
-    }
+    },
   }
 })
 

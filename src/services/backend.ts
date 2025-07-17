@@ -17,8 +17,8 @@ class BackendProvider {
       baseURL,
       withCredentials: true,
       headers: {
-        put: { 'Content-Type': 'application/json' }
-      }
+        put: { 'Content-Type': 'application/json' },
+      },
     })
   }
 

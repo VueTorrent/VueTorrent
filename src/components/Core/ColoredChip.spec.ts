@@ -19,14 +19,14 @@ describe('ColoredChip.vue', () => {
           createTestingPinia({
             initialState: {
               vuetorrent: {
-                enableHashColors: true
-              }
-            }
+                enableHashColors: true,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     expect(chip.attributes().style).toContain(`background-color: ${fooRgb}`)
@@ -41,14 +41,14 @@ describe('ColoredChip.vue', () => {
           createTestingPinia({
             initialState: {
               vuetorrent: {
-                enableHashColors: false
-              }
-            }
+                enableHashColors: false,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     expect(chip.classes()).toContain(`bg-${defaultColor}`)
@@ -63,14 +63,14 @@ describe('ColoredChip.vue', () => {
           createTestingPinia({
             initialState: {
               vuetorrent: {
-                enableHashColors: true
-              }
-            }
+                enableHashColors: true,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     expect(chip.classes()).toContain(`bg-${defaultColor}`)
@@ -85,14 +85,14 @@ describe('ColoredChip.vue', () => {
           createTestingPinia({
             initialState: {
               vuetorrent: {
-                enableHashColors: true
-              }
-            }
+                enableHashColors: true,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     expect(chip.classes()).toContain(`bg-${defaultColor}`)
@@ -107,14 +107,14 @@ describe('ColoredChip.vue', () => {
           createTestingPinia({
             initialState: {
               vuetorrent: {
-                hideColoredChip: false
-              }
-            }
+                hideColoredChip: false,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     const el: HTMLSpanElement = chip.element
@@ -130,14 +130,14 @@ describe('ColoredChip.vue', () => {
           createTestingPinia({
             initialState: {
               vuetorrent: {
-                hideColoredChip: true
-              }
-            }
+                hideColoredChip: true,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     const el: HTMLSpanElement = chip.element
@@ -154,14 +154,14 @@ describe('ColoredChip.vue', () => {
             initialState: {
               vuetorrent: {
                 enableHashColors: true,
-                hideColoredChip: true
-              }
-            }
+                hideColoredChip: true,
+              },
+            },
           }),
           i18n,
-          vuetify
-        ]
-      }
+          vuetify,
+        ],
+      },
     })
 
     const el: HTMLSpanElement = chip.element

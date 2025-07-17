@@ -60,6 +60,6 @@ export function getEmptyParams(prefs?: AppPreferences): AddTorrentParams {
     use_auto_tmm: prefs?.auto_tmm_enabled,
     ratio_limit: -2,
     seeding_time_limit: -2,
-    inactive_seeding_time_limit: -2
+    inactive_seeding_time_limit: -2,
   }
 }

@@ -33,7 +33,7 @@ export enum Locales {
   TR = 'tr',
   UK = 'uk',
   ZH_HANS = 'zh-Hans',
-  ZH_HANT = 'zh-Hant'
+  ZH_HANT = 'zh-Hant',
 }
 
 export const LOCALES: LocaleDef[] = [
@@ -52,7 +52,7 @@ export const LOCALES: LocaleDef[] = [
   { title: 'Türkçe', value: Locales.TR },
   { title: 'українська', value: Locales.UK },
   { title: '简体中文', value: Locales.ZH_HANS },
-  { title: '繁體中文', value: Locales.ZH_HANT }
+  { title: '繁體中文', value: Locales.ZH_HANT },
 ]
 
 export const messages: Record<Locales, any> = {
@@ -71,7 +71,7 @@ export const messages: Record<Locales, any> = {
   [Locales.TR]: tr,
   [Locales.UK]: uk,
   [Locales.ZH_HANS]: zh_hans,
-  [Locales.ZH_HANT]: zh_hant
+  [Locales.ZH_HANT]: zh_hant,
 }
 
 export const defaultLocale = Locales.EN

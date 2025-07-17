@@ -30,10 +30,10 @@ const torrentCreatorTasksTask = useTask(function* () {
 const {
   isActive: isTimerActive,
   pause,
-  resume
+  resume,
 } = useIntervalFn(() => void torrentCreatorTasksTask.perform(), 1000, {
   immediate: true,
-  immediateCallback: true
+  immediateCallback: true,
 })
 const forceFetch = resume
 
@@ -59,20 +59,20 @@ const headers = computed(() => [
   { title: t('torrentCreator.table.urlSeeds.header'), key: 'urlSeeds', sortable: false },
   { title: t('torrentCreator.table.source'), key: 'source' },
   { title: t('torrentCreator.table.comment'), key: 'comment' },
-  { title: t('torrentCreator.table.errorMessage'), key: 'errorMessage' }
+  { title: t('torrentCreator.table.errorMessage'), key: 'errorMessage' },
 ])
 
 const taskStatusColorMap: Record<TorrentCreatorTaskStatus, string> = {
   [TorrentCreatorTaskStatus.FAILED]: 'error',
   [TorrentCreatorTaskStatus.RUNNING]: 'torrent-ul_stalled',
   [TorrentCreatorTaskStatus.QUEUED]: 'warning',
-  [TorrentCreatorTaskStatus.FINISHED]: 'success'
+  [TorrentCreatorTaskStatus.FINISHED]: 'success',
 }
 
 const torrentFormatMap: Record<TorrentFormat, string> = {
   [TorrentFormat.V1]: 'V1',
   [TorrentFormat.V2]: 'V2',
-  [TorrentFormat.HYBRID]: 'Hybrid'
+  [TorrentFormat.HYBRID]: 'Hybrid',
 }
 
 function openTorrentCreatorFormDialog() {

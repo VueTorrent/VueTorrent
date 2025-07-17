@@ -102,7 +102,7 @@ export function codeToFlag(code: string) {
 
   return {
     char,
-    url
+    url,
   }
 }
 

@@ -35,7 +35,7 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(() => void maindataTask.perform(), refreshInterval, {
     immediate: false,
-    immediateCallback: true
+    immediateCallback: true,
   })
 
   function syncFromMaindata(fullUpdate: boolean, obj?: Partial<ServerState>) {
@@ -129,7 +129,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       maindataTask.clear()
       rid.value = undefined
       serverState.value = {} as ServerState
-    }
+    },
   }
 })
 

@@ -49,7 +49,7 @@ export {
   containsUrl,
   isValidUri,
   codeToFlag,
-  normalize
+  normalize,
 }
 
 export type { Comparator }

@@ -10,7 +10,7 @@ withDefaults(
     active?: boolean
   }>(),
   {
-    active: false
+    active: false,
   }
 )
 

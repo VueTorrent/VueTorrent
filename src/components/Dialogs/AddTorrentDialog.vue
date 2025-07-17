@@ -15,7 +15,7 @@ const props = withDefaults(
     openSuddenly?: boolean
   }>(),
   {
-    openSuddenly: false
+    openSuddenly: false,
   }
 )
 
@@ -36,12 +36,12 @@ const addTorrentParamsForm = ref<typeof AddTorrentParamsForm>()
 
 const cookie = computed({
   get: () => form.value.cookie,
-  set: value => (form.value.cookie = value || undefined)
+  set: value => (form.value.cookie = value || undefined),
 })
 
 const rename = computed({
   get: () => form.value.rename,
-  set: value => (form.value.rename = value || undefined)
+  set: value => (form.value.rename = value || undefined),
 })
 
 function submit() {
@@ -69,7 +69,7 @@ function submit() {
     stopCondition: addTorrentParams.value.stop_condition,
     tags: addTorrentParams.value.tags?.join(','),
     upLimit: addTorrentParams.value.upload_limit,
-    useDownloadPath: addTorrentParams.value.use_download_path
+    useDownloadPath: addTorrentParams.value.use_download_path,
   }
 
   const torrentsCount = files.value.length + urls.value.split('\n').filter(url => url.trim().length).length
@@ -79,10 +79,10 @@ function submit() {
       {
         pending: t('toast.add.pending'),
         error: t('toast.add.error', torrentsCount),
-        success: t('toast.add.success', torrentsCount)
+        success: t('toast.add.success', torrentsCount),
       },
       {
-        autoClose: 1500
+        autoClose: 1500,
       }
     )
     .then(() => {

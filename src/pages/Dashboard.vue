@@ -32,7 +32,7 @@ const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TA
 const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
 const rightClickProperties = ref<RightClickProperties>({
   isVisible: false,
-  offset: [0, 0]
+  offset: [0, 0],
 })
 
 const height = computed(() => {

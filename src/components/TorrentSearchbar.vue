@@ -15,7 +15,7 @@ const torrentTitleFilter = computed({
   get: () => torrentStore.textFilter,
   set: debounce((newValue: string | null) => {
     torrentStore.textFilter = newValue ?? ''
-  }, 300)
+  }, 300),
 })
 </script>
 
