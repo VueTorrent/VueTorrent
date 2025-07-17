@@ -23,14 +23,14 @@ export const usePreferenceStore = defineStore(
       setPreferences,
       $reset: async () => {
         await fetchPreferences()
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: sessionStorage }]
-    }
+      storageItems: [{ storage: sessionStorage }],
+    },
   }
 )
 

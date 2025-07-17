@@ -16,9 +16,9 @@ const config = {
     { l: 'M', r: 1 },
     { l: 'MM', r: 11, d: 'month' },
     { l: 'y', r: 1 },
-    { l: 'yy', d: 'year' }
+    { l: 'yy', d: 'year' },
   ],
-  rounding: Math.floor
+  rounding: Math.floor,
 }
 
 extend(duration)
@@ -40,8 +40,8 @@ dayjs.updateLocale('en', {
     M: 'a month',
     MM: '%d months',
     y: 'a year',
-    yy: '%d years'
-  }
+    yy: '%d years',
+  },
 })
 
 export default dayjs

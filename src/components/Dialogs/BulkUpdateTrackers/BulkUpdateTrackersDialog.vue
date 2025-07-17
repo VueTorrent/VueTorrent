@@ -18,7 +18,7 @@ const loading = ref(false)
 const formData = reactive({
   add: '',
   edit: [] as [string, string][],
-  remove: ''
+  remove: '',
 })
 
 const allTrackers = useSorted(() => [...new Set(props.hashes.flatMap(hash => trackerStore.torrentTrackers.get(hash) ?? []))], comparators.text.asc)
@@ -37,7 +37,7 @@ async function submit() {
     .bulkUpdateTrackers(props.hashes, {
       add: formData.add,
       replace: formData.edit,
-      remove: formData.remove.split('\n').filter(url => url.length)
+      remove: formData.remove.split('\n').filter(url => url.length),
     })
     .then(res => {
       if (res.rejected.length > 0) {

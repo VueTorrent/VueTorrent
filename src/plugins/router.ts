@@ -5,7 +5,7 @@ import { useAppStore } from '@/stores'
 
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 
 router.beforeResolve((to, _, next) => {

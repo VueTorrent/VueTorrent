@@ -16,7 +16,7 @@ const torrentValues: { title: string; unit: DurationUnitType; getter: () => numb
   { title: 'seeding_time_limit', unit: 'm', getter: () => props.torrent.seeding_time_limit },
   { title: 'inactive_seeding_time_limit', unit: 'm', getter: () => props.torrent.inactive_seeding_time_limit },
   { title: 'time_active', unit: 's', getter: () => props.torrent.time_active },
-  { title: 'reannounce', unit: 's', getter: () => properties.value?.reannounce ?? 0 }
+  { title: 'reannounce', unit: 's', getter: () => properties.value?.reannounce ?? 0 },
 ]
 </script>
 

@@ -24,7 +24,7 @@ const rules = [
       return t('dialogs.cookiesManager.rules.duplicate')
     }
     return true
-  }
+  },
 ]
 
 const isFormValid = ref(false)
@@ -34,7 +34,7 @@ const formData = reactive(
     value: '',
     domain: '',
     path: '',
-    expirationDate: 0
+    expirationDate: 0,
   })
 )
 
@@ -50,7 +50,7 @@ const expirationDate = computed({
     date.setMonth(newDate.getMonth())
     date.setDate(newDate.getDate())
     formData.expirationDate = date.getTime() / 1000
-  }
+  },
 })
 
 const expirationTime = computed({
@@ -65,7 +65,7 @@ const expirationTime = computed({
     date.setMinutes(+minutes)
     date.setSeconds(+seconds)
     formData.expirationDate = date.getTime() / 1000
-  }
+  },
 })
 
 async function submit() {

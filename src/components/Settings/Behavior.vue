@@ -10,7 +10,7 @@ const preferenceStore = usePreferenceStore()
 const fileLogAgeTypeOptions = computed(() => [
   { title: t('constants.file_log_age_type.days', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.DAYS },
   { title: t('constants.file_log_age_type.months', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.MONTHS },
-  { title: t('constants.file_log_age_type.years', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.YEARS }
+  { title: t('constants.file_log_age_type.years', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.YEARS },
 ])
 </script>
 

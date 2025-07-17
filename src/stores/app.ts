@@ -79,7 +79,7 @@ export const useAppStore = defineStore('app', () => {
       buildInfo.value = undefined
       version.value = '0.0.0'
       await logout()
-    }
+    },
   }
 })
 

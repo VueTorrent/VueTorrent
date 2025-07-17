@@ -34,14 +34,14 @@ const tabs = [
   { text: t('settings.tabs.rss'), value: 'rss' },
   { text: t('settings.tabs.webui'), value: 'webui' },
   { text: t('settings.tabs.tagsAndCategories'), value: 'tagsAndCategories' },
-  { text: t('settings.tabs.advanced'), value: 'advanced' }
+  { text: t('settings.tabs.advanced'), value: 'advanced' },
 ]
 
 const tabsV = [
   { text: t('settings.tabs.vuetorrent.general'), value: 'general' },
   { text: t('settings.tabs.vuetorrent.torrent_card.list'), value: 'torrentCardList' },
   { text: t('settings.tabs.vuetorrent.torrent_card.grid'), value: 'torrentCardGrid' },
-  { text: t('settings.tabs.vuetorrent.torrent_card.table'), value: 'torrentCardTable' }
+  { text: t('settings.tabs.vuetorrent.torrent_card.table'), value: 'torrentCardTable' },
 ]
 
 const tab = ref('vuetorrent')

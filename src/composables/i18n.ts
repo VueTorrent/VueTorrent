@@ -19,6 +19,6 @@ export function useI18nUtils() {
 
   return {
     ...i18n,
-    getTorrentStateString
+    getTorrentStateString,
   }
 }

@@ -28,7 +28,7 @@ function deleteRule(rule: FeedRule) {
     onConfirm: async () => {
       await rssStore.deleteRule(rule.name)
       rssStore.resumeRuleTimer()
-    }
+    },
   })
 }
 </script>

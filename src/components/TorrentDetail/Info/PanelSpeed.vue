@@ -17,7 +17,7 @@ const torrentValues = [
   { title: 'upload_limit', getter: () => props.torrent.up_limit },
   { title: 'upload_speed', getter: () => props.torrent.upspeed },
   { title: 'avg_upload_speed', getter: () => properties.value?.up_speed_avg ?? 0 },
-  { title: 'global_speed', getter: () => props.torrent.globalSpeed }
+  { title: 'global_speed', getter: () => props.torrent.globalSpeed },
 ]
 </script>
 

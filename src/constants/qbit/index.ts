@@ -23,5 +23,5 @@ export {
   TorrentCreatorTaskStatus,
   TorrentFormat,
   TorrentOperatingMode,
-  TorrentState
+  TorrentState,
 }

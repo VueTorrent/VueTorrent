@@ -13,7 +13,7 @@ import {
   propsMetadata,
   ThemeMode,
   TitleOptions,
-  TorrentProperty
+  TorrentProperty,
 } from '@/constants/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
 
@@ -24,7 +24,7 @@ export const useVueTorrentStore = defineStore(
     const theme = reactive({
       mode: ThemeMode.SYSTEM,
       light: LightLegacy.id,
-      dark: DarkLegacy.id
+      dark: DarkLegacy.id,
     })
     const showFreeSpace = ref(true)
     const showFilterState = ref(true)
@@ -76,7 +76,7 @@ export const useVueTorrentStore = defineStore(
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
-          ...propsMetadata[k]
+          ...propsMetadata[k],
         }
       }
       return formattedPpt
@@ -88,7 +88,7 @@ export const useVueTorrentStore = defineStore(
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
-          ...propsMetadata[k]
+          ...propsMetadata[k],
         }
       }
       return formattedPpt
@@ -101,7 +101,7 @@ export const useVueTorrentStore = defineStore(
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
-          ...propsMetadata[k]
+          ...propsMetadata[k],
         }
       }
       return formattedPpt
@@ -113,7 +113,7 @@ export const useVueTorrentStore = defineStore(
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
-          ...propsMetadata[k]
+          ...propsMetadata[k],
         }
       }
       return formattedPpt
@@ -126,7 +126,7 @@ export const useVueTorrentStore = defineStore(
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
-          ...propsMetadata[k]
+          ...propsMetadata[k],
         }
       }
       return formattedPpt
@@ -337,14 +337,14 @@ export const useVueTorrentStore = defineStore(
         _doneGridProperties.value = JSON.parse(JSON.stringify(propsData))
 
         _tableProperties.value = JSON.parse(JSON.stringify(propsData))
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, key: 'webuiSettings' }]
-    }
+      storageItems: [{ storage: localStorage, key: 'webuiSettings' }],
+    },
   }
 )
 

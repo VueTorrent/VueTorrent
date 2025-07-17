@@ -25,7 +25,7 @@ const rules = [
     }
 
     return true
-  }
+  },
 ]
 
 function close() {

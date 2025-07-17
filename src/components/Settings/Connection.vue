@@ -13,7 +13,7 @@ const proxyTypes = ref([
   { title: t('common.none'), value: ProxyType.NONE },
   { title: t('constants.proxy_type.socks4'), value: ProxyType.SOCKS4 },
   { title: t('constants.proxy_type.socks5'), value: ProxyType.SOCKS5 },
-  { title: t('constants.proxy_type.http'), value: ProxyType.HTTP }
+  { title: t('constants.proxy_type.http'), value: ProxyType.HTTP },
 ])
 const isProxyDisabled = computed(() => preferenceStore.preferences!.proxy_type === ProxyType.NONE)
 const isProxySocks4 = computed(() => preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4)
@@ -21,7 +21,7 @@ const isProxySocks4 = computed(() => preferenceStore.preferences!.proxy_type ===
 const bittorrent_protocol = ref([
   { title: t('constants.bittorrentProtocols.tcp_utp'), value: BitTorrentProtocol.TCP_uTP },
   { title: t('constants.bittorrentProtocols.tcp'), value: BitTorrentProtocol.TCP },
-  { title: t('constants.bittorrentProtocols.utp'), value: BitTorrentProtocol.uTP }
+  { title: t('constants.bittorrentProtocols.utp'), value: BitTorrentProtocol.uTP },
 ])
 const max_conn_enabled = ref(false)
 const max_conn_per_torrent_enabled = ref(false)

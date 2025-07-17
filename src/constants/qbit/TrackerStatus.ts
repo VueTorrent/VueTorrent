@@ -8,5 +8,5 @@ export enum TrackerStatus {
   /** Tracker is updating */
   UPDATING = 3,
   /** Tracker has been contacted, but it is not working (or doesn't send proper replies) */
-  NOT_WORKING = 4
+  NOT_WORKING = 4,
 }

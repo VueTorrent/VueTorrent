@@ -19,7 +19,7 @@ const values = [
   { title: 'save_path', getter: () => props.torrent.savePath },
   { title: 'tracker', getter: () => props.torrent.tracker },
   { title: 'comment', getter: () => properties.value?.comment },
-  { title: 'created_by', getter: () => properties.value?.created_by }
+  { title: 'created_by', getter: () => properties.value?.created_by },
 ]
 </script>
 

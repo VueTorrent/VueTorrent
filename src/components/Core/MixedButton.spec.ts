@@ -25,7 +25,7 @@ vi.mock('vuetify', async importOriginal => {
   const mod = await importOriginal<typeof import('vuetify')>()
   return {
     ...mod,
-    useDisplay: vi.fn(() => ({ mobile: mobileRef }))
+    useDisplay: vi.fn(() => ({ mobile: mobileRef })),
   }
 })
 
@@ -62,7 +62,7 @@ describe('MixedButton.vue', () => {
     /// only left icon regardless of position
     { mobile: false, mobileOverride: true, mobileValue: true, position: undefined, render: { left: true, text: false, right: false } },
     { mobile: false, mobileOverride: true, mobileValue: true, position: 'left', render: { left: true, text: false, right: false } },
-    { mobile: false, mobileOverride: true, mobileValue: true, position: 'right', render: { left: true, text: false, right: false } }
+    { mobile: false, mobileOverride: true, mobileValue: true, position: 'right', render: { left: true, text: false, right: false } },
   ])(
     'left: $render.left, text: $render.text, right: $render.right | mobile: $mobile, mobileOverride: $mobileOverride, mobileValue: $mobileValue, position: $position',
     ({ mobile, mobileOverride, mobileValue, position, render }) => {
@@ -71,8 +71,8 @@ describe('MixedButton.vue', () => {
         // @ts-expect-error Vue: Type string | undefined is not assignable to type 'left' | 'right' | undefined
         props: { icon, text, mobileOverride, mobileValue, position },
         global: {
-          plugins: [createTestingPinia(), i18n, vuetify]
-        }
+          plugins: [createTestingPinia(), i18n, vuetify],
+        },
       })
 
       const leftIconElement = getLeftIconElement(btn)

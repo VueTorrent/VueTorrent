@@ -16,8 +16,8 @@ describe('DataCard.vue', () => {
     wrapper = mount(DataCard, {
       propsData: { title, value, color },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
   })
 

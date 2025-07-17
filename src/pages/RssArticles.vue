@@ -17,7 +17,7 @@ const rssStore = useRssStore()
 const descriptionDialogVisible = ref(false)
 const rssDescription = reactive({
   title: '',
-  content: ''
+  content: '',
 })
 
 const feedsView = computed(() => route.params.tab !== 'rules')

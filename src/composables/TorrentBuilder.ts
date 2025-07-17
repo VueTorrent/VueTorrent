@@ -89,7 +89,7 @@ export function useTorrentBuilder() {
       },
       get truncated_hash() {
         return this.hash.slice(0, 8)
-      }
+      },
     }
   }
 

@@ -89,10 +89,10 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
     {
       pending: t('toast.add.pending'),
       error: t('toast.add.error', torrentsCount),
-      success: t('toast.add.success', torrentsCount)
+      success: t('toast.add.success', torrentsCount),
     },
     {
-      autoClose: 1500
+      autoClose: 1500,
     }
   )
 }

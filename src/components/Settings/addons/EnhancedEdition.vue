@@ -7,7 +7,7 @@ const preferenceStore = usePreferenceStore()
 
 const preferences = computed({
   get: () => preferenceStore.preferences as EnhancedAppPreferences,
-  set: v => (preferenceStore.preferences = v)
+  set: v => (preferenceStore.preferences = v),
 })
 </script>
 

@@ -24,21 +24,21 @@ const colors = computed(() => ({
     normal: 'black',
     info: 'blue',
     warning: 'orange',
-    critical: 'red'
+    critical: 'red',
   },
   dark: {
     normal: 'white',
     info: 'deepskyblue',
     warning: 'darkorange',
-    critical: new TinyColor('darkred').lighten(12).toString()
-  }
+    critical: new TinyColor('darkred').lighten(12).toString(),
+  },
 }))
 
 const logTypeOptions = ref([
   { title: LogType[LogType.NORMAL], value: LogType.NORMAL },
   { title: LogType[LogType.INFO], value: LogType.INFO },
   { title: LogType[LogType.WARNING], value: LogType.WARNING },
-  { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
+  { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL },
 ])
 
 const someTypesSelected = computed(() => logTypeFilter.value.length > 0)

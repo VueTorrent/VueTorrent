@@ -79,7 +79,7 @@ const comparators: ComparatorMap = {
       if (diff) return diff
     }
     return a.length - b.length
-  })
+  }),
 }
 
 export default comparators

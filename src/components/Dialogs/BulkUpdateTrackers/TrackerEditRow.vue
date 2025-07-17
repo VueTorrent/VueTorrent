@@ -20,11 +20,11 @@ const { trackers } = storeToRefs(useTrackerStore())
 
 const oldTrackerUrl = computed({
   get: () => modelValue.value[0],
-  set: v => (modelValue.value[0] = v)
+  set: v => (modelValue.value[0] = v),
 })
 const newTrackerUrl = computed({
   get: () => modelValue.value[1],
-  set: v => (modelValue.value[1] = v)
+  set: v => (modelValue.value[1] = v),
 })
 
 const newUrlRules = [
@@ -32,7 +32,7 @@ const newUrlRules = [
     if (!oldTrackerUrl.value || !newTrackerUrl.value || newTrackerUrl.value.length === 0) return true
 
     return isValidUri(v) || t('dialogs.bulkEditTrackers.edit.row.rules.invalid_url')
-  }
+  },
 ]
 </script>
 

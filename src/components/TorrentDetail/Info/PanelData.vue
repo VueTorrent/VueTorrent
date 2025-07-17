@@ -19,7 +19,7 @@ const torrentValues = [
   { title: 'total_size', getter: () => props.torrent.total_size },
   { title: 'total_wasted', getter: () => properties.value?.total_wasted ?? 0 },
   { title: 'amount_left', getter: () => props.torrent.amount_left },
-  { title: 'global_volume', getter: () => props.torrent.globalVolume }
+  { title: 'global_volume', getter: () => props.torrent.globalVolume },
 ]
 </script>
 

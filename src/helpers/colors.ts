@@ -11,7 +11,7 @@ function djb2Hash(str: string): number {
 
 export function getColorFromName(name: string, transform?: (color: TinyColor) => TinyColor) {
   const color = random({
-    seed: djb2Hash(name)
+    seed: djb2Hash(name),
   })
 
   if (transform) return transform(color).toHexString()

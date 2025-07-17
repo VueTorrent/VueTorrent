@@ -12,19 +12,19 @@ const dynDnsProvider = ref('https://www.dyndns.com/account/services/hosts/add.ht
 const dynDnsProviderOptions = [
   {
     title: t('settings.webUI.dynDns.providers.dynDns'),
-    value: 'https://www.dyndns.com/account/services/hosts/add.html'
+    value: 'https://www.dyndns.com/account/services/hosts/add.html',
   },
   {
     title: t('settings.webUI.dynDns.providers.noIp'),
-    value: 'https://www.no-ip.com/services/managed_dns/free_dynamic_dns.html'
-  }
+    value: 'https://www.no-ip.com/services/managed_dns/free_dynamic_dns.html',
+  },
 ]
 
 const webUiPassword = computed({
   get: () => preferenceStore.preferences!.web_ui_password || '',
   set: val => {
     preferenceStore.preferences!.web_ui_password = val === '' ? undefined : val
-  }
+  },
 })
 
 function registerDynDNS() {

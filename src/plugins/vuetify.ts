@@ -9,14 +9,14 @@ import themeMap, { DarkRedesigned } from '@/themes'
 export default createVuetify({
   components: {
     ...components,
-    VTimePicker
+    VTimePicker,
   },
   directives,
   display: {
-    mobileBreakpoint: 'sm'
+    mobileBreakpoint: 'sm',
   },
   icons: {
-    defaultSet: 'mdi'
+    defaultSet: 'mdi',
   },
   theme: {
     defaultTheme: DarkRedesigned.id,
@@ -42,11 +42,11 @@ export default createVuetify({
         'torrent-ul_queued',
         'torrent-ul_stalled',
         'torrent-unknown',
-        'torrent-uploading'
+        'torrent-uploading',
       ],
       lighten: 3,
-      darken: 3
+      darken: 3,
     },
-    themes: themeMap
-  }
+    themes: themeMap,
+  },
 })

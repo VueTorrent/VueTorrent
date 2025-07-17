@@ -31,14 +31,14 @@ const vuetorrentStore = useVueTorrentStore()
 const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
 const sortCriteria = computed({
   get: () => sortCriterias.value[0],
-  set: v => (sortCriterias.value = [{ value: v.value, reverse: v.reverse }])
+  set: v => (sortCriterias.value = [{ value: v.value, reverse: v.reverse }]),
 })
 
 const headers = computed(() => [
   { key: 'statusIndicator', sortable: false },
   ...(dashboardStore.isSelectionMultiple ? [{ key: 'multipleSelectionCheckbox', sortable: false }] : []),
   { title: t('torrent.properties.name'), key: 'name' },
-  ...torrentProperties.value.filter(ppt => appStore.isFeatureAvailable(ppt.qbitVersion)).map(ppt => ({ title: t(ppt.props.titleKey), key: ppt.sortKey }))
+  ...torrentProperties.value.filter(ppt => appStore.isFeatureAvailable(ppt.qbitVersion)).map(ppt => ({ title: t(ppt.props.titleKey), key: ppt.sortKey })),
 ])
 
 function onHeaderClick(sortKey: keyof Torrent) {

@@ -19,7 +19,7 @@ const headers = [
   { title: t('dialogs.pluginManager.headers.name'), key: 'fullName' },
   { title: t('dialogs.pluginManager.headers.version'), key: 'version' },
   { title: t('dialogs.pluginManager.headers.url'), key: 'url' },
-  { title: t('dialogs.pluginManager.headers.actions'), key: 'actions' }
+  { title: t('dialogs.pluginManager.headers.actions'), key: 'actions' },
 ]
 
 const loading = ref(false)

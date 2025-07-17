@@ -16,13 +16,13 @@ const cookieStore = useCookieStore()
 enum ImportType {
   NETSCAPE,
   JSON,
-  HEADER
+  HEADER,
 }
 
 const items = [
   { title: t('dialogs.cookiesImport.type.netscape'), value: ImportType.NETSCAPE, props: { prependIcon: 'mdi-table' } },
   { title: t('dialogs.cookiesImport.type.json'), value: ImportType.JSON, props: { prependIcon: 'mdi-code-json' } },
-  { title: t('dialogs.cookiesImport.type.header'), value: ImportType.HEADER, props: { prependIcon: 'mdi-text-long' } }
+  { title: t('dialogs.cookiesImport.type.header'), value: ImportType.HEADER, props: { prependIcon: 'mdi-text-long' } },
 ]
 
 const importType = ref<ImportType>(ImportType.NETSCAPE)
@@ -30,7 +30,7 @@ const cookieString = ref('')
 const formData = reactive({
   domain: '',
   path: '',
-  expirationDate: 0
+  expirationDate: 0,
 })
 const loading = ref(false)
 
@@ -46,7 +46,7 @@ const expirationDate = computed({
     date.setMonth(newDate.getMonth())
     date.setDate(newDate.getDate())
     formData.expirationDate = date.getTime() / 1000
-  }
+  },
 })
 
 const expirationTime = computed({
@@ -61,7 +61,7 @@ const expirationTime = computed({
     date.setMinutes(+minutes)
     date.setSeconds(+seconds)
     formData.expirationDate = date.getTime() / 1000
-  }
+  },
 })
 
 function readJson() {
@@ -91,7 +91,7 @@ function readNetscape() {
         path: path.trim(),
         name: name.trim(),
         value: decodeURIComponent(value.trim()),
-        expirationDate: parseInt(expiration.trim(), 10)
+        expirationDate: parseInt(expiration.trim(), 10),
       })
     )
   }
@@ -107,7 +107,7 @@ function readHeader() {
       path: formData.path,
       name: name.trim(),
       value: value.trim(),
-      expirationDate: formData.expirationDate
+      expirationDate: formData.expirationDate,
     })
   })
 }

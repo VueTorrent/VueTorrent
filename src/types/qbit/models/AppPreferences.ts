@@ -12,7 +12,7 @@ import type {
   StopCondition,
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
-  UtpTcpMixedMode
+  UtpTcpMixedMode,
 } from '@/constants/qbit/AppPreferences'
 import { AutoDeleteMode, FileLogAgeType, ResumeDataStorageType, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 

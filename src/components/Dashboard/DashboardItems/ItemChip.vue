@@ -15,7 +15,7 @@ const props = withDefaults(
     enableHashColor?: boolean
   }>(),
   {
-    enableHashColor: false
+    enableHashColor: false,
   }
 )
 

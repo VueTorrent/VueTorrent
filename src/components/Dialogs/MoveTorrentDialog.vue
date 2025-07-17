@@ -20,7 +20,7 @@ const form = ref<VForm>()
 const field = ref<typeof HistoryField>()
 const isFormValid = ref(false)
 const formData = reactive({
-  newPath: ''
+  newPath: '',
 })
 
 const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required')]

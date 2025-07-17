@@ -20,7 +20,7 @@ import {
   useMaindataStore,
   usePreferenceStore,
   useTorrentStore,
-  useVueTorrentStore
+  useVueTorrentStore,
 } from './stores'
 
 const { t } = useI18nUtils()
@@ -40,14 +40,14 @@ const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetor
 
 const backendSyncObjects = [
   useBackendSync(dashboardStore, 'vuetorrent_dashboard', {
-    whitelist: ['displayMode']
+    whitelist: ['displayMode'],
   }),
   useBackendSync(torrentStore, 'vuetorrent_torrents', {
-    whitelist: ['sortCriterias']
+    whitelist: ['sortCriterias'],
   }),
   useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
-    blacklist: ['uiTitleCustom']
-  })
+    blacklist: ['uiTitleCustom'],
+  }),
 ]
 
 async function checkAuthentication() {
@@ -114,7 +114,7 @@ watch(
     }
   },
   {
-    immediate: true
+    immediate: true,
   }
 )
 

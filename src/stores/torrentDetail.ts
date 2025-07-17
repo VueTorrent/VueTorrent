@@ -19,14 +19,14 @@ export const useTorrentDetailStore = defineStore(
       fetchProperties,
       $reset: () => {
         properties.value = undefined
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, includePaths: ['tab'] }]
-    }
+      storageItems: [{ storage: localStorage, includePaths: ['tab'] }],
+    },
   }
 )
 

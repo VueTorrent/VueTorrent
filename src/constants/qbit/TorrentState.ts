@@ -49,5 +49,5 @@ export enum TorrentState {
   /** Some error occurred, applies to stopped torrents */
   ERROR = 'error',
   /** Unknown status */
-  UNKNOWN = 'unknown'
+  UNKNOWN = 'unknown',
 }

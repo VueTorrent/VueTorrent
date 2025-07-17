@@ -24,7 +24,7 @@ export const useTorrentStore = defineStore(
       TorrentState.DL_QUEUED,
       TorrentState.CHECKING_DISK,
       TorrentState.CHECKING_RESUME_DATA,
-      TorrentState.MOVING
+      TorrentState.MOVING,
     ]
 
     const appStore = useAppStore()
@@ -36,7 +36,7 @@ export const useTorrentStore = defineStore(
       Array.from(_torrents.value.entries()).map(([hash, v]) =>
         buildFromQbit({
           ...v,
-          hash
+          hash,
         })
       )
     )
@@ -390,14 +390,14 @@ export const useTorrentStore = defineStore(
         trackerFilterInclude.value = []
         trackerFilterExclude.value = []
         trackerFilterType.value = FilterType.DISJUNCTIVE
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage }]
-    }
+      storageItems: [{ storage: localStorage }],
+    },
   }
 )
 
