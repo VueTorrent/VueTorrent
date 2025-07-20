@@ -72,7 +72,7 @@ const torrentSortOptions: SortOption[] = [
   { value: 'up_limit', title: t('torrent.properties.upload_limit') },
   { value: 'uploaded', title: t('torrent.properties.uploaded') },
   { value: 'uploaded_session', title: t('torrent.properties.uploaded_session') },
-  { value: 'upspeed', title: t('torrent.properties.upload_speed') }
+  { value: 'upspeed', title: t('torrent.properties.upload_speed') },
 ]
 torrentSortOptions.sort((a, b) => comparators.text.asc(a.title, b.title))
 
@@ -80,7 +80,7 @@ const sortOption = computed({
   get: () => sortCriterias.value[0],
   set: v => {
     sortCriterias.value = [{ value: v.value, reverse: v.reverse }]
-  }
+  },
 })
 
 function inverseSort() {

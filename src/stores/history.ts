@@ -41,14 +41,14 @@ export const useHistoryStore = defineStore(
         for (const [key] of Object.entries(_history)) {
           delete _history[key]
         }
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage }]
-    }
+      storageItems: [{ storage: localStorage }],
+    },
   }
 )
 

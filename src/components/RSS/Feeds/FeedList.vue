@@ -27,7 +27,7 @@ const currentFeed = computed({
   get: () => router.currentRoute.value.params.feedId as string | undefined,
   set(feedId) {
     void router.replace({ name: 'rssArticles', params: { tab: 'feeds', feedId } }).then(() => emit('update', feedId))
-  }
+  },
 })
 const filteredFeedIds = useArrayUnique(() => rssStore.filteredArticles.map(art => art.feedId))
 

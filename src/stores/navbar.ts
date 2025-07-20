@@ -47,7 +47,7 @@ export const useNavbarStore = defineStore(
         _timeData.value = new Array(GRAPH_SIZE).fill(new Date().getTime())
         _downloadData.value = new Array(GRAPH_SIZE).fill(0)
         _uploadData.value = new Array(GRAPH_SIZE).fill(0)
-      }
+      },
     }
   },
   {
@@ -55,9 +55,9 @@ export const useNavbarStore = defineStore(
       enabled: true,
       storageItems: [
         { storage: sessionStorage, excludePaths: ['isDrawerOpen'] },
-        { storage: localStorage, includePaths: ['isDrawerOpen'] }
-      ]
-    }
+        { storage: localStorage, includePaths: ['isDrawerOpen'] },
+      ],
+    },
   }
 )
 

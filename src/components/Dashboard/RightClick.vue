@@ -105,7 +105,7 @@ function deleteUnusedTags() {
     yesColor: 'error',
     onConfirm: async () => {
       await tagStore.deleteUnusedTags()
-    }
+    },
   })
 }
 
@@ -125,7 +125,7 @@ function deleteUnusedCategories() {
     yesColor: 'error',
     onConfirm: async () => {
       await categoryStore.deleteUnusedCategories()
-    }
+    },
   })
 }
 
@@ -187,55 +187,55 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       {
         text: t('dashboard.right_click.advanced.download_path'),
         icon: 'mdi-tray-arrow-down',
-        action: setDownloadPath
+        action: setDownloadPath,
       },
       {
         text: t('dashboard.right_click.advanced.save_path'),
         icon: 'mdi-content-save',
-        action: setSavePath
+        action: setSavePath,
       },
       {
         text: t('dashboard.right_click.advanced.edit_trackers'),
         icon: 'mdi-link-edit',
-        action: bulkUpdatetrackers
+        action: bulkUpdatetrackers,
       },
       {
         text: t('dashboard.right_click.advanced.rename'),
         icon: 'mdi-rename-box',
         hidden: isMultiple.value,
-        action: renameTorrents
+        action: renameTorrents,
       },
       {
         text: t('dashboard.right_click.advanced.recheck'),
         icon: 'mdi-playlist-check',
-        action: () => void forceRecheck()
+        action: () => void forceRecheck(),
       },
       {
         text: t('dashboard.right_click.advanced.reannounce'),
         icon: 'mdi-bullhorn',
-        action: () => void forceReannounce()
+        action: () => void forceReannounce(),
       },
       {
         text: t('dashboard.right_click.advanced.super_seeding'),
         icon: torrent.value?.super_seeding ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => void toggleSuperSeeding()
+        action: () => void toggleSuperSeeding(),
       },
       {
         text: t('dashboard.right_click.advanced.seq_dl'),
         icon: torrent.value?.seq_dl ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => void toggleSeqDl()
+        action: () => void toggleSeqDl(),
       },
       {
         text: t('dashboard.right_click.advanced.f_l_prio'),
         icon: torrent.value?.f_l_piece_prio ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => void toggleFLPiecePrio()
+        action: () => void toggleFLPiecePrio(),
       },
       {
         text: t('dashboard.right_click.advanced.auto_tmm'),
         icon: torrent.value?.auto_tmm ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => void toggleAutoTMM()
-      }
-    ]
+        action: () => void toggleAutoTMM(),
+      },
+    ],
   },
   {
     text: t('dashboard.right_click.priority.title'),
@@ -245,24 +245,24 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       {
         text: t('dashboard.right_click.priority.top'),
         icon: 'mdi-priority-high',
-        action: () => void torrentStore.setTorrentPriority(hashes.value, 'topPrio')
+        action: () => void torrentStore.setTorrentPriority(hashes.value, 'topPrio'),
       },
       {
         text: t('dashboard.right_click.priority.increase'),
         icon: 'mdi-arrow-up',
-        action: () => void torrentStore.setTorrentPriority(hashes.value, 'increasePrio')
+        action: () => void torrentStore.setTorrentPriority(hashes.value, 'increasePrio'),
       },
       {
         text: t('dashboard.right_click.priority.decrease'),
         icon: 'mdi-arrow-down',
-        action: () => void torrentStore.setTorrentPriority(hashes.value, 'decreasePrio')
+        action: () => void torrentStore.setTorrentPriority(hashes.value, 'decreasePrio'),
       },
       {
         text: t('dashboard.right_click.priority.bottom'),
         icon: 'mdi-priority-low',
-        action: () => void torrentStore.setTorrentPriority(hashes.value, 'bottomPrio')
-      }
-    ]
+        action: () => void torrentStore.setTorrentPriority(hashes.value, 'bottomPrio'),
+      },
+    ],
   },
   {
     text: t('dashboard.right_click.tags.title'),
@@ -273,14 +273,14 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: tagStore.tags.map(tag => ({
       text: tag,
       icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-      action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
+      action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync),
     })),
     slots: {
       top: [
         {
           text: t('settings.tagsAndCategories.createNewTag'),
           icon: 'mdi-plus',
-          action: openNewTagFormDialog
+          action: openNewTagFormDialog,
         },
         {
           text: t('settings.tagsAndCategories.deleteUnusedTags'),
@@ -289,16 +289,16 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           action: () => {
             deleteUnusedTags()
             maindataStore.forceMaindataSync()
-          }
+          },
         },
         {
           text: t('dashboard.right_click.tags.clear_all'),
           icon: 'mdi-playlist-remove',
           hidden: torrent.value?.tags.length === 0,
-          action: () => void clearAllTags().then(maindataStore.forceMaindataSync)
-        }
-      ]
-    }
+          action: () => void clearAllTags().then(maindataStore.forceMaindataSync),
+        },
+      ],
+    },
   },
   {
     text: t('dashboard.right_click.category.title'),
@@ -309,14 +309,14 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: categoryStore.categories.map(category => ({
       text: category.name,
       icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
-      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync)
+      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync),
     })),
     slots: {
       top: [
         {
           text: t('settings.tagsAndCategories.createNewCategory'),
           icon: 'mdi-plus',
-          action: openNewCategoryFormDialog
+          action: openNewCategoryFormDialog,
         },
         {
           text: t('settings.tagsAndCategories.deleteUnusedCategories'),
@@ -325,16 +325,16 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           action: () => {
             deleteUnusedCategories()
             maindataStore.forceMaindataSync()
-          }
+          },
         },
         {
           text: t('dashboard.right_click.category.clear'),
           icon: 'mdi-backspace-reverse',
           hidden: torrent.value?.category.length === 0,
-          action: () => void clearCategory().then(maindataStore.forceMaindataSync)
-        }
-      ]
-    }
+          action: () => void clearCategory().then(maindataStore.forceMaindataSync),
+        },
+      ],
+    },
   },
   {
     text: t('dashboard.right_click.speed_limit.title'),
@@ -343,19 +343,19 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       {
         text: t('dashboard.right_click.speed_limit.download'),
         icon: 'mdi-download',
-        action: setDownloadLimit
+        action: setDownloadLimit,
       },
       {
         text: t('dashboard.right_click.speed_limit.upload'),
         icon: 'mdi-upload',
-        action: setUploadLimit
+        action: setUploadLimit,
       },
       {
         text: t('dashboard.right_click.speed_limit.share'),
         icon: 'mdi-account-group',
-        action: setShareLimit
-      }
-    ]
+        action: setShareLimit,
+      },
+    ],
   },
   {
     text: t('dashboard.right_click.copy.title'),
@@ -365,26 +365,26 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       {
         text: t('dashboard.right_click.copy.name'),
         icon: 'mdi-alphabetical-variant',
-        action: () => void copyValue(torrents.value.map(t => t.name).join('\n'))
+        action: () => void copyValue(torrents.value.map(t => t.name).join('\n')),
       },
       {
         text: t('dashboard.right_click.copy.hash'),
         icon: 'mdi-pound',
-        action: () => void copyValue(torrents.value.map(t => t.hash).join('\n'))
+        action: () => void copyValue(torrents.value.map(t => t.hash).join('\n')),
       },
       {
         text: t('dashboard.right_click.copy.magnet'),
         icon: 'mdi-magnet',
-        action: () => void copyValue(torrents.value.map(t => t.magnet).join('\n'))
+        action: () => void copyValue(torrents.value.map(t => t.magnet).join('\n')),
       },
       {
         text: t('dashboard.right_click.copy.comment'),
         icon: 'mdi-comment-text',
         hidden: !appStore.isFeatureAvailable('5.0.0'),
         disabled: !torrent.value?.comment,
-        action: () => void copyValue(torrents.value.map(t => t.comment).join('\n\n'))
-      }
-    ]
+        action: () => void copyValue(torrents.value.map(t => t.comment).join('\n\n')),
+      },
+    ],
   },
   {
     text: t('dashboard.right_click.selection.title'),
@@ -394,39 +394,39 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         text: t('common.selectNone'),
         icon: 'mdi-select',
         hidden: !dashboardStore.isSelectionMultiple,
-        action: () => dashboardStore.unselectAllTorrents()
+        action: () => dashboardStore.unselectAllTorrents(),
       },
       {
         text: t('common.selectAll'),
         icon: 'mdi-select-all',
         hidden: isAllTorrentsSelected.value,
-        action: () => dashboardStore.selectAllTorrents()
+        action: () => dashboardStore.selectAllTorrents(),
       },
       {
         text: t('dashboard.right_click.selection.disable_select_mode'),
         icon: 'mdi-checkbox-blank-outline',
         hidden: !dashboardStore.isSelectionMultiple,
-        action: () => (dashboardStore.isSelectionMultiple = false)
+        action: () => (dashboardStore.isSelectionMultiple = false),
       },
       {
         text: t('dashboard.right_click.selection.enable_select_mode'),
         icon: 'mdi-checkbox-marked',
         hidden: dashboardStore.isSelectionMultiple,
-        action: () => (dashboardStore.isSelectionMultiple = true)
-      }
-    ]
+        action: () => (dashboardStore.isSelectionMultiple = true),
+      },
+    ],
   },
   {
     text: t('dashboard.right_click.export', dashboardStore.selectedTorrents.length),
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
-    action: () => void exportTorrents()
+    action: () => void exportTorrents(),
   },
   {
     text: t('dashboard.right_click.info'),
     icon: 'mdi-information',
     hidden: isMultiple.value,
-    action: (): void => void router.push({ name: 'torrentDetail', params: { hash: hash.value } })
-  }
+    action: (): void => void router.push({ name: 'torrentDetail', params: { hash: hash.value } }),
+  },
 ])
 </script>
 

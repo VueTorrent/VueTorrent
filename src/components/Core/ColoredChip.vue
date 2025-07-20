@@ -16,7 +16,7 @@ const props = withDefaults(
     value: string
   }>(),
   {
-    disabled: false
+    disabled: false,
   }
 )
 

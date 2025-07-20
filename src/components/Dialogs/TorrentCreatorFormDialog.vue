@@ -31,13 +31,13 @@ const formData = reactive<Required<TorrentCreatorParams>>({
   trackers: '',
   urlSeeds: '',
   source: '',
-  comment: ''
+  comment: '',
 })
 
 const formatOptions = [
   { title: t('constants.torrentFormat.v1'), value: TorrentFormat.V1 },
   { title: t('constants.torrentFormat.v2'), value: TorrentFormat.V2 },
-  { title: t('constants.torrentFormat.hybrid'), value: TorrentFormat.HYBRID }
+  { title: t('constants.torrentFormat.hybrid'), value: TorrentFormat.HYBRID },
 ]
 
 const pieceSizeOptions = computed(() => {

@@ -15,13 +15,13 @@ const appStore = useAppStore()
 
 const loginForm = reactive<LoginPayload>({
   username: '',
-  password: ''
+  password: '',
 })
 const rulesOk = ref(false)
 
 const rules = {
   username: [(v: string) => !!v || t('login.rules.username_required')],
-  password: [(v: string) => !!v || t('login.rules.password_required')]
+  password: [(v: string) => !!v || t('login.rules.password_required')],
 }
 
 async function login() {

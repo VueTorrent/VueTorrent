@@ -98,7 +98,7 @@ function renderWrapper() {
 
 const { pause, resume } = useIntervalFn(renderWrapper, fileContentInterval, {
   immediate: false,
-  immediateCallback: true
+  immediateCallback: true,
 })
 
 watch(

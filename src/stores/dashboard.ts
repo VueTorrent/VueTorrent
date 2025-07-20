@@ -34,7 +34,7 @@ export const useDashboardStore = defineStore(
         return t('dashboard.selectedTorrentsCount', {
           count: selectedTorrents.value.length,
           total: processedTorrents.value.length,
-          size: formatData(selectedSize, useBinarySize.value)
+          size: formatData(selectedSize, useBinarySize.value),
         })
       } else {
         return t('dashboard.torrentsCount', processedTorrents.value.length)
@@ -133,14 +133,14 @@ export const useDashboardStore = defineStore(
         selectedTorrents.value = []
         latestSelectedTorrent.value = undefined
         displayMode.value = DashboardDisplayMode.LIST
-      }
+      },
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, includePaths: ['displayMode'] }]
-    }
+      storageItems: [{ storage: localStorage, includePaths: ['displayMode'] }],
+    },
   }
 )
 

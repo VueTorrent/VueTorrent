@@ -21,7 +21,7 @@ function saveValueToHistory() {
 
 defineExpose({
   saveValueToHistory,
-  focus: () => field.value?.focus()
+  focus: () => field.value?.focus(),
 })
 </script>
 

@@ -24,7 +24,7 @@ export const useDialogStore = defineStore('dialogs', () => {
       component,
       props: props || {},
       guid,
-      onClose
+      onClose,
     })
     triggerRef(dialogs)
 
@@ -58,7 +58,7 @@ export const useDialogStore = defineStore('dialogs', () => {
     $reset: () => {
       dialogs.value.clear()
       triggerRef(dialogs)
-    }
+    },
   }
 })
 

@@ -19,7 +19,7 @@ function deleteTag(tagName: string) {
     onConfirm: async () => {
       await tagStore.deleteTags([tagName])
       maindataStore.forceMaindataSync()
-    }
+    },
   })
 }
 
@@ -30,7 +30,7 @@ function deleteUnusedTags() {
     yesColor: 'error',
     onConfirm: async () => {
       await tagStore.deleteUnusedTags()
-    }
+    },
   })
 }
 
@@ -42,7 +42,7 @@ function deleteCategory(category: Category) {
     onConfirm: async () => {
       await categoryStore.deleteCategories([category.name])
       maindataStore.forceMaindataSync()
-    }
+    },
   })
 }
 
@@ -53,7 +53,7 @@ function deleteUnusedCategories() {
     yesColor: 'error',
     onConfirm: async () => {
       await categoryStore.deleteUnusedCategories()
-    }
+    },
   })
 }
 

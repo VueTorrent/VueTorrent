@@ -19,13 +19,13 @@ const contentLayoutOptions = [
   { title: t('common.useGlobalSettings'), value: null },
   { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
   { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
-  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
+  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER },
 ]
 const stopConditionOptions = [
   { title: t('common.useGlobalSettings'), value: null },
   { title: t('constants.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
   { title: t('constants.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
-  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
+  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED },
 ]
 
 const downloadPathField = ref<typeof HistoryField>()
@@ -37,7 +37,7 @@ const categorySearch = ref('')
 const categoryNames = computed(() => categoryStore.categories.map(cat => cat.name))
 const category = computed<string | undefined>({
   get: () => form.value.category || categorySearch.value || undefined,
-  set: value => (form.value.category = value || undefined)
+  set: value => (form.value.category = value || undefined),
 })
 
 const downloadPath = computed<string | undefined>({
@@ -45,7 +45,7 @@ const downloadPath = computed<string | undefined>({
   set: value => {
     form.value.use_download_path = !!value || false
     form.value.download_path = value || undefined
-  }
+  },
 })
 
 function getLimit(value?: number) {
@@ -63,7 +63,7 @@ const downloadLimit = computed({
         form.value.download_limit = parsedValue * 1024
       }
     }
-  }
+  },
 })
 
 const uploadLimit = computed({
@@ -77,22 +77,22 @@ const uploadLimit = computed({
         form.value.upload_limit = parsedValue * 1024
       }
     }
-  }
+  },
 })
 
 const ratioLimit = computed({
   get: () => form.value.ratio_limit,
-  set: val => (form.value.ratio_limit = val || undefined)
+  set: val => (form.value.ratio_limit = val || undefined),
 })
 
 const seedingTimeLimit = computed({
   get: () => form.value.seeding_time_limit,
-  set: val => (form.value.seeding_time_limit = val || undefined)
+  set: val => (form.value.seeding_time_limit = val || undefined),
 })
 
 const inactiveSeedingTimeLimit = computed({
   get: () => form.value.inactive_seeding_time_limit,
-  set: val => (form.value.inactive_seeding_time_limit = val || undefined)
+  set: val => (form.value.inactive_seeding_time_limit = val || undefined),
 })
 
 function onCategoryChanged() {

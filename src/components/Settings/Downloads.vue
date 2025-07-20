@@ -15,29 +15,29 @@ const preferenceStore = usePreferenceStore()
 const autoDeleteModeOptions = [
   { title: t('constants.auto_delete_mode.never'), value: AppPreferences.AutoDeleteMode.NEVER },
   { title: t('constants.auto_delete_mode.if_added'), value: AppPreferences.AutoDeleteMode.IF_ADDED },
-  { title: t('constants.auto_delete_mode.always'), value: AppPreferences.AutoDeleteMode.ALWAYS }
+  { title: t('constants.auto_delete_mode.always'), value: AppPreferences.AutoDeleteMode.ALWAYS },
 ]
 
 const contentLayoutOptions = [
   { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
   { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
-  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
+  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER },
 ]
 
 const stopConditionOptions = [
   { title: t('constants.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
   { title: t('constants.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
-  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
+  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED },
 ]
 
 const defaultTMMOptions = [
   { title: t('settings.downloads.saveManagement.defaultTMMOptions.manual'), value: false },
-  { title: t('settings.downloads.saveManagement.defaultTMMOptions.automatic'), value: true }
+  { title: t('settings.downloads.saveManagement.defaultTMMOptions.automatic'), value: true },
 ]
 
 const paramChangedTMMOptions = [
   { title: t('settings.downloads.saveManagement.paramChangedTMMOptions.relocateTorrent'), value: true },
-  { title: t('settings.downloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false }
+  { title: t('settings.downloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false },
 ]
 
 const isExportDirEnabled = ref(false)
@@ -49,24 +49,24 @@ const monitoredFoldersEditedIndex = ref(-1)
 const monitoredFoldersEditedItem = ref({
   monitoredFolderPath: '',
   saveType: ScanDirsEnum.MONITORED_FOLDER,
-  otherPath: ''
+  otherPath: '',
 } as MonitoredFolder)
 const monitoredFoldersDefaultItem = ref({
   monitoredFolderPath: '',
   saveType: ScanDirsEnum.MONITORED_FOLDER,
-  otherPath: ''
+  otherPath: '',
 } as MonitoredFolder)
 const monitoredFoldersHeaders = ref([
   { title: t('settings.downloads.monitoredFolders.monitoredFolderPath'), key: 'monitoredFolderPath', sortable: false },
   { title: t('settings.downloads.monitoredFolders.saveType'), key: 'saveType', sortable: false },
   { title: t('settings.downloads.monitoredFolders.otherPath'), key: 'otherPath', sortable: false },
-  { title: t('settings.downloads.monitoredFolders.actions'), key: 'actions', sortable: false }
+  { title: t('settings.downloads.monitoredFolders.actions'), key: 'actions', sortable: false },
 ])
 const monitoredFoldersData = ref<MonitoredFolder[]>([])
 const monitoredFoldersMonitorTypeOptions = ref([
   { title: t('constants.monitoredFolderSaveLocation.monitoredFolder'), value: ScanDirsEnum.MONITORED_FOLDER },
   { title: t('constants.monitoredFolderSaveLocation.defaultSavePath'), value: ScanDirsEnum.DEFAULT_SAVE_PATH },
-  { title: t('constants.monitoredFolderSaveLocation.other'), value: -1 }
+  { title: t('constants.monitoredFolderSaveLocation.other'), value: -1 },
 ])
 
 const addStoppedEnabled = computed({
@@ -75,7 +75,7 @@ const addStoppedEnabled = computed({
     if (!preferenceStore.preferences) return
     preferenceStore.preferences.add_stopped_enabled = v
     preferenceStore.preferences.start_paused_enabled = v
-  }
+  },
 })
 
 onBeforeMount(() => {

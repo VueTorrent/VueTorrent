@@ -43,5 +43,5 @@ export {
   useTorrentDetailStore,
   useTorrentStore,
   useTrackerStore,
-  useVueTorrentStore
+  useVueTorrentStore,
 }

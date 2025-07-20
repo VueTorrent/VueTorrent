@@ -9,7 +9,7 @@ import {
   TorrentContentRemoveOption,
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
-  UtpTcpMixedMode
+  UtpTcpMixedMode,
 } from '@/constants/qbit/AppPreferences'
 import qbit from '@/services/qbit'
 import { useAppStore, usePreferenceStore } from '@/stores'
@@ -20,50 +20,50 @@ const { preferences: pref } = storeToRefs(usePreferenceStore())
 
 const resumeDataStorageTypeOptions = [
   { title: t('settings.advanced.qbittorrent.resumeDataStorageType.legacy'), value: ResumeDataStorageType.LEGACY },
-  { title: t('settings.advanced.qbittorrent.resumeDataStorageType.sqlite'), value: ResumeDataStorageType.SQLITE }
+  { title: t('settings.advanced.qbittorrent.resumeDataStorageType.sqlite'), value: ResumeDataStorageType.SQLITE },
 ]
 const torrentContentRemovingMode = [
   { title: t('constants.torrentContentRemovingMode.delete'), value: TorrentContentRemoveOption.DELETE },
-  { title: t('constants.torrentContentRemovingMode.moveToTrash'), value: TorrentContentRemoveOption.MOVE_TO_TRASH }
+  { title: t('constants.torrentContentRemovingMode.moveToTrash'), value: TorrentContentRemoveOption.MOVE_TO_TRASH },
 ]
 const networkInterfaceOptions = ref([
   {
     title: t('settings.advanced.qbittorrent.networking.networkInterfaces.any'),
-    value: ''
-  }
+    value: '',
+  },
 ])
 const ipAddressesOptions = ref([
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.all'), value: '' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv4'), value: '0.0.0.0' },
-  { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv6'), value: '::' }
+  { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv6'), value: '::' },
 ])
 const diskIoTypeOptions = [
   { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
   { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
   { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
-  { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE }
+  { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE },
 ]
 const diskIoModeReadOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
-  { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE }
+  { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },
 ]
 const diskIoModeWriteOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
   { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },
-  { title: t('constants.diskIoMode.writeThrough'), value: DiskIOMode.WRITE_THROUGH }
+  { title: t('constants.diskIoMode.writeThrough'), value: DiskIOMode.WRITE_THROUGH },
 ]
 const utpTcpMixedModeOptions = [
   { title: t('constants.utpTcpMixedMode.preferTcp'), value: UtpTcpMixedMode.PREFER_TCP },
-  { title: t('constants.utpTcpMixedMode.peerProportional'), value: UtpTcpMixedMode.PEER_PROPORTIONAL }
+  { title: t('constants.utpTcpMixedMode.peerProportional'), value: UtpTcpMixedMode.PEER_PROPORTIONAL },
 ]
 const uploadSlotsBehaviorOptions = [
   { title: t('constants.uploadSlotsBehavior.fixedSlots'), value: UploadSlotsBehavior.FIXED_SLOTS },
-  { title: t('constants.uploadSlotsBehavior.uploadRateBased'), value: UploadSlotsBehavior.UPLOAD_RATE_BASED }
+  { title: t('constants.uploadSlotsBehavior.uploadRateBased'), value: UploadSlotsBehavior.UPLOAD_RATE_BASED },
 ]
 const uploadChokingAlgorithmOptions = [
   { title: t('constants.uploadChokingAlgorithm.roundRobin'), value: UploadChokingAlgorithm.ROUND_ROBIN },
   { title: t('constants.uploadChokingAlgorithm.fastestUpload'), value: UploadChokingAlgorithm.FASTEST_UPLOAD },
-  { title: t('constants.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH }
+  { title: t('constants.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH },
 ]
 
 const i2pQuantityRules = [(v: number) => (v >= 1 && v <= 16) || t('settings.advanced.libtorrent.i2p.invalidQuantity')]
@@ -74,22 +74,22 @@ const sslRules = [(v: number) => (v >= 0 && v <= 65535) || t('settings.advanced.
 
 const torrentFileSizeLimit = computed({
   get: () => pref.value!.torrent_file_size_limit / 1024 / 1024,
-  set: (value: number) => (pref.value!.torrent_file_size_limit = value * 1024 * 1024)
+  set: (value: number) => (pref.value!.torrent_file_size_limit = value * 1024 * 1024),
 })
 
 const diskQueueSize = computed({
   get: () => pref.value!.disk_queue_size / 1024,
-  set: (value: number) => (pref.value!.disk_queue_size = value * 1024)
+  set: (value: number) => (pref.value!.disk_queue_size = value * 1024),
 })
 
 const socketSendBufferSize = computed({
   get: () => pref.value!.socket_send_buffer_size / 1024,
-  set: (value: number) => (pref.value!.socket_send_buffer_size = value * 1024)
+  set: (value: number) => (pref.value!.socket_send_buffer_size = value * 1024),
 })
 
 const socketReceiveBufferSize = computed({
   get: () => pref.value!.socket_receive_buffer_size / 1024,
-  set: (value: number) => (pref.value!.socket_receive_buffer_size = value * 1024)
+  set: (value: number) => (pref.value!.socket_receive_buffer_size = value * 1024),
 })
 
 onBeforeMount(async () => {

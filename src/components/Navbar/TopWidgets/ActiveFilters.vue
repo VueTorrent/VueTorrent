@@ -21,7 +21,7 @@ const {
   tagFilterExclude,
   isTrackerFilterActive,
   trackerFilterInclude,
-  trackerFilterExclude
+  trackerFilterExclude,
 } = storeToRefs(useTorrentStore())
 
 const aggregatedTagFilters = computed(() => {

@@ -17,7 +17,7 @@ const field = ref<HTMLInputElement>()
 const form = ref<VForm>()
 const isFormValid = ref(false)
 const formData = reactive({
-  newName: ''
+  newName: '',
 })
 
 const rules = [(v: string) => !!v || t('dialogs.renameTorrent.required'), (v: string) => v !== oldName.value || t('dialogs.renameTorrent.sameName')]

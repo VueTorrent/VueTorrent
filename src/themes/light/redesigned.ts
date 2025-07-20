@@ -13,7 +13,7 @@ export default {
       background: grey.lighten4,
       selected: grey.lighten2,
       red: red.accent2,
-      ...getVariables(false)
-    }
-  }
+      ...getVariables(false),
+    },
+  },
 }

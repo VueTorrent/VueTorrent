@@ -7,5 +7,5 @@ export default {
   containerId: toast.POSITION.BOTTOM_RIGHT,
   limit: 5,
   position: toast.POSITION.BOTTOM_RIGHT,
-  theme: toast.THEME.COLORED
+  theme: toast.THEME.COLORED,
 } as ToastContainerOptions

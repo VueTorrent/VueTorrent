@@ -25,7 +25,7 @@ const torrentValues = [
   { title: 'trackers_count', getter: () => props.torrent.trackers_count },
   { title: 'priority', getter: () => props.torrent.priority },
   { title: 'nb_connections', getter: () => properties.value?.nb_connections ?? 0 },
-  { title: 'nb_connections_limit', getter: () => properties.value?.nb_connections_limit ?? 0 }
+  { title: 'nb_connections_limit', getter: () => properties.value?.nb_connections_limit ?? 0 },
 ]
 </script>
 

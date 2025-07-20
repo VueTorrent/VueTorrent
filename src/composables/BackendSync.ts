@@ -62,6 +62,6 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
     loadState,
     saveState,
     registerWatcher,
-    cancelWatcher
+    cancelWatcher,
   }
 }

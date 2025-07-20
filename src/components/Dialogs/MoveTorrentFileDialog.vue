@@ -19,7 +19,7 @@ const form = ref<VForm>()
 const input = ref<HTMLInputElement>()
 const isFormValid = ref(false)
 const formData = reactive({
-  newName: ''
+  newName: '',
 })
 
 const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required')]

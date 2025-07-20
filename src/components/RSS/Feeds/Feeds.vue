@@ -36,7 +36,7 @@ const titleFilter = computed({
   get: () => rssStore.filters.title,
   set: debounce((value: string) => {
     rssStore.filters.title = value ?? ''
-  }, 300)
+  }, 300),
 })
 
 function openFeedDialog(initialFeed?: Feed) {
@@ -56,7 +56,7 @@ function deleteFeed(item: Feed) {
     onConfirm: async () => {
       await rssStore.deleteFeed(item.name)
       rssStore.resumeFeedTimer()
-    }
+    },
   })
 }
 

@@ -29,11 +29,11 @@ const headers = readonly([
   { nowrap: true, title: t('torrentDetail.peers.fields.flags'), key: 'flags' },
   { nowrap: true, title: t('torrentDetail.peers.fields.client'), key: 'client' },
   { nowrap: true, title: t('torrentDetail.peers.fields.relevance'), key: 'relevance' },
-  { nowrap: true, title: t('torrentDetail.peers.fields.files'), key: 'files' }
+  { nowrap: true, title: t('torrentDetail.peers.fields.files'), key: 'files' },
 ])
 const sortBy = shallowReadonly<{ key: string; order?: boolean | 'asc' | 'desc' }[]>([
   { key: 'dl_speed', order: 'desc' },
-  { key: 'up_speed', order: 'desc' }
+  { key: 'up_speed', order: 'desc' },
 ])
 
 const rid = ref<number>()
@@ -116,17 +116,17 @@ function banPeer(peer: PeerType) {
       await maindataStore.banPeers([peer.host])
       await preferenceStore.fetchPreferences()
       resume()
-    }
+    },
   })
 }
 
 const {
   isActive: isTimerActive,
   pause,
-  resume
+  resume,
 } = useIntervalFn(() => void syncPeersTask.perform(), 2000, {
   immediate: true,
-  immediateCallback: true
+  immediateCallback: true,
 })
 
 watch(

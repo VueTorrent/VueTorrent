@@ -22,7 +22,7 @@ const {
   torrentsByTracker,
   trackerFilterInclude,
   trackerFilterExclude,
-  trackerFilterType
+  trackerFilterType,
 } = storeToRefs(useTorrentStore())
 const { hostnameTrackers } = storeToRefs(useTrackerStore())
 const { showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
@@ -32,7 +32,7 @@ const statuses = computed(() =>
     .filter(state => typeof state === 'number')
     .map(state => ({
       title: `${getTorrentStateString(state as TorrentState)} (${torrentsByStatus.value[state] ?? 0})`,
-      value: state
+      value: state,
     }))
     .sort((a, b) => comparators.text.asc(a.title, b.title))
 )
@@ -40,32 +40,32 @@ const statuses = computed(() =>
 const categories = computed(() => [
   {
     title: `${t('navbar.side.filters.category.empty')} (${torrentsByCategory.value[''] ?? 0})`,
-    value: ''
+    value: '',
   },
-  ..._categories.value.map(c => ({ title: `${c.name} (${torrentsByCategory.value[c.name] ?? 0})`, value: c.name }))
+  ..._categories.value.map(c => ({ title: `${c.name} (${torrentsByCategory.value[c.name] ?? 0})`, value: c.name })),
 ])
 
 const tags = computed(() => [
   {
     title: `${t('navbar.side.filters.tag.empty')} (${torrentsByTag.value[''] ?? 0})`,
-    value: null
+    value: null,
   },
-  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag }))
+  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag })),
 ])
 
 const trackers = computed(() => [
   {
     title: `${t('navbar.side.filters.tracker.empty')} (${torrentsByTracker.value[TrackerSpecialFilter.UNTRACKED] ?? 0})`,
-    value: TrackerSpecialFilter.UNTRACKED
+    value: TrackerSpecialFilter.UNTRACKED,
   },
   {
     title: `${t('navbar.side.filters.tracker.not_working')} (${torrentsByTracker.value[TrackerSpecialFilter.NOT_WORKING] ?? 0})`,
-    value: TrackerSpecialFilter.NOT_WORKING
+    value: TrackerSpecialFilter.NOT_WORKING,
   },
   ...hostnameTrackers.value.map(tracker => ({
     title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`,
-    value: tracker
-  }))
+    value: tracker,
+  })),
 ])
 
 function toggleFilterType(ref: Ref<FilterType>) {
@@ -97,7 +97,7 @@ const activeStatuses = [
   TorrentState.CHECKING_DISK,
   TorrentState.DL_FORCED,
   TorrentState.CHECKING_RESUME_DATA,
-  TorrentState.MOVING
+  TorrentState.MOVING,
 ]
 const erroredStatuses = [TorrentState.ERROR, TorrentState.MISSING_FILES, TorrentState.UNKNOWN]
 const offlineStatuses = [
@@ -109,7 +109,7 @@ const offlineStatuses = [
   TorrentState.DL_STALLED,
   TorrentState.UL_STOPPED,
   TorrentState.CHECKING_DISK,
-  TorrentState.CHECKING_RESUME_DATA
+  TorrentState.CHECKING_RESUME_DATA,
 ]
 
 function disableStatusFilter() {

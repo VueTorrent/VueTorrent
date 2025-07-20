@@ -15,7 +15,7 @@ export const useGlobalStore = defineStore('global', () => {
     forceReload,
     $reset: () => {
       forceReload()
-    }
+    },
   }
 })
 

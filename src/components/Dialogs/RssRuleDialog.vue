@@ -47,7 +47,7 @@ function getEmptyRule(): FeedRule {
     smartFilter: false,
     useRegex: false,
     previouslyMatchedEpisodes: hasInitialRule.value ? props.initialRule!.previouslyMatchedEpisodes : [],
-    torrentParams: getEmptyParams(preferenceStore.preferences)
+    torrentParams: getEmptyParams(preferenceStore.preferences),
   }
 }
 

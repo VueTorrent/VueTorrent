@@ -24,7 +24,7 @@ const nameRules = [(v: string) => !!v || t('dialogs.category.nameRequired')]
 
 const formData = reactive<Category>({
   name: '',
-  savePath: ''
+  savePath: '',
 })
 
 async function submit() {

@@ -35,7 +35,7 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
   Object.assign(rightClickProperties.value, {
     isVisible: true,
     offset: [e.pageX, e.pageY],
-    hash: props.torrent.hash
+    hash: props.torrent.hash,
   })
 
   if (internalSelection.value.size <= 1) {
@@ -51,7 +51,7 @@ watch(
     else contentStore.pauseTimer()
   },
   {
-    immediate: true
+    immediate: true,
   }
 )
 
@@ -83,7 +83,7 @@ function handleKeyboardInput(e: KeyboardEvent) {
     ArrowDown = 'ArrowDown',
     ArrowLeft = 'ArrowLeft',
     ArrowRight = 'ArrowRight',
-    Spacebar = ' '
+    Spacebar = ' ',
   }
 
   const pressedKey = e.key as KeyNames

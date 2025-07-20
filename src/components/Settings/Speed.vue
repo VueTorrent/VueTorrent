@@ -17,25 +17,25 @@ const schedulerOptions = ref([
   { title: t('constants.scheduler.everyThursday'), value: SchedulerDays.EVERY_THURSDAY },
   { title: t('constants.scheduler.everyFriday'), value: SchedulerDays.EVERY_FRIDAY },
   { title: t('constants.scheduler.everySaturday'), value: SchedulerDays.EVERY_SATURDAY },
-  { title: t('constants.scheduler.everySunday'), value: SchedulerDays.EVERY_SUNDAY }
+  { title: t('constants.scheduler.everySunday'), value: SchedulerDays.EVERY_SUNDAY },
 ])
 
 const upLimit = computed({
   get: () => preferenceStore.preferences!.up_limit / 1024,
-  set: (value: number) => (preferenceStore.preferences!.up_limit = value * 1024)
+  set: (value: number) => (preferenceStore.preferences!.up_limit = value * 1024),
 })
 const dlLimit = computed({
   get: () => preferenceStore.preferences!.dl_limit / 1024,
-  set: (value: number) => (preferenceStore.preferences!.dl_limit = value * 1024)
+  set: (value: number) => (preferenceStore.preferences!.dl_limit = value * 1024),
 })
 
 const altUpLimit = computed({
   get: () => preferenceStore.preferences!.alt_up_limit / 1024,
-  set: (value: number) => (preferenceStore.preferences!.alt_up_limit = value * 1024)
+  set: (value: number) => (preferenceStore.preferences!.alt_up_limit = value * 1024),
 })
 const altDlLimit = computed({
   get: () => preferenceStore.preferences!.alt_dl_limit / 1024,
-  set: (value: number) => (preferenceStore.preferences!.alt_dl_limit = value * 1024)
+  set: (value: number) => (preferenceStore.preferences!.alt_dl_limit = value * 1024),
 })
 </script>
 

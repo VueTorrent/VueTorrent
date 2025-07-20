@@ -18,7 +18,7 @@ import {
   TorrentCreatorTask,
   TorrentFile,
   TorrentProperties,
-  Tracker
+  Tracker,
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'

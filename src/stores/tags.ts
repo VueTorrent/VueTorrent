@@ -88,7 +88,7 @@ export const useTagStore = defineStore('tags', () => {
     $reset: () => {
       _tags.value.clear()
       triggerRef(_tags)
-    }
+    },
   }
 })
 

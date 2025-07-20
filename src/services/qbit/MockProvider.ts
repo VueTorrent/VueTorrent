@@ -10,7 +10,7 @@ import {
   TorrentCreatorTaskStatus,
   TorrentFormat,
   TorrentOperatingMode,
-  TorrentState
+  TorrentState,
 } from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import { QBIT_MAX_ETA } from '@/helpers'
@@ -33,7 +33,7 @@ import type {
   TorrentCreatorTask,
   TorrentFile,
   TorrentProperties,
-  Tracker
+  Tracker,
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
@@ -50,7 +50,7 @@ export default class MockProvider implements IProvider {
     TV: { name: 'TV', savePath: faker.system.directoryPath() },
     Other: { name: 'Other', savePath: faker.system.directoryPath() },
     ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
-    Music: { name: 'Music', savePath: faker.system.directoryPath() }
+    Music: { name: 'Music', savePath: faker.system.directoryPath() },
   }
   private readonly tags: string[] = ['pending', 'sorted', 'pending_sort']
   private readonly trackers: Record<string, string[]> = faker.helpers
@@ -138,7 +138,7 @@ export default class MockProvider implements IProvider {
       up_limit: 0,
       uploaded: 0,
       uploaded_session: 0,
-      upspeed: 0
+      upspeed: 0,
     }
   }
 
@@ -181,8 +181,8 @@ export default class MockProvider implements IProvider {
         openssl: '3.3.2',
         platform: 'windows',
         qt: '6.7.3',
-        zlib: '1.3.1'
-      }
+        zlib: '1.3.1',
+      },
     })
   }
 
@@ -415,8 +415,8 @@ export default class MockProvider implements IProvider {
         web_ui_session_timeout: 3600,
         web_ui_upnp: false,
         web_ui_use_custom_http_headers_enabled: false,
-        web_ui_username: 'admin'
-      }
+        web_ui_username: 'admin',
+      },
     })
   }
 
@@ -433,13 +433,13 @@ export default class MockProvider implements IProvider {
       result: [
         {
           name: 'lo',
-          value: 'lo'
+          value: 'lo',
         },
         {
           name: 'eth0',
-          value: 'eth0'
-        }
-      ]
+          value: 'eth0',
+        },
+      ],
     })
   }
 
@@ -447,11 +447,11 @@ export default class MockProvider implements IProvider {
     switch (iface) {
       case 'lo':
         return this.generateResponse({
-          result: ['127.0.0.1']
+          result: ['127.0.0.1'],
         })
       case 'eth0':
         return this.generateResponse({
-          result: ['172.21.0.2']
+          result: ['172.21.0.2'],
         })
       default:
         return this.generateResponse({ result: [] })
@@ -464,7 +464,7 @@ export default class MockProvider implements IProvider {
 
   async getDirectoryContent(dirPath: string, _?: DirectoryContentMode): Promise<string[] | null> {
     return this.generateResponse({
-      result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } })
+      result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } }),
     })
   }
 
@@ -476,10 +476,10 @@ export default class MockProvider implements IProvider {
           domain: faker.internet.domainName(),
           value: faker.word.words({ count: 1 }),
           path: '/',
-          expirationDate: faker.date.future().getTime() / 1000
+          expirationDate: faker.date.future().getTime() / 1000,
         }),
         { count: { min: 1, max: 15 } }
-      )
+      ),
     })
   }
 
@@ -494,8 +494,8 @@ export default class MockProvider implements IProvider {
       result: {
         data: 'Ok.',
         status: 200,
-        statusText: 'OK'
-      } as AxiosResponse<string, string>
+        statusText: 'OK',
+      } as AxiosResponse<string, string>,
     })
   }
 
@@ -513,99 +513,99 @@ export default class MockProvider implements IProvider {
           id: 0,
           message: 'qBittorrent v4.6.2 started',
           timestamp,
-          type: LogType.NORMAL
+          type: LogType.NORMAL,
         },
         {
           id: 1,
           message: 'Using config directory: /config/qBittorrent',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 2,
           message: 'Trying to listen on the following list of IP addresses: "0.0.0.0:6881,[::]:6881"',
           timestamp,
-          type: LogType.WARNING
+          type: LogType.WARNING,
         },
         {
           id: 3,
           message: 'Peer ID: "-qB4620-"',
           timestamp,
-          type: LogType.CRITICAL
+          type: LogType.CRITICAL,
         },
         {
           id: 4,
           message: 'HTTP User-Agent: "qBittorrent/4.6.2"',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 5,
           message: 'Distributed Hash Table (DHT) support: ON',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 6,
           message: 'Local Peer Discovery support: ON',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 7,
           message: 'Peer Exchange (PeX) support: ON',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 8,
           message: 'Anonymous mode: OFF',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 9,
           message: 'Encryption support: ON',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 10,
           message: 'Successfully listening on IP. IP: "127.0.0.1". Port: "TCP/6881"',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 11,
           message: 'Successfully listening on IP. IP: "127.0.0.1". Port: "UTP/6881"',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 12,
           message: 'Successfully listening on IP. IP: "172.21.0.2". Port: "TCP/6881"',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 13,
           message: 'Successfully listening on IP. IP: "172.21.0.2". Port: "UTP/6881"',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 14,
           message: 'IP geolocation database loaded. Type: DBIP-Country-Lite. Build time: Fri Dec 1 01:11:53 2023.',
           timestamp,
-          type: LogType.INFO
+          type: LogType.INFO,
         },
         {
           id: 15,
           message: 'WebUI: Now listening on IP: *, port: 8080',
           timestamp,
-          type: LogType.NORMAL
-        }
-      ]
+          type: LogType.NORMAL,
+        },
+      ],
     })
   }
 
@@ -639,7 +639,7 @@ export default class MockProvider implements IProvider {
               isRead: false,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Tristique maximus pellentesque lacinia, interdum suspendisse feugiat senectus consectetur porta.',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
             },
             {
               author: 'John Doe',
@@ -649,7 +649,7 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 1a',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
             },
             {
               author: 'John Doe',
@@ -659,9 +659,9 @@ export default class MockProvider implements IProvider {
               isRead: false,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 1b',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: true,
@@ -680,9 +680,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 2',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -701,9 +701,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 3',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -722,9 +722,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 4',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -743,9 +743,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 5',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -764,9 +764,9 @@ export default class MockProvider implements IProvider {
               isRead: false,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 6',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -785,9 +785,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 7',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -806,9 +806,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 8',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -827,9 +827,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 9',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -848,9 +848,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 10',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -869,9 +869,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 11',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -890,9 +890,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 12',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -911,9 +911,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 13',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -932,9 +932,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 14',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -953,9 +953,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 15',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -974,9 +974,9 @@ export default class MockProvider implements IProvider {
               isRead: true,
               link: 'https://www.example.com/article/SDb4v2op8wm',
               title: 'Sample title 16',
-              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
-            }
-          ]
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm',
+            },
+          ],
         },
         {
           hasError: false,
@@ -986,9 +986,9 @@ export default class MockProvider implements IProvider {
           title: 'RSS Feed 17',
           uid: '{7ae5ac9f-4698-4638-9a99-197462c3a456}',
           url: 'https://www.example.com/feed',
-          articles: []
-        }
-      ]
+          articles: [],
+        },
+      ],
     })
   }
 
@@ -1018,11 +1018,11 @@ export default class MockProvider implements IProvider {
             seeding_time_limit: -2,
             skip_checking: false,
             tags: [],
-            upload_limit: -1
+            upload_limit: -1,
           },
-          useRegex: false
-        }
-      ]
+          useRegex: false,
+        },
+      ],
     })
   }
 
@@ -1057,8 +1057,8 @@ export default class MockProvider implements IProvider {
   async getMatchingArticles(ruleName: string): Promise<Record<string, string[]>> {
     return this.generateResponse({
       result: {
-        [ruleName]: ['Sample title 1']
-      }
+        [ruleName]: ['Sample title 1'],
+      },
     })
   }
 
@@ -1074,7 +1074,7 @@ export default class MockProvider implements IProvider {
 
   async getSearchStatus(id?: number): Promise<SearchStatus[]> {
     return this.generateResponse({
-      result: [{ id: id ?? 1, status: 'Stopped', total: 1 }]
+      result: [{ id: id ?? 1, status: 'Stopped', total: 1 }],
     })
   }
 
@@ -1091,12 +1091,12 @@ export default class MockProvider implements IProvider {
             nbSeeders: 0,
             siteUrl: 'https://www.example.com',
             engineName: 'Example',
-            pubDate: new Date().getTime() / 1000
-          }
+            pubDate: new Date().getTime() / 1000,
+          },
         ],
         status: 'Stopped',
-        total: 1
-      }
+        total: 1,
+      },
     })
   }
 
@@ -1113,9 +1113,9 @@ export default class MockProvider implements IProvider {
           name: 'Example',
           supportedCategories: [{ id: '0', name: 'All' }],
           url: 'https://www.example.com',
-          version: '1.0.0'
-        }
-      ] as SearchPlugin[]
+          version: '1.0.0',
+        },
+      ] as SearchPlugin[],
     })
   }
 
@@ -1179,7 +1179,7 @@ export default class MockProvider implements IProvider {
       up_rate_limit,
       use_alt_speed_limits: false,
       use_subcategories: false,
-      write_cache_overload: '0'
+      write_cache_overload: '0',
     }
 
     return this.generateResponse({
@@ -1190,8 +1190,8 @@ export default class MockProvider implements IProvider {
         torrents,
         categories: this.categories,
         tags: this.tags,
-        trackers: this.trackers
-      }
+        trackers: this.trackers,
+      },
     })
   }
 
@@ -1243,7 +1243,7 @@ export default class MockProvider implements IProvider {
             progress: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
             relevance: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
             up_speed: rndmSpeed(),
-            uploaded: rndmData()
+            uploaded: rndmData(),
           },
           [`${ip2}:${port2}`]: {
             client: 'Tixati 2.84',
@@ -1261,7 +1261,7 @@ export default class MockProvider implements IProvider {
             progress: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
             relevance: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
-            uploaded: rndmData()
+            uploaded: rndmData(),
           },
           [`${ip3}:${port3}`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
@@ -1279,11 +1279,11 @@ export default class MockProvider implements IProvider {
             progress: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
             relevance: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
             up_speed: rndmSpeed(),
-            uploaded: rndmData()
-          }
+            uploaded: rndmData(),
+          },
         },
-        show_flags: rid <= 0 || undefined
-      }
+        show_flags: rid <= 0 || undefined,
+      },
     })
   }
 
@@ -1311,19 +1311,19 @@ export default class MockProvider implements IProvider {
           trackers: faker.helpers.multiple(() => faker.internet.url(), {
             count: faker.number.int({
               min: 0,
-              max: 5
-            })
+              max: 5,
+            }),
           }),
           urlSeeds: faker.helpers.multiple(() => faker.internet.url(), {
             count: faker.number.int({
               min: 0,
-              max: 5
-            })
+              max: 5,
+            }),
           }),
           timeFinished: faker.date.recent().toString(),
-          timeStarted: faker.date.past().toString()
-        }
-      ]
+          timeStarted: faker.date.past().toString(),
+        },
+      ],
     })
   }
 
@@ -1339,7 +1339,7 @@ export default class MockProvider implements IProvider {
 
   async getTorrents(_?: GetTorrentPayload): Promise<QbitTorrent[]> {
     return this.generateResponse({
-      result: MockProvider.hashes.map(hash => ({ ...this.generateMockedTorrent(hash), hash }))
+      result: MockProvider.hashes.map(hash => ({ ...this.generateMockedTorrent(hash), hash })),
     })
   }
 
@@ -1358,7 +1358,7 @@ export default class MockProvider implements IProvider {
           num_seeds: getRndmValue(),
           status: 2,
           tier: -1,
-          url: '** [DHT] **'
+          url: '** [DHT] **',
         },
         {
           msg: '',
@@ -1368,7 +1368,7 @@ export default class MockProvider implements IProvider {
           num_seeds: getRndmValue(),
           status: 2,
           tier: -1,
-          url: '** [PeX] **'
+          url: '** [PeX] **',
         },
         {
           msg: '',
@@ -1378,7 +1378,7 @@ export default class MockProvider implements IProvider {
           num_seeds: getRndmValue(),
           status: 2,
           tier: -1,
-          url: '** [LSD] **'
+          url: '** [LSD] **',
         },
         {
           msg: '',
@@ -1388,7 +1388,7 @@ export default class MockProvider implements IProvider {
           num_seeds: -1,
           status: 1,
           tier: 0,
-          url: 'https://torrent.ubuntu.com/announce'
+          url: 'https://torrent.ubuntu.com/announce',
         },
         {
           msg: '',
@@ -1398,9 +1398,9 @@ export default class MockProvider implements IProvider {
           num_seeds: -1,
           status: 1,
           tier: 1,
-          url: 'https://ipv6.torrent.ubuntu.com/announce'
-        }
-      ]
+          url: 'https://ipv6.torrent.ubuntu.com/announce',
+        },
+      ],
     })
   }
 
@@ -1423,7 +1423,7 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.MAXIMAL,
           progress: 0,
-          size: 173995520
+          size: 173995520,
         },
         {
           availability: 1,
@@ -1433,7 +1433,7 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 1173995520
+          size: 1173995520,
         },
         {
           availability: 1,
@@ -1443,7 +1443,7 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 2173995520
+          size: 2173995520,
         },
         {
           availability: 1,
@@ -1453,7 +1453,7 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 3173995520
+          size: 3173995520,
         },
         {
           availability: 1,
@@ -1463,9 +1463,9 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 4173995520
-        }
-      ]
+          size: 4173995520,
+        },
+      ],
     })
   }
 
@@ -1517,8 +1517,8 @@ export default class MockProvider implements IProvider {
         total_wasted: 0,
         up_limit: -1,
         up_speed: 0,
-        up_speed_avg: 0
-      }
+        up_speed_avg: 0,
+      },
     })
   }
 
@@ -1675,8 +1675,8 @@ export default class MockProvider implements IProvider {
       result: {
         ssl_certificate: faker.helpers.replaceSymbols('?????????'),
         ssl_private_key: faker.helpers.replaceSymbols('?????????'),
-        ssl_dh_params: faker.helpers.replaceSymbols('?????????')
-      }
+        ssl_dh_params: faker.helpers.replaceSymbols('?????????'),
+      },
     })
   }
 

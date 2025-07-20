@@ -83,7 +83,7 @@ function openConfirmShutdownDialog() {
       } else {
         toast.error(t('dialogs.shutdown.error'))
       }
-    }
+    },
   })
 }
 </script>
