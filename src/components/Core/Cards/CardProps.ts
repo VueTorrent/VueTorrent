@@ -2,8 +2,8 @@ export type CardProps<T> = {
   active?: boolean
   grow?: boolean
 
-  title?: string
-  icon?: string
+  title: string
+  icon: string
 
   orientation?: 'row' | 'column'
   color?: string

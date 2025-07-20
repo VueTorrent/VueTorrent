@@ -1152,8 +1152,8 @@ export default class MockProvider implements IProvider {
 
     const alltime_dl = faker.number.int({ min: 0, max: 50_000_000_000_000 }) // [0 B; 50 TB]
     const alltime_ul = faker.number.int({ min: 0, max: 50_000_000_000_000 }) // [0 B; 50 TB]
-    const dl_rate_limit = 0
-    const up_rate_limit = 0
+    const dl_rate_limit = 94_000_000 // ~750 Mbps
+    const up_rate_limit = 94_000_000 // ~750 Mbps
     const server_state = {
       alltime_dl,
       alltime_ul,

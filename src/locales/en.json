@@ -617,7 +617,9 @@
         "statistics": "Statistics"
       },
       "current_speed": {
-        "title": "Current Speed"
+        "download": "Download speed",
+        "title": "Current Speed",
+        "upload": "Upload speed"
       },
       "filters": {
         "activeFilter": "{n} filters active",
@@ -642,6 +644,20 @@
           "title": "Tracker Filter"
         }
       },
+      "free_space": {
+        "global_ratio": "Global ratio",
+        "free_space_on_disk": "Free space for default save path"
+      },
+      "performance_stats": {
+        "average_time_queue": "Average time in queue",
+        "queued_io_jobs": "IO jobs in queue (Checking / Moving / Content rename)",
+        "total_buffers_size": "Total size of all buffers",
+        "total_queued_size": "Total size of the queue",
+        "read_cache_hits": "Read disk cache hit count",
+        "read_cache_overload": "Read disk cache overload (= {disk read queue size} / {peers count})",
+        "total_wasted_session": "Total wasted session data (piece check not passed, duplicate download)",
+        "write_cache_overload": "Write disk cache overload (= {disk write queue size} / {peers count})"
+      },
       "speed_graph": {
         "download_label": "Download",
         "download_limit_label": "Download limit",
@@ -653,6 +669,10 @@
         "free_space": "Free Space",
         "ratio": "Ratio",
         "uploaded": "Uploaded"
+      },
+      "transfer_stats": {
+        "download": "Downloaded data (session / alltime)",
+        "upload": "Uploaded data (session / alltime)"
       }
     },
     "top": {

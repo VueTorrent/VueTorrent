@@ -50,6 +50,7 @@ const uploadValue = computed(() => {
     <div class="d-flex flex-row flex-gap-column">
       <SpeedCard
         orientation="row"
+        :title="t('navbar.side.current_speed.download')"
         icon="mdi-arrow-down"
         color="download"
         :value="downloadValue"
@@ -57,18 +58,12 @@ const uploadValue = computed(() => {
         @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
       <SpeedCard
         orientation="row"
+        :title="t('navbar.side.current_speed.upload')"
         icon="mdi-arrow-up"
         color="upload"
         :value="uploadValue"
         :active="isUploadingFilterActive"
         @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
     </div>
-<!--    <div v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)" class="d-flex flex-row flex-gap-column">-->
-<!--      <SpeedCard v-if="" orientation="row" icon="mdi-arrow-collapse-down" color="download" :value="serverState.dl_rate_limit" />-->
-<!--      <div v-else />-->
-
-<!--      <SpeedCard v-if="" orientation="row" icon="mdi-arrow-collapse-up" color="upload" :value="serverState.up_rate_limit" />-->
-<!--      <div v-else />-->
-<!--    </div>-->
   </StatSection>
 </template>

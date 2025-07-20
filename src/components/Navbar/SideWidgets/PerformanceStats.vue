@@ -3,8 +3,10 @@ import StatSection from './StatSection.vue'
 import DataCard from '@/components/Core/Cards/DataCard.vue'
 import StringCard from '@/components/Core/Cards/StringCard.vue'
 import UnitCard from '@/components/Core/Cards/UnitCard.vue'
+import { useI18nUtils } from '@/composables'
 import { useMaindataStore } from '@/stores'
 
+const { t } = useI18nUtils()
 const maindataStore = useMaindataStore()
 </script>
 
@@ -12,20 +14,37 @@ const maindataStore = useMaindataStore()
   <StatSection>
     <div class="d-flex flex-column flex-gap">
       <div class="d-flex flex-row flex-gap flex-wrap">
-        <UnitCard :value="maindataStore.serverState?.average_time_queue ?? 0" unit="ms" color="" icon="mdi-file-clock" />
-        <StringCard :value="maindataStore.serverState?.queued_io_jobs ?? 0" color="" icon="mdi-harddisk" />
+        <UnitCard
+          :title="t('navbar.side.performance_stats.average_time_queue')"
+          :value="maindataStore.serverState?.average_time_queue ?? 0"
+          unit="ms"
+          color=""
+          icon="mdi-file-clock" />
+        <StringCard :title="t('navbar.side.performance_stats.queued_io_jobs')" :value="maindataStore.serverState?.queued_io_jobs ?? 0" color="" icon="mdi-harddisk" />
       </div>
 
       <div class="d-flex flex-row flex-gap flex-wrap">
-        <DataCard :value="[maindataStore.serverState?.total_buffers_size ?? 0]" color="" icon="mdi-dns" />
-        <DataCard :value="[maindataStore.serverState?.total_queued_size ?? 0]" color="" icon="mdi-tray-full" />
+        <DataCard :title="t('navbar.side.performance_stats.total_buffers_size')" :value="[maindataStore.serverState?.total_buffers_size ?? 0]" color="" icon="mdi-dns" />
+        <DataCard :title="t('navbar.side.performance_stats.total_queued_size')" :value="[maindataStore.serverState?.total_queued_size ?? 0]" color="" icon="mdi-tray-full" />
       </div>
 
       <div class="d-flex flex-row flex-gap flex-wrap">
-        <StringCard :value="maindataStore.serverState?.read_cache_hits ?? 0" color="download" icon="mdi-check-circle" />
-        <StringCard :value="maindataStore.serverState?.read_cache_overload ?? 0" color="download" icon="mdi-alert" />
-        <DataCard :value="[maindataStore.serverState?.total_wasted_session ?? 0]" color="warning" icon="mdi-recycle-variant" />
-        <StringCard :value="maindataStore.serverState?.write_cache_overload ?? 0" color="warning" icon="mdi-alert" />
+        <StringCard :title="t('navbar.side.performance_stats.read_cache_hits')" :value="maindataStore.serverState?.read_cache_hits ?? 0" color="download" icon="mdi-check-circle" />
+        <StringCard
+          :title="t('navbar.side.performance_stats.read_cache_overload')"
+          :value="maindataStore.serverState?.read_cache_overload ?? 0"
+          color="download"
+          icon="mdi-alert" />
+        <DataCard
+          :title="t('navbar.side.performance_stats.total_wasted_session')"
+          :value="[maindataStore.serverState?.total_wasted_session ?? 0]"
+          color="warning"
+          icon="mdi-recycle-variant" />
+        <StringCard
+          :title="t('navbar.side.performance_stats.write_cache_overload')"
+          :value="maindataStore.serverState?.write_cache_overload ?? 0"
+          color="warning"
+          icon="mdi-alert" />
       </div>
     </div>
   </StatSection>

@@ -11,9 +11,9 @@ const vueTorrentStore = useVueTorrentStore()
 
 <template>
   <BaseCard v-bind="childProps">
-    <template #default="{ value }">
-      <span data-testid="card-value" class="text-subtitle-1 font-weight-bold">{{ formatSpeedValue(value, vueTorrentStore.useBinarySize) }}</span>
-      <span data-testid="card-unit" class="font-weight-light text-caption ml-1 text-subtitle-1">{{ formatSpeedUnit(value, vueTorrentStore.useBinarySize) }}</span>
+    <template #default="{ value: val }">
+      <span data-testid="card-value" class="text-subtitle-1 font-weight-bold">{{ formatSpeedValue(val, vueTorrentStore.useBitSpeed) }}</span>
+      <span data-testid="card-unit" class="font-weight-light text-caption ml-1 text-subtitle-1">{{ formatSpeedUnit(val, vueTorrentStore.useBitSpeed) }}</span>
     </template>
   </BaseCard>
 </template>

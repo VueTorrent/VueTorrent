@@ -22,16 +22,16 @@ const contentOrientation = computed(() => {
 
 <template>
   <v-sheet
+    :title="title"
     :class="['flex-grow-1', 'pa-2', !!$.vnode.props?.onClick ? 'cursor-pointer' : '']"
     :color="active ? 'secondary-lighten-1' : 'secondary'"
     min-width="48px"
     rounded="lg"
     @click.stop="$emit('click', $event)">
     <div :class="['d-flex', 'align-center', contentOrientation, 'ga-1', 'h-100', 'w-100']">
-      <v-icon v-if="icon" :color="color">{{ icon }}</v-icon>
-      <div v-else :class="['text-subtitle-1', textColorClass]">{{ title }}</div>
+      <v-icon data-testid="card-icon" :color="color">{{ icon }}</v-icon>
 
-      <div :class="['flex-grow-1', 'flex-row', 'text-center', 'text-select', textColorClass]">
+      <div data-testid="card-content" :class="['flex-grow-1', 'flex-row', 'text-center', 'text-select', textColorClass]">
         <template v-if="Array.isArray(value)">
           <div v-for="(val, i) in value" :key="i">
             <slot :value="val"></slot>

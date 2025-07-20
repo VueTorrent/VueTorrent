@@ -7,8 +7,8 @@ const { ...childProps } = defineProps<CardProps<any>>()
 
 <template>
   <BaseCard v-bind="childProps">
-    <template #default="{ value }">
-      <span class="text-subtitle-1 font-weight-bold">{{ value }}</span>
+    <template #default="{ value: val }">
+      <span class="text-subtitle-1 font-weight-bold">{{ val }}</span>
     </template>
   </BaseCard>
 </template>
