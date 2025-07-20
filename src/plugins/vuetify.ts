@@ -3,14 +3,9 @@ import '@mdi/font/css/materialdesignicons.css'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import { VTimePicker } from 'vuetify/labs/VTimePicker'
 import themeMap, { DarkRedesigned } from '@/themes'
 
 export default createVuetify({
-  components: {
-    ...components,
-    VTimePicker
-  },
   directives,
   display: {
     mobileBreakpoint: 'sm'
