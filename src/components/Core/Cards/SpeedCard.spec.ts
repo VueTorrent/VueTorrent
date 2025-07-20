@@ -7,7 +7,7 @@ import vuetify from '@/plugins/vuetify'
 
 const baseProps = {
   title: 'title',
-  icon: 'icon'
+  icon: 'icon',
 }
 
 describe('components/Core/Cards/SpeedCard.vue', () => {
@@ -18,16 +18,16 @@ describe('components/Core/Cards/SpeedCard.vue', () => {
       [10_000, true, '80.0', 'kbps'],
       [10_000, false, '10.0', 'kB/s'],
       [10_000_000, true, '80.0', 'Mbps'],
-      [10_000_000, false, '10.0', 'MB/s']
+      [10_000_000, false, '10.0', 'MB/s'],
     ])('%i | %s -> %s %s', (value, useBitSpeed, expectedValue, expectedUnit) => {
       const wrapper = mount(SpeedCard, {
         props: {
           ...baseProps,
-          value
+          value,
         },
         global: {
-          plugins: [createTestingPinia({ initialState: { vuetorrent: { useBitSpeed } } }), i18n, vuetify]
-        }
+          plugins: [createTestingPinia({ initialState: { vuetorrent: { useBitSpeed } } }), i18n, vuetify],
+        },
       })
 
       expect(wrapper.find('[data-testid="card-value"]').text()).toBe(expectedValue)

@@ -7,7 +7,7 @@ import vuetify from '@/plugins/vuetify'
 
 const baseProps = {
   title: 'title',
-  icon: 'icon'
+  icon: 'icon',
 }
 
 describe('components/Core/Cards/UnitCard.vue', () => {
@@ -16,11 +16,11 @@ describe('components/Core/Cards/UnitCard.vue', () => {
       props: {
         ...baseProps,
         value: 123_456,
-        unit: 'ms'
+        unit: 'ms',
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     const valueField = wrapper.find('[data-testid="card-value"]')

@@ -46,24 +46,22 @@ const uploadValue = computed(() => {
 </script>
 
 <template>
-  <StatSection :title="t('navbar.side.current_speed.title')">
-    <div class="d-flex flex-row flex-gap-column">
-      <SpeedCard
-        orientation="row"
-        :title="t('navbar.side.current_speed.download')"
-        icon="mdi-arrow-down"
-        color="download"
-        :value="downloadValue"
-        :active="isDownloadingFilterActive"
-        @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
-      <SpeedCard
-        orientation="row"
-        :title="t('navbar.side.current_speed.upload')"
-        icon="mdi-arrow-up"
-        color="upload"
-        :value="uploadValue"
-        :active="isUploadingFilterActive"
-        @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
-    </div>
+  <StatSection :title="t('navbar.side.current_speed.title')" columns="2">
+    <SpeedCard
+      orientation="row"
+      :title="t('navbar.side.current_speed.download')"
+      icon="mdi-arrow-down"
+      color="download"
+      :value="downloadValue"
+      :active="isDownloadingFilterActive"
+      @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
+    <SpeedCard
+      orientation="row"
+      :title="t('navbar.side.current_speed.upload')"
+      icon="mdi-arrow-up"
+      color="upload"
+      :value="uploadValue"
+      :active="isUploadingFilterActive"
+      @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
   </StatSection>
 </template>

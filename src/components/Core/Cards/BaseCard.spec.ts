@@ -11,11 +11,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
       props: {
         title: 'My Card',
         icon: 'mdi-test-card',
-        value: 'Home'
+        value: 'Home',
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.find('[data-testid="card-icon"]').classes('mdi-test-card')).toBe(true)
@@ -28,11 +28,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
         title: 'Colored Card',
         icon: 'mdi-palette',
         value: 'Color',
-        color: 'primary'
+        color: 'primary',
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
     expect(wrapper.find('[data-testid="card-content"]').classes('text-primary')).toBe(true)
   })
@@ -43,14 +43,14 @@ describe('components/Core/Cards/BaseCard.vue', () => {
       props: {
         title: 'Array Card',
         icon: 'mdi-array',
-        value: values
+        value: values,
       },
       slots: {
-        default: (props: any) => h('span', { 'data-testid': 'test-value' }, props.value)
+        default: (props: any) => h('span', { 'data-testid': 'test-value' }, props.value),
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     const content = wrapper.findAll('[data-testid="test-value"]')
@@ -66,11 +66,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
         title: 'Clickable Card',
         icon: 'mdi-clickable',
         value: 'Click me',
-        onClick: () => {}
+        onClick: () => {},
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.findComponent({ name: 'v-sheet' }).classes('cursor-pointer')).toBe(true)
@@ -81,11 +81,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
       props: {
         title: 'Clickable Card',
         icon: 'mdi-click',
-        value: 'Click me'
+        value: 'Click me',
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     await wrapper.findComponent({ name: 'v-sheet' }).trigger('click')
@@ -102,11 +102,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
         title: 'Active Card',
         icon: 'mdi-active',
         value: 'Active',
-        active: true
+        active: true,
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.findComponent({ name: 'v-sheet' }).props('color')).toBe('secondary-lighten-1')
@@ -118,11 +118,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
         title: 'Inactive Card',
         icon: 'mdi-inactive',
         value: 'Inactive',
-        active: false
+        active: false,
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.findComponent({ name: 'v-sheet' }).props('color')).toBe('secondary')
@@ -134,11 +134,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
         title: 'Row Card',
         icon: 'mdi-row',
         value: 'Row',
-        orientation: 'row'
+        orientation: 'row',
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.find('div.d-flex').classes('flex-row')).toBe(true)
@@ -150,11 +150,11 @@ describe('components/Core/Cards/BaseCard.vue', () => {
         title: 'Column Card',
         icon: 'mdi-column',
         value: 'Column',
-        orientation: 'column'
+        orientation: 'column',
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.find('div.d-flex').classes('flex-column')).toBe(true)
@@ -165,14 +165,14 @@ describe('components/Core/Cards/BaseCard.vue', () => {
       props: {
         title: 'Slot Card',
         icon: 'mdi-slot',
-        value: 'SlotValue'
+        value: 'SlotValue',
       },
       slots: {
-        default: (props: any) => props.value
+        default: (props: any) => props.value,
       },
       global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
     })
 
     expect(wrapper.find('[data-testid="card-content"]').text()).toBe('SlotValue')

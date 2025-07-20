@@ -11,41 +11,41 @@ const maindataStore = useMaindataStore()
 </script>
 
 <template>
-  <StatSection>
-    <div class="d-flex flex-column flex-gap">
-      <div class="d-flex flex-row flex-gap flex-wrap">
-        <UnitCard
-          :title="t('navbar.side.performance_stats.average_time_queue')"
-          :value="maindataStore.serverState?.average_time_queue ?? 0"
-          unit="ms"
-          color=""
-          icon="mdi-file-clock" />
-        <StringCard :title="t('navbar.side.performance_stats.queued_io_jobs')" :value="maindataStore.serverState?.queued_io_jobs ?? 0" color="" icon="mdi-harddisk" />
-      </div>
+  <StatSection columns="4">
+    <UnitCard
+      :title="t('navbar.side.performance_stats.average_time_queue')"
+      :value="maindataStore.serverState?.average_time_queue ?? 0"
+      unit="ms"
+      color=""
+      icon="mdi-file-clock"
+      class="grid-col-span-2" />
+    <StringCard
+      :title="t('navbar.side.performance_stats.queued_io_jobs')"
+      :value="maindataStore.serverState?.queued_io_jobs ?? 0"
+      color=""
+      icon="mdi-harddisk"
+      class="grid-col-span-2" />
 
-      <div class="d-flex flex-row flex-gap flex-wrap">
-        <DataCard :title="t('navbar.side.performance_stats.total_buffers_size')" :value="[maindataStore.serverState?.total_buffers_size ?? 0]" color="" icon="mdi-dns" />
-        <DataCard :title="t('navbar.side.performance_stats.total_queued_size')" :value="[maindataStore.serverState?.total_queued_size ?? 0]" color="" icon="mdi-tray-full" />
-      </div>
+    <DataCard
+      :title="t('navbar.side.performance_stats.total_buffers_size')"
+      :value="[maindataStore.serverState?.total_buffers_size ?? 0]"
+      color=""
+      icon="mdi-dns"
+      class="grid-col-span-2" />
+    <DataCard
+      :title="t('navbar.side.performance_stats.total_queued_size')"
+      :value="[maindataStore.serverState?.total_queued_size ?? 0]"
+      color=""
+      icon="mdi-tray-full"
+      class="grid-col-span-2" />
 
-      <div class="d-flex flex-row flex-gap flex-wrap">
-        <StringCard :title="t('navbar.side.performance_stats.read_cache_hits')" :value="maindataStore.serverState?.read_cache_hits ?? 0" color="download" icon="mdi-check-circle" />
-        <StringCard
-          :title="t('navbar.side.performance_stats.read_cache_overload')"
-          :value="maindataStore.serverState?.read_cache_overload ?? 0"
-          color="download"
-          icon="mdi-alert" />
-        <DataCard
-          :title="t('navbar.side.performance_stats.total_wasted_session')"
-          :value="[maindataStore.serverState?.total_wasted_session ?? 0]"
-          color="warning"
-          icon="mdi-recycle-variant" />
-        <StringCard
-          :title="t('navbar.side.performance_stats.write_cache_overload')"
-          :value="maindataStore.serverState?.write_cache_overload ?? 0"
-          color="warning"
-          icon="mdi-alert" />
-      </div>
-    </div>
+    <StringCard :title="t('navbar.side.performance_stats.read_cache_hits')" :value="maindataStore.serverState?.read_cache_hits ?? 0" color="download" icon="mdi-check-circle" />
+    <StringCard :title="t('navbar.side.performance_stats.read_cache_overload')" :value="maindataStore.serverState?.read_cache_overload ?? 0" color="download" icon="mdi-alert" />
+    <DataCard
+      :title="t('navbar.side.performance_stats.total_wasted_session')"
+      :value="[maindataStore.serverState?.total_wasted_session ?? 0]"
+      color="warning"
+      icon="mdi-recycle-variant" />
+    <StringCard :title="t('navbar.side.performance_stats.write_cache_overload')" :value="maindataStore.serverState?.write_cache_overload ?? 0" color="warning" icon="mdi-alert" />
   </StatSection>
 </template>

@@ -22,7 +22,7 @@ const {
   showFilterState,
   showFilterCategory,
   showFilterTag,
-  showFilterTracker
+  showFilterTracker,
 } = storeToRefs(useVueTorrentStore())
 
 const showFilters = computed(() => showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)

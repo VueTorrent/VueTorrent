@@ -7,7 +7,7 @@ import vuetify from '@/plugins/vuetify'
 
 const baseProps = {
   title: 'title',
-  icon: 'icon'
+  icon: 'icon',
 }
 
 describe('components/Core/Cards/StringCard.vue', () => {
@@ -16,11 +16,11 @@ describe('components/Core/Cards/StringCard.vue', () => {
       const wrapper = mount(StringCard, {
         props: {
           ...baseProps,
-          value
+          value,
         },
         global: {
-          plugins: [createTestingPinia(), i18n, vuetify]
-        }
+          plugins: [createTestingPinia(), i18n, vuetify],
+        },
       })
 
       expect(wrapper.text()).toBe(value.toString())

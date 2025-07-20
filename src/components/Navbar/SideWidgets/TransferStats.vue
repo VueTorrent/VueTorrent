@@ -9,20 +9,18 @@ const maindataStore = useMaindataStore()
 </script>
 
 <template>
-  <StatSection>
-    <div class="d-flex flex-row flex-gap-column">
-      <DataCard
-        orientation="row"
-        :title="t('navbar.side.transfer_stats.download')"
-        :value="[maindataStore.serverState?.alltime_dl ?? 0, maindataStore.serverState?.dl_info_data ?? 0]"
-        color="download"
-        icon="mdi-download" />
-      <DataCard
-        orientation="row"
-        :title="t('navbar.side.transfer_stats.upload')"
-        :value="[maindataStore.serverState?.alltime_ul ?? 0, maindataStore.serverState?.up_info_data ?? 0]"
-        color="upload"
-        icon="mdi-upload" />
-    </div>
+  <StatSection columns="2">
+    <DataCard
+      orientation="row"
+      :title="t('navbar.side.transfer_stats.download')"
+      :value="[maindataStore.serverState?.alltime_dl ?? 0, maindataStore.serverState?.dl_info_data ?? 0]"
+      color="download"
+      icon="mdi-download" />
+    <DataCard
+      orientation="row"
+      :title="t('navbar.side.transfer_stats.upload')"
+      :value="[maindataStore.serverState?.alltime_ul ?? 0, maindataStore.serverState?.up_info_data ?? 0]"
+      color="upload"
+      icon="mdi-upload" />
   </StatSection>
 </template>
