@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import SpeedCard from './Cards/SpeedCard.vue'
 import StatSection from './StatSection.vue'
-import SpeedCard from '@/components/Core/Cards/SpeedCard.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'

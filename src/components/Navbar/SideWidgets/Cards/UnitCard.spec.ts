@@ -10,7 +10,7 @@ const baseProps = {
   icon: 'icon',
 }
 
-describe('components/Core/Cards/UnitCard.vue', () => {
+describe('UnitCard.vue', () => {
   test('Display value and unit correctly', () => {
     const wrapper = mount(UnitCard, {
       props: {

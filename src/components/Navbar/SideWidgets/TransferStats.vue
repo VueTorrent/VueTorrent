@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import DataCard from './Cards/DataCard.vue'
 import StatSection from './StatSection.vue'
-import DataCard from '@/components/Core/Cards/DataCard.vue'
 import { useI18nUtils } from '@/composables'
 import { useMaindataStore } from '@/stores'
 

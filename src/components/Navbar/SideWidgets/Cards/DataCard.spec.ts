@@ -1,7 +1,7 @@
 import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
 import { describe, expect } from 'vitest'
-import SpeedCard from './SpeedCard.vue'
+import DataCard from './DataCard.vue'
 import i18n from '@/plugins/i18n'
 import vuetify from '@/plugins/vuetify'
 
@@ -10,23 +10,23 @@ const baseProps = {
   icon: 'icon',
 }
 
-describe('components/Core/Cards/SpeedCard.vue', () => {
+describe('DataCard.vue', () => {
   describe('should format value and unit correctly', () => {
     test.each([
-      [10, true, '80', 'bps'],
-      [10, false, '10', 'B/s'],
-      [10_000, true, '80.0', 'kbps'],
-      [10_000, false, '10.0', 'kB/s'],
-      [10_000_000, true, '80.0', 'Mbps'],
-      [10_000_000, false, '10.0', 'MB/s'],
-    ])('%i | %s -> %s %s', (value, useBitSpeed, expectedValue, expectedUnit) => {
-      const wrapper = mount(SpeedCard, {
+      [10, true, '10', 'B'],
+      [10, false, '10', 'B'],
+      [10_240, true, '10.0', 'kiB'],
+      [10_000, false, '10.0', 'kB'],
+      [10_485_760, true, '10.0', 'MiB'],
+      [10_000_000, false, '10.0', 'MB'],
+    ])('%i | %s -> %s %s', (value, useBinarySize, expectedValue, expectedUnit) => {
+      const wrapper = mount(DataCard, {
         props: {
           ...baseProps,
           value,
         },
         global: {
-          plugins: [createTestingPinia({ initialState: { vuetorrent: { useBitSpeed } } }), i18n, vuetify],
+          plugins: [createTestingPinia({ initialState: { vuetorrent: { useBinarySize } } }), i18n, vuetify],
         },
       })
 

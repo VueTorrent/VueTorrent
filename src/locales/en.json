@@ -654,9 +654,9 @@
         "total_buffers_size": "Total size of all buffers",
         "total_queued_size": "Total size of the queue",
         "read_cache_hits": "Read disk cache hit count",
-        "read_cache_overload": "Read disk cache overload (= {disk read queue size} / {peers count})",
+        "read_cache_overload": "Read disk cache overload (= disk read queue size / peers count)",
         "total_wasted_session": "Total wasted session data (piece check not passed, duplicate download)",
-        "write_cache_overload": "Write disk cache overload (= {disk write queue size} / {peers count})"
+        "write_cache_overload": "Write disk cache overload (= disk write queue size / peers count)"
       },
       "speed_graph": {
         "download_label": "Download",

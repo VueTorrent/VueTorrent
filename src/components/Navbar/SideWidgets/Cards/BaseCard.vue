@@ -33,9 +33,12 @@ const contentOrientation = computed(() => {
 
       <div data-testid="card-content" :class="['flex-grow-1', 'flex-row', 'text-center', 'text-select', textColorClass]">
         <template v-if="Array.isArray(value)">
-          <div v-for="(val, i) in value" :key="i">
-            <slot :value="val"></slot>
-          </div>
+          <template v-for="(val, i) in value" :key="i">
+            <v-divider v-if="i > 0" opacity=".75" thickness="2" style="border-top-style: dashed" />
+            <div>
+              <slot :value="val"></slot>
+            </div>
+          </template>
         </template>
         <slot v-else :value="value"></slot>
       </div>

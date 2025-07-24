@@ -1167,19 +1167,19 @@ export default class MockProvider implements IProvider {
       global_ratio: (alltime_ul / alltime_dl).toFixed(2),
       queued_io_jobs: faker.number.int({ min: 0, max: 1500 }),
       queueing: false,
-      read_cache_hits: '0',
-      read_cache_overload: '0',
+      read_cache_hits: faker.number.int({ min: 0, max: 100 }).toString(),
+      read_cache_overload: faker.number.int({ min: 0, max: 100 }).toString(),
       refresh_interval: 2500,
-      total_buffers_size: 0,
-      total_peer_connections: 0,
-      total_queued_size: 0,
-      total_wasted_session: 0,
+      total_buffers_size: faker.number.int({ min: 0, max: 100_000 }), // [0B; 100 kB]
+      total_peer_connections: faker.number.int({ min: 0, max: 5000 }),
+      total_queued_size: faker.number.int({ min: 0, max: 100_000 }), // [0B; 100 kB]
+      total_wasted_session: faker.number.int({ min: 0, max: 1_000_000 }),
       up_info_data: faker.number.int({ min: 0, max: 100_000_000_000 }), // [0 B; 100 GB]
       up_info_speed: faker.number.int({ min: 0, max: up_rate_limit || 125_000_000 }), // [0 b/s; 1 Gb/s]
       up_rate_limit,
       use_alt_speed_limits: false,
       use_subcategories: false,
-      write_cache_overload: '0',
+      write_cache_overload: faker.number.int({ min: 0, max: 100 }).toString(),
     }
 
     return this.generateResponse({

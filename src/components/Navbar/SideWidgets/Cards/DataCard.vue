@@ -4,7 +4,7 @@ import { CardProps } from './CardProps'
 import { formatDataUnit, formatDataValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 
-const { ...childProps } = defineProps<CardProps<number>>()
+const childProps = defineProps<CardProps<number>>()
 
 const vueTorrentStore = useVueTorrentStore()
 </script>

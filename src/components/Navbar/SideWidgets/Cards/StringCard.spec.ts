@@ -10,7 +10,7 @@ const baseProps = {
   icon: 'icon',
 }
 
-describe('components/Core/Cards/StringCard.vue', () => {
+describe('StringCard.vue', () => {
   describe('should display value as string', () => {
     test.each([['value1'], ['value2'], [1], [2], [true], [false]])('%s', value => {
       const wrapper = mount(StringCard, {

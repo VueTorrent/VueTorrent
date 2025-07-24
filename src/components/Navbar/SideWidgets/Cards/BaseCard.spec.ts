@@ -5,7 +5,7 @@ import BaseCard from './BaseCard.vue'
 import i18n from '@/plugins/i18n'
 import vuetify from '@/plugins/vuetify'
 
-describe('components/Core/Cards/BaseCard.vue', () => {
+describe('BaseCard.vue', () => {
   test('renders the title and icon correctly', () => {
     const wrapper = mount(BaseCard, {
       props: {
@@ -58,6 +58,26 @@ describe('components/Core/Cards/BaseCard.vue', () => {
     values.forEach((val, i) => {
       expect(content[i].text()).toBe(val)
     })
+  })
+
+  test('renders dividers with multiple values', () => {
+    const values = ['One', 'Two', 'Three']
+    const wrapper = mount(BaseCard, {
+      props: {
+        title: 'Array Card',
+        icon: 'mdi-array',
+        value: values,
+      },
+      slots: {
+        default: (props: any) => h('span', { 'data-testid': 'test-value' }, props.value),
+      },
+      global: {
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
+    })
+
+    const content = wrapper.findAll('hr')
+    expect(content).toHaveLength(values.length - 1)
   })
 
   test('Component renders pointer cursor when click event supplied', () => {

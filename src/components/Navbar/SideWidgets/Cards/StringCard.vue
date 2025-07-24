@@ -2,7 +2,7 @@
 import BaseCard from './BaseCard.vue'
 import { CardProps } from './CardProps'
 
-const { ...childProps } = defineProps<CardProps<any>>()
+const childProps = defineProps<CardProps<any>>()
 </script>
 
 <template>

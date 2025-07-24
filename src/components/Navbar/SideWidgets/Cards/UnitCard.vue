@@ -2,7 +2,7 @@
 import BaseCard from './BaseCard.vue'
 import { CardProps } from './CardProps'
 
-const { unit, ...childProps } = defineProps<CardProps<any> & { unit: string }>()
+const childProps = defineProps<CardProps<any> & { unit: string }>()
 </script>
 
 <template>
