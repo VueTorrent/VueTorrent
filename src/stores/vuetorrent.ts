@@ -32,8 +32,8 @@ export const useVueTorrentStore = defineStore(
     const showFilterTag = ref(true)
     const showFilterTracker = ref(true)
     const showSpeedGraph = ref(true)
-    const showSessionStat = ref(true)
-    const showAlltimeStat = ref(true)
+    const showTransferStats = ref(true)
+    const showPerformanceStats = ref(true)
     const showCurrentSpeed = ref(true)
     const showSpeedInTitle = ref(false)
     /** @deprecated */
@@ -134,7 +134,7 @@ export const useVueTorrentStore = defineStore(
 
     const { locale } = useI18nUtils()
     const router = useRouter()
-    const { global } = useTheme()
+    const themeVuetify = useTheme()
 
     watch(language, setLanguage)
 
@@ -148,13 +148,13 @@ export const useVueTorrentStore = defineStore(
     function updateTheme() {
       switch (theme.mode) {
         case ThemeMode.LIGHT:
-          global.name.value = theme.light
+          themeVuetify.change(theme.light)
           break
         case ThemeMode.DARK:
-          global.name.value = theme.dark
+          themeVuetify.change(theme.dark)
           break
         case ThemeMode.SYSTEM:
-          global.name.value = mediaQueryPreferDark.value ? theme.dark : theme.light
+          themeVuetify.change(mediaQueryPreferDark.value ? theme.dark : theme.light)
       }
     }
 
@@ -248,14 +248,14 @@ export const useVueTorrentStore = defineStore(
       language,
       paginationSize,
       refreshInterval,
-      showAlltimeStat,
+      showTransferStats,
+      showPerformanceStats,
       showCurrentSpeed,
       showFreeSpace,
       showFilterState,
       showFilterCategory,
       showFilterTag,
       showFilterTracker,
-      showSessionStat,
       showSpeedGraph,
       showSpeedInTitle,
       uiTitleType,
@@ -304,8 +304,8 @@ export const useVueTorrentStore = defineStore(
         showFilterTag.value = true
         showFilterTracker.value = true
         showSpeedGraph.value = true
-        showSessionStat.value = true
-        showAlltimeStat.value = true
+        showTransferStats.value = true
+        showPerformanceStats.value = true
         showCurrentSpeed.value = true
         showSpeedInTitle.value = false
         deleteWithFiles.value = false

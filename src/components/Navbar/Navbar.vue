@@ -1,25 +1,13 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import BottomActions from './SideWidgets/BottomActions.vue'
-import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
-import Filters from './SideWidgets/Filters.vue'
-import FreeSpace from './SideWidgets/FreeSpace.vue'
-import SpeedGraph from './SideWidgets/SpeedGraph.vue'
-import TransferStats from './SideWidgets/TransferStats.vue'
 import ActiveFilters from './TopWidgets/ActiveFilters.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
-import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
+import { useNavbarStore } from '@/stores'
 
 const router = useRouter()
-const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSessionStat, showFreeSpace, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } =
-  storeToRefs(useVueTorrentStore())
-
-const showFilters = computed(() => showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
 
 function toggleDrawer() {
   isDrawerOpen.value = !isDrawerOpen.value
@@ -31,43 +19,6 @@ function goHome() {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="isDrawerOpen" class="ios-padding" :location="isDrawerRight ? 'right' : 'left'" color="navbar" disable-route-watcher>
-    <v-list class="clean-px px-2 pt-0">
-      <v-list-item v-if="showCurrentSpeed">
-        <CurrentSpeed />
-      </v-list-item>
-
-      <v-list-item v-if="showSpeedGraph">
-        <SpeedGraph />
-      </v-list-item>
-
-      <v-list-item v-if="showAlltimeStat">
-        <TransferStats :session="false" />
-      </v-list-item>
-
-      <v-list-item v-if="showSessionStat">
-        <TransferStats :session="true" />
-      </v-list-item>
-
-      <v-list-item v-if="showFreeSpace">
-        <FreeSpace />
-      </v-list-item>
-
-      <v-list-item v-if="showFilters">
-        <Filters />
-      </v-list-item>
-
-      <v-list-item density="compact">
-        <div class="d-flex justify-center text-accent text-select">
-          {{ dashboardStore.torrentCountString }}
-        </div>
-      </v-list-item>
-    </v-list>
-    <template #append>
-      <BottomActions />
-    </template>
-  </v-navigation-drawer>
-
   <v-app-bar class="ios-padding">
     <v-app-bar-nav-icon @click="toggleDrawer" />
     <div class="title-wrapper cursor-pointer" @click="goHome">
@@ -85,10 +36,6 @@ function goHome() {
 </template>
 
 <style scoped lang="scss">
-.clean-px > * {
-  padding-inline-start: 0 !important;
-  padding-inline-end: 0 !important;
-}
 .title-wrapper {
   display: inline-flex;
   width: min-content;

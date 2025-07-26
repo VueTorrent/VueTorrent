@@ -87,3 +87,27 @@ tr.ripple-fix {
 .v-list::-webkit-scrollbar {
   width: 0.8rem;
 }
+
+/* Grid layout */
+.d-grid {
+  display: grid;
+}
+
+/* Setup grid column templates from 1 to 8 with step 2 */
+@for $i from 1 through 4 {
+  $i-step: $i * 2;
+
+  .grid-columns {
+    &-#{$i-step} {
+      grid-template-columns: repeat($i-step, 1fr);
+    }
+  }
+}
+
+@for $i from 1 through 8 {
+  .grid-col-span {
+    &-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}

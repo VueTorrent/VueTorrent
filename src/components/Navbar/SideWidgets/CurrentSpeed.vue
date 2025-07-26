@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
-import SpeedCard from '@/components/Core/SpeedCard.vue'
+import SpeedCard from './Cards/SpeedCard.vue'
+import StatSection from './StatSection.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
@@ -28,46 +29,39 @@ function selectUploading() {
 
 const isDownloadingFilterActive = computed(() => downloadingStates.every(state => statusFilter.value.includes(state)) && downloadingStates.length === statusFilter.value.length)
 const isUploadingFilterActive = computed(() => uploadingStates.every(state => statusFilter.value.includes(state)) && uploadingStates.length === statusFilter.value.length)
+
+const isLimitDefined = computed(() => !!serverState.value?.dl_rate_limit || !!serverState.value?.up_rate_limit)
+const downloadValue = computed(() => {
+  if (displayGraphLimits && isLimitDefined.value && serverState.value?.dl_rate_limit) {
+    return [serverState.value?.dl_info_speed ?? 0, serverState.value?.dl_rate_limit ?? 0]
+  }
+  return serverState.value?.dl_info_speed ?? 0
+})
+const uploadValue = computed(() => {
+  if (displayGraphLimits && isLimitDefined.value && serverState.value?.up_rate_limit) {
+    return [serverState.value?.up_info_speed ?? 0, serverState.value?.up_rate_limit ?? 0]
+  }
+  return serverState.value?.up_info_speed ?? 0
+})
 </script>
 
 <template>
-  <v-card flat class="inherit-bg">
-    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
-      {{ t('navbar.side.current_speed.title') }}
-    </v-card-title>
-    <v-card-text class="px-0">
-      <v-sheet class="mx-2 inherit-bg">
-        <v-row class="pt-0">
-          <v-col cols="6" class="px-1 pt-1">
-            <SpeedCard
-              icon="mdi-arrow-down"
-              color="download"
-              :value="serverState?.dl_info_speed ?? 0"
-              :active="isDownloadingFilterActive"
-              @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
-          </v-col>
-          <v-col cols="6" class="px-1 pt-1">
-            <SpeedCard
-              icon="mdi-arrow-up"
-              color="upload"
-              :value="serverState?.up_info_speed ?? 0"
-              :active="isUploadingFilterActive"
-              @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
-          </v-col>
-
-          <template v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)">
-            <v-col v-if="serverState.dl_rate_limit" cols="6" class="px-1 pt-0">
-              <SpeedCard icon="mdi-arrow-collapse-down" color="download" :value="serverState.dl_rate_limit" />
-            </v-col>
-            <v-col v-else cols="6" />
-
-            <v-col v-if="serverState.up_rate_limit" cols="6" class="px-1 pt-0">
-              <SpeedCard icon="mdi-arrow-collapse-up" color="upload" :value="serverState.up_rate_limit" />
-            </v-col>
-            <v-col v-else cols="6" />
-          </template>
-        </v-row>
-      </v-sheet>
-    </v-card-text>
-  </v-card>
+  <StatSection :title="t('navbar.side.current_speed.title')" columns="2">
+    <SpeedCard
+      orientation="row"
+      :title="t('navbar.side.current_speed.download')"
+      icon="mdi-arrow-down"
+      color="download"
+      :value="downloadValue"
+      :active="isDownloadingFilterActive"
+      @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
+    <SpeedCard
+      orientation="row"
+      :title="t('navbar.side.current_speed.upload')"
+      icon="mdi-arrow-up"
+      color="upload"
+      :value="uploadValue"
+      :active="isUploadingFilterActive"
+      @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
+  </StatSection>
 </template>

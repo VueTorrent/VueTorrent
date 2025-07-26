@@ -6,6 +6,7 @@ import AddPanel from './components/AddPanel.vue'
 import AddTorrentDialog from './components/Dialogs/AddTorrentDialog.vue'
 import DnDZone from './components/DnDZone.vue'
 import Navbar from './components/Navbar/Navbar.vue'
+import Sidebar from './components/Navbar/Sidebar.vue'
 import { useBackendSync, useI18nUtils } from './composables'
 import { TitleOptions } from './constants/vuetorrent'
 import { formatPercent, formatSpeed } from './helpers'
@@ -155,6 +156,7 @@ watchEffect(() => {
 <template>
   <v-app class="text-noselect">
     <component :is="dialog.component" v-for="dialog in dialogStore.dialogs.values()" :key="dialog.guid" v-bind="{ guid: dialog.guid, ...dialog.props }" />
+    <Sidebar v-if="appStore.isAuthenticated" />
     <Navbar v-if="appStore.isAuthenticated" />
     <v-main>
       <router-view :key="routerDomKey" />

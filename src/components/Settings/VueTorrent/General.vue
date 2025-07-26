@@ -200,10 +200,10 @@ function openDurationFormatHelp() {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showAlltimeStat" hide-details density="compact" :label="t('settings.vuetorrent.general.showAlltimeStat')" />
+          <v-checkbox v-model="vueTorrentStore.showTransferStats" hide-details density="compact" :label="t('settings.vuetorrent.general.showTransferStats')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showSessionStat" hide-details density="compact" :label="t('settings.vuetorrent.general.showSessionStat')" />
+          <v-checkbox v-model="vueTorrentStore.showPerformanceStats" hide-details density="compact" :label="t('settings.vuetorrent.general.showPerformanceStats')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -247,6 +247,7 @@ function openDurationFormatHelp() {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBitSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.expandContent" hide-details density="compact" :label="t('settings.vuetorrent.general.expandContent')" />
         </v-col>

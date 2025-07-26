@@ -15,9 +15,9 @@ export enum TorrentState {
   META_DOWNLOAD,
   /** Torrent is forced to fetch metadata */
   FORCED_META_DOWNLOAD,
-  /** Queuing is enabled and torrent is queued for upload */
+  /** queueing is enabled and torrent is queued for upload */
   UL_QUEUED,
-  /** Queuing is enabled and torrent is queued for download */
+  /** queueing is enabled and torrent is queued for download */
   DL_QUEUED,
   /** Torrent is being seeded, but no connection were made */
   UL_STALLED,
