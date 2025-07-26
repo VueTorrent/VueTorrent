@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { onBeforeMount, onMounted, watch, watchEffect } from 'vue'
+import { onBeforeMount, onMounted, watch, watchEffect, onBeforeUnmount } from 'vue'
 import { toast } from 'vue3-toastify'
 import AddPanel from './components/AddPanel.vue'
 import AddTorrentDialog from './components/Dialogs/AddTorrentDialog.vue'
@@ -57,16 +57,14 @@ async function checkAuthentication() {
   return promise.then(() => clearTimeout(timer))
 }
 
-function blockContextMenu() {
-  document.addEventListener('contextmenu', event => {
-    if (!event.target) return
+function blockContextMenu(event: Event) {
+  if (!event.target) return
 
-    const targetNode = event.target as Element
-    if (targetNode.closest('[data-custom-context-menu]')) {
-      event.preventDefault()
-      return false
-    }
-  })
+  const targetNode = event.target as Element
+  if (targetNode.closest('[data-custom-context-menu]')) {
+    event.preventDefault()
+    return false
+  }
 }
 
 function addLaunchQueueConsumer() {
@@ -85,14 +83,19 @@ function addLaunchQueueConsumer() {
 onBeforeMount(() => {
   vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
-  blockContextMenu()
   addLaunchQueueConsumer()
   void checkAuthentication()
+
+  document.addEventListener('contextmenu', blockContextMenu)
 })
 
 onMounted(() => {
   // Global error handler flag
   sessionStorage.setItem('vuetorrent_mounted', 'true')
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('contextmenu', blockContextMenu)
 })
 
 watch(

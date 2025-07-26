@@ -26,7 +26,7 @@ const height = computed(() => {
   return deviceHeight.value - 48 * 2 - 64 - 12 * 2 - 56 - 8
 })
 
-async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
+async function onRightClick(e: MouseEvent, node: TreeNode) {
   if (rightClickProperties.value.isVisible) {
     rightClickProperties.value.isVisible = false
     await nextTick()

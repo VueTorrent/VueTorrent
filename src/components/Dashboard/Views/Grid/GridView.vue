@@ -25,7 +25,7 @@ const dashboardStore = useDashboardStore()
     <v-col
       v-for="torrent in paginatedTorrents"
       :key="torrent.hash"
-      v-on-long-press.prevent="e => $emit('onTorrentRightClick', e, torrent)"
+      v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
       data-custom-context-menu
       cols="12"
       lg="3"

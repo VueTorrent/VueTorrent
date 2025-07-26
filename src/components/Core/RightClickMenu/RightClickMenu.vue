@@ -20,6 +20,7 @@ const isCtrlPressed = useKeyModifier(isMac ? 'Meta' : 'Control', { initial: fals
     activator="parent"
     :close-on-content-click="!isCtrlPressed"
     transition="slide-y-transition"
+    class="text-noselect"
     scroll-strategy="none">
     <v-list>
       <slot name="top" />
