@@ -19,7 +19,7 @@ const rssStore = useRssStore()
 
 <template>
   <v-list-item
-    v-on-long-press.prevent="() => $emit('markAsRead')"
+    v-on-long-press="() => $emit('markAsRead')"
     data-custom-context-menu
     :class="{ 'rss-read': value.isRead }"
     @click="$emit('click')"

@@ -96,7 +96,7 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
   }
 }
 
-async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
+async function onTorrentRightClick(e: MouseEvent, torrent: TorrentType) {
   if (rightClickProperties.value.isVisible) {
     rightClickProperties.value.isVisible = false
     await nextTick()

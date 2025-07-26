@@ -14,7 +14,7 @@ const props = defineProps<{
 }>()
 
 defineEmits<{
-  onRightClick: [e: MouseEvent | Touch, node: TreeNode]
+  onRightClick: [e: MouseEvent, node: TreeNode]
 }>()
 
 const folderColor = '#ffe476'
@@ -91,7 +91,7 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <div
-    v-on-long-press.prevent="e => $emit('onRightClick', e, node)"
+    v-on-long-press="e => $emit('onRightClick', e, node)"
     data-custom-context-menu
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
@@ -99,9 +99,9 @@ function getNodeSubtitle(node: TreeNode) {
     @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
       <!-- Selection checkbox -->
-      <div class="d-flex align-center" @click.stop="contentStore.toggleFileSelection(node)">
-        <v-icon v-if="node.priority === FilePriority.MIXED" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
-        <v-icon v-else-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
+      <div class="d-flex align-center cursor-pointer" @click.stop="contentStore.toggleFileSelection(node)">
+        <v-icon v-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
+        <v-icon v-else-if="node.priority === FilePriority.MIXED" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
         <v-icon v-else :color="getNodeColor(node)" icon="mdi-checkbox-blank-outline" />
       </div>
 

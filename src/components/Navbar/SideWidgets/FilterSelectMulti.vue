@@ -122,7 +122,7 @@ function disableFilter(value: T) {
       </template>
       <template #item="{ item }">
         <v-list-item
-          v-on-long-press.prevent="() => disableFilter(item.value)"
+          v-on-long-press="() => disableFilter(item.value)"
           data-custom-context-menu
           :title="item.title"
           :class="getClassColor(item.value)"
