@@ -84,9 +84,9 @@ function getTorrentRowColorClass(torrent: TorrentType) {
     <template #item="{ item: torrent }">
       <tr
         v-ripple
-        v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
-        :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
+        v-on-long-press.prevent="e => $emit('onTorrentRightClick', e, torrent)"
         data-custom-context-menu
+        :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">

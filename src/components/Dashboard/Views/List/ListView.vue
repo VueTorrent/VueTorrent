@@ -28,9 +28,9 @@ const dashboardStore = useDashboardStore()
       v-for="torrent in paginatedTorrents"
       :id="`torrent-${torrent.hash}`"
       :key="torrent.hash"
-      v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
-      :class="['pa-0', display.mobile ? 'mb-2' : 'mb-4']"
+      v-on-long-press.prevent="e => $emit('onTorrentRightClick', e, torrent)"
       data-custom-context-menu
+      :class="['pa-0', display.mobile ? 'mb-2' : 'mb-4']"
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
       @dblclick="$emit('onTorrentDblClick', torrent)">
       <div class="d-flex align-center">

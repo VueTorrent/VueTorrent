@@ -91,10 +91,10 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <div
-    v-on-long-press="e => $emit('onRightClick', e, node)"
+    v-on-long-press.prevent="e => $emit('onRightClick', e, node)"
+    data-custom-context-menu
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
-    data-custom-context-menu
     @click.stop="toggleInternalSelection($event, node)"
     @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
