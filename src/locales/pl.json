@@ -443,15 +443,9 @@
         "upload_limit_label": "Limit wysyłania"
       },
       "stats": {
-        "alltime": {
-          "title": "Statystyki ogólne"
-        },
         "downloaded": "Pobrano",
         "free_space": "Wolne miejsce",
         "ratio": "Stosunek",
-        "session": {
-          "title": "Statystyki sesji"
-        },
         "uploaded": "Przesłane"
       }
     },
@@ -886,10 +880,8 @@
         "refreshInterval": "Interwał odświeżania API qBittorrent",
         "registerMagnet": "Zarejestruj linki magnet",
         "resetSettings": "Resetuj ustawienia",
-        "showAlltimeStat": "Pokaż statystyki ogólne",
         "showCurrentSpeed": "Pokaż aktualną prędkość",
         "showFreeSpace": "Pokaż wolne miejsce",
-        "showSessionStat": "Pokaż statystyki sesji",
         "showSpeedGraph": "Pokaż wykres prędkości",
         "tip": "Te ustawienia dotyczą niestandardowego interfejsu WebUI",
         "useBinarySize": "Zastąp jednostki danych jednostkami binarnymi (kB -> KiB)",

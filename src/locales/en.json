@@ -645,16 +645,16 @@
         }
       },
       "free_space": {
-        "global_ratio": "Global ratio",
-        "free_space_on_disk": "Free space for default save path"
+        "free_space_on_disk": "Free space for default save path",
+        "global_ratio": "Global ratio"
       },
       "performance_stats": {
         "average_time_queue": "Average time in queue",
         "queued_io_jobs": "IO jobs in queue (Checking / Moving / Content rename)",
-        "total_buffers_size": "Total size of all buffers",
-        "total_queued_size": "Total size of the queue",
         "read_cache_hits": "Read disk cache hit count",
         "read_cache_overload": "Read disk cache overload (= disk read queue size / peers count)",
+        "total_buffers_size": "Total size of all buffers",
+        "total_queued_size": "Total size of the queue",
         "total_wasted_session": "Total wasted session data (piece check not passed, duplicate download)",
         "write_cache_overload": "Write disk cache overload (= disk write queue size / peers count)"
       },
@@ -1207,9 +1207,9 @@
           "tracker": "Tracker"
         },
         "showFreeSpace": "Show Free Space",
+        "showPerformanceStats": "Show Performance Stats",
         "showSpeedGraph": "Show Speed Graph",
         "showTransferStats": "Show Transfer Stats",
-        "showPerformanceStats": "Show Performance Stats",
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",

@@ -479,15 +479,9 @@
         "upload_limit_label": "Yükleme sınırı"
       },
       "stats": {
-        "alltime": {
-          "title": "Tüm Zaman İstatistikleri"
-        },
         "downloaded": "İndirilen",
         "free_space": "Boş Alan",
         "ratio": "Oran",
-        "session": {
-          "title": "Oturum İstatistikleri"
-        },
         "uploaded": "Yüklenen"
       }
     },
@@ -953,10 +947,8 @@
         "refreshInterval": "qBittorrent API yenileme aralığı",
         "registerMagnet": "Magnet bağlantılarını kaydet",
         "resetSettings": "Ayarları Sıfırla",
-        "showAlltimeStat": "Tüm Zaman İstatistiklerini Göster",
         "showCurrentSpeed": "Mevcut Hızı Göster",
         "showFreeSpace": "Boş Alanı Göster",
-        "showSessionStat": "Oturum İstatistiklerini Göster",
         "showSpeedGraph": "Hız Grafiğini Göster",
         "tip": "Bu ayarlar özel WebUI'nin kendisi içindir",
         "useBinarySize": "Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ",

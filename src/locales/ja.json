@@ -480,15 +480,9 @@
         "upload_limit_label": "UP速度制限"
       },
       "stats": {
-        "alltime": {
-          "title": "過去の統計"
-        },
         "downloaded": "DL済み",
         "free_space": "空き容量",
         "ratio": "共有比",
-        "session": {
-          "title": "セッション統計"
-        },
         "uploaded": "UP済み"
       }
     },
@@ -954,10 +948,8 @@
         "refreshInterval": "qBittorrent API更新間隔",
         "registerMagnet": "マグネットリンクを登録する",
         "resetSettings": "設定をリセット",
-        "showAlltimeStat": "過去の統計を表示する",
         "showCurrentSpeed": "現在の速度を表示する",
         "showFreeSpace": "空き容量を表示する",
-        "showSessionStat": "セッション統計を表示する",
         "showSpeedGraph": "速度グラフを表示する",
         "tip": "これらの設定はカスタムWebUI自体のためのものです",
         "useBinarySize": "データサイズの単位をバイナリ単位に置き換える (kB -> KiB)",

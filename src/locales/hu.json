@@ -444,15 +444,9 @@
         "upload_limit_label": "Feltöltési korlát"
       },
       "stats": {
-        "alltime": {
-          "title": "Összes idő statisztikája"
-        },
         "downloaded": "Letöltve",
         "free_space": "Szabad hely",
         "ratio": "Arány",
-        "session": {
-          "title": "Munkamenet statisztikája"
-        },
         "uploaded": "Feltöltve"
       }
     },
@@ -887,10 +881,8 @@
         "refreshInterval": "qBittorrent API frissítési intervalluma",
         "registerMagnet": "Mágnes linkek regisztrálása",
         "resetSettings": "Beállítások visszaállítása",
-        "showAlltimeStat": "Összes idő statisztikájának megjelenítése",
         "showCurrentSpeed": "Aktuális sebesség megjelenítése",
         "showFreeSpace": "Szabad hely megjelenítése",
-        "showSessionStat": "Munkamenet statisztikájának megjelenítése",
         "showSpeedGraph": "Sebességgrafikon megjelenítése",
         "tip": "Ezek a beállítások a testreszabott WebUI-ra vonatkoznak",
         "useBinarySize": "Az adatméretek bináris egységekre való cseréje (kB -> KiB)",

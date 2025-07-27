@@ -390,15 +390,9 @@
         "upload_limit_label": "Limite di Upload"
       },
       "stats": {
-        "alltime": {
-          "title": "Statistiche Totali"
-        },
         "downloaded": "Scaricati",
         "free_space": "Spazio libero",
         "ratio": "Rapporto",
-        "session": {
-          "title": "Statistiche Sessione"
-        },
         "uploaded": "Caricati"
       }
     },

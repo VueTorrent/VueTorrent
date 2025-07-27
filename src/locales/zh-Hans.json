@@ -582,15 +582,9 @@
         "upload_limit_label": "上传速度限制"
       },
       "stats": {
-        "alltime": {
-          "title": "全局统计数据"
-        },
         "downloaded": "已下载",
         "free_space": "剩余空间",
         "ratio": "分享率",
-        "session": {
-          "title": "本次会话统计"
-        },
         "uploaded": "已上传"
       }
     },
@@ -1108,10 +1102,8 @@
         "refreshInterval": "qBittorrent API 刷新间隔",
         "registerMagnet": "注册为磁力链程序",
         "resetSettings": "重置设置",
-        "showAlltimeStat": "显示全局统计数据",
         "showCurrentSpeed": "显示当前速度",
         "showFreeSpace": "显示剩余空间",
-        "showSessionStat": "显示本次会话统计",
         "showSpeedGraph": "显示速度图表",
         "tip": "这些设置适用于自定义WebUI",
         "useBinarySize": "以二进制单位表示数据大小 (kB -> KiB)",
