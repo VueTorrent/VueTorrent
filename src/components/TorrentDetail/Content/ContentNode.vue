@@ -100,8 +100,8 @@ function getNodeSubtitle(node: TreeNode) {
     <div class="d-flex">
       <!-- Selection checkbox -->
       <div class="d-flex align-center cursor-pointer" @click.stop="contentStore.toggleFileSelection(node)">
-        <v-icon v-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
-        <v-icon v-else-if="node.priority === FilePriority.MIXED" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
+        <v-icon v-if="node.allWanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
+        <v-icon v-else-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
         <v-icon v-else :color="getNodeColor(node)" icon="mdi-checkbox-blank-outline" />
       </div>
 
