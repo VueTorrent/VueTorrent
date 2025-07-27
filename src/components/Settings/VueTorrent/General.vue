@@ -5,7 +5,7 @@ import { toast } from 'vue3-toastify'
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
-import { openLink } from '@/helpers'
+import { downloadFile, openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { backend } from '@/services/backend'
 import { Github } from '@/services/Github'
@@ -131,15 +131,7 @@ function downloadSettings() {
 
   const jsonString = JSON.stringify(JSON.parse(settings), null, 2)
   const blob = new Blob([jsonString], { type: 'application/json' })
-  const blobUrl = URL.createObjectURL(blob)
-
-  const a = document.createElement('a')
-  a.href = blobUrl
-  a.download = 'settings.json'
-
-  document.body.appendChild(a)
-  a.click()
-  document.body.removeChild(a)
+  downloadFile('settings.json', blob)
 }
 
 function importSettings() {
@@ -163,7 +155,12 @@ async function checkNewVersion() {
   if (backend.isUp) {
     await backend
       .update()
-      .then(msg => toast.success(msg, { autoClose: 3000 }))
+      .then(res => {
+        toast.success(res.data, { autoClose: 3000 })
+        if (res.status === 200) {
+          setTimeout(() => location.reload(), 1500)
+        }
+      })
       .catch(err => toast.error(`${err.status} ${err.message}`, { autoClose: 5000 }))
     return
   }

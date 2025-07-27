@@ -93,7 +93,7 @@ class BackendProvider {
   }
 
   async update() {
-    return this.axios.get('/update').then(res => res.data)
+    return this.axios.get('/update')
   }
 }
 
