@@ -1,4 +1,5 @@
 import { FilePriority } from '@/constants/qbit'
+import { safeDiv } from '@/helpers'
 import { TorrentFile } from '@/types/qbit/models'
 
 export type TreeNode = TreeFile | TreeFolder
@@ -29,6 +30,9 @@ export class TreeFile {
   }
   get wanted(): boolean | null {
     return this.priority !== FilePriority.DO_NOT_DOWNLOAD
+  }
+  get allWanted(): boolean | null {
+    return this.wanted
   }
   deepCount: [number, number] = [0, 1]
 
@@ -64,7 +68,9 @@ export class TreeFolder {
   priority: FilePriority = FilePriority.DO_NOT_DOWNLOAD
   childrenIds: number[] = []
   wanted: boolean | null = null
+  allWanted: boolean | null = null
   progress: number = 0
+  availability: number = 0
   deepCount: [number, number] = [1, 0]
   size: number = 0
   selectedSize: number = 0
@@ -82,7 +88,9 @@ export class TreeFolder {
       this.priority = FilePriority.DO_NOT_DOWNLOAD
       this.childrenIds = []
       this.wanted = null
+      this.allWanted = null
       this.progress = 0
+      this.availability = 0
       this.deepCount = [1, 0]
       this.size = 0
       this.selectedSize = 0
@@ -102,15 +110,21 @@ export class TreeFolder {
 
     this.childrenIds = this.children.map(child => child.childrenIds ?? []).flat()
 
-    this.wanted = this.children.map(child => child.wanted).some(Boolean)
+    this.wanted = this.children.some(child => child.wanted)
+    this.allWanted = this.children.every(child => child.allWanted)
 
     const wantedChildren = this.children.filter(child => child.wanted)
     if (wantedChildren.length === 0) {
       this.progress = 0
+      this.availability = 0
     } else {
       // Downloaded / total
-      const result = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
-      this.progress = result[0] / result[1]
+      const progressResult: [number, number] = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
+      this.progress = safeDiv(...progressResult)
+
+      // Available / total
+      const availabilityResult: [number, number] = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.availability, prev[1] + child.selectedSize], [0, 0])
+      this.availability = safeDiv(...availabilityResult)
     }
 
     this.deepCount = this.children
