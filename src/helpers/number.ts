@@ -19,3 +19,8 @@ export function toPrecision(value: number, precision: number): string {
 export function formatPercent(progress: number): string {
   return `${toPrecision(progress * 100, 3)} %`
 }
+
+export function safeDiv(a: number, b: number): number {
+  if (a === 0 || b === 0) return 0
+  return a / b
+}

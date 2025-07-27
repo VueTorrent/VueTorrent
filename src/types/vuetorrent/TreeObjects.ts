@@ -1,4 +1,5 @@
 import { FilePriority } from '@/constants/qbit'
+import { safeDiv } from '@/helpers'
 import { TorrentFile } from '@/types/qbit/models'
 
 export type TreeNode = TreeFile | TreeFolder
@@ -69,6 +70,7 @@ export class TreeFolder {
   wanted: boolean | null = null
   allWanted: boolean | null = null
   progress: number = 0
+  availability: number = 0
   deepCount: [number, number] = [1, 0]
   size: number = 0
   selectedSize: number = 0
@@ -88,6 +90,7 @@ export class TreeFolder {
       this.wanted = null
       this.allWanted = null
       this.progress = 0
+      this.availability = 0
       this.deepCount = [1, 0]
       this.size = 0
       this.selectedSize = 0
@@ -113,10 +116,15 @@ export class TreeFolder {
     const wantedChildren = this.children.filter(child => child.wanted)
     if (wantedChildren.length === 0) {
       this.progress = 0
+      this.availability = 0
     } else {
       // Downloaded / total
-      const result = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
-      this.progress = result[0] / result[1]
+      const progressResult: [number, number] = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
+      this.progress = safeDiv(...progressResult)
+
+      // Available / total
+      const availabilityResult: [number, number] = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.availability, prev[1] + child.selectedSize], [0, 0])
+      this.availability = safeDiv(...availabilityResult)
     }
 
     this.deepCount = this.children

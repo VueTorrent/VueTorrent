@@ -5,7 +5,7 @@ import { computed, triggerRef } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { doesCommand, formatData, getFileIcon } from '@/helpers'
+import { doesCommand, formatData, getFileIcon, formatPercent } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 
@@ -95,6 +95,7 @@ function getNodeSubtitle(node: TreeNode) {
     data-custom-context-menu
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
+    :title="`${formatPercent(node.progress)} / ${formatPercent(node.availability)}`"
     @click.stop="toggleInternalSelection($event, node)"
     @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
@@ -141,7 +142,8 @@ function getNodeSubtitle(node: TreeNode) {
         <v-icon v-else-if="node.priority === FilePriority.DO_NOT_DOWNLOAD" color="grey"> mdi-cancel </v-icon>
       </div>
     </div>
-    <v-progress-linear :model-value="node.progress" :max="1" :color="getNodeColor(node)" rounded="sm" />
+
+    <v-progress-linear :model-value="node.progress" max="1" :color="getNodeColor(node)" rounded="sm" :buffer-value="node.availability" buffer-color="accent" buffer-opacity=".5" />
   </div>
 </template>
 
