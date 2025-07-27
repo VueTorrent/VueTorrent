@@ -420,15 +420,9 @@
         "upload_limit_label": "업로드 제한"
       },
       "stats": {
-        "alltime": {
-          "title": "역대 통계"
-        },
         "downloaded": "다운로드됨",
         "free_space": "여유 공간",
         "ratio": "비율(레이쇼)",
-        "session": {
-          "title": "세션 통계"
-        },
         "uploaded": "업로드됨"
       }
     },
@@ -863,10 +857,8 @@
         "refreshInterval": "qBittorrent API 새로 고침 간격",
         "registerMagnet": "마그넷 링크 등록",
         "resetSettings": "설정 초기화",
-        "showAlltimeStat": "역대 통계 보기",
         "showCurrentSpeed": "현재 속도 표시",
         "showFreeSpace": "여유 공간 표시",
-        "showSessionStat": "세션 통계 표시",
         "showSpeedGraph": "속도 그래프 표시",
         "tip": "이 설정은 사용자 지정 WebUI에 대한 설정입니다.",
         "useBinarySize": "데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)",

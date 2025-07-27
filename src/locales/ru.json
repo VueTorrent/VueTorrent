@@ -624,15 +624,9 @@
         "upload_limit_label": "Ограничение раздачи"
       },
       "stats": {
-        "alltime": {
-          "title": "Вся статистика"
-        },
         "downloaded": "Загружено",
         "free_space": "Свободное место",
         "ratio": "Рейтинг",
-        "session": {
-          "title": "Статистика за сессию"
-        },
         "uploaded": "Отдано"
       }
     },
@@ -1157,7 +1151,6 @@
         "refreshInterval": "Интервал обновления qBittorrent API",
         "registerMagnet": "Регистрировать магнитные ссылки",
         "resetSettings": "Сбросить настройки",
-        "showAlltimeStat": "Показывать всю статистику",
         "showCurrentSpeed": "Показывать текущую скорость",
         "showFilters": {
           "allFiltersEnabled": "Все фильтры включены",
@@ -1169,7 +1162,6 @@
           "tracker": "Трекер"
         },
         "showFreeSpace": "Показывать свободное место",
-        "showSessionStat": "Показывать статистику сессии",
         "showSpeedGraph": "Показывать график скорости",
         "tip": "Общие настройки пользовательского WebUI",
         "useBinarySize": "Заменить размеры данных двоичными единицами измерения (kB -> KiB)",
