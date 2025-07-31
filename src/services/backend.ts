@@ -92,8 +92,8 @@ class BackendProvider {
     )
   }
 
-  async update() {
-    return this.axios.get('/update')
+  async update(): Promise<{ was_updated: boolean; message: string }> {
+    return this.axios.get('/update').then(res => res.data)
   }
 }
 

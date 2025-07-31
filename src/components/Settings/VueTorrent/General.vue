@@ -155,9 +155,9 @@ async function checkNewVersion() {
   if (backend.isUp) {
     await backend
       .update()
-      .then(res => {
-        toast.success(res.data, { autoClose: 3000 })
-        if (res.status === 200) {
+      .then(data => {
+        toast.success(data.message, { autoClose: 3000 })
+        if (data.was_updated) {
           setTimeout(() => location.reload(), 1500)
         }
       })
