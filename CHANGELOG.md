@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.28.0](https://github.com/VueTorrent/VueTorrent/compare/v2.27.0...v2.28.0) (2025-07-31)
+
+
+### Features
+
+* **content:** Display node availability ([#2398](https://github.com/VueTorrent/VueTorrent/issues/2398)) ([ef89dc4](https://github.com/VueTorrent/VueTorrent/commit/ef89dc46303ce74b10832fe2797b5524b7d99180))
+* **Navbar:** Include perf stats and compact existing layout ([#2371](https://github.com/VueTorrent/VueTorrent/issues/2371)) ([93de6ea](https://github.com/VueTorrent/VueTorrent/commit/93de6ea6b8bc83e5998dd7ace97ff47dab7d82f9))
+* **RightClick:** Add selection actions ([#2362](https://github.com/VueTorrent/VueTorrent/issues/2362)) ([5f0626f](https://github.com/VueTorrent/VueTorrent/commit/5f0626f7925e4b7c38f633971b5ade2b823bfc0b))
+* **RightClick:** Support multiple copy actions ([#2362](https://github.com/VueTorrent/VueTorrent/issues/2362)) ([72a1606](https://github.com/VueTorrent/VueTorrent/commit/72a1606b146a4a973070326072bffc99e6231418))
+* **sidebar:** Add stats dialog ([#2365](https://github.com/VueTorrent/VueTorrent/issues/2365)) ([f10586d](https://github.com/VueTorrent/VueTorrent/commit/f10586d188e61f14ed86b3765078a93c01c2a6ee))
+
+
+### Bug Fixes
+
+* **backend:** Fix update message not displaying in some cases ([878bbe2](https://github.com/VueTorrent/VueTorrent/commit/878bbe27c0bd3376109d3fb070b7f774370f4a76))
+* **long press:** Fix broken effects after patch ([#2396](https://github.com/VueTorrent/VueTorrent/issues/2396)) ([e8bf028](https://github.com/VueTorrent/VueTorrent/commit/e8bf028f857028bf1f960a3c8c8c1b47ea798fed))
+* **long press:** Prevent selecting text on mobile devices ([#2393](https://github.com/VueTorrent/VueTorrent/issues/2393)) ([e644a0f](https://github.com/VueTorrent/VueTorrent/commit/e644a0fc3c01f7bd867ad60b19abe2ab6125acc5))
+* **navbar:** Swap alltime / session values to match popover text ([#2399](https://github.com/VueTorrent/VueTorrent/issues/2399)) ([43bb923](https://github.com/VueTorrent/VueTorrent/commit/43bb9230d358024e5dd98daf6f1813bffe3b8372))
+* **PWA:** Proper handling of device rotation lock ([#2369](https://github.com/VueTorrent/VueTorrent/issues/2369)) ([2db2197](https://github.com/VueTorrent/VueTorrent/commit/2db2197329f9fee679c5c7c202ad042237c16643))
+
+
+### Improvements
+
+* **backend:** Reload window on manual update success ([#2400](https://github.com/VueTorrent/VueTorrent/issues/2400)) ([dc00998](https://github.com/VueTorrent/VueTorrent/commit/dc0099863abb699f8f476b715b899eacfedd3a52))
+
 ## [2.27.0](https://github.com/VueTorrent/VueTorrent/compare/v2.26.0...v2.27.0) (2025-06-29)
 
 
