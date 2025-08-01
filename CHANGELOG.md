@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.28.1](https://github.com/VueTorrent/VueTorrent/compare/v2.28.0...v2.28.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* **Info:** Remove clamping of long text values ([#2420](https://github.com/VueTorrent/VueTorrent/issues/2420)) ([a30a408](https://github.com/VueTorrent/VueTorrent/commit/a30a408ce9a5bb78753c2423bd01622b8f89bfc7))
+* **PerformanceStats:** Wrap unit for wasted data ([#2417](https://github.com/VueTorrent/VueTorrent/issues/2417)) ([d69d883](https://github.com/VueTorrent/VueTorrent/commit/d69d883ab53e8224f910a76e7d7ce6371ef49566))
+
+
+### Improvements
+
+* **copy:** Open dialog to allow manual user copy ([#2418](https://github.com/VueTorrent/VueTorrent/issues/2418)) ([3596b87](https://github.com/VueTorrent/VueTorrent/commit/3596b87cd4b959b509bdc8359032c31f157d3887))
+* **RightClick:** Add span selection option ([#2416](https://github.com/VueTorrent/VueTorrent/issues/2416)) ([9d5306c](https://github.com/VueTorrent/VueTorrent/commit/9d5306c8be237ec36f6bb97ce74d59e8280eb54a))
+
 ## [2.28.0](https://github.com/VueTorrent/VueTorrent/compare/v2.27.0...v2.28.0) (2025-07-31)
 
 
