@@ -7,6 +7,7 @@ import RightClickMenu from '@/components/Core/RightClickMenu'
 import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackers/BulkUpdateTrackersDialog.vue'
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
+import LegacyCopyDialog from '@/components/Dialogs/LegacyCopyDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
@@ -138,15 +139,20 @@ async function toggleTag(tag: string) {
   else await torrentStore.addTorrentTags(hashes.value, [tag])
 }
 
-async function copyValue(valueToCopy: string) {
-  try {
-    await navigator.clipboard.writeText(valueToCopy)
-  } catch (_) {
-    toast.error(t('toast.copy.error'))
+function copyValue(valueToCopy: string) {
+  function openLegacyCopyDialog() {
+    dialogStore.createDialog(LegacyCopyDialog, { value: valueToCopy })
+  }
+
+  if (!window.isSecureContext) {
+    openLegacyCopyDialog()
     return
   }
 
-  toast.success(t('toast.copy.success'))
+  navigator.clipboard.writeText(valueToCopy).then(
+    () => toast.success(t('toast.copy.success')),
+    () => openLegacyCopyDialog()
+  )
 }
 
 function setDownloadLimit() {
@@ -360,7 +366,6 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.copy.title'),
     icon: 'mdi-content-copy',
-    disabled: !window.isSecureContext,
     children: [
       {
         text: t('dashboard.right_click.copy.name'),
