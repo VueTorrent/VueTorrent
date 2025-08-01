@@ -31,6 +31,7 @@ const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TA
 
 const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
 const rightClickProperties = ref<RightClickProperties>({
+  target: '',
   isVisible: false,
   offset: [0, 0],
 })
@@ -102,8 +103,11 @@ async function onTorrentRightClick(e: MouseEvent, torrent: TorrentType) {
     await nextTick()
   }
 
-  rightClickProperties.value.isVisible = true
-  rightClickProperties.value.offset = [e.pageX, e.pageY]
+  rightClickProperties.value = {
+    target: torrent.hash,
+    isVisible: true,
+    offset: [e.pageX, e.pageY],
+  }
 
   if (!isSelectionMultiple.value) {
     dashboardStore.unselectAllTorrents()

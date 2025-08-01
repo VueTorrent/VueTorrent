@@ -16,9 +16,9 @@ import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { downloadFile } from '@/helpers'
 import { useAppStore, useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
-import { RightClickMenuEntryType } from '@/types/vuetorrent'
+import { RightClickMenuEntryType, RightClickProperties } from '@/types/vuetorrent'
 
-const rightClickProperties = defineModel<{ isVisible: boolean; offset: [number, number] }>({ required: true })
+const rightClickProperties = defineModel<RightClickProperties>({ required: true })
 
 const { t } = useI18nUtils()
 const router = useRouter()
@@ -33,8 +33,11 @@ const torrentStore = useTorrentStore()
 
 const isAllTorrentsSelected = computed(() => torrentStore.torrents.length <= dashboardStore.selectedTorrents.length)
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
+
 const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
+const targetHash = computed(() => rightClickProperties.value.target)
+
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
 
@@ -406,6 +409,12 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         icon: 'mdi-select-all',
         hidden: isAllTorrentsSelected.value,
         action: () => dashboardStore.selectAllTorrents(),
+      },
+      {
+        text: t('dashboard.right_click.selection.span_selection'),
+        icon: 'mdi-arrow-expand-vertical',
+        hidden: !dashboardStore.isSelectionMultiple,
+        action: () => dashboardStore.spanTorrentSelection(targetHash.value),
       },
       {
         text: t('dashboard.right_click.selection.disable_select_mode'),
