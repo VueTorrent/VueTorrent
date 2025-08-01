@@ -250,6 +250,7 @@
       "selection": {
         "disable_select_mode": "Disable select mode",
         "enable_select_mode": "Enable select mode",
+        "span_selection": "Extend up to here",
         "title": "Selection"
       },
       "speed_limit": {
