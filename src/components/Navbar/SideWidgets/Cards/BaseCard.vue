@@ -28,10 +28,10 @@ const contentOrientation = computed(() => {
     min-width="48px"
     rounded="lg"
     @click.stop="$emit('click', $event)">
-    <div :class="['d-flex', 'align-center', contentOrientation, 'ga-1', 'h-100', 'w-100']">
+    <div :class="['d-flex', 'align-center', 'justify-space-evenly', contentOrientation, 'ga-1', 'h-100', 'w-100']">
       <v-icon data-testid="card-icon" :color="color">{{ icon }}</v-icon>
 
-      <div data-testid="card-content" :class="['flex-grow-1', 'flex-row', 'text-center', 'text-select', textColorClass]">
+      <div data-testid="card-content" :class="['flex-row', 'text-center', 'text-select', 'wrap-anywhere', textColorClass]">
         <template v-if="Array.isArray(value)">
           <template v-for="(val, i) in value" :key="i">
             <v-divider v-if="i > 0" opacity=".75" thickness="2" style="border-top-style: dashed" />
