@@ -419,6 +419,9 @@
       "title": "Import Settings",
       "valid": "Please provide valid settings"
     },
+    "legacy_copy": {
+      "title": "Legacy copy dialog"
+    },
     "moveTorrent": {
       "dl": {
         "title": "Change Download Path"
@@ -1293,7 +1296,6 @@
       "success": "{n} torrent added | {n} torrents added"
     },
     "copy": {
-      "error": "Unable to copy, context isn't secured!",
       "success": "Copied to clipboard!"
     },
     "magnet_handler": {
@@ -1404,7 +1406,6 @@
     "overview": {
       "canvasRefreshDisabled": "Canvas auto-refresh is disabled",
       "canvasRenderDisabled": "Canvas rendering is disabled",
-      "copy_hash": "Copy Hash",
       "dlSpeedAverage": "Download Speed Average",
       "downloaded": "Downloaded",
       "fetchingMetadata": "Fetching...",

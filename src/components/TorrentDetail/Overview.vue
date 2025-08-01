@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { computed, onMounted, onUnmounted } from 'vue'
-import { toast } from 'vue3-toastify'
 import PieceCanvas from './PieceCanvas.vue'
 import ColoredChip from '@/components/Core/ColoredChip.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
@@ -23,8 +22,6 @@ const dialogStore = useDialogStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
 const vuetorrentStore = useVueTorrentStore()
 
-const isContextSecured = computed(() => window.isSecureContext)
-
 const selectedFiles = computed(() => cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD))
 const selectedFilesSize = computed(() => selectedFiles.value.reduce((acc, file) => acc + file.size, 0))
 const torrentFileCount = computed(() => cachedFiles.value.length)
@@ -44,17 +41,6 @@ const ratioColor = computed(() => {
   if (!vuetorrentStore.enableRatioColors) return ''
   return getRatioColor(props.torrent.ratio)
 })
-
-async function copyHash() {
-  try {
-    await navigator.clipboard.writeText(props.torrent.hash)
-  } catch (_) {
-    toast.error(t('toast.copy.error'))
-    return
-  }
-
-  toast.success(t('toast.copy.success'))
-}
 
 function openMoveTorrentDialog(mode: 'dl' | 'save') {
   dialogStore.createDialog(MoveTorrentDialog, { hashes: [props.torrent.hash], mode })
@@ -122,10 +108,7 @@ onUnmounted(() => {
         </span>
       </div>
       <div class="my-1">
-        <span class="mr-2">{{ torrent.hash }}</span>
-        <v-btn v-if="isContextSecured" variant="outlined" rounded @click="copyHash">
-          {{ $t('torrentDetail.overview.copy_hash') }}
-        </v-btn>
+        {{ torrent.hash }}
       </div>
     </v-card-subtitle>
     <v-card-text>
