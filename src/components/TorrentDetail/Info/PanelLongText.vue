@@ -28,7 +28,7 @@ const values = [
     <v-expansion-panel-text>
       <v-list>
         <v-list-item v-for="ppt in values" :key="ppt.title" :title="$t(`torrent.properties.${ppt.title}`)">
-          <v-list-item-subtitle>{{ ppt.getter() || $t('common.none') }}</v-list-item-subtitle>
+          <div class="text-subtitle-2 opacity-70">{{ ppt.getter() || $t('common.none') }}</div>
         </v-list-item>
 
         <v-list-item :title="$t('torrent.properties.tags')">
