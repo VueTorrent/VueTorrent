@@ -20,6 +20,7 @@ export const useContentStore = defineStore('content', () => {
   const hash = computed(() => route.params.hash as string)
 
   const rightClickProperties = reactive<RightClickProperties>({
+    target: '',
     isVisible: false,
     offset: [0, 0],
   })
