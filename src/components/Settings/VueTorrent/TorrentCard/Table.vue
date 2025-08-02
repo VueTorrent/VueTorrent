@@ -48,7 +48,6 @@ function selectAll() {
 
         <v-table>
           <draggable v-model="properties" item-key="name" tag="tbody" handle=".dnd-handle">
-            <!--suppress VueUnrecognizedSlot -->
             <template #item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(element)" />
             </template>

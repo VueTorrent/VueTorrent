@@ -97,7 +97,7 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
   }
 }
 
-async function onTorrentRightClick(e: MouseEvent, torrent: TorrentType) {
+async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
   if (rightClickProperties.value.isVisible) {
     rightClickProperties.value.isVisible = false
     await nextTick()
@@ -115,6 +115,18 @@ async function onTorrentRightClick(e: MouseEvent, torrent: TorrentType) {
   } else if (selectedTorrents.value.length === 0) {
     dashboardStore.selectTorrent(torrent.hash)
   }
+}
+
+const timer = ref<NodeJS.Timeout>()
+
+function startPress(e: Touch, torrent: TorrentType) {
+  timer.value = setTimeout(() => {
+    void onTorrentRightClick(e, torrent)
+  }, 500)
+}
+
+function endPress() {
+  clearTimeout(timer.value)
 }
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
@@ -232,7 +244,9 @@ onBeforeUnmount(() => {
       @on-checkbox-click="onTorrentClick"
       @on-torrent-click="onTorrentClick"
       @on-torrent-dbl-click="goToInfo"
-      @on-torrent-right-click="onTorrentRightClick" />
+      @on-torrent-right-click="onTorrentRightClick"
+      @start-press="startPress"
+      @end-press="endPress" />
     <GridView
       v-else-if="isGridView"
       :height="height"
@@ -240,7 +254,9 @@ onBeforeUnmount(() => {
       @on-checkbox-click="onTorrentClick"
       @on-torrent-click="onTorrentClick"
       @on-torrent-dbl-click="goToInfo"
-      @on-torrent-right-click="onTorrentRightClick" />
+      @on-torrent-right-click="onTorrentRightClick"
+      @start-press="startPress"
+      @end-press="endPress" />
     <TableView
       v-else-if="isTableView"
       :height="height"
@@ -248,7 +264,9 @@ onBeforeUnmount(() => {
       @on-checkbox-click="onTorrentClick"
       @on-torrent-click="onTorrentClick"
       @on-torrent-dbl-click="goToInfo"
-      @on-torrent-right-click="onTorrentRightClick" />
+      @on-torrent-right-click="onTorrentRightClick"
+      @start-press="startPress"
+      @end-press="endPress" />
 
     <div v-if="!isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />

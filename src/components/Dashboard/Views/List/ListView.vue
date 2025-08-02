@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { vOnLongPress } from '@vueuse/components'
 import { useDisplay } from 'vuetify'
 import ListTorrent from './ListTorrent.vue'
 import { getTorrentStateColor } from '@/helpers'
@@ -16,6 +15,8 @@ defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
+  startPress: [e: Touch, torrent: TorrentType]
+  endPress: []
 }>()
 
 const display = useDisplay()
@@ -28,11 +29,14 @@ const dashboardStore = useDashboardStore()
       v-for="torrent in paginatedTorrents"
       :id="`torrent-${torrent.hash}`"
       :key="torrent.hash"
-      v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
       data-custom-context-menu
       :class="['pa-0', display.mobile ? 'mb-2' : 'mb-4']"
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
-      @dblclick="$emit('onTorrentDblClick', torrent)">
+      @dblclick="$emit('onTorrentDblClick', torrent)"
+      @touchcancel.passive="$emit('endPress')"
+      @touchend.passive="$emit('endPress')"
+      @touchmove.passive="$emit('endPress')"
+      @touchstart.passive="$emit('startPress', $event.touches.item(0)!, torrent)">
       <div class="d-flex align-center">
         <v-expand-x-transition>
           <v-btn

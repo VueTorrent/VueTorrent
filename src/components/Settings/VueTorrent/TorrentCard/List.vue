@@ -60,7 +60,6 @@ function selectAll(isBusy: boolean) {
 
         <v-table>
           <draggable v-model="busyProperties" item-key="name" tag="tbody" handle=".dnd-handle">
-            <!--suppress VueUnrecognizedSlot -->
             <template #item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(true, element)" />
             </template>
@@ -86,7 +85,6 @@ function selectAll(isBusy: boolean) {
 
         <v-table>
           <draggable v-model="doneProperties" item-key="name" tag="tbody" handle=".dnd-handle">
-            <!--suppress VueUnrecognizedSlot -->
             <template #item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(false, element)" />
             </template>
@@ -96,5 +94,3 @@ function selectAll(isBusy: boolean) {
     </v-col>
   </v-row>
 </template>
-
-<style scoped lang="scss"></style>

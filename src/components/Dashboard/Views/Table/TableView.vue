@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { vOnLongPress } from '@vueuse/components'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import Header from './Header.vue'
@@ -20,6 +19,8 @@ defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
+  startPress: [e: Touch, torrent: TorrentType]
+  endPress: []
 }>()
 
 const { t, getTorrentStateString } = useI18nUtils()
@@ -84,12 +85,15 @@ function getTorrentRowColorClass(torrent: TorrentType) {
     <template #item="{ item: torrent }">
       <tr
         v-ripple
-        v-on-long-press="e => $emit('onTorrentRightClick', e, torrent)"
         data-custom-context-menu
         :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
-        @dblclick="$emit('onTorrentDblClick', torrent)">
+        @dblclick="$emit('onTorrentDblClick', torrent)"
+        @touchcancel.passive="$emit('endPress')"
+        @touchend.passive="$emit('endPress')"
+        @touchmove.passive="$emit('endPress')"
+        @touchstart.passive="$emit('startPress', $event.touches.item(0)!, torrent)">
         <v-tooltip top>
           <template #activator="{ props }">
             <td v-bind="props" :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
