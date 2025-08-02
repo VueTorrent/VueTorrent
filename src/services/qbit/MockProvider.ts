@@ -1538,7 +1538,15 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async pauseAllTorrents(): Promise<void> {
+    return this.generateResponse()
+  }
+
   async stopTorrents(_: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async stopAllTorrents(): Promise<void> {
     return this.generateResponse()
   }
 
@@ -1546,7 +1554,15 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async resumeAllTorrents(): Promise<void> {
+    return this.generateResponse()
+  }
+
   async startTorrents(_: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async startAllTorrents(): Promise<void> {
     return this.generateResponse()
   }
 
@@ -1634,7 +1650,11 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async removeTorrentTag(_0: string[], _1?: string[]): Promise<void> {
+  async removeTorrentTag(_0: string[], _1: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async removeTorrentAllTags(_: string[]): Promise<void> {
     return this.generateResponse()
   }
 

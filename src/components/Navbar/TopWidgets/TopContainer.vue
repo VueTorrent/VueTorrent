@@ -24,26 +24,30 @@ function openAddTorrentDialog() {
 }
 
 async function resumeTorrents() {
-  async function onConfirm() {
-    await torrentStore.resumeTorrents(hashes.value)
-  }
-
   if (!hashes.value.length) {
-    dialogStore.confirmAction({ title: t('dialogs.confirm.startAll'), yesColor: 'accent', onConfirm })
+    dialogStore.confirmAction({
+      title: t('dialogs.confirm.startAll'),
+      yesColor: 'accent',
+      onConfirm: async () => {
+        await torrentStore.resumeAllTorrents()
+      },
+    })
   } else {
-    await onConfirm()
+    await torrentStore.resumeTorrents(hashes.value)
   }
 }
 
 async function pauseTorrents() {
-  async function onConfirm() {
-    await torrentStore.pauseTorrents(hashes.value)
-  }
-
   if (!hashes.value.length) {
-    dialogStore.confirmAction({ title: t('dialogs.confirm.stopAll'), yesColor: 'accent', onConfirm })
+    dialogStore.confirmAction({
+      title: t('dialogs.confirm.stopAll'),
+      yesColor: 'accent',
+      onConfirm: async () => {
+        await torrentStore.pauseAllTorrents()
+      },
+    })
   } else {
-    await onConfirm()
+    await torrentStore.pauseTorrents(hashes.value)
   }
 }
 

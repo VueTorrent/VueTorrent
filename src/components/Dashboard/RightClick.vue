@@ -114,7 +114,7 @@ function deleteUnusedTags() {
 }
 
 async function clearAllTags() {
-  await torrentStore.removeTorrentTags(hashes.value)
+  await torrentStore.removeTorrentAllTags(hashes.value)
 }
 
 function openNewCategoryFormDialog() {
