@@ -942,7 +942,6 @@
       "success": "{n}개 토렌트 추가됨"
     },
     "copy": {
-      "error": "복사할 수 없습니다. 현재 응답이 안전하지 않습니다!",
       "success": "클립보드에 복사되었습니다!"
     },
     "magnet_handler": {
@@ -1002,7 +1001,6 @@
     "overview": {
       "canvasRefreshDisabled": "캔버스 자동 새로고침이 비활성화되었습니다",
       "canvasRenderDisabled": "캔버스 렌더링이 비활성화되었습니다",
-      "copy_hash": "해시 복사",
       "dlSpeedAverage": "평균 다운로드 속도",
       "downloaded": "다운로드됨",
       "fetchingMetadata": "불러오는 중...",

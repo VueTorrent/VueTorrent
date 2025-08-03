@@ -1188,7 +1188,6 @@
       "success": "{n} 个种子已添加 | {n} 个种子已添加"
     },
     "copy": {
-      "error": "无法复制，当前环境不安全！",
       "success": "已复制到剪贴板！"
     },
     "magnet_handler": {
@@ -1297,7 +1296,6 @@
     "overview": {
       "canvasRefreshDisabled": "已禁用Canvas自动刷新",
       "canvasRenderDisabled": "已禁用Canvas渲染",
-      "copy_hash": "复制哈希值",
       "dlSpeedAverage": "平均下载速度",
       "downloaded": "已下载",
       "fetchingMetadata": "获取中...",

@@ -1033,7 +1033,6 @@
       "success": "{n}個のTorrentが追加されました | {n}個のTorrentが追加されました"
     },
     "copy": {
-      "error": "コピーできません。コンテキストがセキュリティで保護されていません。",
       "success": "クリップボードにコピーしました!"
     },
     "magnet_handler": {
@@ -1095,7 +1094,6 @@
     "overview": {
       "canvasRefreshDisabled": "キャンバスの自動更新が無効になっています",
       "canvasRenderDisabled": "キャンバスのレンダリングが無効になっています",
-      "copy_hash": "ハッシュをコピー",
       "dlSpeedAverage": "DL速度平均",
       "downloaded": "DL済み",
       "fetchingMetadata": "メタデータを取得中...",

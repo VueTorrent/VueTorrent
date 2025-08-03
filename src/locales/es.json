@@ -966,7 +966,6 @@
       "success": "{n} torrent agregado | {n} torrents agregados"
     },
     "copy": {
-      "error": "¡No se puede copiar, el contexto no está asegurado!",
       "success": "¡Copiado al portapapeles!"
     },
     "magnet_handler": {
@@ -1027,7 +1026,6 @@
     "overview": {
       "canvasRefreshDisabled": "La actualización automática del lienzo está desactivada",
       "canvasRenderDisabled": "La renderización del lienzo está desactivada",
-      "copy_hash": "Copiar Hash",
       "dlSpeedAverage": "Velocidad de descarga promedio",
       "downloaded": "Descargado",
       "fetchingMetadata": "Obteniendo información...",

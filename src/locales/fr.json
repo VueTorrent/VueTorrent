@@ -1053,7 +1053,6 @@
       "success": "{n} torrent ajouté | {n} torrents ajoutés"
     },
     "copy": {
-      "error": "Impossible de copier, le contexte n'est pas sécurisé !",
       "success": "Copié dans le presse-papiers !"
     },
     "magnet_handler": {
@@ -1118,7 +1117,6 @@
     "overview": {
       "canvasRefreshDisabled": "Rafraîchissement automatique du canevas désactivé",
       "canvasRenderDisabled": "Rendu du canevas désactivé",
-      "copy_hash": "Copier le hash",
       "dlSpeedAverage": "Vitesse de téléchargement moyenne",
       "downloaded": "Téléchargé",
       "fetchingMetadata": "Récupération...",

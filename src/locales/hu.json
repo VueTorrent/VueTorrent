@@ -966,7 +966,6 @@
       "success": "{n} torrent hozzáadva | {n} torrentek hozzáadva"
     },
     "copy": {
-      "error": "Nem lehet másolni, a kontextus nem biztonságos!",
       "success": "Vágólapra másolva!"
     },
     "magnet_handler": {
@@ -1027,7 +1026,6 @@
     "overview": {
       "canvasRefreshDisabled": "Vászon automatikus frissítése letiltva",
       "canvasRenderDisabled": "Vászon renderelése letiltva",
-      "copy_hash": "Hash másolása",
       "dlSpeedAverage": "Átlagos letöltési sebesség",
       "downloaded": "Letöltve",
       "fetchingMetadata": "Lekérés...",
