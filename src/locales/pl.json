@@ -965,7 +965,6 @@
       "success": "Dodano {n} torrent | Dodano {n} torrentów"
     },
     "copy": {
-      "error": "Nie można skopiować, kontekst nie jest zabezpieczony!",
       "success": "Skopiowano do schowka!"
     },
     "magnet_handler": {
@@ -1025,7 +1024,6 @@
     "overview": {
       "canvasRefreshDisabled": "Automatyczne odświeżanie canvas jest wyłączone",
       "canvasRenderDisabled": "Renderowanie canvas jest wyłączone",
-      "copy_hash": "Kopiuj Hash",
       "dlSpeedAverage": "Średnia prędkość pobierania",
       "downloaded": "Pobrano",
       "fetchingMetadata": "Pobieranie...",

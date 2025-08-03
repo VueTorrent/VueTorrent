@@ -1032,7 +1032,6 @@
       "success": "{n} torrent eklendi | {n} torrent eklendi"
     },
     "copy": {
-      "error": "Kopyalanamıyor, içerik güvenli değil!",
       "success": "Panoya kopyalandı!"
     },
     "magnet_handler": {
@@ -1094,7 +1093,6 @@
     "overview": {
       "canvasRefreshDisabled": "Kanvas otomatik yenileme devre dışı bırakıldı",
       "canvasRenderDisabled": "Kanvas oluşturma devre dışı bırakıldı",
-      "copy_hash": "Hash'ı Kopyala",
       "dlSpeedAverage": "İndirme Hızı Ortalaması",
       "downloaded": "İndirilen",
       "fetchingMetadata": "Alınıyor...",
