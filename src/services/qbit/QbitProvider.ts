@@ -62,21 +62,6 @@ export default class QBitProvider implements IProvider {
     return this.axios.post(route, data, config)
   }
 
-  /**
-   * Request wrapper for TorrentController
-   * @param action - Action route to call on the controller
-   * @param hashes - Hash array of torrents affected by the action
-   * @param extra - Additional data to pass in the request body
-   */
-  private async torrentAction(action: string, hashes: string[], extra?: Parameters): Promise<any> {
-    const params = {
-      hashes: hashes.length ? hashes.join('|') : 'all',
-      ...extra,
-    }
-
-    return this.post(`/torrents/${action}`, params).then(res => res.data)
-  }
-
   /// AppController ///
 
   async getBuildInfo(): Promise<BuildInfo | undefined> {
@@ -501,53 +486,105 @@ export default class QBitProvider implements IProvider {
   }
 
   async deleteTorrents(hashes: string[], deleteFiles: boolean): Promise<void> {
-    if (!hashes.length) return
-
-    return this.torrentAction('delete', hashes, { deleteFiles })
+    return this.post(`/torrents/delete`, {
+      hashes: hashes.join('|'),
+      deleteFiles,
+    }).then(res => res.data)
   }
 
   async pauseTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('pause', hashes)
+    return this.post(`/torrents/pause`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
+  }
+
+  async pauseAllTorrents(): Promise<void> {
+    return this.post(`/torrents/pause`, {
+      hashes: 'all',
+    }).then(res => res.data)
   }
 
   async stopTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('stop', hashes)
+    return this.post(`/torrents/stop`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
+  }
+
+  async stopAllTorrents(): Promise<void> {
+    return this.post(`/torrents/stop`, {
+      hashes: 'all',
+    }).then(res => res.data)
   }
 
   async resumeTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('resume', hashes)
+    return this.post(`/torrents/resume`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
+  }
+
+  async resumeAllTorrents(): Promise<void> {
+    return this.post(`/torrents/resume`, {
+      hashes: 'all',
+    }).then(res => res.data)
   }
 
   async startTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('start', hashes)
+    return this.post(`/torrents/start`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
+  }
+
+  async startAllTorrents(): Promise<void> {
+    return this.post(`/torrents/start`, {
+      hashes: 'all',
+    }).then(res => res.data)
   }
 
   async forceStartTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('setForceStart', hashes, { value: true })
+    return this.post(`/torrents/setForceStart`, {
+      hashes: hashes.join('|'),
+      value: true,
+    }).then(res => res.data)
   }
 
   async toggleSequentialDownload(hashes: string[]): Promise<void> {
-    return this.torrentAction('toggleSequentialDownload', hashes)
+    return this.post(`/torrents/toggleSequentialDownload`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
   }
 
   async toggleFirstLastPiecePriority(hashes: string[]): Promise<void> {
-    return this.torrentAction('toggleFirstLastPiecePrio', hashes)
+    return this.post(`/torrents/toggleFirstLastPiecePrio`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
   }
 
   async setSuperSeeding(hashes: string[], value: boolean): Promise<void> {
-    return this.torrentAction('setSuperSeeding', hashes, { value })
+    return this.post(`/torrents/setSuperSeeding`, {
+      hashes: hashes.join('|'),
+      value,
+    }).then(res => res.data)
   }
 
   async setAutoTMM(hashes: string[], enable: boolean): Promise<void> {
-    return this.torrentAction('setAutoManagement', hashes, { enable })
+    return this.post(`/torrents/setAutoManagement`, {
+      hashes: hashes.join('|'),
+      enable,
+    }).then(res => res.data)
   }
 
   async setDownloadLimit(hashes: string[], limit: number): Promise<void> {
-    return this.torrentAction('setDownloadLimit', hashes, { limit })
+    return this.post(`/torrents/setDownloadLimit`, {
+      hashes: hashes.join('|'),
+      limit,
+    }).then(res => res.data)
   }
 
   async setUploadLimit(hashes: string[], limit: number): Promise<void> {
-    return this.torrentAction('setUploadLimit', hashes, { limit })
+    return this.post(`/torrents/setUploadLimit`, {
+      hashes: hashes.join('|'),
+      limit,
+    }).then(res => res.data)
   }
 
   async getTorrentsCount(): Promise<number> {
@@ -555,19 +592,24 @@ export default class QBitProvider implements IProvider {
   }
 
   async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
-    return this.torrentAction('setShareLimits', hashes, {
+    return this.post(`/torrents/setShareLimits`, {
+      hashes: hashes.join('|'),
       ratioLimit,
       seedingTimeLimit,
       inactiveSeedingTimeLimit,
-    })
+    }).then(res => res.data)
   }
 
   async reannounceTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('reannounce', hashes)
+    return this.post(`/torrents/reannounce`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
   }
 
   async recheckTorrents(hashes: string[]): Promise<void> {
-    return this.torrentAction('recheck', hashes)
+    return this.post(`/torrents/recheck`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
   }
 
   async setTorrentDownloadPath(hashes: string[], path: string): Promise<void> {
@@ -617,7 +659,10 @@ export default class QBitProvider implements IProvider {
   }
 
   async addTorrentPeers(hashes: string[], peers: string[]): Promise<void> {
-    return this.torrentAction('addPeers', hashes, { peers: peers.join('|') })
+    return this.post(`/torrents/addPeers`, {
+      hashes: hashes.join('|'),
+      peers: peers.join('|'),
+    }).then(res => res.data)
   }
 
   async renameFile(hash: string, oldPath: string, newPath: string): Promise<void> {
@@ -647,12 +692,23 @@ export default class QBitProvider implements IProvider {
   }
 
   async addTorrentTag(hashes: string[], tags: string[]): Promise<void> {
-    return this.torrentAction('addTags', hashes, { tags: tags.join(',') })
+    return this.post(`/torrents/addTags`, {
+      hashes: hashes.join('|'),
+      tags: tags.join(','),
+    }).then(res => res.data)
   }
 
-  async removeTorrentTag(hashes: string[], tags?: string[]): Promise<void> {
-    const options = tags ? { tags: tags.join(',') } : undefined
-    return this.torrentAction('removeTags', hashes, options)
+  async removeTorrentTag(hashes: string[], tags: string[]): Promise<void> {
+    return this.post(`/torrents/removeTags`, {
+      hashes: hashes.join('|'),
+      tags: tags.join(','),
+    }).then(res => res.data)
+  }
+
+  async removeTorrentAllTags(hashes: string[]): Promise<void> {
+    return this.post(`/torrents/removeTags`, {
+      hashes: hashes.join('|'),
+    }).then(res => res.data)
   }
 
   async createTag(tags: string[]): Promise<void> {
@@ -688,7 +744,10 @@ export default class QBitProvider implements IProvider {
   }
 
   async setCategory(hashes: string[], category: string): Promise<void> {
-    return this.torrentAction('setCategory', hashes, { category })
+    return this.post('/torrents/setCategory', {
+      hashes: hashes.join('|'),
+      category,
+    }).then(res => res.data)
   }
 
   async editCategory(cat: Category): Promise<void> {

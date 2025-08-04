@@ -37,10 +37,7 @@ async function saveDeleteState() {
 }
 
 async function submit() {
-  await torrentStore.deleteTorrents(
-    selection.value.map(t => t.hash),
-    deleteWithFiles.value
-  )
+  await torrentStore.deleteTorrents(props.hashes, deleteWithFiles.value)
   dashboardStore.unselectAllTorrents()
 
   if (route.name === 'torrentDetail') {

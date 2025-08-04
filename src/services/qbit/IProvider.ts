@@ -383,10 +383,21 @@ export default interface IProvider {
   pauseTorrents(hashes: string[]): Promise<void>
 
   /**
+   * Pause all torrents
+   * @deprecated since 5.X, use `stopAllTorrents` instead
+   */
+  pauseAllTorrents(): Promise<void>
+
+  /**
    * Stop torrents
    * @param hashes Torrent hashes
    */
   stopTorrents(hashes: string[]): Promise<void>
+
+  /**
+   * Stop all torrents
+   */
+  stopAllTorrents(): Promise<void>
 
   /**
    * Resume torrents
@@ -396,10 +407,21 @@ export default interface IProvider {
   resumeTorrents(hashes: string[]): Promise<void>
 
   /**
+   * Resume all torrents
+   * @deprecated since 5.X, use `startAllTorrents` instead
+   */
+  resumeAllTorrents(): Promise<void>
+
+  /**
    * Start torrents
    * @param hashes Torrent hashes
    */
   startTorrents(hashes: string[]): Promise<void>
+
+  /**
+   * Start all torrents
+   */
+  startAllTorrents(): Promise<void>
 
   /**
    * Force start torrents
@@ -557,9 +579,15 @@ export default interface IProvider {
   /**
    * Remove tags to torrents
    * @param hashes Torrent hashes
-   * @param tags Tags to remove. If not provided, all tags will be removed
+   * @param tags Tags to remove
    */
-  removeTorrentTag(hashes: string[], tags?: string[]): Promise<void>
+  removeTorrentTag(hashes: string[], tags: string[]): Promise<void>
+
+  /**
+   * Remove all tags to torrents
+   * @param hashes Torrent hashes
+   */
+  removeTorrentAllTags(hashes: string[]): Promise<void>
 
   /**
    * Create a new tag

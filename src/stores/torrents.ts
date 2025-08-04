@@ -237,8 +237,12 @@ export const useTorrentStore = defineStore(
       await qbit.addTorrentTag(hashes, tags)
     }
 
-    async function removeTorrentTags(hashes: string[], tags?: string[]) {
+    async function removeTorrentTags(hashes: string[], tags: string[]) {
       await qbit.removeTorrentTag(hashes, tags)
+    }
+
+    async function removeTorrentAllTags(hashes: string[]) {
+      await qbit.removeTorrentAllTags(hashes)
     }
 
     function getTorrentByHash(hash: string) {
@@ -299,6 +303,14 @@ export const useTorrentStore = defineStore(
       }
     }
 
+    async function resumeAllTorrents() {
+      if (appStore.usesQbit5) {
+        await qbit.startAllTorrents()
+      } else {
+        await qbit.resumeAllTorrents()
+      }
+    }
+
     async function forceStartTorrents(hashes: MaybeRefOrGetter<string[]>) {
       await qbit.forceStartTorrents(toValue(hashes))
     }
@@ -308,6 +320,14 @@ export const useTorrentStore = defineStore(
         await qbit.stopTorrents(toValue(hashes))
       } else {
         await qbit.pauseTorrents(toValue(hashes))
+      }
+    }
+
+    async function pauseAllTorrents() {
+      if (appStore.usesQbit5) {
+        await qbit.stopAllTorrents()
+      } else {
+        await qbit.pauseAllTorrents()
       }
     }
 
@@ -348,6 +368,7 @@ export const useTorrentStore = defineStore(
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,
+      removeTorrentAllTags,
       getTorrentByHash,
       getTorrentIndexByHash,
       deleteTorrents,
@@ -360,8 +381,10 @@ export const useTorrentStore = defineStore(
       setSuperSeeding,
       renameTorrent,
       resumeTorrents,
+      resumeAllTorrents,
       forceStartTorrents,
       pauseTorrents,
+      pauseAllTorrents,
       recheckTorrents,
       setTorrentPriority,
       exportTorrent,
