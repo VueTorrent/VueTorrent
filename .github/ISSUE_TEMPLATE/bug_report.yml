@@ -1,6 +1,7 @@
 name: Bug report
 description: File a bug report to help us improve
 title: '[Bug]: '
+type: bug
 labels:
   - Bug
   - triage
@@ -102,7 +103,7 @@ body:
       label: Agreements
       description: 'Before creating a new issue, I already checked the following:'
       options:
-        - label: The bug still occurs on the nightly build
+        - label: The bug still occurs on the nightly build (demo runs on nightly): [link](https://vuetorrent.github.io/demo)
           required: true
         - label: The bug still occurs on the latest version of qBittorrent
           required: true
