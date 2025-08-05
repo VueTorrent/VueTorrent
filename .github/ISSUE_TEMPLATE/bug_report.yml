@@ -103,7 +103,7 @@ body:
       label: Agreements
       description: 'Before creating a new issue, I already checked the following:'
       options:
-        - label: The bug still occurs on the nightly build (demo runs on nightly): [link](https://vuetorrent.github.io/demo)
+        - label: "The bug still occurs on the nightly build (demo runs on nightly): [link](https://vuetorrent.github.io/demo)"
           required: true
         - label: The bug still occurs on the latest version of qBittorrent
           required: true
