@@ -32,11 +32,11 @@ async function onRightClick(e: MouseEvent, node: TreeNode) {
     await nextTick()
   }
 
-  rightClickProperties.value = {
-    target: props.torrent.hash,
+  Object.assign(rightClickProperties.value, {
+    target: node.fullName,
     isVisible: true,
     offset: [e.pageX, e.pageY],
-  }
+  })
 
   if (internalSelection.value.size <= 1) {
     internalSelection.value = new Set([node.fullName])
