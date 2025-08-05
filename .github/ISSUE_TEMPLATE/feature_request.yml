@@ -1,6 +1,7 @@
 name: Feature Request
 description: Suggest a new feature for this project
 title: '[Feature Request]: '
+type: feature
 labels:
   - triage
   - Feature
