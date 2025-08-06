@@ -27,10 +27,6 @@ export const useVueTorrentStore = defineStore(
       dark: DarkLegacy.id,
     })
     const showFreeSpace = ref(true)
-    const showFilterState = ref(true)
-    const showFilterCategory = ref(true)
-    const showFilterTag = ref(true)
-    const showFilterTracker = ref(true)
     const showSpeedGraph = ref(true)
     const showTransferStats = ref(true)
     const showPerformanceStats = ref(true)
@@ -40,7 +36,6 @@ export const useVueTorrentStore = defineStore(
     const deleteWithFiles = ref(false)
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')
-    const isDrawerRight = ref(false)
     const hideChipIfUnset = ref(false)
     const enableRatioColors = ref(true)
     const enableHashColors = ref(true)
@@ -240,7 +235,6 @@ export const useVueTorrentStore = defineStore(
       durationFormat,
       deleteWithFiles,
       fileContentInterval,
-      isDrawerRight,
       hideChipIfUnset,
       enableRatioColors,
       enableHashColors,
@@ -252,10 +246,6 @@ export const useVueTorrentStore = defineStore(
       showPerformanceStats,
       showCurrentSpeed,
       showFreeSpace,
-      showFilterState,
-      showFilterCategory,
-      showFilterTag,
-      showFilterTracker,
       showSpeedGraph,
       showSpeedInTitle,
       uiTitleType,
@@ -299,10 +289,6 @@ export const useVueTorrentStore = defineStore(
         theme.light = LightLegacy.id
         theme.dark = DarkLegacy.id
         showFreeSpace.value = true
-        showFilterState.value = true
-        showFilterCategory.value = true
-        showFilterTag.value = true
-        showFilterTracker.value = true
         showSpeedGraph.value = true
         showTransferStats.value = true
         showPerformanceStats.value = true
@@ -311,7 +297,6 @@ export const useVueTorrentStore = defineStore(
         deleteWithFiles.value = false
         uiTitleType.value = TitleOptions.DEFAULT
         uiTitleCustom.value = ''
-        isDrawerRight.value = false
         hideChipIfUnset.value = false
         enableRatioColors.value = true
         enableHashColors.value = true

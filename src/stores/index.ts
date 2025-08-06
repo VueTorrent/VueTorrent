@@ -14,6 +14,7 @@ import { useNavbarStore } from './navbar'
 import { usePreferenceStore } from './preferences'
 import { useRssStore } from './rss'
 import { useSearchEngineStore } from './searchEngine'
+import { useSidebarStore } from './sidebar'
 import { useTagStore } from './tags'
 import { useTorrentCreatorStore } from './torrentCreator'
 import { useTorrentDetailStore } from './torrentDetail'
@@ -44,4 +45,5 @@ export {
   useTorrentStore,
   useTrackerStore,
   useVueTorrentStore,
+  useSidebarStore,
 }
