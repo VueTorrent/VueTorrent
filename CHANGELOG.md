@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.28.2](https://github.com/VueTorrent/VueTorrent/compare/v2.28.1...v2.28.2) (2025-08-05)
+
+
+### Bug Fixes
+
+* **Content:** Broken right click menu ([#2435](https://github.com/VueTorrent/VueTorrent/issues/2435)) ([1e4c0ad](https://github.com/VueTorrent/VueTorrent/commit/1e4c0ad31e23c3cc9be9a19d40dad77c40263e1f))
+* **Dashboard:** Two-tap not triggering right click menu ([#2423](https://github.com/VueTorrent/VueTorrent/issues/2423)) ([6ec87c1](https://github.com/VueTorrent/VueTorrent/commit/6ec87c1e73f546d84f5e18975a978a8e225f9c45))
+* Prevent accidental actions on all torrents ([#2424](https://github.com/VueTorrent/VueTorrent/issues/2424)) ([2bc629f](https://github.com/VueTorrent/VueTorrent/commit/2bc629ff40fa579f09a379f5ebbdfb0d0c70e85d))
+
 ## [2.28.1](https://github.com/VueTorrent/VueTorrent/compare/v2.28.0...v2.28.1) (2025-08-01)
 
 
