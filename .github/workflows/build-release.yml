@@ -113,7 +113,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -135,7 +135,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -174,7 +174,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: vuetorrent-demo
           path: ./vuetorrent-demo
@@ -192,7 +192,7 @@ jobs:
     if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -219,7 +219,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -242,7 +242,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: vuetorrent-build
           path: ./vuetorrent
