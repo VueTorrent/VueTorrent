@@ -2,7 +2,6 @@
 import draggable from 'vuedraggable'
 import SidebarItem from './SidebarItem.vue'
 import { useSidebarStore } from '@/stores/sidebar'
-import { SidebarWidget } from '@/types/vuetorrent'
 
 const sidebarStore = useSidebarStore()
 
