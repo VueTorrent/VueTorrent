@@ -271,7 +271,6 @@
         "resume": "Resume"
       }
     },
-    "searchInputLabel": "Search",
     "selectAll": "(Un)select All (Ctrl + A)",
     "selectedTorrentsCount": "No torrents | {count} of {total} torrents ({size}) | {count} of {total} torrents ({size})",
     "sortLabel": "Sort by",

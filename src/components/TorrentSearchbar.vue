@@ -23,7 +23,7 @@ const torrentTitleFilter = computed({
   <v-text-field
     id="searchInput"
     v-model="torrentTitleFilter"
-    :label="t('dashboard.searchInputLabel')"
+    :label="t('common.search')"
     clearable
     density="compact"
     single-line
