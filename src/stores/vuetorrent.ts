@@ -26,11 +26,6 @@ export const useVueTorrentStore = defineStore(
       light: LightLegacy.id,
       dark: DarkLegacy.id,
     })
-    const showFreeSpace = ref(true)
-    const showSpeedGraph = ref(true)
-    const showTransferStats = ref(true)
-    const showPerformanceStats = ref(true)
-    const showCurrentSpeed = ref(true)
     const showSpeedInTitle = ref(false)
     /** @deprecated */
     const deleteWithFiles = ref(false)
@@ -242,11 +237,6 @@ export const useVueTorrentStore = defineStore(
       language,
       paginationSize,
       refreshInterval,
-      showTransferStats,
-      showPerformanceStats,
-      showCurrentSpeed,
-      showFreeSpace,
-      showSpeedGraph,
       showSpeedInTitle,
       uiTitleType,
       uiTitleCustom,
@@ -288,11 +278,6 @@ export const useVueTorrentStore = defineStore(
         theme.mode = ThemeMode.SYSTEM
         theme.light = LightLegacy.id
         theme.dark = DarkLegacy.id
-        showFreeSpace.value = true
-        showSpeedGraph.value = true
-        showTransferStats.value = true
-        showPerformanceStats.value = true
-        showCurrentSpeed.value = true
         showSpeedInTitle.value = false
         deleteWithFiles.value = false
         uiTitleType.value = TitleOptions.DEFAULT

@@ -2,6 +2,13 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref } from 'vue'
 import { SidebarWidget } from '@/types/vuetorrent'
 
+type FilterKey = 'state' | 'category' | 'tag' | 'tracker'
+
+interface FilterItem {
+  name: FilterKey
+  active: boolean
+}
+
 export const useSidebarStore = defineStore(
   'sidebar',
   () => {
@@ -19,7 +26,7 @@ export const useSidebarStore = defineStore(
     const showFilterTracker = ref(true)
     const isDrawerRight = ref(false)
 
-    const filters = ref([
+    const filters = ref<FilterItem[]>([
       { name: 'state', active: true },
       { name: 'category', active: true },
       { name: 'tag', active: true },

@@ -27,10 +27,10 @@ function selectAll() {
 
 <template>
   <v-row>
-    <v-col cols="12" md="12">
+    <v-col cols="12" md="6">
       <v-list-item>
-          <v-checkbox v-model="sidebarStore.isDrawerRight" :label="$t('settings.vuetorrent.sidebar.isDrawerRight')" />
-        </v-list-item>
+        <v-checkbox v-model="sidebarStore.isDrawerRight" :label="$t('settings.vuetorrent.sidebar.isDrawerRight')" />
+      </v-list-item>
       <v-list>
         
         <v-list-subheader>{{ $t('settings.vuetorrent.sidebar.tip') }}</v-list-subheader>

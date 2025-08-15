@@ -25,8 +25,7 @@ const {
   trackerFilterType,
 } = storeToRefs(useTorrentStore())
 const { hostnameTrackers } = storeToRefs(useTrackerStore())
-const sidebarStore = useSidebarStore()
-const { showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(sidebarStore)
+const { filters, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useSidebarStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)
@@ -149,7 +148,7 @@ function disableTrackerFilter() {
 
 <template>
   <v-list v-if="showFilterState || showFilterCategory || showFilterTag || showFilterTracker" class="pb-0 inherit-fg">
-    <template v-for="filter in sidebarStore.filters" :key="filter.name">
+    <template v-for="filter in filters" :key="filter.name">
       <FilterSelectSingle
         v-if="filter.name === 'state' && filter.active"
         v-model="statusFilter"

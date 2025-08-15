@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent, Component } from 'vue'
 import BottomActions from './SideWidgets/BottomActions.vue'
 import { useDashboardStore, useNavbarStore, useSidebarStore } from '@/stores'
 import { SidebarWidget } from '@/types/vuetorrent'
@@ -14,9 +14,9 @@ const Filters = defineAsyncComponent(() => import('./SideWidgets/Filters.vue'))
 
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const { sidebarWidgets, isDrawerRight } = storeToRefs(useSidebarStore())
+const { sidebarWidgets, isDrawerRight, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useSidebarStore())
 
-const components: Record<string, any> = {
+const components: Record<string, Component> = {
   CurrentSpeed,
   SpeedGraph,
   TransferStats,
@@ -28,7 +28,6 @@ const components: Record<string, any> = {
 const orderedWidgets = computed(() => {
   return sidebarWidgets.value.filter((widget: SidebarWidget) => {
     if (widget.name === 'Filters') {
-      const { showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useSidebarStore())
       return widget.active && (showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
     }
     return widget.active
