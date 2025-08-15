@@ -12,6 +12,7 @@ import RSS from '@/components/Settings/RSS.vue'
 import Speed from '@/components/Settings/Speed.vue'
 import TagsAndCategories from '@/components/Settings/TagsAndCategories.vue'
 import VGeneral from '@/components/Settings/VueTorrent/General.vue'
+import VSidebar from '@/components/Settings/VueTorrent/Sidebar.vue'
 import VTorrentCardGrid from '@/components/Settings/VueTorrent/TorrentCard/Grid.vue'
 import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.vue'
 import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Table.vue'
@@ -42,6 +43,7 @@ const tabsV = [
   { text: t('settings.tabs.vuetorrent.torrent_card.list'), value: 'torrentCardList' },
   { text: t('settings.tabs.vuetorrent.torrent_card.grid'), value: 'torrentCardGrid' },
   { text: t('settings.tabs.vuetorrent.torrent_card.table'), value: 'torrentCardTable' },
+  { text: t('settings.tabs.vuetorrent.sidebar'), value: 'sidebar' },
 ]
 
 const tab = ref('vuetorrent')
@@ -155,6 +157,9 @@ onBeforeUnmount(() => {
           </v-window-item>
           <v-window-item value="torrentCardTable">
             <VTorrentCardTable />
+          </v-window-item>
+          <v-window-item value="sidebar">
+            <VSidebar />
           </v-window-item>
         </v-window>
       </v-window-item>

@@ -25,7 +25,12 @@ function onDragEnter() {
   const routeName = route.name as string
   const tabParam = route.params.tab as string
   const subtabParam = route.params.subtab as string
-  if (!appStore.isAuthenticated || routeName === 'login' || (routeName === 'settings' && tabParam === 'vuetorrent' && subtabParam.startsWith('torrentCard'))) return
+  if (
+    !appStore.isAuthenticated ||
+    routeName === 'login' ||
+    (routeName === 'settings' && tabParam === 'vuetorrent' && (subtabParam.startsWith('torrentCard') || subtabParam === 'sidebar'))
+  )
+    return
   isOverDndZone.value = true
 }
 

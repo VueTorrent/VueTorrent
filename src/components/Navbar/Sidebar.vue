@@ -1,58 +1,45 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, defineAsyncComponent, type Component } from 'vue'
 import BottomActions from './SideWidgets/BottomActions.vue'
-import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
-import Filters from './SideWidgets/Filters.vue'
-import FreeSpace from './SideWidgets/FreeSpace.vue'
-import PerformanceStats from './SideWidgets/PerformanceStats.vue'
-import SpeedGraph from './SideWidgets/SpeedGraph.vue'
-import TransferStats from './SideWidgets/TransferStats.vue'
-import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useNavbarStore, useSidebarStore } from '@/stores'
+import { SidebarWidget } from '@/types/vuetorrent'
+
+const CurrentSpeed = defineAsyncComponent(() => import('./SideWidgets/CurrentSpeed.vue'))
+const SpeedGraph = defineAsyncComponent(() => import('./SideWidgets/SpeedGraph.vue'))
+const TransferStats = defineAsyncComponent(() => import('./SideWidgets/TransferStats.vue'))
+const FreeSpace = defineAsyncComponent(() => import('./SideWidgets/FreeSpace.vue'))
+const PerformanceStats = defineAsyncComponent(() => import('./SideWidgets/PerformanceStats.vue'))
+const Filters = defineAsyncComponent(() => import('./SideWidgets/Filters.vue'))
 
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const {
-  isDrawerRight,
-  showCurrentSpeed,
-  showSpeedGraph,
-  showTransferStats,
-  showPerformanceStats,
-  showFreeSpace,
-  showFilterState,
-  showFilterCategory,
-  showFilterTag,
-  showFilterTracker,
-} = storeToRefs(useVueTorrentStore())
+const { sidebarWidgets, isDrawerRight, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useSidebarStore())
 
-const showFilters = computed(() => showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
+const components: Record<string, Component> = {
+  CurrentSpeed,
+  SpeedGraph,
+  TransferStats,
+  FreeSpace,
+  PerformanceStats,
+  Filters,
+}
+
+const orderedWidgets = computed(() => {
+  return sidebarWidgets.value.filter((widget: SidebarWidget) => {
+    if (widget.name === 'Filters') {
+      return widget.active && (showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
+    }
+    return widget.active
+  })
+})
 </script>
 
 <template>
   <v-navigation-drawer v-model="isDrawerOpen" class="ios-padding" :location="isDrawerRight ? 'right' : 'left'" color="navbar" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
-      <v-list-item v-if="showCurrentSpeed">
-        <CurrentSpeed />
-      </v-list-item>
-
-      <v-list-item v-if="showSpeedGraph">
-        <SpeedGraph />
-      </v-list-item>
-
-      <v-list-item v-if="showTransferStats">
-        <TransferStats />
-      </v-list-item>
-
-      <v-list-item v-if="showFreeSpace">
-        <FreeSpace />
-      </v-list-item>
-
-      <v-list-item v-if="showPerformanceStats">
-        <PerformanceStats />
-      </v-list-item>
-
-      <v-list-item v-if="showFilters">
-        <Filters />
+      <v-list-item v-for="widget in orderedWidgets" :key="widget.name">
+        <component :is="components[widget.name]" />
       </v-list-item>
 
       <v-list-item density="compact" class="d-flex justify-center text-accent text-select">

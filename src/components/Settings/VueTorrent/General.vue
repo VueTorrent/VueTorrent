@@ -44,39 +44,6 @@ const darkVariants = readonly([
   { title: t('constants.themes.dark.oled'), value: DarkOled.id }
 ])
 
-type FilterKey = 'state' | 'category' | 'tag' | 'tracker'
-
-const { showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useVueTorrentStore())
-
-interface FilterOption {
-  title: string
-  value: FilterKey
-}
-
-const filterOptions: FilterOption[] = [
-  { title: t('settings.vuetorrent.general.showFilters.state'), value: 'state' },
-  { title: t('settings.vuetorrent.general.showFilters.category'), value: 'category' },
-  { title: t('settings.vuetorrent.general.showFilters.tag'), value: 'tag' },
-  { title: t('settings.vuetorrent.general.showFilters.tracker'), value: 'tracker' }
-]
-
-const filterToggles = {
-  state: showFilterState,
-  category: showFilterCategory,
-  tag: showFilterTag,
-  tracker: showFilterTracker
-}
-
-const filters = computed({
-  get: () => {
-    return filterOptions.filter(option => filterToggles[option.value].value).map(option => option.value)
-  },
-  set(newSelectedValues) {
-    filterOptions.forEach(option => {
-      filterToggles[option.value].value = newSelectedValues.includes(option.value)
-    })
-  }
-})
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
@@ -190,27 +157,6 @@ function openDurationFormatHelp() {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showCurrentSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.showCurrentSpeed')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showSpeedGraph" hide-details density="compact" :label="t('settings.vuetorrent.general.showSpeedGraph')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showTransferStats" hide-details density="compact" :label="t('settings.vuetorrent.general.showTransferStats')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showPerformanceStats" hide-details density="compact" :label="t('settings.vuetorrent.general.showPerformanceStats')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showFreeSpace" hide-details density="compact" :label="t('settings.vuetorrent.general.showFreeSpace')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.isDrawerRight" hide-details density="compact" :label="t('settings.vuetorrent.general.isDrawerRight')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.enableRatioColors" hide-details density="compact" :label="t('settings.vuetorrent.general.enableRatioColors')" />
         </v-col>
         <v-col cols="12" sm="6">
@@ -266,17 +212,8 @@ function openDurationFormatHelp() {
         <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
-        <v-col cols="12" md="3">
+        <v-col cols="12" md="6">
           <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" :label="t('settings.vuetorrent.general.filterType')" />
-        </v-col>
-        <v-col cols="12" md="3">
-          <v-select v-model="filters" :items="filterOptions" :label="t('settings.vuetorrent.general.showFilters.title')" multiple>
-            <template #selection="{ item, index }">
-              <span v-if="index === 0 && filters.length === 1">{{ item.title }}</span>
-              <span v-else-if="index === 0 && filters.length < 4">{{ t('settings.vuetorrent.general.showFilters.filtersEnabled', filters.length) }}</span>
-              <span v-else-if="index === 0 && filters.length <= 4">{{ t('settings.vuetorrent.general.showFilters.allFiltersEnabled', filters.length) }}</span>
-            </template>
-          </v-select>
         </v-col>
 
         <v-col cols="12" md="6">

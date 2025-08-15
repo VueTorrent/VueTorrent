@@ -1147,6 +1147,7 @@
       "tagsAndCategories": "Tags & Categories",
       "vuetorrent": {
         "general": "General",
+        "sidebar": "Sidebar",
         "title": "VueTorrent",
         "torrent_card": {
           "grid": "Grid View",
@@ -1187,7 +1188,6 @@
         "hideColoredChip": "Use text variant for chips",
         "historySize": "History size on eligible fields",
         "import": "Import Settings",
-        "isDrawerRight": "Right Drawer",
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
         "lightVariants": "Light theme variant",
@@ -1201,15 +1201,6 @@
         "registerMagnet": "Register magnet links",
         "resetSettings": "Reset Settings",
         "showCurrentSpeed": "Show Current Speed",
-        "showFilters": {
-          "allFiltersEnabled": "All filters enabled",
-          "category": "Category",
-          "filtersEnabled": "{n} filters enabled",
-          "state": "State",
-          "tag": "Tag",
-          "title": "Show filters",
-          "tracker": "Tracker"
-        },
         "showFreeSpace": "Show Free Space",
         "showPerformanceStats": "Show Performance Stats",
         "showSpeedGraph": "Show Speed Graph",
@@ -1231,6 +1222,26 @@
         },
         "table": {
           "tip": "Properties to display for torrents in table view"
+        }
+      },
+      "sidebar": {
+        "title": "Sidebar",
+        "tip": "Here you can change the order of the widgets in the sidebar, and hide the ones you don't use.",
+        "isDrawerRight": "Right Drawer",
+        "CurrentSpeed":"Show Current Speed",
+        "FreeSpace": "Show Free Space",
+        "PerformanceStats": "Show Performance Stats",
+        "SpeedGraph": "Show Speed Graph",
+        "TransferStats": "Show Transfer Stats",
+        "Filters": "Show Filters",
+        "showFilters": {
+          "allFiltersEnabled": "All filters enabled",
+          "category": "Category",
+          "filtersEnabled": "{n} filters enabled",
+          "state": "State",
+          "tag": "Tag",
+          "title": "Show filters",
+          "tracker": "Tracker"
         }
       }
     },
