@@ -40,19 +40,19 @@ export const useSidebarStore = defineStore(
       }
     }
 
-    function updateWidgetOrder(widgets: SidebarWidget[]) {
-      sidebarWidgets.value = widgets
-    }
-
     function setAllWidgets(active: boolean) {
       sidebarWidgets.value = sidebarWidgets.value.map(widget => ({ ...widget, active }))
+    }
+
+    function setAllFilters(active: boolean) {
+      filters.value = filters.value.map(filter => ({ ...filter, active }))
     }
 
     return {
       sidebarWidgets,
       toggleWidget,
-      updateWidgetOrder,
       setAllWidgets,
+      setAllFilters,
       showFilterState,
       showFilterCategory,
       showFilterTag,
