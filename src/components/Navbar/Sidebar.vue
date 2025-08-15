@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, defineAsyncComponent, Component } from 'vue'
+import { computed, defineAsyncComponent, type Component } from 'vue'
 import BottomActions from './SideWidgets/BottomActions.vue'
 import { useDashboardStore, useNavbarStore, useSidebarStore } from '@/stores'
 import { SidebarWidget } from '@/types/vuetorrent'
