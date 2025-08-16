@@ -56,7 +56,7 @@ function selectAllFilters() {
     </v-col>
     <v-col cols="12" md="6">
       <v-list>
-        <v-list-subheader>{{ $t('settings.vuetorrent.sidebar.showFilters.title') }}</v-list-subheader>
+        <v-list-subheader>{{ $t('settings.vuetorrent.sidebar.Filters') }}</v-list-subheader>
 
         <v-list-item>
           <v-row>
