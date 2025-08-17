@@ -206,7 +206,6 @@
         "resume": "Devam Et"
       }
     },
-    "searchInputLabel": "Ara",
     "selectAll": "Tümünü Seç / Seçimi Kaldır (Ctrl + A)",
     "selectedTorrentsCount": "Torrent yok | {count} / {total} torrent ({size}) | {count} / {total} torrent ({size})",
     "sortLabel": "Sıralama ölçütü",
@@ -934,7 +933,6 @@
         "hideColoredChip": "Çipler için metin varyantını kullan",
         "historySize": "Uygun alanlarda geçmiş boyutu",
         "import": "Ayarları İçe Aktar",
-        "isDrawerRight": "Sağ Çekmece",
         "isShutdownButtonVisible": "Kapatma düğmesini göster",
         "language": "Dil",
         "lightVariants": "Açık tema varyantı",
@@ -947,13 +945,16 @@
         "refreshInterval": "qBittorrent API yenileme aralığı",
         "registerMagnet": "Magnet bağlantılarını kaydet",
         "resetSettings": "Ayarları Sıfırla",
-        "showCurrentSpeed": "Mevcut Hızı Göster",
-        "showFreeSpace": "Boş Alanı Göster",
-        "showSpeedGraph": "Hız Grafiğini Göster",
         "tip": "Bu ayarlar özel WebUI'nin kendisi içindir",
         "useBinarySize": "Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ",
         "useBitSpeed": "Hız değerlerini bit cinsinden değiştir (kB/s -> kbps)",
         "vueTorrentTitle": "Sekme başlığı"
+      },
+      "sidebar": {
+        "CurrentSpeed": "Mevcut Hızı Göster",
+        "FreeSpace": "Boş Alanı Göster",
+        "isDrawerRight": "Sağ Çekmece",
+        "SpeedGraph": "Hız Grafiğini Göster"
       },
       "torrentCard": {
         "grid": {

@@ -215,7 +215,6 @@
         "resume": "Reprendre"
       }
     },
-    "searchInputLabel": "Rechercher",
     "selectAll": "Tout (dé)sélectionner (Ctrl + A)",
     "selectedTorrentsCount": "Aucun torrent | {count} sur {total} torrent ({size}) | {count} sur {total} torrents ({size})",
     "sortLabel": "Trier par",
@@ -955,7 +954,6 @@
         "hideColoredChip": "Utiliser la variante texte pour les puces",
         "historySize": "Taille de l'historique sur les champs éligibles",
         "import": "Importer les paramètres",
-        "isDrawerRight": "Menu latéral à droite",
         "isShutdownButtonVisible": "Afficher le bouton d'arrêt",
         "language": "Langue",
         "lightVariants": "Variante du thème clair",
@@ -968,13 +966,16 @@
         "refreshInterval": "Intervalle de rafraîchissement de l'API qBittorrent",
         "registerMagnet": "Enregistrer les liens magnet",
         "resetSettings": "Réinitialiser les paramètres",
-        "showCurrentSpeed": "Afficher la vitesse actuelle",
-        "showFreeSpace": "Afficher l'espace libre",
-        "showSpeedGraph": "Afficher le graphique de vitesse",
         "tip": "Ces paramètres concernent l'interface actuelle",
         "useBinarySize": "Remplacer les tailles de données par des unités binaires (kB -> KiB)",
         "useBitSpeed": "Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)",
         "vueTorrentTitle": "Titre de l'onglet"
+      },
+      "sidebar": {
+        "CurrentSpeed": "Afficher la vitesse actuelle",
+        "FreeSpace": "Afficher l'espace libre",
+        "isDrawerRight": "Menu latéral à droite",
+        "SpeedGraph": "Afficher le graphique de vitesse"
       },
       "torrentCard": {
         "grid": {

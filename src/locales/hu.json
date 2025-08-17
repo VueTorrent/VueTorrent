@@ -193,7 +193,6 @@
         "resume": "Folytatás"
       }
     },
-    "searchInputLabel": "Keresés",
     "selectAll": "(Minden kiválasztása/eltávolítása (Ctrl + A))",
     "selectedTorrentsCount": "Nincs torrent | {count} a {total} torrentből ({size}) | {count} a {total} torrentből ({size})",
     "sortLabel": "Rendezés",
@@ -869,7 +868,6 @@
         "hideChipIfUnset": "Csempék elrejtése, ha nincsenek beállítva",
         "historySize": "Előzmények mérete a jogosult mezőkön",
         "import": "Beállítások importálása",
-        "isDrawerRight": "Jobb oldali fiók",
         "isShutdownButtonVisible": "Leállítás gomb megjelenítése",
         "language": "Nyelv",
         "paginationSize": {
@@ -881,13 +879,16 @@
         "refreshInterval": "qBittorrent API frissítési intervalluma",
         "registerMagnet": "Mágnes linkek regisztrálása",
         "resetSettings": "Beállítások visszaállítása",
-        "showCurrentSpeed": "Aktuális sebesség megjelenítése",
-        "showFreeSpace": "Szabad hely megjelenítése",
-        "showSpeedGraph": "Sebességgrafikon megjelenítése",
         "tip": "Ezek a beállítások a testreszabott WebUI-ra vonatkoznak",
         "useBinarySize": "Az adatméretek bináris egységekre való cseréje (kB -> KiB)",
         "useBitSpeed": "A sebességértékek bitekre való cseréje (kB/s -> kbps)",
         "vueTorrentTitle": "Fül cím"
+      },
+      "sidebar": {
+        "CurrentSpeed": "Aktuális sebesség megjelenítése",
+        "FreeSpace": "Szabad hely megjelenítése",
+        "isDrawerRight": "Jobb oldali fiók",
+        "SpeedGraph": "Sebességgrafikon megjelenítése"
       },
       "torrentCard": {
         "grid": {

@@ -246,7 +246,6 @@
         "resume": "繼續"
       }
     },
-    "searchInputLabel": "搜尋",
     "selectAll": "(取消) 選擇全部 (Ctrl + A)",
     "selectedTorrentsCount": "無種子 | {total} 個種子中的 {count} 個 ({size}) | {total} 個種子中的 {count} 個 ({size})",
     "sortLabel": "排序方式",
@@ -1089,7 +1088,6 @@
         "hideColoredChip": "為卡片使用文本模式",
         "historySize": "符合條件欄位的歷史大小",
         "import": "匯入設定",
-        "isDrawerRight": "側邊欄居右顯示",
         "isShutdownButtonVisible": "顯示結束按鈕",
         "language": "語言",
         "lightVariants": "淺色界面式樣",
@@ -1102,14 +1100,17 @@
         "refreshInterval": "qBittorrent API 更新區間",
         "registerMagnet": "註冊磁力連結",
         "resetSettings": "重置設定",
-        "showCurrentSpeed": "顯示當前速率",
-        "showFreeSpace": "顯示剩餘空間",
-        "showSpeedGraph": "顯示速率圖表",
         "tip": "這些設定適用於自訂WebUI",
         "useBinarySize": "以二進位制取代容量單位 (kB -> KiB)",
         "useBitSpeed": "以位元取代速率單位 (kB/s -> kbps)",
         "useEmojiState": "在種子狀態前加上表情符號",
         "vueTorrentTitle": "VueTorrent 標題"
+      },
+      "sidebar": {
+        "CurrentSpeed": "顯示當前速率",
+        "FreeSpace": "顯示剩餘空間",
+        "isDrawerRight": "側邊欄居右顯示",
+        "SpeedGraph": "顯示速率圖表"
       },
       "torrentCard": {
         "grid": {

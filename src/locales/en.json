@@ -1199,16 +1199,30 @@
         "refreshInterval": "qBittorrent API refresh interval",
         "registerMagnet": "Register magnet links",
         "resetSettings": "Reset Settings",
-        "showCurrentSpeed": "Show Current Speed",
-        "showFreeSpace": "Show Free Space",
-        "showPerformanceStats": "Show Performance Stats",
-        "showSpeedGraph": "Show Speed Graph",
-        "showTransferStats": "Show Transfer Stats",
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "useEmojiState": "Prepend torrent states with emojis",
         "vueTorrentTitle": "Tab title"
+      },
+      "sidebar": {
+        "CurrentSpeed": "Show Current Speed",
+        "Filters": "Show Filters",
+        "FreeSpace": "Show Free Space",
+        "isDrawerRight": "Right Drawer",
+        "PerformanceStats": "Show Performance Stats",
+        "showFilters": {
+          "allFiltersEnabled": "All filters enabled",
+          "category": "Category",
+          "filtersEnabled": "{n} filters enabled",
+          "state": "State",
+          "tag": "Tag",
+          "tracker": "Tracker"
+        },
+        "SpeedGraph": "Show Speed Graph",
+        "tip": "Here you can change the order of the widgets in the sidebar, and hide the ones you don't use.",
+        "title": "Sidebar",
+        "TransferStats": "Show Transfer Stats"
       },
       "torrentCard": {
         "grid": {
@@ -1221,26 +1235,6 @@
         },
         "table": {
           "tip": "Properties to display for torrents in table view"
-        }
-      },
-      "sidebar": {
-        "title": "Sidebar",
-        "tip": "Here you can change the order of the widgets in the sidebar, and hide the ones you don't use.",
-        "isDrawerRight": "Right Drawer",
-        "CurrentSpeed":"Show Current Speed",
-        "FreeSpace": "Show Free Space",
-        "PerformanceStats": "Show Performance Stats",
-        "SpeedGraph": "Show Speed Graph",
-        "TransferStats": "Show Transfer Stats",
-        "Filters": "Show Filters",
-        "showFilters": {
-          "allFiltersEnabled": "All filters enabled",
-          "category": "Category",
-          "filtersEnabled": "{n} filters enabled",
-          "state": "State",
-          "tag": "Tag",
-          "title": "Show filters",
-          "tracker": "Tracker"
         }
       }
     },

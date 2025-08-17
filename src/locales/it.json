@@ -181,7 +181,6 @@
         "title": "Imposta Etichetta"
       }
     },
-    "searchInputLabel": "Cerca",
     "selectAll": "(De)seleziona Tutto (Ctrl + A)",
     "selectedTorrentsCount": "Nessun Torrent | {count} di {total} Torrent ({size}) | {count} di {total} Torrent ({size})",
     "sortLabel": "Ordina per",

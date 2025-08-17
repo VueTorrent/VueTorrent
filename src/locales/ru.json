@@ -270,7 +270,6 @@
         "resume": "Возобновить"
       }
     },
-    "searchInputLabel": "Поиск",
     "selectAll": "Выбрать все (Ctrl + A)",
     "selectedTorrentsCount": "Нет торрента | {count} из {total} торрента ({size}) | {count} из {total} торрентов ({size})",
     "sortLabel": "Сортировать по",
@@ -1154,7 +1153,6 @@
         "hideColoredChip": "Использовать текстовый вариант для фишек",
         "historySize": "Размер истории в подходящих полях",
         "import": "Импортировать настройки",
-        "isDrawerRight": "Расположить боковую панель справа",
         "isShutdownButtonVisible": "Показать кнопку выключения",
         "language": "Язык",
         "lightVariants": "Светлая тема",
@@ -1167,23 +1165,25 @@
         "refreshInterval": "Интервал обновления qBittorrent API",
         "registerMagnet": "Регистрировать магнитные ссылки",
         "resetSettings": "Сбросить настройки",
-        "showCurrentSpeed": "Показывать текущую скорость",
+        "tip": "Общие настройки пользовательского WebUI",
+        "useBinarySize": "Заменить размеры данных двоичными единицами измерения (kB -> KiB)",
+        "useBitSpeed": "Заменить значения скорости на биты (kB/s -> kbps)",
+        "useEmojiState": "Добавлять к состоянию торрента эмодзи",
+        "vueTorrentTitle": "Заголовок вкладки"
+      },
+      "sidebar": {
+        "CurrentSpeed": "Показывать текущую скорость",
+        "FreeSpace": "Показывать свободное место",
+        "isDrawerRight": "Расположить боковую панель справа",
         "showFilters": {
           "allFiltersEnabled": "Все фильтры включены",
           "category": "Категория",
           "filtersEnabled": "{n} фильтров включено",
           "state": "Состояние",
           "tag": "Тег",
-          "title": "Показать фильтры",
           "tracker": "Трекер"
         },
-        "showFreeSpace": "Показывать свободное место",
-        "showSpeedGraph": "Показывать график скорости",
-        "tip": "Общие настройки пользовательского WebUI",
-        "useBinarySize": "Заменить размеры данных двоичными единицами измерения (kB -> KiB)",
-        "useBitSpeed": "Заменить значения скорости на биты (kB/s -> kbps)",
-        "useEmojiState": "Добавлять к состоянию торрента эмодзи",
-        "vueTorrentTitle": "Заголовок вкладки"
+        "SpeedGraph": "Показывать график скорости"
       },
       "torrentCard": {
         "grid": {

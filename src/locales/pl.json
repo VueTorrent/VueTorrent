@@ -192,7 +192,6 @@
         "resume": "Wznów"
       }
     },
-    "searchInputLabel": "Szukaj",
     "selectAll": "Zaznacz/Odznacz wszystko (Ctrl + A)",
     "selectedTorrentsCount": "Brak torrenta | {count} z {total} torrentów ({size}) | {count} z {total} torrentów ({size})",
     "sortLabel": "Sortuj według",
@@ -868,7 +867,6 @@
         "hideChipIfUnset": "Ukryj elementy, jeśli nieustawione",
         "historySize": "Rozmiar historii w kwalifikujących się polach",
         "import": "Importuj ustawienia",
-        "isDrawerRight": "Prawy panel boczny",
         "isShutdownButtonVisible": "Pokaż przycisk wyłączenia",
         "language": "Język",
         "paginationSize": {
@@ -880,13 +878,16 @@
         "refreshInterval": "Interwał odświeżania API qBittorrent",
         "registerMagnet": "Zarejestruj linki magnet",
         "resetSettings": "Resetuj ustawienia",
-        "showCurrentSpeed": "Pokaż aktualną prędkość",
-        "showFreeSpace": "Pokaż wolne miejsce",
-        "showSpeedGraph": "Pokaż wykres prędkości",
         "tip": "Te ustawienia dotyczą niestandardowego interfejsu WebUI",
         "useBinarySize": "Zastąp jednostki danych jednostkami binarnymi (kB -> KiB)",
         "useBitSpeed": "Zamień wartości prędkości na bity (kB/s -> kbps)",
         "vueTorrentTitle": "Tytuł karty"
+      },
+      "sidebar": {
+        "CurrentSpeed": "Pokaż aktualną prędkość",
+        "FreeSpace": "Pokaż wolne miejsce",
+        "isDrawerRight": "Prawy panel boczny",
+        "SpeedGraph": "Pokaż wykres prędkości"
       },
       "torrentCard": {
         "grid": {
