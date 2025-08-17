@@ -205,7 +205,6 @@
         "resume": "Відновити"
       }
     },
-    "searchInputLabel": "Пошук",
     "selectAll": "(Скасувати)виділити все (Ctrl + A)",
     "selectedTorrentsCount": "Немає торрента | {count} з {total} торентів ({size}) | {count} з {total} торентів ({size})",
     "sortLabel": "Сортувати за",

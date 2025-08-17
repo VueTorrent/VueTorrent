@@ -192,7 +192,6 @@
         "resume": "이어하기"
       }
     },
-    "searchInputLabel": "검색",
     "selectAll": "모두 선택/해제 (Ctrl + A) ",
     "selectedTorrentsCount": "토런트 없음 | {total}개 토렌트 중 {count}개 ({size}) | {total}개 토렌트 중 {count}개 ({size})",
     "sortLabel": "정렬 기준",
@@ -845,7 +844,6 @@
         "hideChipIfUnset": "설정되지 않은 경우 해당 옵션 숨기기",
         "historySize": "대상 필드의 기록 크기",
         "import": "설정 가져오기",
-        "isDrawerRight": "오른쪽 탭",
         "isShutdownButtonVisible": "종료 버튼 표시",
         "language": "표시 언어",
         "paginationSize": {
@@ -857,13 +855,16 @@
         "refreshInterval": "qBittorrent API 새로 고침 간격",
         "registerMagnet": "마그넷 링크 등록",
         "resetSettings": "설정 초기화",
-        "showCurrentSpeed": "현재 속도 표시",
-        "showFreeSpace": "여유 공간 표시",
-        "showSpeedGraph": "속도 그래프 표시",
         "tip": "이 설정은 사용자 지정 WebUI에 대한 설정입니다.",
         "useBinarySize": "데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)",
         "useBitSpeed": "속도 값 표시를 비트로 바꾸기(kB/s -> kbps)",
         "vueTorrentTitle": "탭 제목"
+      },
+      "sidebar": {
+        "CurrentSpeed": "현재 속도 표시",
+        "FreeSpace": "여유 공간 표시",
+        "isDrawerRight": "오른쪽 탭",
+        "SpeedGraph": "속도 그래프 표시"
       },
       "torrentCard": {
         "grid": {

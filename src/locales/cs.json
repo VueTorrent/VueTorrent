@@ -190,7 +190,6 @@
         "resume": "Obnovit"
       }
     },
-    "searchInputLabel": "Hledat",
     "selectAll": "(Od)vybrat vše (Ctrl + A)",
     "selectedTorrentsCount": "Žádný torrent | {count} z {total} torrentů ({size}) | {count} z {total} torrentů ({size})"
   },

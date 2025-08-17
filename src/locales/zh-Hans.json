@@ -246,7 +246,6 @@
         "resume": "继续"
       }
     },
-    "searchInputLabel": "搜索",
     "selectAll": "(取消)全选 (Ctrl + A)",
     "selectedTorrentsCount": "无种子 | {count} / {total} 个种子 ({size}) | {count} / {total} 个种子 ({size})",
     "sortLabel": "排序方式",
@@ -1089,7 +1088,6 @@
         "hideColoredChip": "为卡片使用文本模式",
         "historySize": "符合条件字段的历史大小",
         "import": "导入设置",
-        "isDrawerRight": "侧边栏居右显示",
         "isShutdownButtonVisible": "显示关闭按钮",
         "language": "语言",
         "lightVariants": "浅色模式样式",
@@ -1102,14 +1100,17 @@
         "refreshInterval": "qBittorrent API 刷新间隔",
         "registerMagnet": "注册为磁力链程序",
         "resetSettings": "重置设置",
-        "showCurrentSpeed": "显示当前速度",
-        "showFreeSpace": "显示剩余空间",
-        "showSpeedGraph": "显示速度图表",
         "tip": "这些设置适用于自定义WebUI",
         "useBinarySize": "以二进制单位表示数据大小 (kB -> KiB)",
         "useBitSpeed": "以比特表示速度值 (kB/s -> kbps)",
         "useEmojiState": "在种子状态前添加表情符号",
         "vueTorrentTitle": "VueTorrent 标题"
+      },
+      "sidebar": {
+        "CurrentSpeed": "显示当前速度",
+        "FreeSpace": "显示剩余空间",
+        "isDrawerRight": "侧边栏居右显示",
+        "SpeedGraph": "显示速度图表"
       },
       "torrentCard": {
         "grid": {

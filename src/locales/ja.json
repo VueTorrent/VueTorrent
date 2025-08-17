@@ -206,7 +206,6 @@
         "resume": "再開"
       }
     },
-    "searchInputLabel": "検索",
     "selectAll": "すべて選択/選択解除 (Ctrl + A) ",
     "selectedTorrentsCount": "Torrentなし | {count} / {total} 個のTorrent ({size}) | {count} / {total} 個のTorrent ({size})",
     "sortLabel": "並び替え",
@@ -935,7 +934,6 @@
         "hideColoredChip": "チップのテキストバリアントを使用する",
         "historySize": "対象フィールドの履歴サイズ",
         "import": "設定のインポート",
-        "isDrawerRight": "右側のドロワー",
         "isShutdownButtonVisible": "シャットダウンボタンを表示",
         "language": "言語",
         "lightVariants": "ライトモード",
@@ -948,13 +946,16 @@
         "refreshInterval": "qBittorrent API更新間隔",
         "registerMagnet": "マグネットリンクを登録する",
         "resetSettings": "設定をリセット",
-        "showCurrentSpeed": "現在の速度を表示する",
-        "showFreeSpace": "空き容量を表示する",
-        "showSpeedGraph": "速度グラフを表示する",
         "tip": "これらの設定はカスタムWebUI自体のためのものです",
         "useBinarySize": "データサイズの単位をバイナリ単位に置き換える (kB -> KiB)",
         "useBitSpeed": "速度の値をビットに置き換える (kB/s -> kbps)",
         "vueTorrentTitle": "タブのタイトル"
+      },
+      "sidebar": {
+        "CurrentSpeed": "現在の速度を表示する",
+        "FreeSpace": "空き容量を表示する",
+        "isDrawerRight": "右側のドロワー",
+        "SpeedGraph": "速度グラフを表示する"
       },
       "torrentCard": {
         "grid": {
