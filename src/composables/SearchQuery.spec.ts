@@ -81,4 +81,10 @@ describe('composables/SearchQuery', () => {
     expect(res3.value).toEqual([ITEM_WITHOUT_ACCENTS])
     expect(res4.value).toEqual([AZERTY])
   })
+
+  test('should test for regex if value enclosed with slashes', () => {
+    const items = ['abc123', 'def456']
+    const { results } = useSearchQuery(items, '/\\d+/', item => item)
+    expect(results.value).toEqual(items)
+  })
 })
