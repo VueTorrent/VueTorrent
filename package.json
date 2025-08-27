@@ -39,7 +39,7 @@
     "pixi.js": "^8.12.0",
     "uuid": "^11.1.0",
     "vite-plugin-vuetify": "^2.1.2",
-    "vue": "^3.5.19",
+    "vue": "^3.5.20",
     "vue-concurrency": "^5.0.3",
     "vue-i18n": "^11.1.11",
     "vue-router": "^4.5.1",
