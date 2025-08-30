@@ -559,6 +559,12 @@
       "actions": {
         "submit": "Run creation task"
       },
+      "autoAddToClient": "Automatically add to qBittorrent",
+      "addCategory": "Category",
+      "addTags": "Tags",
+      "addUseAutoTmm": "Use Automatic Torrent Management",
+      "addUseAutoTmmHint": "Global default is {default}",
+      "rememberSettings": "Remember last used settings",
       "comment": "Comments",
       "format": "Torrent format",
       "optimizeAlignment": "Optimize alignment",

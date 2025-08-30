@@ -60,4 +60,21 @@ export default interface TorrentCreatorParams {
    * separated by a pipe (|)
    */
   urlSeeds?: string
+  /**
+   * Whether to automatically add the created torrent to qBittorrent
+   * @default false
+   */
+  autoAddToClient?: boolean
+  /**
+   * Category to assign to the created torrent when added to qBittorrent
+   */
+  addCategory?: string
+  /**
+   * Tags to assign to the created torrent when added to qBittorrent
+   */
+  addTags?: string[]
+  /**
+   * Whether to enable Automatic Torrent Management for the created torrent when added to qBittorrent
+   */
+  addUseAutoTmm?: boolean
 }
