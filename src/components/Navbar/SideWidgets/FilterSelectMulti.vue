@@ -17,8 +17,8 @@ defineEmits<{
   toggleFilterType: () => void
 }>()
 
-const includeValues = defineModel<Array<T>>('include', { required: true })
-const excludeValues = defineModel<Array<T>>('exclude', { required: true })
+const includeValues = defineModel<T[]>('include', { required: true })
+const excludeValues = defineModel<T[]>('exclude', { required: true })
 
 const { t } = useI18nUtils()
 
@@ -120,11 +120,11 @@ function disableFilter(value: T) {
           {{ t('navbar.side.filters.activeFilter', filterCount) }}
         </span>
       </template>
-      <template #item="{ item }">
+      <template #item="{ item, props: itemProps }">
         <v-list-item
+          v-bind="itemProps"
           v-on-long-press="() => disableFilter(item.value)"
           data-custom-context-menu
-          :title="item.title"
           :class="getClassColor(item.value)"
           @click="toggleValue(item.value)"
           @contextmenu="disableFilter(item.value)">
