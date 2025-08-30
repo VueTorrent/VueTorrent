@@ -69,7 +69,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 - Open the WebUI on localhost with the default credentials
   - See [#1720](https://github.com/VueTorrent/VueTorrent/issues/1720) for more details
 - Make sure WebUI > "Host header validation" is disabled in the qBittorrent preferences
-- Edit `env.development` to tweak your dev environment (e.g. mocked data)
+- Copy `.env.sample` to `.env` to tweak your dev environment (e.g. mocked data)
 
 ## Features
 
