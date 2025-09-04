@@ -2,7 +2,7 @@ import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateV
 import comparators, { Comparator, isObjectEqual } from './comparators'
 import { formatData, formatDataUnit, formatDataValue } from './data'
 import { formatDuration, formatEta, formatTimeMs, formatTimeSec } from './datetime'
-import { arrayRemove } from './misc'
+import { arrayRemove, reduceByHash } from './misc'
 import { formatPercent, toPrecision, safeDiv } from './number'
 import { basename, getExtType, getFileIcon, getTypeIcon, splitExt } from './path'
 import { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
@@ -24,6 +24,7 @@ export {
   formatTimeSec,
   formatDuration,
   arrayRemove,
+  reduceByHash,
   toPrecision,
   formatPercent,
   safeDiv,

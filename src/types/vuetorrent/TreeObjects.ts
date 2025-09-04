@@ -1,12 +1,14 @@
 import { FilePriority } from '@/constants/qbit'
 import { safeDiv } from '@/helpers'
-import { TorrentFile } from '@/types/qbit/models'
+import { type TorrentFile } from '@/types/vuetorrent'
 
 export type TreeNode = TreeFile | TreeFolder
 
 export class TreeFile {
   /** Represents the type of the node */
   type: 'file'
+  /** Linked torrent hash */
+  hash: string
   /** File index */
   id: number
   /** File full name (relative path + name) */
@@ -40,6 +42,7 @@ export class TreeFile {
     this.type = 'file'
     this.name = filename
 
+    this.hash = file.hash
     this.id = file.index
     this.fullName = file.name
     this.availability = file.availability
@@ -58,6 +61,8 @@ export class TreeFile {
 export class TreeFolder {
   /** Represents the type of the node */
   type: 'folder'
+  /** Linked torrent hash */
+  hash: string
   /** Node full name */
   id: string
   fullName: string
@@ -75,8 +80,9 @@ export class TreeFolder {
   size: number = 0
   selectedSize: number = 0
 
-  constructor(name: string, fullName: string) {
+  constructor(hash: string, name: string, fullName: string) {
     this.type = 'folder'
+    this.hash = hash
     this.id = fullName
     this.fullName = fullName
     this.name = name

@@ -1,23 +1,20 @@
 import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
+import { computed, defineAsyncComponent, nextTick, reactive, ref, shallowRef, toRaw, triggerRef } from 'vue'
 import { useTask } from 'vue-concurrency'
-import { useRoute } from 'vue-router'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
 import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
-import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
+import { type TorrentFile, RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
-  const route = useRoute()
   const dialogStore = useDialogStore()
   const { fileContentInterval, expandContent } = storeToRefs(useVueTorrentStore())
 
-  const hash = computed(() => route.params.hash as string)
+  const hashes = ref<string[]>([])
 
   const rightClickProperties = reactive<RightClickProperties>({
     target: '',
@@ -25,9 +22,10 @@ export const useContentStore = defineStore('content', () => {
     offset: [0, 0],
   })
   const isFirstRun = shallowRef(true)
-  const cachedFiles = shallowRef<TorrentFile[]>([])
+  const cachedFiles = shallowRef<Record<string, TorrentFile[]>>({})
+  const cachedFilesFlat = computed<TorrentFile[]>(() => Object.values(cachedFiles).flat())
   const filenameFilter = shallowRef('')
-  const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
+  const { results: filteredFiles } = useSearchQuery(cachedFilesFlat, filenameFilter, item => item.name)
   const openedItems = shallowRef(new Set(['']))
   const { flatTree } = useTreeBuilder(filteredFiles, openedItems)
   const internalSelection = shallowRef<Set<string>>(new Set())
@@ -47,13 +45,13 @@ export const useContentStore = defineStore('content', () => {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
-      action: () => void renameNode(selectedNode.value!),
+      action: () => renameNode(selectedNode.value!),
     },
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
-      action: () => void bulkRename(toRaw(selectedNode.value!) as TreeFolder),
+      action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder),
     },
     {
       text: t('torrentDetail.content.invert_priority'),
@@ -118,34 +116,61 @@ export const useContentStore = defineStore('content', () => {
   })
 
   async function updateFileTree() {
-    cachedFiles.value = await fetchFiles(hash.value)
+    await Promise.all(
+      hashes.value.map(async hash => {
+        cachedFiles.value[hash] = await fetchFiles(hash).then(files => files.map(file => ({ ...file, hash })))
+      })
+    )
     await nextTick()
   }
 
-  async function renameNode(node: TreeNode) {
-    const { default: MoveTorrentFileDialog } = await import('@/components/Dialogs/MoveTorrentFileDialog.vue')
+  function renameNode(node: TreeNode) {
+    const MoveTorrentFileDialog = defineAsyncComponent(() => import('@/components/Dialogs/MoveTorrentFileDialog.vue'))
     const payload = {
-      hash: hash.value,
+      hash: node.hash,
       isFolder: node.type === 'folder',
       oldName: node.fullName,
     }
     dialogStore.createDialog(MoveTorrentFileDialog, payload, () => void updateFileTreeTask.perform())
   }
 
-  async function bulkRename(node: TreeFolder) {
-    const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
-    const payload = { hash: hash.value, node }
+  function bulkRename(node: TreeFolder) {
+    const BulkRenameFilesDialog = defineAsyncComponent(() => import('@/components/Dialogs/BulkRenameFilesDialog.vue'))
+    const payload = { hash: node.hash, node }
     dialogStore.createDialog(BulkRenameFilesDialog, payload, () => void updateFileTreeTask.perform())
+  }
+
+  function aggregateByHash<T extends { hash: string }>(acc: Record<string, T[]>, obj: T) {
+    if (!acc[obj.hash]) {
+      acc[obj.hash] = []
+    }
+    acc[obj.hash].push(obj)
+    return acc
   }
 
   async function invertPrioritySelection() {
     const selection = selectedNodes.value.flatMap(n => n.childrenIds)
-    const files = cachedFiles.value.filter(file => selection.includes(file.index))
+    const files = cachedFilesFlat.value.filter(file => selection.includes(file.index))
 
-    const selectedFileIds = files.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
-    const unwantedFileIds = files.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
+    const unwantedFiles = files.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).reduce(aggregateByHash, Record<string, TorrentFile[]>())
+    const selectedFiles = files.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).reduce(aggregateByHash, {})
 
-    await Promise.all([setFilePriority(unwantedFileIds, FilePriority.NORMAL), setFilePriority(selectedFileIds, FilePriority.DO_NOT_DOWNLOAD)])
+    const unwantedFilesPromises = Object.entries(unwantedFiles).map(([hash, unwantedFilesByHash]) =>
+      setFilePriority(
+        hash,
+        unwantedFilesByHash.map(f => f.index),
+        FilePriority.NORMAL
+      )
+    )
+    const selectedFilesPromises = Object.entries(selectedFiles).map(([hash, selectedFilesByHash]) =>
+      setFilePriority(
+        hash,
+        selectedFilesByHash.map(f => f.index),
+        FilePriority.DO_NOT_DOWNLOAD
+      )
+    )
+
+    await Promise.all([...unwantedFilesPromises, ...selectedFilesPromises])
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
@@ -156,8 +181,8 @@ export const useContentStore = defineStore('content', () => {
     await qbit.renameFolder(hash, oldPath, newPath)
   }
 
-  async function setFilePriority(fileIdx: number[], priority: FilePriority) {
-    await qbit.setTorrentFilePriority(hash.value, fileIdx, priority)
+  async function setFilePriority(hash: string, fileIdx: number[], priority: FilePriority) {
+    await qbit.setTorrentFilePriority(hash, fileIdx, priority)
     updateFileTreeTask.perform()
   }
 
@@ -223,6 +248,7 @@ export const useContentStore = defineStore('content', () => {
   }
 
   return {
+    hashes,
     rightClickProperties,
     isFirstRun,
     internalSelection,
@@ -252,7 +278,8 @@ export const useContentStore = defineStore('content', () => {
       internalSelection.value.clear()
       lastSelected.value = ''
       filenameFilter.value = ''
-      cachedFiles.value = []
+      hashes.value = []
+      cachedFiles.value = {}
       openedItems.value = new Set([''])
       isFirstRun.value = true
     },

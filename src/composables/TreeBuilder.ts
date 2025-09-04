@@ -1,11 +1,10 @@
 import toSorted from 'array.prototype.tosorted'
 import { computed, MaybeRefOrGetter, shallowRef, toValue, watchEffect } from 'vue'
 import { comparators } from '@/helpers'
-import { TorrentFile } from '@/types/qbit/models'
-import { TreeFile, TreeFolder, TreeNode } from '@/types/vuetorrent'
+import { type TorrentFile, TreeFile, TreeFolder, TreeNode } from '@/types/vuetorrent'
 
 function getEmptyRoot() {
-  return new TreeFolder('(root)', '')
+  return new TreeFolder('', '(root)', '')
 }
 
 export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedItems: MaybeRefOrGetter<Set<string>>) {
@@ -49,7 +48,7 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedIte
             if (folder) {
               cursor = folder
             } else {
-              const newFolder = new TreeFolder(nodeName, nextPath)
+              const newFolder = new TreeFolder(file.hash, nodeName, nextPath)
               cursor.children.push(newFolder)
               cursor = newFolder
             }

@@ -9,3 +9,11 @@ export function arrayRemove<T>(arr: T[], value: T) {
   }
   return arr
 }
+
+export function reduceByHash<T extends { hash: string }>(acc: Record<string, T[]>, obj: T) {
+  if (!acc[obj.hash]) {
+    acc[obj.hash] = []
+  }
+  acc[obj.hash].push(obj)
+  return acc
+}
