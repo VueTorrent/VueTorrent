@@ -20,6 +20,7 @@ import {
   useLogStore,
   useMaindataStore,
   usePreferenceStore,
+  useSidebarStore,
   useTorrentStore,
   useVueTorrentStore,
 } from './stores'
@@ -30,6 +31,7 @@ const appStore = useAppStore()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
 const logStore = useLogStore()
+const sidebarStore = useSidebarStore()
 const maindataStore = useMaindataStore()
 const { serverState } = storeToRefs(maindataStore)
 const torrentStore = useTorrentStore()
@@ -44,6 +46,9 @@ const backendSyncObjects = [
     whitelist: ['displayMode'],
   }),
   useBackendSync(torrentStore, 'vuetorrent_torrents', {
+    whitelist: ['sortCriterias'],
+  }),
+  useBackendSync(sidebarStore, 'vuetorrent_sidebarSettings', {
     whitelist: ['sortCriterias'],
   }),
   useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
