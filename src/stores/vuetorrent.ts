@@ -48,6 +48,8 @@ export const useVueTorrentStore = defineStore(
     const displayGraphLimits = ref(true)
     const useEmojiState = ref(true)
     const fetchExternalIpInfo = ref(false)
+    const reduceMotion = ref(false)
+    const keepDefaultTransitions = computed(() => !reduceMotion.value)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -273,6 +275,8 @@ export const useVueTorrentStore = defineStore(
       toggleDoneGridProperty,
       toggleTableProperty,
       expandContent,
+      reduceMotion,
+      keepDefaultTransitions,
       $reset: () => {
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
@@ -299,6 +303,7 @@ export const useVueTorrentStore = defineStore(
         useEmojiState.value = true
         fetchExternalIpInfo.value = false
         expandContent.value = true
+        reduceMotion.value = false
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))

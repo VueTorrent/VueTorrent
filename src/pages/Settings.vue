@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
@@ -18,12 +19,13 @@ import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.
 import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Table.vue'
 import WebUI from '@/components/Settings/WebUI.vue'
 import { useI18nUtils } from '@/composables'
-import { useDialogStore, usePreferenceStore } from '@/stores'
+import { useDialogStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 const router = useRouter()
 const { t } = useI18nUtils()
 const dialogStore = useDialogStore()
 const preferenceStore = usePreferenceStore()
+const { keepDefaultTransitions } = storeToRefs(useVueTorrentStore())
 
 const tabs = [
   { text: t('settings.tabs.vuetorrent.title'), value: 'vuetorrent' },
@@ -136,67 +138,67 @@ onBeforeUnmount(() => {
     </v-row>
 
     <v-window v-model="tab" :touch="false">
-      <v-window-item value="enhancedEdition">
+      <v-window-item value="enhancedEdition" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <EnhancedEdition />
       </v-window-item>
 
-      <v-window-item value="vuetorrent">
+      <v-window-item value="vuetorrent" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
           <v-tab v-for="{ text, value } in tabsV" :key="value" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: 'vuetorrent', subtab: value } }" />
         </v-tabs>
 
         <v-window v-model="innerTabV" :touch="false">
-          <v-window-item value="general">
+          <v-window-item value="general" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
             <VGeneral />
           </v-window-item>
-          <v-window-item value="torrentCardList">
+          <v-window-item value="torrentCardList" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
             <VTorrentCardList />
           </v-window-item>
-          <v-window-item value="torrentCardGrid">
+          <v-window-item value="torrentCardGrid" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
             <VTorrentCardGrid />
           </v-window-item>
-          <v-window-item value="torrentCardTable">
+          <v-window-item value="torrentCardTable" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
             <VTorrentCardTable />
           </v-window-item>
-          <v-window-item value="sidebar">
+          <v-window-item value="sidebar" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
             <VSidebar />
           </v-window-item>
         </v-window>
       </v-window-item>
 
-      <v-window-item value="behavior">
+      <v-window-item value="behavior" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <Behavior />
       </v-window-item>
 
-      <v-window-item value="downloads">
+      <v-window-item value="downloads" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <Downloads />
       </v-window-item>
 
-      <v-window-item value="connection">
+      <v-window-item value="connection" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <Connection />
       </v-window-item>
 
-      <v-window-item value="speed">
+      <v-window-item value="speed" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <Speed />
       </v-window-item>
 
-      <v-window-item value="bittorrent">
+      <v-window-item value="bittorrent" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <BitTorrent />
       </v-window-item>
 
-      <v-window-item value="rss">
+      <v-window-item value="rss" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <RSS />
       </v-window-item>
 
-      <v-window-item value="webui">
+      <v-window-item value="webui" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <WebUI />
       </v-window-item>
 
-      <v-window-item value="tagsAndCategories">
+      <v-window-item value="tagsAndCategories" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <TagsAndCategories />
       </v-window-item>
 
-      <v-window-item value="advanced">
+      <v-window-item value="advanced" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
         <Advanced />
       </v-window-item>
     </v-window>
