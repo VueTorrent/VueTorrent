@@ -25,7 +25,7 @@
     "@fontsource/roboto-mono": "^5.2.6",
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
-    "@vueuse/components": "^13.7.0",
+    "@vueuse/components": "^13.9.0",
     "@vueuse/core": "^13.7.0",
     "@zip.js/zip.js": "^2.7.72",
     "apexcharts": "^5.3.4",
@@ -46,7 +46,7 @@
     "vue3-apexcharts": "^1.8.0",
     "vue3-toastify": "^0.2.8",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.9.5"
+    "vuetify": "^3.9.6"
   },
   "devDependencies": {
     "@dword-design/eslint-plugin-import-alias": "^6.0.3",
