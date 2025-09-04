@@ -122,8 +122,8 @@ function disableFilter(value: T) {
       </template>
       <template #item="{ item, props: itemProps }">
         <v-list-item
-          v-bind="itemProps"
           v-on-long-press="() => disableFilter(item.value)"
+          v-bind="itemProps"
           data-custom-context-menu
           :class="getClassColor(item.value)"
           @click="toggleValue(item.value)"

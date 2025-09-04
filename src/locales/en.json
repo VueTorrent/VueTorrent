@@ -1196,6 +1196,7 @@
           "warning": "This option can significantly affect performance with a lot of torrents"
         },
         "qbittorrentVersion": "qBittorrent Version",
+        "reduceMotion": "Reduce motion",
         "refreshInterval": "qBittorrent API refresh interval",
         "registerMagnet": "Register magnet links",
         "resetSettings": "Reset Settings",
