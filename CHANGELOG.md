@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.30.0](https://github.com/VueTorrent/VueTorrent/compare/v2.29.0...v2.30.0) (2025-09-10)
+
+
+### Features
+
+* Add reduce motion toggle ([#2476](https://github.com/VueTorrent/VueTorrent/issues/2476)) ([67e1d2e](https://github.com/VueTorrent/VueTorrent/commit/67e1d2e26efaad026826672f32dfdcb24c0a73b7))
+
+
+### Bug Fixes
+
+* **backend:** Sync sidebar settings to backend ([#2474](https://github.com/VueTorrent/VueTorrent/issues/2474)) ([a4a9954](https://github.com/VueTorrent/VueTorrent/commit/a4a995416106b0d23904159d090493d5e770a960))
+
 ## [2.29.0](https://github.com/VueTorrent/VueTorrent/compare/v2.28.2...v2.29.0) (2025-08-31)
 
 
