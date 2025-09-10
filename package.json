@@ -72,7 +72,7 @@
     "sass": "^1.91.0",
     "timezone-mock": "^1.3.6",
     "typescript": "^5.9.2",
-    "vite": "^7.1.4",
+    "vite": "^7.1.5",
     "vite-plugin-top-level-await": "^1.6.0",
     "vitest": "^3.2.4",
     "vue-tsc": "^3.0.6"
