@@ -48,35 +48,42 @@ export function getDomainBody(string: string): string {
  * Path (Optional): should match any string appended to the URL
  */
 function getUrlRegExp() {
-  return new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi)
+  return new RegExp(/(?<protocol>(?:https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?<port>:\d+)?(?<path>\/\S*)?/gi)
 }
 
 export function splitByUrl(data: string) {
-  const urls = data.match(getUrlRegExp())
-  let resultArray: string[] = []
+  const splitted = data.split(getUrlRegExp())
+  const result = []
 
-  if (urls) {
-    urls.forEach(function (url) {
-      let tmpResult
-      if (resultArray.length === 0) {
-        tmpResult = data.toString().split(url)
-      } else {
-        tmpResult = resultArray[resultArray.length - 1].toString().split(url)
-        resultArray.pop()
-      }
+  for (let i = 0; i < splitted.length; i++) {
+    if (i % 5 === 0) {
+      result.push({ raw: splitted[i] })
+      continue
+    }
 
-      tmpResult.splice(1, 0, url)
-      resultArray = [...resultArray, ...tmpResult]
+    const protocol = splitted[i]
+    const host = splitted[i+1]
+    const port = splitted[i+2]
+    const path = splitted[i+3]
+
+    let sub = ''
+    protocol && (sub += protocol)
+    host && (sub += host)
+    port && (sub += port)
+    path && (sub += path)
+
+    result.push({
+      protocol,
+      host,
+      port,
+      path,
+      raw: sub,
     })
-  } else {
-    resultArray[0] = data
+
+    i += 3
   }
 
-  resultArray = resultArray.filter(element => {
-    return element !== ''
-  })
-
-  return resultArray
+  return result.filter(part => part.raw && part.raw != '')
 }
 
 export function containsUrl(data: string) {
