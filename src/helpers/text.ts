@@ -62,15 +62,15 @@ export function splitByUrl(data: string) {
     }
 
     const protocol = splitted[i]
-    const host = splitted[i+1]
-    const port = splitted[i+2]
-    const path = splitted[i+3]
+    const host = splitted[i + 1]
+    const port = splitted[i + 2]
+    const path = splitted[i + 3]
 
     let sub = ''
-    protocol && (sub += protocol)
-    host && (sub += host)
-    port && (sub += port)
-    path && (sub += path)
+    if (protocol) sub += protocol
+    if (host) sub += host
+    if (port) sub += port
+    if (path) sub += path
 
     result.push({
       protocol,

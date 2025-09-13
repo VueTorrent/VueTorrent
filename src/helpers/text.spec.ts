@@ -44,14 +44,14 @@ test('helpers/text/getDomainBody', () => {
 describe('helpers/text/splitByUrl', () => {
   test('match URL with protocol', () => {
     expect(splitByUrl('Description available at http://www.example.com')).toEqual([
-      { raw: 'Description available at '},
+      { raw: 'Description available at ' },
       { protocol: 'http://', host: 'www.example.com', port: undefined, path: undefined, raw: 'http://www.example.com' },
     ])
   })
 
   test('match only host', () => {
     expect(splitByUrl('Downloaded from example.com')).toEqual([
-      { raw: 'Downloaded from '},
+      { raw: 'Downloaded from ' },
       { protocol: undefined, host: 'example.com', port: undefined, path: undefined, raw: 'example.com' },
     ])
   })
@@ -67,7 +67,7 @@ describe('helpers/text/splitByUrl', () => {
 
   test('match port', () => {
     expect(splitByUrl('Downloaded from https://example.com:8080')).toEqual([
-      { raw: 'Downloaded from '},
+      { raw: 'Downloaded from ' },
       { protocol: 'https://', host: 'example.com', port: ':8080', path: undefined, raw: 'https://example.com:8080' },
     ])
   })
