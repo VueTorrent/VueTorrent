@@ -71,12 +71,7 @@ export function splitByUrl(data: string) {
       host,
       port,
       path,
-      raw: (
-        (protocol ?? '') +
-        (host ?? '') +
-        (port ?? '') +
-        (path ?? '')
-      ),
+      raw: (protocol ?? '') + (host ?? '') + (port ?? '') + (path ?? ''),
     })
 
     i += 3
