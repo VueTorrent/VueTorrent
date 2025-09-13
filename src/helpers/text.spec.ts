@@ -41,9 +41,36 @@ test('helpers/text/getDomainBody', () => {
   expect(getDomainBody('udp://www.example.com')).toBe('example')
 })
 
-test('helpers/text/splitByUrl', () => {
-  expect(splitByUrl('Description available at http://www.example.com')).toEqual(['Description available at ', 'http://www.example.com'])
-  expect(splitByUrl('Downloaded from example.com')).toEqual(['Downloaded from ', 'example.com'])
+describe('helpers/text/splitByUrl', () => {
+  test('match URL with protocol', () => {
+    expect(splitByUrl('Description available at http://www.example.com')).toEqual([
+      { raw: 'Description available at ' },
+      { protocol: 'http://', host: 'www.example.com', port: undefined, path: undefined, raw: 'http://www.example.com' },
+    ])
+  })
+
+  test('match only host', () => {
+    expect(splitByUrl('Downloaded from example.com')).toEqual([
+      { raw: 'Downloaded from ' },
+      { protocol: undefined, host: 'example.com', port: undefined, path: undefined, raw: 'example.com' },
+    ])
+  })
+
+  test('match several URLs', () => {
+    expect(splitByUrl('This torrent was downloaded from tracker.com. https://tracker.com/torrents/12345678')).toEqual([
+      { raw: 'This torrent was downloaded from ' },
+      { protocol: undefined, host: 'tracker.com', port: undefined, path: undefined, raw: 'tracker.com' },
+      { raw: '. ' },
+      { protocol: 'https://', host: 'tracker.com', port: undefined, path: '/torrents/12345678', raw: 'https://tracker.com/torrents/12345678' },
+    ])
+  })
+
+  test('match port', () => {
+    expect(splitByUrl('Downloaded from https://example.com:8080')).toEqual([
+      { raw: 'Downloaded from ' },
+      { protocol: 'https://', host: 'example.com', port: ':8080', path: undefined, raw: 'https://example.com:8080' },
+    ])
+  })
 })
 
 describe('helpers/text/containsUrl', () => {
