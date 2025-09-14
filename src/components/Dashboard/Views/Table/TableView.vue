@@ -106,7 +106,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
             :model-value="isTorrentSelected(torrent)"
             :color="`torrent-${TorrentState[torrent.state].toLowerCase()}`"
             variant="text"
-            @click.stop="$emit('onCheckboxClick', $event, torrent)" />
+            @click.prevent.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
 
         <td class="torrent-name text-no-wrap">

@@ -45,7 +45,7 @@ const dashboardStore = useDashboardStore()
             :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
             class="mr-2"
             variant="text"
-            @click="$emit('onCheckboxClick', $event, torrent)" />
+            @click.prevent="$emit('onCheckboxClick', $event, torrent)" />
         </v-expand-x-transition>
         <ListTorrent :torrent="torrent" @on-torrent-click="(e, t) => $emit('onTorrentClick', e, t)" />
       </div>
