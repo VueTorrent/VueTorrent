@@ -46,7 +46,7 @@
     "vue3-apexcharts": "^1.8.0",
     "vue3-toastify": "^0.2.8",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.9.7"
+    "vuetify": "^3.10.0"
   },
   "devDependencies": {
     "@dword-design/eslint-plugin-import-alias": "^6.0.3",
@@ -75,6 +75,6 @@
     "vite": "^7.1.5",
     "vite-plugin-top-level-await": "^1.6.0",
     "vitest": "^3.2.4",
-    "vue-tsc": "^3.0.6"
+    "vue-tsc": "^3.0.7"
   }
 }
