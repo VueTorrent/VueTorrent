@@ -57,9 +57,7 @@ const backendSyncObjects = [
 ]
 
 async function checkAuthentication() {
-  const promise = appStore.fetchAuthStatus()
-  const timer = setTimeout(() => void toast.promise(promise, { pending: t('login.pending') }), 1000)
-  return promise.then(() => clearTimeout(timer))
+  return toast.promise(appStore.fetchAuthStatus(), { pending: t('login.pending') })
 }
 
 function blockContextMenu(event: Event) {
