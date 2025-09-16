@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
+import ServerPathField from '@/components/Core/ServerPathField.vue'
 import { useI18nUtils } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
@@ -169,7 +170,14 @@ defineExpose({ saveFields })
       </v-combobox>
     </v-col>
 
-    <v-col cols="12">
+    <v-col v-if="appStore.usesQbit5" cols="12">
+      <ServerPathField v-model="downloadPath" :title="t('dialogs.add.params.download_path')">
+        <template #prepend>
+          <v-icon color="accent"> mdi-tray-arrow-down </v-icon>
+        </template>
+      </ServerPathField>
+    </v-col>
+    <v-col v-else cols="12">
       <HistoryField
         ref="downloadPathField"
         v-model="downloadPath"
@@ -183,7 +191,14 @@ defineExpose({ saveFields })
       </HistoryField>
     </v-col>
 
-    <v-col cols="12">
+    <v-col v-if="appStore.usesQbit5" cols="12">
+      <ServerPathField v-model="form.save_path" :title="t('dialogs.add.params.save_path')">
+        <template #prepend>
+          <v-icon color="accent"> mdi-content-save </v-icon>
+        </template>
+      </ServerPathField>
+    </v-col>
+    <v-col v-else cols="12">
       <HistoryField
         ref="savePathField"
         v-model="form.save_path"

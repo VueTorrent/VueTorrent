@@ -9,7 +9,7 @@ defineProps<{
   title: string
 }>()
 
-const modelValue = defineModel<string>({ required: true })
+const modelValue = defineModel<string | undefined>({ required: true })
 const items = ref<string[]>([])
 
 const appStore = useAppStore()
@@ -25,6 +25,32 @@ const updateDirContent = useDebounceFn(async query => {
 </script>
 
 <template>
-  <v-combobox v-if="appStore.usesQbit5" v-model="modelValue" :items="items" :label="title" @update:search="updateDirContent" />
-  <v-text-field v-else v-model="modelValue" :label="title" />
+  <v-combobox v-if="appStore.usesQbit5" v-model="modelValue" :items="items" :label="title" @update:search="updateDirContent">
+    <template #prepend="slotProps">
+      <slot name="prepend" v-bind="slotProps" />
+    </template>
+    <template #append="slotProps">
+      <slot name="append" v-bind="slotProps" />
+    </template>
+    <template #append-inner="slotProps">
+      <slot name="append-inner" v-bind="slotProps" />
+    </template>
+    <template #prepend-inner="slotProps">
+      <slot name="prepend-inner" v-bind="slotProps" />
+    </template>
+  </v-combobox>
+  <v-text-field v-else v-model="modelValue" :label="title">
+    <template #prepend="slotProps">
+      <slot name="prepend" v-bind="slotProps" />
+    </template>
+    <template #append="slotProps">
+      <slot name="append" v-bind="slotProps" />
+    </template>
+    <template #append-inner="slotProps">
+      <slot name="append-inner" v-bind="slotProps" />
+    </template>
+    <template #prepend-inner="slotProps">
+      <slot name="prepend-inner" v-bind="slotProps" />
+    </template>
+  </v-text-field>
 </template>
