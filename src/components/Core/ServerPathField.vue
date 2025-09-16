@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { useDebounceFn } from '@vueuse/core'
 import { ref } from 'vue'
+import HistoryField from './HistoryField.vue'
 import { DirectoryContentMode } from '@/constants/qbit'
+import { HistoryKey } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
 import { useAppStore } from '@/stores'
 
 defineProps<{
   title: string
+  historyKey: HistoryKey
 }>()
 
-const modelValue = defineModel<string>({ required: true })
+const modelValue = defineModel<string | undefined>({ required: true })
 const items = ref<string[]>([])
 
 const appStore = useAppStore()
@@ -25,6 +28,32 @@ const updateDirContent = useDebounceFn(async query => {
 </script>
 
 <template>
-  <v-combobox v-if="appStore.usesQbit5" v-model="modelValue" :items="items" :label="title" @update:search="updateDirContent" />
-  <v-text-field v-else v-model="modelValue" :label="title" />
+  <v-combobox v-if="appStore.usesQbit5" v-model="modelValue" :items="items" :label="title" @update:search="updateDirContent">
+    <template #prepend="slotProps">
+      <slot name="prepend" v-bind="slotProps" />
+    </template>
+    <template #append="slotProps">
+      <slot name="append" v-bind="slotProps" />
+    </template>
+    <template #append-inner="slotProps">
+      <slot name="append-inner" v-bind="slotProps" />
+    </template>
+    <template #prepend-inner="slotProps">
+      <slot name="prepend-inner" v-bind="slotProps" />
+    </template>
+  </v-combobox>
+  <HistoryField v-else v-model="modelValue" :history-key="historyKey" :label="title">
+    <template #prepend="slotProps">
+      <slot name="prepend" v-bind="slotProps" />
+    </template>
+    <template #append="slotProps">
+      <slot name="append" v-bind="slotProps" />
+    </template>
+    <template #append-inner="slotProps">
+      <slot name="append-inner" v-bind="slotProps" />
+    </template>
+    <template #prepend-inner="slotProps">
+      <slot name="prepend-inner" v-bind="slotProps" />
+    </template>
+  </HistoryField>
 </template>
