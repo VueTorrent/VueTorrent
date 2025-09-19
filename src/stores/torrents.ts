@@ -194,7 +194,7 @@ export const useTorrentStore = defineStore(
     const { results: filteredTorrents } = useSearchQuery(
       torrentsWithNavbarFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
-      torrent => [torrent.name, torrent.hash]
+      torrent => [torrent.name, torrent.hash, torrent.download_path, torrent.savePath]
     )
 
     const filteredAndSortedTorrents = useSorted(filteredTorrents, (a, b) => {
