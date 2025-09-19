@@ -57,7 +57,7 @@ export function splitByUrl(data: string) {
 
   for (let i = 0; i < splitted.length; i++) {
     if (i % 5 === 0) {
-      result.push({ raw: splitted[i] })
+      result.push({ raw: splitted[i], isUrl: false })
       continue
     }
 
@@ -72,6 +72,7 @@ export function splitByUrl(data: string) {
       port,
       path,
       raw: (protocol ?? '') + (host ?? '') + (port ?? '') + (path ?? ''),
+      isUrl: true,
     })
 
     i += 3
