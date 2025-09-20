@@ -108,9 +108,11 @@ export function codeToFlag(code: string) {
   }
 }
 
-export function normalize(data: string) {
-  return data
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
+export function normalize(data: string | undefined) {
+  return (
+    data
+      ?.toLowerCase()
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '') ?? ''
+  )
 }
