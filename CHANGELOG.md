@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.30.0](https://github.com/VueTorrent/VueTorrent/compare/v2.29.0...v2.30.0) (2025-09-19)
+
+
+### Features
+
+* Add download path and save path to torrent filtering ([#2504](https://github.com/VueTorrent/VueTorrent/issues/2504)) ([796f536](https://github.com/VueTorrent/VueTorrent/commit/796f536c08fe7b54a9e742e1bf9d1086db5bd3de))
+* Add reduce motion toggle ([#2476](https://github.com/VueTorrent/VueTorrent/issues/2476)) ([67e1d2e](https://github.com/VueTorrent/VueTorrent/commit/67e1d2e26efaad026826672f32dfdcb24c0a73b7))
+
+
+### Bug Fixes
+
+* "Checking auth status" toast not disappearing properly ([#2495](https://github.com/VueTorrent/VueTorrent/issues/2495)) ([3950cbd](https://github.com/VueTorrent/VueTorrent/commit/3950cbdca0aed2da5f0124424c874267f60ce284))
+* **backend:** Sync sidebar settings to backend ([#2474](https://github.com/VueTorrent/VueTorrent/issues/2474)) ([a4a9954](https://github.com/VueTorrent/VueTorrent/commit/a4a995416106b0d23904159d090493d5e770a960))
+* **Dashboard:** Prevent desync on select checkboxes ([#2494](https://github.com/VueTorrent/VueTorrent/issues/2494)) ([43d3c7c](https://github.com/VueTorrent/VueTorrent/commit/43d3c7cf559d30e5d8f5441ce8b45a8f957f4d5a))
+* **Overview:** Improve link detection ([#2491](https://github.com/VueTorrent/VueTorrent/issues/2491)) ([3796c4a](https://github.com/VueTorrent/VueTorrent/commit/3796c4a355c635ab1594414e44c08d29233a2c13))
+* **Overview:** URLs are now properly displayed as links ([#2503](https://github.com/VueTorrent/VueTorrent/issues/2503)) ([9db3d94](https://github.com/VueTorrent/VueTorrent/commit/9db3d94c305bb6e30d6782dc753b45261094c16b))
+
 ## [2.29.0](https://github.com/VueTorrent/VueTorrent/compare/v2.28.2...v2.29.0) (2025-08-31)
 
 
