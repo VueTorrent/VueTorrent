@@ -19,7 +19,9 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
 
   async function loadState() {
     const data = await backend.get(key)
-    if (!data) return
+    if (!data) {
+      return saveState()
+    }
 
     const newState = JSON.parse(data) as Record<string, any>
     const temp = {} as Record<string, any>
