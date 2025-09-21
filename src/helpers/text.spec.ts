@@ -266,8 +266,20 @@ test('helpers/text/codeToFlag', () => {
   expect(codeToFlag('it').url).toBe('https://cdn.jsdelivr.net/npm/twemoji/2/svg/1f1ee-1f1f9.svg')
 })
 
-test('helpers/text/normalize', () => {
-  expect(normalize('crème brûlée')).toBe('creme brulee')
-  expect(normalize('ąśćńżóźćęç')).toBe('ascnzozcec')
-  expect(normalize('áéíóú ÁÉÍÓÚ üÜ')).toBe('aeiou aeiou uu')
+describe('helpers/text/normalize', () => {
+  test('sample words', () => {
+    expect(normalize('crème brûlée')).toBe('creme brulee')
+  })
+
+  test('accents', () => {
+    expect(normalize('ąśćńżóźćęç')).toBe('ascnzozcec')
+  })
+
+  test('accents + uppercase', () => {
+    expect(normalize('áéíóú ÁÉÍÓÚ üÜ')).toBe('aeiou aeiou uu')
+  })
+
+  test('undefined values', () => {
+    expect(normalize(undefined)).toBe('')
+  })
 })

@@ -1,10 +1,12 @@
 import { computed, MaybeRefOrGetter, toValue } from 'vue'
 import { normalize } from '@/helpers'
 
+type MaybeString = string | undefined
+
 export function useSearchQuery<T>(
   items: MaybeRefOrGetter<T[]>,
   searchQuery: MaybeRefOrGetter<string | null>,
-  getter: (item: T) => string | string[],
+  getter: (item: T) => MaybeString | MaybeString[],
   postProcess?: (items: T[]) => T[]
 ) {
   const results = computed(() => {
@@ -15,7 +17,7 @@ export function useSearchQuery<T>(
 
     if (query.startsWith('/') && query.endsWith('/')) {
       const regex = new RegExp(query.substring(1, query.length - 2))
-      res = searchItems.filter(item => [getter(item)].flat().some(singleItem => regex.test(singleItem)))
+      res = searchItems.filter(item => [getter(item)].flat().some(singleItem => regex.test(singleItem ?? '')))
     } else {
       const tokens = normalize(query).trim().split(/[ ,]/i).filter(Boolean)
       const inclusionTokens = tokens.filter(token => !token.startsWith('-'))

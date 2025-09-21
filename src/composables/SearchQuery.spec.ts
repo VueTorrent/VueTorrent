@@ -87,4 +87,10 @@ describe('composables/SearchQuery', () => {
     const { results } = useSearchQuery(items, '/\\d+/', item => item)
     expect(results.value).toEqual(items)
   })
+
+  test('should not fail with undefined values', () => {
+    const items = ['test1', 'test2', undefined, 'test3']
+    const { results } = useSearchQuery(items, 'test', item => item)
+    expect(results.value).toHaveLength(3)
+  })
 })

@@ -18,6 +18,7 @@ export default interface Torrent {
   content_path: string
   dl_limit: number
   dlspeed: number
+  /** @since 4.4.0 */
   download_path: string
   downloaded: number
   downloaded_session: number
