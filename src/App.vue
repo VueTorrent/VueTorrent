@@ -48,9 +48,7 @@ const backendSyncObjects = [
   useBackendSync(torrentStore, 'vuetorrent_torrents', {
     whitelist: ['sortCriterias'],
   }),
-  useBackendSync(sidebarStore, 'vuetorrent_sidebarSettings', {
-    whitelist: ['sortCriterias'],
-  }),
+  useBackendSync(sidebarStore, 'vuetorrent_sidebarSettings'),
   useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
     blacklist: ['uiTitleCustom'],
   }),
