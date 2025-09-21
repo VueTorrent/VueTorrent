@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import HistoryField from '@/components/Core/HistoryField.vue'
 import ServerPathField from '@/components/Core/ServerPathField.vue'
 import { useI18nUtils } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
@@ -29,8 +28,8 @@ const stopConditionOptions = [
   { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED },
 ]
 
-const downloadPathField = ref<typeof HistoryField>()
-const savePathField = ref<typeof HistoryField>()
+const downloadPathField = ref<typeof ServerPathField>()
+const savePathField = ref<typeof ServerPathField>()
 
 const tagSearch = ref('')
 
@@ -171,7 +170,7 @@ defineExpose({ saveFields })
     </v-col>
 
     <v-col cols="12">
-      <ServerPathField v-model="downloadPath" :title="t('dialogs.add.params.download_path')" :history-key="HistoryKey.TORRENT_PATH">
+      <ServerPathField ref="downloadPathField" v-model="downloadPath" :title="t('dialogs.add.params.download_path')" :history-key="HistoryKey.TORRENT_PATH">
         <template #prepend>
           <v-icon color="accent"> mdi-tray-arrow-down </v-icon>
         </template>
@@ -179,7 +178,7 @@ defineExpose({ saveFields })
     </v-col>
 
     <v-col cols="12">
-      <ServerPathField v-model="form.save_path" :title="t('dialogs.add.params.save_path')" :history-key="HistoryKey.TORRENT_PATH">
+      <ServerPathField ref="savePathField" v-model="form.save_path" :title="t('dialogs.add.params.save_path')" :history-key="HistoryKey.TORRENT_PATH">
         <template #prepend>
           <v-icon color="accent"> mdi-content-save </v-icon>
         </template>
