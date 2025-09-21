@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.30.1](https://github.com/VueTorrent/VueTorrent/compare/v2.30.0...v2.30.1) (2025-09-21)
+
+
+### Bug Fixes
+
+* "Checking auth status" toast ([#2509](https://github.com/VueTorrent/VueTorrent/issues/2509)) ([f6bd12e](https://github.com/VueTorrent/VueTorrent/commit/f6bd12e65d3b364e2462a52fdbd3faeb9c7b08f7))
+* **backend:** Allow sidebar sync ([#2506](https://github.com/VueTorrent/VueTorrent/issues/2506)) ([35f30e6](https://github.com/VueTorrent/VueTorrent/commit/35f30e6e346382c41a9e429e0d3eb0099ac3dd84))
+* **SearchQuery:** Allow text filtering on qbit prior to 4.4 ([#2507](https://github.com/VueTorrent/VueTorrent/issues/2507)) ([21fb0d8](https://github.com/VueTorrent/VueTorrent/commit/21fb0d8d55be6d46531bbe96f969bc21a7e6b77c))
+
 ## [2.30.0](https://github.com/VueTorrent/VueTorrent/compare/v2.29.0...v2.30.0) (2025-09-19)
 
 
