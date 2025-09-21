@@ -187,7 +187,7 @@ export default class MockProvider implements IProvider {
   }
 
   async getVersion(): Promise<ApplicationVersion> {
-    return this.generateResponse({ result: '5.1.0' })
+    return this.generateResponse({ result: '5.1.0', delay: 50 })
   }
 
   async getPreferences(): Promise<AppPreferences> {

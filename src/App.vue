@@ -55,7 +55,9 @@ const backendSyncObjects = [
 ]
 
 async function checkAuthentication() {
-  return toast.promise(appStore.fetchAuthStatus(), { pending: t('login.pending') })
+  toast.loading(t('login.pending'), { toastId: 'login-pending' })
+  await appStore.fetchAuthStatus()
+  toast.remove('login-pending')
 }
 
 function blockContextMenu(event: Event) {
