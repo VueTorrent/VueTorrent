@@ -87,7 +87,6 @@ onBeforeMount(() => {
   vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
   addLaunchQueueConsumer()
-  void checkAuthentication()
 
   document.addEventListener('contextmenu', blockContextMenu)
 })
@@ -95,6 +94,8 @@ onBeforeMount(() => {
 onMounted(() => {
   // Global error handler flag
   sessionStorage.setItem('vuetorrent_mounted', 'true')
+
+  void checkAuthentication()
 })
 
 onBeforeUnmount(() => {
