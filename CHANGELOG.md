@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.30.2](https://github.com/VueTorrent/VueTorrent/compare/v2.30.1...v2.30.2) (2025-09-24)
+
+
+### Bug Fixes
+
+* "Checking auth status" toast ([#2515](https://github.com/VueTorrent/VueTorrent/issues/2515)) ([d642177](https://github.com/VueTorrent/VueTorrent/commit/d6421773a463b9579529fe1749c8649aef220e9b))
+
 ## [2.30.1](https://github.com/VueTorrent/VueTorrent/compare/v2.30.0...v2.30.1) (2025-09-21)
 
 
