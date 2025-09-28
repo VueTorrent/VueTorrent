@@ -19,26 +19,98 @@ test('helpers/text/capitalize', () => {
   expect(capitalize('hELLO wORLD')).toBe('Hello world')
 })
 
-test('helpers/text/extractHostname', () => {
-  expect(extractHostname('http://www.example.com')).toBe('example.com')
-  expect(extractHostname('http://example.com')).toBe('example.com')
-  expect(extractHostname('http://www.example.com/search?q=hello')).toBe('example.com')
+describe('helpers/text/extractHostname', () => {
+  test('URL with http', () => {
+    expect(extractHostname('http://www.example.com')).toBe('example.com')
+    expect(extractHostname('http://example.com')).toBe('example.com')
+    expect(extractHostname('http://www.example.com/search?q=hello')).toBe('example.com')
+  })
 
-  expect(extractHostname('https://www.example.com')).toBe('example.com')
-  expect(extractHostname('https://example.com')).toBe('example.com')
-  expect(extractHostname('https://www.example.com/search?q=hello')).toBe('example.com')
+  test('URL with https', () => {
+    expect(extractHostname('https://www.example.com')).toBe('example.com')
+    expect(extractHostname('https://example.com')).toBe('example.com')
+    expect(extractHostname('https://www.example.com/search?q=hello')).toBe('example.com')
+  })
+
+  test('URL with unknown protocol', () => {
+    expect(extractHostname('proto://example.com/')).toBe('example.com')
+    expect(extractHostname('proto://www.example.com/')).toBe('example.com')
+    expect(extractHostname('proto://www.example.com/path_data')).toBe('example.com')
+  })
+
+  test('URL with subdomain', () => {
+    expect(extractHostname('https://tracker.example.com')).toBe('example.com')
+    expect(extractHostname('https://tracker.example.com/search')).toBe('example.com')
+    expect(extractHostname('https://tracker.example.com/search?q=hello#title')).toBe('example.com')
+  })
+
+  test('IPv4 addresses', () => {
+    expect(extractHostname('http://192.168.1.1')).toBe('192.168.1.1')
+    expect(extractHostname('http://10.0.0.255:9000/announce')).toBe('10.0.0.255')
+
+    expect(extractHostname('192.168.1.1')).toBe('192.168.1.1')
+    expect(extractHostname('10.0.0.255:9000/announce')).toBe('10.0.0.255')
+  })
+
+  test('IPv6 addresses', () => {
+    expect(extractHostname('http://[2001:db8::1]')).toBe('[2001:db8::1]')
+    expect(extractHostname('http://[2001:0db8:85a3:0000:0000:8a2e:0370:7334]')).toBe('[2001:0db8:85a3:0000:0000:8a2e:0370:7334]')
+    expect(extractHostname('http://[fe80::]')).toBe('[fe80::]')
+
+    expect(extractHostname('[2001:db8::1]')).toBe('[2001:db8::1]')
+    expect(extractHostname('[2001:0db8:85a3:0000:0000:8a2e:0370:7334]')).toBe('[2001:0db8:85a3:0000:0000:8a2e:0370:7334]')
+    expect(extractHostname('[fe80::]')).toBe('[fe80::]')
+  })
+
+  test('No URLs', () => {
+    expect(extractHostname('Lorem ipsum dolor sit amet consectetur')).toBe('')
+    expect(extractHostname('')).toBe('')
+  })
 })
 
-test('helpers/text/getDomainBody', () => {
-  expect(getDomainBody('http://www.example.com')).toBe('example')
-  expect(getDomainBody('http://example.com')).toBe('example')
-  expect(getDomainBody('http://www.example.com/search?q=hello')).toBe('example')
+describe('helpers/text/getDomainBody', () => {
+  test('http protocol', () => {
+    expect(getDomainBody('http://www.example.com')).toBe('example')
+    expect(getDomainBody('http://example.com')).toBe('example')
+    expect(getDomainBody('http://www.example.com/search?q=hello')).toBe('example')
+  })
 
-  expect(getDomainBody('https://www.example.com')).toBe('example')
-  expect(getDomainBody('https://example.com')).toBe('example')
-  expect(getDomainBody('https://www.example.com/search?q=hello')).toBe('example')
+  test('https protocol', () => {
+    expect(getDomainBody('https://www.example.com')).toBe('example')
+    expect(getDomainBody('https://example.com')).toBe('example')
+    expect(getDomainBody('https://www.example.com/search?q=hello')).toBe('example')
+  })
 
-  expect(getDomainBody('udp://www.example.com')).toBe('example')
+  test('udp protocol', () => {
+    expect(getDomainBody('udp://www.example.com')).toBe('example')
+  })
+
+  test('IPv4 with protocol', () => {
+    expect(getDomainBody('http://192.168.1.1')).toBe('192.168.1.1')
+    expect(getDomainBody('http://255.255.255.255')).toBe('255.255.255.255')
+  })
+
+  test('IPv4 without protocol', () => {
+    expect(getDomainBody('192.168.1.1')).toBe('192.168.1.1')
+    expect(getDomainBody('255.255.255.255')).toBe('255.255.255.255')
+  })
+
+  test('IPv6', () => {
+    expect(getDomainBody('http://[2001:db8::1]')).toBe('[2001:db8::1]')
+    expect(getDomainBody('http://[2001:0db8:85a3:0000:0000:8a2e:0370:7334]/announce')).toBe('[2001:0db8:85a3:0000:0000:8a2e:0370:7334]')
+    expect(getDomainBody('http://[fe80::]:8080/ann?secret_key=cjy56vk23bh')).toBe('[fe80::]')
+  })
+
+  test('IPv6 without protocol', () => {
+    expect(getDomainBody('[2001:db8::1]')).toBe('[2001:db8::1]')
+    expect(getDomainBody('[2001:0db8:85a3:0000:0000:8a2e:0370:7334]/announce')).toBe('[2001:0db8:85a3:0000:0000:8a2e:0370:7334]')
+    expect(getDomainBody('[fe80::]:8080/ann?secret_key=cjy56vk23bh')).toBe('[fe80::]')
+  })
+
+  test('no URL', () => {
+    expect(getDomainBody('Lorem ipsum dolor sit amet consectetur')).toBe('')
+    expect(getDomainBody('')).toBe('')
+  })
 })
 
 describe('helpers/text/splitByUrl', () => {
@@ -129,17 +201,17 @@ describe('helpers/text/splitByUrl', () => {
   })
 
   test('URLs followed by punctuation', () => {
-    expect(splitByUrl('Visit https://example.com/page, then continue reading.')).toEqual([
+    expect(splitByUrl('Visit https://example.com/page. Happy torrenting!')).toEqual([
       { raw: 'Visit ', isUrl: false },
       {
         protocol: 'https://',
         host: 'example.com',
         port: undefined,
-        path: '/page,',
-        raw: 'https://example.com/page,',
+        path: '/page',
+        raw: 'https://example.com/page',
         isUrl: true,
       },
-      { raw: ' then continue reading.', isUrl: false },
+      { raw: '. Happy torrenting!', isUrl: false },
     ])
   })
 
@@ -151,6 +223,19 @@ describe('helpers/text/splitByUrl', () => {
         port: undefined,
         path: '/torrents.php?torrentid=5767192',
         raw: 'https://redacted.sh/torrents.php?torrentid=5767192',
+        isUrl: true,
+      },
+    ])
+  })
+
+  test('path with filename', () => {
+    expect(splitByUrl('https://redacted.sh/torrents.php')).toEqual([
+      {
+        protocol: 'https://',
+        host: 'redacted.sh',
+        port: undefined,
+        path: '/torrents.php',
+        raw: 'https://redacted.sh/torrents.php',
         isUrl: true,
       },
     ])

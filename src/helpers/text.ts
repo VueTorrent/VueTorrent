@@ -15,22 +15,34 @@ export function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export function extractHostname(url: string): string {
-  const match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i)
-  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-    return match[2]
-  } else {
-    return ''
-  }
+/**
+ * (25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.  # IPv4 octet 1
+ * (25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.  # IPv4 octet 2
+ * (25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.  # IPv4 octet 3
+ * (25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])    # IPv4 octet 4
+ *
+ * source: https://www.ditig.com/validating-ipv4-and-ipv6-addresses-with-regexp#combined-ipv4-and-ipv6-validation
+ */
+function getIpv4RegExp() {
+  return /(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])/gi
 }
 
-export function getDomainBody(string: string): string {
-  const match = string.match(/:\/\/([^/]+\.)?([^/.]+)\.[^/.:]+/i)
-  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-    return match[2]
-  } else {
-    return ''
-  }
+/**
+ * (?:[0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|               # full address
+ * (?:[0-9A-Fa-f]{1,4}:){1,7}:|                            # :: suffix
+ * :(?::[0-9A-Fa-f]{1,4}){1,7}|                            # :: prefix
+ * (?:[0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4}|            # compressed
+ * (?:[0-9A-Fa-f]{1,4}:){1,5}(?::[0-9A-Fa-f]{1,4}){1,2}|
+ * (?:[0-9A-Fa-f]{1,4}:){1,4}(?::[0-9A-Fa-f]{1,4}){1,3}|
+ * (?:[0-9A-Fa-f]{1,4}:){1,3}(?::[0-9A-Fa-f]{1,4}){1,4}|
+ * (?:[0-9A-Fa-f]{1,4}:){1,2}(?::[0-9A-Fa-f]{1,4}){1,5}|
+ * [0-9A-Fa-f]{1,4}:(?:(?::[0-9A-Fa-f]{1,4}){1,6})|
+ * :(?:(?::[0-9A-Fa-f]{1,4}){1,6})
+ *
+ * source: https://www.ditig.com/validating-ipv4-and-ipv6-addresses-with-regexp#combined-ipv4-and-ipv6-validation
+ */
+function getIpv6RegExp() {
+  return /((?:[0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|(?:[0-9A-Fa-f]{1,4}:){1,7}:|:(?::[0-9A-Fa-f]{1,4}){1,7}|(?:[0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4}|(?:[0-9A-Fa-f]{1,4}:){1,5}(?::[0-9A-Fa-f]{1,4}){1,2}|(?:[0-9A-Fa-f]{1,4}:){1,4}(?::[0-9A-Fa-f]{1,4}){1,3}|(?:[0-9A-Fa-f]{1,4}:){1,3}(?::[0-9A-Fa-f]{1,4}){1,4}|(?:[0-9A-Fa-f]{1,4}:){1,2}(?::[0-9A-Fa-f]{1,4}){1,5}|[0-9A-Fa-f]{1,4}:(?:(?::[0-9A-Fa-f]{1,4}){1,6})|:(?:(?::[0-9A-Fa-f]{1,4}){1,6}))/gi
 }
 
 /**
@@ -45,10 +57,74 @@ export function getDomainBody(string: string): string {
  *
  * Port (Optional): should match any port number
  *
- * Path (Optional): should match any string appended to the URL
+ * Path (Optional): should match any string appended to the URL, excluding trailing punctuation like dots and commas
  */
 function getUrlRegExp() {
-  return new RegExp(/(?<protocol>(?:https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?<port>:\d+)?(?<path>\/\S*)?/gi)
+  return /(?<protocol>(?:https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?<port>:\d+)?(?<path>\/(?:\S*[^\s.,:;!?])?)?/gi
+}
+
+export function extractHostname(url: string): string {
+  // Handle IPv6 addresses (with or without protocol)
+  const ipv6Match = url.match(/(?::\/\/\[|^\[)([^\]]+)\]/)
+  if (ipv6Match) {
+    // Validate using proper IPv6 regex
+    const ipv6Content = ipv6Match[1]
+    if (getIpv6RegExp().test(ipv6Content)) {
+      return `[${ipv6Content}]`
+    }
+  }
+
+  // Handle IPv4 addresses and domain names with protocol
+  const matchWithProtocol = url.match(/:\/\/(?:www[0-9]?\.)?([^/:]+)/i)
+  if (matchWithProtocol) {
+    const hostname = matchWithProtocol[1]
+
+    // Check if it's an IPv4 address
+    if (getIpv4RegExp().test(hostname)) {
+      return hostname
+    }
+
+    // For domain names, extract the main domain (last two parts)
+    const parts = hostname.split('.')
+    if (parts.length >= 2) {
+      return parts.slice(-2).join('.')
+    }
+    return hostname
+  }
+
+  // Handle IPv4 addresses without protocol
+  const ipv4Match = url.match(/^([^/:]+)(?::\d+)?(?:\/.*)?$/)
+  if (ipv4Match && getIpv4RegExp().test(ipv4Match[1])) {
+    return ipv4Match[1]
+  }
+
+  return ''
+}
+
+export function getDomainBody(string: string): string {
+  // Handle IPv6 addresses (with or without protocol) - return the full IPv6 address with brackets
+  const ipv6Match = string.match(/(?::\/\/(\[[^\]]+\])|^(\[[^\]]+\])(?::\d+)?(?:\/.*)?$)/)
+  if (ipv6Match) {
+    const ipv6WithBrackets = ipv6Match[1] || ipv6Match[2]
+    const ipv6Content = ipv6WithBrackets.slice(1, -1) // Remove brackets for validation
+    if (getIpv6RegExp().test(ipv6Content)) {
+      return ipv6WithBrackets // Return with brackets
+    }
+  }
+
+  // Handle IPv4 addresses (with or without protocol) - return the full IPv4 address
+  const ipv4Match = string.match(/^(?:.*:\/\/)?([^/:]+)(?::\d+)?(?:\/.*)?$/)
+  if (ipv4Match && getIpv4RegExp().test(ipv4Match[1])) {
+    return ipv4Match[1]
+  }
+
+  // Handle domain names (with or without protocol) - extract the main domain name (before the TLD)
+  const domainMatch = string.match(/^(?:.*:\/\/)?(?:[^/]+\.)?([^/.]+)\.[^/.:]+(?:\/.*)?$/i)
+  if (domainMatch) {
+    return domainMatch[1]
+  }
+
+  return ''
 }
 
 export function splitByUrl(data: string) {
