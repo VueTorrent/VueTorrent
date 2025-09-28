@@ -1,7 +1,7 @@
 // noinspection HttpUrlsUsage
 
 import { expect, test } from 'vitest'
-import { capitalize, codeToFlag, containsUrl, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
 
 test('helpers/text/titleCase', () => {
   expect(titleCase('hello world')).toBe('Hello World')
@@ -154,66 +154,6 @@ describe('helpers/text/splitByUrl', () => {
         isUrl: true,
       },
     ])
-  })
-})
-
-describe('helpers/text/containsUrl', () => {
-  test('substring matches', () => {
-    expect(containsUrl('Downloaded from example.com')).toBe(true)
-  })
-
-  test('valid with protocol', () => {
-    expect(containsUrl('http://www.example.com')).toBe(true)
-    expect(containsUrl('https://www.example.com')).toBe(true)
-    expect(containsUrl('udp://www.example.com')).toBe(true)
-  })
-
-  test('valid with IP', () => {
-    expect(containsUrl('http://192.168.0.1')).toBe(true)
-    expect(containsUrl('https://192.168.0.1:8080')).toBe(true)
-    expect(containsUrl('udp://192.168.0.1:5555')).toBe(true)
-  })
-
-  test('valid without protocol', () => {
-    expect(containsUrl('www.example.com')).toBe(true)
-    expect(containsUrl('example.com')).toBe(true)
-    expect(containsUrl('example.co.uk')).toBe(true)
-  })
-
-  test('malformed URIs', () => {
-    expect(containsUrl('invalid-url')).toBe(false)
-  })
-
-  test('URLs with query parameters', () => {
-    expect(containsUrl('Visit https://example.com/search?q=test&category=movies')).toBe(true)
-    expect(containsUrl('Check out tracker.com/announce?info_hash=abc123')).toBe(true)
-  })
-
-  test('URLs with hash fragments', () => {
-    expect(containsUrl('Go to https://example.com/docs#installation')).toBe(true)
-    expect(containsUrl('See example.com/page#section-1')).toBe(true)
-  })
-
-  test('URLs with both query params and hash', () => {
-    expect(containsUrl('Navigate to https://site.com/search?q=movie&year=2023#results')).toBe(true)
-    expect(containsUrl('Check tracker.org/stats?user=123#downloads')).toBe(true)
-  })
-
-  test('URLs with encoded characters', () => {
-    expect(containsUrl('Download https://example.com/file%20name.torrent')).toBe(true)
-    expect(containsUrl('Visit tracker.com/announce?info_hash=%20test%20')).toBe(true)
-  })
-
-  test('IPv6 addresses', () => {
-    expect(containsUrl('Connect to [2001:db8::1]:8080')).toBe(true)
-    expect(containsUrl('Try https://[::1]/path')).toBe(true)
-    expect(containsUrl('Access [2001:db8:85a3::8a2e:370:7334]')).toBe(true)
-  })
-
-  test('edge cases with punctuation', () => {
-    expect(containsUrl('Check https://example.com/path, then continue')).toBe(true)
-    expect(containsUrl('Visit example.com. More info available')).toBe(true)
-    expect(containsUrl('Go to https://site.com/page!')).toBe(true)
   })
 })
 

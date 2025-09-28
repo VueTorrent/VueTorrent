@@ -81,10 +81,6 @@ export function splitByUrl(data: string) {
   return result.filter(part => part.raw && part.raw != '')
 }
 
-export function containsUrl(data: string) {
-  return getUrlRegExp().test(data)
-}
-
 export function isValidUri(data: string, allowedProtocols: string[] = ['http:', 'https:', 'udp:']) {
   try {
     const parsedURL = new URL(data)

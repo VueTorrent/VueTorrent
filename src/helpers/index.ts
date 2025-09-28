@@ -7,7 +7,7 @@ import { formatPercent, toPrecision, safeDiv } from './number'
 import { basename, getExtType, getFileIcon, getTypeIcon, splitExt } from './path'
 import { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
 import { doesCommand, downloadFile, isMac, isWindows, openLink } from './system'
-import { capitalize, codeToFlag, containsUrl, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
 
 export {
   getColorFromName,
@@ -45,7 +45,6 @@ export {
   extractHostname,
   getDomainBody,
   splitByUrl,
-  containsUrl,
   isValidUri,
   codeToFlag,
   normalize,
