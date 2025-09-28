@@ -50,7 +50,7 @@ const tags = computed(() => [
     title: `${t('navbar.side.filters.tag.empty')} (${torrentsByTag.value[''] ?? 0})`,
     value: null,
   },
-  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag })),
+  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag })).sort((a, b) => comparators.text.asc(a.value, b.value)),
 ])
 
 const trackers = computed(() => [
@@ -62,10 +62,12 @@ const trackers = computed(() => [
     title: `${t('navbar.side.filters.tracker.not_working')} (${torrentsByTracker.value[TrackerSpecialFilter.NOT_WORKING] ?? 0})`,
     value: TrackerSpecialFilter.NOT_WORKING,
   },
-  ...hostnameTrackers.value.map(tracker => ({
-    title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`,
-    value: tracker,
-  })),
+  ...hostnameTrackers.value
+    .map(tracker => ({
+      title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`,
+      value: tracker,
+    }))
+    .sort((a, b) => comparators.text.asc(a.title, b.title)),
 ])
 
 function toggleFilterType(ref: Ref<FilterType>) {
