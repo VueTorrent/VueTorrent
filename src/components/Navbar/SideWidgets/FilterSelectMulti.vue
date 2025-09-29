@@ -85,7 +85,8 @@ function disableFilter(value: T) {
     <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
       {{ title }}
     </v-list-item-title>
-    <v-select
+
+    <v-autocomplete
       :model-value="[...includeValues, ...excludeValues]"
       :items="items"
       :placeholder="t('navbar.side.filters.disabled')"
@@ -127,6 +128,6 @@ function disableFilter(value: T) {
           </template>
         </v-list-item>
       </template>
-    </v-select>
+    </v-autocomplete>
   </v-list-item>
 </template>
