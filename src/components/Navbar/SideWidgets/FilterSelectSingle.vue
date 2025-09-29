@@ -31,7 +31,7 @@ const { t } = useI18nUtils()
     <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
       {{ title }}
     </v-list-item-title>
-    <v-select
+    <v-autocomplete
       v-model="modelValue"
       :items="orderedItems"
       :placeholder="t('navbar.side.filters.disabled')"
@@ -43,13 +43,13 @@ const { t } = useI18nUtils()
       variant="solo">
       <template #prepend-item>
         <v-list-item :title="t('common.disable')" @click="$emit('disable')" />
-        <slot name="prepend-item" />
+        <slot name="prepend-item"></slot>
         <v-divider />
       </template>
       <template #selection="{ item, index }">
         <span v-if="index === 0 && modelValue.length === 1" class="text-accent">{{ item.title }}</span>
         <span v-else-if="index === 0" class="text-accent">{{ t('navbar.side.filters.activeFilter', modelValue.length) }}</span>
       </template>
-    </v-select>
+    </v-autocomplete>
   </v-list-item>
 </template>
