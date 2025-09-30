@@ -27,7 +27,7 @@
     "@mdi/js": "^7.4.47",
     "@vueuse/components": "^13.9.0",
     "@vueuse/core": "^13.7.0",
-    "@zip.js/zip.js": "^2.7.73",
+    "@zip.js/zip.js": "^2.8.3",
     "apexcharts": "^5.3.5",
     "array.prototype.tosorted": "1.1.4",
     "axios": "^1.12.2",
