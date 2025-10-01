@@ -433,6 +433,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.export', dashboardStore.selectedTorrents.length),
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
+    hidden: !appStore.isFeatureAvailable('4.5.0'),
     action: () => void exportTorrents(),
   },
   {
