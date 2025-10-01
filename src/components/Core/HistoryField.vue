@@ -5,6 +5,7 @@ import { useHistoryStore } from '@/stores'
 
 const props = defineProps<{
   historyKey: HistoryKey
+  label?: string
 }>()
 
 const _value = defineModel<string | undefined>({ required: true })
@@ -26,9 +27,18 @@ defineExpose({
 </script>
 
 <template>
-  <v-combobox ref="field" v-model="_value" :items="historyValue">
+  <v-combobox ref="field" v-model="_value" :items="historyValue" :label="label">
     <template v-if="$slots.prepend" #prepend>
       <slot name="prepend" />
+    </template>
+    <template v-if="$slots.append" #append>
+      <slot name="append" />
+    </template>
+    <template v-if="$slots['append-inner']" #append-inner>
+      <slot name="append-inner" />
+    </template>
+    <template v-if="$slots['prepend-inner']" #prepend-inner>
+      <slot name="prepend-inner" />
     </template>
   </v-combobox>
 </template>
