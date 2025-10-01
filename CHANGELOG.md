@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.30.2](https://github.com/VueTorrent/VueTorrent/compare/v2.30.1...v2.30.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* "Checking auth status" toast ([#2515](https://github.com/VueTorrent/VueTorrent/issues/2515)) ([d642177](https://github.com/VueTorrent/VueTorrent/commit/d6421773a463b9579529fe1749c8649aef220e9b))
+
+
+### Improvements
+
+* **Filters:** Allow filtering choices ([#2518](https://github.com/VueTorrent/VueTorrent/issues/2518)) ([2e672cb](https://github.com/VueTorrent/VueTorrent/commit/2e672cb31cb1ad7b15d6f164c251df649b546b8f))
+* **Filters:** Improve sort consistency ([cd9a3ef](https://github.com/VueTorrent/VueTorrent/commit/cd9a3ef3201f256e271c65e2a16017202bb4dce1))
+* Increase IPv4 and IPv6 support ([d7b1980](https://github.com/VueTorrent/VueTorrent/commit/d7b198008ab79c0184435f9302137c306728e7be))
+* **RightClick:** Add qbit version requirement for exporting torrent ([#2524](https://github.com/VueTorrent/VueTorrent/issues/2524)) ([f79b199](https://github.com/VueTorrent/VueTorrent/commit/f79b199e1479aa1acba0b461740adef9a9033f1b))
+
 ## [2.30.1](https://github.com/VueTorrent/VueTorrent/compare/v2.30.0...v2.30.1) (2025-09-21)
 
 
