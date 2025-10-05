@@ -3,8 +3,8 @@ import { storeToRefs } from 'pinia'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
 import { useI18nUtils } from '@/composables'
-import { formatDuration, formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
+import { formatDuration, formatEta, getDomainBody, getRatioColor, getTorrentStateColor } from '@/helpers'
+import { useTrackerStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 type pptData = { active: boolean; order: number }
@@ -611,7 +611,11 @@ export const propsMetadata: PropertyMetadata = {
     props: {
       titleKey: 'torrent.properties.tracker',
       emptyValueKey: 'torrent.properties.empty_tracker',
-      value: t => [t.trackerDomain],
+      value: t => {
+        const trackerStore = useTrackerStore()
+        const trackers = trackerStore.torrentTrackers.get(t.hash) ?? []
+        return trackers.length === 1 ? [getDomainBody(trackers[0])] : [t.trackerDomain]
+      },
       color: () => 'tracker',
       enableHashColor: true
     },
