@@ -119,7 +119,7 @@ export function getDomainBody(string: string): string {
   }
 
   // Handle domain names (with or without protocol) - extract the main domain name (before the TLD)
-  const domainMatch = string.match(/^(?:.*:\/\/)?(?:[^/]+\.)?([^/.]+)\.[^/.:]+(?:\/.*)?$/i)
+  const domainMatch = string.match(/^(?:.*:\/\/)?(?:[^/]+\.)?([^/.]+)\.[^:/]+(?:[:/].*)?$/i)
   if (domainMatch) {
     return domainMatch[1]
   }

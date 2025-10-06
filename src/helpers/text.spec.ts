@@ -30,6 +30,7 @@ describe('helpers/text/extractHostname', () => {
     expect(extractHostname('https://www.example.com')).toBe('example.com')
     expect(extractHostname('https://example.com')).toBe('example.com')
     expect(extractHostname('https://www.example.com/search?q=hello')).toBe('example.com')
+    expect(extractHostname('https://tracker.domain-name.com:2053/announce/ydtrcuvubhlivycfrtdxe57654567Fgdsg')).toBe('domain-name.com')
   })
 
   test('URL with unknown protocol', () => {
@@ -79,6 +80,7 @@ describe('helpers/text/getDomainBody', () => {
     expect(getDomainBody('https://www.example.com')).toBe('example')
     expect(getDomainBody('https://example.com')).toBe('example')
     expect(getDomainBody('https://www.example.com/search?q=hello')).toBe('example')
+    expect(getDomainBody('https://tracker.domain-name.com:2053/announce/ydtrcuvubhlivycfrtdxe57654567Fgdsg')).toBe('domain-name')
   })
 
   test('udp protocol', () => {
