@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.30.2](https://github.com/VueTorrent/VueTorrent/compare/v2.30.1...v2.30.2) (2025-10-11)
+
+
+### Bug Fixes
+
+* "Checking auth status" toast ([#2515](https://github.com/VueTorrent/VueTorrent/issues/2515)) ([d642177](https://github.com/VueTorrent/VueTorrent/commit/d6421773a463b9579529fe1749c8649aef220e9b))
+* Improve URL detection ([#2527](https://github.com/VueTorrent/VueTorrent/issues/2527)) ([59df095](https://github.com/VueTorrent/VueTorrent/commit/59df0951931e442e555eabafc79690869ae6a6c6))
+* Rollback login toast delay to prevent display on fast response ([#2535](https://github.com/VueTorrent/VueTorrent/issues/2535)) ([3c24b66](https://github.com/VueTorrent/VueTorrent/commit/3c24b666de496d1d4a8c6e3df0f64169f6a9d4b4))
+* Wait for login toast to open before remove ([#2534](https://github.com/VueTorrent/VueTorrent/issues/2534)) ([6b15e2e](https://github.com/VueTorrent/VueTorrent/commit/6b15e2edd5389f75d1853869ab9e6aad46e91c30))
+
+
+### Improvements
+
+* **Dashboard:** Force display tracker if only one registered ([#2525](https://github.com/VueTorrent/VueTorrent/issues/2525)) ([8a6e4a1](https://github.com/VueTorrent/VueTorrent/commit/8a6e4a198c43c5e2150d80028787f53ce0662700))
+* **Filters:** Allow filtering choices ([#2518](https://github.com/VueTorrent/VueTorrent/issues/2518)) ([2e672cb](https://github.com/VueTorrent/VueTorrent/commit/2e672cb31cb1ad7b15d6f164c251df649b546b8f))
+* **Filters:** Improve sort consistency ([cd9a3ef](https://github.com/VueTorrent/VueTorrent/commit/cd9a3ef3201f256e271c65e2a16017202bb4dce1))
+* Increase IPv4 and IPv6 support ([d7b1980](https://github.com/VueTorrent/VueTorrent/commit/d7b198008ab79c0184435f9302137c306728e7be))
+* **RightClick:** Add qbit version requirement for exporting torrent ([#2524](https://github.com/VueTorrent/VueTorrent/issues/2524)) ([f79b199](https://github.com/VueTorrent/VueTorrent/commit/f79b199e1479aa1acba0b461740adef9a9033f1b))
+
 ## [2.30.1](https://github.com/VueTorrent/VueTorrent/compare/v2.30.0...v2.30.1) (2025-09-21)
 
 
