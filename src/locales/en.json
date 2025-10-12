@@ -1414,6 +1414,7 @@
       "canvasRenderDisabled": "Canvas rendering is disabled",
       "dlSpeedAverage": "Download Speed Average",
       "downloaded": "Downloaded",
+      "extract_debug": "Download debug info",
       "fetchingMetadata": "Fetching...",
       "fileCount": "Selected Files",
       "piece_canvas_dialog": {
