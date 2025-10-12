@@ -9,8 +9,8 @@ import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vu
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
-import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
+import { downloadFile, formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
+import { useContentStore, useDialogStore, useTorrentDetailStore, useTrackerStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
@@ -20,6 +20,7 @@ const contentStore = useContentStore()
 const { cachedFiles } = storeToRefs(contentStore)
 const dialogStore = useDialogStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
+const trackerStore = useTrackerStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const selectedFiles = computed(() => cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD))
@@ -41,6 +42,15 @@ const ratioColor = computed(() => {
   if (!vuetorrentStore.enableRatioColors) return ''
   return getRatioColor(props.torrent.ratio)
 })
+
+function extractDebugInfo() {
+  const extractedData = {
+    torrent: props.torrent,
+    trackers: trackerStore.torrentTrackers.get(props.torrent.hash),
+  }
+
+  downloadFile(`${props.torrent.hash}.json`, new Blob([JSON.stringify(extractedData, null, 2)], { type: 'application/json' }))
+}
 
 function openMoveTorrentDialog(mode: 'dl' | 'save') {
   dialogStore.createDialog(MoveTorrentDialog, { hashes: [props.torrent.hash], mode })
@@ -97,7 +107,7 @@ onUnmounted(() => {
 
 <template>
   <v-card v-if="torrent">
-    <v-card-title class="text-wrap">
+    <v-card-title id="torrent-detail-name" class="text-wrap">
       {{ torrent.name }}
     </v-card-title>
     <v-card-subtitle>
@@ -107,8 +117,27 @@ onUnmounted(() => {
           <span v-else>{{ commentPart.raw }}</span>
         </template>
       </div>
+      <div id="torrent-detail-id" class="my-1">
+        <span v-if="!torrent.infohash_v2">{{ torrent.hash }}</span>
+        <template v-else>
+          <div id="torrent-detail-id-v1-container">
+            V1:
+            <span id="torrent-detail-id-v1">
+              {{ torrent.infohash_v1 }}
+            </span>
+          </div>
+          <div id="torrent-detail-id-v2-container">
+            V2:
+            <span id="torrent-detail-id-v2">
+              {{ torrent.infohash_v2 }}
+            </span>
+          </div>
+        </template>
+      </div>
       <div class="my-1">
-        {{ torrent.hash }}
+        <v-btn variant="outlined" rounded prepend-icon="mdi-wrench" @click="extractDebugInfo">
+          {{ t('torrentDetail.overview.extract_debug') }}
+        </v-btn>
       </div>
     </v-card-subtitle>
     <v-card-text>
