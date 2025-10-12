@@ -49,7 +49,7 @@ function extractDebugInfo() {
     trackers: trackerStore.torrentTrackers.get(props.torrent.hash),
   }
 
-  downloadFile(`${props.torrent.hash}`, new Blob([JSON.stringify(extractedData, null, 2)], { type: 'application/json' }))
+  downloadFile(`${props.torrent.hash}.json`, new Blob([JSON.stringify(extractedData, null, 2)], { type: 'application/json' }))
 }
 
 function openMoveTorrentDialog(mode: 'dl' | 'save') {
