@@ -13,7 +13,7 @@ defineSlots<{
 }>()
 
 defineEmits<{
-  disable: () => void
+  disable: []
 }>()
 
 const modelValue = defineModel<T[]>({ required: true })

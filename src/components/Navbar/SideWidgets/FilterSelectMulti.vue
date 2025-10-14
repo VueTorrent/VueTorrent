@@ -12,8 +12,8 @@ defineProps<{
 }>()
 
 defineEmits<{
-  disable: () => void
-  toggleFilterType: () => void
+  disable: []
+  toggleFilterType: []
 }>()
 
 const includeValues = defineModel<T[]>('include', { required: true })
