@@ -84,6 +84,8 @@ function handleKeyboardInput(e: KeyboardEvent) {
     ArrowLeft = 'ArrowLeft',
     ArrowRight = 'ArrowRight',
     Spacebar = ' ',
+    PageUp = 'PageUp',
+    PageDown = 'PageDown',
   }
 
   const pressedKey = e.key as KeyNames
@@ -101,9 +103,19 @@ function handleKeyboardInput(e: KeyboardEvent) {
         newCursor--
       }
       break
+    case KeyNames.PageUp:
+      if (oldCursor > 0) {
+        newCursor = Math.max(0, oldCursor - 5)
+      }
+      break
     case KeyNames.ArrowDown:
       if (oldCursor < flatTree.value.length - 1) {
         newCursor++
+      }
+      break
+    case KeyNames.PageDown:
+      if (oldCursor < flatTree.value.length - 1) {
+        newCursor = Math.min(flatTree.value.length - 1, oldCursor + 5)
       }
       break
     case KeyNames.ArrowLeft:
