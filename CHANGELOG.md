@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.30.3](https://github.com/VueTorrent/VueTorrent/compare/v2.30.2...v2.30.3) (2025-10-22)
+
+
+### Bug Fixes
+
+* **TorrentDetail:** Improve nav button logic ([#2536](https://github.com/VueTorrent/VueTorrent/issues/2536)) ([ecfdd08](https://github.com/VueTorrent/VueTorrent/commit/ecfdd0841128bce9ac9a3e436e6b4cc5b58f2b9b))
+
+
+### Improvements
+
+* **Content:** Move 5 rows when using page up / down keys ([#2546](https://github.com/VueTorrent/VueTorrent/issues/2546)) ([29be6d6](https://github.com/VueTorrent/VueTorrent/commit/29be6d611f53d198da0de4f1d10bea98f435076d))
+* **Overview:** Add extract button for easier debug ([#2537](https://github.com/VueTorrent/VueTorrent/issues/2537)) ([619bc2b](https://github.com/VueTorrent/VueTorrent/commit/619bc2b578d0f2808009ed21363e0c08d3208c36))
+
 ## [2.30.2](https://github.com/VueTorrent/VueTorrent/compare/v2.30.1...v2.30.2) (2025-10-11)
 
 
