@@ -44,7 +44,7 @@
     "vue-concurrency": "^5.0.3",
     "vue-i18n": "^11.1.12",
     "vue-router": "^4.6.3",
-    "vue3-apexcharts": "^1.8.0",
+    "vue3-apexcharts": "^1.10.0",
     "vue3-toastify": "^0.2.8",
     "vuedraggable": "^4.1.0",
     "vuetify": "^3.9.7"
