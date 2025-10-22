@@ -3,6 +3,7 @@
   "private": true,
   "version": "2.30.2",
   "type": "module",
+  "packageManager": "npm",
   "scripts": {
     "start": "vite",
     "dev": "vite",
