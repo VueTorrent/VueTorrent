@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { VForm } from 'vuetify/components/VForm'
 import ServerPathField from '@/components/Core/ServerPathField.vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { TorrentFormat } from '@/constants/qbit'
 import { formatData } from '@/helpers'
-import { useAppStore, useTorrentCreatorStore } from '@/stores'
+import { useAppStore, useCategoryStore, usePreferenceStore, useTagStore, useTorrentCreatorStore } from '@/stores'
 import { TorrentCreatorParams } from '@/types/qbit/models'
 
 const props = defineProps<{
@@ -15,10 +15,19 @@ const props = defineProps<{
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18nUtils()
 const appStore = useAppStore()
+const categoryStore = useCategoryStore()
+const preferenceStore = usePreferenceStore()
+const tagStore = useTagStore()
 const torrentCreatorStore = useTorrentCreatorStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
+const rememberSettings = ref(false)
+
+// Load saved settings from localStorage
+const savedSettings = localStorage.getItem('vuetorrent:torrentCreator:lastUsed')
+const lastUsed = savedSettings ? JSON.parse(savedSettings) : {}
+
 const formData = reactive<Required<TorrentCreatorParams>>({
   sourcePath: '',
   format: TorrentFormat.HYBRID,
@@ -32,6 +41,10 @@ const formData = reactive<Required<TorrentCreatorParams>>({
   urlSeeds: '',
   source: '',
   comment: '',
+  autoAddToClient: lastUsed.autoAddToClient ?? false,
+  addCategory: lastUsed.addCategory ?? '',
+  addTags: lastUsed.addTags ?? [],
+  addUseAutoTmm: lastUsed.addUseAutoTmm ?? (preferenceStore.preferences?.auto_tmm_enabled || false),
 })
 
 const formatOptions = [
@@ -50,7 +63,49 @@ const pieceSizeOptions = computed(() => {
   return sizes
 })
 
+const categoryOptions = computed(() => [
+  { title: t('common.none'), value: '' },
+  ...categoryStore.categories.map(cat => ({ title: cat.name, value: cat.name }))
+])
+
+const availableTags = computed(() => tagStore.tags)
+
 const paddedLimitRules = [(v: number) => !v || v < -1 || t('dialogs.torrentCreator.paddedFileSizeLimitRule')]
+
+// Save settings to localStorage when they change
+const saveSettings = () => {
+  if (rememberSettings.value) {
+    const settingsToSave = {
+      autoAddToClient: formData.autoAddToClient,
+      addCategory: formData.addCategory,
+      addTags: formData.addTags,
+      addUseAutoTmm: formData.addUseAutoTmm,
+    }
+    localStorage.setItem('vuetorrent:torrentCreator:lastUsed', JSON.stringify(settingsToSave))
+  }
+}
+
+// Watch for changes to save settings
+watch([
+  () => formData.autoAddToClient,
+  () => formData.addCategory,
+  () => formData.addTags,
+  () => formData.addUseAutoTmm,
+], saveSettings, { deep: true })
+
+onMounted(() => {
+  // Load remember setting preference
+  rememberSettings.value = localStorage.getItem('vuetorrent:torrentCreator:rememberSettings') === 'true'
+})
+
+watch(rememberSettings, (newValue) => {
+  localStorage.setItem('vuetorrent:torrentCreator:rememberSettings', String(newValue))
+  if (newValue) {
+    saveSettings()
+  } else {
+    localStorage.removeItem('vuetorrent:torrentCreator:lastUsed')
+  }
+})
 
 async function submit() {
   if (!isFormValid.value) return
@@ -119,6 +174,43 @@ function close() {
             <v-col cols="12" sm="6" class="py-0">
               <v-checkbox v-model="formData.startSeeding" hide-details :label="t('dialogs.torrentCreator.startSeeding')" />
             </v-col>
+
+            <v-divider />
+
+            <v-col cols="12">
+              <v-checkbox v-model="formData.autoAddToClient" hide-details :label="t('dialogs.torrentCreator.autoAddToClient')" />
+            </v-col>
+
+            <template v-if="formData.autoAddToClient">
+              <v-col cols="12" sm="6">
+                <v-select 
+                  v-model="formData.addCategory" 
+                  :items="categoryOptions" 
+                  hide-details 
+                  :label="t('dialogs.torrentCreator.addCategory')" 
+                  clearable />
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-checkbox 
+                  v-model="formData.addUseAutoTmm" 
+                  :label="t('dialogs.torrentCreator.addUseAutoTmm')" 
+                  :hint="t('dialogs.torrentCreator.addUseAutoTmmHint', { default: preferenceStore.preferences?.auto_tmm_enabled ? t('common.enabled') : t('common.disabled') })"
+                  persistent-hint />
+              </v-col>
+              <v-col cols="12">
+                <v-combobox
+                  v-model="formData.addTags"
+                  :items="availableTags"
+                  :label="t('dialogs.torrentCreator.addTags')"
+                  multiple
+                  chips
+                  hide-details
+                  closable-chips />
+              </v-col>
+              <v-col cols="12">
+                <v-checkbox v-model="rememberSettings" hide-details :label="t('dialogs.torrentCreator.rememberSettings')" />
+              </v-col>
+            </template>
 
             <v-divider />
 
