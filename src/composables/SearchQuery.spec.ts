@@ -93,4 +93,10 @@ describe('composables/SearchQuery', () => {
     const { results } = useSearchQuery(items, 'test', item => item)
     expect(results.value).toHaveLength(3)
   })
+
+  test('should match entire symbol when using quotes', () => {
+    const items = ['DAN DA DAN', 'DANCING']
+    const { results } = useSearchQuery(items, '"DAN DA DAN"', item => item)
+    expect(results.value).toHaveLength(1)
+  })
 })
