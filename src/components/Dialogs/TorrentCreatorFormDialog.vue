@@ -4,6 +4,7 @@ import { VForm } from 'vuetify/components/VForm'
 import ServerPathField from '@/components/Core/ServerPathField.vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { TorrentFormat } from '@/constants/qbit'
+import { HistoryKey } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
 import { useAppStore, useTorrentCreatorStore } from '@/stores'
 import { TorrentCreatorParams } from '@/types/qbit/models'
@@ -40,6 +41,9 @@ const formatOptions = [
   { title: t('constants.torrentFormat.hybrid'), value: TorrentFormat.HYBRID },
 ]
 
+const sourcePath = ref<typeof ServerPathField>()
+const torrentFilePath = ref<typeof ServerPathField>()
+
 const pieceSizeOptions = computed(() => {
   const sizes = [{ title: t('common.auto'), value: 0 }]
 
@@ -52,10 +56,16 @@ const pieceSizeOptions = computed(() => {
 
 const paddedLimitRules = [(v: number) => !v || v < -1 || t('dialogs.torrentCreator.paddedFileSizeLimitRule')]
 
+function saveFields() {
+  sourcePath.value?.saveValueToHistory()
+  torrentFilePath.value?.saveValueToHistory()
+}
+
 async function submit() {
   if (!isFormValid.value) return
 
   await torrentCreatorStore.createTask(formData)
+  saveFields()
 
   close()
 }
@@ -79,14 +89,18 @@ function close() {
           <v-row>
             <v-col cols="12">
               <ServerPathField
+                ref="sourcePath"
                 v-model="formData.sourcePath"
                 :title="t('dialogs.torrentCreator.sourcePath')"
+                :history-key="HistoryKey.TORRENT_PATH"
                 :rules="[(v: string) => !!v || t('dialogs.torrentCreator.rules.sourcePathRequired')]" />
             </v-col>
             <v-col cols="12">
               <ServerPathField
+                ref="torrentFilePath"
                 v-model="formData.torrentFilePath"
                 :title="t('dialogs.torrentCreator.torrentFilePath')"
+                :history-key="HistoryKey.TORRENT_PATH"
                 :rules="[(v: string) => !v || v.endsWith('.torrent') || t('dialogs.torrentCreator.rules.outputFileExtension')]" />
             </v-col>
 
