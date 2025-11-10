@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.31.0](https://github.com/VueTorrent/VueTorrent/compare/v2.30.2...v2.31.0) (2025-11-10)
+
+
+### Features
+
+* **AddTorrentDialog:** Server path completion for download and save path fields ([#2501](https://github.com/VueTorrent/VueTorrent/issues/2501)) ([558be26](https://github.com/VueTorrent/VueTorrent/commit/558be269640c13f72b6706c259b4f8d3aa67e2df))
+
+
+### Bug Fixes
+
+* **TorrentDetail:** Improve nav button logic ([#2536](https://github.com/VueTorrent/VueTorrent/issues/2536)) ([ecfdd08](https://github.com/VueTorrent/VueTorrent/commit/ecfdd0841128bce9ac9a3e436e6b4cc5b58f2b9b))
+
+
+### Improvements
+
+* **Content:** Move 5 rows when using page up / down keys ([#2546](https://github.com/VueTorrent/VueTorrent/issues/2546)) ([29be6d6](https://github.com/VueTorrent/VueTorrent/commit/29be6d611f53d198da0de4f1d10bea98f435076d))
+* **Overview:** Add extract button for easier debug ([#2537](https://github.com/VueTorrent/VueTorrent/issues/2537)) ([619bc2b](https://github.com/VueTorrent/VueTorrent/commit/619bc2b578d0f2808009ed21363e0c08d3208c36))
+* **SearchQuery:** Group values between double quotes ([#2558](https://github.com/VueTorrent/VueTorrent/issues/2558)) ([85cfc7e](https://github.com/VueTorrent/VueTorrent/commit/85cfc7e97d8f1fbe1051d236b38f5afd8a4b591c))
+
 ## [2.30.2](https://github.com/VueTorrent/VueTorrent/compare/v2.30.1...v2.30.2) (2025-10-11)
 
 
