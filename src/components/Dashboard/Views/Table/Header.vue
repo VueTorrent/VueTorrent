@@ -21,7 +21,7 @@ const sortCriteria = computed(() => sortCriterias.value[0])
   <th class="text-no-wrap text-left cursor-pointer" @click="$emit('onHeaderClick')">
     <div class="d-flex align-center">
       <span>{{ title }}</span>
-      <v-icon v-if="sortCriteria.value === sortKey" class="ml-2" :icon="sortCriteria.reverse ? 'mdi-arrow-up' : 'mdi-arrow-down'" />
+      <v-icon v-if="sortCriteria.value === sortKey" class="ml-2" :icon="sortCriteria.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" />
     </div>
   </th>
 </template>
