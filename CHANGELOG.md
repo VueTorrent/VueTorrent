@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.31.1](https://github.com/VueTorrent/VueTorrent/compare/v2.31.0...v2.31.1) (2025-11-22)
+
+
+### Improvements
+
+* **Sidebar:** Color coded connection status icon ([#2566](https://github.com/VueTorrent/VueTorrent/issues/2566)) ([45de60c](https://github.com/VueTorrent/VueTorrent/commit/45de60cf9a1d282ab2b7abb175d53257a7e31291))
+* **TableView:** Update sorting icons in Table header ([#2562](https://github.com/VueTorrent/VueTorrent/issues/2562)) ([f987602](https://github.com/VueTorrent/VueTorrent/commit/f9876023efcc9912ea7575c744c3c53260a5cb08))
+
 ## [2.31.0](https://github.com/VueTorrent/VueTorrent/compare/v2.30.2...v2.31.0) (2025-11-10)
 
 
