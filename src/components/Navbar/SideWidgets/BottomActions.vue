@@ -27,6 +27,20 @@ const connectionStatusIcon = computed(() => {
       return 'mdi-help-network'
   }
 })
+
+const connectionStatusClass = computed(() => {
+  switch (maindataStore.serverState?.connection_status) {
+    case ConnectionStatus.CONNECTED:
+      return 'text-success'
+    case ConnectionStatus.DISCONNECTED:
+      return 'text-error'
+    case ConnectionStatus.FIREWALLED:
+      return 'text-warning'
+    default:
+      return 'text-grey'
+  }
+})
+
 const connectionStatusText = computed(() => {
   let key
   switch (maindataStore.serverState?.connection_status) {
@@ -122,7 +136,7 @@ function openConfirmShutdownDialog() {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="connectionStatusText" location="top">
         <template #activator="{ props }">
-          <v-btn variant="plain" :icon="connectionStatusIcon" v-bind="props" @click="openConnectionStatusDialog" />
+          <v-btn variant="plain" :icon="connectionStatusIcon" :class="connectionStatusClass" v-bind="props" @click="openConnectionStatusDialog" />
         </template>
       </v-tooltip>
     </v-col>
