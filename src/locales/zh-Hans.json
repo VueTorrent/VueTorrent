@@ -4,6 +4,7 @@
     "auto": "自动",
     "cancel": "取消",
     "close": "关闭",
+    "create": "创建",
     "delete": "删除",
     "disable": "禁用",
     "disabled": "已禁用",
@@ -21,6 +22,7 @@
     "search": "搜索",
     "selectAll": "全选",
     "selectNone": "取消选择",
+    "submit": "提交",
     "useGlobalSettings": "使用全局设置",
     "yes": "是"
   },
@@ -185,6 +187,23 @@
       "preferTcp": "优先使用 TCP"
     }
   },
+  "cookiesManager": {
+    "clear": "清除所有 Cookies",
+    "create": "添加新 Cookie",
+    "empty": {
+      "action": "添加新 Cookie",
+      "value": "未注册任何 Cookie"
+    },
+    "import": "导入 Cookies",
+    "table": {
+      "domain": "域名",
+      "expiration_date": "过期日期",
+      "name": "Cookie 名称",
+      "path": "路径",
+      "value": "Cookie 值"
+    },
+    "title": "Cookie 管理器"
+  },
   "dashboard": {
     "displayMode": {
       "grid": "网格",
@@ -227,6 +246,12 @@
         "increase": "提高优先级",
         "title": "设置优先级",
         "top": "最高优先级"
+      },
+      "selection": {
+        "disable_select_mode": "禁用选择模式",
+        "enable_select_mode": "启用选择模式",
+        "span_selection": "展开到此",
+        "title": "选择项"
       },
       "speed_limit": {
         "download": "下载限速",
@@ -339,7 +364,9 @@
     },
     "confirm": {
       "banPeers": "您确实要禁止该用户吗？",
+      "clearCookies": "您确实要清除所有 Cookie？",
       "deleteCategory": "您确实要删除此类别吗？",
+      "deleteCookie": "您确实要移除此  Cookie？",
       "deleteFeed": "您确实要删除此 RSS feed 吗？",
       "deleteRule": "您确实要删除此 RSS 规则吗？",
       "deleteTag": "您确实要删除此标签吗？",
@@ -360,6 +387,20 @@
       "status": "连接状态",
       "total_peer_connections": "活跃的用户连接"
     },
+    "cookiesImport": {
+      "input": "Cookie 数据",
+      "title": "导入 Cookie",
+      "type": {
+        "header": "头部值",
+        "json": "JSON",
+        "label": "要导入的数据类型"
+      }
+    },
+    "cookiesManager": {
+      "expiration_date": "到期日期",
+      "name": "Cookie 名称",
+      "title": "Cookie 表单"
+    },
     "delete": {
       "deleteWithFiles": "删除种子及其文件",
       "title": "删除 {n} 个种子 | 删除 {n} 个种子",
@@ -369,6 +410,9 @@
       "required": "必须提供设置",
       "title": "导入设置",
       "valid": "请提供有效的设置"
+    },
+    "legacy_copy": {
+      "title": "旧版复制对话框"
     },
     "moveTorrent": {
       "dl": {
@@ -473,6 +517,10 @@
       "label": "速度限制",
       "upload": "上传限速"
     },
+    "stats": {
+      "cache_statistics": "缓存统计信息",
+      "connected_peers": "已连接的对等节点"
+    },
     "tag": {
       "comma": "重命名标签时名称不能包含逗号",
       "hint": "专业提示：多个标签可以用逗号分隔创建",
@@ -546,10 +594,13 @@
         "dark_mode.light": "浅色模式",
         "dark_mode.system": "跟随系统设置",
         "logout": "注销",
-        "shutdown": "关闭 qBittorrent"
+        "shutdown": "关闭 qBittorrent",
+        "statistics": "统计数据"
       },
       "current_speed": {
-        "title": "当前速度"
+        "download": "下载速度",
+        "title": "当前速度",
+        "upload": "上传速度"
       },
       "filters": {
         "activeFilter": "已激活 {n} 个过滤器",
@@ -574,6 +625,15 @@
           "title": "Tracker 过滤器"
         }
       },
+      "free_space": {
+        "free_space_on_disk": "默认保存路径的可用空间",
+        "global_ratio": "全局比率"
+      },
+      "performance_stats": {
+        "read_cache_hits": "读取磁盘缓存命中计数",
+        "total_buffers_size": "所有缓冲区的总大小",
+        "total_queued_size": "队列的总大小"
+      },
       "speed_graph": {
         "download_label": "下载",
         "download_limit_label": "下载速度限制",
@@ -585,6 +645,9 @@
         "free_space": "剩余空间",
         "ratio": "分享率",
         "uploaded": "已上传"
+      },
+      "transfer_stats": {
+        "upload": "已上传数据（当前会话时间/总时间）"
       }
     },
     "top": {
@@ -1048,6 +1111,7 @@
       "tagsAndCategories": "标签和分类",
       "vuetorrent": {
         "general": "常规设置",
+        "sidebar": "侧边栏",
         "title": "VueTorrent",
         "torrent_card": {
           "grid": "网格视图",
@@ -1097,6 +1161,7 @@
           "warning": "使用过高的值可能会影响性能"
         },
         "qbittorrentVersion": "qBittorrent 版本",
+        "reduceMotion": "减弱动画效果",
         "refreshInterval": "qBittorrent API 刷新间隔",
         "registerMagnet": "注册为磁力链程序",
         "resetSettings": "重置设置",
@@ -1108,9 +1173,22 @@
       },
       "sidebar": {
         "CurrentSpeed": "显示当前速度",
+        "Filters": "显示过滤器",
         "FreeSpace": "显示剩余空间",
         "isDrawerRight": "侧边栏居右显示",
-        "SpeedGraph": "显示速度图表"
+        "PerformanceStats": "显示性能统计数据",
+        "showFilters": {
+          "allFiltersEnabled": "所有筛选器均已启用",
+          "category": "分类",
+          "filtersEnabled": "已启用 {n} 过滤器",
+          "state": "状态",
+          "tag": "标签",
+          "tracker": "Tracker"
+        },
+        "SpeedGraph": "显示速度图表",
+        "tip": "您可以在此更改侧边栏中小工具的顺序，并隐藏不常用的小工具。",
+        "title": "侧边栏",
+        "TransferStats": "显示传输统计数据"
       },
       "torrentCard": {
         "grid": {
@@ -1216,6 +1294,7 @@
     },
     "addTorrents": "添加种子",
     "overflow": {
+      "cookies": "Cookie 管理器",
       "delete": "删除",
       "logs": "qBittorrent日志",
       "pause": "暂停",
@@ -1299,6 +1378,7 @@
       "canvasRenderDisabled": "已禁用Canvas渲染",
       "dlSpeedAverage": "平均下载速度",
       "downloaded": "已下载",
+      "extract_debug": "下载调试信息",
       "fetchingMetadata": "获取中...",
       "fileCount": "已选择文件",
       "pieceCount": "{owned} / {total} ({pieceSize})",
