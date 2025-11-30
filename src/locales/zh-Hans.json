@@ -294,6 +294,7 @@
         "category": "分类",
         "download_limit": "下载速度限制",
         "download_path": "下载路径（未完成时）",
+        "forced": "强制状态",
         "inactive_seeding_time_limit": "非活跃做种时长限制",
         "limit_collapse": "种子限制设置",
         "limit_hint": "\"-1\"表示禁用，\"-2\"或留空为使用全局设置",
@@ -397,9 +398,14 @@
       }
     },
     "cookiesManager": {
+      "domain": "域名",
       "expiration_date": "到期日期",
       "name": "Cookie 名称",
-      "title": "Cookie 表单"
+      "rules": {
+        "duplicate": "此 Cookie 已经存在"
+      },
+      "title": "Cookie 表单",
+      "value": "Cookie 值"
     },
     "delete": {
       "deleteWithFiles": "删除种子及其文件",
@@ -518,8 +524,17 @@
       "upload": "上传限速"
     },
     "stats": {
+      "all_time_download": "全局下载量",
+      "all_time_share_ratio": "全局分享率",
+      "all_time_upload": "全局上传量",
+      "average_time_in_queue": "平均队列时间",
       "cache_statistics": "缓存统计信息",
-      "connected_peers": "已连接的对等节点"
+      "connected_peers": "已连接的对等节点",
+      "queued_io_jobs": "队列中的 I/O 任务",
+      "read_cache_hits": "读取缓存命中率",
+      "read_cache_overload": "读取缓存过载",
+      "total_queued_size": "队列总大小",
+      "write_cache_overload": "写入缓存过载"
     },
     "tag": {
       "comma": "重命名标签时名称不能包含逗号",
@@ -630,6 +645,8 @@
         "global_ratio": "全局比率"
       },
       "performance_stats": {
+        "average_time_queue": "平均队列时间",
+        "queued_io_jobs": "队列中的 I/O 任务 (校验/移动/重命名)",
         "read_cache_hits": "读取磁盘缓存命中计数",
         "total_buffers_size": "所有缓冲区的总大小",
         "total_queued_size": "队列的总大小"
@@ -647,6 +664,7 @@
         "uploaded": "已上传"
       },
       "transfer_stats": {
+        "download": "已下载 (本次会话/全局)",
         "upload": "已上传数据（当前会话时间/总时间）"
       }
     },
@@ -744,7 +762,12 @@
     "runSearch": "搜索",
     "stopSearch": "停止",
     "tabHeaderEmpty": "(空查询)",
-    "title": "搜索种子"
+    "title": "搜索种子",
+    "tooltip": {
+      "append_queue": "添加到种子队列",
+      "download": "使用插件下载",
+      "open_link": "在新标签页中打开链接"
+    }
   },
   "settings": {
     "addons": {
@@ -891,6 +914,7 @@
     },
     "bittorrent": {
       "autoAddTrackers": "自动将这些 Tracker 添加到新下载",
+      "autoAddTrackersFromUrl": "自动将 URL 中的 Tracker 添加到新下载",
       "autoAddTrackersHint": "每行一个 Tracker",
       "maxActiveCheckingTorrents": "最大活跃校验种子数",
       "privacy": {
@@ -918,7 +942,8 @@
         "subheader": "种子队列",
         "torrentInactivityTimer": "种子非活跃计时器",
         "uploadRateLimit": "上传速率阈值"
-      }
+      },
+      "trackersFetchedFromUrl": "从 URL 获取 Tracker"
     },
     "connection": {
       "connectionLimits": {
@@ -1283,6 +1308,7 @@
   },
   "topbar": {
     "actions": {
+      "cookies": "打开 Cookie 管理器",
       "delete": "删除种子",
       "logs": "打开日志",
       "pause": "暂停种子",
