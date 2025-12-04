@@ -38,7 +38,7 @@
   "protocol_handlers": [
     {
       "protocol": "magnet",
-      "url": "#/magnet/%s"
+      "url": "../#/magnet/%s"
     }
   ],
   "scope": "./",
