@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import AutofillableField from './AutofillableField.vue'
 
 defineProps<{
+  title: string
   hideIcon?: boolean
-  prependIcon?: string
 }>()
 
+defineOptions({
+  inheritAttrs: false,
+})
+
+const modelValue = defineModel<string>({ required: true })
 const showPassword = ref(false)
 
 function toggleShow() {
@@ -17,11 +23,5 @@ const icon = computed(() => (showPassword.value ? 'mdi-eye' : 'mdi-eye-off'))
 </script>
 
 <template>
-  <v-text-field name="password" :type="type" :append-inner-icon="hideIcon ? '' : icon" @click:append-inner="toggleShow">
-    <template v-if="prependIcon" #prepend>
-      <v-icon color="accent" :icon="prependIcon" />
-    </template>
-  </v-text-field>
+  <AutofillableField v-model="modelValue" :append-icon-inner="hideIcon ? '' : icon" :title="title" :type="type" name="password" v-bind="$attrs" @click:append-inner="toggleShow" />
 </template>
-
-<style scoped></style>
