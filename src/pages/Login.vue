@@ -2,6 +2,7 @@
 import { onMounted, reactive, ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
+import AutofillableField from '@/components/Core/AutofillableField.vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { useI18nUtils } from '@/composables'
 import { useAppStore } from '@/stores'
@@ -18,11 +19,6 @@ const loginForm = reactive<LoginPayload>({
   password: '',
 })
 const rulesOk = ref(false)
-
-const rules = {
-  username: [(v: string) => !!v || t('login.rules.username_required')],
-  password: [(v: string) => !!v || t('login.rules.password_required')],
-}
 
 async function login() {
   if (!rulesOk.value) return
@@ -69,34 +65,25 @@ watchEffect(() => {
       <v-card-title>{{ t('login.title') }}</v-card-title>
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
-        <v-form v-model="rulesOk" @submit.prevent="login">
-          <v-text-field
+        <form @submit.prevent="login">
+          <AutofillableField
             id="username"
             v-model="loginForm.username"
-            name="username"
+            :title="t('login.username')"
             autocomplete="username"
-            aria-autocomplete="username"
-            :label="t('login.username')"
             autofocus
-            :rules="rules.username"
-            variant="outlined"
-            @keydown.enter.prevent="login">
-            <template #prepend>
-              <v-icon color="accent" icon="mdi-account" />
-            </template>
-          </v-text-field>
-
+            name="username"
+            prepend-icon="mdi-account"
+            @keydown.enter.prevent="login" />
           <PasswordField
             id="password"
             v-model="loginForm.password"
+            :title="t('login.password')"
             autocomplete="current-password"
-            aria-autocomplete="current-password"
-            :label="t('login.password')"
-            :rules="rules.password"
+            name="password"
             prepend-icon="mdi-lock"
-            variant="outlined"
             @keydown.enter.prevent="login" />
-        </v-form>
+        </form>
       </v-card-text>
       <v-card-actions>
         <v-btn variant="elevated" block color="accent" @click="login">
@@ -106,5 +93,3 @@ watchEffect(() => {
     </v-card>
   </v-container>
 </template>
-
-<style scoped></style>
