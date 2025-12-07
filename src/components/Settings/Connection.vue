@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref, watch } from 'vue'
+import AutofillableField from '@/components/Core/AutofillableField.vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { useI18nUtils } from '@/composables'
 import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences'
@@ -17,6 +18,7 @@ const proxyTypes = ref([
 ])
 const isProxyDisabled = computed(() => preferenceStore.preferences!.proxy_type === ProxyType.NONE)
 const isProxySocks4 = computed(() => preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4)
+const isProxyAuthDisabled = computed(() => isProxyDisabled.value || isProxySocks4.value)
 
 const bittorrent_protocol = ref([
   { title: t('constants.bittorrentProtocols.tcp_utp'), value: BitTorrentProtocol.TCP_uTP },
@@ -232,10 +234,10 @@ watch(
             :label="t('settings.connection.proxy.peerConnections')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <v-checkbox v-model="preferenceStore.preferences!.proxy_rss" :disabled="isProxyDisabled || isProxySocks4" hide-details :label="t('settings.connection.proxy.rss')" />
+          <v-checkbox v-model="preferenceStore.preferences!.proxy_rss" :disabled="isProxyAuthDisabled" :label="t('settings.connection.proxy.rss')" hide-details />
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <v-checkbox v-model="preferenceStore.preferences!.proxy_misc" :disabled="isProxyDisabled || isProxySocks4" hide-details :label="t('settings.connection.proxy.misc')" />
+          <v-checkbox v-model="preferenceStore.preferences!.proxy_misc" :disabled="isProxyAuthDisabled" :label="t('settings.connection.proxy.misc')" hide-details />
         </v-col>
       </v-row>
     </v-list-item>
@@ -245,7 +247,7 @@ watch(
         <v-col cols="12">
           <v-checkbox
             v-model="preferenceStore.preferences!.proxy_hostname_lookup"
-            :disabled="isProxyDisabled || isProxySocks4"
+            :disabled="isProxyAuthDisabled"
             hide-details
             :label="t('settings.connection.proxy.hostNameLookup')" />
         </v-col>
@@ -253,24 +255,29 @@ watch(
         <v-col cols="12">
           <v-checkbox
             v-model="preferenceStore.preferences!.proxy_auth_enabled"
-            :disabled="isProxyDisabled || isProxySocks4"
+            :disabled="isProxyAuthDisabled"
             hide-details
             :label="t('settings.connection.proxy.auth.subtitle')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field
+          <AutofillableField
+            id="proxy-username"
             v-model="preferenceStore.preferences!.proxy_username"
-            :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
-            dense
-            hide-details
-            :label="t('settings.connection.proxy.auth.username')" />
+            :disabled="isProxyAuthDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
+            :title="t('settings.connection.proxy.auth.username')"
+            autocomplete="username"
+            autofocus
+            name="proxy-username" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
+            id="proxy-password"
             v-model="preferenceStore.preferences!.proxy_password"
-            :hide-icon="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
-            :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
-            :label="t('settings.connection.proxy.auth.password')" />
+            :disabled="isProxyAuthDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
+            :hide-icon="isProxyAuthDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
+            :title="t('settings.connection.proxy.auth.password')"
+            autocomplete="current-password"
+            name="proxy-password" />
         </v-col>
       </v-row>
     </v-list-item>

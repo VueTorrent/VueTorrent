@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import AutofillableField from '@/components/Core/AutofillableField.vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { useI18nUtils } from '@/composables'
 import { openLink } from '@/helpers'
@@ -72,23 +73,23 @@ function registerDynDNS() {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field
+          <AutofillableField
+            id="webui-username"
             v-model="preferenceStore.preferences!.web_ui_username"
+            :title="t('settings.webUI.authentication.username')"
             autocomplete="username"
-            aria-autocomplete="username"
-            hide-details
-            :label="t('settings.webUI.authentication.username')" />
+            autofocus
+            name="webui-username" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
+            id="webui-password"
             v-model="webUiPassword"
-            autocomplete="new-password"
-            aria-autocomplete="new-password"
-            autocapitalize="off"
-            hide-details
-            persistent-placeholder
             :placeholder="t('settings.webUI.authentication.passwordPlaceholder')"
-            :label="t('settings.webUI.authentication.password')" />
+            :title="t('settings.webUI.authentication.password')"
+            autocapitalize="off"
+            autocomplete="new-password"
+            name="webui-password" />
         </v-col>
 
         <v-col cols="12" class="py-0">
@@ -265,25 +266,27 @@ function registerDynDNS() {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6" class="pb-0">
-          <v-text-field
+          <AutofillableField
+            id="webui-dyndns-username"
             v-model="preferenceStore.preferences!.dyndns_username"
             :disabled="!preferenceStore.preferences!.dyndns_enabled"
-            density="compact"
-            hide-details
-            :label="t('settings.webUI.dynDns.username')" />
+            :title="t('settings.webUI.dynDns.username')"
+            autocomplete="username"
+            autofocus
+            name="webui-dyndns-username" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
+            id="webui-dyndns-password"
             v-model="preferenceStore.preferences!.dyndns_password"
             :disabled="!preferenceStore.preferences!.dyndns_enabled"
-            density="compact"
-            hide-details
-            :label="t('settings.webUI.dynDns.password')"
-            :hide-icon="!preferenceStore.preferences!.dyndns_enabled" />
+            :hide-icon="!preferenceStore.preferences!.dyndns_enabled"
+            :title="t('settings.webUI.dynDns.password')"
+            autocapitalize="off"
+            autocomplete="current-password"
+            name="webui-dyndns-password" />
         </v-col>
       </v-row>
     </v-list-item>
   </v-list>
 </template>
-
-<style scoped lang="scss"></style>

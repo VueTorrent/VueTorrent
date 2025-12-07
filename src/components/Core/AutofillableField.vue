@@ -1,11 +1,17 @@
 <script setup lang="ts">
-defineProps<{
-  title: string
-  prependIcon?: string
-  prependIconInner?: string
-  appendIcon?: string
-  appendIconInner?: string
-}>()
+withDefaults(
+  defineProps<{
+    title: string
+    prependIcon?: string
+    prependIconInner?: string
+    appendIcon?: string
+    appendIconInner?: string
+    disabled?: boolean
+  }>(),
+  {
+    disabled: false,
+  }
+)
 
 defineEmits<{
   (e: 'click:prepend'): void
@@ -23,9 +29,9 @@ const modelValue = defineModel<string>({ required: true })
 </script>
 
 <template>
-  <div class="my-2 border-0">
+  <div :class="{ 'autofill-container--disabled': disabled }" class="my-2 border-0">
     <div>{{ title }}</div>
-    <div class="d-flex flex-row ma-3 ga-2 align-center">
+    <div class="d-flex flex-row mt-2 ga-2 align-center">
       <v-icon v-if="prependIcon" :icon="prependIcon" color="accent" @click.prevent="$emit('click:prepend')" />
       <div class="autofill-container d-flex flex-grow-1 align-center border border-opacity-50 pa-2 rounded-lg">
         <v-icon v-if="prependIconInner" :icon="prependIconInner" color="accent" @click.prevent="$emit('click:prependInner')" />
@@ -40,6 +46,11 @@ const modelValue = defineModel<string>({ required: true })
 <style scoped>
 div.autofill-container:focus-within {
   outline: white solid 1px;
+}
+
+div.autofill-container--disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 input:focus {
