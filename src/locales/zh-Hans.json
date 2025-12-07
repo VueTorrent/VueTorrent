@@ -384,7 +384,7 @@
       "fetch_isp_failed": "无法获取互联网服务提供商信息",
       "geo_details": "地理位置信息",
       "isp_details": "ISP信息",
-      "noExternalIp": "无法从日志中识别",
+      "noExternalIp": "无法检测到外部 IP 地址",
       "status": "连接状态",
       "total_peer_connections": "活跃的用户连接"
     },
@@ -394,13 +394,15 @@
       "type": {
         "header": "头部值",
         "json": "JSON",
-        "label": "要导入的数据类型"
+        "label": "要导入的数据类型",
+        "netscape": "Netscape"
       }
     },
     "cookiesManager": {
       "domain": "域名",
       "expiration_date": "到期日期",
       "name": "Cookie 名称",
+      "path": "路径",
       "rules": {
         "duplicate": "此 Cookie 已经存在"
       },
@@ -530,10 +532,15 @@
       "average_time_in_queue": "平均队列时间",
       "cache_statistics": "缓存统计信息",
       "connected_peers": "已连接的对等节点",
+      "performance_statistics": "性能统计",
       "queued_io_jobs": "队列中的 I/O 任务",
       "read_cache_hits": "读取缓存命中率",
       "read_cache_overload": "读取缓存过载",
+      "session_waste": "会话传输数据浪费量",
+      "title": "统计数据",
+      "total_buffer_size": "缓冲区总大小",
       "total_queued_size": "队列总大小",
+      "user_statistics": "用户统计",
       "write_cache_overload": "写入缓存过载"
     },
     "tag": {
@@ -642,14 +649,17 @@
       },
       "free_space": {
         "free_space_on_disk": "默认保存路径的可用空间",
-        "global_ratio": "全局比率"
+        "global_ratio": "全局分享率"
       },
       "performance_stats": {
         "average_time_queue": "平均队列时间",
         "queued_io_jobs": "队列中的 I/O 任务 (校验/移动/重命名)",
         "read_cache_hits": "读取磁盘缓存命中计数",
+        "read_cache_overload": "磁盘读取缓存超载（= 磁盘读取队列大小 / 连接的 Peer 数量）",
         "total_buffers_size": "所有缓冲区的总大小",
-        "total_queued_size": "队列的总大小"
+        "total_queued_size": "队列的总大小",
+        "total_wasted_session": " 本次会话中传输数据浪费的总量（片段检查未通过，重复下载）",
+        "write_cache_overload": "磁盘写入缓存超载（= 磁盘写入队列大小 / 连接的 Peer 数量）"
       },
       "speed_graph": {
         "download_label": "下载",
@@ -1407,6 +1417,9 @@
       "extract_debug": "下载调试信息",
       "fetchingMetadata": "获取中...",
       "fileCount": "已选择文件",
+      "piece_canvas_dialog": {
+        "title": "分块状态概览"
+      },
       "pieceCount": "{owned} / {total} ({pieceSize})",
       "ratio": "分享率",
       "selectedFileSize": "已选择文件大小",
