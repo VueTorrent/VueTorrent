@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.31.0",
   "type": "module",
-  "packageManager": "npm",
+  "packageManager": "npm@11.6.2",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -76,6 +76,7 @@
     "vite": "^7.1.11",
     "vite-plugin-top-level-await": "^1.6.0",
     "vitest": "^3.2.4",
+    "vitest-localstorage-mock": "^0.1.2",
     "vue-tsc": "^3.1.1"
   }
 }

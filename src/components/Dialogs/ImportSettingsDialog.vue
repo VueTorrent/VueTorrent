@@ -36,7 +36,7 @@ async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  window.localStorage.setItem('vuetorrent_webuiSettings', settings.value)
+  localStorage.setItem('vuetorrent_webuiSettings', settings.value)
   location.reload()
 }
 </script>

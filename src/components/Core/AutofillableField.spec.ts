@@ -1,13 +1,10 @@
 import { mount } from '@vue/test-utils'
 import AutofillableField from './AutofillableField.vue'
+import vuetify from '@/plugins/vuetify'
 
 describe('AutofillableField.vue', () => {
   const global = {
-    stubs: {
-      'v-icon': {
-        template: '<span class="v-icon"><slot /></span>',
-      },
-    },
+    plugins: [vuetify],
   }
 
   it('renders title and input value', () => {
