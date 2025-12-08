@@ -585,10 +585,6 @@
     "error": "Login failed!",
     "password": "Password",
     "pending": "Checking current auth status...",
-    "rules": {
-      "password_required": "Password is required",
-      "username_required": "Username is required"
-    },
     "submit": "Login",
     "subtitle": "Enter your credentials",
     "success": "Login successful!",
@@ -988,10 +984,10 @@
       "protocol": "Peer connection protocol",
       "proxy": {
         "auth": {
-          "password": "Password",
+          "password": "Proxy Password",
           "subtitle": "Authentication",
           "tip": "Info: The password is saved unencrypted",
-          "username": "Username"
+          "username": "Proxy Username"
         },
         "bittorrent": "Use proxy for BitTorrent purposes",
         "host": "Host",
@@ -1259,14 +1255,14 @@
       "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
       "dynDns": {
         "domainName": "Domain name",
-        "password": "Password",
+        "password": "DynDNS password",
         "providers": {
           "dynDns": "DynDNS",
           "noIp": "NO-IP"
         },
         "registerBtn": "Register",
         "subheader": "Update my dynamic domain name",
-        "username": "Username"
+        "username": "DynDNS username"
       },
       "https": {
         "certificate": "Certificate",

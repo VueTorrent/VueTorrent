@@ -24,35 +24,35 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             // apexcharts: ['apexcharts', 'vue3-apexcharts'],
             vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-persistence-plugin'],
-            vuetify: ['vuetify']
-          }
-        }
-      }
+            vuetify: ['vuetify'],
+          },
+        },
+      },
     },
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler'
-        }
-      }
+          api: 'modern-compiler',
+        },
+      },
     },
     define: {
       'import.meta.env.VITE_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
-      'process.env': {}
+      'process.env': {},
     },
     plugins: [
       vue(),
       vuetify(),
       topLevelAwait({
         promiseExportName: '__tla',
-        promiseImportName: i => `__tla_${i}`
-      })
+        promiseImportName: i => `__tla_${i}`,
+      }),
     ],
     publicDir: './public',
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
-      }
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
     server: {
       host: '0.0.0.0',
@@ -62,27 +62,27 @@ export default defineConfig(({ mode }) => {
           secure: false,
           changeOrigin: true,
           xfwd: true,
-          target: qBittorrentTarget
+          target: qBittorrentTarget,
         },
         '/backend': {
           secure: false,
           changeOrigin: true,
-          target: qBittorrentTarget
-        }
-      }
+          target: qBittorrentTarget,
+        },
+      },
     },
     test: {
       environment: 'jsdom',
       globals: true,
       setupFiles: [resolve(__dirname, 'tests/setup.ts')],
       coverage: {
-        reportsDirectory: './tests/unit/coverage'
+        reportsDirectory: './tests/unit/coverage',
       },
       server: {
         deps: {
-          inline: ['vuetify']
-        }
-      }
-    }
+          inline: ['vuetify'],
+        },
+      },
+    },
   }
 })
