@@ -18,10 +18,8 @@ const loginForm = reactive<LoginPayload>({
   username: '',
   password: '',
 })
-const rulesOk = ref(false)
 
 async function login() {
-  if (!rulesOk.value) return
   const response = await appStore.login(loginForm.username, loginForm.password)
 
   if (appStore.isAuthenticated) {
