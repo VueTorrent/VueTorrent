@@ -7,6 +7,10 @@ defineProps<{
   hideIcon?: boolean
 }>()
 
+defineEmits<{
+  (e: 'submit'): void
+}>()
+
 defineOptions({
   inheritAttrs: false,
 })
@@ -23,5 +27,13 @@ const icon = computed(() => (showPassword.value ? 'mdi-eye' : 'mdi-eye-off'))
 </script>
 
 <template>
-  <AutofillableField v-model="modelValue" :append-icon-inner="hideIcon ? '' : icon" :title="title" :type="type" name="password" v-bind="$attrs" @click:append-inner="toggleShow" />
+  <AutofillableField
+    v-model="modelValue"
+    :append-icon-inner="hideIcon ? '' : icon"
+    :title="title"
+    :type="type"
+    name="password"
+    v-bind="$attrs"
+    @submit="$emit('submit')"
+    @click:append-inner="toggleShow" />
 </template>
