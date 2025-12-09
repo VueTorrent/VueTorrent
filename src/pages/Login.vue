@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, watchEffect } from 'vue'
+import { onMounted, reactive, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 import AutofillableField from '@/components/Core/AutofillableField.vue'
@@ -18,10 +18,8 @@ const loginForm = reactive<LoginPayload>({
   username: '',
   password: '',
 })
-const rulesOk = ref(false)
 
 async function login() {
-  if (!rulesOk.value) return
   const response = await appStore.login(loginForm.username, loginForm.password)
 
   if (appStore.isAuthenticated) {
@@ -74,7 +72,7 @@ watchEffect(() => {
             autofocus
             name="username"
             prepend-icon="mdi-account"
-            @keydown.enter.prevent="login" />
+            @submit="login" />
           <PasswordField
             id="password"
             v-model="loginForm.password"
@@ -82,7 +80,7 @@ watchEffect(() => {
             autocomplete="current-password"
             name="password"
             prepend-icon="mdi-lock"
-            @keydown.enter.prevent="login" />
+            @submit="login" />
         </form>
       </v-card-text>
       <v-card-actions>

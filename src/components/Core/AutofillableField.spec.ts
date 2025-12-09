@@ -50,6 +50,12 @@ describe('AutofillableField.vue', () => {
         prependIconInner: 'mdi-magnify',
         appendIconInner: 'mdi-close',
       },
+      attrs: {
+        onClickPrepend: () => {},
+        onClickPrependInner: () => {},
+        onClickAppendInner: () => {},
+        onClickAppend: () => {},
+      },
       global,
     })
     const icons = wrapper.findAll('.v-icon')
@@ -103,5 +109,94 @@ describe('AutofillableField.vue', () => {
     })
     await wrapper.find('input').trigger('keydown.enter')
     expect(wrapper.emitted('submit')).toBeFalsy()
+  })
+
+  it('does not emit icon click events when parent did not attach listeners', async () => {
+    const wrapper = mount(AutofillableField, {
+      props: {
+        title: 'Field',
+        modelValue: '',
+        prependIcon: 'mdi-home',
+        appendIcon: 'mdi-check',
+        prependIconInner: 'mdi-magnify',
+        appendIconInner: 'mdi-close',
+      },
+      global,
+    })
+
+    const icons = wrapper.findAll('.v-icon')
+
+    await icons[0].trigger('click')
+    await icons[1].trigger('click')
+    await icons[2].trigger('click')
+    await icons[3].trigger('click')
+
+    expect(wrapper.emitted('click:prepend')).toBeFalsy()
+    expect(wrapper.emitted('click:prependInner')).toBeFalsy()
+    expect(wrapper.emitted('click:appendInner')).toBeFalsy()
+    expect(wrapper.emitted('click:append')).toBeFalsy()
+  })
+
+  it('does not emit icon click events when disabled even if parent attached listeners', async () => {
+    const wrapper = mount(AutofillableField, {
+      props: {
+        title: 'Field',
+        modelValue: '',
+        prependIcon: 'mdi-home',
+        appendIcon: 'mdi-check',
+        prependIconInner: 'mdi-magnify',
+        appendIconInner: 'mdi-close',
+        disabled: true,
+      },
+      attrs: {
+        onClickPrepend: () => {},
+        onClickPrependInner: () => {},
+        onClickAppendInner: () => {},
+        onClickAppend: () => {},
+      },
+      global,
+    })
+
+    const icons = wrapper.findAll('.v-icon')
+
+    await icons[0].trigger('click')
+    await icons[1].trigger('click')
+    await icons[2].trigger('click')
+    await icons[3].trigger('click')
+
+    expect(wrapper.emitted('click:prepend')).toBeFalsy()
+    expect(wrapper.emitted('click:prependInner')).toBeFalsy()
+    expect(wrapper.emitted('click:appendInner')).toBeFalsy()
+    expect(wrapper.emitted('click:append')).toBeFalsy()
+  })
+
+  it('emits only for icons that have parent listeners attached', async () => {
+    const wrapper = mount(AutofillableField, {
+      props: {
+        title: 'Field',
+        modelValue: '',
+        prependIcon: 'mdi-home',
+        appendIcon: 'mdi-check',
+        prependIconInner: 'mdi-magnify',
+        appendIconInner: 'mdi-close',
+      },
+      attrs: {
+        onClickPrepend: () => {},
+        onClickAppend: () => {},
+      },
+      global,
+    })
+
+    const icons = wrapper.findAll('.v-icon')
+
+    await icons[0].trigger('click')
+    await icons[1].trigger('click')
+    await icons[2].trigger('click')
+    await icons[3].trigger('click')
+
+    expect(wrapper.emitted('click:prepend')).toBeTruthy()
+    expect(wrapper.emitted('click:prependInner')).toBeFalsy()
+    expect(wrapper.emitted('click:appendInner')).toBeFalsy()
+    expect(wrapper.emitted('click:append')).toBeTruthy()
   })
 })
