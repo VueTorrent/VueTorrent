@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.31.1](https://github.com/VueTorrent/VueTorrent/compare/v2.31.0...v2.31.1) (2025-12-09)
+
+
+### Bug Fixes
+
+* **ci:** Repair actions after bump ([#2572](https://github.com/VueTorrent/VueTorrent/issues/2572)) ([301a938](https://github.com/VueTorrent/VueTorrent/commit/301a938702a822ff620d3471c3b323c5426f525c))
+* **Login:** Repair autofill ([#2574](https://github.com/VueTorrent/VueTorrent/issues/2574)) ([d1b1723](https://github.com/VueTorrent/VueTorrent/commit/d1b17239a28ebf8896347b5599c50bc65580814e))
+* **Login:** Unable to login after [#2574](https://github.com/VueTorrent/VueTorrent/issues/2574) ([#2578](https://github.com/VueTorrent/VueTorrent/issues/2578)) ([202f1fb](https://github.com/VueTorrent/VueTorrent/commit/202f1fb6087880c5369d352f29616092d74a4dfe))
+* **PWA:** Update handler when opening magnet links ([#2571](https://github.com/VueTorrent/VueTorrent/issues/2571)) ([d4f970f](https://github.com/VueTorrent/VueTorrent/commit/d4f970fb69f099f8b9e860b8288c5e82e966beff))
+
+
+### Improvements
+
+* **Sidebar:** Color coded connection status icon ([#2566](https://github.com/VueTorrent/VueTorrent/issues/2566)) ([45de60c](https://github.com/VueTorrent/VueTorrent/commit/45de60cf9a1d282ab2b7abb175d53257a7e31291))
+* **TableView:** Update sorting icons in Table header ([#2562](https://github.com/VueTorrent/VueTorrent/issues/2562)) ([f987602](https://github.com/VueTorrent/VueTorrent/commit/f9876023efcc9912ea7575c744c3c53260a5cb08))
+
 ## [2.31.0](https://github.com/VueTorrent/VueTorrent/compare/v2.30.2...v2.31.0) (2025-11-10)
 
 
