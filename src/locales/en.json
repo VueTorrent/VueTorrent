@@ -1168,6 +1168,8 @@
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
+        "customBrandPre": "Custom brand pre",
+        "customBrandPost": "Custom brand post",
         "darkVariants": "Dark theme variant",
         "dateFormat": "Date Format",
         "displayGraphLimits": "Display limits in graph",

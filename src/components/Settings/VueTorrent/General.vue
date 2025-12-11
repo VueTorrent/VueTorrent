@@ -234,6 +234,19 @@ function openDurationFormatHelp() {
         </v-col>
 
         <v-col cols="12" md="6">
+          <v-text-field
+            v-model="vueTorrentStore.uiBrandPre"
+            hide-details
+            :label="t('settings.vuetorrent.general.customBrandPre')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="vueTorrentStore.uiBrandPost"
+            hide-details
+            :label="t('settings.vuetorrent.general.customBrandPost')" />
+        </v-col>
+
+        <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.theme.light" flat hide-details :items="lightVariants" :label="$t('settings.vuetorrent.general.lightVariants')" />
         </v-col>
         <v-col cols="12" md="6">

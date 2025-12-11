@@ -31,6 +31,8 @@ export const useVueTorrentStore = defineStore(
     const deleteWithFiles = ref(false)
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')
+    const uiBrandPre = ref('Vue')
+    const uiBrandPost = ref('Torrent')
     const hideChipIfUnset = ref(false)
     const enableRatioColors = ref(true)
     const enableHashColors = ref(true)
@@ -242,6 +244,8 @@ export const useVueTorrentStore = defineStore(
       showSpeedInTitle,
       uiTitleType,
       uiTitleCustom,
+      uiBrandPre,
+      uiBrandPost,
       useBinarySize,
       useBitSpeed,
       useIdForRssLinks,
@@ -286,6 +290,8 @@ export const useVueTorrentStore = defineStore(
         deleteWithFiles.value = false
         uiTitleType.value = TitleOptions.DEFAULT
         uiTitleCustom.value = ''
+        uiBrandPre.value = 'Vue'
+        uiBrandPost.value = 'Torrent'
         hideChipIfUnset.value = false
         enableRatioColors.value = true
         enableHashColors.value = true
