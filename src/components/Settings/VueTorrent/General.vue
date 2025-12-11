@@ -98,7 +98,10 @@ function downloadSettings() {
 
   const jsonString = JSON.stringify(JSON.parse(settings), null, 2)
   const blob = new Blob([jsonString], { type: 'application/json' })
-  downloadFile('settings.json', blob)
+  
+  const currentVersion = vueTorrentVersion.value
+  const currentTimestamp = new Date().toISOString()
+  downloadFile(`VueTorrent_${currentVersion}_${currentTimestamp}.json`, blob)
 }
 
 function importSettings() {
