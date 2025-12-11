@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.31.2](https://github.com/VueTorrent/VueTorrent/compare/v2.31.1...v2.31.2) (2025-12-11)
+
+
+### Improvements
+
+* **Settings:** Add name, version & time to exported file name ([#2579](https://github.com/VueTorrent/VueTorrent/issues/2579)) ([549eae2](https://github.com/VueTorrent/VueTorrent/commit/549eae2ac5c32e37a41116db80e34217835a9310))
+
 ## [2.31.1](https://github.com/VueTorrent/VueTorrent/compare/v2.31.0...v2.31.1) (2025-12-09)
 
 
