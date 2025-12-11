@@ -16,6 +16,7 @@ import {
   TorrentProperty,
 } from '@/constants/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
+import { getVariables } from '@/themes/global'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
@@ -31,8 +32,10 @@ export const useVueTorrentStore = defineStore(
     const deleteWithFiles = ref(false)
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')
-    const uiBrandPre = ref('Vue')
-    const uiBrandPost = ref('Torrent')
+    const uiBrandPreText = ref('Vue')
+    const uiBrandPreColor = ref(getVariables(false).accent)
+    const uiBrandPostText = ref('Torrent')
+    const uiBrandPostColor = ref('#FFFFFF')
     const hideChipIfUnset = ref(false)
     const enableRatioColors = ref(true)
     const enableHashColors = ref(true)
@@ -244,8 +247,10 @@ export const useVueTorrentStore = defineStore(
       showSpeedInTitle,
       uiTitleType,
       uiTitleCustom,
-      uiBrandPre,
-      uiBrandPost,
+      uiBrandPreText,
+      uiBrandPreColor,
+      uiBrandPostText,
+      uiBrandPostColor,
       useBinarySize,
       useBitSpeed,
       useIdForRssLinks,
@@ -290,8 +295,10 @@ export const useVueTorrentStore = defineStore(
         deleteWithFiles.value = false
         uiTitleType.value = TitleOptions.DEFAULT
         uiTitleCustom.value = ''
-        uiBrandPre.value = 'Vue'
-        uiBrandPost.value = 'Torrent'
+        uiBrandPreText.value = 'Vue'
+        uiBrandPreColor.value = getVariables(false).accent
+        uiBrandPostText.value = 'Torrent'
+        uiBrandPostColor.value = '#FFFFFF'
         hideChipIfUnset.value = false
         enableRatioColors.value = true
         enableHashColors.value = true

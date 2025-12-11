@@ -4,8 +4,7 @@ import { useRouter } from 'vue-router'
 import ActiveFilters from './TopWidgets/ActiveFilters.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
-import { useNavbarStore } from '@/stores'
-import { useVueTorrentStore } from '@/stores'
+import { useNavbarStore, useVueTorrentStore } from '@/stores'
 
 const router = useRouter()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
@@ -25,8 +24,8 @@ function goHome() {
   <v-app-bar class="ios-padding">
     <v-app-bar-nav-icon @click="toggleDrawer" />
     <div class="title-wrapper cursor-pointer" @click="goHome">
-      <span v-if="$vuetify.display.smAndUp" class="text-accent">{{ vueTorrentStore.uiBrandPre }}</span>
-      <span v-if="$vuetify.display.smAndUp">{{ vueTorrentStore.uiBrandPost }}</span>
+      <span v-if="$vuetify.display.smAndUp" :style="{ color: vueTorrentStore.uiBrandPreColor }">{{ vueTorrentStore.uiBrandPreText }}</span>
+      <span v-if="$vuetify.display.smAndUp" :style="{ color: vueTorrentStore.uiBrandPostColor }">{{ vueTorrentStore.uiBrandPostText }}</span>
     </div>
 
     <ActiveFilters />
