@@ -585,10 +585,6 @@
     "error": "登录失败！",
     "password": "密码",
     "pending": "正在检测身份验证状态...",
-    "rules": {
-      "password_required": "密码不能为空",
-      "username_required": "用户名不能为空"
-    },
     "submit": "登录",
     "subtitle": "输入您的凭据",
     "success": "登录成功！",

@@ -360,10 +360,6 @@
   "login": {
     "error": "로그인에 실패했습니다!",
     "password": "비밀번호",
-    "rules": {
-      "password_required": "비밀번호는 필수 입력 사항입니다",
-      "username_required": "사용자 이름은 필수 입력 사항입니다"
-    },
     "submit": "로그인",
     "subtitle": "자격 증명 입력",
     "success": "로그인 성공!",

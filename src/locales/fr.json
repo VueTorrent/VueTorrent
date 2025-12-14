@@ -428,10 +428,6 @@
   "login": {
     "error": "Echec de la connexion !",
     "password": "Mot de passe",
-    "rules": {
-      "password_required": "Le mot de passe est requis",
-      "username_required": "Le nom d'utilisateur est requis"
-    },
     "submit": "Se connecter",
     "subtitle": "Entrez vos identifiants",
     "success": "Connexion réussie !",
