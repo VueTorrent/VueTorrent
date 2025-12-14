@@ -383,10 +383,6 @@
   "login": {
     "error": "¡Error al iniciar sesión!",
     "password": "Contraseña",
-    "rules": {
-      "password_required": "Se requiere contraseña",
-      "username_required": "Se requiere el nombre de usuario"
-    },
     "submit": "Iniciar sesión",
     "subtitle": "Ingrese sus credenciales",
     "success": "¡Inicio de sesión exitoso!",

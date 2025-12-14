@@ -382,10 +382,6 @@
   "login": {
     "error": "Logowanie nie powiodło się!",
     "password": "Hasło",
-    "rules": {
-      "password_required": "Hasło jest wymagane",
-      "username_required": "Nazwa użytkownika jest wymagana"
-    },
     "submit": "Zaloguj się",
     "subtitle": "Wprowadź swoje dane uwierzytelniające",
     "success": "Logowanie zakończone sukcesem!",

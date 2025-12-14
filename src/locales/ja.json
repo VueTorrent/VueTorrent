@@ -419,10 +419,6 @@
   "login": {
     "error": "ログインに失敗しました!",
     "password": "パスワード",
-    "rules": {
-      "password_required": "パスワードは必須です",
-      "username_required": "ユーザー名は必須です"
-    },
     "submit": "ログイン",
     "subtitle": "ログイン情報を入力してください",
     "success": "ログインに成功しました!",

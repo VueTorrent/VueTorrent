@@ -515,10 +515,6 @@
     "error": "登入失敗！",
     "password": "密碼",
     "pending": "正在檢測驗證狀態...",
-    "rules": {
-      "password_required": "必須填寫密碼",
-      "username_required": "必須填寫使用者名稱"
-    },
     "submit": "登入",
     "subtitle": "輸入你的憑證",
     "success": "登入成功！",

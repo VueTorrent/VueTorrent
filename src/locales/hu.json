@@ -383,10 +383,6 @@
   "login": {
     "error": "Bejelentkezés sikertelen!",
     "password": "Jelszó",
-    "rules": {
-      "password_required": "Jelszó szükséges",
-      "username_required": "Felhasználónév szükséges"
-    },
     "submit": "Bejelentkezés",
     "subtitle": "Adja meg hitelesítő adatait",
     "success": "Bejelentkezés sikeres!",

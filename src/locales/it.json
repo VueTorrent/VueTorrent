@@ -332,10 +332,6 @@
   "login": {
     "error": "Accesso fallito!",
     "password": "Password",
-    "rules": {
-      "password_required": "Password richiesta",
-      "username_required": "Nome utente richiesto"
-    },
     "submit": "Accedi",
     "subtitle": "Inserisci le tue credenziali",
     "success": "Accesso riuscito!",

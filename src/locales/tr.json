@@ -418,10 +418,6 @@
   "login": {
     "error": "Giriş başarısız oldu!",
     "password": "Parola",
-    "rules": {
-      "password_required": "Parola gereklidir",
-      "username_required": "Kullanıcı adı gereklidir"
-    },
     "submit": "Giriş",
     "subtitle": "Kimlik bilgilerinizi girin",
     "success": "Giriş başarılı!",

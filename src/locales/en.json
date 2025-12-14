@@ -984,10 +984,10 @@
       "protocol": "Peer connection protocol",
       "proxy": {
         "auth": {
-          "password": "Proxy Password",
+          "password": "Proxy password",
           "subtitle": "Authentication",
           "tip": "Info: The password is saved unencrypted",
-          "username": "Proxy Username"
+          "username": "Proxy username"
         },
         "bittorrent": "Use proxy for BitTorrent purposes",
         "host": "Host",
