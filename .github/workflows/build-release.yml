@@ -89,7 +89,7 @@ jobs:
           npm run ${{ matrix.npm-step }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ matrix.artifact-name }}
           path: ${{ matrix.artifact-path }}
@@ -106,7 +106,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -128,7 +128,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -169,7 +169,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: vuetorrent-demo
           path: ./vuetorrent-demo
@@ -187,7 +187,7 @@ jobs:
     if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -214,7 +214,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: vuetorrent-build
           path: ./vuetorrent
@@ -237,7 +237,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v6
+      - uses: actions/download-artifact@v7
         with:
           name: vuetorrent-build
           path: ./vuetorrent
