@@ -111,7 +111,7 @@ onUnmounted(() => {
       {{ torrent.name }}
     </v-card-title>
     <v-card-subtitle>
-      <div id="torrent-detail-comment">
+      <div id="torrent-detail-comment" class="text-wrap">
         <template v-for="(commentPart, i) in splitByUrl(comment)" :key="i">
           <a v-if="commentPart.isUrl" target="_blank" :href="(commentPart.protocol ? '' : 'https://') + commentPart.raw">{{ commentPart.raw }}</a>
           <span v-else>{{ commentPart.raw }}</span>
