@@ -188,6 +188,12 @@ describe('helpers/text/splitByUrl', () => {
     ])
   })
 
+  test('match filename as non-URL', () => {
+    expect(splitByUrl("Note: the file file_name_meta.xml contains metadata about this torrent's contents.")).toEqual([
+      { raw: "Note: the file file_name_meta.xml contains metadata about this torrent's contents.", isUrl: false },
+    ])
+  })
+
   test('match IPv6 URLs', () => {
     expect(splitByUrl('Connect to https://[2001:db8::1]:8080/path')).toEqual([
       { raw: 'Connect to ', isUrl: false },
