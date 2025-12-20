@@ -652,7 +652,7 @@ export default class QBitProvider implements IProvider {
   async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
     const params = {
       hash,
-      urls: trackers.join('|'),
+      urls: trackers.map(encodeURIComponent).join('|'),
     }
 
     return this.post(`/torrents/removeTrackers`, params).then(res => res.data)
