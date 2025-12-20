@@ -60,7 +60,7 @@ function getIpv6RegExp() {
  * Path (Optional): should match any string appended to the URL, excluding trailing punctuation like dots and commas
  */
 function getUrlRegExp() {
-  return /(?<protocol>(?:https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?<port>:\d+)?(?<path>\/(?:\S*[^\s.,:;!?])?)?/gi
+  return /(?<protocol>(?:https?|udp):\/\/)?(?<host>(?<![_a-zA-Z0-9])[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?<port>:\d+)?(?<path>\/(?:\S*[^\s.,:;!?])?)?/gi
 }
 
 export function extractHostname(url: string): string {
