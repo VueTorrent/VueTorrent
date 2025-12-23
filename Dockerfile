@@ -1,2 +1,2 @@
 FROM scratch
-COPY /vuetorrent /vuetorrent
+COPY --chmod=555 /vuetorrent /vuetorrent
