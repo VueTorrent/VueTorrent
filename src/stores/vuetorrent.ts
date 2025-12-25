@@ -16,6 +16,7 @@ import {
   TorrentProperty,
 } from '@/constants/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
+import { getVariables } from '@/themes/global'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
@@ -31,6 +32,9 @@ export const useVueTorrentStore = defineStore(
     const deleteWithFiles = ref(false)
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')
+    const uiBrandPreText = ref('Vue')
+    const uiBrandPreColor = ref(getVariables(false).accent)
+    const uiBrandPostText = ref('Torrent')
     const hideChipIfUnset = ref(false)
     const enableRatioColors = ref(true)
     const enableHashColors = ref(true)
@@ -133,6 +137,8 @@ export const useVueTorrentStore = defineStore(
     const mediaQueryPreferDark = useMediaQuery('(prefers-color-scheme: dark)')
     watch(mediaQueryPreferDark, updateTheme)
 
+    const uiBrandPostColor = mediaQueryPreferDark.value ? ref('#FFFFFF') : ref('#000000')
+
     function setLanguage(newLang: string) {
       locale.value = newLang
     }
@@ -140,12 +146,15 @@ export const useVueTorrentStore = defineStore(
     function updateTheme() {
       switch (theme.mode) {
         case ThemeMode.LIGHT:
+          // TODO: If user has not set a custom uiBrandPostColor, then set it to black
           themeVuetify.change(theme.light)
           break
         case ThemeMode.DARK:
+          // TODO: If user has not set a custom uiBrandPostColor, then set it to white
           themeVuetify.change(theme.dark)
           break
         case ThemeMode.SYSTEM:
+          // TODO: If user has not set a custom uiBrandPostColor, then set it to white or black based on mediaQueryPreferDark.value
           themeVuetify.change(mediaQueryPreferDark.value ? theme.dark : theme.light)
       }
     }
@@ -242,6 +251,10 @@ export const useVueTorrentStore = defineStore(
       showSpeedInTitle,
       uiTitleType,
       uiTitleCustom,
+      uiBrandPreText,
+      uiBrandPreColor,
+      uiBrandPostText,
+      uiBrandPostColor,
       useBinarySize,
       useBitSpeed,
       useIdForRssLinks,
@@ -286,6 +299,10 @@ export const useVueTorrentStore = defineStore(
         deleteWithFiles.value = false
         uiTitleType.value = TitleOptions.DEFAULT
         uiTitleCustom.value = ''
+        uiBrandPreText.value = 'Vue'
+        uiBrandPreColor.value = getVariables(false).accent
+        uiBrandPostText.value = 'Torrent'
+        uiBrandPostColor.value = mediaQueryPreferDark.value ? '#FFFFFF' : '#000000'
         hideChipIfUnset.value = false
         enableRatioColors.value = true
         enableHashColors.value = true
