@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.31.3](https://github.com/VueTorrent/VueTorrent/compare/v2.31.2...v2.31.3) (2025-12-26)
+
+
+### Bug Fixes
+
+* **lsio-mod:** Fix invalid permissions on non-root users ([#2597](https://github.com/VueTorrent/VueTorrent/issues/2597)) ([85a1fb3](https://github.com/VueTorrent/VueTorrent/commit/85a1fb3795d46b422772f5fd749ad5d141352b76))
+
+
+### Improvements
+
+* Improve URL detection ([#2590](https://github.com/VueTorrent/VueTorrent/issues/2590)) ([26ea94d](https://github.com/VueTorrent/VueTorrent/commit/26ea94de05bcd160fb4d362938d08fcddf4cb8e8))
+* **Overview:** Wrap comment to prevent text overflow ([#2589](https://github.com/VueTorrent/VueTorrent/issues/2589)) ([c48c2e0](https://github.com/VueTorrent/VueTorrent/commit/c48c2e046828c454acd4c86c943ebcfc82013a3c))
+
 ## [2.31.2](https://github.com/VueTorrent/VueTorrent/compare/v2.31.1...v2.31.2) (2025-12-20)
 
 
