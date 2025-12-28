@@ -119,9 +119,10 @@ async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) 
 
 const timer = ref<NodeJS.Timeout>()
 
-function startPress(e: Touch, torrent: TorrentType) {
+function startPress(e: TouchEvent, torrent: TorrentType) {
+  const touch = e.touches.item(0)!
   timer.value = setTimeout(() => {
-    void onTorrentRightClick(e, torrent)
+    void onTorrentRightClick(touch, torrent)
   }, 500)
 }
 

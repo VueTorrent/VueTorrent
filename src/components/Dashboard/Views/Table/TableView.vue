@@ -19,7 +19,7 @@ defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
-  startPress: [e: Touch, torrent: TorrentType]
+  startPress: [e: TouchEvent, torrent: TorrentType]
   endPress: []
 }>()
 
@@ -87,13 +87,14 @@ function getTorrentRowColorClass(torrent: TorrentType) {
         v-ripple
         data-custom-context-menu
         :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
+        style="user-select: none; -webkit-user-select: none"
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)"
         @touchcancel.passive="$emit('endPress')"
         @touchend.passive="$emit('endPress')"
         @touchmove.passive="$emit('endPress')"
-        @touchstart.passive="$emit('startPress', $event.touches.item(0)!, torrent)">
+        @touchstart="$emit('startPress', $event, torrent)">
         <v-tooltip top>
           <template #activator="{ props }">
             <td v-bind="props" :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />

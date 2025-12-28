@@ -14,7 +14,7 @@ defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
-  startPress: [e: Touch, torrent: TorrentType]
+  startPress: [e: TouchEvent, torrent: TorrentType]
   endPress: []
 }>()
 
@@ -38,7 +38,8 @@ const dashboardStore = useDashboardStore()
       @touchcancel.passive="$emit('endPress')"
       @touchend.passive="$emit('endPress')"
       @touchmove.passive="$emit('endPress')"
-      @touchstart.passive="$emit('startPress', $event.touches.item(0)!, torrent)">
+      @touchstart="$emit('startPress', $event, torrent)"
+      style="user-select: none; -webkit-user-select: none">
       <div class="d-flex align-center" style="height: 100%; width: 100%">
         <v-expand-x-transition>
           <v-btn
