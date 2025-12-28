@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useKeyModifier } from '@vueuse/core'
+import { computed } from 'vue'
 import { isMac } from '@/helpers'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 
@@ -8,6 +9,7 @@ const props = defineProps<{
 }>()
 
 const isCtrlPressed = useKeyModifier(isMac ? 'Meta' : 'Control', { initial: false })
+const isTouchDevice = computed(() => 'ontouchstart' in window || navigator.maxTouchPoints > 0)
 
 function onClick() {
   props.entryData.action?.()
@@ -28,7 +30,15 @@ function onClick() {
       <v-spacer />
       <v-icon v-if="!entryData.disabled && entryData.children"> mdi-chevron-right </v-icon>
     </div>
-    <v-menu v-if="entryData.children" activator="parent" open-on-hover open-on-click :close-on-content-click="!isCtrlPressed" close-delay="10" open-delay="0" location="right">
+    <v-menu 
+      v-if="entryData.children" 
+      activator="parent" 
+      :open-on-hover="!isTouchDevice" 
+      open-on-click 
+      :close-on-content-click="!isCtrlPressed" 
+      close-delay="10" 
+      open-delay="0" 
+      location="right">
       <v-list>
         <template v-if="entryData.slots?.top">
           <RightClickMenuEntry v-for="(slotData, i) in entryData.slots.top" :key="i" :entry-data="slotData" />
