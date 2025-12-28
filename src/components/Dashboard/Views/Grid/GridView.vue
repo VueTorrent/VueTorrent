@@ -33,13 +33,13 @@ const dashboardStore = useDashboardStore()
       sm="6"
       xl="2"
       class="pb-0"
+      style="user-select: none; -webkit-user-select: none"
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
       @dblclick="$emit('onTorrentDblClick', torrent)"
       @touchcancel.passive="$emit('endPress')"
       @touchend.passive="$emit('endPress')"
       @touchmove.passive="$emit('endPress')"
-      @touchstart="$emit('startPress', $event, torrent)"
-      style="user-select: none; -webkit-user-select: none">
+      @touchstart="$emit('startPress', $event, torrent)">
       <div class="d-flex align-center" style="height: 100%; width: 100%">
         <v-expand-x-transition>
           <v-btn
