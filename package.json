@@ -21,7 +21,7 @@
   "dependencies": {
     "@ctrl/tinycolor": "^4.2.0",
     "@faker-js/faker": "^10.0.0",
-    "@flatten-js/interval-tree": "^1.1.4",
+    "@flatten-js/interval-tree": "^2.0.3",
     "@fontsource/roboto": "^5.2.9",
     "@fontsource/roboto-mono": "^5.2.8",
     "@mdi/font": "^7.4.47",
