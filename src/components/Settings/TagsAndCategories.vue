@@ -36,7 +36,7 @@ function deleteUnusedTags() {
 
 function deleteCategory(category: Category) {
   dialogStore.confirmAction({
-    title: t('dialogs.confirm.deleteTag'),
+    title: t('dialogs.confirm.deleteCategory'),
     text: category.name,
     yesColor: 'error',
     onConfirm: async () => {
