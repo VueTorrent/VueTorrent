@@ -80,17 +80,17 @@ const filterActiveCount = computed(
 
 function toggleAllFilters() {
   if (globalFilterActive.value) {
-    isTextFilterActive.value = false
-    isStatusFilterActive.value = false
-    isCategoryFilterActive.value = false
-    isTagFilterActive.value = false
-    isTrackerFilterActive.value = false
+    if (isTextFilterPresent.value) isTextFilterActive.value = false
+    if (isStatusFilterPresent.value) isStatusFilterActive.value = false
+    if (isCategoryFilterPresent.value) isCategoryFilterActive.value = false
+    if (isTagFilterPresent.value) isTagFilterActive.value = false
+    if (isTrackerFilterPresent.value) isTrackerFilterActive.value = false
   } else {
-    isTextFilterActive.value = true
-    isStatusFilterActive.value = true
-    isCategoryFilterActive.value = true
-    isTagFilterActive.value = true
-    isTrackerFilterActive.value = true
+    if (isTextFilterPresent.value) isTextFilterActive.value = true
+    if (isStatusFilterPresent.value) isStatusFilterActive.value = true
+    if (isCategoryFilterPresent.value) isCategoryFilterActive.value = true
+    if (isTagFilterPresent.value) isTagFilterActive.value = true
+    if (isTrackerFilterPresent.value) isTrackerFilterActive.value = true
   }
 }
 
