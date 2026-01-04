@@ -111,26 +111,23 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters align="center" justify="center">
-      <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ t('settings.title') }}
-        </h1>
-      </v-col>
-      <v-col>
-        <div class="d-flex justify-end">
-          <v-btn color="accent" icon="mdi-content-save" variant="plain" @click="saveSettings" />
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
-        </div>
-      </v-col>
-    </v-row>
+    <div class="d-flex align-center">
+      <div class="text-h5 ml-2">
+        {{ t('settings.title') }}
+      </div>
+      <v-spacer />
+      <div class="d-flex justify-end">
+        <v-btn color="accent" icon="mdi-content-save" variant="plain" @click="saveSettings" />
+        <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+      </div>
+    </div>
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
         <v-tab
           v-if="isEnhancedEdition"
           value="enhancedEdition"
-          :text="$t('settings.tabs.addons.enhanced_edition')"
+          :text="t('settings.tabs.addons.enhanced_edition')"
           replace
           :to="{ name: 'settings', params: { tab: 'enhancedEdition' } }" />
         <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: value } }" />

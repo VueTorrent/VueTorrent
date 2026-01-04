@@ -87,27 +87,24 @@ onUnmounted(() => {
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters align="center" justify="center">
-      <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ t('logs.title') }}
-        </h1>
-      </v-col>
-      <v-col>
-        <div class="d-flex justify-end">
-          <v-btn :icon="reverseSort ? 'mdi-sort-descending' : 'mdi-sort-ascending'" variant="plain" @click="reverseSort = !reverseSort" />
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
-        </div>
-      </v-col>
-    </v-row>
+    <div class="d-flex align-center">
+      <div class="text-h5 ml-2">
+        {{ t('logs.title') }}
+      </div>
+      <v-spacer />
+      <div class="d-flex justify-end">
+        <v-btn :icon="reverseSort ? 'mdi-sort-descending' : 'mdi-sort-ascending'" variant="plain" @click="reverseSort = !reverseSort" />
+        <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+      </div>
+    </div>
 
     <v-list>
       <v-list-item>
         <v-row>
           <v-col cols="6">
-            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" hide-details multiple chips>
+            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="t('logs.filters.type')" chips hide-details multiple>
               <template #prepend-item>
-                <v-list-item :title="$t('common.selectAll')" @click="toggleSelectAll">
+                <v-list-item :title="t('common.selectAll')" @click="toggleSelectAll">
                   <template #prepend>
                     <v-checkbox-btn :indeterminate="someTypesSelected && !allTypesSelected" :model-value="someTypesSelected" />
                   </template>
@@ -118,7 +115,7 @@ onUnmounted(() => {
           </v-col>
 
           <v-col cols="6">
-            <v-text-field v-model="logMessageFilter" :label="$t('logs.filters.query')" hide-details clearable />
+            <v-text-field v-model="logMessageFilter" :label="t('logs.filters.query')" clearable hide-details />
           </v-col>
         </v-row>
       </v-list-item>
@@ -154,7 +151,7 @@ onUnmounted(() => {
       </template>
 
       <v-list-item v-if="filteredLogs.length === 0">
-        {{ $t('logs.emptyLogList') }}
+        {{ t('logs.emptyLogList') }}
       </v-list-item>
 
       <v-divider />

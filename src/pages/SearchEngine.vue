@@ -158,20 +158,17 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters align="center" justify="center">
-      <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ t('searchEngine.title') }}
-        </h1>
-      </v-col>
-      <v-col>
-        <div class="d-flex justify-end">
-          <v-btn icon="mdi-stop" variant="plain" color="error" @click="stopAllSearch" />
-          <v-btn icon="mdi-toy-brick" variant="plain" color="primary" @click="openPluginManagerDialog" />
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
-        </div>
-      </v-col>
-    </v-row>
+    <div class="d-flex align-center">
+      <div class="text-h5 ml-2">
+        {{ t('searchEngine.title') }}
+      </div>
+      <v-spacer />
+      <div class="d-flex justify-end">
+        <v-btn color="error" icon="mdi-stop" variant="plain" @click="stopAllSearch" />
+        <v-btn color="primary" icon="mdi-toy-brick" variant="plain" @click="openPluginManagerDialog" />
+        <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+      </div>
+    </div>
 
     <v-row class="ma-0 pa-0">
       <v-container class="d-flex align-center justify-center ma-0 pa-0 bg-primary" fluid>
@@ -346,19 +343,19 @@ onBeforeUnmount(() => {
             {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}
           </template>
           <template #[`item.actions`]="{ item }">
-            <v-tooltip :text="$t('searchEngine.tooltip.open_link')" location="top">
+            <v-tooltip :text="t('searchEngine.tooltip.open_link')" location="top">
               <template #activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
               </template>
             </v-tooltip>
 
-            <v-tooltip :text="$t('searchEngine.tooltip.append_queue')" location="top">
+            <v-tooltip :text="t('searchEngine.tooltip.append_queue')" location="top">
               <template #activator="{ props }">
                 <v-btn v-bind="props" icon="mdi-plus-box-multiple" variant="text" density="compact" @click="pushToQueue(item)" />
               </template>
             </v-tooltip>
 
-            <v-tooltip :text="$t('searchEngine.tooltip.download')" location="top">
+            <v-tooltip :text="t('searchEngine.tooltip.download')" location="top">
               <template #activator="{ props }">
                 <v-btn
                   v-if="appStore.usesQbit5"

@@ -101,22 +101,19 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="pa-3 text-select">
-    <v-row no-gutters align="center" justify="center">
-      <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ t('torrentDetail.title') }}
-        </h1>
-      </v-col>
-      <v-col>
-        <div class="d-flex justify-end">
-          <v-btn icon="mdi-skip-previous" :disabled="isTorrentFilterEmpty || isFirstTorrent" variant="plain" @click="goToFirstTorrent" />
-          <v-btn icon="mdi-arrow-left" :disabled="isTorrentNotInFilter || isFirstTorrent" variant="plain" @click="goToPreviousTorrent" />
-          <v-btn icon="mdi-arrow-right" :disabled="isTorrentNotInFilter || isLastTorrent" variant="plain" @click="goToNextTorrent" />
-          <v-btn icon="mdi-skip-next" :disabled="isTorrentFilterEmpty || isLastTorrent" variant="plain" @click="goToLastTorrent" />
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
-        </div>
-      </v-col>
-    </v-row>
+    <div class="d-flex align-center">
+      <div class="text-h5 ml-2 text-truncate">
+        {{ torrent?.name ?? t('torrentDetail.error.title') }}
+      </div>
+      <v-spacer />
+      <div class="d-flex justify-end">
+        <v-btn :disabled="isTorrentFilterEmpty || isFirstTorrent" icon="mdi-skip-previous" variant="plain" @click="goToFirstTorrent" />
+        <v-btn :disabled="isTorrentNotInFilter || isFirstTorrent" icon="mdi-arrow-left" variant="plain" @click="goToPreviousTorrent" />
+        <v-btn :disabled="isTorrentNotInFilter || isLastTorrent" icon="mdi-arrow-right" variant="plain" @click="goToNextTorrent" />
+        <v-btn :disabled="isTorrentFilterEmpty || isLastTorrent" icon="mdi-skip-next" variant="plain" @click="goToLastTorrent" />
+        <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+      </div>
+    </div>
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
@@ -145,6 +142,8 @@ onBeforeUnmount(() => {
       </v-window-item>
     </v-window>
   </div>
+
+  <v-empty-state v-if="!hash || !torrent" :headline="t('torrentDetail.error.headline')" :title="t('torrentDetail.error.content')" icon="mdi-alert-circle-outline" />
 
   <div :style="`position: absolute; left: ${contentStore.rightClickProperties.offset[0]}px; top: ${contentStore.rightClickProperties.offset[1]}px;`">
     <RightClickMenu v-model="contentStore.rightClickProperties.isVisible" :menu-data="contentStore.menuData" />
