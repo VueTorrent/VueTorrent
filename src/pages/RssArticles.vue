@@ -64,23 +64,20 @@ onUnmounted(() => {
 
 <template>
   <div class="pa-3">
-    <v-row align="center" justify="center" no-gutters>
-      <v-col>
-        <h1 class="subtitle-1 ml-2" style="font-size: 1.6em !important">
-          {{ feedsView ? $t('rssArticles.feeds.title') : $t('rssArticles.rules.title') }}
-        </h1>
-      </v-col>
-      <v-col>
-        <div class="d-flex justify-end">
-          <v-tooltip :text="$t(feedsView ? 'rssArticles.toggle.rules' : 'rssArticles.toggle.feeds')" location="top">
-            <template #activator="{ props }">
-              <v-btn v-bind="props" icon="mdi-auto-download" variant="plain" @click="toggleFeedsView()" />
-            </template>
-          </v-tooltip>
-          <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
-        </div>
-      </v-col>
-    </v-row>
+    <div class="d-flex align-center">
+      <div class="text-h5 ml-2">
+        {{ feedsView ? $t('rssArticles.feeds.title') : $t('rssArticles.rules.title') }}
+      </div>
+      <v-spacer />
+      <div class="d-flex justify-end">
+        <v-tooltip :text="$t(feedsView ? 'rssArticles.toggle.rules' : 'rssArticles.toggle.feeds')" location="top">
+          <template #activator="{ props }">
+            <v-btn icon="mdi-auto-download" v-bind="props" variant="plain" @click="toggleFeedsView()" />
+          </template>
+        </v-tooltip>
+        <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
+      </div>
+    </div>
 
     <Feeds v-if="feedsView" :height="height" :mobile="mobile" @open-article="openRssArticle" />
     <Rules v-else :height="height" />

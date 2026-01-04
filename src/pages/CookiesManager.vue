@@ -90,18 +90,15 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters align="center" justify="center">
-      <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ t('cookiesManager.title') }}
-        </h1>
-      </v-col>
-      <v-col>
-        <div class="d-flex justify-end">
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
-        </div>
-      </v-col>
-    </v-row>
+    <div class="d-flex align-center">
+      <div class="text-h5 ml-2">
+        {{ t('cookiesManager.title') }}
+      </div>
+      <v-spacer />
+      <div class="d-flex justify-end">
+        <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+      </div>
+    </div>
 
     <v-card v-if="!cookies.length" :height="height">
       <v-empty-state :title="t('cookiesManager.empty.value')" color="accent" icon="mdi-cookie-off">

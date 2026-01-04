@@ -1396,6 +1396,11 @@
       },
       "rootNode": "(Root)"
     },
+    "error": {
+      "content": "The torrent you are trying to access does not exist.",
+      "headline": "Invalid torrent ID",
+      "title": "Error"
+    },
     "info": {
       "boolean_values": "Boolean values",
       "data_values": "Data values",
@@ -1455,7 +1460,6 @@
       "categories": "Categories",
       "tags": "Tags"
     },
-    "title": "Torrent Detail",
     "trackers": {
       "addTrackers": {
         "newTrackers": "Tracker URLs to add",
