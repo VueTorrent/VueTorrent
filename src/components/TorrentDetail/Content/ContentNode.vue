@@ -5,7 +5,7 @@ import { computed, triggerRef } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { doesCommand, formatData, getFileIcon, formatPercent } from '@/helpers'
+import { doesCommand, formatData, formatPercent, getFileIcon } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 
@@ -14,7 +14,7 @@ const props = defineProps<{
 }>()
 
 defineEmits<{
-  onRightClick: [e: MouseEvent, node: TreeNode]
+  rightClick: [e: MouseEvent, node: TreeNode]
 }>()
 
 const folderColor = '#ffe476'
@@ -91,13 +91,14 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <div
-    v-on-long-press="e => $emit('onRightClick', e, node)"
+    v-on-long-press="e => $emit('rightClick', e, node)"
     data-custom-context-menu
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
     :title="`${formatPercent(node.progress)} / ${formatPercent(node.availability)}`"
     @click.stop="toggleInternalSelection($event, node)"
-    @contextmenu="$emit('onRightClick', $event, node)">
+    @contextmenu="$emit('rightClick', $event, node)"
+    @dblclick.stop="contentStore.toggleFileSelection(node)">
     <div class="d-flex">
       <!-- Selection checkbox -->
       <div class="d-flex align-center cursor-pointer" @click.stop="contentStore.toggleFileSelection(node)">
