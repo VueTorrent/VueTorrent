@@ -1039,7 +1039,6 @@
       "categories": "카테고리",
       "tags": "태그"
     },
-    "title": "토렌트 세부 정보",
     "trackers": {
       "addTrackers": {
         "newTrackers": "추가할 트래커 URL",

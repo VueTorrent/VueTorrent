@@ -1218,7 +1218,6 @@
         },
         "SpeedGraph": "Show Speed Graph",
         "tip": "Here you can change the order of the widgets in the sidebar, and hide the ones you don't use.",
-        "title": "Sidebar",
         "TransferStats": "Show Transfer Stats"
       },
       "torrentCard": {

@@ -1218,7 +1218,6 @@
         },
         "SpeedGraph": "显示速度图表",
         "tip": "您可以在此更改侧边栏中小工具的顺序，并隐藏不常用的小工具。",
-        "title": "侧边栏",
         "TransferStats": "显示传输统计数据"
       },
       "torrentCard": {
@@ -1455,7 +1454,6 @@
       "categories": "分类",
       "tags": "标签"
     },
-    "title": "种子详情",
     "trackers": {
       "addTrackers": {
         "newTrackers": "要添加的 Tracker URL",
