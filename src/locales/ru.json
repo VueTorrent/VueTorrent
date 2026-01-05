@@ -1414,7 +1414,6 @@
       "categories": "Категории",
       "tags": "Теги"
     },
-    "title": "Детали торрента",
     "trackers": {
       "addTrackers": {
         "newTrackers": "URL-ссылки трекеров для добавления",

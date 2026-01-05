@@ -1134,7 +1134,6 @@
       "categories": "カテゴリー",
       "tags": "タグ"
     },
-    "title": "Torrentの詳細",
     "trackers": {
       "addTrackers": {
         "newTrackers": "追加するトラッカーURL",

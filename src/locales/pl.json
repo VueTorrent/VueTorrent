@@ -1062,7 +1062,6 @@
       "categories": "Kategorie",
       "tags": "Tagi"
     },
-    "title": "Szczegóły torrenta",
     "trackers": {
       "addTrackers": {
         "newTrackers": "Adresy URL trackerów do dodania",

@@ -1157,7 +1157,6 @@
       "categories": "Catégories",
       "tags": "Étiquettes"
     },
-    "title": "Détail du torrent",
     "trackers": {
       "addTrackers": {
         "newTrackers": "URL des trackers à ajouter",
