@@ -62,7 +62,7 @@
     "diskIoType": {
       "default": "默认",
       "memoryMappedFiles": "文件映射",
-      "posixCompliant": "兼容POSIX",
+      "posixCompliant": "符合 POSIX 标准",
       "simplePreadPwrite": "简单的 pread/pwrite"
     },
     "encryption": {
@@ -283,12 +283,12 @@
     "add": {
       "cookie": "Cookie",
       "cookie_placeholder": "name1=value1; name2=value2; ...",
-      "drop_label": "将种子文件和链接拖到此处",
+      "drop_label": "将种子文件和/或链接添加至队列",
       "file_overflow": "+{n} 个",
       "files": "选择(多个)文件",
       "first_last_piece_prio": "优先下载首尾块",
       "instant_drop_label": "立即开始下载",
-      "links": "链接 (磁力, http, 文件链接等)",
+      "links": "链接（磁力、HTTP、文件等）",
       "params": {
         "add_to_top_of_queue": "添加到队列首位",
         "category": "分类",
@@ -364,17 +364,17 @@
       "warnEdit": "编辑分类名称将会将种子迁移到新分类。\n可能会出现错误，请谨慎使用。"
     },
     "confirm": {
-      "banPeers": "您确实要禁止该用户吗？",
-      "clearCookies": "您确实要清除所有 Cookie？",
-      "deleteCategory": "您确实要删除此类别吗？",
-      "deleteCookie": "您确实要移除此  Cookie？",
-      "deleteFeed": "您确实要删除此 RSS feed 吗？",
-      "deleteRule": "您确实要删除此 RSS 规则吗？",
-      "deleteTag": "您确实要删除此标签吗？",
-      "deleteUnusedCategories": "您确实要删除所有未使用的类别吗？",
-      "deleteUnusedTags": "您确实要删除所有未使用的标签吗？",
-      "startAll": "您确定要启动所有 torrents 吗？",
-      "stopAll": "您确定要停止所有 torrents 吗？"
+      "banPeers": "您确定要封禁该用户吗？",
+      "clearCookies": "您确定要清除所有 Cookie 吗？",
+      "deleteCategory": "您确定要删除此类别吗？",
+      "deleteCookie": "您确定要删除此 Cookie 吗？",
+      "deleteFeed": "您确定要删除此 RSS 订阅源吗？",
+      "deleteRule": "您确定要删除此 RSS 规则吗？",
+      "deleteTag": "您确定要删除此标签吗？",
+      "deleteUnusedCategories": "您确定要删除所有未使用的类别吗？",
+      "deleteUnusedTags": "您确定要删除所有未使用的标签吗？",
+      "startAll": "您确定要启动所有种子任务吗？",
+      "stopAll": "您确定要停止所有种子任务吗？"
     },
     "connectionStatus": {
       "dht_nodes": "DHT 节点",
@@ -383,7 +383,7 @@
       "fetch_geo_failed": "无法获取地理位置信息",
       "fetch_isp_failed": "无法获取互联网服务提供商信息",
       "geo_details": "地理位置信息",
-      "isp_details": "ISP信息",
+      "isp_details": "ISP 信息",
       "noExternalIp": "无法检测到外部 IP 地址",
       "status": "连接状态",
       "total_peer_connections": "活跃的用户连接"
@@ -480,7 +480,7 @@
         "assignedCategory": "分配的分类",
         "enabled": "启用规则",
         "episodeFilter": "剧集过滤器",
-        "episodeFilterPlaceholder": "例如: S01E02-S01E05",
+        "episodeFilterPlaceholder": "例如：S01E02-S01E05",
         "ignoreDays": "忽略在过去 {days} 天内发布的内容",
         "ignoreDaysHint": "0 表示禁用",
         "lastMatch": {
@@ -566,18 +566,18 @@
       "paddedFileSizeLimitHint": "-1 表示禁用",
       "paddedFileSizeLimitRule": "值必须为正数",
       "pieceSize": "分片大小",
-      "private": "私有种子（不会在DHT网络上分发）",
+      "private": "私有种子（不会在 DHT 网络中分发）",
       "rules": {
         "outputFileExtension": "输出路径必须以 .torrent 结尾",
         "sourcePathRequired": "必须填写源路径"
       },
       "source": "源",
-      "sourcePath": "要包含在 torrent 中的文件",
+      "sourcePath": "要包含在种子中的文件",
       "startSeeding": "立即开始做种",
       "title": "创建新任务",
       "torrentFilePath": "已创建的种子文件目标位置",
       "trackers": "Tracker URL",
-      "trackersHint": "您可以使用空行分隔Tracker层级/组",
+      "trackersHint": "您可以使用空行来划分 Tracker 层级/组",
       "urlSeeds": "Web种子URL"
     }
   },
@@ -649,13 +649,13 @@
       },
       "performance_stats": {
         "average_time_queue": "平均队列时间",
-        "queued_io_jobs": "队列中的 I/O 任务 (校验/移动/重命名)",
+        "queued_io_jobs": "队列中的 I/O 任务（校验/移动/内容重命名）",
         "read_cache_hits": "读取磁盘缓存命中计数",
-        "read_cache_overload": "磁盘读取缓存超载（= 磁盘读取队列大小 / 连接的 Peer 数量）",
+        "read_cache_overload": "磁盘读取缓存过载（= 磁盘读取队列大小 / 对等节点数）",
         "total_buffers_size": "所有缓冲区的总大小",
         "total_queued_size": "队列的总大小",
-        "total_wasted_session": " 本次会话中传输数据浪费的总量（片段检查未通过，重复下载）",
-        "write_cache_overload": "磁盘写入缓存超载（= 磁盘写入队列大小 / 连接的 Peer 数量）"
+        "total_wasted_session": "空耗的会话数据总量（分片校验未通过、重复下载）",
+        "write_cache_overload": "磁盘写入缓存过载（= 磁盘写入队列大小 / 对等节点数）"
       },
       "speed_graph": {
         "download_label": "下载",
@@ -712,9 +712,9 @@
         "pending": "标记中... ",
         "success": "{n}篇文章已标记为已读"
       },
-      "refreshAllFeeds": "刷新所有订阅",
+      "refreshAllFeeds": "刷新所有订阅源",
       "refreshPromise": {
-        "error": "刷新订阅信息时出现错误",
+        "error": "刷新订阅源时发生错误",
         "pending": "刷新中...",
         "success": "{n} 条订阅信息已刷新"
       },
@@ -723,9 +723,9 @@
     "rules": {
       "empty": {
         "action": "创建 RSS 规则",
-        "value": "未设置RSS规则"
+        "value": "未注册任何 RSS 规则"
       },
-      "title": "RSS规则"
+      "title": "RSS 规则"
     },
     "toggle": {
       "feeds": "展示订阅消息",
@@ -744,7 +744,7 @@
         "music": "音乐",
         "pictures": "图片",
         "software": "软件",
-        "tv": "电视剧"
+        "tv": "电视节目"
       },
       "plugins": {
         "all": "全部",
@@ -778,17 +778,17 @@
   "settings": {
     "addons": {
       "enhanced_edition": {
-        "auto_ban_bt_player_peer": "自动屏蔽BT用户",
-        "auto_ban_unknown_peer": "自动屏蔽未知用户",
-        "auto_update_trackers": "自动更新公共Trackers列表",
-        "public_trackers": "公共Trackers",
-        "trackers_list_url": "自定义Trackers链接列表"
+        "auto_ban_bt_player_peer": "自动封禁 BT 播放器用户",
+        "auto_ban_unknown_peer": "自动封禁未知客户端用户",
+        "auto_update_trackers": "自动更新公共 Trackers 列表",
+        "public_trackers": "公共 Trackers",
+        "trackers_list_url": "自定义 Trackers URL 列表"
       }
     },
     "advanced": {
       "libtorrent": {
-        "announceAllTiers": "总是向所有等级的 Tracker 汇报",
-        "announceAllTrackers": "总是向同级的所有 Tracker 汇报",
+        "announceAllTiers": "始终向所有层级的 Tracker 通告",
+        "announceAllTrackers": "始终向同层级的所有 Tracker 通告",
         "announceIP": "向 Tracker 报告的 IP 地址 (需要重启)",
         "coalesceReadsWrites": "合并读写 (libtorrent < 2.0)",
         "dhtBootstrapNodes": "DHT 引导节点",
@@ -1394,6 +1394,10 @@
         "folder": "重命名文件夹"
       },
       "rootNode": "(根目录)"
+    },
+    "error": {
+      "content": "您尝试访问的种子不存在。",
+      "headline": "无效的种子 ID"
     },
     "info": {
       "boolean_values": "布尔值",
