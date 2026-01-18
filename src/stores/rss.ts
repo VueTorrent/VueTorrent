@@ -104,6 +104,7 @@ export const useRssStore = defineStore(
 
       _articles.value = []
       keyMap.value = {}
+      const articleMap = new Map<string, RssArticle>()
 
       feeds.value.forEach((feed: Feed) => {
         if (!feed.articles) return
@@ -111,13 +112,20 @@ export const useRssStore = defineStore(
         feed.articles.forEach(article => {
           if (keyMap.value[article.id]) {
             keyMap.value[article.id].push(feed.name)
+
+            const existingArticle = articleMap.get(article.id)
+            if (existingArticle && !article.isRead) {
+              existingArticle.isRead = false
+            }
           } else {
             keyMap.value[article.id] = [feed.name]
-            _articles.value.push({
+            const rssArticle: RssArticle = {
               feedId: feed.uid,
               parsedDate: new Date(article.date),
               ...article,
-            })
+            }
+            articleMap.set(article.id, rssArticle)
+            _articles.value.push(rssArticle)
           }
         })
       })
