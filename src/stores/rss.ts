@@ -2,6 +2,7 @@ import { useIntervalFn } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
+import { useTask } from 'vue-concurrency'
 
 import { toast } from 'vue3-toastify'
 import { useI18nUtils, useSearchQuery } from '@/composables'
@@ -34,11 +35,20 @@ export const useRssStore = defineStore(
     )
 
     const { t } = useI18nUtils()
-    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeeds(), 5000, {
+
+    const fetchFeedsTask = useTask(function* () {
+      yield fetchFeeds()
+    }).keepLatest()
+
+    const fetchRulesTask = useTask(function* () {
+      yield fetchRules()
+    }).keepLatest()
+
+    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeedsTask.perform(), 5000, {
       immediate: false,
       immediateCallback: true,
     })
-    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRules(), 5000, {
+    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRulesTask.perform(), 5000, {
       immediate: false,
       immediateCallback: true,
     })
@@ -125,13 +135,12 @@ export const useRssStore = defineStore(
       feedNames.forEach(feedName => promises.push(qbit.markAsRead(feedName, articleId)))
       await Promise.all(promises)
 
-      _articles.value.forEach(article => {
-        if (article.id === articleId) article.isRead = true
-      })
+      fetchFeedsTask.perform()
     }
 
     async function markFeedAsRead(feed: Feed) {
-      return await qbit.markAsRead(feed.name)
+      await qbit.markAsRead(feed.name)
+      fetchFeedsTask.perform()
     }
 
     async function markAllAsRead() {
@@ -166,6 +175,8 @@ export const useRssStore = defineStore(
       articles,
       filteredArticles,
       unreadArticles,
+      fetchFeedsTask,
+      fetchRulesTask,
       pauseFeedTimer,
       resumeFeedTimer,
       pauseRuleTimer,

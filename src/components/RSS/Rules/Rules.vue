@@ -13,7 +13,7 @@ const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
 function openRuleDialog(initialRule?: FeedRule) {
-  dialogStore.createDialog(RssRuleDialog, { initialRule }, rssStore.resumeRuleTimer)
+  dialogStore.createDialog(RssRuleDialog, { initialRule }, () => void rssStore.fetchRulesTask.perform())
 }
 
 onBeforeMount(() => {

@@ -40,12 +40,12 @@ const titleFilter = computed({
 })
 
 function openFeedDialog(initialFeed?: Feed) {
-  dialogStore.createDialog(RssFeedDialog, { initialFeed }, rssStore.resumeFeedTimer)
+  dialogStore.createDialog(RssFeedDialog, { initialFeed }, () => void rssStore.fetchFeedsTask.perform())
 }
 
 async function refreshFeed(item: Feed) {
   await rssStore.refreshFeed(item.name)
-  rssStore.resumeFeedTimer()
+  rssStore.fetchFeedsTask.perform()
 }
 
 function deleteFeed(item: Feed) {
@@ -55,7 +55,7 @@ function deleteFeed(item: Feed) {
     yesColor: 'error',
     onConfirm: async () => {
       await rssStore.deleteFeed(item.name)
-      rssStore.resumeFeedTimer()
+      await rssStore.fetchFeedsTask.perform()
     },
   })
 }

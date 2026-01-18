@@ -17,7 +17,7 @@ const rssStore = useRssStore()
 
 async function toggleRule(rule: FeedRule) {
   await rssStore.setRule(rule.name, { ...rule, enabled: !rule.enabled })
-  rssStore.resumeRuleTimer()
+  rssStore.fetchRulesTask.perform()
 }
 
 function deleteRule(rule: FeedRule) {
@@ -27,7 +27,7 @@ function deleteRule(rule: FeedRule) {
     yesColor: 'error',
     onConfirm: async () => {
       await rssStore.deleteRule(rule.name)
-      rssStore.resumeRuleTimer()
+      await rssStore.fetchRulesTask.perform()
     },
   })
 }
