@@ -49,7 +49,7 @@ async function readFeed(feed: FeedType) {
 
 async function refreshAllFeeds() {
   await rssStore.refreshAllFeeds()
-  rssStore.resumeFeedTimer()
+  rssStore.fetchFeedsTask.perform()
 }
 
 function getFeedTitle(feed?: FeedType) {
