@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.31.3](https://github.com/VueTorrent/VueTorrent/compare/v2.31.2...v2.31.3) (2026-01-19)
+
+
+### Bug Fixes
+
+* **lsio-mod:** Fix invalid permissions on non-root users ([#2597](https://github.com/VueTorrent/VueTorrent/issues/2597)) ([85a1fb3](https://github.com/VueTorrent/VueTorrent/commit/85a1fb3795d46b422772f5fd749ad5d141352b76))
+* **RightClick:** Prevent selecting text when opening menu on apple touch devices ([#2598](https://github.com/VueTorrent/VueTorrent/issues/2598)) ([f1846ec](https://github.com/VueTorrent/VueTorrent/commit/f1846ec4397d95443a011954bae171bf3d0fd618))
+* **RSSArticles:** Prevent unread status inconsistency ([#2624](https://github.com/VueTorrent/VueTorrent/issues/2624)) ([6963f29](https://github.com/VueTorrent/VueTorrent/commit/6963f29008d6eaedfbb15c0798c4a3c7f6e95cf0))
+* Wrong message for category delete confirmation ([#2599](https://github.com/VueTorrent/VueTorrent/issues/2599)) ([5f9fc86](https://github.com/VueTorrent/VueTorrent/commit/5f9fc86a85a89e47ee75dd61fa53c9fc7345ab2b))
+
+
+### Improvements
+
+* **ActiveFilters:** Click on chip disables only active filters ([#2606](https://github.com/VueTorrent/VueTorrent/issues/2606)) ([bfca3d4](https://github.com/VueTorrent/VueTorrent/commit/bfca3d42335b2c1ab9c3da60a74f304e1e44f040))
+* **Content:** Double click on a node to toggle selection ([#2607](https://github.com/VueTorrent/VueTorrent/issues/2607)) ([2bcce0a](https://github.com/VueTorrent/VueTorrent/commit/2bcce0a5b0e2ad22218373ad87044ddcd305af43))
+* Improve URL detection ([#2590](https://github.com/VueTorrent/VueTorrent/issues/2590)) ([26ea94d](https://github.com/VueTorrent/VueTorrent/commit/26ea94de05bcd160fb4d362938d08fcddf4cb8e8))
+* **Overview:** Wrap comment to prevent text overflow ([#2589](https://github.com/VueTorrent/VueTorrent/issues/2589)) ([c48c2e0](https://github.com/VueTorrent/VueTorrent/commit/c48c2e046828c454acd4c86c943ebcfc82013a3c))
+* **RSSArticles:** Use vue-concurrency ([#2624](https://github.com/VueTorrent/VueTorrent/issues/2624)) ([e28bfcd](https://github.com/VueTorrent/VueTorrent/commit/e28bfcdb1668fa11b02a9742a2bc351ec0597c05))
+* **TorrentDetail:** Change title to use torrent name ([#2608](https://github.com/VueTorrent/VueTorrent/issues/2608)) ([bbbe846](https://github.com/VueTorrent/VueTorrent/commit/bbbe846295f4bb23f734fc3595891acac873374a))
+
 ## [2.31.2](https://github.com/VueTorrent/VueTorrent/compare/v2.31.1...v2.31.2) (2025-12-20)
 
 
