@@ -4,7 +4,7 @@ import { computed, readonly, ref } from 'vue'
 import { toast } from 'vue3-toastify'
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { useI18nUtils } from '@/composables'
-import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions, TorrentDetailTab } from '@/constants/vuetorrent'
 import { downloadFile, openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { backend } from '@/services/backend'
@@ -20,6 +20,16 @@ const { filterType } = storeToRefs(useTorrentStore())
 const vueTorrentStore = useVueTorrentStore()
 
 const github = new Github()
+
+const torrentDetailTabs = readonly([
+  { title: t('settings.vuetorrent.general.lastOpenedTab'), value: TorrentDetailTab.LAST_OPENED },
+  { title: t('torrentDetail.tabs.overview'), value: TorrentDetailTab.OVERVIEW },
+  { title: t('torrentDetail.tabs.info'), value: TorrentDetailTab.INFO },
+  { title: t('torrentDetail.tabs.trackers'), value: TorrentDetailTab.TRACKERS },
+  { title: t('torrentDetail.tabs.peers'), value: TorrentDetailTab.PEERS },
+  { title: t('torrentDetail.tabs.content'), value: TorrentDetailTab.CONTENT },
+  { title: t('torrentDetail.tabs.tagsAndCategories'), value: TorrentDetailTab.TAGS_AND_CATEGORIES }
+])
 
 const titleOptionsList = readonly([
   { title: t('constants.titleOptions.default'), value: TitleOptions.DEFAULT },
@@ -240,7 +250,10 @@ function openDurationFormatHelp() {
           <v-select v-model="vueTorrentStore.theme.dark" flat hide-details :items="darkVariants" :label="$t('settings.vuetorrent.general.darkVariants')" />
         </v-col>
 
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="3">
+          <v-select v-model="vueTorrentStore.defaultTorrentDetailTab" flat hide-details :items="torrentDetailTabs" :label="t('settings.vuetorrent.general.defaultTorrentDetailTab')" />
+        </v-col>
+        <v-col cols="12" md="3">
           <v-combobox
             v-model.number="paginationSize"
             :messages="paginationSizeMessages"
