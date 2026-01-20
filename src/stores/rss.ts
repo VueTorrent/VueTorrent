@@ -2,6 +2,7 @@ import { useIntervalFn } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
+import { useTask } from 'vue-concurrency'
 
 import { toast } from 'vue3-toastify'
 import { useI18nUtils, useSearchQuery } from '@/composables'
@@ -34,11 +35,20 @@ export const useRssStore = defineStore(
     )
 
     const { t } = useI18nUtils()
-    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeeds(), 5000, {
+
+    const fetchFeedsTask = useTask(function* () {
+      yield fetchFeeds()
+    }).keepLatest()
+
+    const fetchRulesTask = useTask(function* () {
+      yield fetchRules()
+    }).keepLatest()
+
+    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeedsTask.perform(), 5000, {
       immediate: false,
       immediateCallback: true,
     })
-    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRules(), 5000, {
+    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRulesTask.perform(), 5000, {
       immediate: false,
       immediateCallback: true,
     })
@@ -94,6 +104,7 @@ export const useRssStore = defineStore(
 
       _articles.value = []
       keyMap.value = {}
+      const articleMap = new Map<string, RssArticle>()
 
       feeds.value.forEach((feed: Feed) => {
         if (!feed.articles) return
@@ -101,13 +112,20 @@ export const useRssStore = defineStore(
         feed.articles.forEach(article => {
           if (keyMap.value[article.id]) {
             keyMap.value[article.id].push(feed.name)
+
+            const existingArticle = articleMap.get(article.id)
+            if (existingArticle && !article.isRead) {
+              existingArticle.isRead = false
+            }
           } else {
             keyMap.value[article.id] = [feed.name]
-            _articles.value.push({
+            const rssArticle: RssArticle = {
               feedId: feed.uid,
               parsedDate: new Date(article.date),
               ...article,
-            })
+            }
+            articleMap.set(article.id, rssArticle)
+            _articles.value.push(rssArticle)
           }
         })
       })
@@ -125,13 +143,12 @@ export const useRssStore = defineStore(
       feedNames.forEach(feedName => promises.push(qbit.markAsRead(feedName, articleId)))
       await Promise.all(promises)
 
-      _articles.value.forEach(article => {
-        if (article.id === articleId) article.isRead = true
-      })
+      fetchFeedsTask.perform()
     }
 
     async function markFeedAsRead(feed: Feed) {
-      return await qbit.markAsRead(feed.name)
+      await qbit.markAsRead(feed.name)
+      fetchFeedsTask.perform()
     }
 
     async function markAllAsRead() {
@@ -166,6 +183,8 @@ export const useRssStore = defineStore(
       articles,
       filteredArticles,
       unreadArticles,
+      fetchFeedsTask,
+      fetchRulesTask,
       pauseFeedTimer,
       resumeFeedTimer,
       pauseRuleTimer,
