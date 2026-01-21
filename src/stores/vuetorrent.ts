@@ -13,6 +13,7 @@ import {
   propsMetadata,
   ThemeMode,
   TitleOptions,
+  TorrentDetailTab,
   TorrentProperty,
 } from '@/constants/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
@@ -50,6 +51,7 @@ export const useVueTorrentStore = defineStore(
     const fetchExternalIpInfo = ref(false)
     const reduceMotion = ref(false)
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
+    const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -277,6 +279,7 @@ export const useVueTorrentStore = defineStore(
       expandContent,
       reduceMotion,
       keepDefaultTransitions,
+      defaultTorrentDetailTab,
       $reset: () => {
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
@@ -304,6 +307,7 @@ export const useVueTorrentStore = defineStore(
         fetchExternalIpInfo.value = false
         expandContent.value = true
         reduceMotion.value = false
+        defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))

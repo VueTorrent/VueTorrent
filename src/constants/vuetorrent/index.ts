@@ -11,6 +11,7 @@ import { FilterType } from './FilterType'
 import { HistoryKey } from './HistoryKey'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
+import { TorrentDetailTab } from './TorrentDetailTab'
 import { emojiStateMap, stateQbitToVt, stateVtToQbit, TorrentState } from './TorrentState'
 import { TrackerSpecialFilter } from './TrackerSpecialFilter'
 import { defaultDateFormat, defaultDurationFormat, QBIT_MAX_ETA, INFINITY_SYMBOL } from './values'
@@ -34,6 +35,7 @@ export {
   HistoryKey,
   ThemeMode,
   TitleOptions,
+  TorrentDetailTab,
   TorrentState,
   emojiStateMap,
   stateQbitToVt,

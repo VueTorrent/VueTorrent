@@ -10,6 +10,7 @@ import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
 import { useI18nUtils } from '@/composables'
+import { TorrentDetailTab } from '@/constants/vuetorrent'
 import { useContentStore, useDialogStore, useGlobalStore, useTorrentDetailStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 
 const router = useRouter()
@@ -20,15 +21,15 @@ const globalStore = useGlobalStore()
 const torrentStore = useTorrentStore()
 const torrentDetailStore = useTorrentDetailStore()
 const { tab } = storeToRefs(torrentDetailStore)
-const { keepDefaultTransitions } = storeToRefs(useVueTorrentStore())
+const { keepDefaultTransitions, defaultTorrentDetailTab } = storeToRefs(useVueTorrentStore())
 
 const tabs = [
-  { text: t('torrentDetail.tabs.overview'), value: 'overview' },
-  { text: t('torrentDetail.tabs.info'), value: 'info' },
-  { text: t('torrentDetail.tabs.trackers'), value: 'trackers' },
-  { text: t('torrentDetail.tabs.peers'), value: 'peers' },
-  { text: t('torrentDetail.tabs.content'), value: 'content' },
-  { text: t('torrentDetail.tabs.tagsAndCategories'), value: 'tagsAndCategories' },
+  { text: t('torrentDetail.tabs.overview'), value: TorrentDetailTab.OVERVIEW },
+  { text: t('torrentDetail.tabs.info'), value: TorrentDetailTab.INFO },
+  { text: t('torrentDetail.tabs.trackers'), value: TorrentDetailTab.TRACKERS },
+  { text: t('torrentDetail.tabs.peers'), value: TorrentDetailTab.PEERS },
+  { text: t('torrentDetail.tabs.content'), value: TorrentDetailTab.CONTENT },
+  { text: t('torrentDetail.tabs.tagsAndCategories'), value: TorrentDetailTab.TAGS_AND_CATEGORIES },
 ]
 
 const hash = computed(() => router.currentRoute.value.params.hash as string)
@@ -77,6 +78,8 @@ function updateTabHandle() {
   const tabRouteParam = router.currentRoute.value.params.tab as string
   if (tabRouteParam) {
     tab.value = tabRouteParam
+  } else if (defaultTorrentDetailTab.value !== TorrentDetailTab.LAST_OPENED) {
+    tab.value = defaultTorrentDetailTab.value
   }
 }
 
@@ -122,23 +125,23 @@ onBeforeUnmount(() => {
     </v-row>
 
     <v-window v-if="torrent" v-model="tab" :touch="false">
-      <v-window-item value="overview" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
-        <Overview :torrent="torrent" :is-active="tab === 'overview'" />
+      <v-window-item :value="TorrentDetailTab.OVERVIEW" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+        <Overview :torrent="torrent" :is-active="tab === TorrentDetailTab.OVERVIEW" />
       </v-window-item>
-      <v-window-item value="info" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
-        <Info :torrent="torrent" :is-active="tab === 'info'" />
+      <v-window-item :value="TorrentDetailTab.INFO" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+        <Info :torrent="torrent" :is-active="tab === TorrentDetailTab.INFO" />
       </v-window-item>
-      <v-window-item value="trackers" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
-        <Trackers :torrent="torrent" :is-active="tab === 'trackers'" />
+      <v-window-item :value="TorrentDetailTab.TRACKERS" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+        <Trackers :torrent="torrent" :is-active="tab === TorrentDetailTab.TRACKERS" />
       </v-window-item>
-      <v-window-item value="peers" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
-        <Peers :torrent="torrent" :is-active="tab === 'peers'" />
+      <v-window-item :value="TorrentDetailTab.PEERS" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+        <Peers :torrent="torrent" :is-active="tab === TorrentDetailTab.PEERS" />
       </v-window-item>
-      <v-window-item value="content" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
-        <Content :torrent="torrent" :is-active="tab === 'content'" />
+      <v-window-item :value="TorrentDetailTab.CONTENT" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+        <Content :torrent="torrent" :is-active="tab === TorrentDetailTab.CONTENT" />
       </v-window-item>
-      <v-window-item value="tagsAndCategories" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
-        <TagsAndCategories :torrent="torrent" :is-active="tab === 'tagsAndCategories'" />
+      <v-window-item :value="TorrentDetailTab.TAGS_AND_CATEGORIES" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+        <TagsAndCategories :torrent="torrent" :is-active="tab === TorrentDetailTab.TAGS_AND_CATEGORIES" />
       </v-window-item>
     </v-window>
   </div>
