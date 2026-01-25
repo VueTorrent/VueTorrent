@@ -200,7 +200,7 @@
       "speed_limit": {
         "download": "Définir la limite de téléchargement",
         "share": "Définir la limite de partage",
-        "title": "Définir la vitesse limite",
+        "title": "Définir les limites",
         "upload": "Définir la limite d'envoi"
       },
       "tags": {

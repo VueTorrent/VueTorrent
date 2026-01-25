@@ -1,4 +1,5 @@
 import cs from './cs.json'
+import de from './de.json'
 import en from './en.json'
 import es from './es.json'
 import fr from './fr.json'
@@ -19,6 +20,7 @@ type LocaleDef = { title: string; value: Locales }
 
 export enum Locales {
   CS = 'cs',
+  DE = 'de',
   EN = 'en',
   ES = 'es',
   FR = 'fr',
@@ -38,6 +40,7 @@ export enum Locales {
 
 export const LOCALES: LocaleDef[] = [
   { title: 'čeština', value: Locales.CS },
+  { title: 'Deutsch', value: Locales.DE },
   { title: 'English', value: Locales.EN },
   { title: 'español', value: Locales.ES },
   { title: 'Français', value: Locales.FR },
@@ -57,6 +60,7 @@ export const LOCALES: LocaleDef[] = [
 
 export const messages: Record<Locales, any> = {
   [Locales.CS]: cs,
+  [Locales.DE]: de,
   [Locales.EN]: en,
   [Locales.ES]: es,
   [Locales.FR]: fr,
