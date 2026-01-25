@@ -256,7 +256,7 @@
       "speed_limit": {
         "download": "Set download limit",
         "share": "Set share limit",
-        "title": "Set speed limit",
+        "title": "Set limits",
         "upload": "Set upload limit"
       },
       "tags": {
@@ -1174,7 +1174,6 @@
         "displayGraphLimits": "Display limits in graph",
         "download": "Export settings",
         "durationFormat": "Duration format",
-        "lastOpenedTab": "Last Opened",
         "enableHashColors": "Enable generated chip colors",
         "enableRatioColors": "Enable ratio colors",
         "expandContent": "Expand content by default in Content view",
@@ -1187,6 +1186,7 @@
         "import": "Import Settings",
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
+        "lastOpenedTab": "Last Opened",
         "lightVariants": "Light theme variant",
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
