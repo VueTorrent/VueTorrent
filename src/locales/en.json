@@ -353,6 +353,8 @@
       "unfold": "Expand"
     },
     "category": {
+      "downloadPath": "Incomplete torrent path",
+      "downloadPathEnabled": "Use another path for incomplete torrents",
       "name": "Category Name",
       "nameRequired": "Category name is required",
       "oldName": "Old category name",
