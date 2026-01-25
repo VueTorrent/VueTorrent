@@ -42,15 +42,19 @@ export const useCategoryStore = defineStore('categories', () => {
     for (const [catName, qbitCat] of entries) {
       const oldCat = _categoryMap.value.get(catName)
       if (oldCat) {
-        const newCat = {
+        const newCat: Category = {
           name: qbitCat.name ?? oldCat.name,
           savePath: qbitCat.savePath ?? oldCat.savePath,
+          downloadPathEnabled: qbitCat.download_path !== undefined ? qbitCat.download_path !== false : oldCat.downloadPathEnabled,
+          downloadPath: qbitCat.download_path !== undefined ? (typeof qbitCat.download_path === 'string' ? qbitCat.download_path : '') : oldCat.downloadPath,
         }
         _categoryMap.value.set(catName, newCat)
       } else {
         _categoryMap.value.set(catName, {
           name: qbitCat.name ?? catName,
           savePath: qbitCat.savePath ?? '',
+          downloadPathEnabled: qbitCat.download_path !== undefined && qbitCat.download_path !== false,
+          downloadPath: typeof qbitCat.download_path === 'string' ? qbitCat.download_path : '',
         })
       }
     }
@@ -73,7 +77,7 @@ export const useCategoryStore = defineStore('categories', () => {
       await qbit.createCategory(category)
 
       // Move old category torrent to new location
-      await qbit.editCategory({ name: oldCategory, savePath: category.savePath })
+      await qbit.editCategory({ name: oldCategory, savePath: category.savePath, downloadPathEnabled: category.downloadPathEnabled, downloadPath: category.downloadPath })
 
       // Get list of torrents in old category and move them to new category
       const torrents = await qbit.getTorrents({ category: oldCategory })
