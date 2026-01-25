@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.32.0](https://github.com/VueTorrent/VueTorrent/compare/v2.31.3...v2.32.0) (2026-01-25)
+
+
+### Features
+
+* **TorrentDetail:** Add default tab selection in settings ([#2623](https://github.com/VueTorrent/VueTorrent/issues/2623)) ([144f552](https://github.com/VueTorrent/VueTorrent/commit/144f552dfec84fb54fc6dcbebc35a8e906f7b5a6))
+
 ## [2.31.3](https://github.com/VueTorrent/VueTorrent/compare/v2.31.2...v2.31.3) (2026-01-19)
 
 
