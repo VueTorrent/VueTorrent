@@ -77,6 +77,6 @@
     "vite-plugin-top-level-await": "^1.6.0",
     "vitest": "^3.2.4",
     "vitest-localstorage-mock": "^0.1.2",
-    "vue-tsc": "^3.1.1"
+    "vue-tsc": "^3.2.4"
   }
 }
