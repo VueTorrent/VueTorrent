@@ -57,7 +57,7 @@
     "@types/node": "^25.2.3",
     "@types/uuid": "^11.0.0",
     "@vitejs/plugin-vue": "^6.0.4",
-    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.39.2",
@@ -75,7 +75,7 @@
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
     "vite-plugin-top-level-await": "^1.6.0",
-    "vitest": "^3.2.4",
+    "vitest": "^4.0.18",
     "vitest-localstorage-mock": "^0.1.2",
     "vue-tsc": "^3.2.4"
   }
