@@ -46,11 +46,11 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
   private readonly categories: Record<string, Category> = {
-    Movie: { name: 'Movie', savePath: faker.system.directoryPath() },
-    TV: { name: 'TV', savePath: faker.system.directoryPath() },
-    Other: { name: 'Other', savePath: faker.system.directoryPath() },
-    ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
-    Music: { name: 'Music', savePath: faker.system.directoryPath() },
+    Movie: { name: 'Movie', savePath: faker.system.directoryPath(), download_path: faker.system.directoryPath() },
+    TV: { name: 'TV', savePath: faker.system.directoryPath(), download_path: faker.system.directoryPath() },
+    Other: { name: 'Other', savePath: faker.system.directoryPath(), download_path: faker.system.directoryPath() },
+    ISO: { name: 'ISO', savePath: faker.system.directoryPath(), download_path: faker.system.directoryPath() },
+    Music: { name: 'Music', savePath: faker.system.directoryPath(), download_path: false },
   }
   private readonly tags: string[] = ['pending', 'sorted', 'pending_sort']
   private readonly trackers: Record<string, string[]> = faker.helpers

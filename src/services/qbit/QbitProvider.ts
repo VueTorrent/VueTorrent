@@ -740,6 +740,8 @@ export default class QBitProvider implements IProvider {
     return this.post('/torrents/createCategory', {
       category: cat.name,
       savePath: cat.savePath,
+      downloadPath: cat.downloadPath,
+      downloadPathEnabled: cat.downloadPathEnabled && cat.downloadPath !== '',
     }).then(res => res.data)
   }
 
@@ -754,6 +756,8 @@ export default class QBitProvider implements IProvider {
     const params = {
       category: cat.name,
       savePath: cat.savePath,
+      downloadPath: cat.downloadPath,
+      downloadPathEnabled: cat.downloadPathEnabled && cat.downloadPath !== '',
     }
 
     return this.post('/torrents/editCategory', params).then(res => res.data)
