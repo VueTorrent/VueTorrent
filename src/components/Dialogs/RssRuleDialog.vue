@@ -20,7 +20,6 @@ const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()
 const rssStore = useRssStore()
 
-const form = ref<VForm>()
 const isFormValid = ref(false)
 const formData = reactive<FeedRule>(getEmptyRule())
 const lastSavedName = ref('')

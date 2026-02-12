@@ -18,7 +18,6 @@ const { t } = useI18nUtils()
 const categoryStore = useCategoryStore()
 const { isOpened } = useDialog(props.guid)
 
-const form = ref<VForm>()
 const isFormValid = ref(false)
 const nameRules = [(v: string) => !!v || t('dialogs.category.nameRequired')]
 

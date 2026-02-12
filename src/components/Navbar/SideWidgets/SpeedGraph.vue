@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ApexOptions } from 'apexcharts'
 import { storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
 import { useTheme } from 'vuetify'
 import { useI18nUtils } from '@/composables'
@@ -14,7 +14,6 @@ const theme = useTheme()
 const { serverState } = storeToRefs(useMaindataStore())
 const navbarStore = useNavbarStore()
 const vuetorrentStore = useVueTorrentStore()
-const chart = ref<ApexCharts>()
 
 const chartOptions: ApexOptions = {
   chart: {
