@@ -26,7 +26,7 @@ const formData = reactive<Required<TorrentCreatorParams>>({
   pieceSize: 0,
   optimizeAlignment: false,
   paddedFileSizeLimit: 0,
-  private: false,
+  private: true,
   startSeeding: false,
   torrentFilePath: '',
   trackers: '',
