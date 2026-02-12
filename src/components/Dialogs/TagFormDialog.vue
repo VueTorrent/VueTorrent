@@ -17,7 +17,6 @@ const { isOpened } = useDialog(props.guid)
 const { t } = useI18nUtils()
 const tagStore = useTagStore()
 
-const form = ref<VForm>()
 const isFormValid = ref(false)
 const rules = ref([(v: string) => !!v || t('dialogs.tag.required'), (v: string) => !props.initialTag || (!!props.initialTag && !v.includes(',')) || t('dialogs.tag.comma')])
 

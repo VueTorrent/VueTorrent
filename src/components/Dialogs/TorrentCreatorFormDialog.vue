@@ -18,7 +18,6 @@ const { t } = useI18nUtils()
 const appStore = useAppStore()
 const torrentCreatorStore = useTorrentCreatorStore()
 
-const form = ref<VForm>()
 const isFormValid = ref(false)
 const formData = reactive<Required<TorrentCreatorParams>>({
   sourcePath: '',
