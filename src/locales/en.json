@@ -1170,6 +1170,8 @@
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
+        "customBrandPreText": "Custom brand text - First half",
+        "customBrandPostText": "Custom brand text - Second half",
         "darkVariants": "Dark theme variant",
         "dateFormat": "Date Format",
         "defaultTorrentDetailTab": "Default Torrent Detail Tab",
