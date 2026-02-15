@@ -6,18 +6,21 @@ import { Application, Graphics } from 'pixi.js'
 import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { useTheme } from 'vuetify'
+import { useI18nUtils } from '@/composables'
 import { FilePriority, PieceState } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { getTorrentStateColor } from '@/helpers'
+import { formatPercent, getFileIcon, getTorrentStateColor } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
+const { t } = useI18nUtils()
 const theme = useTheme()
 const contentStore = useContentStore()
 const { cachedFiles } = storeToRefs(contentStore)
-const { fileContentInterval } = storeToRefs(useVueTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
+const { fileContentInterval, piecesViewSplitByFile } = storeToRefs(vueTorrentStore)
 
 const canvas = ref<HTMLCanvasElement>()
 const renderCanvasRunning = ref(false)
@@ -81,15 +84,44 @@ async function renderCanvas() {
   renderCanvasRunning.value = false
 }
 
-function getPieceStateColor(piece: PieceState) {
+function getPieceStateColor(piece: PieceState | undefined) {
   switch (piece) {
     case PieceState.MISSING:
+    case undefined:
       return getTorrentStateColor(TorrentState.DL_STOPPED)
     case PieceState.DOWNLOADING:
       return getTorrentStateColor(TorrentState.DOWNLOADING)
     case PieceState.DOWNLOADED:
       return getTorrentStateColor(TorrentState.UL_STALLED)
   }
+}
+
+function getPieceAtIndex(index: number): PieceState | undefined {
+  return cachedPieces.value[index]
+}
+
+function getPieceStateKey(state: PieceState | undefined): string {
+  switch (state) {
+    case PieceState.MISSING:
+      return 'missing'
+    case PieceState.DOWNLOADING:
+      return 'downloading'
+    case PieceState.DOWNLOADED:
+      return 'downloaded'
+    default:
+      return 'downloaded'
+  }
+}
+
+function getFileColor(priority: FilePriority): string {
+  return priority === FilePriority.DO_NOT_DOWNLOAD ? 'grey' : ''
+}
+
+function getPieceTooltip(pieceIndex: number): string {
+  const state = getPieceAtIndex(pieceIndex)
+  const stateKey = getPieceStateKey(state)
+  const stateText = t(`torrentDetail.overview.piece_canvas_dialog.piece_states.${stateKey}`)
+  return t('torrentDetail.overview.piece_canvas_dialog.piece_tooltip', { index: pieceIndex, state: stateText })
 }
 
 function renderWrapper() {
@@ -137,12 +169,34 @@ onBeforeRouteLeave(() => !isPieceCanvasOverviewOpened.value)
       <v-card-title class="ios-margin">
         <v-toolbar color="transparent">
           <v-toolbar-title>{{ $t('torrentDetail.overview.piece_canvas_dialog.title') }}</v-toolbar-title>
+          <v-spacer />
+          <v-checkbox v-model="piecesViewSplitByFile" :label="$t('torrentDetail.overview.piece_canvas_dialog.split_by_file')" hide-details density="compact" class="mr-2" />
           <v-btn icon="mdi-close" @click="isPieceCanvasOverviewOpened = false" />
         </v-toolbar>
       </v-card-title>
-      <v-card-text>
-        <div class="d-flex flex-row flex-wrap ga-1">
-          <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" />
+      <v-card-text class="pt-2">
+        <div v-if="!piecesViewSplitByFile" class="pieces-container">
+          <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" :title="getPieceTooltip(i)" />
+        </div>
+
+        <div v-else id="files-list">
+          <div v-if="cachedFiles.length === 0" class="text-center pa-4 text-disabled">
+            {{ $t('common.emptyList') }}
+          </div>
+          <div v-for="file in cachedFiles" :key="file.index" class="file-section">
+            <div class="file-header">
+              <v-icon :icon="getFileIcon(file.name)" :color="getFileColor(file.priority)" size="small" />
+              <span :class="`file-name text-${getFileColor(file.priority)}`">{{ file.name }}</span>
+              <span :class="`file-meta text-${getFileColor(file.priority)}`">{{ formatPercent(file.progress) }}</span>
+            </div>
+            <div v-if="file.priority !== FilePriority.DO_NOT_DOWNLOAD" class="pieces-container">
+              <div
+                v-for="i in file.piece_range[1] - file.piece_range[0] + 1"
+                :key="i"
+                :class="['piece-single', `bg-${getPieceStateColor(getPieceAtIndex(file.piece_range[0] + i - 1))}`]"
+                :title="getPieceTooltip(file.piece_range[0] + i - 1)" />
+            </div>
+          </div>
         </div>
       </v-card-text>
     </v-card>
@@ -155,8 +209,52 @@ canvas {
   width: 100%;
 }
 
+.pieces-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: flex-start;
+}
+
 .piece-single {
   height: 12px;
   width: 12px;
+  flex-shrink: 0;
+}
+
+#files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.file-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.file-name {
+  font-weight: 500;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-meta {
+  font-size: 12px;
+  opacity: 0.7;
+  flex-shrink: 0;
 }
 </style>
