@@ -1424,6 +1424,8 @@
       "piece_canvas_dialog": {
         "title": "Piece state overview",
         "split_by_file": "Split by file",
+        "expand_all": "Expand All",
+        "collapse_all": "Collapse All",
         "piece_tooltip": "Piece #{index} ({state})",
         "piece_states": {
           "missing": "Missing",

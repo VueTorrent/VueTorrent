@@ -3,10 +3,10 @@ import IntervalTree from '@flatten-js/interval-tree'
 import { useIntervalFn } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { Application, Graphics } from 'pixi.js'
-import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { useTheme } from 'vuetify'
-import { useI18nUtils } from '@/composables'
+import { useSearchQuery } from '@/composables'
 import { FilePriority, PieceState } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
 import { formatPercent, getFileIcon, getTorrentStateColor } from '@/helpers'
@@ -15,7 +15,6 @@ import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
-const { t } = useI18nUtils()
 const theme = useTheme()
 const contentStore = useContentStore()
 const { cachedFiles } = storeToRefs(contentStore)
@@ -28,6 +27,10 @@ const app = shallowRef<Application>()
 const lastGraphics = shallowRef<Graphics>()
 const cachedPieces = ref<PieceState[]>([])
 const isPieceCanvasOverviewOpened = ref(false)
+const expandedFiles = ref<Set<number>>(new Set())
+const fileSearchQuery = ref('')
+
+const { results: filteredFiles } = useSearchQuery(cachedFiles, fileSearchQuery, file => file.name)
 
 async function renderCanvas() {
   if (renderCanvasRunning.value || !canvas.value || !app.value) return
@@ -100,29 +103,38 @@ function getPieceAtIndex(index: number): PieceState | undefined {
   return cachedPieces.value[index]
 }
 
-function getPieceStateKey(state: PieceState | undefined): string {
-  switch (state) {
-    case PieceState.MISSING:
-      return 'missing'
-    case PieceState.DOWNLOADING:
-      return 'downloading'
-    case PieceState.DOWNLOADED:
-      return 'downloaded'
-    default:
-      return 'downloaded'
-  }
-}
-
 function getFileColor(priority: FilePriority): string {
   return priority === FilePriority.DO_NOT_DOWNLOAD ? 'grey' : ''
 }
 
-function getPieceTooltip(pieceIndex: number): string {
-  const state = getPieceAtIndex(pieceIndex)
-  const stateKey = getPieceStateKey(state)
-  const stateText = t(`torrentDetail.overview.piece_canvas_dialog.piece_states.${stateKey}`)
-  return t('torrentDetail.overview.piece_canvas_dialog.piece_tooltip', { index: pieceIndex, state: stateText })
+function initializeExpandedFiles() {
+  expandedFiles.value = new Set()
 }
+
+function toggleFile(fileIndex: number) {
+  if (isFileExpanded(fileIndex)) {
+    expandedFiles.value.delete(fileIndex)
+  } else {
+    expandedFiles.value.add(fileIndex)
+  }
+}
+
+function isFileExpanded(fileIndex: number): boolean {
+  return expandedFiles.value.has(fileIndex)
+}
+
+function toggleExpandAll() {
+  if (allFilesExpanded.value) {
+    expandedFiles.value.clear()
+  } else {
+    expandedFiles.value = new Set(filteredFiles.value.map(f => f.index))
+  }
+}
+
+const allFilesExpanded = computed(() => {
+  if (filteredFiles.value.length === 0) return false
+  return filteredFiles.value.every(file => expandedFiles.value.has(file.index))
+})
 
 function renderWrapper() {
   renderCanvas().catch(() => {})
@@ -140,6 +152,12 @@ watch(
     else pause()
   }
 )
+
+watch([piecesViewSplitByFile, cachedFiles], () => {
+  if (piecesViewSplitByFile.value) {
+    initializeExpandedFiles()
+  }
+})
 
 onMounted(() => {
   if (!canvas.value) return
@@ -170,31 +188,48 @@ onBeforeRouteLeave(() => !isPieceCanvasOverviewOpened.value)
         <v-toolbar color="transparent">
           <v-toolbar-title>{{ $t('torrentDetail.overview.piece_canvas_dialog.title') }}</v-toolbar-title>
           <v-spacer />
+          <v-text-field
+            v-if="piecesViewSplitByFile"
+            v-model="fileSearchQuery"
+            :placeholder="$t('common.search')"
+            prepend-inner-icon="mdi-magnify"
+            clearable
+            hide-details
+            density="compact"
+            style="max-width: 250px"
+            class="mr-2" />
+          <v-btn
+            v-if="piecesViewSplitByFile"
+            variant="text"
+            :icon="allFilesExpanded ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+            :title="allFilesExpanded ? $t('torrentDetail.overview.piece_canvas_dialog.collapse_all') : $t('torrentDetail.overview.piece_canvas_dialog.expand_all')"
+            @click="toggleExpandAll" />
           <v-checkbox v-model="piecesViewSplitByFile" :label="$t('torrentDetail.overview.piece_canvas_dialog.split_by_file')" hide-details density="compact" class="mr-2" />
           <v-btn icon="mdi-close" @click="isPieceCanvasOverviewOpened = false" />
         </v-toolbar>
       </v-card-title>
       <v-card-text class="pt-2">
         <div v-if="!piecesViewSplitByFile" class="pieces-container">
-          <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" :title="getPieceTooltip(i)" />
+          <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" :title="`#${i}`" />
         </div>
 
         <div v-else id="files-list">
-          <div v-if="cachedFiles.length === 0" class="text-center pa-4 text-disabled">
+          <div v-if="filteredFiles.length === 0" class="text-center pa-4 text-disabled">
             {{ $t('common.emptyList') }}
           </div>
-          <div v-for="file in cachedFiles" :key="file.index" class="file-section">
-            <div class="file-header">
+          <div v-for="file in filteredFiles" :key="file.index" class="file-section">
+            <div class="file-header cursor-pointer" @click="toggleFile(file.index)">
+              <v-icon :icon="isFileExpanded(file.index) ? 'mdi-chevron-down' : 'mdi-chevron-right'" size="small" />
               <v-icon :icon="getFileIcon(file.name)" :color="getFileColor(file.priority)" size="small" />
               <span :class="`file-name text-${getFileColor(file.priority)}`">{{ file.name }}</span>
               <span :class="`file-meta text-${getFileColor(file.priority)}`">{{ formatPercent(file.progress) }}</span>
             </div>
-            <div v-if="file.priority !== FilePriority.DO_NOT_DOWNLOAD" class="pieces-container">
+            <div v-if="isFileExpanded(file.index)" class="pieces-container">
               <div
                 v-for="i in file.piece_range[1] - file.piece_range[0] + 1"
                 :key="i"
                 :class="['piece-single', `bg-${getPieceStateColor(getPieceAtIndex(file.piece_range[0] + i - 1))}`]"
-                :title="getPieceTooltip(file.piece_range[0] + i - 1)" />
+                :title="`#${file.piece_range[0] + i - 1}`" />
             </div>
           </div>
         </div>
