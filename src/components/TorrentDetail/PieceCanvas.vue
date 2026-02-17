@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IntervalTree from '@flatten-js/interval-tree'
-import { useIntervalFn } from '@vueuse/core'
+import { refDebounced, useIntervalFn, useVirtualList } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { Application, Graphics } from 'pixi.js'
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
@@ -25,12 +25,23 @@ const canvas = ref<HTMLCanvasElement>()
 const renderCanvasRunning = ref(false)
 const app = shallowRef<Application>()
 const lastGraphics = shallowRef<Graphics>()
-const cachedPieces = ref<PieceState[]>([])
+const cachedPieces = shallowRef<PieceState[]>([])
 const isPieceCanvasOverviewOpened = ref(false)
 const expandedFiles = ref<Set<number>>(new Set())
 const fileSearchQuery = ref('')
 
-const { results: filteredFiles } = useSearchQuery(cachedFiles, fileSearchQuery, file => file.name)
+const debouncedSearchQuery = refDebounced(fileSearchQuery, 300)
+
+const { results: filteredFiles } = useSearchQuery(cachedFiles, debouncedSearchQuery, file => file.name)
+
+const {
+  list: virtualFiles,
+  containerProps: fileContainerProps,
+  wrapperProps: fileWrapperProps,
+} = useVirtualList(filteredFiles, {
+  itemHeight: 40,
+  overscan: 20,
+})
 
 async function renderCanvas() {
   if (renderCanvasRunning.value || !canvas.value || !app.value) return
@@ -209,27 +220,31 @@ onBeforeRouteLeave(() => !isPieceCanvasOverviewOpened.value)
         </v-toolbar>
       </v-card-title>
       <v-card-text class="pt-2">
-        <div v-if="!piecesViewSplitByFile" class="pieces-container">
-          <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" :title="`#${i}`" />
+        <div v-if="!piecesViewSplitByFile" class="pieces-container-wrapper">
+          <div class="pieces-container">
+            <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" :title="`#${i}`" />
+          </div>
         </div>
 
-        <div v-else id="files-list">
+        <div v-else v-bind="fileContainerProps" class="files-container-wrapper">
           <div v-if="filteredFiles.length === 0" class="text-center pa-4 text-disabled">
             {{ $t('common.emptyList') }}
           </div>
-          <div v-for="file in filteredFiles" :key="file.index" class="file-section">
-            <div class="file-header cursor-pointer" @click="toggleFile(file.index)">
-              <v-icon :icon="isFileExpanded(file.index) ? 'mdi-chevron-down' : 'mdi-chevron-right'" size="small" />
-              <v-icon :icon="getFileIcon(file.name)" :color="getFileColor(file.priority)" size="small" />
-              <span :class="`file-name text-${getFileColor(file.priority)}`">{{ file.name }}</span>
-              <span :class="`file-meta text-${getFileColor(file.priority)}`">{{ formatPercent(file.progress) }}</span>
-            </div>
-            <div v-if="isFileExpanded(file.index)" class="pieces-container">
-              <div
-                v-for="i in file.piece_range[1] - file.piece_range[0] + 1"
-                :key="i"
-                :class="['piece-single', `bg-${getPieceStateColor(getPieceAtIndex(file.piece_range[0] + i - 1))}`]"
-                :title="`#${file.piece_range[0] + i - 1}`" />
+          <div v-else v-bind="fileWrapperProps">
+            <div v-for="{ data: file } in virtualFiles" :key="file.index" class="file-section">
+              <div class="file-header cursor-pointer" @click="toggleFile(file.index)">
+                <v-icon :icon="isFileExpanded(file.index) ? 'mdi-chevron-down' : 'mdi-chevron-right'" size="small" />
+                <v-icon :icon="getFileIcon(file.name)" :color="getFileColor(file.priority)" size="small" />
+                <span :class="`file-name text-${getFileColor(file.priority)}`">{{ file.name }}</span>
+                <span :class="`file-meta text-${getFileColor(file.priority)}`">{{ formatPercent(file.progress) }}</span>
+              </div>
+              <div v-if="isFileExpanded(file.index)" class="pieces-container">
+                <div
+                  v-for="i in file.piece_range[1] - file.piece_range[0] + 1"
+                  :key="i"
+                  :class="['piece-single', `bg-${getPieceStateColor(getPieceAtIndex(file.piece_range[0] + i - 1))}`]"
+                  :title="`#${file.piece_range[0] + i - 1}`" />
+              </div>
             </div>
           </div>
         </div>
@@ -244,12 +259,17 @@ canvas {
   width: 100%;
 }
 
+.pieces-container-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .pieces-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 4px;
-  align-items: flex-start;
+  padding: 4px;
 }
 
 .piece-single {
@@ -258,10 +278,7 @@ canvas {
   flex-shrink: 0;
 }
 
-#files-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.files-container-wrapper {
   max-height: 600px;
   overflow-y: auto;
 }
@@ -270,6 +287,7 @@ canvas {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 4px 0;
 }
 
 .file-header {
@@ -277,19 +295,21 @@ canvas {
   align-items: center;
   gap: 8px;
   font-size: 14px;
+  padding: 4px;
 }
 
 .file-name {
   font-weight: 500;
-  flex-shrink: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-right: 8px;
 }
 
 .file-meta {
   font-size: 12px;
   opacity: 0.7;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 </style>
