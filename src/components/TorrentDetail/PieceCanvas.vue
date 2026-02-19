@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import IntervalTree from '@flatten-js/interval-tree'
-import { useIntervalFn } from '@vueuse/core'
+import { refDebounced, useIntervalFn, useVirtualList } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { Application, Graphics } from 'pixi.js'
-import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { useTheme } from 'vuetify'
+import { useSearchQuery } from '@/composables'
 import { FilePriority, PieceState } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { getTorrentStateColor } from '@/helpers'
+import { formatPercent, getFileIcon, getTorrentStateColor } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
@@ -17,14 +18,30 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 const theme = useTheme()
 const contentStore = useContentStore()
 const { cachedFiles } = storeToRefs(contentStore)
-const { fileContentInterval } = storeToRefs(useVueTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
+const { fileContentInterval, piecesViewSplitByFile } = storeToRefs(vueTorrentStore)
 
 const canvas = ref<HTMLCanvasElement>()
 const renderCanvasRunning = ref(false)
 const app = shallowRef<Application>()
 const lastGraphics = shallowRef<Graphics>()
-const cachedPieces = ref<PieceState[]>([])
+const cachedPieces = shallowRef<PieceState[]>([])
 const isPieceCanvasOverviewOpened = ref(false)
+const expandedFiles = ref<Set<number>>(new Set())
+const fileSearchQuery = ref('')
+
+const debouncedSearchQuery = refDebounced(fileSearchQuery, 300)
+
+const { results: filteredFiles } = useSearchQuery(cachedFiles, debouncedSearchQuery, file => file.name)
+
+const {
+  list: virtualFiles,
+  containerProps: fileContainerProps,
+  wrapperProps: fileWrapperProps,
+} = useVirtualList(filteredFiles, {
+  itemHeight: 40,
+  overscan: 20,
+})
 
 async function renderCanvas() {
   if (renderCanvasRunning.value || !canvas.value || !app.value) return
@@ -81,9 +98,10 @@ async function renderCanvas() {
   renderCanvasRunning.value = false
 }
 
-function getPieceStateColor(piece: PieceState) {
+function getPieceStateColor(piece: PieceState | undefined) {
   switch (piece) {
     case PieceState.MISSING:
+    case undefined:
       return getTorrentStateColor(TorrentState.DL_STOPPED)
     case PieceState.DOWNLOADING:
       return getTorrentStateColor(TorrentState.DOWNLOADING)
@@ -91,6 +109,43 @@ function getPieceStateColor(piece: PieceState) {
       return getTorrentStateColor(TorrentState.UL_STALLED)
   }
 }
+
+function getPieceAtIndex(index: number): PieceState | undefined {
+  return cachedPieces.value[index]
+}
+
+function getFileColor(priority: FilePriority): string {
+  return priority === FilePriority.DO_NOT_DOWNLOAD ? 'grey' : ''
+}
+
+function initializeExpandedFiles() {
+  expandedFiles.value = new Set()
+}
+
+function toggleFile(fileIndex: number) {
+  if (isFileExpanded(fileIndex)) {
+    expandedFiles.value.delete(fileIndex)
+  } else {
+    expandedFiles.value.add(fileIndex)
+  }
+}
+
+function isFileExpanded(fileIndex: number): boolean {
+  return expandedFiles.value.has(fileIndex)
+}
+
+function toggleExpandAll() {
+  if (allFilesExpanded.value) {
+    expandedFiles.value.clear()
+  } else {
+    expandedFiles.value = new Set(filteredFiles.value.map(f => f.index))
+  }
+}
+
+const allFilesExpanded = computed(() => {
+  if (filteredFiles.value.length === 0) return false
+  return filteredFiles.value.every(file => expandedFiles.value.has(file.index))
+})
 
 function renderWrapper() {
   renderCanvas().catch(() => {})
@@ -108,6 +163,12 @@ watch(
     else pause()
   }
 )
+
+watch([piecesViewSplitByFile, cachedFiles], () => {
+  if (piecesViewSplitByFile.value) {
+    initializeExpandedFiles()
+  }
+})
 
 onMounted(() => {
   if (!canvas.value) return
@@ -137,12 +198,55 @@ onBeforeRouteLeave(() => !isPieceCanvasOverviewOpened.value)
       <v-card-title class="ios-margin">
         <v-toolbar color="transparent">
           <v-toolbar-title>{{ $t('torrentDetail.overview.piece_canvas_dialog.title') }}</v-toolbar-title>
+          <v-spacer />
+          <v-text-field
+            v-if="piecesViewSplitByFile"
+            v-model="fileSearchQuery"
+            :placeholder="$t('common.search')"
+            prepend-inner-icon="mdi-magnify"
+            clearable
+            hide-details
+            density="compact"
+            style="max-width: 250px"
+            class="mr-2" />
+          <v-btn
+            v-if="piecesViewSplitByFile"
+            variant="text"
+            :icon="allFilesExpanded ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+            :title="allFilesExpanded ? $t('torrentDetail.overview.piece_canvas_dialog.collapse_all') : $t('torrentDetail.overview.piece_canvas_dialog.expand_all')"
+            @click="toggleExpandAll" />
+          <v-checkbox v-model="piecesViewSplitByFile" :label="$t('torrentDetail.overview.piece_canvas_dialog.split_by_file')" hide-details density="compact" class="mr-2" />
           <v-btn icon="mdi-close" @click="isPieceCanvasOverviewOpened = false" />
         </v-toolbar>
       </v-card-title>
-      <v-card-text>
-        <div class="d-flex flex-row flex-wrap ga-1">
-          <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" />
+      <v-card-text class="pt-2">
+        <div v-if="!piecesViewSplitByFile" class="pieces-container-wrapper">
+          <div class="pieces-container">
+            <div v-for="(piece, i) in cachedPieces" :key="i" :class="['piece-single', `bg-${getPieceStateColor(piece)}`]" :title="`#${i}`" />
+          </div>
+        </div>
+
+        <div v-else v-bind="fileContainerProps" class="files-container-wrapper">
+          <div v-if="filteredFiles.length === 0" class="text-center pa-4 text-disabled">
+            {{ $t('common.emptyList') }}
+          </div>
+          <div v-else v-bind="fileWrapperProps">
+            <div v-for="{ data: file } in virtualFiles" :key="file.index" class="file-section">
+              <div class="file-header cursor-pointer" @click="toggleFile(file.index)">
+                <v-icon :icon="isFileExpanded(file.index) ? 'mdi-chevron-down' : 'mdi-chevron-right'" size="small" />
+                <v-icon :icon="getFileIcon(file.name)" :color="getFileColor(file.priority)" size="small" />
+                <span :class="`file-name text-${getFileColor(file.priority)}`">{{ file.name }}</span>
+                <span :class="`file-meta text-${getFileColor(file.priority)}`">{{ formatPercent(file.progress) }}</span>
+              </div>
+              <div v-if="isFileExpanded(file.index)" class="pieces-container">
+                <div
+                  v-for="i in file.piece_range[1] - file.piece_range[0] + 1"
+                  :key="i"
+                  :class="['piece-single', `bg-${getPieceStateColor(getPieceAtIndex(file.piece_range[0] + i - 1))}`]"
+                  :title="`#${file.piece_range[0] + i - 1}`" />
+              </div>
+            </div>
+          </div>
         </div>
       </v-card-text>
     </v-card>
@@ -155,8 +259,57 @@ canvas {
   width: 100%;
 }
 
+.pieces-container-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pieces-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+}
+
 .piece-single {
   height: 12px;
   width: 12px;
+  flex-shrink: 0;
+}
+
+.files-container-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.file-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.file-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 4px;
+}
+
+.file-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+
+.file-meta {
+  font-size: 12px;
+  opacity: 0.7;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 </style>
