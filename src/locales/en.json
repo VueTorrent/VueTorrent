@@ -1422,7 +1422,14 @@
       "fetchingMetadata": "Fetching...",
       "fileCount": "Selected Files",
       "piece_canvas_dialog": {
-        "title": "Piece state oveview"
+        "piece_states": {
+          "downloaded": "Downloaded",
+          "downloading": "Downloading",
+          "missing": "Missing"
+        },
+        "piece_tooltip": "Piece #{index} ({state})",
+        "split_by_file": "Split by file",
+        "title": "Piece state overview"
       },
       "pieceCount": "{owned} / {total} ({pieceSize})",
       "ratio": "Ratio",
