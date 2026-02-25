@@ -161,6 +161,10 @@ function openDateFormatHelp() {
 function openDurationFormatHelp() {
   openLink('https://day.js.org/docs/en/durations/format#list-of-all-available-formats')
 }
+
+const prePicker = ref(false)
+const postPicker = ref(false)
+
 </script>
 
 <template>
@@ -241,6 +245,38 @@ function openDurationFormatHelp() {
             :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM"
             hide-details
             :label="t('settings.vuetorrent.general.customTitle')" />
+        </v-col>
+
+        <v-col cols="10" md="5">
+          <v-text-field
+            v-model="vueTorrentStore.uiBrandPreText"
+            hide-details
+            :label="t('settings.vuetorrent.general.customBrandPreText')" />
+        </v-col>
+
+        <v-col cols="2" md="1" align="center">
+          <v-menu v-model="prePicker" offset-y :close-on-content-click="false">
+            <template #activator="{ props }">
+                <v-btn v-bind="props" icon="mdi-palette" :style="{ background: vueTorrentStore.uiBrandPreColor }"></v-btn>
+            </template>
+          <v-color-picker v-model="vueTorrentStore.uiBrandPreColor" elevation="24" />
+          </v-menu>
+        </v-col>
+        
+        <v-col cols="10" md="5">
+          <v-text-field
+            v-model="vueTorrentStore.uiBrandPostText"
+            hide-details
+            :label="t('settings.vuetorrent.general.customBrandPostText')" />
+        </v-col>
+        
+        <v-col cols="2" md="1" align="center">
+          <v-menu v-model="postPicker" offset-y :close-on-content-click="false">
+            <template #activator="{ props }">
+                <v-btn v-bind="props" icon="mdi-palette" :style="{ background: vueTorrentStore.uiBrandPostColor }"></v-btn>
+            </template>
+            <v-color-picker v-model="vueTorrentStore.uiBrandPostColor" elevation="24" />
+          </v-menu>
         </v-col>
 
         <v-col cols="12" md="6">
