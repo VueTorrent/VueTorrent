@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.32.0](https://github.com/VueTorrent/VueTorrent/compare/v2.31.3...v2.32.0) (2026-03-01)
+
+
+### Features
+
+* download_path for categories ([#2633](https://github.com/VueTorrent/VueTorrent/issues/2633)) ([c975533](https://github.com/VueTorrent/VueTorrent/commit/c975533b093fe840dfd95ef5c9a0d85ad9f70e2d))
+* **TorrentDetail:** Add default tab selection in settings ([#2623](https://github.com/VueTorrent/VueTorrent/issues/2623)) ([144f552](https://github.com/VueTorrent/VueTorrent/commit/144f552dfec84fb54fc6dcbebc35a8e906f7b5a6))
+
 ## [2.31.3](https://github.com/VueTorrent/VueTorrent/compare/v2.31.2...v2.31.3) (2026-01-19)
 
 
