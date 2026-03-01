@@ -1,7 +1,7 @@
 import { useIntervalFn } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, shallowRef } from 'vue'
 import { useTask } from 'vue-concurrency'
 
 import { toast } from 'vue3-toastify'
@@ -13,11 +13,11 @@ import { RssArticle } from '@/types/vuetorrent'
 export const useRssStore = defineStore(
   'rss',
   () => {
-    const feeds = ref<Feed[]>([])
-    const rules = ref<FeedRule[]>([])
+    const feeds = shallowRef<Feed[]>([])
+    const rules = shallowRef<FeedRule[]>([])
 
-    const _articles = ref<RssArticle[]>([])
-    const keyMap = ref<Record<string, string[]>>({})
+    const _articles = shallowRef<RssArticle[]>([])
+    const keyMap = shallowRef<Map<string, string[]>>(new Map())
 
     const lastView = ref('feeds')
 
@@ -102,41 +102,45 @@ export const useRssStore = defineStore(
     async function fetchFeeds() {
       feeds.value = await qbit.getFeeds(true)
 
-      _articles.value = []
-      keyMap.value = {}
+      const tempArticles = new Array<RssArticle>()
+      const tempKeyMap = new Map<string, string[]>()
       const articleMap = new Map<string, RssArticle>()
 
       feeds.value.forEach((feed: Feed) => {
         if (!feed.articles) return
 
         feed.articles.forEach(article => {
-          if (keyMap.value[article.id]) {
-            keyMap.value[article.id].push(feed.name)
+          const existingFeedNames = tempKeyMap.get(article.id)
+          if (existingFeedNames) {
+            existingFeedNames.push(feed.name)
 
             const existingArticle = articleMap.get(article.id)
             if (existingArticle && !article.isRead) {
               existingArticle.isRead = false
             }
           } else {
-            keyMap.value[article.id] = [feed.name]
+            tempKeyMap.set(article.id, [feed.name])
             const rssArticle: RssArticle = {
               feedId: feed.uid,
               parsedDate: new Date(article.date),
               ...article,
             }
             articleMap.set(article.id, rssArticle)
-            _articles.value.push(rssArticle)
+            tempArticles.push(rssArticle)
           }
         })
       })
+
+      _articles.value = tempArticles
+      keyMap.value = tempKeyMap
     }
 
     function getFeedNames(articleId: string) {
-      return keyMap.value[articleId]
+      return keyMap.value.get(articleId) || []
     }
 
     async function markArticleAsRead(articleId: string) {
-      const feedNames = keyMap.value[articleId]
+      const feedNames = keyMap.value.get(articleId)
       if (!feedNames) return
 
       const promises: Promise<void>[] = []
@@ -209,7 +213,7 @@ export const useRssStore = defineStore(
         feeds.value = []
         rules.value = []
         _articles.value = []
-        keyMap.value = {}
+        keyMap.value = new Map()
         lastView.value = 'feeds'
         filters.title = ''
         filters.unread = false

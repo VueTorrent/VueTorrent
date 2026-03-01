@@ -1,6 +1,6 @@
 import toSorted from 'array.prototype.tosorted'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, ref, shallowRef, triggerRef } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useArrayPagination, useSearchQuery } from '@/composables'
 import { LogType } from '@/constants/qbit'
@@ -11,7 +11,7 @@ import { Log } from '@/types/qbit/models'
 export const useLogStore = defineStore(
   'logs',
   () => {
-    const logs = ref<Log[]>([])
+    const logs = shallowRef<Log[]>([])
     const externalIp = ref<string>()
     const reverseSort = ref<boolean>(false)
     const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
@@ -38,6 +38,7 @@ export const useLogStore = defineStore(
 
       const newLogs = await qbit.getLogs(afterId)
       logs.value.push(...newLogs)
+      triggerRef(logs)
       extractExternalIpFromLogs(newLogs)
     }
 
@@ -58,7 +59,6 @@ export const useLogStore = defineStore(
     }
 
     return {
-      logs,
       filteredLogs,
       externalIp,
       logTypeFilter,

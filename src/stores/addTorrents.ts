@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, shallowRef } from 'vue'
 import { usePreferenceStore } from './preferences'
 import { AddTorrentParams } from '@/types/qbit/models'
 
@@ -10,7 +10,7 @@ export const useAddTorrentStore = defineStore(
 
     const isFirstInit = ref(true)
 
-    const files = ref<File[]>([])
+    const files = shallowRef<File[]>([])
     const urls = ref<string>('')
 
     const form = reactive<
