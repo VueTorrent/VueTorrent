@@ -191,7 +191,6 @@
     "clear": "Clear all cookies",
     "create": "Add new cookie",
     "empty": {
-      "action": "Add new cookie",
       "value": "No cookies registered"
     },
     "import": "Import cookies",
