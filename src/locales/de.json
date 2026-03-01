@@ -353,6 +353,8 @@
       "unfold": "Erweitern"
     },
     "category": {
+      "downloadPath": "Unvollständiger Torrent-Pfad",
+      "downloadPathEnabled": "Einen anderen Pfad für unvollständige Torrents verwenden",
       "name": "Kategoriename",
       "nameRequired": "Kategoriename ist erforderlich",
       "oldName": "Alter Kategoriename",
@@ -1420,6 +1422,13 @@
       "fetchingMetadata": "Holen...",
       "fileCount": "Ausgewählte Dateien",
       "piece_canvas_dialog": {
+        "piece_states": {
+          "downloaded": "Heruntergeladen",
+          "downloading": "Wird heruntergeladen",
+          "missing": "Fehlend"
+        },
+        "piece_tooltip": "Stück #{index} ({state})",
+        "split_by_file": "Nach Datei aufteilen",
         "title": "Stückzustands-Übersicht"
       },
       "pieceCount": "{owned} / {total} ({pieceSize})",
