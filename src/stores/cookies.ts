@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { shallowRef, triggerRef } from 'vue'
 import { useTask } from 'vue-concurrency'
 import qbit from '@/services/qbit'
 import { Cookie } from '@/types/vuetorrent'
 
 export const useCookieStore = defineStore('cookies', () => {
-  const cookies = ref<Cookie[]>([])
+  const cookies = shallowRef<Cookie[]>([])
 
   const cookiesFetchTask = useTask(function* () {
     yield fetchCookies()
@@ -24,6 +24,7 @@ export const useCookieStore = defineStore('cookies', () => {
     cookies.value.push(cookie)
     if (syncData) {
       await syncCookies()
+      triggerRef(cookies)
     }
   }
 
@@ -31,6 +32,7 @@ export const useCookieStore = defineStore('cookies', () => {
     cookies.value = cookies.value.filter(c => !c.equals(cookie))
     if (syncData) {
       await syncCookies()
+      triggerRef(cookies)
     }
   }
 
