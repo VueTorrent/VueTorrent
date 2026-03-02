@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.32.0](https://github.com/VueTorrent/VueTorrent/compare/v2.31.3...v2.32.0) (2026-03-02)
+
+
+### Features
+
+* download_path for categories ([#2633](https://github.com/VueTorrent/VueTorrent/issues/2633)) ([c975533](https://github.com/VueTorrent/VueTorrent/commit/c975533b093fe840dfd95ef5c9a0d85ad9f70e2d))
+* **TorrentDetail:** Add default tab selection in settings ([#2623](https://github.com/VueTorrent/VueTorrent/issues/2623)) ([144f552](https://github.com/VueTorrent/VueTorrent/commit/144f552dfec84fb54fc6dcbebc35a8e906f7b5a6))
+
+
+### Improvements
+
+* **CookiesManager:** Allow import from empty menu ([3f4f571](https://github.com/VueTorrent/VueTorrent/commit/3f4f571322377e1011b3077a5c500d729de54b1f))
+* **RSS:** Improve performance ([c6d9ddc](https://github.com/VueTorrent/VueTorrent/commit/c6d9ddc02484ca28032c7a2ee6c283820fbbb3b1))
+
 ## [2.31.3](https://github.com/VueTorrent/VueTorrent/compare/v2.31.2...v2.31.3) (2026-01-19)
 
 
