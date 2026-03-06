@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
-import { ref } from 'vue'
+import { ref, shallowRef, triggerRef } from 'vue'
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
@@ -8,7 +8,7 @@ import { SearchData } from '@/types/vuetorrent'
 export const useSearchEngineStore = defineStore(
   'searchEngine',
   () => {
-    const searchData = ref<SearchData[]>([])
+    const searchData = shallowRef<SearchData[]>([])
     const searchPlugins = ref<SearchPlugin[]>([])
 
     function createNewTab() {
@@ -26,6 +26,7 @@ export const useSearchEngineStore = defineStore(
         results: [],
         timer: null,
       })
+      triggerRef(searchData)
     }
 
     function deleteTab(uniqueId: string) {
@@ -37,11 +38,14 @@ export const useSearchEngineStore = defineStore(
       tab.id = searchJob.id
       tab.results = []
       tab.lastQuery = tab.query
+      triggerRef(searchData)
     }
 
     async function refreshResults(tab: SearchData) {
       const response = await qbit.getSearchResults(tab.id, tab.results.length)
+
       tab.results.push(...response.results)
+      triggerRef(searchData)
 
       return response.status
     }
@@ -49,6 +53,7 @@ export const useSearchEngineStore = defineStore(
     async function stopSearch(tab: SearchData) {
       if (tab.id && tab.id !== 0) await qbit.stopSearch(tab.id)
       tab.id = 0
+      triggerRef(searchData)
     }
 
     async function fetchSearchPlugins() {

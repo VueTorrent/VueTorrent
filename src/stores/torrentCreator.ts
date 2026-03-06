@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { shallowRef } from 'vue'
 import qbit from '@/services/qbit'
 import { TorrentCreatorParams, TorrentCreatorTask } from '@/types/qbit/models'
 
 export const useTorrentCreatorStore = defineStore('torrentCreator', () => {
-  const tasks = ref<TorrentCreatorTask[]>([])
+  const tasks = shallowRef<TorrentCreatorTask[]>([])
 
   async function fetchTasks() {
     tasks.value = await qbit.getTorrentCreatorStatus()

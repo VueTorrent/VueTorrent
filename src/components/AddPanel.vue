@@ -19,5 +19,3 @@ function openAddTorrentDialog() {
     </v-list-item>
   </v-bottom-navigation>
 </template>
-
-<style scoped></style>

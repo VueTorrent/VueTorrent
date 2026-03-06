@@ -103,7 +103,8 @@ onBeforeUnmount(() => {
     <v-card v-if="!cookies.length" :height="height">
       <v-empty-state :title="t('cookiesManager.empty.value')" color="accent" icon="mdi-cookie-off">
         <template #actions>
-          <v-btn :text="t('cookiesManager.empty.action')" color="accent" @click="openCookieFormDialog()" />
+          <v-btn :text="t('cookiesManager.create')" color="accent" prepend-icon="mdi-plus" @click="openCookieFormDialog()" />
+          <v-btn :text="t('cookiesManager.import')" color="accent" prepend-icon="mdi-import" @click="openCookieImportDialog()" />
         </template>
       </v-empty-state>
     </v-card>
