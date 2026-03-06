@@ -13,26 +13,26 @@ import { Log } from '@/types/qbit/models'
 
 const router = useRouter()
 const { t } = useI18nUtils()
-const { current } = useTheme()
+const { current: currentTheme } = useTheme()
 
 const logStore = useLogStore()
 const { filteredLogs, logTypeFilter, logMessageFilter, paginatedResults, currentPage, pageCount, reverseSort } = storeToRefs(logStore)
 const vueTorrentStore = useVueTorrentStore()
 
-const colors = computed(() => ({
+const colors = {
   light: {
-    normal: 'black',
-    info: 'blue',
-    warning: 'orange',
-    critical: 'red',
+    [LogType.NORMAL]: new TinyColor('black'),
+    [LogType.INFO]: new TinyColor('blue'),
+    [LogType.WARNING]: new TinyColor('orange'),
+    [LogType.CRITICAL]: new TinyColor('red'),
   },
   dark: {
-    normal: 'white',
-    info: 'deepskyblue',
-    warning: 'darkorange',
-    critical: new TinyColor('darkred').lighten(12).toString(),
+    [LogType.NORMAL]: new TinyColor('white'),
+    [LogType.INFO]: new TinyColor('deepskyblue'),
+    [LogType.WARNING]: new TinyColor('darkorange'),
+    [LogType.CRITICAL]: new TinyColor('darkred').lighten(12),
   },
-}))
+}
 
 const logTypeOptions = ref([
   { title: LogType[LogType.NORMAL], value: LogType.NORMAL },
@@ -50,7 +50,7 @@ function goHome() {
 
 function getLogTypeColor(log: Log) {
   // @ts-expect-error: Element implicitly has an any type because expression of type string can't be used to index type
-  return `color: ${colors.value[current.value.dark ? 'dark' : 'light'][LogType[log.type].toLowerCase()]}`
+  return `color: #${colors[currentTheme.value.dark ? 'dark' : 'light'][log.type].toHex()}`
 }
 
 function getLogTypeName(log: Log) {
