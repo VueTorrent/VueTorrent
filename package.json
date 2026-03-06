@@ -55,7 +55,6 @@
     "@pinia/testing": "^1.0.3",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^25.2.3",
-    "@types/uuid": "^11.0.0",
     "@vitejs/plugin-vue": "^6.0.4",
     "@vitest/coverage-v8": "^4.0.18",
     "@vue/eslint-config-typescript": "^14.7.0",
