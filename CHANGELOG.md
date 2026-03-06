@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.32.1](https://github.com/VueTorrent/VueTorrent/compare/v2.32.0...v2.32.1) (2026-03-06)
+
+
+### Bug Fixes
+
+* **SearchEngine:** UI not receiving updates ([#2677](https://github.com/VueTorrent/VueTorrent/issues/2677)) ([7942ad4](https://github.com/VueTorrent/VueTorrent/commit/7942ad47d0023f51b78160a9545935a82a6a384b))
+
 ## [2.32.0](https://github.com/VueTorrent/VueTorrent/compare/v2.31.3...v2.32.0) (2026-03-02)
 
 
