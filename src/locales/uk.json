@@ -190,7 +190,6 @@
     "clear": "Очистити всі cookie",
     "create": "Додати новий cookie",
     "empty": {
-      "action": "Додати новий cookie",
       "value": "Немає зареєстрованих cookie"
     },
     "import": "Імпортувати cookie",

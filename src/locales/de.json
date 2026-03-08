@@ -191,7 +191,6 @@
     "clear": "Alle Cookies löschen",
     "create": "Neues Cookie hinzufügen",
     "empty": {
-      "action": "Neues Cookie hinzufügen",
       "value": "Keine Cookies registriert"
     },
     "import": "Cookies importieren",
