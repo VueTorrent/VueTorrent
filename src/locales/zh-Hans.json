@@ -191,7 +191,6 @@
     "clear": "清除所有 Cookies",
     "create": "添加新 Cookie",
     "empty": {
-      "action": "添加新 Cookie",
       "value": "未注册任何 Cookie"
     },
     "import": "导入 Cookies",
