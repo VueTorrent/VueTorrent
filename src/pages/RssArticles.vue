@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import DOMPurify from 'dompurify'
-import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import Feeds from '@/components/RSS/Feeds/Feeds.vue'
@@ -33,6 +33,19 @@ function openRssArticle(article: RssArticle) {
   rssDescription.title = article.title.trim()
   rssDescription.content = article.description.trim()
   descriptionDialogVisible.value = true
+
+  nextTick(() => {
+    const descriptionContainer = document.querySelector('div.rss.description-container')
+    if (descriptionContainer) {
+      const links = descriptionContainer.querySelectorAll('a')
+      links.forEach(link => {
+        link.target = '_blank'
+        link.rel = 'noopener noreferrer'
+      })
+    }
+  }).catch(reason => {
+    console.error('Failed to open RSS article', reason)
+  })
 }
 
 function toggleFeedsView() {
@@ -94,7 +107,7 @@ onUnmounted(() => {
 
       <v-card-text>
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="description-container" v-html="DOMPurify.sanitize(rssDescription.content)" />
+        <div class="rss description-container" v-html="DOMPurify.sanitize(rssDescription.content)" />
       </v-card-text>
     </v-card>
   </v-dialog>
@@ -121,11 +134,11 @@ onUnmounted(() => {
   }
 }
 
-.description-container {
-  border: solid red 5px;
+div.rss.description-container {
+  border: dotted red 2px;
 }
 
-.description-container img {
+div.rss.description-container img {
   max-width: 100%; /* Restrict image width to the container width */
   height: auto; /* Maintain aspect ratio */
 }
