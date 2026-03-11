@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.32.2](https://github.com/VueTorrent/VueTorrent/compare/v2.32.1...v2.32.2) (2026-03-11)
+
+
+### Improvements
+
+* **RSS:** Always open links in new tab ([#2685](https://github.com/VueTorrent/VueTorrent/issues/2685)) ([e61d78e](https://github.com/VueTorrent/VueTorrent/commit/e61d78e2cc65392cbad9877b9a67506b12422887))
+
 ## [2.32.1](https://github.com/VueTorrent/VueTorrent/compare/v2.32.0...v2.32.1) (2026-03-06)
 
 
