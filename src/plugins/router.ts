@@ -8,15 +8,13 @@ const router = createRouter({
   routes,
 })
 
-router.beforeResolve((to, _, next) => {
+router.beforeResolve(to => {
   const { isAuthenticated } = storeToRefs(useAppStore())
   const isPublic = to.meta.public === true
 
   if (!isPublic && !isAuthenticated.value) {
-    return next({ name: 'login', query: { redirect: location.hash.slice(1) } })
+    return { name: 'login', query: { redirect: location.hash.slice(1) } }
   }
-
-  return next()
 })
 
 export default router
