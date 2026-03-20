@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useArrayUnique } from '@vueuse/core'
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import Feed from './Feed.vue'
 import FeedIcon from './FeedIcon.vue'
 import { FeedState } from '@/constants/vuetorrent'
@@ -20,16 +20,17 @@ const emit = defineEmits<{
   refreshFeed: [feed: FeedType]
 }>()
 
+const route = useRoute()
 const router = useRouter()
 const rssStore = useRssStore()
 
 const currentFeed = computed({
-  get: () => router.currentRoute.value.params.feedId as string | undefined,
+  get: () => route.params.feedId as string | undefined,
   set(feedId) {
     void router.replace({ name: 'rssArticles', params: { tab: 'feeds', feedId } }).then(() => emit('update', feedId))
   },
 })
-const filteredFeedIds = useArrayUnique(() => rssStore.filteredArticles.map(art => art.feedId))
+const filteredFeedIds = useArrayUnique(() => rssStore.filteredArticles.flatMap(art => art.feedIds).flat())
 
 function getUnreadCount(feed?: FeedType) {
   if (!feed) {
