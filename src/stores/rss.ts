@@ -115,13 +115,16 @@ export const useRssStore = defineStore(
             existingFeedNames.push(feed.name)
 
             const existingArticle = articleMap.get(article.id)
-            if (existingArticle && !article.isRead) {
-              existingArticle.isRead = false
+            if (existingArticle) {
+              existingArticle.feedIds.push(feed.uid)
+              if (!article.isRead) {
+                existingArticle.isRead = false
+              }
             }
           } else {
             tempKeyMap.set(article.id, [feed.name])
             const rssArticle: RssArticle = {
-              feedId: feed.uid,
+              feedIds: [feed.uid],
               parsedDate: new Date(article.date),
               ...article,
             }

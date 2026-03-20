@@ -20,10 +20,10 @@ const addTorrentStore = useAddTorrentStore()
 const rssStore = useRssStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const selectedFeed = computed(() => route.params.feedId)
+const selectedFeed = computed(() => route.params.feedId as string | undefined)
 
 const articles = computed(() =>
-  rssStore.filteredArticles.filter(article => !selectedFeed.value || selectedFeed.value === article.feedId).sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate))
+  rssStore.filteredArticles.filter(article => !selectedFeed.value || article.feedIds.includes(selectedFeed.value)).sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate))
 )
 
 const { paginatedResults, currentPage, pageCount } = useArrayPagination(articles, 15)

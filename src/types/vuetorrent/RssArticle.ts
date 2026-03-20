@@ -2,7 +2,7 @@ import { FeedArticle } from '@/types/qbit/models'
 
 export interface RssArticle extends FeedArticle {
   /** UID of the parent feed */
-  feedId: string
+  feedIds: string[]
   /** Article publication date parsed by dayjs */
   parsedDate: Date
 }
