@@ -8,7 +8,7 @@
     "start": "vite",
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "postbuild": "node write-version.cjs",
+    "postbuild": "node postbuild.cjs",
     "build-demo": "vue-tsc && vite build -m demo",
     "check-build": "vue-tsc",
     "preview": "vite preview",
