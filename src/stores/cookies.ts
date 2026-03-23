@@ -44,12 +44,11 @@ export const useCookieStore = defineStore('cookies', () => {
   }
 
   async function importCookies(cookies: Cookie[], syncData: boolean = false) {
-    cookies.forEach(cookie => {
-      void removeCookie(cookie).then(() => addCookie(cookie))
-    })
+    const cookiePromise = Promise.all(cookies.map(cookie => removeCookie(cookie).then(() => addCookie(cookie))))
     if (syncData) {
-      await syncCookies()
+      return cookiePromise.then(() => syncCookies())
     }
+    return cookiePromise
   }
 
   return {
