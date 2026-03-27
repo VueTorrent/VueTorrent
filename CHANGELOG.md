@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.32.2](https://github.com/VueTorrent/VueTorrent/compare/v2.32.1...v2.32.2) (2026-03-27)
+
+
+### Bug Fixes
+
+* **Cookies:** No cookies were imported ([#2702](https://github.com/VueTorrent/VueTorrent/issues/2702)) ([7ebfc83](https://github.com/VueTorrent/VueTorrent/commit/7ebfc831bf9234a48466464b3c9e59630d5fcbdd))
+* **RSS:** Article only showing in first matching feed ([#2699](https://github.com/VueTorrent/VueTorrent/issues/2699)) ([b546963](https://github.com/VueTorrent/VueTorrent/commit/b546963be518988c11971ad8b6cdda55d33c440d))
+
+
+### Improvements
+
+* **RSS:** Always open links in new tab ([#2685](https://github.com/VueTorrent/VueTorrent/issues/2685)) ([e61d78e](https://github.com/VueTorrent/VueTorrent/commit/e61d78e2cc65392cbad9877b9a67506b12422887))
+* Use proper identifier on list elements ([#2710](https://github.com/VueTorrent/VueTorrent/issues/2710)) ([9fd0d84](https://github.com/VueTorrent/VueTorrent/commit/9fd0d84c0096d0c5a38e4ff2a5814707d911a594))
+
 ## [2.32.1](https://github.com/VueTorrent/VueTorrent/compare/v2.32.0...v2.32.1) (2026-03-06)
 
 
