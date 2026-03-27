@@ -346,7 +346,7 @@ onMounted(() => {
 
         <v-list v-else>
           <template v-for="(item, index) in items">
-            <v-list-item v-if="item.show" :key="index">
+            <v-list-item v-if="item.show" :key="item.fullName">
               <v-divider v-if="index > 0" class="my-2" />
               <div class="d-flex align-center" :style="{ 'padding-left': `${item.indent * 16}px` }">
                 <v-checkbox-btn

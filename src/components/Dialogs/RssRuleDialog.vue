@@ -159,7 +159,7 @@ onBeforeMount(async () => {
                 </v-col>
               </v-row>
 
-              <v-checkbox v-for="item in rssStore.feeds" :key="item.uid" v-model="formData.affectedFeeds" multiple hide-details :label="item.name" :value="item.url" />
+              <v-checkbox v-for="feed in rssStore.feeds" :key="feed.uid" v-model="formData.affectedFeeds" multiple hide-details :label="feed.name" :value="feed.url" />
             </v-col>
 
             <v-divider :vertical="!$vuetify.display.mobile" />
@@ -169,7 +169,7 @@ onBeforeMount(async () => {
                 {{ $t('dialogs.rss.rule.matchingArticles.title') }}
               </div>
               <v-list>
-                <template v-for="(item, i) in matchingArticles" :key="i">
+                <template v-for="(item, i) in matchingArticles" :key="`${i}-${item.type}`">
                   <v-divider v-if="item.type === 'divider'" />
                   <v-list-subheader v-else-if="item.type === 'subheader'" inset>
                     {{ item.value }}
