@@ -128,7 +128,7 @@ onUnmounted(() => {
 
       <v-divider />
 
-      <template v-for="(log, index) in paginatedResults" :key="index">
+      <template v-for="(log, index) in paginatedResults" :key="log.id">
         <v-divider v-if="index > 0" />
 
         <v-list-item class="pa-0">

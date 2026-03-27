@@ -136,7 +136,7 @@ onBeforeMount(() => {
               </template>
               <template #selection="{ fileNames }">
                 <template v-for="(filename, index) in fileNames">
-                  <v-chip v-if="index < fileOverflowDisplayLimit" :key="index" class="mr-2" color="accent" label size="small">
+                  <v-chip v-if="index < fileOverflowDisplayLimit" :key="filename" class="mr-2" color="accent" label size="small">
                     {{ filename }}
                   </v-chip>
                 </template>

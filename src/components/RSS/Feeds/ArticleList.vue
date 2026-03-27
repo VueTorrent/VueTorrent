@@ -48,7 +48,7 @@ async function markAsRead(item: RssArticle) {
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
     </v-list-item>
 
-    <template v-for="(article, index) in paginatedResults" :key="index">
+    <template v-for="(article, index) in paginatedResults" :key="article.id">
       <v-divider v-if="index > 0" />
 
       <Article
