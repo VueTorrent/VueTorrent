@@ -6,6 +6,7 @@
  * resets that column to its natural content width.
  */
 import type { Directive } from 'vue'
+import { useVueTorrentStore } from '@/stores'
 
 const HANDLE_CLASS = 'vt-resizable-column-handle'
 const COLGROUP_CLASS = 'vt-resizable-column-group'
@@ -64,6 +65,8 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
   let resizeObserver: ResizeObserver | undefined
   const handleCleanups: Array<() => void> = []
   const lastMouseDownTimes = new Map<number, number>()
+  const tableKey = el.id ? `table:${el.id}` : undefined
+  const vuetorrentStore = useVueTorrentStore()
 
   // Declared before drawHandles so inner callbacks can reference it without
   // relying on implicit function hoisting.
@@ -103,6 +106,8 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
     }
 
     const columns = Array.from(colgroup.children) as HTMLTableColElement[]
+    const columnKeys = headerCells.map(th => th.dataset.resizableKey)
+    const persistedWidths = tableKey ? vuetorrentStore.tableColumnWidths[tableKey] ?? {} : {}
 
     // Suspend the ResizeObserver so that switching tableLayout doesn't
     // trigger a recursive redraw.
@@ -111,14 +116,43 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
     // For columns that already have an explicit width (set by a previous draw
     // or by dragging) keep that width.  Only measure from the DOM for columns
     // that have no width yet.
-    const needsMeasure = columns.some(col => !col.style.width)
+    const needsMeasure = columns.some((col, index) => {
+      const key = columnKeys[index]
+      const colKey = col.dataset.resizableKey
+      const isSameKey = key ? colKey === key : colKey === undefined
+
+      const persistedWidth = key ? persistedWidths[key] : undefined
+      if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) {
+        return false
+      }
+
+      const existing = Number.parseFloat(col.style.width)
+      if (isSameKey && Number.isFinite(existing) && existing > 0) {
+        return false
+      }
+
+      return true
+    })
     if (needsMeasure) {
       table.style.tableLayout = 'auto'
     }
 
     const savedWidths = headerCells.map((th, i) => {
+      const key = columnKeys[i]
+      const colKey = columns[i].dataset.resizableKey
+      const isSameKey = key ? colKey === key : colKey === undefined
+
       const existing = Number.parseFloat(columns[i].style.width)
-      return Number.isFinite(existing) && existing > 0 ? existing : th.getBoundingClientRect().width
+      if (isSameKey && Number.isFinite(existing) && existing > 0) {
+        return existing
+      }
+
+      const persistedWidth = key ? persistedWidths[key] : undefined
+      if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) {
+        return persistedWidth as number
+      }
+
+      return th.getBoundingClientRect().width
     })
 
     table.style.tableLayout = 'fixed'
@@ -127,6 +161,12 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
       setColumnWidth(col, headerCells[i], savedWidths[i])
       headerCells[i].style.position = 'relative'
       headerCells[i].style.whiteSpace = 'nowrap'
+
+      if (columnKeys[i]) {
+        col.dataset.resizableKey = columnKeys[i]
+      } else {
+        delete col.dataset.resizableKey
+      }
     })
 
     resizeObserver?.observe(el)
@@ -135,6 +175,7 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
     for (let index = 1; index < headerCells.length; index++) {
       const th = headerCells[index]
       const currentCol = columns[index]
+      const columnKey = columnKeys[index]
 
       const handle = createHandle()
 
@@ -152,6 +193,9 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
           table!.style.tableLayout = 'auto'
           currentCol.style.width = ''
           th.style.width = ''
+          if (tableKey && columnKey) {
+            vuetorrentStore.clearTableColumnWidth(tableKey, columnKey)
+          }
 
           requestAnimationFrame(() => {
             const naturalWidth = Math.max(th.getBoundingClientRect().width, MIN_COLUMN_WIDTH)
@@ -181,6 +225,10 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
           document.removeEventListener('mouseup', onMouseUp)
           document.body.style.cursor = previousCursor
           document.body.style.userSelect = previousUserSelect
+          if (tableKey && columnKey) {
+            const width = getColumnWidth(th, currentCol)
+            vuetorrentStore.setTableColumnWidth(tableKey, columnKey, width)
+          }
           queueRedraw()
         }
 
