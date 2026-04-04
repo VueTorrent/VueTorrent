@@ -5,7 +5,7 @@
  * element so the user can resize table columns.  A double-click on a handle
  * resets that column to its natural content width.
  */
-import type { Directive } from 'vue'
+import type { ObjectDirective } from 'vue'
 import { useVueTorrentStore } from '@/stores'
 
 const HANDLE_CLASS = 'vt-resizable-column-handle'
@@ -264,7 +264,7 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
 // Vue directive
 // ---------------------------------------------------------------------------
 
-const resizableColumns: Directive<HTMLElement, void> = {
+const resizableColumns: ObjectDirective<HTMLElement, void> = {
   mounted(el) {
     instances.set(el, createResizableColumnsInstance(el))
   },
