@@ -79,12 +79,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
         <template v-for="header in columns" :key="header.key">
           <th v-if="header.key === 'statusIndicator'" class="px-1" :data-resizable-key="header.key" />
           <th v-else-if="header.key === 'multipleSelectionCheckbox'" :data-resizable-key="header.key" />
-          <Header
-            v-else
-            :title="header.title!"
-            :sort-key="header.key!"
-            :data-resizable-key="header.key"
-            @on-header-click="onHeaderClick(header.key as keyof Torrent)" />
+          <Header v-else :title="header.title!" :sort-key="header.key!" :data-resizable-key="header.key" @on-header-click="onHeaderClick(header.key as keyof Torrent)" />
         </template>
       </tr>
     </template>
@@ -155,7 +150,8 @@ function getTorrentRowColorClass(torrent: TorrentType) {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  th, td {
+  th,
+  td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

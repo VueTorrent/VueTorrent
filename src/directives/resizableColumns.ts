@@ -107,7 +107,7 @@ function createResizableColumnsInstance(el: HTMLElement): DirectiveInstance {
 
     const columns = Array.from(colgroup.children) as HTMLTableColElement[]
     const columnKeys = headerCells.map(th => th.dataset.resizableKey)
-    const persistedWidths = tableKey ? vuetorrentStore.tableColumnWidths[tableKey] ?? {} : {}
+    const persistedWidths = tableKey ? (vuetorrentStore.tableColumnWidths[tableKey] ?? {}) : {}
 
     // Suspend the ResizeObserver so that switching tableLayout doesn't
     // trigger a recursive redraw.

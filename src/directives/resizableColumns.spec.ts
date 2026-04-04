@@ -83,7 +83,7 @@ function fireMousedown(target: Element, clientX = 0) {
       bubbles: true,
       cancelable: true,
       clientX,
-    }),
+    })
   )
 }
 
@@ -583,7 +583,6 @@ describe('ResizeObserver integration', () => {
       vi.runAllTimers()
       unmountDirective(el)
     }).not.toThrow()
-
     ;(globalThis as any).ResizeObserver = original
   })
 })
