@@ -5,6 +5,7 @@ import Header from './Header.vue'
 import TableTorrent from './TableTorrent.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
+import vResizableColumns from '@/directives/resizableColumns'
 import { comparators, getTorrentStateColor } from '@/helpers'
 import { useAppStore, useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent, Torrent as TorrentType } from '@/types/vuetorrent'
@@ -63,6 +64,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
 <template>
   <v-data-table
     id="torrentList"
+    v-resizable-columns
     density="compact"
     :mobile="false"
     :headers="headers"
@@ -147,6 +149,11 @@ function getTorrentRowColorClass(torrent: TorrentType) {
     max-width: 40vw;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  th, td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 </style>
