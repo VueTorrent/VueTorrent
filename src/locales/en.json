@@ -1174,6 +1174,7 @@
         "defaultTorrentDetailTab": "Default Torrent Detail Tab",
         "displayGraphLimits": "Display limits in graph",
         "download": "Export settings",
+        "exportTooltip": "Exports VueTorrent-specific settings including theme, language, dashboard layout, and display preferences.",
         "durationFormat": "Duration format",
         "enableHashColors": "Enable generated chip colors",
         "enableRatioColors": "Enable ratio colors",
@@ -1301,6 +1302,9 @@
     },
     "copy": {
       "success": "Copied to clipboard!"
+    },
+    "export": {
+      "no_settings": "No VueTorrent settings found to export. Please configure some settings first."
     },
     "magnet_handler": {
       "not_supported": "Current context isn't secure. Unable to register handler.",
@@ -1599,3 +1603,4 @@
     "seconds": "second | seconds"
   }
 }
+
