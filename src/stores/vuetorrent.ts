@@ -214,7 +214,7 @@ export const useVueTorrentStore = defineStore(
       if (!tableColumnWidths.value[tableKey]) {
         tableColumnWidths.value[tableKey] = {}
       }
-      tableColumnWidths.value[tableKey][columnKey] = Math.ceil(width)
+      tableColumnWidths.value[tableKey][columnKey] = width
     }
 
     function clearTableColumnWidth(tableKey: string, columnKey: string) {

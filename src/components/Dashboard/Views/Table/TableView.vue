@@ -3,9 +3,9 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import Header from './Header.vue'
 import TableTorrent from './TableTorrent.vue'
+import TableComponent from '@/components/Core/TableComponent.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
-import vResizableColumns from '@/directives/resizableColumns'
 import { comparators, getTorrentStateColor } from '@/helpers'
 import { useAppStore, useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent, Torrent as TorrentType } from '@/types/vuetorrent'
@@ -62,9 +62,8 @@ function getTorrentRowColorClass(torrent: TorrentType) {
 </script>
 
 <template>
-  <v-data-table
+  <TableComponent
     id="torrentList"
-    v-resizable-columns
     density="compact"
     :mobile="false"
     :headers="headers"
@@ -77,7 +76,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
     <template #headers="{ columns }">
       <tr>
         <template v-for="header in columns" :key="header.key">
-          <th v-if="header.key === 'statusIndicator'" class="px-1" :data-resizable-key="header.key" />
+          <th v-if="header.key === 'statusIndicator'" class="px-1" />
           <th v-else-if="header.key === 'multipleSelectionCheckbox'" :data-resizable-key="header.key" />
           <Header v-else :title="header.title!" :sort-key="header.key!" :data-resizable-key="header.key" @on-header-click="onHeaderClick(header.key as keyof Torrent)" />
         </template>
@@ -118,7 +117,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
         <TableTorrent :torrent="torrent" />
       </tr>
     </template>
-  </v-data-table>
+  </TableComponent>
 </template>
 
 <style lang="scss">
