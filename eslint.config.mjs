@@ -11,7 +11,7 @@ import { globalIgnores } from 'eslint/config'
 configureVueProject({
   tsSyntaxInTemplates: true,
   scriptLangs: ['ts'],
-  rootDir: import.meta.dirname
+  rootDir: import.meta.dirname,
 })
 
 export default defineConfigWithVueTs(
@@ -21,17 +21,17 @@ export default defineConfigWithVueTs(
       'import-x/resolver-next': [
         createTypeScriptImportResolver({
           alwaysTryTypes: true,
-          project: './tsconfig.json'
-        })
+          project: './tsconfig.json',
+        }),
       ],
       'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
-          project: './tsconfig.json'
-        }
-      }
-    }
+          project: './tsconfig.json',
+        },
+      },
+    },
   },
   js.configs.recommended,
   importPlugin.flatConfigs.recommended,
@@ -47,9 +47,9 @@ export default defineConfigWithVueTs(
         'warn',
         {
           alias: {
-            '@': './src'
-          }
-        }
+            '@': './src',
+          },
+        },
       ],
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -61,8 +61,8 @@ export default defineConfigWithVueTs(
           caughtErrorsIgnorePattern: '^_',
           destructuredArrayIgnorePattern: '^_',
           varsIgnorePattern: '^_',
-          ignoreRestSiblings: true
-        }
+          ignoreRestSiblings: true,
+        },
       ],
       '@typescript-eslint/switch-exhaustiveness-check': ['warn', { considerDefaultExhaustiveForUnions: true }],
       'func-style': ['error', 'declaration', { allowArrowFunctions: false, allowTypeAnnotation: false }],
@@ -75,25 +75,26 @@ export default defineConfigWithVueTs(
         {
           alphabetize: {
             caseInsensitive: true,
-            order: 'asc'
-          }
-        }
+            order: 'asc',
+          },
+        },
       ],
       'prefer-const': [
         'error',
         {
-          destructuring: 'all'
-        }
+          destructuring: 'all',
+        },
       ],
+      'vue/attributes-order': 'error',
       'vue/first-attribute-linebreak': [
         'error',
         {
           singleline: 'beside',
-          multiline: 'below'
-        }
+          multiline: 'below',
+        },
       ],
       'vue/multi-word-component-names': 'off',
-      'vue/require-default-prop': 'off'
-    }
+      'vue/require-default-prop': 'off',
+    },
   }
 )
