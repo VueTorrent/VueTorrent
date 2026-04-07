@@ -104,11 +104,14 @@ function resetSettings() {
 
 function downloadSettings() {
   const settings = localStorage.getItem('vuetorrent_webuiSettings')
-  if (!settings) return
+  if (!settings) {
+    toast.warn(t('toast.export.no_settings'))
+    return
+  }
 
   const jsonString = JSON.stringify(JSON.parse(settings), null, 2)
   const blob = new Blob([jsonString], { type: 'application/json' })
-  
+
   const currentVersion = vueTorrentVersion.value
   const currentTimestamp = new Date().toISOString()
   downloadFile(`VueTorrent_${currentVersion}_${currentTimestamp}.json`, blob)
@@ -329,9 +332,14 @@ function openDurationFormatHelp() {
           </v-btn>
         </v-col>
         <v-col cols="12" sm="4" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="downloadSettings">
-            {{ t('settings.vuetorrent.general.download') }}
-          </v-btn>
+          <v-tooltip location="bottom">
+            <template #activator="{ props }">
+              <v-btn color="primary" v-bind="props" @click="downloadSettings">
+                {{ t('settings.vuetorrent.general.download') }}
+              </v-btn>
+            </template>
+            {{ t('settings.vuetorrent.general.exportTooltip') }}
+          </v-tooltip>
         </v-col>
         <v-col cols="12" sm="4" class="d-flex align-center justify-center">
           <v-btn color="red" @click="resetSettings">
