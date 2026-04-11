@@ -26,6 +26,11 @@ const lastGraphics = shallowRef<Graphics>()
 const cachedPieces = ref<PieceState[]>([])
 const isPieceCanvasOverviewOpened = ref(false)
 
+function getThemeColor(colorName: string) {
+  const colorValue = theme.current.value.colors[colorName]
+  return typeof colorValue === 'string' ? colorValue : colorName
+}
+
 async function renderCanvas() {
   if (renderCanvasRunning.value || !canvas.value || !app.value) return
 
@@ -46,9 +51,9 @@ async function renderCanvas() {
     const state = cachedPieces.value[i]
     let newColor = ''
 
-    if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
-    else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-ul_stopped']
-    else if (state === PieceState.MISSING && selectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-dl_stopped']
+    if (state === PieceState.DOWNLOADING) newColor = getThemeColor('torrent-downloading')
+    else if (state === PieceState.DOWNLOADED) newColor = getThemeColor('torrent-ul_stopped')
+    else if (state === PieceState.MISSING && selectedRanges.intersect_any([i, i])) newColor = getThemeColor('torrent-dl_stopped')
 
     if (newColor === color) {
       ++rectWidth
