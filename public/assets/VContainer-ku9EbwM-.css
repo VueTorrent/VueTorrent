@@ -1,0 +1,1 @@
+@layer vuetify-components{.v-container{width:100%;margin-left:auto;margin-right:auto;padding:16px}@media (width>=840px){.v-container{max-width:700px}}@media (width>=1145px){.v-container{max-width:1000px}}@media (width>=1545px){.v-container{max-width:1400px}}@media (width>=2138px){.v-container{max-width:2000px}}.v-container--fluid{max-width:100%}}
