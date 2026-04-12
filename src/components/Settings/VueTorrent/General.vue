@@ -285,6 +285,15 @@ function openDurationFormatHelp() {
             append-inner-icon="mdi-help-circle"
             @click:append-inner="openDurationFormatHelp" />
         </v-col>
+
+        <v-col cols="12" md="12">
+          <v-text-field
+            v-model="vueTorrentStore.logoutUrl"
+            flat
+            hide-details
+            :label="t('settings.vuetorrent.general.logoutUrl')"
+            placeholder="https://auth.example.com/logout" />
+        </v-col>
       </v-row>
     </v-list-item>
 
