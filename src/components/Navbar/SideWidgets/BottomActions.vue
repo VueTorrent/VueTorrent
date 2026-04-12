@@ -69,6 +69,12 @@ const themeIcon = computed(() => {
 
 async function logout() {
   await appStore.logout()
+
+  if (vueTorrentStore.logoutUrl) {
+    window.location.href = vueTorrentStore.logoutUrl
+    return
+  }
+
   await vueTorrentStore.redirectToLogin()
 }
 
