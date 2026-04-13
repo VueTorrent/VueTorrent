@@ -17,7 +17,7 @@ vi.mock('@/stores', () => {
         if (!tableColumnWidths[tableKey]) {
           tableColumnWidths[tableKey] = {}
         }
-        tableColumnWidths[tableKey][columnKey] = Math.ceil(width)
+        tableColumnWidths[tableKey][columnKey] = width
       },
       clearTableColumnWidth: (tableKey: string, columnKey: string) => {
         if (!tableKey || !columnKey) return
@@ -264,7 +264,7 @@ describe('TableComponent.vue', () => {
       tableColumnWidths: Record<string, Record<string, number>>
     }
 
-    expect(store.tableColumnWidths['table:torrents']?.['col-0']).toBe(Math.ceil(DEFAULT_WIDTH + 80))
+    expect(store.tableColumnWidths['table:torrents']?.['col-0']).toBe(DEFAULT_WIDTH + 80)
   })
 
   it('restores persisted widths for keyed columns on mount', () => {
