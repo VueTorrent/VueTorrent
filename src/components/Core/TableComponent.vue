@@ -172,8 +172,8 @@ onBeforeUnmount(destroyResizeBehavior)
 <style lang="scss" scoped>
 @use 'vuetify/settings';
 
-th,
-td {
+:deep(th),
+:deep(td) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
