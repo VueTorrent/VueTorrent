@@ -61,99 +61,91 @@ function clearResizeHandles(root: HTMLElement) {
   root.querySelectorAll(`.${RESIZE_HANDLE_CLASS}`).forEach(node => node.remove())
 }
 
-function drawResizeHandles() {
-  const root = rootRef.value
-  if (!root) return
-  const resizeRoot = root
-
-  clearResizeHandles(root)
-
-  const table = root.querySelector('table')
-  const headerCells = Array.from(root.querySelectorAll<HTMLTableCellElement>('thead th'))
-
-  if (!table || headerCells.length < 2) return
-
-  let resizeColgroup = table.querySelector<HTMLTableColElement>(`colgroup.${RESIZE_COLGROUP_CLASS}`)
-  if (!resizeColgroup) {
-    resizeColgroup = document.createElement('colgroup')
-    resizeColgroup.classList.add(RESIZE_COLGROUP_CLASS)
-    table.prepend(resizeColgroup)
+function ensureColgroup(table: HTMLTableElement, headerCells: HTMLTableCellElement[]): HTMLTableColElement[] {
+  let colgroup = table.querySelector<HTMLTableColElement>(`colgroup.${RESIZE_COLGROUP_CLASS}`)
+  if (!colgroup) {
+    colgroup = document.createElement('colgroup')
+    colgroup.classList.add(RESIZE_COLGROUP_CLASS)
+    table.prepend(colgroup)
   }
-
-  while (resizeColgroup.children.length < headerCells.length) {
-    resizeColgroup.appendChild(document.createElement('col'))
+  while (colgroup.children.length < headerCells.length) {
+    colgroup.appendChild(document.createElement('col'))
   }
-  while (resizeColgroup.children.length > headerCells.length) {
-    resizeColgroup.lastElementChild?.remove()
+  while (colgroup.children.length > headerCells.length) {
+    colgroup.lastElementChild?.remove()
   }
+  return Array.from(colgroup.children) as HTMLTableColElement[]
+}
 
-  const resizeColumns = Array.from(resizeColgroup.children) as HTMLTableColElement[]
-  const resizeColumnKeys = headerCells.map(th => th.dataset.resizableKey)
-  const resizeTableKey = rootId.value ? `table:${rootId.value}` : undefined
-  const persistedResizeWidths = resizeTableKey ? (vuetorrentStore.tableColumnWidths[resizeTableKey] ?? {}) : {}
-
-  resizeObserver?.unobserve(resizeRoot)
-
-  const needsResizeMeasure = resizeColumns.some((col, index) => {
-    const key = resizeColumnKeys[index]
-    const colKey = col.dataset.resizableKey
-    const isSameKey = key ? colKey === key : colKey === undefined
-
-    const persistedWidth = key ? persistedResizeWidths[key] : undefined
-    if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) {
-      return false
-    }
-
+function resolveColumnWidths(
+  table: HTMLTableElement,
+  headerCells: HTMLTableCellElement[],
+  resizeColumns: HTMLTableColElement[],
+  columnKeys: (string | undefined)[],
+  persistedWidths: Record<string, number>,
+): number[] {
+  const needsResizeMeasure = resizeColumns.some((col, i) => {
+    const key = columnKeys[i]
+    const isSameKey = key ? col.dataset.resizableKey === key : col.dataset.resizableKey === undefined
+    const persistedWidth = key ? persistedWidths[key] : undefined
+    if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) return false
     const existing = Number.parseFloat(col.style.width)
-    if (isSameKey && Number.isFinite(existing) && existing > 0) {
-      return false
-    }
-
+    if (isSameKey && Number.isFinite(existing) && existing > 0) return false
     return true
   })
+
   if (needsResizeMeasure) {
     table.style.tableLayout = 'auto'
   }
 
-  const savedResizeWidths = headerCells.map((th, i) => {
-    const key = resizeColumnKeys[i]
-    const colKey = resizeColumns[i].dataset.resizableKey
-    const isSameKey = key ? colKey === key : colKey === undefined
-
-    const existing = Number.parseFloat(resizeColumns[i].style.width)
-    if (isSameKey && Number.isFinite(existing) && existing > 0) {
-      return existing
-    }
-
-    const persistedWidth = key ? persistedResizeWidths[key] : undefined
-    if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) {
-      return persistedWidth as number
-    }
-
+  const widths = headerCells.map((th, i) => {
+    const key = columnKeys[i]
+    const col = resizeColumns[i]
+    const isSameKey = key ? col.dataset.resizableKey === key : col.dataset.resizableKey === undefined
+    const existing = Number.parseFloat(col.style.width)
+    if (isSameKey && Number.isFinite(existing) && existing > 0) return existing
+    const persistedWidth = key ? persistedWidths[key] : undefined
+    if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) return persistedWidth as number
     return th.getBoundingClientRect().width
   })
 
   table.style.tableLayout = 'fixed'
+  return widths
+}
 
+function applyColumnWidths(
+  resizeColumns: HTMLTableColElement[],
+  headerCells: HTMLTableCellElement[],
+  widths: number[],
+  columnKeys: (string | undefined)[],
+) {
   resizeColumns.forEach((col, i) => {
-    setResizeColumnWidth(col, headerCells[i], savedResizeWidths[i])
+    setResizeColumnWidth(col, headerCells[i], widths[i])
     headerCells[i].style.position = 'relative'
     headerCells[i].style.whiteSpace = 'nowrap'
-
-    if (resizeColumnKeys[i]) {
-      col.dataset.resizableKey = resizeColumnKeys[i]
+    const key = columnKeys[i]
+    if (key) {
+      col.dataset.resizableKey = key
     } else {
       delete col.dataset.resizableKey
     }
   })
+}
 
-  resizeObserver?.observe(resizeRoot)
-
+function attachResizeHandles(
+  headerCells: HTMLTableCellElement[],
+  resizeColumns: HTMLTableColElement[],
+  columnKeys: (string | undefined)[],
+  resizeRoot: HTMLElement,
+  resizeTableKey: string | undefined,
+  table: HTMLTableElement,
+) {
   for (let index = 0; index < headerCells.length; index++) {
     const th = headerCells[index]
     const currentCol = resizeColumns[index]
-    const columnKey = resizeColumnKeys[index]
+    const columnKey = columnKeys[index]
     if (!columnKey) continue
+
     const resizeHandle = createResizeHandle()
 
     function onResizeMouseDown(event: MouseEvent) {
@@ -166,16 +158,15 @@ function drawResizeHandles() {
 
       if (isDoubleClick) {
         resizeObserver?.unobserve(resizeRoot)
-        table!.style.tableLayout = 'auto'
+        table.style.tableLayout = 'auto'
         currentCol.style.width = ''
         th.style.width = ''
         if (resizeTableKey && columnKey) {
           vuetorrentStore.clearTableColumnWidth(resizeTableKey, columnKey)
         }
-
         requestAnimationFrame(() => {
           const naturalWidth = Math.max(th.getBoundingClientRect().width, MIN_RESIZE_COLUMN_WIDTH)
-          table!.style.tableLayout = 'fixed'
+          table.style.tableLayout = 'fixed'
           setResizeColumnWidth(currentCol, th, naturalWidth)
           resizeObserver?.observe(resizeRoot)
         })
@@ -217,6 +208,29 @@ function drawResizeHandles() {
   }
 }
 
+function drawResizeHandles() {
+  const root = rootRef.value
+  if (!root) return
+
+  clearResizeHandles(root)
+
+  const table = root.querySelector('table')
+  const headerCells = Array.from(root.querySelectorAll<HTMLTableCellElement>('thead th'))
+  if (!table || headerCells.length < 2) return
+
+  const resizeColumns = ensureColgroup(table, headerCells)
+  const columnKeys = headerCells.map(th => th.dataset.resizableKey)
+  const resizeTableKey = rootId.value ? `table:${rootId.value}` : undefined
+  const persistedWidths = resizeTableKey ? (vuetorrentStore.tableColumnWidths[resizeTableKey] ?? {}) : {}
+
+  resizeObserver?.unobserve(root)
+  const widths = resolveColumnWidths(table, headerCells, resizeColumns, columnKeys, persistedWidths)
+  applyColumnWidths(resizeColumns, headerCells, widths, columnKeys)
+  resizeObserver?.observe(root)
+
+  attachResizeHandles(headerCells, resizeColumns, columnKeys, root, resizeTableKey, table)
+}
+
 function queueResizeRedraw() {
   cancelAnimationFrame(resizeFrameId)
   resizeFrameId = requestAnimationFrame(drawResizeHandles)
@@ -251,7 +265,7 @@ onBeforeUnmount(destroyResizeBehavior)
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use 'vuetify/settings';
 
 th,
