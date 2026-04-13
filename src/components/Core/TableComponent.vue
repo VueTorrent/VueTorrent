@@ -250,3 +250,14 @@ onBeforeUnmount(destroyResizeBehavior)
     </v-data-table>
   </div>
 </template>
+
+<style lang="scss">
+@use 'vuetify/settings';
+
+th,
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>

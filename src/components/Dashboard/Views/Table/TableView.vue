@@ -149,11 +149,5 @@ function getTorrentRowColorClass(torrent: TorrentType) {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  th,
-  td {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 }
 </style>
