@@ -25,6 +25,7 @@ const slotNames = computed(() => Object.keys(slots))
 const vuetorrentStore = useVueTorrentStore()
 
 let resizeFrameId = 0
+let resetFrameId = 0
 let resizeObserver: ResizeObserver | undefined
 const resizeHandleCleanups: Array<() => void> = []
 const resizeLastMouseDownTimes = new Map<number, number>()
@@ -68,7 +69,7 @@ function attachResizeHandles(
         if (resizeTableKey && columnKey) {
           vuetorrentStore.clearTableColumnWidth(resizeTableKey, columnKey)
         }
-        requestAnimationFrame(() => {
+        resetFrameId = requestAnimationFrame(() => {
           const naturalWidth = Math.max(th.getBoundingClientRect().width, MIN_RESIZE_COLUMN_WIDTH)
           table.style.tableLayout = 'fixed'
           setResizeColumnWidth(currentCol, th, naturalWidth)
@@ -143,6 +144,7 @@ function queueResizeRedraw() {
 function destroyResizeBehavior() {
   const root = rootRef.value
   cancelAnimationFrame(resizeFrameId)
+  cancelAnimationFrame(resetFrameId)
   resizeObserver?.disconnect()
   if (root) clearResizeHandles(root)
 }
