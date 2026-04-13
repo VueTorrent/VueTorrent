@@ -53,6 +53,7 @@ export const useVueTorrentStore = defineStore(
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
+    const logoutUrl = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -302,6 +303,7 @@ export const useVueTorrentStore = defineStore(
       reduceMotion,
       keepDefaultTransitions,
       defaultTorrentDetailTab,
+      logoutUrl,
       $reset: () => {
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
@@ -331,6 +333,7 @@ export const useVueTorrentStore = defineStore(
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
         tableColumnWidths.value = {}
+        logoutUrl.value = ''
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))

@@ -1174,11 +1174,11 @@
         "defaultTorrentDetailTab": "Default Torrent Detail Tab",
         "displayGraphLimits": "Display limits in graph",
         "download": "Export settings",
-        "exportTooltip": "Exports VueTorrent-specific settings including theme, language, dashboard layout, and display preferences.",
         "durationFormat": "Duration format",
         "enableHashColors": "Enable generated chip colors",
         "enableRatioColors": "Enable ratio colors",
         "expandContent": "Expand content by default in Content view",
+        "exportTooltip": "Exports VueTorrent-specific settings",
         "fetchExternalIpInfo": "Fetch external IP info",
         "fileContentInterval": "Torrent file content refresh interval",
         "filterType": "Filters inclusion type",
@@ -1190,6 +1190,7 @@
         "language": "Language",
         "lastOpenedTab": "Last Opened",
         "lightVariants": "Light theme variant",
+        "logoutUrl": "Logout URL (leave empty for default behavior)",
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
           "label": "Pagination Size",
@@ -1204,7 +1205,8 @@
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "useEmojiState": "Prepend torrent states with emojis",
-        "vueTorrentTitle": "Tab title"
+        "vueTorrentTitle": "Tab title",
+        "logoutUrl": "Logout URL (leave empty for default behavior)"
       },
       "sidebar": {
         "CurrentSpeed": "Show Current Speed",
@@ -1304,7 +1306,7 @@
       "success": "Copied to clipboard!"
     },
     "export": {
-      "no_settings": "No VueTorrent settings found to export. Please configure some settings first."
+      "no_settings": "No VueTorrent settings found to export."
     },
     "magnet_handler": {
       "not_supported": "Current context isn't secure. Unable to register handler.",
