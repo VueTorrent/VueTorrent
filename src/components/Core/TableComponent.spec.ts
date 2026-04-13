@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
+import { RESIZE_HANDLE_CLASS as HANDLE_CLASS, RESIZE_COLGROUP_CLASS as COLGROUP_CLASS, MIN_RESIZE_COLUMN_WIDTH as MIN_COLUMN_WIDTH } from '@/helpers/tableResize'
 
 const tableColumnWidths: Record<string, Record<string, number>> = {}
 
@@ -32,9 +33,6 @@ import TableComponent from './TableComponent.vue'
 import vuetify from '@/plugins/vuetify'
 import { useVueTorrentStore } from '@/stores'
 
-const HANDLE_CLASS = 'vt-resizable-column-handle'
-const COLGROUP_CLASS = 'vt-resizable-column-group'
-const MIN_COLUMN_WIDTH = 36
 const DEFAULT_WIDTH = 120
 
 function buildHeaders(count: number) {
