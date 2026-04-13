@@ -1,7 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
+import TableComponent from './TableComponent.vue'
 import { RESIZE_HANDLE_CLASS as HANDLE_CLASS, RESIZE_COLGROUP_CLASS as COLGROUP_CLASS, MIN_RESIZE_COLUMN_WIDTH as MIN_COLUMN_WIDTH } from '@/helpers/tableResize'
+import vuetify from '@/plugins/vuetify'
+import { useVueTorrentStore } from '@/stores'
 
 const tableColumnWidths: Record<string, Record<string, number>> = {}
 
@@ -28,10 +31,6 @@ vi.mock('@/stores', () => {
     }),
   }
 })
-
-import TableComponent from './TableComponent.vue'
-import vuetify from '@/plugins/vuetify'
-import { useVueTorrentStore } from '@/stores'
 
 const DEFAULT_WIDTH = 120
 
