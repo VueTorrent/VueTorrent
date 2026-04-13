@@ -82,7 +82,7 @@ function resolveColumnWidths(
   headerCells: HTMLTableCellElement[],
   resizeColumns: HTMLTableColElement[],
   columnKeys: (string | undefined)[],
-  persistedWidths: Record<string, number>,
+  persistedWidths: Record<string, number>
 ): number[] {
   const needsResizeMeasure = resizeColumns.some((col, i) => {
     const key = columnKeys[i]
@@ -113,12 +113,7 @@ function resolveColumnWidths(
   return widths
 }
 
-function applyColumnWidths(
-  resizeColumns: HTMLTableColElement[],
-  headerCells: HTMLTableCellElement[],
-  widths: number[],
-  columnKeys: (string | undefined)[],
-) {
+function applyColumnWidths(resizeColumns: HTMLTableColElement[], headerCells: HTMLTableCellElement[], widths: number[], columnKeys: (string | undefined)[]) {
   resizeColumns.forEach((col, i) => {
     setResizeColumnWidth(col, headerCells[i], widths[i])
     headerCells[i].style.position = 'relative'
@@ -138,7 +133,7 @@ function attachResizeHandles(
   columnKeys: (string | undefined)[],
   resizeRoot: HTMLElement,
   resizeTableKey: string | undefined,
-  table: HTMLTableElement,
+  table: HTMLTableElement
 ) {
   for (let index = 0; index < headerCells.length; index++) {
     const th = headerCells[index]
