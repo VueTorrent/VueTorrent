@@ -4,6 +4,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import topLevelAwait from 'vite-plugin-top-level-await'
+import { VitePWA } from 'vite-plugin-pwa'
 import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
@@ -46,6 +47,191 @@ export default defineConfig(({ mode }) => {
       topLevelAwait({
         promiseExportName: '__tla',
         promiseImportName: i => `__tla_${i}`,
+      }),
+      VitePWA({
+        devOptions: {
+          enabled: false,
+        },
+        includeAssets: ['robots.txt', 'icon.svg', 'apple-touch-icon-180x180.png', 'favicon.ico'],
+        manifest: {
+          background_color: '#000',
+          categories: ['utilities'],
+          description: 'The sleekest looking WEBUI for qBittorrent made with Vuejs!',
+          file_handlers: [
+            {
+              action: '.',
+              accept: {
+                'application/x-bittorrent': ['.torrent'],
+                'text/magnet': ['.magnet'],
+              },
+            },
+          ],
+          icons: [
+            {
+              src: 'pwa-64x64.png',
+              sizes: '64x64',
+              type: 'image/png',
+            },
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+            {
+              src: 'maskable-icon-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'maskable',
+            },
+          ],
+          launch_handler: {
+            client_mode: 'focus-existing',
+          },
+          name: 'VueTorrent',
+          protocol_handlers: [
+            {
+              protocol: 'magnet',
+              url: './#/magnet/%s',
+            },
+          ],
+          scope: './',
+          screenshots: [
+            {
+              src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/screenshots/screenshot-desktop.webp',
+              sizes: '1788x909',
+              type: 'image/webp',
+              form_factor: 'wide',
+              label: 'Screenshot Desktop (Light Mode)',
+            },
+            {
+              src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/screenshots/screenshot-desktop-dark-mode.webp',
+              sizes: '1788x909',
+              type: 'image/webp',
+              form_factor: 'wide',
+              label: 'Screenshot Desktop (Dark Mode)',
+            },
+            {
+              src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/screenshots/screenshot-mobile.webp',
+              sizes: '425x885',
+              type: 'image/webp',
+              form_factor: 'narrow',
+              label: 'Screenshot Mobile Dashboard (Light Mode)',
+            },
+            {
+              src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/screenshots/screenshot-mobile-navbar.webp',
+              sizes: '425x885',
+              type: 'image/webp',
+              form_factor: 'narrow',
+              label: 'Screenshot Mobile Navbar (Light Mode)',
+            },
+            {
+              src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/screenshots/screenshot-mobile-dark-mode.webp',
+              sizes: '425x885',
+              type: 'image/webp',
+              form_factor: 'narrow',
+              label: 'Screenshot Mobile Dashboard (Dark Mode)',
+            },
+            {
+              src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/screenshots/screenshot-mobile-navbar-dark-mode.webp',
+              sizes: '425x885',
+              type: 'image/webp',
+              form_factor: 'narrow',
+              label: 'Screenshot Mobile Navbar (Dark Mode)',
+            },
+          ],
+          short_name: 'VueTorrent',
+          shortcuts: [
+            {
+              name: 'Dashboard',
+              url: './#/',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-view-dashboard-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+            {
+              name: 'Settings',
+              url: './#/settings',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-cog-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+            {
+              name: 'RSS Feeds',
+              url: './#/rss',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-rss-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+            {
+              name: 'Search Engine',
+              url: './#/search',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-search-web-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+            {
+              name: 'Logs',
+              url: './#/logs',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-file-document-multiple-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+            {
+              name: 'Torrent Creator',
+              url: './#/torrentCreator',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-file-plus-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+            {
+              name: 'Cookies Manager',
+              url: './#/cookies',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-cookie-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
+            },
+          ],
+          start_url: './#/',
+          theme_color: '#64CEAA',
+        },
+        registerType: 'autoUpdate',
+        useCredentials: true,
+        workbox: {
+          cleanupOutdatedCaches: true,
+        },
       }),
     ],
     publicDir: './public',

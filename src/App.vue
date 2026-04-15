@@ -77,6 +77,7 @@ function blockContextMenu(event: Event) {
   }
 }
 
+// PWA file handler
 function addLaunchQueueConsumer() {
   const win = window as {
     launchQueue?: {
