@@ -149,31 +149,80 @@ export default defineConfig(({ mode }) => {
           shortcuts: [
             {
               name: 'Dashboard',
-              url: '#/',
+              url: './#/',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-view-dashboard-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
             {
               name: 'Settings',
-              url: '#/settings',
+              url: './#/settings',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-cog-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
             {
               name: 'RSS Feeds',
-              url: '#/rss',
+              url: './#/rss',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-rss-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
             {
               name: 'Search Engine',
-              url: '#/search',
+              url: './#/search',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-search-web-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
             {
               name: 'Logs',
-              url: '#/logs',
+              url: './#/logs',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-file-document-multiple-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
             {
               name: 'Torrent Creator',
-              url: '#/torrentCreator',
+              url: './#/torrentCreator',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-file-plus-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
             {
               name: 'Cookies Manager',
-              url: '#/cookies',
+              url: './#/cookies',
+              icons: [
+                {
+                  src: 'https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/docs/icons/mdi-cookie-192.png',
+                  type: 'image/png',
+                  sizes: '192x192',
+                },
+              ],
             },
           ],
           theme_color: '#64CEAA',
