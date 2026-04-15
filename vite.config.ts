@@ -49,7 +49,6 @@ export default defineConfig(({ mode }) => {
         promiseImportName: i => `__tla_${i}`,
       }),
       VitePWA({
-        base: './',
         devOptions: {
           enabled: false,
         },
@@ -225,6 +224,7 @@ export default defineConfig(({ mode }) => {
               ],
             },
           ],
+          start_url: './#/',
           theme_color: '#64CEAA',
         },
         registerType: 'autoUpdate',
