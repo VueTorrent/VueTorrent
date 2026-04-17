@@ -50,6 +50,25 @@ export function ensureColgroup(table: HTMLTableElement, headerCells: HTMLTableCe
   return Array.from(colgroup.children) as HTMLTableColElement[]
 }
 
+function getPersistedResizeWidth(key: string | undefined, persistedWidths: Record<string, number>): number | undefined {
+  const persistedWidth = key ? persistedWidths[key] : undefined
+  return Number.isFinite(persistedWidth) && (persistedWidth as number) > 0 ? (persistedWidth as number) : undefined
+}
+
+function getExistingResizeWidth(col: HTMLTableColElement, key: string | undefined): number | undefined {
+  const isSameKey = key ? col.dataset.resizableKey === key : col.dataset.resizableKey === undefined
+  const existingWidth = Number.parseFloat(col.style.width)
+  return isSameKey && Number.isFinite(existingWidth) && existingWidth > 0 ? existingWidth : undefined
+}
+
+function resolveColumnWidth(headerCell: HTMLTableCellElement, col: HTMLTableColElement, key: string | undefined, persistedWidths: Record<string, number>): number {
+  return getExistingResizeWidth(col, key) ?? getPersistedResizeWidth(key, persistedWidths) ?? headerCell.getBoundingClientRect().width
+}
+
+function hasResolvedColumnWidth(col: HTMLTableColElement, key: string | undefined, persistedWidths: Record<string, number>): boolean {
+  return getExistingResizeWidth(col, key) !== undefined || getPersistedResizeWidth(key, persistedWidths) !== undefined
+}
+
 export function resolveColumnWidths(
   table: HTMLTableElement,
   headerCells: HTMLTableCellElement[],
@@ -57,30 +76,13 @@ export function resolveColumnWidths(
   columnKeys: (string | undefined)[],
   persistedWidths: Record<string, number>
 ): number[] {
-  const needsResizeMeasure = resizeColumns.some((col, i) => {
-    const key = columnKeys[i]
-    const isSameKey = key ? col.dataset.resizableKey === key : col.dataset.resizableKey === undefined
-    const persistedWidth = key ? persistedWidths[key] : undefined
-    if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) return false
-    const existing = Number.parseFloat(col.style.width)
-    if (isSameKey && Number.isFinite(existing) && existing > 0) return false
-    return true
-  })
+  const needsResizeMeasure = resizeColumns.some((col, i) => !hasResolvedColumnWidth(col, columnKeys[i], persistedWidths))
 
   if (needsResizeMeasure) {
     table.style.tableLayout = 'auto'
   }
 
-  const widths = headerCells.map((th, i) => {
-    const key = columnKeys[i]
-    const col = resizeColumns[i]
-    const isSameKey = key ? col.dataset.resizableKey === key : col.dataset.resizableKey === undefined
-    const existing = Number.parseFloat(col.style.width)
-    if (isSameKey && Number.isFinite(existing) && existing > 0) return existing
-    const persistedWidth = key ? persistedWidths[key] : undefined
-    if (Number.isFinite(persistedWidth) && (persistedWidth as number) > 0) return persistedWidth as number
-    return th.getBoundingClientRect().width
-  })
+  const widths = headerCells.map((th, i) => resolveColumnWidth(th, resizeColumns[i], columnKeys[i], persistedWidths))
 
   table.style.tableLayout = 'fixed'
   return widths
