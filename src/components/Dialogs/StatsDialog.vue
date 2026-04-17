@@ -23,7 +23,7 @@ function close() {
       <v-card-text>
         <v-row>
           <v-col cols="12">
-            <div class="text-h6">{{ $t('dialogs.stats.user_statistics') }}</div>
+            <div class="text-title-large">{{ $t('dialogs.stats.user_statistics') }}</div>
           </v-col>
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.all_time_upload') }}</div>
@@ -57,7 +57,7 @@ function close() {
 
         <v-row>
           <v-col cols="12">
-            <div class="text-h6">{{ $t('dialogs.stats.cache_statistics') }}</div>
+            <div class="text-title-large">{{ $t('dialogs.stats.cache_statistics') }}</div>
           </v-col>
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.read_cache_hits') }}</div>
@@ -75,7 +75,7 @@ function close() {
 
         <v-row>
           <v-col cols="12">
-            <div class="text-h6">{{ $t('dialogs.stats.performance_statistics') }}</div>
+            <div class="text-title-large">{{ $t('dialogs.stats.performance_statistics') }}</div>
           </v-col>
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.write_cache_overload') }}</div>

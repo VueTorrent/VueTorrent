@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="pa-3 text-select">
     <div class="d-flex align-center">
-      <div class="text-h5 ml-2 text-truncate">
+      <div class="text-headline-medium ml-2 text-truncate">
         {{ torrent?.name ?? t('torrentDetail.error.title') }}
       </div>
       <v-spacer />

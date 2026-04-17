@@ -2,7 +2,7 @@
 import { TorrentProperty } from '@/constants/vuetorrent'
 import { useAppStore } from '@/stores'
 
-defineProps<{ property: TorrentProperty }>()
+defineProps<{ i18nPrefix: string; property: TorrentProperty }>()
 defineEmits<{ update: [value: void] }>()
 
 const appStore = useAppStore()
@@ -21,7 +21,7 @@ const appStore = useAppStore()
         variant="text"
         @click="$emit('update')" />
     </td>
-    <td>{{ $t(`settings.vuetorrent.sidebar.${property.name}`) }}</td>
+    <td>{{ $t(`${i18nPrefix}.${property.name}`) }}</td>
   </tr>
 </template>
 
