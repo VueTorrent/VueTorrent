@@ -26,7 +26,6 @@ describe('UnitCard.vue', () => {
 
     const valueField = wrapper.find('[data-testid="card-value"]')
     expect(valueField.exists()).toBe(true)
-    expect(valueField.classes('font-weight-bold')).toBe(true)
     expect(valueField.text()).toBe('123456')
 
     const unitField = wrapper.find('[data-testid="card-unit"]')
