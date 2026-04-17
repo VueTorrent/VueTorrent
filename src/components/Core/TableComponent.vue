@@ -25,8 +25,6 @@ useTableResize(rootRef, rootId)
 </template>
 
 <style lang="scss" scoped>
-@use 'vuetify/settings';
-
 :deep(th),
 :deep(td) {
   overflow: hidden;
