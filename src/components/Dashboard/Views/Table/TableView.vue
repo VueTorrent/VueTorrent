@@ -120,31 +120,33 @@ function getTorrentRowColorClass(torrent: TorrentType) {
 </template>
 
 <style lang="scss">
-#torrentList {
-  background-color: unset;
+@layer vuetify-components {
+  #torrentList {
+    background-color: unset;
 
-  tbody tr:nth-child(even) {
-    background-color: rgb(var(--v-theme-surface));
-  }
-
-  tbody tr.selected {
-    position: relative;
-
-    &:nth-child(odd)::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
+    tbody tr:nth-child(even) {
+      background-color: rgb(var(--v-theme-surface));
     }
-  }
 
-  .torrent-name {
-    max-width: 40vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    tbody tr.selected {
+      position: relative;
+
+      &:nth-child(odd)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    .torrent-name {
+      max-width: 40vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
 </style>
