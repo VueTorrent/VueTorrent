@@ -224,7 +224,7 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
   <v-dialog v-model="editTrackerDialog.isVisible" max-width="750px">
     <v-card>
       <v-card-title>
-        <span class="text-h5">{{ t('torrentDetail.trackers.editTracker.title') }}</span>
+        <span class="text-headline-small">{{ t('torrentDetail.trackers.editTracker.title') }}</span>
       </v-card-title>
 
       <v-card-text>

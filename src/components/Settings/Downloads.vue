@@ -303,7 +303,7 @@ async function sendTestEmail() {
             </template>
             <v-card>
               <v-card-title>
-                <span class="text-h5">{{ t('settings.downloads.monitoredFolders.editItem') }}</span>
+                <span class="text-headline-small">{{ t('settings.downloads.monitoredFolders.editItem') }}</span>
               </v-card-title>
 
               <v-card-text>
@@ -342,7 +342,7 @@ async function sendTestEmail() {
           </v-dialog>
           <v-dialog v-model="monitoredFoldersDialogDelete" max-width="500px">
             <v-card>
-              <v-card-title class="text-h5">
+              <v-card-title class="text-headline-small">
                 {{ t('settings.downloads.monitoredFolders.confirmDelete') }}
               </v-card-title>
               <v-card-actions>
@@ -478,7 +478,7 @@ async function sendTestEmail() {
             :label="t('settings.downloads.runExternalProgram.onFinishedLabel')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-card elevation="2" variant="outlined">
+          <v-card variant="outlined">
             <v-card-title>{{ t('settings.downloads.runExternalProgram.supportParamTitle') }}</v-card-title>
             <v-card-text>
               <ul class="no-bullet">

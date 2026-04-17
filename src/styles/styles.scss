@@ -27,12 +27,12 @@ ul.no-bullet {
   }
 }
 
-.wrap-word {
-  overflow-wrap: break-word !important;
+:where(.wrap-word) {
+  overflow-wrap: break-word;
 }
 
-.wrap-anywhere {
-  overflow-wrap: anywhere !important;
+:where(.wrap-anywhere) {
+  overflow-wrap: anywhere;
 }
 
 .text-noselect {
@@ -53,8 +53,8 @@ ul.no-bullet {
   user-select: text;
 }
 
-.inherit-bg {
-  background-color: inherit !important;
+:where(.inherit-bg) {
+  background-color: inherit;
 }
 
 /* scrollbar */

@@ -48,7 +48,7 @@ function selectAllFilters() {
         <v-table>
           <draggable v-model="sidebarStore.sidebarWidgets" item-key="name" tag="tbody" handle=".dnd-handle">
             <template #item="{ element }">
-              <SidebarItem :property="element" @update="sidebarStore.toggleWidget(element.name)" />
+              <SidebarItem i18n-prefix="settings.vuetorrent.sidebar" :property="element" @update="sidebarStore.toggleWidget(element.name)" />
             </template>
           </draggable>
         </v-table>
@@ -72,14 +72,7 @@ function selectAllFilters() {
         <v-table>
           <draggable v-model="sidebarStore.filters" item-key="name" tag="tbody" handle=".dnd-handle">
             <template #item="{ element }">
-              <tr>
-                <td>
-                  <v-icon icon="mdi-drag-vertical" class="dnd-handle" />
-                </td>
-                <td>
-                  <v-checkbox v-model="element.active" hide-details :label="$t(`settings.vuetorrent.sidebar.showFilters.${element.name}`)" />
-                </td>
-              </tr>
+              <SidebarItem i18n-prefix="settings.vuetorrent.sidebar.showFilters" :property="element" @update="sidebarStore.toggleFilter(element.name)" />
             </template>
           </draggable>
         </v-table>

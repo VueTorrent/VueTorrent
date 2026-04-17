@@ -72,7 +72,7 @@ const stateColor = computed(() => current.value.colors[getTorrentStateColor(prop
     height="100%"
     :color="isTorrentSelected ? `${getTorrentStateColor(torrent.state)}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">
-    <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">
+    <v-card-title class="text-body-large text-wrap pt-1 pb-0">
       {{ torrent.name }}
     </v-card-title>
     <v-card-text>

@@ -44,6 +44,13 @@ export const useSidebarStore = defineStore(
       sidebarWidgets.value = sidebarWidgets.value.map(widget => ({ ...widget, active }))
     }
 
+    function toggleFilter(name: string) {
+      const widget = filters.value.find(w => w.name === name)
+      if (widget) {
+        widget.active = !widget.active
+      }
+    }
+
     function setAllFilters(active: boolean) {
       filters.value = filters.value.map(filter => ({ ...filter, active }))
     }
@@ -52,6 +59,7 @@ export const useSidebarStore = defineStore(
       sidebarWidgets,
       toggleWidget,
       setAllWidgets,
+      toggleFilter,
       setAllFilters,
       showFilterState,
       showFilterCategory,

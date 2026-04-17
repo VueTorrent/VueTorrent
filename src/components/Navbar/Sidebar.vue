@@ -54,7 +54,6 @@ const orderedWidgets = computed(() => {
 
 <style scoped lang="scss">
 .clean-px > * {
-  padding-inline-start: 0 !important;
-  padding-inline-end: 0 !important;
+  padding-inline: 0;
 }
 </style>
