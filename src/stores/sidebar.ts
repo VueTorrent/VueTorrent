@@ -20,10 +20,6 @@ export const useSidebarStore = defineStore(
       { name: 'PerformanceStats', active: true },
       { name: 'Filters', active: true },
     ])
-    const showFilterState = ref(true)
-    const showFilterCategory = ref(true)
-    const showFilterTag = ref(true)
-    const showFilterTracker = ref(true)
     const isDrawerRight = ref(false)
 
     const filters = ref<FilterItem[]>([
@@ -61,10 +57,6 @@ export const useSidebarStore = defineStore(
       setAllWidgets,
       toggleFilter,
       setAllFilters,
-      showFilterState,
-      showFilterCategory,
-      showFilterTag,
-      showFilterTracker,
       isDrawerRight,
       filters,
       $reset: () => {
@@ -76,10 +68,6 @@ export const useSidebarStore = defineStore(
           { name: 'PerformanceStats', active: true },
           { name: 'Filters', active: true },
         ]
-        showFilterState.value = true
-        showFilterCategory.value = true
-        showFilterTag.value = true
-        showFilterTracker.value = true
         isDrawerRight.value = false
         filters.value = [
           { name: 'state', active: true },

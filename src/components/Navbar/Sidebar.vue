@@ -14,7 +14,7 @@ const Filters = defineAsyncComponent(() => import('./SideWidgets/Filters.vue'))
 
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const { sidebarWidgets, isDrawerRight, showFilterState, showFilterCategory, showFilterTag, showFilterTracker } = storeToRefs(useSidebarStore())
+const { sidebarWidgets, isDrawerRight, filters } = storeToRefs(useSidebarStore())
 
 const components: Record<string, Component> = {
   CurrentSpeed,
@@ -28,7 +28,7 @@ const components: Record<string, Component> = {
 const orderedWidgets = computed(() => {
   return sidebarWidgets.value.filter((widget: SidebarWidget) => {
     if (widget.name === 'Filters') {
-      return widget.active && (showFilterState.value || showFilterCategory.value || showFilterTag.value || showFilterTracker.value)
+      return widget.active && filters.value.some(f => f.active)
     }
     return widget.active
   })
