@@ -22,7 +22,7 @@ const dashboardStore = useDashboardStore()
 </script>
 
 <template>
-  <v-row id="torrentList" class="ma-0 overflow-y-auto" :style="`max-height: ${height}px`">
+  <v-row id="torrentList" class="overflow-y-auto" :style="`max-height: ${height}px`">
     <v-col
       v-for="torrent in paginatedTorrents"
       :key="torrent.hash"
@@ -32,7 +32,6 @@ const dashboardStore = useDashboardStore()
       md="4"
       sm="6"
       xl="2"
-      class="pb-0"
       style="user-select: none; -webkit-user-select: none"
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
       @dblclick="$emit('onTorrentDblClick', torrent)"

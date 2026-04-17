@@ -82,7 +82,7 @@ function disableFilter(value: T) {
 
 <template>
   <v-list-item class="px-0 pb-3">
-    <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
+    <v-list-item-title class="px-0 ml-1 text-body-large">
       {{ title }}
     </v-list-item-title>
 

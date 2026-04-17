@@ -8,8 +8,8 @@ const childProps = defineProps<CardProps<any> & { unit: string }>()
 <template>
   <BaseCard v-bind="childProps">
     <template #default="{ value: val }">
-      <span data-testid="card-value" class="text-subtitle-1 font-weight-bold">{{ val }}</span>
-      <span data-testid="card-unit" class="font-weight-light text-caption ml-1 text-subtitle-1">{{ unit }}</span>
+      <span data-testid="card-value" class="text-title-medium font-weight-bold">{{ val }}</span>
+      <span data-testid="card-unit" class="text-label-large ml-1">{{ unit }}</span>
     </template>
   </BaseCard>
 </template>

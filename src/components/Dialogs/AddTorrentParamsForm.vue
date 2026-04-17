@@ -220,7 +220,7 @@ defineExpose({ saveFields })
     </v-col>
   </v-row>
 
-  <v-row class="mx-3">
+  <v-row>
     <v-col cols="12" md="6">
       <v-checkbox v-model="form.stopped" :label="t('dialogs.add.params.stopped')" color="accent" density="compact" hide-details />
     </v-col>

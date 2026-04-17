@@ -120,13 +120,11 @@ function getTorrentRowColorClass(torrent: TorrentType) {
 </template>
 
 <style lang="scss">
-@use 'vuetify/settings';
-
 #torrentList {
   background-color: unset;
 
   tbody tr:nth-child(even) {
-    background-color: settings.$card-background;
+    background-color: rgb(var(--v-theme-surface));
   }
 
   tbody tr.selected {

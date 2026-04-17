@@ -140,7 +140,7 @@ onBeforeMount(() => {
                     {{ filename }}
                   </v-chip>
                 </template>
-                <span v-if="fileNames.length === fileOverflowDisplayLimit + 1" class="text-overline text-grey-darken-2 ml-2">
+                <span v-if="fileNames.length > fileOverflowDisplayLimit" class="text-label-medium text-grey-darken-2 ml-2">
                   {{ t('dialogs.add.file_overflow', fileNames.length - fileOverflowDisplayLimit) }}
                 </span>
               </template>
@@ -175,7 +175,7 @@ onBeforeMount(() => {
           </v-col>
         </v-row>
 
-        <v-row class="mx-3">
+        <v-row>
           <v-col cols="12" md="6">
             <v-checkbox v-model="form.sequentialDownload" :label="t('dialogs.add.sequential_download')" color="accent" density="compact" hide-details />
           </v-col>

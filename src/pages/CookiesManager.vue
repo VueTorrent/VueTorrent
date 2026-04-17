@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="pa-3">
     <div class="d-flex align-center">
-      <div class="text-h5 ml-2">
+      <div class="text-headline-medium ml-2">
         {{ t('cookiesManager.title') }}
       </div>
       <v-spacer />

@@ -7,7 +7,7 @@ defineProps<{
 
 <template>
   <v-card flat class="inherit-bg">
-    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
+    <v-card-title class="px-0 text-white ml-1 text-body-large">
       {{ title }}
     </v-card-title>
     <v-card-text :class="['px-0', 'pb-0', 'd-grid', `grid-columns-${columns}`, 'ga-2']">

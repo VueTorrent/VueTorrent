@@ -1,6 +1,7 @@
 import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
 import { describe, expect } from 'vitest'
+
 import UnitCard from './UnitCard.vue'
 import i18n from '@/plugins/i18n'
 import vuetify from '@/plugins/vuetify'
@@ -25,12 +26,10 @@ describe('UnitCard.vue', () => {
 
     const valueField = wrapper.find('[data-testid="card-value"]')
     expect(valueField.exists()).toBe(true)
-    expect(valueField.classes('font-weight-bold')).toBe(true)
     expect(valueField.text()).toBe('123456')
 
     const unitField = wrapper.find('[data-testid="card-unit"]')
     expect(unitField.exists()).toBe(true)
-    expect(unitField.classes('font-weight-light')).toBe(true)
     expect(unitField.text()).toBe('ms')
   })
 })
