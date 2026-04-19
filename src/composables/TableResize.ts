@@ -13,18 +13,36 @@ import {
 } from '@/helpers/tableResize'
 import { useVueTorrentStore } from '@/stores'
 
+type ResizeHandleState = {
+  cleanup: () => void
+  columnKey: string
+  col: HTMLTableColElement
+  handle: HTMLDivElement
+  index: number
+}
+
 export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<string | undefined>) {
   const vuetorrentStore = useVueTorrentStore()
 
   let resizeFrameId = 0
   let resetFrameId = 0
   let resizeObserver: ResizeObserver | undefined
-  const resizeHandleCleanups: Array<() => void> = []
+  let isApplyingResize = false
+  const resizeHandleStates = new Map<HTMLTableCellElement, ResizeHandleState>()
   const resizeLastMouseDownTimes = new Map<number, number>()
 
+  function removeResizeHandle(th: HTMLTableCellElement) {
+    const existing = resizeHandleStates.get(th)
+    if (!existing) return
+
+    existing.cleanup()
+    existing.handle.remove()
+    resizeHandleStates.delete(th)
+  }
+
   function clearResizeHandles(root: HTMLElement) {
-    while (resizeHandleCleanups.length) {
-      resizeHandleCleanups.pop()?.()
+    for (const th of resizeHandleStates.keys()) {
+      removeResizeHandle(th)
     }
     root.querySelectorAll(`.${RESIZE_HANDLE_CLASS}`).forEach(node => node.remove())
   }
@@ -46,7 +64,18 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
       const th = headerCells[index]
       const currentCol = resizeColumns[index]
       const columnKey = columnKeys[index]
-      if (!columnKey) continue
+      const existing = resizeHandleStates.get(th)
+
+      if (!columnKey) {
+        removeResizeHandle(th)
+        continue
+      }
+
+      if (existing && existing.columnKey === columnKey && existing.index === index && existing.col === currentCol) {
+        continue
+      }
+
+      removeResizeHandle(th)
 
       const resizeHandle = createResizeHandle()
 
@@ -105,8 +134,21 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
       }
 
       resizeHandle.addEventListener('mousedown', onResizeMouseDown)
-      resizeHandleCleanups.push(() => resizeHandle.removeEventListener('mousedown', onResizeMouseDown))
+      resizeHandleStates.set(th, {
+        cleanup: () => resizeHandle.removeEventListener('mousedown', onResizeMouseDown),
+        columnKey,
+        col: currentCol,
+        handle: resizeHandle,
+        index,
+      })
       th.appendChild(resizeHandle)
+    }
+
+    const activeHeaders = new Set(headerCells)
+    for (const th of resizeHandleStates.keys()) {
+      if (!activeHeaders.has(th)) {
+        removeResizeHandle(th)
+      }
     }
   }
 
@@ -114,23 +156,29 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
     const root = rootRef.value
     if (!root) return
 
-    clearResizeHandles(root)
-
     const table = root.querySelector('table')
     const headerCells = Array.from(root.querySelectorAll<HTMLTableCellElement>('thead th'))
-    if (!table || headerCells.length < 2) return
+    if (!table || headerCells.length < 2) {
+      clearResizeHandles(root)
+      return
+    }
 
     const resizeColumns = ensureColgroup(table, headerCells)
     const columnKeys = headerCells.map(th => th.dataset.resizableKey)
     const resizeTableKey = rootId.value ? `table:${rootId.value}` : undefined
     const persistedWidths = resizeTableKey ? (vuetorrentStore.tableColumnWidths[resizeTableKey] ?? {}) : {}
 
+    isApplyingResize = true
     resizeObserver?.unobserve(root)
     const widths = resolveColumnWidths(table, headerCells, resizeColumns, columnKeys, persistedWidths)
     applyColumnWidths(resizeColumns, headerCells, widths, columnKeys)
-    resizeObserver?.observe(root)
-
     attachResizeHandles(headerCells, resizeColumns, columnKeys, root, resizeTableKey, table)
+
+    requestAnimationFrame(() => {
+      if (rootRef.value !== root) return
+      isApplyingResize = false
+      resizeObserver?.observe(root)
+    })
   }
 
   function destroyResizeBehavior() {
@@ -138,12 +186,16 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
     cancelAnimationFrame(resizeFrameId)
     cancelAnimationFrame(resetFrameId)
     resizeObserver?.disconnect()
+    isApplyingResize = false
     if (root) clearResizeHandles(root)
   }
 
   onMounted(() => {
     if (typeof ResizeObserver !== 'undefined' && rootRef.value) {
-      resizeObserver = new ResizeObserver(queueResizeRedraw)
+      resizeObserver = new ResizeObserver(() => {
+        if (isApplyingResize) return
+        queueResizeRedraw()
+      })
       resizeObserver.observe(rootRef.value)
     }
     queueResizeRedraw()

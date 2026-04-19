@@ -142,6 +142,30 @@ describe('composables/TableResize', () => {
     expect(wrapper.element.querySelector(`colgroup.${COLGROUP_CLASS}`)?.children).toHaveLength(3)
   })
 
+  it('keeps existing handle nodes stable across ordinary component updates', async () => {
+    const wrapper = mount(ResizeHarness, {
+      props: {
+        columnCount: 2,
+        keyedIndexes: [0, 1],
+      },
+    })
+
+    vi.runAllTimers()
+
+    const initialHandles = Array.from(wrapper.element.querySelectorAll(`.${HANDLE_CLASS}`))
+    expect(initialHandles).toHaveLength(2)
+
+    await wrapper.setProps({
+      keyedIndexes: [0, 1],
+    })
+    vi.runAllTimers()
+
+    const updatedHandles = Array.from(wrapper.element.querySelectorAll(`.${HANDLE_CLASS}`))
+    expect(updatedHandles).toHaveLength(2)
+    expect(updatedHandles[0]).toBe(initialHandles[0])
+    expect(updatedHandles[1]).toBe(initialHandles[1])
+  })
+
   it('persists keyed widths from the composable and restores them on remount', () => {
     const firstWrapper = mount(ResizeHarness, {
       props: {
@@ -183,11 +207,12 @@ describe('composables/TableResize', () => {
 
   it('disconnects the ResizeObserver and removes handles on unmount', () => {
     const observeSpy = vi.fn()
+    const unobserveSpy = vi.fn()
     const disconnectSpy = vi.fn()
 
     const MockResizeObserver = vi.fn(function MockResizeObserver(this: ResizeObserver) {
       this.observe = observeSpy
-      this.unobserve = vi.fn()
+      this.unobserve = unobserveSpy
       this.disconnect = disconnectSpy
     } as any)
 
@@ -209,6 +234,7 @@ describe('composables/TableResize', () => {
     wrapper.unmount()
 
     expect(disconnectSpy).toHaveBeenCalledOnce()
+    expect(unobserveSpy).toHaveBeenCalled()
     expect(document.body.querySelectorAll(`.${HANDLE_CLASS}`)).toHaveLength(0)
   })
 })
