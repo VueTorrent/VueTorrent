@@ -29,7 +29,6 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
   let resizeObserver: ResizeObserver | undefined
   let isApplyingResize = false
   const resizeHandleStates = new Map<HTMLTableCellElement, ResizeHandleState>()
-  const resizeLastMouseDownTimes = new Map<number, number>()
 
   function removeResizeHandle(th: HTMLTableCellElement) {
     const existing = resizeHandleStates.get(th)
@@ -80,29 +79,8 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
       const resizeHandle = createResizeHandle()
 
       function onResizeMouseDown(event: MouseEvent) {
-        const now = Date.now()
-        const isDoubleClick = now - (resizeLastMouseDownTimes.get(index) ?? 0) < 300
-        resizeLastMouseDownTimes.set(index, now)
-
         event.preventDefault()
         event.stopPropagation()
-
-        if (isDoubleClick) {
-          resizeObserver?.unobserve(resizeRoot)
-          table.style.tableLayout = 'auto'
-          currentCol.style.width = ''
-          th.style.width = ''
-          if (resizeTableKey && columnKey) {
-            vuetorrentStore.clearTableColumnWidth(resizeTableKey, columnKey)
-          }
-          resetFrameId = requestAnimationFrame(() => {
-            const naturalWidth = Math.max(th.getBoundingClientRect().width, MIN_RESIZE_COLUMN_WIDTH)
-            table.style.tableLayout = 'fixed'
-            setResizeColumnWidth(currentCol, th, naturalWidth)
-            resizeObserver?.observe(resizeRoot)
-          })
-          return
-        }
 
         const startX = event.clientX
         const startWidth = getResizeColumnWidth(th, currentCol)
@@ -133,9 +111,39 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
         document.addEventListener('mouseup', onResizeMouseUp)
       }
 
+      function onResizeClick(event: MouseEvent) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      function onResizeDoubleClick(event: MouseEvent) {
+        event.preventDefault()
+        event.stopPropagation()
+
+        resizeObserver?.unobserve(resizeRoot)
+        table.style.tableLayout = 'auto'
+        currentCol.style.width = ''
+        th.style.width = ''
+        if (resizeTableKey && columnKey) {
+          vuetorrentStore.clearTableColumnWidth(resizeTableKey, columnKey)
+        }
+        resetFrameId = requestAnimationFrame(() => {
+          const naturalWidth = Math.max(th.getBoundingClientRect().width, MIN_RESIZE_COLUMN_WIDTH)
+          table.style.tableLayout = 'fixed'
+          setResizeColumnWidth(currentCol, th, naturalWidth)
+          resizeObserver?.observe(resizeRoot)
+        })
+      }
+
       resizeHandle.addEventListener('mousedown', onResizeMouseDown)
+      resizeHandle.addEventListener('click', onResizeClick)
+      resizeHandle.addEventListener('dblclick', onResizeDoubleClick)
       resizeHandleStates.set(th, {
-        cleanup: () => resizeHandle.removeEventListener('mousedown', onResizeMouseDown),
+        cleanup: () => {
+          resizeHandle.removeEventListener('mousedown', onResizeMouseDown)
+          resizeHandle.removeEventListener('click', onResizeClick)
+          resizeHandle.removeEventListener('dblclick', onResizeDoubleClick)
+        },
         columnKey,
         col: currentCol,
         handle: resizeHandle,

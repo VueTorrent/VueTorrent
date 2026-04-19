@@ -81,6 +81,16 @@ function fireMouseup() {
   document.dispatchEvent(new MouseEvent('mouseup'))
 }
 
+function fireDblclick(target: Element, clientX = 0) {
+  target.dispatchEvent(
+    new MouseEvent('dblclick', {
+      bubbles: true,
+      cancelable: true,
+      clientX,
+    })
+  )
+}
+
 beforeEach(() => {
   vi.useFakeTimers()
 
@@ -238,11 +248,7 @@ describe('TableComponent.vue', () => {
 
     const handle = wrapper.element.querySelector(`.${HANDLE_CLASS}`) as HTMLElement
 
-    vi.setSystemTime(1000)
-    fireMousedown(handle, 0)
-
-    vi.setSystemTime(1100)
-    fireMousedown(handle, 0)
+    fireDblclick(handle, 0)
     vi.runAllTimers()
 
     expect(parseFloat(col.style.width)).toBeCloseTo(DEFAULT_WIDTH, 0)
@@ -293,11 +299,7 @@ describe('TableComponent.vue', () => {
 
     const handle = wrapper.element.querySelector(`.${HANDLE_CLASS}`) as HTMLElement
 
-    vi.setSystemTime(1000)
-    fireMousedown(handle, 0)
-
-    vi.setSystemTime(1100)
-    fireMousedown(handle, 0)
+    fireDblclick(handle, 0)
     vi.runAllTimers()
 
     expect(store.tableColumnWidths['table:torrents']).toBeUndefined()

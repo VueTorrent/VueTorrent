@@ -87,6 +87,26 @@ function fireMouseup() {
   document.dispatchEvent(new MouseEvent('mouseup'))
 }
 
+function fireClick(target: Element, clientX = 0) {
+  target.dispatchEvent(
+    new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      clientX,
+    })
+  )
+}
+
+function fireDblclick(target: Element, clientX = 0) {
+  target.dispatchEvent(
+    new MouseEvent('dblclick', {
+      bubbles: true,
+      cancelable: true,
+      clientX,
+    })
+  )
+}
+
 describe('composables/TableResize', () => {
   beforeEach(() => {
     vi.useFakeTimers()
@@ -164,6 +184,68 @@ describe('composables/TableResize', () => {
     expect(updatedHandles).toHaveLength(2)
     expect(updatedHandles[0]).toBe(initialHandles[0])
     expect(updatedHandles[1]).toBe(initialHandles[1])
+  })
+
+  it('stops click events on the resize handle from bubbling to the header', () => {
+    const onHeaderClick = vi.fn()
+    const wrapper = mount({
+      setup() {
+        const rootRef = ref<HTMLElement | null>(null)
+        const rootId = computed(() => 'torrents')
+
+        useTableResize(rootRef, rootId)
+
+        return () =>
+          h('div', { ref: rootRef }, [
+            h('table', [
+              h('thead', [
+                h('tr', [
+                  h('th', { 'data-resizable-key': 'col-0', onClick: onHeaderClick }, 'Col 0'),
+                  h('th', { 'data-resizable-key': 'col-1' }, 'Col 1'),
+                ]),
+              ]),
+            ]),
+          ])
+      },
+    })
+
+    vi.runAllTimers()
+
+    const handle = wrapper.element.querySelector(`.${HANDLE_CLASS}`) as HTMLElement
+    fireClick(handle)
+
+    expect(onHeaderClick).not.toHaveBeenCalled()
+  })
+
+  it('stops double-click events on the resize handle from bubbling to the header', () => {
+    const onHeaderDoubleClick = vi.fn()
+    const wrapper = mount({
+      setup() {
+        const rootRef = ref<HTMLElement | null>(null)
+        const rootId = computed(() => 'torrents')
+
+        useTableResize(rootRef, rootId)
+
+        return () =>
+          h('div', { ref: rootRef }, [
+            h('table', [
+              h('thead', [
+                h('tr', [
+                  h('th', { 'data-resizable-key': 'col-0', onDblclick: onHeaderDoubleClick }, 'Col 0'),
+                  h('th', { 'data-resizable-key': 'col-1' }, 'Col 1'),
+                ]),
+              ]),
+            ]),
+          ])
+      },
+    })
+
+    vi.runAllTimers()
+
+    const handle = wrapper.element.querySelector(`.${HANDLE_CLASS}`) as HTMLElement
+    fireDblclick(handle)
+
+    expect(onHeaderDoubleClick).not.toHaveBeenCalled()
   })
 
   it('persists keyed widths from the composable and restores them on remount', () => {
