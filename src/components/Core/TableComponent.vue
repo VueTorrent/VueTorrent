@@ -15,7 +15,7 @@ useTableResize(rootRef, rootId)
 </script>
 
 <template>
-  <div ref="rootRef">
+  <div ref="rootRef" class="vt-resizable-table">
     <v-data-table v-bind="tableAttrs as any">
       <template v-for="name in slotNames" #[name]="slotProps">
         <slot :name="name" v-bind="slotProps" />
@@ -24,11 +24,37 @@ useTableResize(rootRef, rootId)
   </div>
 </template>
 
-<style lang="scss" scoped>
-:deep(th),
-:deep(td) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+<style lang="scss">
+.vt-resizable-table {
+  th {
+    position: relative;
+
+    &[data-resizable-key] {
+      .vt-resizable-column-handle {
+        right: 0 !important;
+        width: 12px !important;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 18%;
+        bottom: 18%;
+        right: 6px;
+        width: 1px;
+        background: rgba(var(--v-theme-on-surface), 0.25);
+      }
+
+      > * {
+        overflow: hidden;
+      }
+    }
+  }
+
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 </style>
