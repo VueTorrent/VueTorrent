@@ -32,20 +32,20 @@ useTableResize(rootRef, rootId)
     &[data-resizable-key] {
       .vt-resizable-column-handle {
         right: 0 !important;
-        width: 12px !important;
+        width: 6px !important;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 18%;
+          bottom: 18%;
+          right: 0;
+          width: 1px;
+          background: rgba(var(--v-theme-on-surface), 0.25);
+        }
       }
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 18%;
-        bottom: 18%;
-        right: 6px;
-        width: 1px;
-        background: rgba(var(--v-theme-on-surface), 0.25);
-      }
-
-      > * {
+      > :not(.vt-resizable-column-handle) {
         overflow: hidden;
       }
     }

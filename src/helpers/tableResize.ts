@@ -2,6 +2,8 @@ export const RESIZE_HANDLE_CLASS = 'vt-resizable-column-handle'
 export const RESIZE_COLGROUP_CLASS = 'vt-resizable-column-group'
 export const MIN_RESIZE_COLUMN_WIDTH = 36
 
+const RESIZE_HANDLE_WIDTH = 6
+
 export function clampResizeDelta(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value))
 }
@@ -23,13 +25,12 @@ export function createResizeHandle(): HTMLDivElement {
   Object.assign(resizeHandle.style, {
     position: 'absolute',
     top: '0',
-    right: '-4px',
-    width: '8px',
+    right: '0',
+    width: `${RESIZE_HANDLE_WIDTH}px`,
     height: '100%',
     cursor: 'col-resize',
     userSelect: 'none',
     touchAction: 'none',
-    zIndex: '3',
   })
   return resizeHandle
 }

@@ -197,14 +197,7 @@ describe('composables/TableResize', () => {
 
         return () =>
           h('div', { ref: rootRef }, [
-            h('table', [
-              h('thead', [
-                h('tr', [
-                  h('th', { 'data-resizable-key': 'col-0', onClick: onHeaderClick }, 'Col 0'),
-                  h('th', { 'data-resizable-key': 'col-1' }, 'Col 1'),
-                ]),
-              ]),
-            ]),
+            h('table', [h('thead', [h('tr', [h('th', { 'data-resizable-key': 'col-0', onClick: onHeaderClick }, 'Col 0'), h('th', { 'data-resizable-key': 'col-1' }, 'Col 1')])])]),
           ])
       },
     })
@@ -229,12 +222,7 @@ describe('composables/TableResize', () => {
         return () =>
           h('div', { ref: rootRef }, [
             h('table', [
-              h('thead', [
-                h('tr', [
-                  h('th', { 'data-resizable-key': 'col-0', onDblclick: onHeaderDoubleClick }, 'Col 0'),
-                  h('th', { 'data-resizable-key': 'col-1' }, 'Col 1'),
-                ]),
-              ]),
+              h('thead', [h('tr', [h('th', { 'data-resizable-key': 'col-0', onDblclick: onHeaderDoubleClick }, 'Col 0'), h('th', { 'data-resizable-key': 'col-1' }, 'Col 1')])]),
             ]),
           ])
       },

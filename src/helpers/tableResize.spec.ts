@@ -78,8 +78,10 @@ describe('helpers/tableResize', () => {
     it('sets expected inline styles', () => {
       const handle = createResizeHandle()
       expect(handle.style.position).toBe('absolute')
+      expect(handle.style.right).toBe('0px')
+      expect(handle.style.width).toBe('6px')
       expect(handle.style.cursor).toBe('col-resize')
-      expect(handle.style.zIndex).toBe('3')
+      expect(handle.style.zIndex).toBe('')
       expect(handle.style.userSelect).toBe('none')
     })
   })
