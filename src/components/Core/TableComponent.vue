@@ -29,6 +29,18 @@ useTableResize(rootRef, rootId)
   th {
     position: relative;
 
+    .vt-resizable-column-handle {
+      position: absolute;
+      top: 0;
+      right: -4px;
+      z-index: 3;
+      width: 8px;
+      height: 100%;
+      cursor: col-resize;
+      user-select: none;
+      touch-action: none;
+    }
+
     &[data-resizable-key] {
       .vt-resizable-column-handle {
         right: 0 !important;

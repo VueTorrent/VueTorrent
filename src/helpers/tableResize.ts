@@ -22,16 +22,6 @@ export function createResizeHandle(): HTMLDivElement {
   const resizeHandle = document.createElement('div')
   resizeHandle.classList.add(RESIZE_HANDLE_CLASS)
   resizeHandle.setAttribute('aria-hidden', 'true')
-  Object.assign(resizeHandle.style, {
-    position: 'absolute',
-    top: '0',
-    right: '0',
-    width: `${RESIZE_HANDLE_WIDTH}px`,
-    height: '100%',
-    cursor: 'col-resize',
-    userSelect: 'none',
-    touchAction: 'none',
-  })
   return resizeHandle
 }
 
