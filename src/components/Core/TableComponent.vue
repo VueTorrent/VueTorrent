@@ -31,10 +31,9 @@ useTableResize(rootRef, rootId)
 
     .vt-resizable-column-handle {
       position: absolute;
+      right: 0px;
+      width: 6px;
       top: 0;
-      right: -4px;
-      z-index: 3;
-      width: 8px;
       height: 100%;
       cursor: col-resize;
       user-select: none;
@@ -43,15 +42,12 @@ useTableResize(rootRef, rootId)
 
     &[data-resizable-key] {
       .vt-resizable-column-handle {
-        right: 0 !important;
-        width: 6px !important;
-
         &::after {
           content: '';
           position: absolute;
+          right: 0px;
           top: 18%;
           bottom: 18%;
-          right: 0;
           width: 1px;
           background: rgba(var(--v-theme-on-surface), 0.25);
         }
