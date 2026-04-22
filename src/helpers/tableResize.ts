@@ -2,8 +2,6 @@ export const RESIZE_HANDLE_CLASS = 'vt-resizable-column-handle'
 export const RESIZE_COLGROUP_CLASS = 'vt-resizable-column-group'
 export const MIN_RESIZE_COLUMN_WIDTH = 36
 
-const RESIZE_HANDLE_WIDTH = 6
-
 export function clampResizeDelta(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value))
 }

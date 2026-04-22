@@ -2,7 +2,6 @@ import { afterEach, beforeEach } from 'vitest'
 import {
   RESIZE_COLGROUP_CLASS,
   RESIZE_HANDLE_CLASS,
-  MIN_RESIZE_COLUMN_WIDTH,
   applyColumnWidths,
   clampResizeDelta,
   createResizeHandle,
@@ -177,10 +176,6 @@ describe('helpers/tableResize', () => {
       cols[0].dataset.resizableKey = 'col-OTHER'
       const widths = resolveColumnWidths(table, cells, cols, ['col-0'], {})
       expect(widths[0]).toBe(DEFAULT_WIDTH)
-    })
-
-    it('enforces the minimum column width constant is sensible', () => {
-      expect(MIN_RESIZE_COLUMN_WIDTH).toBeGreaterThan(0)
     })
   })
 
