@@ -26,13 +26,26 @@ useTableResize(rootRef, rootId)
 
 <style lang="scss">
 .vt-resizable-table {
+  --vt-resizable-column-handle-line-offset: 6px;
+  --vt-resizable-table-cell-padding-inline: 16px;
+
+  .v-table__wrapper > table {
+    > thead > tr > th:not(.px-1),
+    > thead > tr > td:not(.px-1),
+    > tbody > tr > th:not(.pa-0),
+    > tbody > tr > td:not(.pa-0) {
+      padding-inline: calc(var(--vt-resizable-table-cell-padding-inline) - var(--vt-resizable-column-handle-line-offset))
+        calc(var(--vt-resizable-table-cell-padding-inline) + var(--vt-resizable-column-handle-line-offset));
+    }
+  }
+
   th {
     position: relative;
 
     .vt-resizable-column-handle {
       position: absolute;
       right: 0px;
-      width: 6px;
+      width: 12px;
       top: 0;
       height: 100%;
       cursor: col-resize;
@@ -45,7 +58,7 @@ useTableResize(rootRef, rootId)
         &::after {
           content: '';
           position: absolute;
-          right: 0px;
+          right: var(--vt-resizable-column-handle-line-offset);
           top: 18%;
           bottom: 18%;
           width: 1px;
