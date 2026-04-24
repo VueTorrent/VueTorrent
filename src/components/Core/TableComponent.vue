@@ -27,15 +27,15 @@ useTableResize(rootRef, rootId)
 <style lang="scss">
 .vt-resizable-table {
   --vt-resizable-column-handle-line-offset: 6px;
-  --vt-resizable-table-cell-padding-inline: 16px;
+  --vt-resizable-table-cell-padding-x: 16px;
 
   .v-table__wrapper > table {
     > thead > tr > th:not(.px-1),
     > thead > tr > td:not(.px-1),
     > tbody > tr > th:not(.pa-0),
     > tbody > tr > td:not(.pa-0) {
-      padding-inline: calc(var(--vt-resizable-table-cell-padding-inline) - var(--vt-resizable-column-handle-line-offset))
-        calc(var(--vt-resizable-table-cell-padding-inline) + var(--vt-resizable-column-handle-line-offset));
+      padding-left: calc(var(--vt-resizable-table-cell-padding-x) - var(--vt-resizable-column-handle-line-offset));
+      padding-right: calc(var(--vt-resizable-table-cell-padding-x) + var(--vt-resizable-column-handle-line-offset));
     }
   }
 
