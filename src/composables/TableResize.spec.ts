@@ -35,9 +35,21 @@ vi.mock('@/stores', () => {
 const ResizeHarness = defineComponent({
   name: 'ResizeHarness',
   props: {
+    bodyLabel: {
+      type: String,
+      default: 'Body',
+    },
+    columnKeys: {
+      type: Array as () => string[],
+      default: () => [],
+    },
     columnCount: {
       type: Number,
       required: true,
+    },
+    headerNaturalWidths: {
+      type: Array as () => Array<number | undefined>,
+      default: () => [],
     },
     tableId: {
       type: String,
@@ -47,12 +59,20 @@ const ResizeHarness = defineComponent({
       type: Array as () => number[],
       default: () => [],
     },
+    showSortIcon: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const rootRef = ref<HTMLElement | null>(null)
     const rootId = computed(() => props.tableId)
 
     useTableResize(rootRef, rootId)
+
+    function getColumnKey(index: number) {
+      return props.columnKeys[index] ?? `col-${index}`
+    }
 
     return () =>
       h('div', { ref: rootRef }, [
@@ -61,40 +81,26 @@ const ResizeHarness = defineComponent({
             'thead',
             h(
               'tr',
-              Array.from({ length: props.columnCount }, (_, index) => h('th', props.keyedIndexes.includes(index) ? { 'data-resizable-key': `col-${index}` } : {}, `Col ${index}`))
+              Array.from({ length: props.columnCount }, (_, index) => {
+                const columnKey = getColumnKey(index)
+                const naturalWidth = props.headerNaturalWidths[index]
+                const headerAttrs: Record<string, string> = {}
+                if (props.keyedIndexes.includes(index)) {
+                  headerAttrs['data-resizable-key'] = columnKey
+                }
+                if (naturalWidth !== undefined) {
+                  headerAttrs['data-natural-width'] = `${naturalWidth}`
+                }
+
+                if (index === 0 && props.showSortIcon) {
+                  return h('th', headerAttrs, [h('span', 'Name'), h('span', { class: 'sort-icon' }, 'icon')])
+                }
+
+                return h('th', headerAttrs, `Col ${index}`)
+              })
             )
           ),
-        ]),
-      ])
-  },
-})
-
-const GrowingHeaderHarness = defineComponent({
-  name: 'GrowingHeaderHarness',
-  props: {
-    showSortIcon: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup(props) {
-    const rootRef = ref<HTMLElement | null>(null)
-    const rootId = computed(() => 'torrents')
-
-    useTableResize(rootRef, rootId)
-
-    return () =>
-      h('div', { ref: rootRef }, [
-        h('table', [
-          h('thead', [
-            h('tr', [
-              h('th', { 'data-resizable-key': 'name', 'data-natural-width': props.showSortIcon ? '144' : '120' }, [
-                h('span', 'Name'),
-                props.showSortIcon ? h('span', { class: 'sort-icon' }, 'icon') : null,
-              ]),
-              h('th', { 'data-resizable-key': 'size', 'data-natural-width': '120' }, 'Size'),
-            ]),
-          ]),
+          h('tbody', [h('tr', [h('td', props.bodyLabel)])]),
         ]),
       ])
   },
@@ -217,6 +223,25 @@ describe('composables/TableResize', () => {
     expect(updatedHandles[1]).toBe(initialHandles[1])
   })
 
+  it('does not remeasure columns for ordinary body updates', async () => {
+    const measureSpy = vi.spyOn(Element.prototype, 'getBoundingClientRect')
+    const wrapper = mount(ResizeHarness, {
+      props: {
+        bodyLabel: 'Body',
+        columnCount: 2,
+        keyedIndexes: [0, 1],
+      },
+    })
+
+    vi.runAllTimers()
+    measureSpy.mockClear()
+
+    await wrapper.setProps({ bodyLabel: 'Updated body' })
+    vi.runAllTimers()
+
+    expect(measureSpy).not.toHaveBeenCalled()
+  })
+
   it('stops click events on the resize handle from bubbling to the header', () => {
     const onHeaderClick = vi.fn()
     const wrapper = mount({
@@ -322,31 +347,33 @@ describe('composables/TableResize', () => {
       } as DOMRect
     })
 
-    const wrapper = mount(GrowingHeaderHarness)
+    const wrapper = mount(ResizeHarness, {
+      props: {
+        columnCount: 2,
+        columnKeys: ['name', 'size'],
+        headerNaturalWidths: [120, 120],
+        keyedIndexes: [0, 1],
+        tableId: 'torrents',
+      },
+    })
 
     vi.runAllTimers()
 
     const col = wrapper.element.querySelector(`colgroup.${COLGROUP_CLASS} col:first-child`) as HTMLElement
     expect(parseFloat(col.style.width)).toBe(120)
 
-    await wrapper.setProps({ showSortIcon: true })
+    await wrapper.setProps({
+      headerNaturalWidths: [144, 120],
+      showSortIcon: true,
+    })
     vi.runAllTimers()
 
     expect(parseFloat(col.style.width)).toBe(144)
   })
 
-  it('disconnects the ResizeObserver and removes handles on unmount', () => {
-    const observeSpy = vi.fn()
-    const unobserveSpy = vi.fn()
-    const disconnectSpy = vi.fn()
-
-    const MockResizeObserver = vi.fn(function MockResizeObserver(this: ResizeObserver) {
-      this.observe = observeSpy
-      this.unobserve = unobserveSpy
-      this.disconnect = disconnectSpy
-    } as any)
-
-    vi.stubGlobal('ResizeObserver', MockResizeObserver)
+  it('removes handles on unmount and unregisters the window resize listener', () => {
+    const addEventListenerSpy = vi.spyOn(window, 'addEventListener')
+    const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener')
 
     const wrapper = mount(ResizeHarness, {
       props: {
@@ -359,12 +386,11 @@ describe('composables/TableResize', () => {
     vi.runAllTimers()
 
     expect(wrapper.element.querySelectorAll(`.${HANDLE_CLASS}`)).toHaveLength(3)
-    expect(observeSpy).toHaveBeenCalledWith(wrapper.element)
+    expect(addEventListenerSpy).toHaveBeenCalledWith('resize', expect.any(Function))
 
     wrapper.unmount()
 
-    expect(disconnectSpy).toHaveBeenCalledOnce()
-    expect(unobserveSpy).toHaveBeenCalled()
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('resize', expect.any(Function))
     expect(document.body.querySelectorAll(`.${HANDLE_CLASS}`)).toHaveLength(0)
   })
 })

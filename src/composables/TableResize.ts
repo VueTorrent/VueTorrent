@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted, onUpdated } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import {
   RESIZE_HANDLE_CLASS,
@@ -27,8 +27,8 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
 
   let resizeFrameId = 0
   let resetFrameId = 0
-  let resizeObserver: ResizeObserver | undefined
-  let isApplyingResize = false
+  let headerMutationObserver: MutationObserver | undefined
+  let observedHeader: HTMLTableSectionElement | null = null
   const resizeHandleStates = new Map<HTMLTableCellElement, ResizeHandleState>()
 
   function removeResizeHandle(th: HTMLTableCellElement) {
@@ -52,11 +52,44 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
     resizeFrameId = requestAnimationFrame(drawResizeHandles)
   }
 
+  function syncHeaderObserver(header: HTMLTableSectionElement | null) {
+    if (observedHeader === header) return
+
+    headerMutationObserver?.disconnect()
+    observedHeader = header
+
+    if (!header || typeof MutationObserver === 'undefined') return
+
+    if (!headerMutationObserver) {
+      headerMutationObserver = new MutationObserver(mutations => {
+        const hasRelevantMutation = mutations.some(mutation => {
+          if (mutation.type === 'characterData') return true
+          if (mutation.type !== 'childList') return false
+
+          const changedNodes = [...mutation.addedNodes, ...mutation.removedNodes]
+            .filter((node): node is Element => node instanceof Element)
+            .filter(node => !node.classList.contains(RESIZE_HANDLE_CLASS))
+
+          return changedNodes.length > 0
+        })
+
+        if (hasRelevantMutation) {
+          queueResizeRedraw()
+        }
+      })
+    }
+
+    headerMutationObserver.observe(header, {
+      childList: true,
+      characterData: true,
+      subtree: true,
+    })
+  }
+
   function attachResizeHandles(
     headerCells: HTMLTableCellElement[],
     resizeColumns: HTMLTableColElement[],
     columnKeys: (string | undefined)[],
-    resizeRoot: HTMLElement,
     resizeTableKey: string | undefined,
     table: HTMLTableElement
   ) {
@@ -122,7 +155,6 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
         event.preventDefault()
         event.stopPropagation()
 
-        resizeObserver?.unobserve(resizeRoot)
         table.style.tableLayout = 'auto'
         setResizeColumnWidthLocked(currentCol, false)
         currentCol.style.width = ''
@@ -134,7 +166,6 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
           const naturalWidth = Math.max(th.getBoundingClientRect().width, MIN_RESIZE_COLUMN_WIDTH)
           table.style.tableLayout = 'fixed'
           setResizeColumnWidth(currentCol, th, naturalWidth)
-          resizeObserver?.observe(resizeRoot)
         })
       }
 
@@ -168,50 +199,39 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
     if (!root) return
 
     const table = root.querySelector('table')
+    const header = table?.querySelector('thead') ?? null
     const headerCells = Array.from(root.querySelectorAll<HTMLTableCellElement>('thead th'))
     if (!table || headerCells.length < 2) {
+      syncHeaderObserver(header)
       clearResizeHandles(root)
       return
     }
+
+    syncHeaderObserver(header)
 
     const resizeColumns = ensureColgroup(table, headerCells)
     const columnKeys = headerCells.map(th => th.dataset.resizableKey)
     const resizeTableKey = rootId.value ? `table:${rootId.value}` : undefined
     const persistedWidths = resizeTableKey ? (vuetorrentStore.tableColumnWidths[resizeTableKey] ?? {}) : {}
 
-    isApplyingResize = true
-    resizeObserver?.unobserve(root)
     const widths = resolveColumnWidths(table, headerCells, resizeColumns, columnKeys, persistedWidths)
     applyColumnWidths(resizeColumns, headerCells, widths, columnKeys)
-    attachResizeHandles(headerCells, resizeColumns, columnKeys, root, resizeTableKey, table)
-
-    requestAnimationFrame(() => {
-      if (rootRef.value !== root) return
-      isApplyingResize = false
-      resizeObserver?.observe(root)
-    })
+    attachResizeHandles(headerCells, resizeColumns, columnKeys, resizeTableKey, table)
   }
 
   function destroyResizeBehavior() {
     const root = rootRef.value
     cancelAnimationFrame(resizeFrameId)
     cancelAnimationFrame(resetFrameId)
-    resizeObserver?.disconnect()
-    isApplyingResize = false
+    headerMutationObserver?.disconnect()
+    observedHeader = null
+    window.removeEventListener('resize', queueResizeRedraw)
     if (root) clearResizeHandles(root)
   }
 
   onMounted(() => {
-    if (typeof ResizeObserver !== 'undefined' && rootRef.value) {
-      resizeObserver = new ResizeObserver(() => {
-        if (isApplyingResize) return
-        queueResizeRedraw()
-      })
-      resizeObserver.observe(rootRef.value)
-    }
+    window.addEventListener('resize', queueResizeRedraw)
     queueResizeRedraw()
   })
-
-  onUpdated(queueResizeRedraw)
   onBeforeUnmount(destroyResizeBehavior)
 }

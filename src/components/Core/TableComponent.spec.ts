@@ -305,43 +305,28 @@ describe('TableComponent.vue', () => {
     expect(store.tableColumnWidths['table:torrents']).toBeUndefined()
   })
 
-  it('observes the resize root when ResizeObserver is available and disconnects on unmount', () => {
-    const observeSpy = vi.fn()
-    const unobserveSpy = vi.fn()
-    const disconnectSpy = vi.fn()
-
-    const MockResizeObserver = vi.fn(function MockResizeObserver(this: ResizeObserver) {
-      this.observe = observeSpy
-      this.unobserve = unobserveSpy
-      this.disconnect = disconnectSpy
-    } as any)
-
-    vi.stubGlobal('ResizeObserver', MockResizeObserver)
+  it('registers and unregisters the window resize listener', () => {
+    const addEventListenerSpy = vi.spyOn(window, 'addEventListener')
+    const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener')
 
     const wrapper = mountTableComponent(3, { withKeys: true })
 
     vi.runAllTimers()
 
-    expect(MockResizeObserver).toHaveBeenCalledOnce()
-    expect(observeSpy).toHaveBeenCalledWith(wrapper.element)
+    expect(addEventListenerSpy).toHaveBeenCalledWith('resize', expect.any(Function))
 
     wrapper.unmount()
 
-    expect(disconnectSpy).toHaveBeenCalledOnce()
-    vi.unstubAllGlobals()
+    expect(removeEventListenerSpy).toHaveBeenCalledWith('resize', expect.any(Function))
   })
 
-  it('does not crash when ResizeObserver is unavailable', () => {
-    vi.stubGlobal('ResizeObserver', undefined)
-
+  it('does not crash during mount and unmount', () => {
     const wrapper = mountTableComponent(3, { withKeys: true })
 
     expect(() => {
       vi.runAllTimers()
       wrapper.unmount()
     }).not.toThrow()
-
-    vi.unstubAllGlobals()
   })
 
   it('does not create handles for headers without a resizable key', () => {
