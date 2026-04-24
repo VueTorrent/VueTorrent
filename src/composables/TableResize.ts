@@ -10,6 +10,7 @@ import {
   getResizeColumnWidth,
   resolveColumnWidths,
   setResizeColumnWidth,
+  setResizeColumnWidthLocked,
 } from '@/helpers/tableResize'
 import { useVueTorrentStore } from '@/stores'
 
@@ -92,6 +93,7 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
 
         function onResizeMouseMove(moveEvent: MouseEvent) {
           const delta = clampResizeDelta(moveEvent.clientX - startX, -(startWidth - MIN_RESIZE_COLUMN_WIDTH), Infinity)
+          setResizeColumnWidthLocked(currentCol, true)
           setResizeColumnWidth(currentCol, th, startWidth + delta)
         }
 
@@ -122,6 +124,7 @@ export function useTableResize(rootRef: Ref<HTMLElement | null>, rootId: Ref<str
 
         resizeObserver?.unobserve(resizeRoot)
         table.style.tableLayout = 'auto'
+        setResizeColumnWidthLocked(currentCol, false)
         currentCol.style.width = ''
         th.style.width = ''
         if (resizeTableKey && columnKey) {

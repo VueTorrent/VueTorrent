@@ -9,6 +9,7 @@ import {
   getResizeColumnWidth,
   resolveColumnWidths,
   setResizeColumnWidth,
+  setResizeColumnWidthLocked,
 } from './tableResize'
 
 const DEFAULT_WIDTH = 100
@@ -165,6 +166,7 @@ describe('helpers/tableResize', () => {
       const cols = ensureColgroup(table, cells)
       cols[0].style.width = '150px'
       cols[0].dataset.resizableKey = 'col-0'
+      setResizeColumnWidthLocked(cols[0], true)
       const widths = resolveColumnWidths(table, cells, cols, ['col-0'], { 'col-0': 200 })
       expect(widths[0]).toBe(150)
     })
@@ -176,6 +178,42 @@ describe('helpers/tableResize', () => {
       cols[0].dataset.resizableKey = 'col-OTHER'
       const widths = resolveColumnWidths(table, cells, cols, ['col-0'], {})
       expect(widths[0]).toBe(DEFAULT_WIDTH)
+    })
+
+    it('remeasures natural width when an unlocked column header grows', () => {
+      const cells = makeCells(1, ['col-0'])
+      const cols = ensureColgroup(table, cells)
+      const measureSpy = vi.spyOn(Element.prototype, 'getBoundingClientRect')
+
+      measureSpy.mockReturnValueOnce({
+        width: DEFAULT_WIDTH,
+        height: 40,
+        top: 0,
+        left: 0,
+        right: DEFAULT_WIDTH,
+        bottom: 40,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      } as DOMRect)
+
+      const initialWidths = resolveColumnWidths(table, cells, cols, ['col-0'], {})
+      applyColumnWidths(cols, cells, initialWidths, ['col-0'])
+
+      measureSpy.mockReturnValueOnce({
+        width: DEFAULT_WIDTH + 24,
+        height: 40,
+        top: 0,
+        left: 0,
+        right: DEFAULT_WIDTH + 24,
+        bottom: 40,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      } as DOMRect)
+
+      const updatedWidths = resolveColumnWidths(table, cells, cols, ['col-0'], {})
+      expect(updatedWidths[0]).toBe(DEFAULT_WIDTH + 24)
     })
   })
 

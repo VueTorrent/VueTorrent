@@ -69,6 +69,37 @@ const ResizeHarness = defineComponent({
   },
 })
 
+const GrowingHeaderHarness = defineComponent({
+  name: 'GrowingHeaderHarness',
+  props: {
+    showSortIcon: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  setup(props) {
+    const rootRef = ref<HTMLElement | null>(null)
+    const rootId = computed(() => 'torrents')
+
+    useTableResize(rootRef, rootId)
+
+    return () =>
+      h('div', { ref: rootRef }, [
+        h('table', [
+          h('thead', [
+            h('tr', [
+              h('th', { 'data-resizable-key': 'name', 'data-natural-width': props.showSortIcon ? '144' : '120' }, [
+                h('span', 'Name'),
+                props.showSortIcon ? h('span', { class: 'sort-icon' }, 'icon') : null,
+              ]),
+              h('th', { 'data-resizable-key': 'size', 'data-natural-width': '120' }, 'Size'),
+            ]),
+          ]),
+        ]),
+      ])
+  },
+})
+
 function fireMousedown(target: Element, clientX = 0) {
   target.dispatchEvent(
     new MouseEvent('mousedown', {
@@ -273,6 +304,35 @@ describe('composables/TableResize', () => {
 
     const col = secondWrapper.element.querySelector(`colgroup.${COLGROUP_CLASS} col:nth-child(1)`) as HTMLElement
     expect(parseFloat(col.style.width)).toBe(DEFAULT_WIDTH + 75)
+  })
+
+  it('remeasures an auto-sized header when its content grows after update', async () => {
+    vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function (this: Element) {
+      const width = Number.parseFloat((this as HTMLElement).dataset?.naturalWidth ?? `${DEFAULT_WIDTH}`)
+      return {
+        width,
+        height: 40,
+        top: 0,
+        left: 0,
+        right: width,
+        bottom: 40,
+        x: 0,
+        y: 0,
+        toJSON: () => ({}),
+      } as DOMRect
+    })
+
+    const wrapper = mount(GrowingHeaderHarness)
+
+    vi.runAllTimers()
+
+    const col = wrapper.element.querySelector(`colgroup.${COLGROUP_CLASS} col:first-child`) as HTMLElement
+    expect(parseFloat(col.style.width)).toBe(120)
+
+    await wrapper.setProps({ showSortIcon: true })
+    vi.runAllTimers()
+
+    expect(parseFloat(col.style.width)).toBe(144)
   })
 
   it('disconnects the ResizeObserver and removes handles on unmount', () => {

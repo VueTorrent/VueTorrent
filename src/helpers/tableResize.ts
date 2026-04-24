@@ -1,6 +1,7 @@
 export const RESIZE_HANDLE_CLASS = 'vt-resizable-column-handle'
 export const RESIZE_COLGROUP_CLASS = 'vt-resizable-column-group'
 export const MIN_RESIZE_COLUMN_WIDTH = 36
+const RESIZE_LOCKED_DATA_KEY = 'resizableLocked'
 
 export function clampResizeDelta(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value))
@@ -14,6 +15,14 @@ export function setResizeColumnWidth(col: HTMLTableColElement, th: HTMLTableCell
   const px = `${width}px`
   col.style.width = px
   th.style.width = px
+}
+
+export function setResizeColumnWidthLocked(col: HTMLTableColElement, locked: boolean) {
+  if (locked) {
+    col.dataset[RESIZE_LOCKED_DATA_KEY] = 'true'
+  } else {
+    delete col.dataset[RESIZE_LOCKED_DATA_KEY]
+  }
 }
 
 export function createResizeHandle(): HTMLDivElement {
@@ -47,11 +56,25 @@ function getPersistedResizeWidth(key: string | undefined, persistedWidths: Recor
 function getExistingResizeWidth(col: HTMLTableColElement, key: string | undefined): number | undefined {
   const isSameKey = key ? col.dataset.resizableKey === key : col.dataset.resizableKey === undefined
   const existingWidth = Number.parseFloat(col.style.width)
-  return isSameKey && Number.isFinite(existingWidth) && existingWidth > 0 ? existingWidth : undefined
+  const isLocked = col.dataset[RESIZE_LOCKED_DATA_KEY] === 'true'
+  return isSameKey && isLocked && Number.isFinite(existingWidth) && existingWidth > 0 ? existingWidth : undefined
 }
 
 function resolveColumnWidth(headerCell: HTMLTableCellElement, col: HTMLTableColElement, key: string | undefined, persistedWidths: Record<string, number>): number {
-  return getExistingResizeWidth(col, key) ?? getPersistedResizeWidth(key, persistedWidths) ?? headerCell.getBoundingClientRect().width
+  const existingWidth = getExistingResizeWidth(col, key)
+  if (existingWidth !== undefined) {
+    setResizeColumnWidthLocked(col, true)
+    return existingWidth
+  }
+
+  const persistedWidth = getPersistedResizeWidth(key, persistedWidths)
+  if (persistedWidth !== undefined) {
+    setResizeColumnWidthLocked(col, true)
+    return persistedWidth
+  }
+
+  setResizeColumnWidthLocked(col, false)
+  return headerCell.getBoundingClientRect().width
 }
 
 function hasResolvedColumnWidth(col: HTMLTableColElement, key: string | undefined, persistedWidths: Record<string, number>): boolean {
