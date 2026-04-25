@@ -31,7 +31,7 @@
     "@zip.js/zip.js": "^2.8.26",
     "apexcharts": "^5.10.6",
     "array.prototype.tosorted": "1.1.4",
-    "axios": "^1.15.0",
+    "axios": "^1.15.1",
     "dayjs": "^1.11.20",
     "dompurify": "^3.4.0",
     "lodash.debounce": "^4.0.8",
@@ -77,6 +77,6 @@
     "vite-plugin-top-level-await": "^1.6.0",
     "vitest": "^4.0.18",
     "vitest-localstorage-mock": "^0.1.2",
-    "vue-tsc": "^3.2.6"
+    "vue-tsc": "^3.2.7"
   }
 }
