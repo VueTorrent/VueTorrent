@@ -65,7 +65,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.4.0",
+    "globals": "^17.5.0",
     "jsdom": "^29.0.2",
     "lightningcss": "^1.31.1",
     "prettier": "3.8.3",
