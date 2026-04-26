@@ -29,8 +29,13 @@ const appStore = useAppStore()
 const dashboardStore = useDashboardStore()
 const { sortCriterias } = storeToRefs(useTorrentStore())
 const vuetorrentStore = useVueTorrentStore()
+const { tableColumnWidths } = storeToRefs(vuetorrentStore)
 
 const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
+const hasPersistedNameColumnWidth = computed(() => {
+  const width = tableColumnWidths.value['table:torrentList']?.name
+  return Number.isFinite(width) && width > 0
+})
 const sortCriteria = computed({
   get: () => sortCriterias.value[0],
   set: v => (sortCriterias.value = [{ value: v.value, reverse: v.reverse }]),
@@ -111,7 +116,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
             @click.prevent.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
 
-        <td class="torrent-name text-no-wrap">
+        <td :class="{ 'torrent-name--default-width': !hasPersistedNameColumnWidth }">
           {{ torrent.name }}
         </td>
         <TableTorrent :torrent="torrent" />
@@ -143,10 +148,8 @@ function getTorrentRowColorClass(torrent: TorrentType) {
       }
     }
 
-    .torrent-name {
+    .torrent-name--default-width {
       max-width: 40vw;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 }
