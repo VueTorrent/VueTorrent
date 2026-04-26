@@ -1205,8 +1205,7 @@
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "useEmojiState": "Prepend torrent states with emojis",
-        "vueTorrentTitle": "Tab title",
-        "logoutUrl": "Logout URL (leave empty for default behavior)"
+        "vueTorrentTitle": "Tab title"
       },
       "sidebar": {
         "CurrentSpeed": "Show Current Speed",

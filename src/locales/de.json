@@ -1178,6 +1178,7 @@
         "enableHashColors": "Generierte Chipfarben aktivieren",
         "enableRatioColors": "Verhältnisfarben aktivieren",
         "expandContent": "Inhalt in der Inhaltsansicht standardmäßig erweitern",
+        "exportTooltip": "Exportiert VueTorrent-spezifische Einstellungen",
         "fetchExternalIpInfo": "Externe IP-Informationen abrufen",
         "fileContentInterval": "Aktualisierungsintervall für Torrent-Dateiinhalte",
         "filterType": "Filter-Einschlussart",
@@ -1189,6 +1190,7 @@
         "language": "Sprache",
         "lastOpenedTab": "Zuletzt geöffnet",
         "lightVariants": "Variante mit hellem Design",
+        "logoutUrl": "Abmelde-URL (leer lassen für Standardverhalten)",
         "paginationSize": {
           "infinite_scroll": "Unendliches Scrollen",
           "label": "Seitengröße",
@@ -1301,6 +1303,9 @@
     },
     "copy": {
       "success": "In die Zwischenablage kopiert!"
+    },
+    "export": {
+      "no_settings": "Keine VueTorrent-Einstellungen zum Exportieren gefunden."
     },
     "magnet_handler": {
       "not_supported": "Aktueller Kontext ist nicht sicher. Registrierung des Handlers nicht möglich.",
