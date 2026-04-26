@@ -232,6 +232,7 @@ export default defineConfig(({ mode }) => {
         workbox: {
           cleanupOutdatedCaches: true,
           globIgnores: ['**/index.html'],
+          navigateFallback: undefined,
           runtimeCaching: [
             {
               urlPattern: ({ request }) => request.mode === 'navigate',
