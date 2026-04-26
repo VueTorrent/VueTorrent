@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import vuetify from 'vite-plugin-vuetify'
+import ViteFonts from 'unplugin-fonts/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -43,6 +44,17 @@ export default defineConfig(({ mode }) => {
     plugins: [
       vue(),
       vuetify(),
+      ViteFonts({
+        fontsource: {
+          families: [
+            {
+              name: 'Roboto',
+              weights: [100, 300, 400, 500, 700, 900],
+              styles: ['normal', 'italic'],
+            },
+          ],
+        },
+      }),
       VitePWA({
         devOptions: {
           enabled: false,
@@ -233,7 +245,7 @@ export default defineConfig(({ mode }) => {
               options: {
                 cacheName: 'font-cache',
                 expiration: {
-                  maxEntries: 20,
+                  maxEntries: 50,
                   maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
                 },
                 cacheableResponse: {

@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@fontsource/roboto'
+import 'unfonts.css' // eslint-disable-line import/no-unresolved -- Import generated at build-time by unplugin-fonts Vite plugin
 import './styles/styles.scss'
 import Vue3Toastify from 'vue3-toastify'
 import App from './App.vue'
