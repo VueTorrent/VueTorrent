@@ -231,7 +231,13 @@ export default defineConfig(({ mode }) => {
         useCredentials: true,
         workbox: {
           cleanupOutdatedCaches: true,
+          globIgnores: ['**/index.html'],
+          navigateFallback: undefined,
           runtimeCaching: [
+            {
+              urlPattern: ({ request }) => request.mode === 'navigate',
+              handler: 'NetworkOnly',
+            },
             {
               urlPattern: ({ request }) => request.destination === 'font',
               handler: 'CacheFirst',
