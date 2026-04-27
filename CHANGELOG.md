@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.33.0](https://github.com/VueTorrent/VueTorrent/compare/v2.32.1...v2.33.0) (2026-04-27)
+
+
+### Features
+
+* **Settings:** add customizable logout URL for reverse proxy auth ([#2732](https://github.com/VueTorrent/VueTorrent/issues/2732)) ([498e42c](https://github.com/VueTorrent/VueTorrent/commit/498e42c5c0ed74d3a37f7bfbbdce882a7cd77d27))
+* **Table View:** Allow column resize ([#2721](https://github.com/VueTorrent/VueTorrent/issues/2721)) ([5e31ae1](https://github.com/VueTorrent/VueTorrent/commit/5e31ae1be1ec0b3df58644354ac5445adbd493c5))
+
+
+### Bug Fixes
+
+* **Cookies:** No cookies were imported ([#2702](https://github.com/VueTorrent/VueTorrent/issues/2702)) ([7ebfc83](https://github.com/VueTorrent/VueTorrent/commit/7ebfc831bf9234a48466464b3c9e59630d5fcbdd))
+* **RSS:** Article only showing in first matching feed ([#2699](https://github.com/VueTorrent/VueTorrent/issues/2699)) ([b546963](https://github.com/VueTorrent/VueTorrent/commit/b546963be518988c11971ad8b6cdda55d33c440d))
+* **styling:** Properly migrate to Vuetify v4 ([#2743](https://github.com/VueTorrent/VueTorrent/issues/2743)) ([5785e05](https://github.com/VueTorrent/VueTorrent/commit/5785e05f6a48bffeccdfda11c3687b9f36d93505))
+* **TableView:** Update CSS rule priority after [#2743](https://github.com/VueTorrent/VueTorrent/issues/2743) ([#2744](https://github.com/VueTorrent/VueTorrent/issues/2744)) ([e94e2f9](https://github.com/VueTorrent/VueTorrent/commit/e94e2f93878bed621911145e03f6b7284248354b))
+
+
+### Improvements
+
+* **PWA:** Cache fonts ([#2741](https://github.com/VueTorrent/VueTorrent/issues/2741)) ([488e3cd](https://github.com/VueTorrent/VueTorrent/commit/488e3cd1bac2342d88776e56f66475d14f0ad80d))
+* **PWA:** Improve cache management and visual assets ([#2740](https://github.com/VueTorrent/VueTorrent/issues/2740)) ([ea4697f](https://github.com/VueTorrent/VueTorrent/commit/ea4697fa2fa2f2ee57df1dae63409ac30596df64))
+* **RSS:** Always open links in new tab ([#2685](https://github.com/VueTorrent/VueTorrent/issues/2685)) ([e61d78e](https://github.com/VueTorrent/VueTorrent/commit/e61d78e2cc65392cbad9877b9a67506b12422887))
+* **Settings:** Export tooltip and warn on no export ([#2722](https://github.com/VueTorrent/VueTorrent/issues/2722)) ([22532e2](https://github.com/VueTorrent/VueTorrent/commit/22532e262ebc71e17cfa94a8084f980389e0be31))
+* Use proper identifier on list elements ([#2710](https://github.com/VueTorrent/VueTorrent/issues/2710)) ([9fd0d84](https://github.com/VueTorrent/VueTorrent/commit/9fd0d84c0096d0c5a38e4ff2a5814707d911a594))
+
 ## [2.32.1](https://github.com/VueTorrent/VueTorrent/compare/v2.32.0...v2.32.1) (2026-03-06)
 
 
