@@ -52,6 +52,7 @@ export const useVueTorrentStore = defineStore(
     const reduceMotion = ref(false)
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
+    const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
     const logoutUrl = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -209,6 +210,24 @@ export const useVueTorrentStore = defineStore(
       })
     }
 
+    function setTableColumnWidth(tableKey: string, columnKey: string, width: number) {
+      if (!tableKey || !columnKey || !Number.isFinite(width) || width <= 0) return
+      if (!tableColumnWidths.value[tableKey]) {
+        tableColumnWidths.value[tableKey] = {}
+      }
+      tableColumnWidths.value[tableKey][columnKey] = width
+    }
+
+    function clearTableColumnWidth(tableKey: string, columnKey: string) {
+      if (!tableKey || !columnKey) return
+      const tableEntry = tableColumnWidths.value[tableKey]
+      if (!tableEntry) return
+      delete tableEntry[columnKey]
+      if (!Object.keys(tableEntry).length) {
+        delete tableColumnWidths.value[tableKey]
+      }
+    }
+
     function toggleBusyProperty(name: DashboardProperty) {
       _busyProperties.value[name].active = !_busyProperties.value[name].active
     }
@@ -263,6 +282,7 @@ export const useVueTorrentStore = defineStore(
       displayGraphLimits,
       useEmojiState,
       fetchExternalIpInfo,
+      tableColumnWidths,
       setLanguage,
       updateTheme,
       toggleTheme,
@@ -272,6 +292,8 @@ export const useVueTorrentStore = defineStore(
       updateBusyGridProperties,
       updateDoneGridProperties,
       updateTableProperties,
+      setTableColumnWidth,
+      clearTableColumnWidth,
       toggleBusyProperty,
       toggleDoneProperty,
       toggleBusyGridProperty,
@@ -310,6 +332,7 @@ export const useVueTorrentStore = defineStore(
         expandContent.value = true
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
+        tableColumnWidths.value = {}
         logoutUrl.value = ''
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))

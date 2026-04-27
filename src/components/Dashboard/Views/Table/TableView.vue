@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import Header from './Header.vue'
 import TableTorrent from './TableTorrent.vue'
+import TableComponent from '@/components/Core/TableComponent.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { comparators, getTorrentStateColor } from '@/helpers'
@@ -61,7 +62,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
 </script>
 
 <template>
-  <v-data-table
+  <TableComponent
     id="torrentList"
     density="compact"
     :mobile="false"
@@ -76,8 +77,8 @@ function getTorrentRowColorClass(torrent: TorrentType) {
       <tr>
         <template v-for="header in columns" :key="header.key">
           <th v-if="header.key === 'statusIndicator'" class="px-1" />
-          <th v-else-if="header.key === 'multipleSelectionCheckbox'" />
-          <Header v-else :title="header.title!" :sort-key="header.key!" @on-header-click="onHeaderClick(header.key as keyof Torrent)" />
+          <th v-else-if="header.key === 'multipleSelectionCheckbox'" :data-resizable-key="header.key" />
+          <Header v-else :title="header.title!" :sort-key="header.key!" :data-resizable-key="header.key" @on-header-click="onHeaderClick(header.key as keyof Torrent)" />
         </template>
       </tr>
     </template>
@@ -110,13 +111,13 @@ function getTorrentRowColorClass(torrent: TorrentType) {
             @click.prevent.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
 
-        <td class="torrent-name text-no-wrap">
+        <td>
           {{ torrent.name }}
         </td>
         <TableTorrent :torrent="torrent" />
       </tr>
     </template>
-  </v-data-table>
+  </TableComponent>
 </template>
 
 <style lang="scss">
@@ -140,12 +141,6 @@ function getTorrentRowColorClass(torrent: TorrentType) {
         height: 100%;
         pointer-events: none;
       }
-    }
-
-    .torrent-name {
-      max-width: 40vw;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 }
