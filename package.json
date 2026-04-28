@@ -27,7 +27,7 @@
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
     "@vueuse/components": "^14.2.1",
-    "@vueuse/core": "^13.7.0",
+    "@vueuse/core": "^14.2.1",
     "@zip.js/zip.js": "^2.8.26",
     "apexcharts": "^5.10.6",
     "array.prototype.tosorted": "1.1.4",
