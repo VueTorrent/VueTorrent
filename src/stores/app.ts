@@ -38,7 +38,7 @@ export const useAppStore = defineStore('app', () => {
 
   async function login(username: string, password: string) {
     const response = await qbit.login({ username, password })
-    await setAuthStatus(response.data === 'Ok.')
+    await setAuthStatus(response.data === 'Ok.' || (response.status >= 200 && response.status < 300))
     return response
   }
 

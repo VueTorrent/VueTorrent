@@ -28,7 +28,7 @@ async function login() {
   } else {
     let message = t('login.error')
 
-    if (response.status !== 200) {
+    if (response.status < 200 || response.status >= 300) {
       message += `\nError code: ${response.status} (${response.data})`
     }
 
