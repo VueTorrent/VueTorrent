@@ -32,7 +32,7 @@
     "array.prototype.tosorted": "1.1.4",
     "axios": "^1.15.2",
     "dayjs": "^1.11.20",
-    "dompurify": "^3.4.1",
+    "dompurify": "^3.4.2",
     "lodash.debounce": "^4.0.8",
     "pinia": "^3.0.4",
     "pinia-persistence-plugin": "^0.0.7",
@@ -57,7 +57,7 @@
     "@vitejs/plugin-vue": "^6.0.6",
     "@vitest/coverage-v8": "^4.1.5",
     "@vue/eslint-config-typescript": "^14.7.0",
-    "@vue/test-utils": "^2.4.9",
+    "@vue/test-utils": "^2.4.10",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -76,6 +76,6 @@
     "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.0.18",
     "vitest-localstorage-mock": "^0.1.2",
-    "vue-tsc": "^3.2.7"
+    "vue-tsc": "^3.2.8"
   }
 }
