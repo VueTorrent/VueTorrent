@@ -27,11 +27,7 @@ async function login() {
     redirectOnSuccess()
   } else {
     let message = t('login.error')
-
-    if (response.status !== 200) {
-      message += `\nError code: ${response.status} (${response.data})`
-    }
-
+    message += `\nError code: ${response.status} (${response.data})`
     toast.error(message)
   }
 }

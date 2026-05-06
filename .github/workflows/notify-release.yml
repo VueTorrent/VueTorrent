@@ -14,6 +14,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Send release to Discord Webhook
-        uses: VueTorrent/release-to-discord@v1
+        uses: VueTorrent/release-to-discord@main
         with:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
