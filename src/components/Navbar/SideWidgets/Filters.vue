@@ -31,7 +31,7 @@ const statuses = computed(() =>
   Object.values(TorrentState)
     .filter(state => typeof state === 'number')
     .map(state => ({
-      title: `${getTorrentStateString(state as TorrentState)} (${torrentsByStatus.value[state] ?? 0})`,
+      title: `${getTorrentStateString(state)} (${torrentsByStatus.value[state] ?? 0})`,
       value: state,
     }))
     .sort((a, b) => comparators.text.asc(a.title, b.title))

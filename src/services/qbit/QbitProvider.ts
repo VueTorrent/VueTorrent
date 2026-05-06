@@ -140,17 +140,12 @@ export default class QBitProvider implements IProvider {
   async getLogs(afterId?: number, logsToInclude?: LogType): Promise<Log[]> {
     const includeFilter = logsToInclude ?? LogType.ALL
 
-    const filterMaskInfo = (includeFilter & LogType.INFO) as LogType
-    const filterMaskNormal = (includeFilter & LogType.NORMAL) as LogType
-    const filterMaskWarning = (includeFilter & LogType.WARNING) as LogType
-    const filterMaskCritical = (includeFilter & LogType.CRITICAL) as LogType
-
     const params = {
       last_known_id: afterId,
-      info: filterMaskInfo === LogType.INFO,
-      normal: filterMaskNormal === LogType.NORMAL,
-      warning: filterMaskWarning === LogType.WARNING,
-      critical: filterMaskCritical === LogType.CRITICAL,
+      info: !!(includeFilter & LogType.INFO),
+      normal: !!(includeFilter & LogType.NORMAL),
+      warning: !!(includeFilter & LogType.WARNING),
+      critical: !!(includeFilter & LogType.CRITICAL),
     }
 
     return this.axios.get('/log/main', { params }).then(r => r.data)

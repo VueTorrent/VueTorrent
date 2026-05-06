@@ -128,7 +128,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       stopMaindataSync()
       maindataTask.clear()
       rid.value = undefined
-      serverState.value = {} as ServerState
+      serverState.value = {}
     },
   }
 })

@@ -158,7 +158,7 @@ describe('composables/TableResize', () => {
       x: 0,
       y: 0,
       toJSON: () => ({}),
-    } as DOMRect)
+    })
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       configurable: true,
@@ -344,7 +344,7 @@ describe('composables/TableResize', () => {
         x: 0,
         y: 0,
         toJSON: () => ({}),
-      } as DOMRect
+      }
     })
 
     const wrapper = mount(ResizeHarness, {

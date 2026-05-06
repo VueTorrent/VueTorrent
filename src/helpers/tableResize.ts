@@ -50,7 +50,7 @@ export function ensureColgroup(table: HTMLTableElement, headerCells: HTMLTableCe
 
 function getPersistedResizeWidth(key: string | undefined, persistedWidths: Record<string, number>): number | undefined {
   const persistedWidth = key ? persistedWidths[key] : undefined
-  return Number.isFinite(persistedWidth) && (persistedWidth as number) > 0 ? (persistedWidth as number) : undefined
+  return Number.isFinite(persistedWidth) && (persistedWidth as number) > 0 ? persistedWidth : undefined
 }
 
 function getExistingResizeWidth(col: HTMLTableColElement, key: string | undefined): number | undefined {

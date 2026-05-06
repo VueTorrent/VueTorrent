@@ -104,7 +104,7 @@ beforeEach(() => {
     x: 0,
     y: 0,
     toJSON: () => ({}),
-  } as DOMRect)
+  })
 
   Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
     configurable: true,

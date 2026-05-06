@@ -138,7 +138,7 @@ describe('DashboardDefaults Extended Coverage', () => {
   describe('propsData', () => {
     it('should have valid entries for all DashboardProperty keys', () => {
       Object.values(DashboardProperty).forEach(propKey => {
-        const data = propsData[propKey as DashboardProperty]
+        const data = propsData[propKey]
         expect(data).toBeDefined()
         expect(typeof data.active).toBe('boolean')
         expect(typeof data.order).toBe('number')
@@ -150,10 +150,10 @@ describe('DashboardDefaults Extended Coverage', () => {
     describe('General Structure and Basic Props', () => {
       Object.values(DashboardProperty).forEach(propKey => {
         it(`should have valid metadata for ${ propKey }`, () => {
-          const metadata = propsMetadata[propKey as DashboardProperty]
+          const metadata = propsMetadata[propKey]
           expect(metadata).toBeDefined()
           expect(typeof metadata.type).toBe('string')
-          expect(Object.values(DashboardPropertyType).includes(metadata.type as DashboardPropertyType)).toBe(true)
+          expect(Object.values(DashboardPropertyType).includes(metadata.type)).toBe(true)
           expect(metadata.props).toBeDefined()
           expect(typeof metadata.props.titleKey).toBe('string')
           expect(typeof metadata.props.value).toBe('function')
@@ -201,9 +201,9 @@ describe('DashboardDefaults Extended Coverage', () => {
           DashboardProperty.REANNOUNCE,
           DashboardProperty.ROOT_PATH
         ]
-        if (qbitVersionProps.includes(propKey as DashboardProperty)) {
+        if (qbitVersionProps.includes(propKey)) {
           it(`should have qbitVersion for ${ propKey }`, () => {
-            const metadata = propsMetadata[propKey as DashboardProperty]
+            const metadata = propsMetadata[propKey]
             expect(metadata.qbitVersion).toBeDefined()
             expect(typeof metadata.qbitVersion).toBe('string')
           })

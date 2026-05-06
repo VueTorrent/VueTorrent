@@ -133,7 +133,7 @@ describe('helpers/tableResize', () => {
         x: 0,
         y: 0,
         toJSON: () => ({}),
-      } as DOMRect)
+      })
     })
 
     afterEach(() => {
@@ -195,7 +195,7 @@ describe('helpers/tableResize', () => {
         x: 0,
         y: 0,
         toJSON: () => ({}),
-      } as DOMRect)
+      })
 
       const initialWidths = resolveColumnWidths(table, cells, cols, ['col-0'], {})
       applyColumnWidths(cols, cells, initialWidths, ['col-0'])
@@ -210,7 +210,7 @@ describe('helpers/tableResize', () => {
         x: 0,
         y: 0,
         toJSON: () => ({}),
-      } as DOMRect)
+      })
 
       const updatedWidths = resolveColumnWidths(table, cells, cols, ['col-0'], {})
       expect(updatedWidths[0]).toBe(DEFAULT_WIDTH + 24)
