@@ -12,7 +12,7 @@ import {
   TorrentOperatingMode,
   TorrentState,
 } from '@/constants/qbit'
-import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
+import { ContentLayout, ProxyType, ResumeDataStorageType, ShareLimitAction, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import { QBIT_MAX_ETA } from '@/constants/vuetorrent'
 import type {
   ApplicationVersion,
@@ -120,6 +120,7 @@ export default class MockProvider implements IProvider {
       progress: completed / total_size,
       ratio: 0,
       ratio_limit: -2,
+      share_limit_action: ShareLimitAction.DEFAULT,
       reannounce: 3600,
       root_path: faker.system.filePath(),
       save_path: faker.system.directoryPath(),
@@ -312,7 +313,7 @@ export default class MockProvider implements IProvider {
         max_inactive_seeding_time: -1,
         max_inactive_seeding_time_enabled: false,
         max_ratio: -1,
-        max_ratio_act: 0,
+        max_ratio_act: ShareLimitAction.STOP_TORRENT,
         max_ratio_enabled: false,
         max_seeding_time: -1,
         max_seeding_time_enabled: false,
@@ -1607,7 +1608,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({ result: MockProvider.hashes.length })
   }
 
-  async setShareLimit(_0: string[], _1: number, _2: number, _3: number): Promise<void> {
+  async setShareLimit(_0: string[], _1: number, _2: number, _3: number, _4: ShareLimitAction): Promise<void> {
     return this.generateResponse()
   }
 

@@ -49,6 +49,7 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   progress: (a, b, isAsc) => comparators.numeric.compare(a.progress, b.progress, isAsc),
   ratio: (a, b, isAsc) => comparators.numeric.compare(a.ratio, b.ratio, isAsc),
   ratio_limit: (a, b, isAsc) => comparators.numeric.compare(a.ratio_limit, b.ratio_limit, isAsc),
+  share_limit_action: (a, b, isAsc) => comparators.numeric.compare(a.share_limit_action!, b.share_limit_action!, isAsc),
   reannounce: (a, b, isAsc) => comparators.numeric.compare(a.reannounce!, b.reannounce!, isAsc),
   rootPath: (a, b, isAsc) => comparators.text.compare(a.rootPath!, b.rootPath!, isAsc),
   savePath: (a, b, isAsc) => comparators.textWithNumbers.compare(a.savePath, b.savePath, isAsc),

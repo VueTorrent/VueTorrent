@@ -1,10 +1,29 @@
 import { TorrentState } from '@/constants/qbit'
+import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
 import { QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {
+  function mapShareLimitAction(action: any): ShareLimitAction {
+    if (typeof action === 'number') return action
+    switch (action) {
+      case 'Default':
+        return ShareLimitAction.DEFAULT
+      case 'Stop':
+        return ShareLimitAction.STOP_TORRENT
+      case 'Remove':
+        return ShareLimitAction.REMOVE_TORRENT
+      case 'RemoveWithContent':
+        return ShareLimitAction.REMOVE_TORRENT_AND_FILES
+      case 'EnableSuperSeeding':
+        return ShareLimitAction.ENABLE_SUPERSEEDING
+      default:
+        return ShareLimitAction.DEFAULT
+    }
+  }
+
   function buildFromQbit(data: QbitTorrent): Torrent {
     return {
       added_on: data.added_on,
@@ -41,6 +60,7 @@ export function useTorrentBuilder() {
       progress: data.progress,
       ratio: Math.round(data.ratio * 100) / 100,
       ratio_limit: data.ratio_limit,
+      share_limit_action: mapShareLimitAction(data.share_limit_action),
       reannounce: data.reannounce,
       rootPath: data.root_path,
       savePath: data.save_path,

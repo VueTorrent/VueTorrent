@@ -1,4 +1,5 @@
 import type { TorrentState } from '@/constants/qbit'
+import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 
 export interface RawTorrent {
   /** Time (Unix Epoch) when the torrent was added to the client */
@@ -85,6 +86,11 @@ export interface RawTorrent {
   ratio: number
   /** Upload share ratio limit */
   ratio_limit: number
+  /**
+   * Action to perform when share limit is reached
+   * @since 5.2.0
+   */
+  share_limit_action?: ShareLimitAction
   /**
    * Seconds until next tracker reannounce
    * @since 5.0.0

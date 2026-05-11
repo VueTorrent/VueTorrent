@@ -1,5 +1,6 @@
 import { AxiosResponse } from 'axios'
 import { DirectoryContentMode, FilePriority, LogType, PieceState } from '@/constants/qbit'
+import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import {
   ApplicationVersion,
   AppPreferences,
@@ -493,8 +494,9 @@ export default interface IProvider {
    * @param ratioLimit Ratio limit
    * @param seedingTimeLimit Seeding time limit
    * @param inactiveSeedingTimeLimit Inactive seeding time limit
+   * @param shareLimitAction Share limit action
    */
-  setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void>
+  setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction): Promise<void>
 
   /**
    * Reannounce torrents
