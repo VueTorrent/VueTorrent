@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { TorrentProperty } from '@/constants/vuetorrent'
-import { useAppStore } from '@/stores'
+import type { SidebarWidget } from '@/types/vuetorrent'
 
-defineProps<{ i18nPrefix: string; property: TorrentProperty }>()
+defineProps<{ i18nPrefix: string; property: SidebarWidget }>()
 defineEmits<{ update: [value: void] }>()
 
-const appStore = useAppStore()
 </script>
 
 <template>
@@ -15,7 +13,6 @@ const appStore = useAppStore()
     </td>
     <td>
       <v-btn
-        :disabled="!appStore.isFeatureAvailable(property.qbitVersion)"
         density="compact"
         :icon="property.active ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
         variant="text"

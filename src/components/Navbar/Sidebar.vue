@@ -10,6 +10,7 @@ const SpeedGraph = defineAsyncComponent(() => import('./SideWidgets/SpeedGraph.v
 const TransferStats = defineAsyncComponent(() => import('./SideWidgets/TransferStats.vue'))
 const FreeSpace = defineAsyncComponent(() => import('./SideWidgets/FreeSpace.vue'))
 const PerformanceStats = defineAsyncComponent(() => import('./SideWidgets/PerformanceStats.vue'))
+const ConnectionStats = defineAsyncComponent(() => import('./SideWidgets/ConnectionStats.vue'))
 const Filters = defineAsyncComponent(() => import('./SideWidgets/Filters.vue'))
 
 const dashboardStore = useDashboardStore()
@@ -22,6 +23,7 @@ const components: Record<string, Component> = {
   TransferStats,
   FreeSpace,
   PerformanceStats,
+  ConnectionStats,
   Filters,
 }
 

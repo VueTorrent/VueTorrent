@@ -648,6 +648,10 @@
         "free_space_on_disk": "Free space for default save path",
         "global_ratio": "Global ratio"
       },
+      "connection_stats": {
+        "dht_nodes_connected": "DHT nodes",
+        "total_peers_connections": "Active peer connections"
+      },
       "performance_stats": {
         "average_time_queue": "Average time in queue",
         "queued_io_jobs": "IO jobs in queue (Checking / Moving / Content rename)",
@@ -1209,6 +1213,7 @@
       },
       "sidebar": {
         "CurrentSpeed": "Show Current Speed",
+        "ConnectionStats": "Show Connection Stats",
         "Filters": "Show Filters",
         "FreeSpace": "Show Free Space",
         "isDrawerRight": "Right Drawer",

@@ -18,6 +18,7 @@ export const useSidebarStore = defineStore(
       { name: 'TransferStats', active: true },
       { name: 'FreeSpace', active: true },
       { name: 'PerformanceStats', active: true },
+      { name: 'ConnectionStats', active: true },
       { name: 'Filters', active: true },
     ])
     const isDrawerRight = ref(false)
@@ -66,6 +67,7 @@ export const useSidebarStore = defineStore(
           { name: 'TransferStats', active: true },
           { name: 'FreeSpace', active: true },
           { name: 'PerformanceStats', active: true },
+          { name: 'ConnectionStats', active: true },
           { name: 'Filters', active: true },
         ]
         isDrawerRight.value = false
