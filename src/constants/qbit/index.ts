@@ -25,3 +25,4 @@ export {
   TorrentOperatingMode,
   TorrentState,
 }
+export { ShareLimitAction } from './AppPreferences'

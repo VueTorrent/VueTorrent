@@ -35,11 +35,11 @@ export enum FileLogAgeType {
 }
 
 export enum ShareLimitAction {
-  DEFAULT = -1,
-  STOP_TORRENT = 0,
-  REMOVE_TORRENT = 1,
-  ENABLE_SUPERSEEDING = 2,
-  REMOVE_TORRENT_AND_FILES = 3,
+  DEFAULT = 'Default',
+  STOP_TORRENT = 'Stop',
+  REMOVE_TORRENT = 'Remove',
+  REMOVE_TORRENT_AND_FILES = 'RemoveWithContent',
+  ENABLE_SUPERSEEDING = 'EnableSuperSeeding',
 }
 
 export enum ProxyType {

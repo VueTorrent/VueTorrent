@@ -2,7 +2,7 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios, { AxiosResponse } from 'axios'
 import type IProvider from './IProvider'
 import type { FilePriority } from '@/constants/qbit'
-import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
+import { DirectoryContentMode, LogType, PieceState, ShareLimitAction } from '@/constants/qbit'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -586,12 +586,13 @@ export default class QBitProvider implements IProvider {
     return this.axios.get('/torrents/count').then(res => res.data)
   }
 
-  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
+  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction): Promise<void> {
     return this.post(`/torrents/setShareLimits`, {
       hashes: hashes.join('|'),
       ratioLimit,
       seedingTimeLimit,
       inactiveSeedingTimeLimit,
+      shareLimitAction,
     }).then(res => res.data)
   }
 

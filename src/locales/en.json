@@ -513,6 +513,14 @@
       "inactive_seeding_time_limit": "Inactive minutes",
       "ratio_limit": "Ratio",
       "seeding_time_limit": "Total minutes",
+      "action": "Action when limit reached",
+      "actions": {
+        "default": "Use global setting",
+        "pause": "Stop torrent",
+        "remove": "Remove torrent",
+        "remove_files": "Remove torrent and its files",
+        "enable_super_seeding": "Enable super seeding"
+      },
       "title": "Set share ratio limit"
     },
     "shutdown": {

@@ -14,6 +14,8 @@ import qbit from '@/services/qbit'
 import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 
+import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
+
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
   const serverState = shallowRef<Partial<ServerState>>()
@@ -109,8 +111,8 @@ export const useMaindataStore = defineStore('maindata', () => {
     return await qbit.setUploadLimit(hashes, limit)
   }
 
-  async function setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number) {
-    return await qbit.setShareLimit(hashes, ratioLimit, seedingTimeLimit, inactiveSeedingTimeLimit)
+  async function setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction) {
+    return await qbit.setShareLimit(hashes, ratioLimit, seedingTimeLimit, inactiveSeedingTimeLimit, shareLimitAction)
   }
 
   return {

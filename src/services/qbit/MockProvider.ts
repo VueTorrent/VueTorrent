@@ -7,6 +7,7 @@ import {
   FilePriority,
   LogType,
   PieceState,
+  ShareLimitAction,
   TorrentCreatorTaskStatus,
   TorrentFormat,
   TorrentOperatingMode,
@@ -312,7 +313,7 @@ export default class MockProvider implements IProvider {
         max_inactive_seeding_time: -1,
         max_inactive_seeding_time_enabled: false,
         max_ratio: -1,
-        max_ratio_act: 0,
+        max_ratio_act: ShareLimitAction.STOP_TORRENT,
         max_ratio_enabled: false,
         max_seeding_time: -1,
         max_seeding_time_enabled: false,
@@ -1598,7 +1599,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({ result: MockProvider.hashes.length })
   }
 
-  async setShareLimit(_0: string[], _1: number, _2: number, _3: number): Promise<void> {
+  async setShareLimit(_hashes: string[], _ratioLimit: number, _seedingTimeLimit: number, _inactiveSeedingTimeLimit: number, _shareLimitAction: ShareLimitAction): Promise<void> {
     return this.generateResponse()
   }
 

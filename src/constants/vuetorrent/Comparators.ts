@@ -54,6 +54,7 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   savePath: (a, b, isAsc) => comparators.textWithNumbers.compare(a.savePath, b.savePath, isAsc),
   seeding_time: (a, b, isAsc) => comparators.numeric.compare(a.seeding_time, b.seeding_time, isAsc),
   seeding_time_limit: (a, b, isAsc) => comparators.numeric.compare(a.seeding_time_limit, b.seeding_time_limit, isAsc),
+  share_limit_action: (a, b, isAsc) => comparators.text.compare(a.share_limit_action || '', b.share_limit_action || '', isAsc),
   seen_complete: (a, b, isAsc) => comparators.numeric.compare(a.seen_complete, b.seen_complete, isAsc),
   seq_dl: (a, b, isAsc) => comparators.boolean.compare(a.seq_dl, b.seq_dl, isAsc),
   size: (a, b, isAsc) => comparators.numeric.compare(a.size, b.size, isAsc),

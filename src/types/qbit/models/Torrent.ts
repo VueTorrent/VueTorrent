@@ -1,4 +1,5 @@
 import type { TorrentState } from '@/constants/qbit'
+import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 
 export interface RawTorrent {
   /** Time (Unix Epoch) when the torrent was added to the client */
@@ -48,6 +49,11 @@ export interface RawTorrent {
   infohash_v1: string
   /** Torrent SHA256 Hash (only in LibTorrent v2) */
   infohash_v2: string
+  /**
+   * Action to take when share limits are reached
+   * @since 5.2.0
+   */
+  share_limit_action?: ShareLimitAction
   /** Last time (Unix Epoch) when a chunk was downloaded/uploaded */
   last_activity: number
   /** Magnet URI corresponding to this torrent */

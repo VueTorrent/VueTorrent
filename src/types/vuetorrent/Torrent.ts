@@ -1,4 +1,5 @@
 import { TorrentState } from '@/constants/vuetorrent/TorrentState'
+import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 
 export default interface Torrent {
   added_on: number
@@ -30,6 +31,8 @@ export default interface Torrent {
   hasMetadata: boolean
   hash: string
   inactive_seeding_time_limit: number
+  /** @since 5.2.0 */
+  share_limit_action?: ShareLimitAction
   infohash_v1: string
   infohash_v2: string
   last_activity: number
