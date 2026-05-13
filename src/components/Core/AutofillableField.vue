@@ -94,4 +94,10 @@ div.autofill-container--disabled {
 input:focus {
   outline: none;
 }
+
+input {
+  background: transparent;
+  border: 0;
+  color: inherit;
+}
 </style>
