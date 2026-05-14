@@ -399,6 +399,7 @@ export default class MockProvider implements IProvider {
         utp_tcp_mixed_mode: 0,
         validate_https_tracker_certificate: true,
         web_ui_address: '*',
+        web_ui_api_key: '',
         web_ui_ban_duration: 3600,
         web_ui_clickjacking_protection_enabled: false,
         web_ui_csrf_protection_enabled: false,
@@ -484,6 +485,14 @@ export default class MockProvider implements IProvider {
   }
 
   setCookies(_: Cookie[]): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async rotateAPIKey(): Promise<string> {
+    return this.generateResponse({ result: `qbt_${faker.string.alphanumeric(28)}` })
+  }
+
+  async deleteAPIKey(): Promise<void> {
     return this.generateResponse()
   }
 

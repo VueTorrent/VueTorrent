@@ -400,6 +400,8 @@ export default interface AppPreferences {
   validate_https_tracker_certificate: boolean
   /** IP address to use for the WebUI */
   web_ui_address: string
+  /** WebUI API Key */
+  web_ui_api_key: string
   /** WebUI access ban duration in seconds */
   web_ui_ban_duration: number
   /** True if WebUI clickjacking protection is enabled */

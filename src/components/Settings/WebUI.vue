@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import ApiKeyGenerator from './ApiKeyGenerator.vue'
 import AutofillableField from '@/components/Core/AutofillableField.vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { useI18nUtils } from '@/composables'
 import { openLink } from '@/helpers'
-import { usePreferenceStore } from '@/stores'
+import { useAppStore, usePreferenceStore } from '@/stores'
 
 const { t } = useI18nUtils()
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
 const dynDnsProvider = ref('https://www.dyndns.com/account/services/hosts/add.html')
@@ -90,6 +92,10 @@ function registerDynDNS() {
             autocapitalize="off"
             autocomplete="new-password"
             name="webui-password" />
+        </v-col>
+
+        <v-col v-if="appStore.isFeatureAvailable('5.2.0')" cols="12">
+          <ApiKeyGenerator />
         </v-col>
 
         <v-col cols="12" class="py-0">

@@ -91,6 +91,17 @@ export default interface IProvider {
    */
   setCookies(cookies: Cookie[]): Promise<void>
 
+  /**
+   * Generates a new Web API key (rotates the existing one if present).
+   * @returns the freshly generated key
+   */
+  rotateAPIKey(): Promise<string>
+
+  /**
+   * Deletes the current Web API key.
+   */
+  deleteAPIKey(): Promise<void>
+
   /// AuthController ///
 
   /**

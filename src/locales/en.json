@@ -1245,6 +1245,18 @@
       }
     },
     "webUI": {
+      "apiKey": {
+        "copy": "Copy",
+        "delete": "Delete",
+        "deleted": "API key deleted",
+        "deleteError": "Failed to delete API key",
+        "empty": "(no API key)",
+        "label": "Web API Key",
+        "regenerate": "Regenerate",
+        "regenerated": "API key regenerated",
+        "regenerateError": "Failed to regenerate API key",
+        "subheader": "Web API Key"
+      },
       "authentication": {
         "banDuration": "Ban Duration",
         "banDurationHint": "In seconds",

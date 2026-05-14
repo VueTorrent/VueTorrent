@@ -125,6 +125,14 @@ export default class QBitProvider implements IProvider {
     await this.post('/app/setCookies', { cookies: JSON.stringify(cookies) })
   }
 
+  async rotateAPIKey(): Promise<string> {
+    return this.post('/app/rotateAPIKey').then(res => res.data?.apiKey ?? '')
+  }
+
+  async deleteAPIKey(): Promise<void> {
+    await this.post('/app/deleteAPIKey')
+  }
+
   /// AuthController ///
 
   async login(params: LoginPayload): Promise<AxiosResponse<string, string>> {
