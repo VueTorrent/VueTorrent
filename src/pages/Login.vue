@@ -54,7 +54,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <v-container class="fill-height">
+  <v-container class="fill-height d-flex align-center justify-center">
     <v-card class="mx-auto" rounded="lg" min-width="250">
       <v-card-title>{{ t('login.title') }}</v-card-title>
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
