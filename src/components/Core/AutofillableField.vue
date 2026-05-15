@@ -91,13 +91,32 @@ div.autofill-container--disabled {
   pointer-events: none;
 }
 
-input:focus {
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  min-width: 0;
   outline: none;
 }
 
-input {
-  background: transparent;
-  border: 0;
-  color: inherit;
+input:focus,
+input:focus-visible,
+input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: currentColor;
+  caret-color: currentColor;
+  box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
 </style>
