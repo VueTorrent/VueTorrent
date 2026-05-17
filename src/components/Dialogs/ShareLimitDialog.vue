@@ -2,7 +2,7 @@
 import { computed, onBeforeMount, ref } from 'vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
-import { useMaindataStore, useTorrentStore } from '@/stores'
+import { useAppStore, useMaindataStore, useTorrentStore } from '@/stores'
 
 type ShareType = 'global' | 'disabled' | 'enabled'
 const GLOBAL = -2
@@ -17,6 +17,7 @@ const { isOpened } = useDialog(props.guid)
 const { t } = useI18nUtils()
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
+const appStore = useAppStore()
 
 const isFormValid = ref(false)
 
