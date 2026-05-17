@@ -12,7 +12,7 @@ import {
   TorrentOperatingMode,
   TorrentState,
 } from '@/constants/qbit'
-import { ContentLayout, ProxyType, ResumeDataStorageType, ShareLimitAction, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
+import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import { QBIT_MAX_ETA } from '@/constants/vuetorrent'
 import type {
   ApplicationVersion,
@@ -39,6 +39,7 @@ import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider

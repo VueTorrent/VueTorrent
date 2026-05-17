@@ -1,6 +1,5 @@
 import comparatorMap from './Comparators'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
-import { Torrent } from '@/types/vuetorrent'
+import { ShareLimitAction , Torrent } from '@/types/vuetorrent'
 
 function makeMockTorrent(overrides: Partial<Torrent> = {}): Torrent {
   return {

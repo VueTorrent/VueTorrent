@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
-import { Encryption, ShareLimitAction } from '@/constants/qbit/AppPreferences'
+import { Encryption } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()

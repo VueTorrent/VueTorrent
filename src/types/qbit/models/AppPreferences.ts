@@ -8,13 +8,13 @@ import type {
   ProxyType,
   ScanDirs,
   SchedulerDays,
-  ShareLimitAction,
   StopCondition,
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
   UtpTcpMixedMode,
 } from '@/constants/qbit/AppPreferences'
 import { AutoDeleteMode, FileLogAgeType, ResumeDataStorageType, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
+import type { ShareLimitAction } from '@/types/vuetorrent'
 
 export interface NetworkInterface {
   name: string

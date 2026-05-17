@@ -1,14 +1,11 @@
 import { TorrentState } from '@/constants/qbit'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
 import { QbitTorrent } from '@/types/qbit/models'
-import { Torrent } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitActionString, Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {
-  function mapShareLimitAction(
-    action: ShareLimitAction | number | 'Default' | 'Stop' | 'Remove' | 'RemoveWithContent' | 'EnableSuperSeeding' | null | undefined
-  ): ShareLimitAction {
+  function mapShareLimitAction(action: ShareLimitAction | number | ShareLimitActionString | null | undefined): ShareLimitAction {
     if (typeof action === 'number') return action
     if (action == null) return ShareLimitAction.DEFAULT
     if (typeof action === 'string') {

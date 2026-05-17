@@ -3,7 +3,6 @@ import axios, { AxiosResponse } from 'axios'
 import type IProvider from './IProvider'
 import type { FilePriority } from '@/constants/qbit'
 import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -27,6 +26,7 @@ import type {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 type Parameters = Record<string, any>
 

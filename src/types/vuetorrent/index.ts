@@ -4,9 +4,11 @@ import type RightClickProperties from './RightClickProperties'
 import type { RssArticle } from './RssArticle'
 import type { SearchData } from './SearchData'
 import type SearchResult from './SearchResult'
+import { ShareLimitAction } from './ShareLimitAction'
+import type { ShareLimitActionString } from './ShareLimitAction'
 import type SidebarWidget from './SidebarWidget'
 import type Torrent from './Torrent'
 import { TreeFile, TreeFolder } from './TreeObjects'
 import type { TreeNode } from './TreeObjects'
 
-export { Cookie, RssArticle, SearchData, Torrent, TreeNode, TreeFile, TreeFolder, RightClickMenuEntryType, RightClickProperties, SearchResult, SidebarWidget }
+export { Cookie, RssArticle, SearchData, Torrent, TreeNode, TreeFile, TreeFolder, RightClickMenuEntryType, RightClickProperties, SearchResult, SidebarWidget, ShareLimitAction, ShareLimitActionString }

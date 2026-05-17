@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from 'vue'
 import { useDialog, useI18nUtils } from '@/composables'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import { useAppStore, useMaindataStore, useTorrentStore } from '@/stores'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 type ShareType = 'global' | 'disabled' | 'enabled'
 const GLOBAL = -2

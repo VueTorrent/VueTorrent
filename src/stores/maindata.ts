@@ -10,10 +10,10 @@ import { useTagStore } from './tags'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import qbit from '@/services/qbit'
 import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()

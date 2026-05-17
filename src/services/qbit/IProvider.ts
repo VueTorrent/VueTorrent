@@ -1,6 +1,5 @@
 import { AxiosResponse } from 'axios'
 import { DirectoryContentMode, FilePriority, LogType, PieceState } from '@/constants/qbit'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import {
   ApplicationVersion,
   AppPreferences,
@@ -24,6 +23,7 @@ import {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export default interface IProvider {
   /// AppController ///

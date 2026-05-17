@@ -1,4 +1,4 @@
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
+import { ShareLimitAction } from "."
 import { TorrentState } from '@/constants/vuetorrent/TorrentState'
 
 export default interface Torrent {

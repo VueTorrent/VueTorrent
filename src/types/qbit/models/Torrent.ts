@@ -1,5 +1,5 @@
 import type { TorrentState } from '@/constants/qbit'
-import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export interface RawTorrent {
   /** Time (Unix Epoch) when the torrent was added to the client */
