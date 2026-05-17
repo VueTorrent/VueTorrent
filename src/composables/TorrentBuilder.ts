@@ -6,22 +6,30 @@ import { QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {
-  function mapShareLimitAction(action: any): ShareLimitAction {
+  function mapShareLimitAction(
+    action: ShareLimitAction | number | 'Default' | 'Stop' | 'Remove' | 'RemoveWithContent' | 'EnableSuperSeeding' | null | undefined
+  ): ShareLimitAction {
     if (typeof action === 'number') return action
-    switch (action) {
-      case 'Default':
-        return ShareLimitAction.DEFAULT
-      case 'Stop':
-        return ShareLimitAction.STOP_TORRENT
-      case 'Remove':
-        return ShareLimitAction.REMOVE_TORRENT
-      case 'RemoveWithContent':
-        return ShareLimitAction.REMOVE_TORRENT_AND_FILES
-      case 'EnableSuperSeeding':
-        return ShareLimitAction.ENABLE_SUPERSEEDING
-      default:
-        return ShareLimitAction.DEFAULT
+    if (action == null) return ShareLimitAction.DEFAULT
+    if (typeof action === 'string') {
+      // map qBittorrent >= 5.2 string values to enum
+      switch (action) {
+        case 'Default':
+          return ShareLimitAction.DEFAULT
+        case 'Stop':
+          return ShareLimitAction.STOP_TORRENT
+        case 'Remove':
+          return ShareLimitAction.REMOVE_TORRENT
+        case 'RemoveWithContent':
+          return ShareLimitAction.REMOVE_TORRENT_AND_FILES
+        case 'EnableSuperSeeding':
+          return ShareLimitAction.ENABLE_SUPERSEEDING
+        default:
+          return ShareLimitAction.DEFAULT
+      }
     }
+
+    return ShareLimitAction.DEFAULT
   }
 
   function buildFromQbit(data: QbitTorrent): Torrent {
