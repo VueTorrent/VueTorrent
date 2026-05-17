@@ -4,7 +4,7 @@ import type IProvider from './IProvider'
 import type { FilePriority } from '@/constants/qbit'
 import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
 import { ShareLimitAction } from '@/constants/qbit/AppPreferences'
-import {
+import type {
   ApplicationVersion,
   AppPreferences,
   BuildInfo,
