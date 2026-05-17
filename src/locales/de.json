@@ -616,6 +616,10 @@
         "shutdown": "qBittorrent herunterfahren",
         "statistics": "Statistiken"
       },
+      "connection_stats": {
+        "dht_nodes_connected": "DHT-Knoten",
+        "total_peers_connections": "Aktive Peer-Verbindungen"
+      },
       "current_speed": {
         "download": "Download-Geschwindigkeit",
         "title": "Aktuelle Geschwindigkeit",
@@ -1208,6 +1212,7 @@
         "vueTorrentTitle": "Tab-Titel"
       },
       "sidebar": {
+        "ConnectionStats": "Verbindungsstatistiken anzeigen",
         "CurrentSpeed": "Aktuelle Geschwindigkeit anzeigen",
         "Filters": "Filter anzeigen",
         "FreeSpace": "Freien Speicherplatz anzeigen",

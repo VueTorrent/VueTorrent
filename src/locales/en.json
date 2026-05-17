@@ -616,6 +616,10 @@
         "shutdown": "Shutdown qBittorrent",
         "statistics": "Statistics"
       },
+      "connection_stats": {
+        "dht_nodes_connected": "DHT nodes",
+        "total_peers_connections": "Active peer connections"
+      },
       "current_speed": {
         "download": "Download speed",
         "title": "Current Speed",
@@ -647,10 +651,6 @@
       "free_space": {
         "free_space_on_disk": "Free space for default save path",
         "global_ratio": "Global ratio"
-      },
-      "connection_stats": {
-        "dht_nodes_connected": "DHT nodes",
-        "total_peers_connections": "Active peer connections"
       },
       "performance_stats": {
         "average_time_queue": "Average time in queue",
@@ -1212,8 +1212,8 @@
         "vueTorrentTitle": "Tab title"
       },
       "sidebar": {
-        "CurrentSpeed": "Show Current Speed",
         "ConnectionStats": "Show Connection Stats",
+        "CurrentSpeed": "Show Current Speed",
         "Filters": "Show Filters",
         "FreeSpace": "Show Free Space",
         "isDrawerRight": "Right Drawer",
