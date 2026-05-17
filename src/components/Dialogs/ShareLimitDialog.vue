@@ -131,7 +131,7 @@ onBeforeMount(() => {
                 hide-details
                 :label="$t('dialogs.share_limit.inactive_seeding_time_limit')" />
             </v-col>
-            <v-col cols="12">
+            <v-col v-if="appStore.isFeatureAvailable('5.2.0')" cols="12">
               <v-select
                 v-model="shareLimitAction"
                 :items="shareLimitActions"
