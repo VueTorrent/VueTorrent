@@ -1,4 +1,4 @@
-import { ShareLimitAction } from "."
+import { ShareLimitAction } from './ShareLimitAction'
 import { TorrentState } from '@/constants/vuetorrent/TorrentState'
 
 export default interface Torrent {
