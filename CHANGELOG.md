@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.34.0](https://github.com/VueTorrent/VueTorrent/compare/v2.33.0...v2.34.0) (2026-05-19)
+
+
+### Features
+
+* **Settings/WebUI:** Add API key support for qBit 5.2.0+ ([#2784](https://github.com/VueTorrent/VueTorrent/issues/2784)) ([71ff0ec](https://github.com/VueTorrent/VueTorrent/commit/71ff0ec09a52db45703d5d9d40463ed6ac82e7f6))
+* **Sidebar:** Add DHT node and peer connection count ([#2774](https://github.com/VueTorrent/VueTorrent/issues/2774)) ([4a5c857](https://github.com/VueTorrent/VueTorrent/commit/4a5c85749ca40086d6ed68fb18f29997fde47a61))
+
+
+### Bug Fixes
+
+* **login:** restore vertical centering after Vuetify v4 migration ([#2775](https://github.com/VueTorrent/VueTorrent/issues/2775)) ([ce05f81](https://github.com/VueTorrent/VueTorrent/commit/ce05f813f53c7ecfe348ee1f2ba70043a5b1f5a4))
+* support shareLimitAction in per-torrent view editing (qBit 5.2.0+) ([#2780](https://github.com/VueTorrent/VueTorrent/issues/2780)) ([7bb3d16](https://github.com/VueTorrent/VueTorrent/commit/7bb3d16c6487d406be55bc5b085c13ae354ba67d))
+
 ## [2.33.0](https://github.com/VueTorrent/VueTorrent/compare/v2.32.1...v2.33.0) (2026-05-04)
 
 
