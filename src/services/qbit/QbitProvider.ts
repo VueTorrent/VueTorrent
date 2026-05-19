@@ -26,6 +26,7 @@ import type {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 type Parameters = Record<string, any>
 
@@ -594,12 +595,21 @@ export default class QBitProvider implements IProvider {
     return this.axios.get('/torrents/count').then(res => res.data)
   }
 
-  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
+  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction): Promise<void> {
+    const actionMap: Record<ShareLimitAction, string> = {
+      [ShareLimitAction.DEFAULT]: 'Default',
+      [ShareLimitAction.STOP_TORRENT]: 'Stop',
+      [ShareLimitAction.REMOVE_TORRENT]: 'Remove',
+      [ShareLimitAction.REMOVE_TORRENT_AND_FILES]: 'RemoveWithContent',
+      [ShareLimitAction.ENABLE_SUPERSEEDING]: 'EnableSuperSeeding',
+    }
+
     return this.post(`/torrents/setShareLimits`, {
       hashes: hashes.join('|'),
       ratioLimit,
       seedingTimeLimit,
       inactiveSeedingTimeLimit,
+      shareLimitAction: actionMap[shareLimitAction],
     }).then(res => res.data)
   }
 

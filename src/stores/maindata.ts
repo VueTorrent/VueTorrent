@@ -13,6 +13,7 @@ import { useVueTorrentStore } from './vuetorrent'
 import qbit from '@/services/qbit'
 import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
@@ -109,8 +110,8 @@ export const useMaindataStore = defineStore('maindata', () => {
     return await qbit.setUploadLimit(hashes, limit)
   }
 
-  async function setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number) {
-    return await qbit.setShareLimit(hashes, ratioLimit, seedingTimeLimit, inactiveSeedingTimeLimit)
+  async function setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction) {
+    return await qbit.setShareLimit(hashes, ratioLimit, seedingTimeLimit, inactiveSeedingTimeLimit, shareLimitAction)
   }
 
   return {

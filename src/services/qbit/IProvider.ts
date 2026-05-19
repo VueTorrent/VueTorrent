@@ -23,6 +23,7 @@ import {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export default interface IProvider {
   /// AppController ///
@@ -493,8 +494,9 @@ export default interface IProvider {
    * @param ratioLimit Ratio limit
    * @param seedingTimeLimit Seeding time limit
    * @param inactiveSeedingTimeLimit Inactive seeding time limit
+   * @param shareLimitAction Share limit action
    */
-  setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void>
+  setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction): Promise<void>
 
   /**
    * Reannounce torrents

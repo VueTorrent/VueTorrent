@@ -1,3 +1,4 @@
+import { ShareLimitAction } from './ShareLimitAction'
 import { TorrentState } from '@/constants/vuetorrent/TorrentState'
 
 export default interface Torrent {
@@ -45,6 +46,8 @@ export default interface Torrent {
   progress: number
   ratio: number
   ratio_limit: number
+  /** @since 5.2.0 */
+  share_limit_action?: ShareLimitAction
   /** @since 5.0.0 */
   reannounce?: number
   /** @since 5.1.0 */

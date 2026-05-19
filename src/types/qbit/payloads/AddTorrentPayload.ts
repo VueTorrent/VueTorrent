@@ -1,4 +1,5 @@
-import { ContentLayout, ShareLimitAction, StopCondition } from '@/constants/qbit/AppPreferences'
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
+import { ShareLimitAction } from '@/types/vuetorrent'
 
 export default interface AddTorrentPayload {
   /** Whether to add the torrent at the top of the queue */
