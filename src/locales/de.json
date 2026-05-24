@@ -1245,6 +1245,18 @@
       }
     },
     "webUI": {
+      "apiKey": {
+        "copy": "Kopieren",
+        "delete": "Löschen",
+        "deleted": "API-Schlüssel gelöscht",
+        "deleteError": "API-Schlüssel konnte nicht gelöscht werden",
+        "empty": "(kein API-Schlüssel)",
+        "label": "Web-API-Schlüssel",
+        "regenerate": "Neu generieren",
+        "regenerated": "API-Schlüssel neu generiert",
+        "regenerateError": "API-Schlüssel konnte nicht neu generiert werden",
+        "subheader": "Web-API-Schlüssel"
+      },
       "authentication": {
         "banDuration": "Sperrdauer",
         "banDurationHint": "In Sekunden",
