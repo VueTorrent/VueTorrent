@@ -1,0 +1,1623 @@
+{
+  "_comments": "Conținut generat de aplicația Tolgee. NU MODIFICAȚI NICIODATĂ MANUAL, DEOARECE MODIFICĂRILE VOR FI ANULATE",
+  "common": {
+    "auto": "Auto",
+    "cancel": "Anulează",
+    "close": "Închide",
+    "create": "Creează",
+    "delete": "Şterge",
+    "disable": "Dezactivează",
+    "disabled": "Dezactivat",
+    "edit": "Editează",
+    "emptyList": "Nimic de văzut aici!",
+    "global_value": "Valoare globală",
+    "NA": "N/A",
+    "no": "Nu",
+    "none": "(Nimic)",
+    "ok": "OK",
+    "pause": "Pauză",
+    "refresh": "Reîmprospătează",
+    "resume": "Reia",
+    "save": "Salvează",
+    "search": "Caută",
+    "selectAll": "Selectează tot",
+    "selectNone": "Selectează Nimic",
+    "submit": "Trimite",
+    "useGlobalSettings": "Folosește setările globale",
+    "yes": "Da"
+  },
+  "constants": {
+    "addStopped": {
+      "always": "Întotdeauna",
+      "never": "Niciodată",
+      "title": "Adaugă în stare oprită"
+    },
+    "auto_delete_mode": {
+      "always": "Întotdeauna",
+      "if_added": "Dacă este adăugat",
+      "never": "Niciodată"
+    },
+    "bittorrentProtocols": {
+      "tcp": "TCP",
+      "tcp_utp": "TCP și μTP",
+      "utp": "μTP"
+    },
+    "connectionStatus": {
+      "connected": "Conectat",
+      "disconnected": "Deconectat",
+      "firewalled": "Protejat de firewall",
+      "unknown": "Necunoscut"
+    },
+    "contentLayout": {
+      "nosubfolder": "Elimină subfolderul",
+      "original": "Original",
+      "subfolder": "Creează subfolder",
+      "title": "Aspect conținut torrent"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Dezactivează cache-ul OS",
+      "enableOsCache": "Activează cache-ul OS",
+      "writeThrough": "Scriere directă (libtorrent >= 2.0.6)"
+    },
+    "diskIoType": {
+      "default": "Implicit",
+      "memoryMappedFiles": "Fișiere mapate în memorie",
+      "posixCompliant": "Compatibil POSIX",
+      "simplePreadPwrite": "Pread/pwrite simplu"
+    },
+    "encryption": {
+      "forceOff": "Dezactivează criptarea",
+      "forceOn": "Activează criptarea",
+      "preferEncryption": "Permite criptarea"
+    },
+    "file_log_age_type": {
+      "days": "Zi | Zi | Zile",
+      "months": "Lună | Lună | Luni",
+      "years": "An | An | Ani"
+    },
+    "file_priority": {
+      "high": "Ridicat",
+      "max": "Maxim",
+      "mixed": "Mixt",
+      "normal": "Normal",
+      "unwanted": "Nedorit"
+    },
+    "file_type": {
+      "archive": "Arhive",
+      "audio": "Audio",
+      "book": "Cărți",
+      "document": "Documente",
+      "executable": "Executabile",
+      "image": "Imagini",
+      "information": "Informații",
+      "no_ext": "(Fără extensie)",
+      "script": "Scripturi",
+      "subtitle": "Subtitrări",
+      "unknown": "Necunoscut",
+      "video": "Video"
+    },
+    "filter_type": {
+      "conjunctive": "Filtrare conjunctivă (AND)",
+      "disjunctive": "Filtrare disjunctivă (OR)"
+    },
+    "monitoredFolderSaveLocation": {
+      "defaultSavePath": "Cale de salvare implicită",
+      "monitoredFolder": "Locație folder monitorizat",
+      "other": "Altele"
+    },
+    "proxy_type": {
+      "http": "HTTP",
+      "socks4": "SOCKS4",
+      "socks5": "SOCKS5"
+    },
+    "scheduler": {
+      "everyDay": "În fiecare zi",
+      "everyFriday": "În fiecare vineri",
+      "everyMonday": "În fiecare luni",
+      "everySaturday": "În fiecare sâmbătă",
+      "everySunday": "În fiecare duminică",
+      "everyThursday": "În fiecare joi",
+      "everyTuesday": "În fiecare marți",
+      "everyWednesday": "În fiecare miercuri",
+      "everyWeekday": "În fiecare zi lucrătoare",
+      "everyWeekend": "În fiecare weekend"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Elimină torrent",
+      "removeTorrentAndFiles": "Elimină torrentul și fișierele sale",
+      "stopTorrent": "Oprește torrentul",
+      "torrentSuperseeding": "Activează super-seeding pentru torrent"
+    },
+    "stopCondition": {
+      "filesChecked": "Fișiere verificate",
+      "metadataReceived": "Metadate primite",
+      "none": "Nimic",
+      "title": "Condiție oprire torrent"
+    },
+    "themes": {
+      "dark": {
+        "legacy": "Legacy",
+        "oled": "OLED",
+        "redesigned": "Reproiectat"
+      },
+      "light": {
+        "legacy": "Legacy",
+        "redesigned": "Reproiectat"
+      }
+    },
+    "titleOptions": {
+      "custom": "Personalizat",
+      "default": "Implicit",
+      "first_torrent_speed": "Viteza primului torrent",
+      "global_speed": "Viteză globală"
+    },
+    "torrentContentRemovingMode": {
+      "delete": "Șterge fișierele permanent",
+      "moveToTrash": "Mută fișierele la coș (dacă este posibil)"
+    },
+    "torrentCreatorTaskStatus": {
+      "failed": "Eșuat",
+      "finished": "Finalizat",
+      "queued": "În așteptare",
+      "running": "Rulează"
+    },
+    "torrentFormat": {
+      "hybrid": "Hibrid",
+      "v1": "V1",
+      "v2": "V2"
+    },
+    "trackerStatus": {
+      "disabled": "Dezactivat",
+      "not_working": "Nu funcționează",
+      "not_yet_contacted": "Necontactat încă",
+      "updating": "Se actualizează",
+      "working": "Funcționează"
+    },
+    "uploadChokingAlgorithm": {
+      "antiLeech": "Anti-leech",
+      "fastestUpload": "Cel mai rapid upload",
+      "roundRobin": "Round-robin"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Sloturi fixe",
+      "uploadRateBased": "Bazat pe rata de upload"
+    },
+    "utpTcpMixedMode": {
+      "peerProportional": "Peer proporțional (limitează TCP)",
+      "preferTcp": "Preferă TCP"
+    }
+  },
+  "cookiesManager": {
+    "clear": "Șterge toate cookie-urile",
+    "create": "Adaugă cookie nou",
+    "empty": {
+      "value": "Nu există cookie-uri înregistrate"
+    },
+    "import": "Importă cookie-uri",
+    "table": {
+      "domain": "Nume domeniu",
+      "expiration_date": "Data expirării",
+      "name": "Nume cookie",
+      "path": "Cale",
+      "value": "Valoare cookie"
+    },
+    "title": "Manager de cookie-uri"
+  },
+  "dashboard": {
+    "displayMode": {
+      "grid": "Grilă",
+      "list": "Listă",
+      "table": "Tabel",
+      "title": "Mod afișare"
+    },
+    "not_complete": "Niciodată văzut complet",
+    "right_click": {
+      "advanced": {
+        "auto_tmm": "Gestionare automată torrent",
+        "download_path": "Setează calea de download",
+        "edit_trackers": "Editează trackerele",
+        "f_l_prio": "Prioritate prima / ultima piesă",
+        "reannounce": "Forțează reanunțarea",
+        "recheck": "Forțează reverificarea",
+        "rename": "Redenumește torrentul",
+        "save_path": "Setează calea de salvare",
+        "seq_dl": "Download secvențial",
+        "super_seeding": "Mod super-seeding",
+        "title": "Avansat"
+      },
+      "category": {
+        "clear": "Șterge",
+        "disabled_title": "Fără categorii",
+        "title": "Setează categoria"
+      },
+      "copy": {
+        "comment": "Comentariu",
+        "hash": "Hash",
+        "magnet": "Magnet",
+        "name": "Nume",
+        "title": "Copiază"
+      },
+      "export": "Exportă torrentul | Exportă torrentele",
+      "info": "Arată info",
+      "priority": {
+        "bottom": "La sfârșit",
+        "decrease": "Scade",
+        "increase": "Crește",
+        "title": "Setează poziția în așteptare",
+        "top": "La început"
+      },
+      "selection": {
+        "disable_select_mode": "Dezactivează modul de selecție",
+        "enable_select_mode": "Activează modul de selecție",
+        "span_selection": "Extinde până aici",
+        "title": "Selecție"
+      },
+      "speed_limit": {
+        "download": "Setează limita de download",
+        "share": "Setează limita de partajare",
+        "title": "Setează limitele",
+        "upload": "Setează limita de upload"
+      },
+      "tags": {
+        "clear_all": "Șterge tot",
+        "disabled_title": "Fără etichete",
+        "title": "Setează etichetele"
+      },
+      "top": {
+        "delete": "Șterge",
+        "force_resume": "Forțează reluarea",
+        "pause": "Pauză",
+        "resume": "Reia"
+      }
+    },
+    "selectAll": "(De)selectează tot (Ctrl + A)",
+    "selectedTorrentsCount": "Niciun torrent | {count} din {total} torrente ({size}) | {count} din {total} torrente ({size})",
+    "sortLabel": "Sortează după",
+    "toggleSearchFilter": "Comută filtrul de căutare",
+    "toggleSelectMode": "Comută modul de selecție",
+    "toggleSortOrder": "Inversează ordinea de sortare",
+    "torrentsCount": "Niciun torrent | {n} torrent | {n} torrente"
+  },
+  "dialogs": {
+    "add": {
+      "cookie": "Cookie-uri",
+      "cookie_placeholder": "nume1=valoare1; nume2=valoare2; ...",
+      "drop_label": "Adaugă fișiere torrent și/sau link-uri la lista de așteptare pentru torrente",
+      "file_overflow": "+{n} mai mult",
+      "files": "Selectează fișiere",
+      "first_last_piece_prio": "Prioritizează prima și ultima piesă",
+      "instant_drop_label": "Descarcă instantaneu fișiere torrent și/sau link-uri",
+      "links": "Link-uri (magnet, http, fișier, ...)",
+      "params": {
+        "add_to_top_of_queue": "Adaugă la începutul listei de așteptare",
+        "category": "Categorie",
+        "download_limit": "Limită de download",
+        "download_path": "Cale de download (cât timp e incomplet)",
+        "forced": "Stare forțată",
+        "inactive_seeding_time_limit": "Limită timp seeding inactiv",
+        "limit_collapse": "Configurează limitele",
+        "limit_hint": "-1 pentru dezactivare, -2 sau gol pentru a folosi valoarea globală",
+        "no_categories": "Nu există categorii încă. Scrie un nume pentru a crea una.",
+        "no_categories_match": "Nicio categorie nu se potrivește cu \"{query}\". Va fi creată automat.",
+        "no_tags": "Nu există etichete încă. Scrie un nume pentru a crea una.",
+        "no_tags_match": "Nicio etichetă nu se potrivește cu \"{query}\". Apasă Enter pentru a o crea.",
+        "ratio_limit": "Limită ratio",
+        "save_path": "Cale de salvare (când e finalizat)",
+        "seeding_time_limit": "Limită timp seeding",
+        "skip_checking": "Omite verificarea hash-ului",
+        "stopped": "Nu începe descărcarea",
+        "tags": "Etichete",
+        "title": "Parametri torrent",
+        "upload_limit": "Limită de upload",
+        "use_auto_tmm": "Gestionare automată torrent"
+      },
+      "rename": "Redenumește torrentul",
+      "reset_form": "Resetează formularul",
+      "sequential_download": "Download secvențial",
+      "submit": "Adaugă torrente",
+      "title": "Adaugă torrente"
+    },
+    "bulkEditTrackers": {
+      "add": "Trackere de adăugat",
+      "edit": {
+        "result": "{rejected}/{total} cereri au eșuat\\n{reason}",
+        "row": {
+          "add": "Adaugă rând",
+          "new_url": "URL nou tracker",
+          "old_url": "URL vechi tracker",
+          "rules": {
+            "invalid_url": "URL nevalid"
+          }
+        },
+        "title": "Trackere de înlocuit"
+      },
+      "remove": "Trackere de eliminat",
+      "title": "Editare multiplă a trackerelor"
+    },
+    "bulkRenameFiles": {
+      "col_origin_name": "Original",
+      "col_result_name": "Rezultat",
+      "duplicated": "Nume de fișier duplicat",
+      "flags": "Flag-uri",
+      "fold": "Restrânge",
+      "not_changed": "Numele fișierului nu s-a schimbat",
+      "notForFolder": "Redenumirea folderului nu este suportată",
+      "nothing_to_do": "Nicio sarcină de îndeplinit",
+      "regexp": "Expresie regulată",
+      "run": "Rulează",
+      "select_regex_flags": "Selectează flag-urile expresiei regulate",
+      "success": "Redenumire reușită",
+      "target": "Câmp de înlocuire",
+      "title": "Redenumire multiplă",
+      "unfold": "Extinde"
+    },
+    "category": {
+      "downloadPath": "Cale torrent incompletă",
+      "downloadPathEnabled": "Folosește o altă cale pentru torrentele incomplete",
+      "name": "Nume categorie",
+      "nameRequired": "Numele categoriei este obligatoriu",
+      "oldName": "Nume vechi categorie",
+      "savePath": "Cale de salvare",
+      "title": {
+        "create": "Creează o categorie",
+        "edit": "Editează categoria"
+      },
+      "warnEdit": "Editarea numelui categoriei va migra torrentele către noua categorie. Pot apărea erori, folosește cu atenție."
+    },
+    "confirm": {
+      "banPeers": "Sigur vrei să blochezi (ban) acest peer?",
+      "clearCookies": "Sigur vrei să ștergi toate cookie-urile?",
+      "deleteCategory": "Sigur vrei să elimini această categorie?",
+      "deleteCookie": "Sigur vrei să elimini acest cookie?",
+      "deleteFeed": "Sigur vrei să elimini acest flux RSS?",
+      "deleteRule": "Sigur vrei să elimini această regulă RSS?",
+      "deleteTag": "Sigur vrei să elimini această etichetă?",
+      "deleteUnusedCategories": "Sigur vrei să elimini toate categoriile neutilizate?",
+      "deleteUnusedTags": "Sigur vrei să elimini toate etichetele neutilizate?",
+      "startAll": "Sigur vrei să pornești toate torrentele?",
+      "stopAll": "Sigur vrei să oprești toate torrentele?"
+    },
+    "connectionStatus": {
+      "dht_nodes": "Noduri DHT",
+      "externalIp": "Adresă IP externă",
+      "fetch_disabled": "Preluarea datelor IP este dezactivată",
+      "fetch_geo_failed": "Nu s-au putut prelua detaliile de geolocație",
+      "fetch_isp_failed": "Nu s-au putut prelua detaliile ISP-ului",
+      "geo_details": "Detalii geolocație",
+      "isp_details": "Detalii ISP",
+      "noExternalIp": "Nu s-a putut detecta adresa IP externă",
+      "status": "Stare conexiune",
+      "total_peer_connections": "Conexiuni peer active"
+    },
+    "cookiesImport": {
+      "input": "Date cookie",
+      "title": "Importă cookie-uri",
+      "type": {
+        "header": "Valoare antet (Header)",
+        "json": "JSON",
+        "label": "Tipul de date de importat",
+        "netscape": "Netscape"
+      }
+    },
+    "cookiesManager": {
+      "domain": "Nume domeniu",
+      "expiration_date": "Data expirării",
+      "name": "Nume cookie",
+      "path": "Cale",
+      "rules": {
+        "duplicate": "Acest cookie există deja"
+      },
+      "title": "Formular cookie",
+      "value": "Valoare cookie"
+    },
+    "delete": {
+      "deleteWithFiles": "Șterge fișierele odată cu torrentul",
+      "title": "Șterge {n} torrent | Șterge {n} torrente",
+      "warnDelete": "Bifarea acestei căsuțe va șterge tot conținutul acelor torrente"
+    },
+    "importSettings": {
+      "required": "Furnizarea setărilor este obligatorie",
+      "title": "Importă setările",
+      "valid": "Te rog furnizează setări valide"
+    },
+    "legacy_copy": {
+      "title": "Dialog de copiere vechi"
+    },
+    "moveTorrent": {
+      "dl": {
+        "title": "Schimbă calea de download"
+      },
+      "newPath": "Cale nouă",
+      "oldPath": "Cale veche",
+      "required": "Este necesară o cale nouă",
+      "samePath": "Calea nouă trebuie să fie diferită de calea veche",
+      "save": {
+        "title": "Schimbă calea de salvare"
+      }
+    },
+    "moveTorrentFile": {
+      "oldName": "Nume vechi",
+      "title": "Mută fișierul torrent | Mută folderul torrent"
+    },
+    "pluginManager": {
+      "headers": {
+        "actions": "Acțiuni",
+        "enabled": "Activat",
+        "name": "Nume",
+        "url": "URL motor",
+        "version": "Versiune"
+      },
+      "install": {
+        "activator": "Instalează un plugin nou",
+        "label": "URL plugin",
+        "title": "Instalează plugin-ul"
+      },
+      "title": "Manager de plugin-uri",
+      "update": "Actualizează plugin-urile"
+    },
+    "renameTorrent": {
+      "newName": "Nume nou",
+      "oldName": "Nume vechi",
+      "required": "Este necesar un nume nou",
+      "sameName": "Numele nou trebuie să fie diferit de cel vechi",
+      "title": "Redenumește torrentul"
+    },
+    "rss": {
+      "feed": {
+        "name": "Nume",
+        "rules": {
+          "name_required": "Numele fluxului este necesar",
+          "url_required": "Este necesară adresa URL a fluxului"
+        },
+        "title": {
+          "create": "Creează flux RSS",
+          "edit": "Editează flux RSS"
+        },
+        "url": "URL"
+      },
+      "rule": {
+        "addStopped": "Adaugă în stare oprită",
+        "affectedFeedsSubheader": "Fluxuri afectate",
+        "assignedCategory": "Categorie atribuită",
+        "enabled": "Activează regula",
+        "episodeFilter": "Filtru episoade",
+        "episodeFilterPlaceholder": "ex: S01E02-S01E05",
+        "ignoreDays": "Ignoră elementele publicate în ultimele {days} zile",
+        "ignoreDaysHint": "0 pentru dezactivare",
+        "lastMatch": {
+          "knownValue": "astăzi | acum {n} zi | acum {n} zile",
+          "label": "Ultima potrivire",
+          "unknownValue": "Necunoscut"
+        },
+        "matchingArticles": {
+          "noMatch": "Nu există articole care să se potrivească",
+          "title": "Articole potrivite"
+        },
+        "mustContain": "Trebuie să conțină",
+        "mustNotContain": "Nu trebuie să conțină",
+        "name": "Nume",
+        "savePath": "Cale de salvare",
+        "savePathPlaceholder": "Lasă gol pentru a folosi calea de salvare implicită",
+        "smartFilter": "Folosește filtrul Smart Episode",
+        "title": {
+          "create": "Creează regulă RSS",
+          "edit": "Editează regulă RSS"
+        },
+        "useRegex": "Folosește expresii regulate"
+      }
+    },
+    "share_limit": {
+      "disabled": "Setează fără limită de partajare",
+      "enabled": "Setează limita de partajare la",
+      "global": "Folosește limita globală de partajare",
+      "inactive_seeding_time_limit": "Minute de inactivitate",
+      "ratio_limit": "Ratio",
+      "seeding_time_limit": "Minute totale",
+      "title": "Setează limita ratio de partajare"
+    },
+    "shutdown": {
+      "content": "Sigur vrei să închizi qBittorrent?",
+      "error": "Nu s-a putut închide aplicația. Asigură-te că qBittorrent rulează!",
+      "success": "qBittorrent a fost închis cu succes!",
+      "title": "Închide qBittorrent"
+    },
+    "speed_limit": {
+      "download": "Setează limita vitezei de download",
+      "label": "Limită de viteză",
+      "upload": "Setează limita vitezei de upload"
+    },
+    "stats": {
+      "all_time_download": "Descărcări totale",
+      "all_time_share_ratio": "Ratio de partajare totală",
+      "all_time_upload": "Încărcări totale",
+      "average_time_in_queue": "Timpul mediu de așteptare în listă",
+      "cache_statistics": "Statistici cache",
+      "connected_peers": "Peeri conectați",
+      "performance_statistics": "Statistici de performanță",
+      "queued_io_jobs": "Sarcini I/O în așteptare",
+      "read_cache_hits": "Accesări citire cache",
+      "read_cache_overload": "Supraîncărcare cache citire",
+      "session_waste": "Date irosite în sesiune",
+      "title": "Statistici",
+      "total_buffer_size": "Mărime totală buffer",
+      "total_queued_size": "Mărime totală listă de așteptare",
+      "user_statistics": "Statistici utilizator",
+      "write_cache_overload": "Supraîncărcare cache scriere"
+    },
+    "tag": {
+      "comma": "Numele nu poate conține virgulă la redenumirea unei etichete",
+      "hint": "Sugestie: poți crea mai multe etichete separându-le prin virgulă",
+      "name": "Nume etichetă",
+      "oldName": "Nume vechi etichetă",
+      "required": "Este necesar numele etichetei",
+      "title": {
+        "create": "Creează etichetă",
+        "rename": "Redenumește eticheta"
+      },
+      "warnEdit": "Editarea etichetei va migra torrentele către noua etichetă. Pot apărea erori, folosește cu atenție."
+    },
+    "torrentCreator": {
+      "actions": {
+        "submit": "Rulează sarcina de creare"
+      },
+      "comment": "Comentarii",
+      "format": "Format torrent",
+      "optimizeAlignment": "Optimizează alinierea",
+      "paddedFileSizeLimit": "Aliniază la limita piesei pentru fișierele mai mari de",
+      "paddedFileSizeLimitHint": "-1 pentru dezactivare",
+      "paddedFileSizeLimitRule": "Valoarea trebuie să fie pozitivă",
+      "pieceSize": "Mărime piesă",
+      "private": "Torrent privat (nu se va distribui în rețeaua DHT)",
+      "rules": {
+        "outputFileExtension": "Calea de ieșire trebuie să se termine cu .torrent",
+        "sourcePathRequired": "Calea sursă trebuie completată"
+      },
+      "source": "Sursă",
+      "sourcePath": "Fișiere de inclus în torrent",
+      "startSeeding": "Începe seeding-ul imediat",
+      "title": "Creează sarcină nouă",
+      "torrentFilePath": "Destinația fișierului torrent creat",
+      "trackers": "URL-uri trackere",
+      "trackersHint": "Poți separa nivelurile / grupurile de trackere printr-un rând gol",
+      "urlSeeds": "URL-uri web seed"
+    }
+  },
+  "login": {
+    "error": "Autentificare eșuată!",
+    "password": "Parolă",
+    "pending": "Se verifică starea actuală a autentificării...",
+    "submit": "Autentificare",
+    "subtitle": "Introdu datele tale de identificare",
+    "success": "Autentificare reușită!",
+    "title": "Autentificare",
+    "username": "Nume utilizator"
+  },
+  "logs": {
+    "emptyLogList": "Nu s-au găsit jurnale (logs)",
+    "filters": {
+      "query": "Caută în mesajul log-ului",
+      "type": "Nivel log"
+    },
+    "title": "Log-uri qBittorrent"
+  },
+  "navbar": {
+    "addPanel": {
+      "torrentsPendingCount": "{n} torrent în așteptare pentru upload | {n} torrente în așteptare pentru upload"
+    },
+    "side": {
+      "bottom_actions": {
+        "alt_speed": "Comută viteza alternativă",
+        "conn_status": "Stare conexiune: {status}",
+        "dark_mode": "Mod luminos | Mod întunecat | Urmează setările sistemului",
+        "dark_mode.dark": "Mod întunecat",
+        "dark_mode.light": "Mod luminos",
+        "dark_mode.system": "Urmează setările sistemului",
+        "logout": "Deconectare",
+        "shutdown": "Închide qBittorrent",
+        "statistics": "Statistici"
+      },
+      "connection_stats": {
+        "dht_nodes_connected": "Noduri DHT",
+        "total_peers_connections": "Conexiuni peer active"
+      },
+      "current_speed": {
+        "download": "Viteză de download",
+        "title": "Viteză actuală",
+        "upload": "Viteză de upload"
+      },
+      "filters": {
+        "activeFilter": "{n} filtre active",
+        "category": {
+          "empty": "(Necategorizat)",
+          "title": "Filtru categorii"
+        },
+        "disabled": "(Dezactivat)",
+        "state": {
+          "active": "Activ",
+          "error": "Eroare",
+          "offline": "Offline",
+          "title": "Filtru stare torrent"
+        },
+        "tag": {
+          "empty": "(Fără etichetă)",
+          "title": "Filtru etichete"
+        },
+        "tracker": {
+          "empty": "(Untracked)",
+          "not_working": "(Nu funcționează)",
+          "title": "Filtru trackere"
+        }
+      },
+      "free_space": {
+        "free_space_on_disk": "Spațiu liber pentru calea de salvare implicită",
+        "global_ratio": "Ratio globală"
+      },
+      "performance_stats": {
+        "average_time_queue": "Timpul mediu de așteptare în listă",
+        "queued_io_jobs": "Sarcini IO în așteptare (Verificare / Mutare / Redenumire conținut)",
+        "read_cache_hits": "Număr accesări cache citire disc",
+        "read_cache_overload": "Supraîncărcare cache citire disc (= mărime listă de citire disc / număr peeri",
+        "total_buffers_size": "Mărime totală a bufferelor",
+        "total_queued_size": "Mărime totală listă de așteptare",
+        "total_wasted_session": "Total date irosite în sesiune (verificare piese eșuată, download duplicat",
+        "write_cache_overload": "Supraîncărcare cache scriere disc (= mărime listă de scriere disc / număr peeri"
+      },
+      "speed_graph": {
+        "download_label": "Download",
+        "download_limit_label": "Limită download",
+        "upload_label": "Upload",
+        "upload_limit_label": "Limită de upload"
+      },
+      "stats": {
+        "downloaded": "Descărcat",
+        "free_space": "Spațiu liber",
+        "ratio": "Ratio",
+        "uploaded": "Încărcat"
+      },
+      "transfer_stats": {
+        "download": "Date descărcate (sesiune / total)",
+        "upload": "Date încărcate (sesiune / total)"
+      }
+    },
+    "top": {
+      "active_filters": {
+        "category": "Filtru categorie: {value}",
+        "menu_label": "Filtru activ: {n} | Filtre active: {n}",
+        "multiple_category": "Filtru categorie: {n} active",
+        "multiple_state": "Filtru stare: {n} active",
+        "multiple_tag": "Filtru etichetă: {n} active",
+        "multiple_tracker": "Filtru tracker: {n} active",
+        "state": "Filtru stare: {value}",
+        "tag": "Filtru etichetă: {value}",
+        "text": "Filtru text: {value}",
+        "tracker": "Filtru tracker: {value}"
+      }
+    }
+  },
+  "rssArticles": {
+    "feeds": {
+      "empty": {
+        "action": "Creează flux RSS",
+        "value": "Nu există fluxuri RSS înregistrate"
+      },
+      "filters": {
+        "title": "Filtru titlu",
+        "unread": "Arată doar articolele necitite"
+      },
+      "item": {
+        "author": "Autor: {author}",
+        "category": "Categorie: {category}",
+        "feedName": "Nume flux: {name}",
+        "new": "NOU"
+      },
+      "markAllAsRead": "Marchează tot ca citit",
+      "markAsRead": "Marchează ca citit",
+      "promise": {
+        "error": "A apărut o eroare la marcarea articolelor",
+        "pending": "Se marchează...",
+        "success": "{n} articole marcate ca citite"
+      },
+      "refreshAllFeeds": "Actualizează toate fluxurile",
+      "refreshPromise": {
+        "error": "A apărut o eroare la actualizarea fluxurilor",
+        "pending": "Se actualizează...",
+        "success": "{n} fluxuri actualizate"
+      },
+      "title": "Articole RSS"
+    },
+    "rules": {
+      "empty": {
+        "action": "Creează regulă RSS",
+        "value": "Nu există reguli RSS înregistrate"
+      },
+      "title": "Reguli RSS"
+    },
+    "toggle": {
+      "feeds": "Arată fluxurile",
+      "rules": "Arată regulile"
+    }
+  },
+  "searchEngine": {
+    "filters": {
+      "category": {
+        "all": "Toate",
+        "anime": "Anime",
+        "books": "Cărți",
+        "games": "Jocuri",
+        "label": "Căutare categorie",
+        "movies": "Filme",
+        "music": "Muzică",
+        "pictures": "Imagini",
+        "software": "Software",
+        "tv": "TV"
+      },
+      "plugins": {
+        "all": "Toate",
+        "enabled": "Activat",
+        "label": "Caută plugin"
+      },
+      "title": {
+        "label": "Filtrează după titlu"
+      }
+    },
+    "headers": {
+      "engineName": "Nume motor",
+      "fileName": "Nume fișier",
+      "fileSize": "Mărime fișier",
+      "nbLeechers": "Leechers",
+      "nbSeeders": "Seeders",
+      "pubDate": "Data publicării",
+      "siteUrl": "URL site"
+    },
+    "query": "Text de căutat",
+    "runSearch": "Caută",
+    "stopSearch": "Oprește",
+    "tabHeaderEmpty": "(Căutare goală)",
+    "title": "Motor de căutare",
+    "tooltip": {
+      "append_queue": "Adaugă la lista de torrente",
+      "download": "Descarcă folosind plugin-ul",
+      "open_link": "Deschide link-ul într-o filă nouă"
+    }
+  },
+  "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "Blochează automat peer-ul BT player",
+        "auto_ban_unknown_peer": "Blochează automat peer-ul necunoscut",
+        "auto_update_trackers": "Actualizează automat lista de trackere publice",
+        "public_trackers": "Trackere publice",
+        "trackers_list_url": "Personalizează lista URL de trackere"
+      }
+    },
+    "advanced": {
+      "libtorrent": {
+        "announceAllTiers": "Anunță întotdeauna la toate nivelurile (tiers)",
+        "announceAllTrackers": "Anunță întotdeauna la toți trackerii dintr-un nivel",
+        "announceIP": "Adresa IP raportată trackerelor (necesită repornire)",
+        "coalesceReadsWrites": "Coalesce citește și scrie (libtorrent < 2.0)",
+        "dhtBootstrapNodes": "Noduri bootstrap DHT",
+        "dhtBootstrapNodesHint": "Resetează la implicit dacă este gol",
+        "disk": {
+          "diskCache": "Cache disc (libtorrent < 2.0)",
+          "diskCacheExpiry": "Interval expirare cache disc (libtorrent < 2.0)",
+          "diskIoReadMode": "Mod citire disc IO",
+          "diskIoType": "Tip IO disc (libtorrent >= 2.0; necesită repornire)",
+          "diskIoWriteMode": "Mod scriere disc IO",
+          "diskQueueSize": "Mărime listă de așteptare disc",
+          "subheader": "Disc"
+        },
+        "i2p": {
+          "inboundLength": "Lungime inbound I2P",
+          "inboundQuantity": "Cantitate inbound I2P",
+          "invalidLength": "Valorile de lungime I2P trebuie să fie între 0 și 7",
+          "invalidQuantity": "Valorile de cantitate I2P trebuie să fie între 1 și 16",
+          "outboundLength": "Lungime outbound I2P",
+          "outboundQuantity": "Cantitate outbound I2P",
+          "restartNeeded": "Orice modificări ale acestor setări vor avea loc la următoarea reconectare SAM (prin repornirea I2P sau schimbarea adresei/portului I2P"
+        },
+        "maxConcurrentHTTPAnnounces": "Anunțuri HTTP concurente maxime",
+        "networking": {
+          "outgoingPortsMax": "Porturi de ieșire (Max) [0: Dezactivat]",
+          "outgoingPortsMin": "Porturi de ieșire (Min) [0: Dezactivat]",
+          "peerTos": "Valoare DSCP pentru conexiunile cu peeri",
+          "subheader": "Rețea",
+          "upnpLeaseDuration": "Durată închiriere UPnP [0: Permanentă]",
+          "utpTcpMixedModeAlgorithm": "Algoritm mod mixt μTP-TCP"
+        },
+        "outgoingConnectionsPerSecond": "Conexiuni de ieșire pe secundă",
+        "peerTurnover": "Prag procentual deconectare rulaj peeri (peer turnover)",
+        "peerTurnoverCutoff": "Prag procentual de fluctuație peeri",
+        "peerTurnoverInterval": "Interval deconectare rulaj peeri",
+        "pieceExtentAffinity": "Folosește afinitatea de extindere a piesei",
+        "requestQueueSize": "Număr maxim de cereri în așteptare către un singur peer",
+        "security": {
+          "allowMultipleConnectionsFromTheSameIPAddress": "Permite conexiuni multiple de la aceeași adresă IP",
+          "blockPeersOnPrivilegedPorts": "Interzice conexiunea cu peeri pe porturi privilegiate",
+          "idnSupport": "Activează suportul pentru nume de domenii internaționalizate (IDN)",
+          "mitigateSSRF": "Reducerea riscului de falsificare a cererilor pe partea serverului (SSRF)",
+          "subheader": "Securitate",
+          "validateHTTPSTrackerCertificate": "Validează certificatul HTTPS al trackerului"
+        },
+        "sendBufferLowWatermark": "Pragul minim buffer de trimitere",
+        "sendBufferWatermark": "Pragul bufferului de trimitere",
+        "sendBufferWatermarkFactor": "Factorul pragului bufferului de trimitere",
+        "sendUploadPieceSuggestions": "Trimite sugestii pentru piese de upload",
+        "socketBacklogSize": "Mărime socket backlog",
+        "socketReceiveBufferSize": "Mărime buffer recepție socket",
+        "socketReceiveBufferSizeHint": "0: sistem implicit",
+        "socketSendBufferSize": "Mărime buffer trimitere socket",
+        "socketSendBufferSizeHint": "0: sistem implicit",
+        "ssl": {
+          "disclaimer": "Funcția „SSL torrent” nu este standardizată, nu există BEP (BitTorrent Enhancement Proposals) asociate cu ea.\nActivează această funcție doar dacă ai nevoie de ea.",
+          "enabled": "Activează torrentele SSL",
+          "listenPort": "Port folosit pentru conexiuni SSL",
+          "listenPortHint": "Lasă gol pentru selectare automată",
+          "rule": "Portul trebuie să fie între 0 și 65535"
+        },
+        "stopTrackerTimeout": "Stop tracker timeout",
+        "subheader": "Secțiunea libtorrent",
+        "threads": {
+          "asyncIoThreads": "Fire de execuție I/O asincrone",
+          "bdecodeDepthLimit": "Limită adâncime Bdecode",
+          "bdecodeTokenLimit": "Limită token Bdecode",
+          "filePoolSize": "Mărime pool de fișiere",
+          "hashingThreads": "Thread-uri de hashing (libtorrent >= 2.0)",
+          "outstandingMemory": "Memorie restantă la verificarea torrentelor",
+          "subheader": "Fire de execuție (Threads)"
+        },
+        "uploadChokingAlgorithm": "Algoritm de limitare (choking) la upload",
+        "uploadSlotsBehavior": "Comportament sloturi de upload"
+      },
+      "openDoc": "Deschide documentația",
+      "qbittorrent": {
+        "allocatedRam": "Limită utilizare memorie fizică (RAM) (libtorrent >= 2.0)",
+        "appInstanceName": "Nume instanță aplicație",
+        "embeddedTracker": {
+          "enable": "Activează trackerul încorporat",
+          "port": "Port tracker încorporat",
+          "portForward": "Activează port-forwarding pentru trackerul încorporat",
+          "title": "Tracker încorporat"
+        },
+        "enableMarkOfTheWeb": "Activează Mark-of-the-Web (MOTW) pentru fișierele descărcate",
+        "enableMarkOfTheWebHint": "Necesită macOS sau Windows",
+        "networking": {
+          "ipAddress": {
+            "all": "Toate adresele",
+            "allIPv4": "Toate adresele IPv4",
+            "allIPv6": "Toate adresele IPv6",
+            "label": "Adresă IP opțională de asociat"
+          },
+          "networkInterfaces": {
+            "any": "Orice interfață",
+            "label": "Interfață de rețea"
+          },
+          "title": "Rețea"
+        },
+        "pythonExecutablePath": "Cale executabil Python",
+        "pythonExecutablePathHint": "Detectare automată dacă este gol, necesită repornire",
+        "reannounceOnIpPortChanged": "Reanunță toți trackerii când IP-ul sau portul se schimbă",
+        "recheckOnCompletion": "Reverifică torrentele la finalizare",
+        "refreshInterval": "Interval de actualizare GUI",
+        "resolveCountries": "Identifică țara peer-ilor",
+        "resumeDataStorageType": {
+          "label": "Reia tipul de stocare a datelor (necesită repornire)",
+          "legacy": "Fișiere Fastresume",
+          "sqlite": "Bază de date SQLite (experimentală)"
+        },
+        "saveInterval": "Interval salvare date de reluare",
+        "subheader": "Secțiunea qBittorrent",
+        "torrentContentRemovingMode": "Mod de eliminare conținut torrent",
+        "torrentFileSizeLimit": "Limită mărime fișier .torrent"
+      }
+    },
+    "behavior": {
+      "logs": {
+        "file_log_age": "Șterge log-urile de rezervă mai vechi de",
+        "file_log_backup_enabled": "Activează copia de rezervă a fișierului log",
+        "file_log_delete_old": "Șterge log-urile de rezervă vechi",
+        "file_log_enabled": "Activează fișierele log",
+        "file_log_max_size": "Creează copie de rezervă a fisierelui de log-uri după",
+        "file_log_path": "Cale de salvare",
+        "subheader": "Gestionare log-uri"
+      },
+      "performance_warning": "Avertismente de performanță în log-uri"
+    },
+    "bittorrent": {
+      "autoAddTrackers": "Adaugă automat aceste trackere la noile descărcări",
+      "autoAddTrackersFromUrl": "Adaugă automat trackere de la URL la noile descărcări",
+      "autoAddTrackersHint": "Un tracker pe linie",
+      "maxActiveCheckingTorrents": "Număr maxim de torrente active în verificare",
+      "privacy": {
+        "enableAnonymous": "Activează modul anonim",
+        "enableDHT": "Activează rețeaua DHT (rețea descentralizată) pentru a găsi mai mulți peeri",
+        "enableLPD": "Activează Local Peer Discovery pentru a găsi mai mulți peeri",
+        "enablePeX": "Activează Peer Exchange (PeX) pentru a găsi mai mulți peeri",
+        "encryptionMode": "Mod criptare",
+        "moreInfo": "Mai multe informații",
+        "subheader": "Confidențialitate"
+      },
+      "seedLimits": {
+        "subheader": "Limite de Seeding",
+        "then": "Apoi",
+        "whenInactiveSeedingTimeReaches": "Când timpul de seeding inactiv ajunge la",
+        "whenRatioReaches": "Când ratio ajunge",
+        "whenSeedingTimeReaches": "Când timpul de seeding ajunge"
+      },
+      "torrentQueueing": {
+        "downloadRateLimit": "Pragul ratei de download",
+        "excludeSlowTorrent": "Nu lua în calcul torrentele lente în aceste limite",
+        "maxActiveDownload": "Număr maxim de descărcări/download active",
+        "maxActiveTorrent": "Număr maxim de torrente active",
+        "maxActiveUpload": "Numărul maxim de încărcări/upload active",
+        "subheader": "Listă torrente",
+        "torrentInactivityTimer": "Timer inactivitate torrent",
+        "uploadRateLimit": "Prag rată de upload"
+      },
+      "trackersFetchedFromUrl": "Trackere preluate din URL"
+    },
+    "connection": {
+      "connectionLimits": {
+        "globalMaxConnection": "Număr maxim global de conexiuni",
+        "globalMaxUploadSlots": "Număr maxim global de sloturi de upload",
+        "perTorrentMaxConnection": "Număr maxim de conexiuni per torrent",
+        "perTorrentMaxUploadSlots": "Număr maxim de sloturi de upload per torrent",
+        "subheader": "Limite conexiune"
+      },
+      "i2p": {
+        "address": "I2P Host",
+        "disclaimer": "Dacă „Modul Mixt” este activat, torrentele I2P au voie să preia peeri și din alte surse decât tracker și să se conecteze la IP-uri obișnuite, neasigurând anonimizarea. Acest lucru poate fi util dacă nu ești interesat de anonimizarea I2P, dar vrei totuși să te poți conecta la peerii I2P.",
+        "enabled": "Activează I2P",
+        "mixedMode": "Mod mixt",
+        "port": "Port",
+        "rule": "Valoarea portului trebuie să fie între 0 și 65535",
+        "subheader": "I2P (experimental)"
+      },
+      "ipFiltering": {
+        "applyToTrackers": "Aplică trackerelor",
+        "bannedIps": "Adrese IP blocate manual",
+        "bannedIpsHint": "Câte una pe fiecare linie",
+        "filterPath": "Cale filtru (.dat, .p2p, .p2b)",
+        "subheader": "Filtrare IP"
+      },
+      "listeningPort": {
+        "incomingConnectionPort": "Port folosit pentru conexiuni de intrare",
+        "randomPort": "Port aleatoriu",
+        "subheader": "Port de ascultare",
+        "useUPnP": "Folosește redirecționarea porturilor UPnP / NAT-PMP de la routerul meu"
+      },
+      "protocol": "Protocol conexiune peer",
+      "proxy": {
+        "auth": {
+          "password": "Parolă proxy",
+          "subtitle": "Autentificare",
+          "tip": "Info: Parola este salvată necriptată",
+          "username": "Nume utilizator proxy"
+        },
+        "bittorrent": "Folosește proxy pentru scopuri BitTorrent",
+        "host": "Host",
+        "hostNameLookup": "Folosește proxy pentru căutarea numelui de gazdă/hostname",
+        "misc": "Folosește proxy în scopuri generale",
+        "peerConnections": "Folosește proxy pentru conexiunile peer",
+        "port": "Port",
+        "rss": "Folosește proxy în scopuri RSS",
+        "subheader": "Server proxy"
+      }
+    },
+    "downloads": {
+      "excludedFileNames": {
+        "hint": "Un filtru pe linie",
+        "label": "Nume de fișiere excluse"
+      },
+      "mailNotification": {
+        "authEnabled": "Autentificare",
+        "enabled": "Notificare prin email la finalizarea descărcării",
+        "from": "De la",
+        "password": "Parolă",
+        "smtpServer": "Server SMTP",
+        "sslEnabled": "Acest server necesită o conexiune securizată (SSL)",
+        "test": {
+          "error": "Cererea de e-mail a eșuat\n{message}",
+          "label": "Trimite e-mail de test",
+          "success": "Cererea de e-mail a fost trimisă!\nVerifică-ți căsuța poștală pentru confirmare"
+        },
+        "to": "Către",
+        "username": "Nume utilizator"
+      },
+      "monitoredFolders": {
+        "actions": "Acțiuni",
+        "confirmDelete": "Sigur vrei să ștergi acest element?",
+        "editItem": "Editează",
+        "monitoredFolderPath": "Folder monitorizat",
+        "newItem": "Nou",
+        "noData": "Niciun folder monitorizat încă",
+        "otherPath": "Altă cale",
+        "saveType": "Suprascrie locația de salvare",
+        "subheader": "Foldere monitorizate"
+      },
+      "publicSettings": {
+        "appendQBExtension": "Adaugă extensia .!qB fișierelor incomplete",
+        "preAllocateDisk": "Pre-alocă spațiul pe disc pentru toate fișierele",
+        "useUnwantedFolder": "Păstrează fișierele neselectate în folderul \".unwanted\""
+      },
+      "runExternalProgram": {
+        "onAddedEnabled": "Rulează un program extern când un torrent este adăugat",
+        "onAddedLabel": "Comandă",
+        "onFinishedEnabled": "Rulează un program extern când un torrent este finalizat",
+        "onFinishedLabel": "Comandă",
+        "subheader": "Rulează program extern",
+        "supportParamC": "%C: Numărul de fișiere",
+        "supportParamD": "%D: Calea de salvare",
+        "supportParamF": "%F: Calea conținutului (la fel ca calea rădăcină pentru torrentele cu mai multe fișiere)",
+        "supportParamG": "%G: Etichete (separate prin virgulă)",
+        "supportParamI": "%I: Info hash v1",
+        "supportParamJ": "%J: Info hash v2",
+        "supportParamK": "%K: Torrent ID",
+        "supportParamL": "%L: Categorie",
+        "supportParamN": "%N: Nume torrent",
+        "supportParamR": "%R: Calea rădăcină (calea primului subfolder al torrentului)",
+        "supportParamT": "%T: Trackerul actual",
+        "supportParamTitle": "Parametri suportați (sensibili la majuscule):",
+        "supportParamZ": "%Z: Mărime torrent (bytes)",
+        "tip": "Sfat: Pune parametrul între ghilimele pentru a evita decuparea textului la spații goale (ex: \"%N\")"
+      },
+      "saveManagement": {
+        "autoTMMEnabled": "Mod implicit de gestionare a torrentelor",
+        "categoryChangedTMM": "Când calea de salvare a categoriei se schimbă",
+        "defaultSavePath": "Cale de salvare implicită (complet)",
+        "defaultTMMOptions": {
+          "automatic": "Automat",
+          "manual": "Manual"
+        },
+        "exportDir": "Copiați fișierele .torrent în",
+        "exportDirFinished": "Copiază fișierele .torrent pentru descărcările finalizate în",
+        "keepIncomplete": "Cale de descărcare implicită (torrente incomplete)",
+        "paramChangedTMMOptions": {
+          "relocateTorrent": "Relochează torrentul",
+          "switchToManual": "Comută torrentul în modul manual"
+        },
+        "savePathChangedTMM": "Când calea de salvare implicită se schimbă",
+        "subheader": "Gestionarea salvării",
+        "torrentChangedTMM": "Când categoria torrentului se schimbă",
+        "useCategoryPathInManualMode": "Folosește căile categoriilor în modul manual",
+        "useCategoryPathInManualModeHint": "Rezolvă calea relativă de salvare în raport cu calea categoriei corespunzătoare în loc de cea implicită"
+      },
+      "whenAddTorrent": {
+        "addToTopOfQueue": "Adaugă la începutul listei de așteptare",
+        "autoDeleteMode": "Șterge fișierele .torrent după aceea",
+        "doNotAutoStart": "Nu porni descărcarea automat",
+        "mergeTrackers": "Combină trackerii dacă torrentul există deja",
+        "subheader": "Când se adaugă un torrent"
+      }
+    },
+    "rss": {
+      "autoDownloader": {
+        "enable": "Activează procesarea regulilor RSS",
+        "subheader": "Descărcare automată de torrent RSS"
+      },
+      "reader": {
+        "enableProcessing": "Activează preluarea fluxurilor RSS",
+        "feedsRefreshInterval": "Interval de actualizare a fluxurilor",
+        "maximumArticlesPerFeed": "Număr maxim de articole per flux",
+        "sameHostRequestDelay": "Întârzierea solicitării aceleiași gazde/host",
+        "subheader": "Cititor RSS"
+      },
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "Descarcă episoadele REPACK/PROPER",
+        "filters": "Filtre",
+        "filtersHint": "Unul pe linie",
+        "subheader": "Filtru Smart Episode RSS"
+      },
+      "useIdForRssLinks": "Folosește ID pentru link-ul articolului RSS"
+    },
+    "saveSuccess": "Setări salvate!",
+    "speed": {
+      "download": "Download",
+      "scheduler": {
+        "from": "De la",
+        "selectButtonLabel": "Selectează ora",
+        "subheader": "Programează utilizarea limitelor alternative de viteză",
+        "to": "Către",
+        "when": "Când"
+      },
+      "settings": {
+        "applyToPeersOnLan": "Aplică limita de viteză peerilor din LAN",
+        "applyToTransportOverhead": "Aplică limita de viteză pentru overhead-ul de transport",
+        "applyToUtp": "Aplică limita de viteză protocolului µTP"
+      },
+      "subheader": {
+        "alternative": "Limite alternative de viteză",
+        "global": "Limite globale de viteză",
+        "settings": "Setări limite de viteză"
+      },
+      "tip": "0 înseamnă nelimitat",
+      "upload": "Upload"
+    },
+    "tabs": {
+      "addons": {
+        "enhanced_edition": "Ediție îmbunătățită"
+      },
+      "advanced": "Avansat",
+      "behavior": "Comportament",
+      "bittorrent": "BitTorrent",
+      "connection": "Conexiune",
+      "downloads": "Descărcări",
+      "rss": "RSS",
+      "speed": "Viteză",
+      "tagsAndCategories": "Etichete & Categorii",
+      "vuetorrent": {
+        "general": "General",
+        "sidebar": "Bară laterală",
+        "title": "VueTorrent",
+        "torrent_card": {
+          "grid": "Vizualizare grilă",
+          "list": "Vizualizare listă",
+          "table": "Vizualizare tabel"
+        }
+      },
+      "webui": "WebUI"
+    },
+    "tagsAndCategories": {
+      "categoriesSubheader": "Categorii disponibile:",
+      "createNewCategory": "Creează o nouă categorie",
+      "createNewTag": "Creează o etichetă nouă",
+      "deleteUnusedCategories": "Șterge categoriile neutilizate",
+      "deleteUnusedTags": "Șterge etichetele neutilizate",
+      "noCategories": "Nu există categorii încă",
+      "noTags": "Nu există etichete încă",
+      "tagsSubheader": "Etichete disponibile:"
+    },
+    "title": "Setări",
+    "vuetorrent": {
+      "general": {
+        "check_new": "Verifică dacă există o versiune nouă",
+        "currentVersion": "Versiunea actuală",
+        "customTitle": "Titlu personalizat",
+        "darkVariants": "Variantă temă întunecată",
+        "dateFormat": "Format dată",
+        "defaultTorrentDetailTab": "Filă implicită detalii torrent",
+        "displayGraphLimits": "Afișează limitele în grafic",
+        "download": "Exportă setările",
+        "durationFormat": "Format durată",
+        "enableHashColors": "Activează culorile chip generate",
+        "enableRatioColors": "Activează culorile pentru ratio",
+        "expandContent": "Extinde conținutul în mod implicit în vizualizarea Conținut",
+        "exportTooltip": "Exportă setările specifice VueTorrent",
+        "fetchExternalIpInfo": "Preia informații despre IP-ul extern",
+        "fileContentInterval": "Interval actualizare conținut fișier torrent",
+        "filterType": "Tip de includere a filtrelor",
+        "hideChipIfUnset": "Ascunde etichetele chips dacă nu sunt setate",
+        "hideColoredChip": "Folosește varianta text pentru chips",
+        "historySize": "Mărime istoric în câmpurile eligibile",
+        "import": "Importă setările",
+        "isShutdownButtonVisible": "Afișează butonul de oprire",
+        "language": "Limbă",
+        "lastOpenedTab": "Ultima deschidere",
+        "lightVariants": "Variantă temă luminoasă",
+        "logoutUrl": "URL deconectare (lasă gol pentru comportamentul implicit)",
+        "paginationSize": {
+          "infinite_scroll": "Scroll infinit",
+          "label": "Mărime paginare",
+          "warning": "Această opțiune poate afecta semnificativ performanța când sunt multe torrente"
+        },
+        "qbittorrentVersion": "Versiune qBittorrent",
+        "reduceMotion": "Redu animațiile (reduce motion)",
+        "refreshInterval": "Interval de actualizare API qBittorrent",
+        "registerMagnet": "Înregistrează link-urile magnet",
+        "resetSettings": "Resetează setările",
+        "tip": "Aceste setări sunt destinate exclusiv interfeței WebUI personalizate",
+        "useBinarySize": "Înlocuiește mărimile datelor cu unități binare (kB -> KiB)",
+        "useBitSpeed": "Înlocuiește valorile de viteză cu biți (kB/s -> kbps)",
+        "useEmojiState": "Adaugă emoji-uri înaintea stărilor torrentului",
+        "vueTorrentTitle": "Titlu tab"
+      },
+      "sidebar": {
+        "ConnectionStats": "Arată statisticile conexiunii",
+        "CurrentSpeed": "Arată viteza actuală",
+        "Filters": "Arată filtrele",
+        "FreeSpace": "Arată spațiul liber",
+        "isDrawerRight": "Panou lateral din dreapta",
+        "PerformanceStats": "Arată statisticile de performanță",
+        "showFilters": {
+          "allFiltersEnabled": "Toate filtrele activate",
+          "category": "Categorie",
+          "filtersEnabled": "{n} filtre activate",
+          "state": "Stare",
+          "tag": "Etichetă",
+          "tracker": "Tracker"
+        },
+        "SpeedGraph": "Arată graficul de viteză",
+        "tip": "Aici poți schimba ordinea widget-urilor în bara laterală și le poți ascunde pe cele pe care nu le folosești.",
+        "TransferStats": "Arată statisticile de transfer"
+      },
+      "torrentCard": {
+        "grid": {
+          "busyTip": "Proprietăți de afișat pentru torrentele incomplete în vizualizarea grilei",
+          "doneTip": "Proprietăți de afișat pentru torrentele finalizate în vizualizarea grilei"
+        },
+        "list": {
+          "busyTip": "Proprietăți de afișat pentru torrentele incomplete în vizualizarea listei",
+          "doneTip": "Proprietăți de afișat pentru torrentele finalizate în vizualizarea listei"
+        },
+        "table": {
+          "tip": "Proprietăți de afișat pentru torrente în vizualizarea tabelului"
+        }
+      }
+    },
+    "webUI": {
+      "apiKey": {
+        "copy": "Copiază",
+        "delete": "Şterge",
+        "deleted": "Cheia API a fost ștearsă",
+        "deleteError": "Ștergerea cheii API a eșuat",
+        "empty": "(fără cheie API)",
+        "label": "Cheie Web API",
+        "regenerate": "Regenerare",
+        "regenerated": "Cheie API regenerată",
+        "regenerateError": "Regenerarea cheii API a eșuat",
+        "subheader": "Cheie Web API"
+      },
+      "authentication": {
+        "banDuration": "Durată blocare (ban)",
+        "banDurationHint": "În secunde",
+        "bypassLocalhost": "Omite autentificarea pentru clienții de pe localhost",
+        "bypassWhitelist": "Omite autentificarea pentru clienții din subrețelele IP permise (whitelist)",
+        "maxAttempts": "Număr maxim de încercări",
+        "password": "Parolă",
+        "passwordPlaceholder": "(neschimbat)",
+        "sessionTimeout": "Timeout sesiune",
+        "sessionTimeoutHint": "În secunde",
+        "subheader": "Autentificare",
+        "username": "Nume utilizator",
+        "whitelistExamples": "Exemplu: 192.168.1.0/24, fdff:ffff:c8::/40"
+      },
+      "customHeaders": "Adaugă anteturi (headers) HTTP personalizate",
+      "customHeadersHint": "Unul pe linie",
+      "customHeadersPlaceholder": "Antet1: valoare1\nAntet2: valoare2\n...",
+      "dynDns": {
+        "domainName": "Nume domeniu",
+        "password": "Parolă DynDNS",
+        "providers": {
+          "dynDns": "DynDNS",
+          "noIp": "NO-IP"
+        },
+        "registerBtn": "Înregistrare",
+        "subheader": "Actualizează numele meu de domeniu dinamic",
+        "username": "Nume utilizator DynDNS"
+      },
+      "https": {
+        "certificate": "Certificat",
+        "key": "Cheie",
+        "subheader": "Folosește HTTPS",
+        "tip": "Informații despre certificate"
+      },
+      "interface": {
+        "ipAddress": "Adresă IP",
+        "port": "Port",
+        "subheader": "Interfață utilizator Web",
+        "useAlternativeWebUI": "Folosește o interfață WebUI alternativă",
+        "useUPnP": "Folosește redirecționarea porturilor UPnP / NAT-PMP de la routerul meu"
+      },
+      "proxiesList": "Lista proxy-urilor de încredere",
+      "proxiesListHint": "Separă IP-urile prin punct și virgulă ( ; )",
+      "reverseProxySupport": "Activează suportul pentru reverse proxy",
+      "security": {
+        "clickjacking": "Activează protecția împotriva clickjacking-ului",
+        "csrf": "Activează protecția împotriva falsificării prin cereri cross-site (CSRF)",
+        "hostHeaderValidation": "Activează validarea antetului (header) Host",
+        "hostHeaderValidationHint": "Separate prin punct și virgulă ( ; )",
+        "secureCookie": "Activează flag-ul „secure” pentru cookie-uri (necesită HTTPS)",
+        "serverDomains": "Domenii server",
+        "subheader": "Securitate"
+      }
+    }
+  },
+  "toast": {
+    "add": {
+      "error": "Eroare la adăugarea torrentelor",
+      "pending": "Se trimit torrentele...",
+      "success": "{n} torrent adăugat | {n} torrente adăugate\""
+    },
+    "copy": {
+      "success": "Copiat în clipboard!"
+    },
+    "export": {
+      "no_settings": "Nu s-au găsit setări VueTorrent de exportat."
+    },
+    "magnet_handler": {
+      "not_supported": "Contextul actual nu este sigur. Nu se poate înregistra handlerul.",
+      "registered": "Magnet handler înregistrat."
+    },
+    "qbit": {
+      "not_supported": "Disponibil doar pentru qbit >= {version}"
+    },
+    "version": {
+      "latest": "Ești pe cea mai nouă și grozavă versiune!",
+      "new": "Versiune nouă disponibilă!"
+    }
+  },
+  "topbar": {
+    "actions": {
+      "cookies": "Deschide managerul de cookie-uri",
+      "delete": "Șterge torrentele",
+      "logs": "Deschide Log-urile",
+      "pause": "Pauză torrente",
+      "resume": "Reia torrentele",
+      "rssArticles": "Deschide articolele RSS",
+      "searchEngine": "Deschide motorul de căutare",
+      "settings": "Deschide setările",
+      "torrentCreator": "Deschide creatorul de torrente"
+    },
+    "addTorrents": "Adaugă torrente",
+    "overflow": {
+      "cookies": "Manager de cookie-uri",
+      "delete": "Şterge",
+      "logs": "Log-uri qBittorrent",
+      "pause": "Pauză",
+      "resume": "Reia",
+      "rssArticles": "Articole RSS",
+      "searchEngine": "Motor de căutare",
+      "settings": "Setări",
+      "torrentCreator": "Creator de torrent"
+    },
+    "searchTorrents": "Caută torrente"
+  },
+  "torrentCreator": {
+    "empty": {
+      "action": "Creează sarcină nouă",
+      "value": "Nicio sarcină înregistrată"
+    },
+    "table": {
+      "comment": "Comentariu",
+      "create": "Creează sarcină nouă",
+      "errorMessage": "Mesaj de eroare",
+      "format": "Format torrent",
+      "optimizeAlignment": "Este alinierea optimizată?",
+      "pieceSize": "Mărime piesă",
+      "private": "Este privat?",
+      "progress": "Progres",
+      "source": "Sursă",
+      "sourcePath": "Cale sursă",
+      "status": "Stare sarcină",
+      "taskID": "ID sarcină",
+      "timeAdded": "Data adăugării",
+      "timeFinished": "Data finalizării",
+      "timeStarted": "Data începerii",
+      "trackers": {
+        "activator": "{n} tracker | {n} trackere",
+        "header": "Trackere",
+        "title": "Trackere înregistrate"
+      },
+      "urlSeeds": {
+        "activator": "{n} URL | {n} URL-uri",
+        "header": "Web Seeds",
+        "title": "Web seeds înregistrate"
+      }
+    },
+    "title": "Creator de torrent"
+  },
+  "torrentDetail": {
+    "content": {
+      "fileInfo": "{n} fișier | {n} fișiere",
+      "filter": {
+        "activator": "Selectare multiplă",
+        "exclude": "Exclude",
+        "extensions": "Extensie fișier",
+        "include": "Include",
+        "preview": "Filtrul se potrivește cu {count}/{total} fișiere ({size})",
+        "priority": "Prioritate fișier",
+        "size": "Mărime fișier",
+        "title": "Selectare multiplă a fișierelor"
+      },
+      "filter_placeholder": "Caută în arborele de fișiere",
+      "folderInfo": "{n} folder | {n} foldere",
+      "invert_priority": "Inversează prioritatea",
+      "priority": "Setează prioritatea",
+      "rename": {
+        "bulk": "Redenumire multiplă",
+        "file": "Redenumire",
+        "folder": "Redenumire folder"
+      },
+      "rootNode": "(Root)"
+    },
+    "error": {
+      "content": "Torrentul pe care încerci să-l accesezi nu există.",
+      "headline": "Invalid torrent ID",
+      "title": "Eroare"
+    },
+    "info": {
+      "boolean_values": "Valori Boolean",
+      "data_values": "Valori de date",
+      "datetime_values": "Valori dată și oră",
+      "duration_values": "Valori durată",
+      "long_text_values": "Valori de text lung",
+      "speed_values": "Valori de viteză",
+      "text_values": "Valori de text"
+    },
+    "overview": {
+      "canvasRefreshDisabled": "Auto-actualizarea (canvas) este dezactivată",
+      "canvasRenderDisabled": "Randarea (canvas) este dezactivată",
+      "dlSpeedAverage": "Media vitezei de descărcare",
+      "downloaded": "Descărcat",
+      "extract_debug": "Descarcă informații pentru depanare",
+      "fetchingMetadata": "Se preia...",
+      "fileCount": "Fișiere selectate",
+      "piece_canvas_dialog": {
+        "piece_states": {
+          "downloaded": "Descărcat",
+          "downloading": "Se descarcă",
+          "missing": "Lipsă"
+        },
+        "piece_tooltip": "Piesa #{index} ({state})",
+        "split_by_file": "Împarte după fișier",
+        "title": "Prezentare generală stare piese"
+      },
+      "pieceCount": "{owned} / {total} ({pieceSize})",
+      "ratio": "Ratio",
+      "selectedFileSize": "Mărimea fișierelor selectate",
+      "uploaded": "Încărcat",
+      "upSpeedAverage": "Viteza medie de încărcare",
+      "waitingForMetadata": "Se așteaptă metadatele..."
+    },
+    "peers": {
+      "addPeers": {
+        "newPeers": "Gazde peer de adăugat",
+        "newPeersHint": "Unul pe linie",
+        "newPeersPlaceholder": "IP:port",
+        "title": "Adaugă peeri"
+      },
+      "empty": "Niciun peer conectat în acest moment",
+      "fields": {
+        "client": "Client",
+        "country": "Țară",
+        "download": "Download",
+        "files": "Fișiere",
+        "flags": "Flag-uri",
+        "host": "Host",
+        "progress": "Progres",
+        "relevance": "Relevanță",
+        "upload": "Upload"
+      }
+    },
+    "tabs": {
+      "content": "Conținut",
+      "info": "Info",
+      "overview": "Prezentare generală",
+      "peers": "Peeri",
+      "tagsAndCategories": "Etichete & Categorii",
+      "trackers": "Trackere"
+    },
+    "tagsAndCategories": {
+      "categories": "Categorii",
+      "tags": "Etichete"
+    },
+    "trackers": {
+      "addTrackers": {
+        "newTrackers": "URL-uri trackere de adăugat",
+        "newTrackersHint": "Unul pe linie, separă nivelurile printr-un rând gol",
+        "title": "Adaugă trackere"
+      },
+      "editTracker": {
+        "newUrl": "URL nou",
+        "newUrlRequired": "Este necesară o nouă adresă URL",
+        "oldUrl": "URL vechi",
+        "title": "Editează trackerul"
+      },
+      "error": "Eroare la preluarea datelor trackerului",
+      "fields": {
+        "msg": "Mesaj",
+        "num_downloaded": "Descărcat",
+        "num_leeches": "Leeches",
+        "num_peers": "Peeri",
+        "num_seeds": "Seederi",
+        "status": "Stare",
+        "tier": "#",
+        "url": "Tracker URL"
+      },
+      "loading": "Se încarcă datele trackerului...",
+      "reannounce": "Reanunță toate",
+      "tier": "Nivel (Tier): {n}"
+    }
+  },
+  "torrent": {
+    "properties": {
+      "added_on": "Adăugat pe",
+      "amount_left": "Cantitate rămasă",
+      "auto_tmm": "Gestionare automată torrent",
+      "availability": "Disponibilitate",
+      "available_peers": "Peeri (swarm)",
+      "available_seeds": "Seederi (swarm)",
+      "avg_download_speed": "Viteză medie DL",
+      "avg_upload_speed": "Viteză medie UL",
+      "basename_content_path": "Cale conținut (de bază)",
+      "basename_download_path": "Cale de descărcare (de bază)",
+      "basename_save_path": "Cale salvare (de bază)",
+      "category": "Categorie",
+      "comment": "Comentariu",
+      "completed_on": "Completat pe",
+      "content_path": "Cale conținut",
+      "created_by": "Creat de",
+      "creation_date": "Data creării",
+      "downloaded": "Descărcat (global)",
+      "downloaded_session": "Descărcat (sesiune)",
+      "download_limit": "Limită DL",
+      "download_path": "Cale DL",
+      "download_speed": "Viteză DL",
+      "empty_category": "(fără categorie)",
+      "empty_tags": "(fără etichete)",
+      "empty_tracker": "(fără trackere funcționale)",
+      "eta": "ETA",
+      "f_l_piece_prio": "Prioritate prima / ultima piesă",
+      "forced": "Stare forțată",
+      "global_speed": "Viteză globală",
+      "global_volume": "Volum global",
+      "hash": "Hash",
+      "has_metadata": "Are metadate",
+      "inactive_seeding_time_limit": "Limită timp seeding inactiv",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "is_private": "Torrent privat",
+      "last_activity": "Ultima activitate",
+      "magnet": "Magnet Link",
+      "name": "Titlu Torrent",
+      "nb_connections": "Conexiuni totale",
+      "nb_connections_limit": "Limită conexiuni",
+      "num_leechs": "Peeri (conectați)",
+      "num_seeds": "Seederi (conectați)",
+      "peers": "Peeri",
+      "popularity": "Popularitate",
+      "priority": "Poziție listă",
+      "private": "Este privat",
+      "progress": "Progres",
+      "progress_bar": "Bară de progres",
+      "ratio": "Ratio",
+      "ratio_limit": "Limită ratio",
+      "reannounce": "Următoarea reanunțare",
+      "root_path": "Cale rădăcină",
+      "save_path": "Cale de salvare",
+      "seeding_time": "Timp de seeding",
+      "seeding_time_limit": "Limită timp seeding",
+      "seeds": "Seederi",
+      "seen_complete": "Văzut complet",
+      "seq_dl": "Download secvențial",
+      "size": "Mărime",
+      "state": "Stare",
+      "super_seeding": "Mod super-seeding",
+      "tags": "Etichete",
+      "time_active": "Timp activ",
+      "total_size": "Mărime totală",
+      "total_wasted": "Date irosite",
+      "tracker": "Tracker",
+      "trackers_count": "Număr trackere",
+      "truncated_hash": "Hash trunchiat",
+      "uploaded": "Încărcat (global)",
+      "uploaded_session": "Încărcat (sesiune)",
+      "upload_limit": "Limită UL",
+      "upload_speed": "Viteză UL"
+    },
+    "state": {
+      "checking_disk": "Se verifică fișierele de pe disc",
+      "checking_resume_data": "Se verifică datele de reluare",
+      "dl_forced": "Se descarcă [F]",
+      "dl_queued": "În așteptare (DL)",
+      "dl_stalled": "Întrerupt (Stalled)",
+      "dl_stopped": "Oprit",
+      "downloading": "Se descarcă",
+      "error": "Eroare",
+      "forced_meta_download": "Metadate [F]",
+      "meta_download": "Metadate",
+      "missing_files": "Fișiere lipsă",
+      "moving": "Mutare",
+      "ul_forced": "Încărcare [F]",
+      "ul_queued": "În așteptare (UP)",
+      "ul_stalled": "Seeding",
+      "ul_stopped": "Finalizat",
+      "unknown": "Necunoscut",
+      "uploading": "Încărcare"
+    }
+  },
+  "units": {
+    "minutes": "minut | minute",
+    "seconds": "secundă | secunde"
+  }
+}
