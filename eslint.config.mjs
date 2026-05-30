@@ -94,6 +94,7 @@ export default defineConfigWithVueTs(
         },
       ],
       'vue/multi-word-component-names': 'off',
+      'vue/prefer-v-model': 'warn',
       'vue/require-default-prop': 'off',
     },
   }
