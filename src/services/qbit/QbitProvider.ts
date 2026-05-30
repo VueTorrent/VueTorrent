@@ -655,6 +655,7 @@ export default class QBitProvider implements IProvider {
   async editTorrentTracker(hash: string, origUrl: string, newUrl: string): Promise<void> {
     const params = {
       hash,
+      url: origUrl,
       origUrl,
       newUrl,
     }
