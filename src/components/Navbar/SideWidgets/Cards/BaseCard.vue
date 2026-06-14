@@ -35,12 +35,14 @@ const contentOrientation = computed(() => {
         <template v-if="Array.isArray(value)">
           <template v-for="(val, i) in value" :key="i">
             <v-divider v-if="i > 0" opacity=".75" thickness="2" style="border-top-style: dashed" />
-            <div>
+            <div class="text-no-wrap">
               <slot :value="val"></slot>
             </div>
           </template>
         </template>
-        <slot v-else :value="value"></slot>
+        <span v-else class="text-no-wrap">
+          <slot :value="value"></slot>
+        </span>
       </div>
     </div>
   </v-sheet>
