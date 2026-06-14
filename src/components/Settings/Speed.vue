@@ -37,6 +37,17 @@ const altDlLimit = computed({
   get: () => preferenceStore.preferences!.alt_dl_limit / 1024,
   set: (value: number) => (preferenceStore.preferences!.alt_dl_limit = value * 1024),
 })
+
+const hourRules = [(v: number) => (v >= 0 && v <= 23) || '0–23']
+const minRules = [(v: number) => (v >= 0 && v <= 59) || '0–59']
+
+function clampSchedule() {
+  const p = preferenceStore.preferences!
+  p.schedule_from_hour = Math.max(0, Math.min(23, p.schedule_from_hour))
+  p.schedule_from_min = Math.max(0, Math.min(59, p.schedule_from_min))
+  p.schedule_to_hour = Math.max(0, Math.min(23, p.schedule_to_hour))
+  p.schedule_to_min = Math.max(0, Math.min(59, p.schedule_to_min))
+}
 </script>
 
 <template>
@@ -102,7 +113,9 @@ const altDlLimit = computed({
             :disabled="!preferenceStore.preferences!.scheduler_enabled"
             type="number"
             min="0"
-            max="23" />
+            max="23"
+            :rules="hourRules"
+            @blur="clampSchedule" />
         </v-col>
         <v-col cols="4" md="2">
           <v-text-field
@@ -110,17 +123,33 @@ const altDlLimit = computed({
             :disabled="!preferenceStore.preferences!.scheduler_enabled"
             type="number"
             min="0"
-            max="59" />
+            max="59"
+            :rules="minRules"
+            @blur="clampSchedule" />
         </v-col>
 
         <v-col cols="4" md="2">
           <v-list-subheader>{{ t('settings.speed.scheduler.to') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model.number="preferenceStore.preferences!.schedule_to_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" min="0" max="23" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.schedule_to_hour"
+            :disabled="!preferenceStore.preferences!.scheduler_enabled"
+            type="number"
+            min="0"
+            max="23"
+            :rules="hourRules"
+            @blur="clampSchedule" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model.number="preferenceStore.preferences!.schedule_to_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" min="0" max="59" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.schedule_to_min"
+            :disabled="!preferenceStore.preferences!.scheduler_enabled"
+            type="number"
+            min="0"
+            max="59"
+            :rules="minRules"
+            @blur="clampSchedule" />
         </v-col>
       </v-row>
     </v-list-item>
