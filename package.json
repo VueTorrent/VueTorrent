@@ -32,7 +32,7 @@
     "array.prototype.tosorted": "1.1.4",
     "axios": "^1.16.1",
     "dayjs": "^1.11.21",
-    "dompurify": "^3.4.10",
+    "dompurify": "^3.4.11",
     "lodash.debounce": "^4.0.8",
     "pinia": "^3.0.4",
     "pinia-persistence-plugin": "^0.0.7",
