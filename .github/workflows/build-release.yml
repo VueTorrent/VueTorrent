@@ -79,7 +79,7 @@ jobs:
           rm locales.zip
 
       - name: Update locales metadata
-        uses: VueTorrent/tolgee-action@v1
+        uses: VueTorrent/tolgee-action@main
         with:
           tolgee_secret: ${{ secrets.TOLGEE_TOKEN }}
 
