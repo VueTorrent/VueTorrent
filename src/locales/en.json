@@ -695,6 +695,7 @@
     }
   },
   "rssArticles": {
+    "empty": "Fetching RSS data...",
     "feeds": {
       "empty": {
         "action": "Create RSS Feed",

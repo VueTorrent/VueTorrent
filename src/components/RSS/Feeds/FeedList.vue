@@ -6,7 +6,7 @@ import Feed from './Feed.vue'
 import FeedIcon from './FeedIcon.vue'
 import { FeedState } from '@/constants/vuetorrent'
 import { useRssStore } from '@/stores'
-import { Feed as FeedType } from '@/types/qbit/models'
+import { RssFeed } from '@/types/vuetorrent'
 
 defineProps<{
   height?: number
@@ -15,9 +15,9 @@ defineProps<{
 const emit = defineEmits<{
   update: [feedId: string | undefined]
   createFeed: []
-  editFeed: [feed: FeedType]
-  deleteFeed: [feed: FeedType]
-  refreshFeed: [feed: FeedType]
+  editFeed: [feed: RssFeed]
+  deleteFeed: [feed: RssFeed]
+  refreshFeed: [feed: RssFeed]
 }>()
 
 const route = useRoute()
@@ -32,7 +32,7 @@ const currentFeed = computed({
 })
 const filteredFeedIds = useArrayUnique(() => rssStore.filteredArticles.flatMap(art => art.feedIds).flat())
 
-function getUnreadCount(feed?: FeedType) {
+function getUnreadCount(feed?: RssFeed) {
   if (!feed) {
     return rssStore.unreadArticles.length
   }
@@ -40,20 +40,19 @@ function getUnreadCount(feed?: FeedType) {
   return (feed.articles ?? []).reduce((cnt, article) => cnt + +!article.isRead, 0)
 }
 
-function toggleFeedSelected(feed: FeedType) {
+function toggleFeedSelected(feed: RssFeed) {
   currentFeed.value = currentFeed.value !== feed.uid ? feed.uid : undefined
 }
 
-async function readFeed(feed: FeedType) {
+async function readFeed(feed: RssFeed) {
   await rssStore.markFeedAsRead(feed)
 }
 
 async function refreshAllFeeds() {
   await rssStore.refreshAllFeeds()
-  rssStore.fetchFeedsTask.perform()
 }
 
-function getFeedTitle(feed?: FeedType) {
+function getFeedTitle(feed?: RssFeed) {
   const unreadCount = getUnreadCount(feed)
   return (unreadCount ? `${unreadCount} | ` : '') + `${feed ? feed.name : 'All'}`
 }
@@ -62,7 +61,7 @@ const allState = computed(() => {
   return rssStore.feeds.reduce((state, feed) => Math.min(state, getFeedState(feed)), FeedState.READ)
 })
 
-function getFeedState(feed: FeedType) {
+function getFeedState(feed: RssFeed) {
   if (feed.isLoading) return FeedState.LOADING
   else if (feed.hasError) return FeedState.ERROR
   else if (feed.articles?.some(article => !article.isRead)) return FeedState.UNREAD

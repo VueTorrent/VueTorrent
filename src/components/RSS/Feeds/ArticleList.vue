@@ -52,7 +52,7 @@ async function markAsRead(item: RssArticle) {
       <v-divider v-if="index > 0" />
 
       <Article
-        :value="article"
+        :article="article"
         @click="$emit('articleClicked', article)"
         @mark-as-read="markAsRead(article)"
         @open="openArticleLink(article)"

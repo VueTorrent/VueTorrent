@@ -26,7 +26,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <v-card v-if="!rssStore.rules.length" :height="height">
+  <v-card v-if="!rssStore.isRulesLoaded" :height="height">
+    <v-empty-state :title="$t('rssArticles.empty')">
+      <template #media>
+        <v-progress-circular class="mb-3" indeterminate :size="100" :width="12" />
+      </template>
+    </v-empty-state>
+  </v-card>
+
+  <v-card v-else-if="!rssStore.rules.length" :height="height">
     <v-empty-state :title="$t('rssArticles.rules.empty.value')" icon="mdi-rss-off">
       <template #actions>
         <v-btn :text="$t('rssArticles.rules.empty.action')" color="accent" @click="openRuleDialog()" />
