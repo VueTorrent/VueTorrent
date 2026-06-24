@@ -42,6 +42,15 @@ export const useAppStore = defineStore('app', () => {
     return response
   }
 
+  async function loginWithApiKey(key: string) {
+    const result = await qbit.testApiKey(key)
+    if (result) {
+      qbit.setApiKey(key)
+      await setAuthStatus(true, result)
+    }
+    return result
+  }
+
   async function logout() {
     await qbit.logout()
     await setAuthStatus(false)
@@ -72,6 +81,7 @@ export const useAppStore = defineStore('app', () => {
     shutdownQbit,
     sendTestEmail,
     login,
+    loginWithApiKey,
     logout,
     toggleAlternativeMode,
     $reset: async () => {

@@ -103,12 +103,22 @@ export default interface IProvider {
    */
   deleteAPIKey(): Promise<void>
 
+  /**
+   * Set the API key to use for all subsequent requests (qBittorrent 5.2.0+).
+   */
+  setApiKey(key: string | null): void
+
   /// AuthController ///
 
   /**
    * Login to the application
    */
   login(params: LoginPayload): Promise<AxiosResponse<string, string>>
+
+  /**
+   * Test the provided API key by making a request to the version endpoint.
+   */
+  testApiKey(key: string): Promise<ApplicationVersion>
 
   /**
    * Logout from the application

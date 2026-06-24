@@ -41,7 +41,9 @@ function redirectOnSuccess() {
 }
 
 onMounted(async () => {
-  if (route.query.username && route.query.password) {
+  if (route.query.apiKey) {
+    await appStore.loginWithApiKey(route.query.apiKey as string)
+  } else if (route.query.username && route.query.password) {
     await appStore.login(route.query.username as string, route.query.password as string)
   }
 })

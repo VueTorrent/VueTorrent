@@ -30,6 +30,8 @@ import { ShareLimitAction } from '@/types/vuetorrent'
 
 type Parameters = Record<string, any>
 
+const API_KEY_STORAGE_KEY = 'vuetorrent_apiKey'
+
 export default class QBitProvider implements IProvider {
   private static _instance: QBitProvider
   private axios: AxiosInstance
@@ -40,6 +42,11 @@ export default class QBitProvider implements IProvider {
     })
 
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+
+    const apiKey = sessionStorage.getItem(API_KEY_STORAGE_KEY)
+    if (apiKey) {
+      this.setApiKey(apiKey)
+    }
   }
 
   public static getInstance() {
@@ -47,6 +54,16 @@ export default class QBitProvider implements IProvider {
       this._instance = new QBitProvider()
     }
     return this._instance
+  }
+
+  setApiKey(key: string | null): void {
+    if (key === null) {
+      delete this.axios.defaults.headers.common['Authorization']
+      sessionStorage.removeItem(API_KEY_STORAGE_KEY)
+    } else {
+      this.axios.defaults.headers.common['Authorization'] = `Bearer ${key}`
+      sessionStorage.setItem(API_KEY_STORAGE_KEY, key)
+    }
   }
 
   /// Misc ///
@@ -140,7 +157,15 @@ export default class QBitProvider implements IProvider {
     return this.post('/auth/login', params, { validateStatus: () => true })
   }
 
+  async testApiKey(key: string): Promise<ApplicationVersion> {
+    return this.axios
+      .get('/app/version', { headers: { Authorization: `Bearer ${key}` }, validateStatus: () => true })
+      .then(res => (res.status >= 200 && res.status < 300 ? res.data : undefined))
+      .then(version => (version?.includes('v') ? version.substring(1) : version))
+  }
+
   async logout(): Promise<void> {
+    this.setApiKey(null)
     await this.post('/auth/logout')
   }
 

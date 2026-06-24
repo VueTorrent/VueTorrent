@@ -498,6 +498,8 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  setApiKey(_key: string | null): void {}
+
   /// AuthController ///
 
   async login(_: LoginPayload): Promise<AxiosResponse<string, string>> {
@@ -508,6 +510,10 @@ export default class MockProvider implements IProvider {
         statusText: 'OK',
       } as AxiosResponse<string, string>,
     })
+  }
+
+  async testApiKey(_: string): Promise<ApplicationVersion> {
+    return this.generateResponse({ result: '5.2.2', delay: 50 })
   }
 
   async logout(): Promise<void> {
