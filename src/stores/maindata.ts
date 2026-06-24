@@ -76,6 +76,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         console.error('No longer authenticated, logging out...')
+        qbit.setApiKey(null)
         await appStore.setAuthStatus(false)
         await vueTorrentStore.redirectToLogin()
       } else {
