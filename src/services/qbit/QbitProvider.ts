@@ -1,5 +1,5 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
-import axios, { AxiosResponse } from 'axios'
+import axios, { isAxiosError, AxiosResponse } from 'axios'
 import type IProvider from './IProvider'
 import type { FilePriority } from '@/constants/qbit'
 import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
@@ -95,7 +95,9 @@ export default class QBitProvider implements IProvider {
       .then(res => res.data)
       .then(version => (version.includes('v') ? version.substring(1) : version))
       .catch(e => {
-        this.setApiKey(null)
+        if (isAxiosError(e) && e.response?.status === 403) {
+          this.setApiKey(null)
+        }
         throw e
       })
   }
@@ -161,7 +163,7 @@ export default class QBitProvider implements IProvider {
     return this.post('/auth/login', params, { validateStatus: () => true })
   }
 
-  async testApiKey(key: string): Promise<ApplicationVersion> {
+  async testApiKey(key: string): Promise<ApplicationVersion | undefined> {
     return this.axios
       .get('/app/version', { headers: { Authorization: `Bearer ${key}` }, validateStatus: () => true })
       .then(res => (res.status >= 200 && res.status < 300 ? res.data : undefined))

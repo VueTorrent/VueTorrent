@@ -512,7 +512,7 @@ export default class MockProvider implements IProvider {
     })
   }
 
-  async testApiKey(_: string): Promise<ApplicationVersion> {
+  async testApiKey(_: string): Promise<ApplicationVersion | undefined> {
     return this.generateResponse({ result: '5.2.2', delay: 50 })
   }
 

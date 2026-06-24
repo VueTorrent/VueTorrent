@@ -118,7 +118,7 @@ export default interface IProvider {
   /**
    * Test the provided API key by making a request to the version endpoint.
    */
-  testApiKey(key: string): Promise<ApplicationVersion>
+  testApiKey(key: string): Promise<ApplicationVersion | undefined>
 
   /**
    * Logout from the application
