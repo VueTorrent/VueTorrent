@@ -94,6 +94,10 @@ export default class QBitProvider implements IProvider {
       .get('/app/version')
       .then(res => res.data)
       .then(version => (version.includes('v') ? version.substring(1) : version))
+      .catch(e => {
+        this.setApiKey(null)
+        throw e
+      })
   }
 
   async getPreferences(): Promise<AppPreferences> {
