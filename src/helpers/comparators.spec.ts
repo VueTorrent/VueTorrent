@@ -58,6 +58,34 @@ describe('helpers/comparators', () => {
     })
   })
 
+  describe('date', () => {
+    test('asc', () => {
+      const data = [new Date(2020, 1, 1), new Date(2019, 1, 1), new Date(2021, 1, 1)]
+      data.sort(comparators.date.asc)
+      expect(data).toEqual([new Date(2019, 1, 1), new Date(2020, 1, 1), new Date(2021, 1, 1)])
+    })
+
+    test('desc', () => {
+      const data = [new Date(2020, 1, 1), new Date(2019, 1, 1), new Date(2021, 1, 1)]
+      data.sort(comparators.date.desc)
+      expect(data).toEqual([new Date(2021, 1, 1), new Date(2020, 1, 1), new Date(2019, 1, 1)])
+    })
+  })
+
+  describe('textWithNumbers', () => {
+    test('asc', () => {
+      const data = ['a2', 'a10', 'a1']
+      data.sort(comparators.textWithNumbers.asc)
+      expect(data).toEqual(['a1', 'a2', 'a10'])
+    })
+
+    test('desc', () => {
+      const data = ['a2', 'a10', 'a1']
+      data.sort(comparators.textWithNumbers.desc)
+      expect(data).toEqual(['a10', 'a2', 'a1'])
+    })
+  })
+
   describe('arrayNumeric', () => {
     test('asc', () => {
       const data = [[3], [1, 2], [2]]
@@ -86,7 +114,7 @@ describe('helpers/comparators', () => {
     })
   })
 
-  describe('objects', () => {
+  describe('isObjectEqual', () => {
     test('copy', () => {
       const a = { a: 1, b: 2 }
       const b = structuredClone(a)

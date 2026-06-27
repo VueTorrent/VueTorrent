@@ -1,7 +1,8 @@
-import { isFullUpdate, MaindataResponse } from './MaindataResponse'
+import { isFullUpdate } from './MaindataResponse'
+import type { MaindataResponse } from './MaindataResponse'
 import type { PeerLogResponse } from './PeerLogResponse'
 import type SearchResultsResponse from './SearchResultsResponse'
 import type TorrentPeersResponse from './TorrentPeersResponse'
 
-export { isFullUpdate, PeerLogResponse, TorrentPeersResponse, SearchResultsResponse }
-export type { MaindataResponse }
+export { isFullUpdate }
+export type { MaindataResponse, PeerLogResponse, TorrentPeersResponse, SearchResultsResponse }
