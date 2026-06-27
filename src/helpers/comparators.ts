@@ -35,7 +35,7 @@ const comparators = {
   invertedNumeric: new Comparator((a: number, b: number) => b - a),
   text: new Comparator((a: string, b: string) => a.localeCompare(b)),
   boolean: new Comparator((a: boolean, b: boolean) => (a === b ? 0 : a ? 1 : -1)),
-  date: new Comparator((a: Date, b: Date) => a.getDate() - b.getDate()),
+  date: new Comparator((a: Date, b: Date) => a.getTime() - b.getTime()),
 
   /** Compare strings while grouping numeric values */
   textWithNumbers: new Comparator((a: string, b: string) => {

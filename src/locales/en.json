@@ -695,7 +695,6 @@
     }
   },
   "rssArticles": {
-    "empty": "Fetching RSS data...",
     "feeds": {
       "empty": {
         "action": "Create RSS Feed",
@@ -726,6 +725,7 @@
       },
       "title": "RSS Articles"
     },
+    "loading": "Fetching RSS data...",
     "rules": {
       "empty": {
         "action": "Create RSS Rule",

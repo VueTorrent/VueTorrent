@@ -50,16 +50,16 @@ export const useRssStore = defineStore(
 
     const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeedsTask.perform(), _refreshInterval, {
       immediate: false,
-      immediateCallback: true,
+      immediateCallback: false,
     })
     const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRulesTask.perform(), _refreshInterval, {
       immediate: false,
-      immediateCallback: true,
+      immediateCallback: false,
     })
 
     async function refreshFeed(feed: RssFeed) {
       await qbit.refreshFeed(feed.name)
-      fetchFeedsTask.perform()
+      await fetchFeedsTask.perform()
     }
 
     async function refreshAllFeeds() {
@@ -145,8 +145,8 @@ export const useRssStore = defineStore(
           existingArticle.feedIds.push(feed.uid)
         }
 
-        if (!qbitArticle.isRead) {
-          existingArticle.isRead = false
+        if (qbitArticle.isRead && !existingArticle.isRead) {
+          existingArticle.isRead = true
         }
 
         return existingArticle

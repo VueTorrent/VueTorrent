@@ -27,7 +27,7 @@ onUnmounted(() => {
 
 <template>
   <v-card v-if="!rssStore.isRulesLoaded" :height="height">
-    <v-empty-state :title="$t('rssArticles.empty')">
+    <v-empty-state :title="$t('rssArticles.loading')">
       <template #media>
         <v-progress-circular class="mb-3" indeterminate :size="100" :width="12" />
       </template>
