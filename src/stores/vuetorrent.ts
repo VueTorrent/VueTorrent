@@ -144,13 +144,13 @@ export const useVueTorrentStore = defineStore(
     function updateTheme() {
       switch (theme.mode) {
         case ThemeMode.LIGHT:
-          themeVuetify.change(theme.light)
+          void themeVuetify.change(theme.light)
           break
         case ThemeMode.DARK:
-          themeVuetify.change(theme.dark)
+          void themeVuetify.change(theme.dark)
           break
         case ThemeMode.SYSTEM:
-          themeVuetify.change(mediaQueryPreferDark.value ? theme.dark : theme.light)
+          void themeVuetify.change(mediaQueryPreferDark.value ? theme.dark : theme.light)
       }
     }
 
