@@ -30,27 +30,14 @@ export function isObjectEqual(a: any, b: any) {
   return true
 }
 
-type ComparatorMap = {
-  /** Compare numeric values */
-  numeric: Comparator<number>
-  /** Compare numeric values in reverse order */
-  invertedNumeric: Comparator<number>
-  /** Compare strings */
-  text: Comparator<string>
-  /** Compare strings while grouping numeric values */
-  textWithNumbers: Comparator<string>
-  /** Compare booleans */
-  boolean: Comparator<boolean>
-  /** Compare arrays of numeric values */
-  arrayNumeric: Comparator<number[]>
-  /** Compare arrays of strings */
-  arrayText: Comparator<string[]>
-}
-
-const comparators: ComparatorMap = {
+const comparators = {
   numeric: new Comparator((a: number, b: number) => a - b),
   invertedNumeric: new Comparator((a: number, b: number) => b - a),
   text: new Comparator((a: string, b: string) => a.localeCompare(b)),
+  boolean: new Comparator((a: boolean, b: boolean) => (a === b ? 0 : a ? 1 : -1)),
+  date: new Comparator((a: Date, b: Date) => a.getTime() - b.getTime()),
+
+  /** Compare strings while grouping numeric values */
   textWithNumbers: new Comparator((a: string, b: string) => {
     const pattern = /(\d+)/
     const as = a.split(pattern)
@@ -65,7 +52,8 @@ const comparators: ComparatorMap = {
     }
     return as.length - bs.length
   }),
-  boolean: new Comparator((a: boolean, b: boolean) => (a === b ? 0 : a ? 1 : -1)),
+
+  /** Compare common length like numeric, then prioritize shorter length */
   arrayNumeric: new Comparator((a: number[], b: number[]) => {
     for (let i = 0; i < Math.min(a.length, b.length); i++) {
       const diff = a[i] - b[i]
@@ -73,6 +61,8 @@ const comparators: ComparatorMap = {
     }
     return a.length - b.length
   }),
+
+  /** Compare common length like text, then prioritize shorter length */
   arrayText: new Comparator((a: string[], b: string[]) => {
     for (let i = 0; i < Math.min(a.length, b.length); i++) {
       const diff = a[i].localeCompare(b[i])

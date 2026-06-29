@@ -6,8 +6,7 @@ import FeedList from './FeedList.vue'
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useRssStore } from '@/stores'
-import { Feed } from '@/types/qbit/models'
-import { RssArticle } from '@/types/vuetorrent'
+import { RssArticle, RssFeed } from '@/types/vuetorrent'
 
 const props = defineProps<{
   height: number
@@ -39,23 +38,21 @@ const titleFilter = computed({
   }, 300),
 })
 
-function openFeedDialog(initialFeed?: Feed) {
+function openFeedDialog(initialFeed?: RssFeed) {
   dialogStore.createDialog(RssFeedDialog, { initialFeed }, () => void rssStore.fetchFeedsTask.perform())
 }
 
-async function refreshFeed(item: Feed) {
-  await rssStore.refreshFeed(item.name)
-  rssStore.fetchFeedsTask.perform()
+async function refreshFeed(feed: RssFeed) {
+  await rssStore.refreshFeed(feed)
 }
 
-function deleteFeed(item: Feed) {
+function deleteFeed(item: RssFeed) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.deleteFeed'),
     text: item.name,
     yesColor: 'error',
     onConfirm: async () => {
       await rssStore.deleteFeed(item.name)
-      await rssStore.fetchFeedsTask.perform()
     },
   })
 }
@@ -69,7 +66,15 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <v-card v-if="!rssStore.feeds.length" :height="height">
+  <v-card v-if="!rssStore.isFeedsLoaded" :height="height">
+    <v-empty-state :title="$t('rssArticles.loading')">
+      <template #media>
+        <v-progress-circular class="mb-3" indeterminate :size="100" :width="12" />
+      </template>
+    </v-empty-state>
+  </v-card>
+
+  <v-card v-else-if="!rssStore.feeds.length" :height="height">
     <v-empty-state :title="$t('rssArticles.feeds.empty.value')" icon="mdi-rss-off">
       <template #actions>
         <v-btn :text="$t('rssArticles.feeds.empty.action')" color="accent" @click="openFeedDialog()" />

@@ -5,4 +5,4 @@ import type GetTorrentPayload from './GetTorrentPayload'
 import type LoginPayload from './LoginPayload'
 import type PeerLogPayload from './PeerLogPayload'
 
-export { AppPreferencesPayload, LoginPayload, AddTorrentPayload, PeerLogPayload, CreateFeedPayload, GetTorrentPayload }
+export type { AppPreferencesPayload, LoginPayload, AddTorrentPayload, PeerLogPayload, CreateFeedPayload, GetTorrentPayload }
