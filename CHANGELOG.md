@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.34.1](https://github.com/VueTorrent/VueTorrent/compare/v2.34.0...v2.34.1) (2026-06-29)
+
+
+### Bug Fixes
+
+* **5.2:** Update editTracker endpoint payload ([#2800](https://github.com/VueTorrent/VueTorrent/issues/2800)) ([f70b68e](https://github.com/VueTorrent/VueTorrent/commit/f70b68e3d26643774c264bf245e06f6db541d70e))
+* speedCard text wraping when using network bits unit ([#2816](https://github.com/VueTorrent/VueTorrent/issues/2816)) ([00d947e](https://github.com/VueTorrent/VueTorrent/commit/00d947eb4703198c3940e13d559101764145f5b8))
+* **Speed:** correct scheduler time input layout and add range constraints ([#2818](https://github.com/VueTorrent/VueTorrent/issues/2818)) ([4b53b6b](https://github.com/VueTorrent/VueTorrent/commit/4b53b6b4da91047b568d7de9f7305591c532094f))
+
+
+### Improvements
+
+* **RSS:** Optimize rendering and network ([#2842](https://github.com/VueTorrent/VueTorrent/issues/2842)) ([2035ced](https://github.com/VueTorrent/VueTorrent/commit/2035cedc3827e1d0cb5d57f6519529a1d27c206a))
+
 ## [2.34.0](https://github.com/VueTorrent/VueTorrent/compare/v2.33.0...v2.34.0) (2026-05-19)
 
 
