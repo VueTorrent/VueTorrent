@@ -44,11 +44,15 @@ const rename = computed({
   set: value => (form.value.rename = value || undefined),
 })
 
+function stripTorrentExtension(filename: string): string {
+  return filename.replace(/\.torrent$/i, '')
+}
+
 watch(
   () => [files.value, form.value.useFilenameAsRename],
   () => {
     if (form.value.useFilenameAsRename && files.value.length === 1) {
-      form.value.rename = files.value[0].name.replace(/\.torrent$/i, '')
+      form.value.rename = stripTorrentExtension(files.value[0].name)
     }
   },
   { deep: true }
@@ -83,26 +87,68 @@ function submit() {
   }
 
   const torrentsCount = files.value.length + urls.value.split('\n').filter(url => url.trim().length).length
-  
-  const promises = []
+
+  const promises: Promise<void>[] = []
+
   if (form.value.useFilenameAsRename && files.value.length > 1) {
     for (const file of files.value) {
-      const filePayload = { ...payload, rename: file.name.replace(/\.torrent$/i, '') }
-      promises.push(torrentStore.addTorrents([file], '', filePayload))
+      const filePayload = { ...payload, rename: stripTorrentExtension(file.name) }
+      const p = torrentStore
+        .addTorrents([file], '', filePayload)
+        .then(() => {
+          files.value = files.value.filter(f => f.name !== file.name)
+        })
+        .catch(err => {
+          const e = new Error(err.message || String(err))
+          ;(e as any).fileName = file.name
+          return Promise.reject(e)
+        })
+      promises.push(p)
     }
     if (urls.value) {
-      promises.push(torrentStore.addTorrents([], urls.value, payload))
+      const p = torrentStore
+        .addTorrents([], urls.value, payload)
+        .then(() => {
+          urls.value = ''
+        })
+        .catch(err => {
+          const e = new Error(err.message || String(err))
+          ;(e as any).fileName = 'URLs'
+          return Promise.reject(e)
+        })
+      promises.push(p)
     }
   } else {
-    promises.push(torrentStore.addTorrents(files.value, urls.value, payload))
+    promises.push(
+      torrentStore.addTorrents(files.value, urls.value, payload).then(() => {
+        files.value = []
+        urls.value = ''
+      })
+    )
   }
+
+  const batchPromise = Promise.allSettled(promises).then(results => {
+    const failed = results.filter(r => r.status === 'rejected')
+    if (failed.length > 0) {
+      if (form.value.useFilenameAsRename && files.value.length > 1) {
+        const failedNames = failed.map(r => r.reason?.fileName || 'unknown').join(', ')
+        throw new Error(`${failed.length}/${results.length} torrent(s) failed to add. Failed torrents: ${failedNames}`)
+      } else {
+        throw failed[0].reason instanceof Error ? failed[0].reason : new Error(String(failed[0].reason))
+      }
+    }
+  })
 
   void toast
     .promise(
-      Promise.all(promises),
+      batchPromise,
       {
         pending: t('toast.add.pending'),
-        error: t('toast.add.error', torrentsCount),
+        error: {
+          render({ data }: { data: Error }) {
+            return data.message || t('toast.add.error', torrentsCount)
+          },
+        },
         success: t('toast.add.success', torrentsCount),
       },
       {
@@ -112,8 +158,10 @@ function submit() {
     .then(() => {
       cookieField.value?.saveValueToHistory()
       addTorrentParamsForm.value?.saveFields()
-      addTorrentStore.resetForm()
-      close()
+      if (files.value.length === 0 && urls.value === '') {
+        addTorrentStore.resetForm()
+        close()
+      }
     })
 }
 
