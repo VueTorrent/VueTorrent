@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, ref } from 'vue'
+import { computed, onBeforeMount, ref, watch } from 'vue'
 import { toast } from 'vue3-toastify'
 import AddTorrentParamsForm from './AddTorrentParamsForm.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
@@ -44,6 +44,16 @@ const rename = computed({
   set: value => (form.value.rename = value || undefined),
 })
 
+watch(
+  () => [files.value, form.value.useFilenameAsRename],
+  () => {
+    if (form.value.useFilenameAsRename && files.value.length === 1) {
+      form.value.rename = files.value[0].name.replace(/\.torrent$/i, '')
+    }
+  },
+  { deep: true }
+)
+
 function submit() {
   if (!isFormValid.value) return
 
@@ -73,9 +83,23 @@ function submit() {
   }
 
   const torrentsCount = files.value.length + urls.value.split('\n').filter(url => url.trim().length).length
+  
+  const promises = []
+  if (form.value.useFilenameAsRename && files.value.length > 1) {
+    for (const file of files.value) {
+      const filePayload = { ...payload, rename: file.name.replace(/\.torrent$/i, '') }
+      promises.push(torrentStore.addTorrents([file], '', filePayload))
+    }
+    if (urls.value) {
+      promises.push(torrentStore.addTorrents([], urls.value, payload))
+    }
+  } else {
+    promises.push(torrentStore.addTorrents(files.value, urls.value, payload))
+  }
+
   void toast
     .promise(
-      torrentStore.addTorrents(files.value, urls.value, payload),
+      Promise.all(promises),
       {
         pending: t('toast.add.pending'),
         error: t('toast.add.error', torrentsCount),
@@ -172,6 +196,14 @@ onBeforeMount(() => {
                 <v-icon color="accent"> mdi-rename </v-icon>
               </template>
             </v-text-field>
+
+            <v-tooltip :text="$t('dialogs.add.use_filename_warning')" location="bottom" :disabled="files.length <= 1">
+              <template #activator="{ props: tooltipProps }">
+                <div v-bind="tooltipProps">
+                  <v-checkbox v-model="form.useFilenameAsRename" :label="$t('dialogs.add.use_filename')" color="accent" density="compact" hide-details />
+                </div>
+              </template>
+            </v-tooltip>
           </v-col>
         </v-row>
 
