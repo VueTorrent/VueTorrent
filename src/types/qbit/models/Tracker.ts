@@ -4,7 +4,7 @@ import type { TrackerStatus } from '@/constants/qbit'
 export default interface Tracker {
   /** Tracker message (there is no way of knowing what this message is - it's up to tracker admins) */
   msg: string
-  /** Number of completed downlods for current torrent, as reported by the tracker */
+  /** Number of completed downloads for current torrent, as reported by the tracker */
   num_downloaded: number
   /** Number of leeches for current torrent, as reported by the tracker */
   num_leeches: number
