@@ -44,6 +44,10 @@ function translateTrackerStatus(status: TrackerStatus): string {
       return t('constants.trackerStatus.updating')
     case TrackerStatus.NOT_WORKING:
       return t('constants.trackerStatus.not_working')
+    case TrackerStatus.ERROR:
+      return t('constants.trackerStatus.error')
+    case TrackerStatus.UNREACHABLE:
+      return t('constants.trackerStatus.unreachable')
     default:
       return ''
   }
@@ -269,7 +273,9 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
     color: lightgreen;
   }
 
-  .tracker-not_working {
+  .tracker-not_working,
+  .tracker-error,
+  .tracker-unreachable {
     color: lightcoral;
   }
 
@@ -291,7 +297,9 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
     color: green;
   }
 
-  .tracker-not_working {
+  .tracker-not_working,
+  .tracker-error,
+  .tracker-unreachable {
     color: red;
   }
 

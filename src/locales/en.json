@@ -168,8 +168,10 @@
     },
     "trackerStatus": {
       "disabled": "Disabled",
+      "error": "Tracker error",
       "not_working": "Not working",
       "not_yet_contacted": "Not contacted yet",
+      "unreachable": "Unreachable",
       "updating": "Updating",
       "working": "Working"
     },

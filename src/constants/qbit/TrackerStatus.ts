@@ -5,8 +5,19 @@ export enum TrackerStatus {
   NOT_YET_CONTACTED = 1,
   /** Tracker has been contacted and is working */
   WORKING = 2,
-  /** Tracker is updating */
+  /**
+   * Tracker is updating
+   * @deprecated since 5.2.0, use `Tracker.endpoints[].isUpdating` property instead
+   */
   UPDATING = 3,
   /** Tracker has been contacted, but it is not working (or doesn't send proper replies) */
   NOT_WORKING = 4,
+  /**
+   * @since 5.X
+   */
+  ERROR = 5,
+  /**
+   * @since 5.X
+   */
+  UNREACHABLE = 6,
 }
