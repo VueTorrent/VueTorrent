@@ -7,7 +7,7 @@ export enum TrackerStatus {
   WORKING = 2,
   /**
    * Tracker is updating
-   * @deprecated since 5.2.0, use `Tracker.endpoints[].isUpdating` property instead
+   * `@deprecated` since 5.2.0, use `Tracker.endpoints[].updating` property instead
    */
   UPDATING = 3,
   /** Tracker has been contacted, but it is not working (or doesn't send proper replies) */
