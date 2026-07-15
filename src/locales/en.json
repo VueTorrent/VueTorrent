@@ -1150,6 +1150,7 @@
       "tagsAndCategories": "Tags & Categories",
       "vuetorrent": {
         "general": "General",
+        "searchEngine": "Search Engine",
         "sidebar": "Sidebar",
         "title": "VueTorrent",
         "torrent_card": {
@@ -1213,6 +1214,13 @@
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "useEmojiState": "Prepend torrent states with emojis",
         "vueTorrentTitle": "Tab title"
+      },
+      "searchEngine": {
+        "defaultSortBy": "Default sort column",
+        "defaultSortOrder": "Default sort direction",
+        "sortAsc": "Ascending",
+        "sortDesc": "Descending",
+        "sortNone": "None"
       },
       "sidebar": {
         "ConnectionStats": "Show Connection Stats",
