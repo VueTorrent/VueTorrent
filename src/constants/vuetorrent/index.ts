@@ -9,6 +9,7 @@ import { extMap, FileType, typesMap } from './FileIcon'
 import { FilterState } from './FilterState'
 import { FilterType } from './FilterType'
 import { HistoryKey } from './HistoryKey'
+import { SearchEngineColumn } from './SearchEngineColumn'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
 import { TorrentDetailTab } from './TorrentDetailTab'
@@ -33,6 +34,7 @@ export {
   FilterState,
   FilterType,
   HistoryKey,
+  SearchEngineColumn,
   ThemeMode,
   TitleOptions,
   TorrentDetailTab,
