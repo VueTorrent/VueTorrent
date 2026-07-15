@@ -239,6 +239,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedTab.sortBy"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
@@ -325,6 +326,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-else
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedTab.sortBy"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"
