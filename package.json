@@ -27,12 +27,12 @@
     "@mdi/js": "^7.4.47",
     "@vueuse/components": "^14.3.0",
     "@vueuse/core": "^14.3.0",
-    "@zip.js/zip.js": "^2.8.26",
+    "@zip.js/zip.js": "^2.8.30",
     "apexcharts": "^5.15.2",
     "array.prototype.tosorted": "1.1.4",
     "axios": "^1.17.0",
     "dayjs": "^1.11.21",
-    "dompurify": "^3.4.11",
+    "dompurify": "^3.4.12",
     "lodash.debounce": "^4.0.8",
     "pinia": "^3.0.4",
     "pinia-persistence-plugin": "^0.0.7",
@@ -46,15 +46,15 @@
     "vue3-apexcharts": "^1.11.1",
     "vue3-toastify": "^0.2.9",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^4.1.4"
+    "vuetify": "^4.1.5"
   },
   "devDependencies": {
     "@dword-design/eslint-plugin-import-alias": "^8.1.8",
     "@eslint/js": "^9.39.4",
     "@pinia/testing": "^1.0.3",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/node": "^25.9.4",
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@types/node": "^25.9.5",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vitest/coverage-v8": "^4.1.10",
     "@vue/eslint-config-typescript": "^14.8.0",
     "@vue/test-utils": "^2.4.11",
@@ -67,7 +67,7 @@
     "globals": "^17.6.0",
     "jsdom": "^29.1.1",
     "lightningcss": "^1.32.0",
-    "prettier": "3.9.4",
+    "prettier": "3.9.5",
     "sass": "^1.101.0",
     "timezone-mock": "^1.4.3",
     "typescript": "^6.0.3",
@@ -76,6 +76,6 @@
     "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.0.18",
     "vitest-localstorage-mock": "^0.1.2",
-    "vue-tsc": "^3.3.6"
+    "vue-tsc": "^3.3.7"
   }
 }
