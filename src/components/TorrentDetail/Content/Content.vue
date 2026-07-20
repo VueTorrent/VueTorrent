@@ -47,8 +47,8 @@ async function onRightClick(e: MouseEvent, node: TreeNode) {
 watch(
   () => props.isActive,
   isActive => {
-    if (isActive && !timerForcedPause.value) contentStore.resumeTimer()
-    else contentStore.pauseTimer()
+    if (isActive && !timerForcedPause.value) contentStore.resumeFileTreeTimer()
+    else contentStore.pauseFileTreeTimer()
   },
   {
     immediate: true,
@@ -65,12 +65,12 @@ onBeforeUnmount(() => {
 
 function pause() {
   timerForcedPause.value = true
-  contentStore.pauseTimer()
+  contentStore.pauseFileTreeTimer()
 }
 
 function resume() {
   timerForcedPause.value = false
-  contentStore.resumeTimer()
+  contentStore.resumeFileTreeTimer()
 }
 
 function openFilterDialog() {

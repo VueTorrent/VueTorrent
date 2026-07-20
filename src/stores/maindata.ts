@@ -1,7 +1,5 @@
-import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { ref, shallowRef, watch } from 'vue'
-import { useTask } from 'vue-concurrency'
 import { useAppStore } from './app'
 import { useCategoryStore } from './categories'
 import { useDashboardStore } from './dashboard'
@@ -10,10 +8,11 @@ import { useTagStore } from './tags'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
+import { useTimer } from '@/composables'
 import qbit from '@/services/qbit'
-import { ServerState } from '@/types/qbit/models'
+import type { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
-import { ShareLimitAction } from '@/types/vuetorrent'
+import type { ShareLimitAction } from '@/types/vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
@@ -30,14 +29,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   const vueTorrentStore = useVueTorrentStore()
   const { refreshInterval } = storeToRefs(vueTorrentStore)
 
-  const maindataTask = useTask(function* () {
-    yield updateMaindata()
-  }).drop()
-
-  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(() => void maindataTask.perform(), refreshInterval, {
-    immediate: false,
-    immediateCallback: true,
-  })
+  const { resume: startMaindataSync, pause: stopMaindataSync } = useTimer(updateMaindata, refreshInterval, { immediate: false, immediateCallback: true })
 
   function syncFromMaindata(fullUpdate: boolean, obj?: Partial<ServerState>) {
     if (fullUpdate) {
@@ -123,11 +115,9 @@ export const useMaindataStore = defineStore('maindata', () => {
     setDownloadLimit,
     setUploadLimit,
     setShareLimit,
-    forceMaindataSync,
+    startMaindataSync,
     stopMaindataSync,
     $reset: () => {
-      stopMaindataSync()
-      maindataTask.clear()
       rid.value = undefined
       serverState.value = {}
     },

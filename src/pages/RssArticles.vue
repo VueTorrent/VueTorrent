@@ -69,8 +69,8 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
-  rssStore.fetchFeedsTask.perform()
-  rssStore.fetchRulesTask.perform()
+  rssStore.syncFeeds()
+  rssStore.syncRules()
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)

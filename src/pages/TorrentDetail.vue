@@ -94,7 +94,7 @@ watch(torrent, () => {
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   void torrentDetailStore.fetchProperties(hash.value)
-  contentStore.updateFileTreeTask.perform()
+  contentStore.syncFileTree()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)

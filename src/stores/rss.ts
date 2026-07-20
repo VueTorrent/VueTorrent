@@ -1,10 +1,9 @@
-import { useIntervalFn, useSorted } from '@vueuse/core'
+import { useSorted } from '@vueuse/core'
 import type { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
-import { useTask } from 'vue-concurrency'
 import { toast } from 'vue3-toastify'
-import { useI18nUtils, useSearchQuery } from '@/composables'
+import { useI18nUtils, useSearchQuery, useTimer } from '@/composables'
 import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
 import type { FeedRule, FeedArticle, Feed } from '@/types/qbit/models'
@@ -40,26 +39,26 @@ export const useRssStore = defineStore(
     )
     const _refreshInterval = computed(() => (feeds.value.some(feed => feed.isLoading) ? 2000 : 60000))
 
-    const fetchFeedsTask = useTask(function* () {
-      yield fetchFeeds()
-    }).keepLatest()
-
-    const fetchRulesTask = useTask(function* () {
-      yield fetchRules()
-    }).keepLatest()
-
-    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(() => void fetchFeedsTask.perform(), _refreshInterval, {
+    const {
+      perform: syncFeeds,
+      pause: pauseFeedTimer,
+      resume: resumeFeedTimer,
+    } = useTimer(fetchFeeds, _refreshInterval, {
       immediate: false,
       immediateCallback: false,
     })
-    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(() => void fetchRulesTask.perform(), _refreshInterval, {
+    const {
+      perform: syncRules,
+      pause: pauseRuleTimer,
+      resume: resumeRuleTimer,
+    } = useTimer(fetchRules, _refreshInterval, {
       immediate: false,
       immediateCallback: false,
     })
 
     async function refreshFeed(feed: RssFeed) {
       await qbit.refreshFeed(feed.name)
-      await fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function refreshAllFeeds() {
@@ -68,7 +67,7 @@ export const useRssStore = defineStore(
 
     async function createFeed(feedName: string, feedUrl: string) {
       await qbit.createFeed({ name: feedName, url: feedUrl })
-      fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function setRule(ruleName: string, ruleDef: FeedRule) {
@@ -79,12 +78,12 @@ export const useRssStore = defineStore(
         addPaused: ruleDef.torrentParams.stopped,
         torrentContentLayout: ruleDef.torrentParams.content_layout,
       })
-      fetchFeedsTask.perform()
+      await syncRules()
     }
 
     async function renameFeed(oldName: string, newName: string) {
       await qbit.renameFeed(oldName, newName)
-      fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function setFeedUrl(feedName: string, feedUrl: string) {
@@ -94,22 +93,22 @@ export const useRssStore = defineStore(
           toast.error(t('toast.qbit.not_supported', { version: '4.6.0' }))
         }
       })
-      fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function renameRule(oldName: string, newName: string) {
       await qbit.renameRule(oldName, newName)
-      fetchRulesTask.perform()
+      await syncRules()
     }
 
     async function deleteFeed(feedName: string) {
       await qbit.deleteFeed(feedName)
-      fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function deleteRule(ruleName: string) {
       await qbit.deleteRule(ruleName)
-      fetchRulesTask.perform()
+      await syncRules()
     }
 
     function _enrichArticle(article: FeedArticle, feedUid: string): RssArticle {
@@ -182,7 +181,7 @@ export const useRssStore = defineStore(
 
     async function markFeedAsRead(feed: RssFeed) {
       await qbit.markAsRead(feed.name)
-      fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function markAllAsRead() {
@@ -199,7 +198,7 @@ export const useRssStore = defineStore(
           autoClose: 1500,
         }
       )
-      fetchFeedsTask.perform()
+      await syncFeeds()
     }
 
     async function fetchRules() {
@@ -228,8 +227,8 @@ export const useRssStore = defineStore(
       articles,
       filteredArticles,
       unreadArticles,
-      fetchFeedsTask,
-      fetchRulesTask,
+      syncFeeds,
+      syncRules,
       pauseFeedTimer,
       resumeFeedTimer,
       pauseRuleTimer,
@@ -265,7 +264,7 @@ export const useRssStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: sessionStorage, excludePaths: ['isFeedsLoaded', 'isRulesLoaded', 'fetchFeedsTask', 'fetchRulesTask'] }],
+      storageItems: [{ storage: sessionStorage, excludePaths: ['isFeedsLoaded', 'isRulesLoaded'] }],
     },
   }
 )

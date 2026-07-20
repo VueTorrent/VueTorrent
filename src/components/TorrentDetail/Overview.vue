@@ -64,7 +64,7 @@ function openMoveTorrentFileDialog() {
       isFolder: false,
       oldName: torrentFileName.value,
     },
-    () => void contentStore.updateFileTreeTask.perform()
+    () => void contentStore.syncFileTree()
   )
 }
 

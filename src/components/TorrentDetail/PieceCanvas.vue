@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import IntervalTree from '@flatten-js/interval-tree'
-import { useIntervalFn } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { Application, Graphics } from 'pixi.js'
 import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { useTheme } from 'vuetify'
+import { useTimer } from '@/composables'
 import { FilePriority, PieceState } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
 import { getTorrentStateColor } from '@/helpers'
@@ -101,7 +101,7 @@ function renderWrapper() {
   renderCanvas().catch(() => {})
 }
 
-const { pause, resume } = useIntervalFn(renderWrapper, fileContentInterval, {
+const { pause, resume } = useTimer(renderWrapper, fileContentInterval, {
   immediate: false,
   immediateCallback: true,
 })

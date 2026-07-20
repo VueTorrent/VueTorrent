@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "npm start",
+      "name": "Start UI dev mode",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "npm run preview",
+      "name": "Start UI preview mode",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ]
+}

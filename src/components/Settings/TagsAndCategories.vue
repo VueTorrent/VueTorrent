@@ -18,7 +18,7 @@ function deleteTag(tagName: string) {
     yesColor: 'error',
     onConfirm: async () => {
       await tagStore.deleteTags([tagName])
-      maindataStore.forceMaindataSync()
+      maindataStore.startMaindataSync()
     },
   })
 }
@@ -41,7 +41,7 @@ function deleteCategory(category: Category) {
     yesColor: 'error',
     onConfirm: async () => {
       await categoryStore.deleteCategories([category.name])
-      maindataStore.forceMaindataSync()
+      maindataStore.startMaindataSync()
     },
   })
 }
@@ -58,11 +58,11 @@ function deleteUnusedCategories() {
 }
 
 function openTagFormDialog(initialTag?: string) {
-  dialogStore.createDialog(TagFormDialog, { initialTag }, maindataStore.forceMaindataSync)
+  dialogStore.createDialog(TagFormDialog, { initialTag }, maindataStore.startMaindataSync)
 }
 
 function openCategoryFormDialog(initialCategory?: Category) {
-  dialogStore.createDialog(CategoryFormDialog, { initialCategory }, maindataStore.forceMaindataSync)
+  dialogStore.createDialog(CategoryFormDialog, { initialCategory }, maindataStore.startMaindataSync)
 }
 </script>
 

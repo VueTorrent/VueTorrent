@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { TinyColor } from '@ctrl/tinycolor'
-import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
@@ -78,10 +77,11 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
 onBeforeMount(async () => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   await logStore.cleanAndFetchLogs()
-  useIntervalFn(() => void logStore.updateLogs(), 15000)
+  logStore.startLogSync()
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
+  logStore.pauseLogSync()
 })
 </script>
 

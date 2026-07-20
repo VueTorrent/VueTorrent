@@ -39,7 +39,7 @@ const titleFilter = computed({
 })
 
 function openFeedDialog(initialFeed?: RssFeed) {
-  dialogStore.createDialog(RssFeedDialog, { initialFeed }, () => void rssStore.fetchFeedsTask.perform())
+  dialogStore.createDialog(RssFeedDialog, { initialFeed }, () => void rssStore.syncFeeds())
 }
 
 async function refreshFeed(feed: RssFeed) {

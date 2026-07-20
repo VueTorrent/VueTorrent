@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { useIntervalFn } from '@vueuse/core'
 import { nextTick, onBeforeUnmount, reactive, ref, shallowReadonly, watch } from 'vue'
-import { useTask } from 'vue-concurrency'
 import { onBeforeRouteUpdate } from 'vue-router'
-import { useI18nUtils } from '@/composables'
+import { useI18nUtils, useTimer } from '@/composables'
 import { TrackerStatus } from '@/constants/qbit'
 import { useTorrentStore, useTrackerStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
@@ -91,10 +89,6 @@ async function updateTrackers() {
   }
 }
 
-const trackerTask = useTask(function* () {
-  yield updateTrackers()
-}).drop()
-
 async function addTrackers() {
   if (!newTrackers.value.length) return
 
@@ -130,7 +124,7 @@ const {
   isActive: isTimerActive,
   resume: resumeTimer,
   pause: pauseTimer,
-} = useIntervalFn(() => void trackerTask.perform(), 5000, {
+} = useTimer(updateTrackers, 5000, {
   immediate: true,
   immediateCallback: true,
 })
