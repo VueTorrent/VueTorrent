@@ -1,8 +1,7 @@
 import toSorted from 'array.prototype.tosorted'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref, shallowRef, triggerRef } from 'vue'
-import { useTask } from 'vue-concurrency'
-import { useArrayPagination, useSearchQuery } from '@/composables'
+import { useArrayPagination, useSearchQuery, useTimer } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
@@ -13,7 +12,7 @@ export const useLogStore = defineStore(
   () => {
     const logs = shallowRef<Log[]>([])
     const externalIp = ref<string>()
-    const reverseSort = ref<boolean>(false)
+    const reverseSort = ref(false)
     const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
     const logMessageFilter = ref('')
     const cleanFetchLock = ref(false)
@@ -24,19 +23,13 @@ export const useLogStore = defineStore(
       () => toSorted(filteredLogs.value, (a, b) => comparators.numeric.compare(a.id, b.id, !reverseSort.value)),
       30
     )
-    const logTask = useTask(function* (_: AbortSignal, lastId?: number) {
-      yield fetchLogs(lastId)
-    }).drop()
 
-    async function fetchLogs(lastId?: number) {
-      let afterId
-      if (lastId) {
-        afterId = lastId
-      } else {
-        afterId = logs.value.length > 0 ? logs.value.at(-1)!.id : -1
-      }
+    const { perform, pause, resume } = useTimer(fetchLogs, 15000)
 
-      const newLogs = await qbit.getLogs(afterId)
+    async function fetchLogs() {
+      const lastId = logs.value.at(-1)?.id
+
+      const newLogs = await qbit.getLogs(lastId)
       logs.value.push(...newLogs)
       triggerRef(logs)
       extractExternalIpFromLogs(newLogs)
@@ -46,7 +39,7 @@ export const useLogStore = defineStore(
       if (cleanFetchLock.value) return
       cleanFetchLock.value = true
       logs.value = []
-      await fetchLogs(-1)
+      await fetchLogs()
       cleanFetchLock.value = false
     }
 
@@ -66,11 +59,12 @@ export const useLogStore = defineStore(
       paginatedResults,
       currentPage,
       pageCount,
-      updateLogs: logTask.perform,
+      updateLogs: perform,
+      pauseLogSync: pause,
+      startLogSync: resume,
       cleanAndFetchLogs,
       reverseSort,
       $reset: () => {
-        logTask.clear()
         logs.value = []
         externalIp.value = undefined
         logTypeFilter.value = [LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL]

@@ -99,7 +99,7 @@ function hasTag(tag: string) {
 
 function openNewTagFormDialog() {
   const selectedHashes = hashes.value
-  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, maindataStore.forceMaindataSync)
+  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, maindataStore.startMaindataSync)
 }
 
 function deleteUnusedTags() {
@@ -119,7 +119,7 @@ async function clearAllTags() {
 
 function openNewCategoryFormDialog() {
   const selectedHashes = hashes.value
-  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(selectedHashes, cat.name) }, maindataStore.forceMaindataSync)
+  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(selectedHashes, cat.name) }, maindataStore.startMaindataSync)
 }
 
 function deleteUnusedCategories() {
@@ -134,7 +134,7 @@ function deleteUnusedCategories() {
 }
 
 async function clearCategory() {
-  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.forceMaindataSync)
+  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.startMaindataSync)
 }
 
 async function toggleTag(tag: string) {
@@ -282,7 +282,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: tagStore.tags.map(tag => ({
       text: tag,
       icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-      action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync),
+      action: async () => await toggleTag(tag).then(maindataStore.startMaindataSync),
     })),
     slots: {
       top: [
@@ -297,14 +297,14 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           hidden: tagStore.deleteUnusedTags.length === 0,
           action: () => {
             deleteUnusedTags()
-            maindataStore.forceMaindataSync()
+            maindataStore.startMaindataSync()
           },
         },
         {
           text: t('dashboard.right_click.tags.clear_all'),
           icon: 'mdi-playlist-remove',
           hidden: torrent.value?.tags.length === 0,
-          action: () => void clearAllTags().then(maindataStore.forceMaindataSync),
+          action: () => void clearAllTags().then(maindataStore.startMaindataSync),
         },
       ],
     },
@@ -318,7 +318,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: categoryStore.categories.map(category => ({
       text: category.name,
       icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
-      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync),
+      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.startMaindataSync),
     })),
     slots: {
       top: [
@@ -333,14 +333,14 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           hidden: categoryStore.deleteUnusedCategories.length === 0,
           action: () => {
             deleteUnusedCategories()
-            maindataStore.forceMaindataSync()
+            maindataStore.startMaindataSync()
           },
         },
         {
           text: t('dashboard.right_click.category.clear'),
           icon: 'mdi-backspace-reverse',
           hidden: torrent.value?.category.length === 0,
-          action: () => void clearCategory().then(maindataStore.forceMaindataSync),
+          action: () => void clearCategory().then(maindataStore.startMaindataSync),
         },
       ],
     },

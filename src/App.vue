@@ -114,7 +114,7 @@ watch(
   () => appStore.isAuthenticated,
   async isAuthenticated => {
     if (isAuthenticated) {
-      maindataStore.forceMaindataSync()
+      maindataStore.startMaindataSync()
       await preferencesStore.fetchPreferences()
       await logStore.cleanAndFetchLogs()
 

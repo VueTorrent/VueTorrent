@@ -217,7 +217,7 @@ function run() {
     })
     .finally(() => {
       running.value = false
-      contentStore.updateFileTreeTask.perform()
+      contentStore.syncFileTree()
       // close dialog, because haven't a good way to refresh torrent files after rename
       // because bulkRenameFilesDialog can be create with subfolder
       close()

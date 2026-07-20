@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { useIntervalFn } from '@vueuse/core'
 import DOMPurify from 'dompurify'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onBeforeUnmount } from 'vue'
-import { useTask } from 'vue-concurrency'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import TorrentCreatorFormDialog from '@/components/Dialogs/TorrentCreatorFormDialog.vue'
-import { useI18nUtils } from '@/composables'
+import { useI18nUtils, useTimer } from '@/composables'
 import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
 import { basename, downloadFile, formatData, formatPercent } from '@/helpers'
 import dayjs from '@/plugins/dayjs'
@@ -23,15 +21,11 @@ const torrentCreatorStore = useTorrentCreatorStore()
 const { tasks } = storeToRefs(torrentCreatorStore)
 const vueTorrentStore = useVueTorrentStore()
 
-const torrentCreatorTasksTask = useTask(function* () {
-  yield torrentCreatorStore.fetchTasks()
-}).drop()
-
 const {
   isActive: isTimerActive,
   pause,
   resume,
-} = useIntervalFn(() => void torrentCreatorTasksTask.perform(), 1000, {
+} = useTimer(torrentCreatorStore.fetchTasks, 1000, {
   immediate: true,
   immediateCallback: true,
 })
@@ -124,7 +118,6 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
 
 onBeforeMount(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  torrentCreatorTasksTask.perform()
 })
 
 onBeforeUnmount(() => {

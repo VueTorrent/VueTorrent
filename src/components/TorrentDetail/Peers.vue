@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import { useIntervalFn } from '@vueuse/core'
 import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
-import { useTask } from 'vue-concurrency'
 import { onBeforeRouteUpdate } from 'vue-router'
-import { useI18nUtils } from '@/composables'
+import { useI18nUtils, useTimer } from '@/composables'
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
 import { useDialogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
@@ -43,10 +41,6 @@ const filter = ref('')
 
 const addPeersDialog = ref(false)
 const newPeers = ref('')
-
-const syncPeersTask = useTask(function* () {
-  yield syncPeers()
-}).drop()
 
 const items = computed<PeerType[]>(() => Array.from(torrentPeers.value.entries()).map(([host, peer]) => ({ ...peer, host })))
 
@@ -124,7 +118,7 @@ const {
   isActive: isTimerActive,
   pause,
   resume,
-} = useIntervalFn(() => void syncPeersTask.perform(), 2000, {
+} = useTimer(syncPeers, 2000, {
   immediate: true,
   immediateCallback: true,
 })

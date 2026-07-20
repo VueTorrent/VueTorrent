@@ -1,11 +1,9 @@
-import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
-import { useTask } from 'vue-concurrency'
 import { useRoute } from 'vue-router'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
-import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
+import { useI18nUtils, useSearchQuery, useTimer, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { TorrentFile } from '@/types/qbit/models'
@@ -98,24 +96,29 @@ export const useContentStore = defineStore('content', () => {
     },
   ])
 
-  const updateFileTreeTask = useTask(function* () {
-    if (isFirstRun.value) {
-      yield updateFileTree().then(() => expandContent.value && expandAll())
-      isFirstRun.value = false
-    } else {
-      yield updateFileTree()
-    }
-  }).drop()
-
   const timerForcedPause = shallowRef(false)
   const {
+    perform: syncFileTree,
     isActive: isTimerActive,
-    pause: pauseTimer,
-    resume: resumeTimer,
-  } = useIntervalFn(() => void updateFileTreeTask.perform(), fileContentInterval, {
-    immediate: false,
-    immediateCallback: true,
-  })
+    pause: pauseFileTreeTimer,
+    resume: resumeFileTreeTimer,
+  } = useTimer(
+    () => {
+      let prom: Promise<void>
+      if (isFirstRun.value) {
+        prom = updateFileTree().then(() => void (expandContent.value && expandAll()))
+        isFirstRun.value = false
+      } else {
+        prom = updateFileTree()
+      }
+      return prom
+    },
+    fileContentInterval,
+    {
+      immediate: false,
+      immediateCallback: true,
+    }
+  )
 
   async function updateFileTree() {
     cachedFiles.value = await fetchFiles(hash.value)
@@ -129,13 +132,13 @@ export const useContentStore = defineStore('content', () => {
       isFolder: node.type === 'folder',
       oldName: node.fullName,
     }
-    dialogStore.createDialog(MoveTorrentFileDialog, payload, () => void updateFileTreeTask.perform())
+    dialogStore.createDialog(MoveTorrentFileDialog, payload, () => void syncFileTree())
   }
 
   async function bulkRename(node: TreeFolder) {
     const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
     const payload = { hash: hash.value, node }
-    dialogStore.createDialog(BulkRenameFilesDialog, payload, () => void updateFileTreeTask.perform())
+    dialogStore.createDialog(BulkRenameFilesDialog, payload, () => void syncFileTree())
   }
 
   async function invertPrioritySelection() {
@@ -158,7 +161,7 @@ export const useContentStore = defineStore('content', () => {
 
   async function setFilePriority(fileIdx: number[], priority: FilePriority) {
     await qbit.setTorrentFilePriority(hash.value, fileIdx, priority)
-    updateFileTreeTask.perform()
+    syncFileTree()
   }
 
   async function fetchFiles(hash: string, indexes?: number[]) {
@@ -234,11 +237,11 @@ export const useContentStore = defineStore('content', () => {
     openedItems,
     filteredFiles,
     flatTree,
-    updateFileTreeTask,
     timerForcedPause,
     isTimerActive,
-    pauseTimer,
-    resumeTimer,
+    syncFileTree,
+    pauseFileTreeTimer,
+    resumeFileTreeTimer,
     renameTorrentFile,
     renameTorrentFolder,
     setFilePriority,
@@ -247,8 +250,6 @@ export const useContentStore = defineStore('content', () => {
     closeNode,
     toggleFileSelection,
     $reset: () => {
-      pauseTimer()
-      updateFileTreeTask.clear()
       internalSelection.value.clear()
       lastSelected.value = ''
       filenameFilter.value = ''
