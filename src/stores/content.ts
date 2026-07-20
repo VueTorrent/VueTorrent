@@ -250,6 +250,7 @@ export const useContentStore = defineStore('content', () => {
     closeNode,
     toggleFileSelection,
     $reset: () => {
+      pauseFileTreeTimer()
       internalSelection.value.clear()
       lastSelected.value = ''
       filenameFilter.value = ''

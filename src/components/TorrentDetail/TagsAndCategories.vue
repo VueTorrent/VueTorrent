@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { useCategoryStore, useTagStore, useTorrentStore } from '@/stores'
+import { useCategoryStore, useMaindataStore, useTagStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const categoryStore = useCategoryStore()
+const maindataStore = useMaindataStore()
 const tagStore = useTagStore()
 const torrentStore = useTorrentStore()
 
@@ -14,6 +15,7 @@ async function setCategory(category: string) {
   } else {
     await torrentStore.setTorrentCategory([props.torrent.hash], category)
   }
+  maindataStore.syncMaindata()
 }
 
 async function toggleTag(tag: string) {
@@ -22,6 +24,7 @@ async function toggleTag(tag: string) {
   } else {
     await torrentStore.addTorrentTags([props.torrent.hash], [tag])
   }
+  maindataStore.syncMaindata()
 }
 </script>
 
@@ -55,5 +58,3 @@ async function toggleTag(tag: string) {
     </v-card-text>
   </v-card>
 </template>
-
-<style scoped></style>

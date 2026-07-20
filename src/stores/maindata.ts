@@ -29,7 +29,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   const vueTorrentStore = useVueTorrentStore()
   const { refreshInterval } = storeToRefs(vueTorrentStore)
 
-  const { resume: startMaindataSync, pause: stopMaindataSync } = useTimer(updateMaindata, refreshInterval, { immediate: false, immediateCallback: true })
+  const { perform: syncMaindata, resume: startMaindataSync, pause: stopMaindataSync } = useTimer(updateMaindata, refreshInterval, { immediate: false, immediateCallback: true })
 
   function syncFromMaindata(fullUpdate: boolean, obj?: Partial<ServerState>) {
     if (fullUpdate) {
@@ -115,9 +115,11 @@ export const useMaindataStore = defineStore('maindata', () => {
     setDownloadLimit,
     setUploadLimit,
     setShareLimit,
+    syncMaindata,
     startMaindataSync,
     stopMaindataSync,
     $reset: () => {
+      stopMaindataSync()
       rid.value = undefined
       serverState.value = {}
     },
