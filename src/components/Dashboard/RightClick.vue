@@ -99,7 +99,7 @@ function hasTag(tag: string) {
 
 function openNewTagFormDialog() {
   const selectedHashes = hashes.value
-  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, maindataStore.startMaindataSync)
+  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, () => void maindataStore.syncMaindata())
 }
 
 function deleteUnusedTags() {
@@ -109,6 +109,7 @@ function deleteUnusedTags() {
     yesColor: 'error',
     onConfirm: async () => {
       await tagStore.deleteUnusedTags()
+      maindataStore.syncMaindata()
     },
   })
 }
@@ -119,7 +120,11 @@ async function clearAllTags() {
 
 function openNewCategoryFormDialog() {
   const selectedHashes = hashes.value
-  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(selectedHashes, cat.name) }, maindataStore.startMaindataSync)
+  dialogStore.createDialog(CategoryFormDialog, {
+    onSubmit: cat => {
+      void torrentStore.setTorrentCategory(selectedHashes, cat.name).then(maindataStore.syncMaindata)
+    },
+  })
 }
 
 function deleteUnusedCategories() {
@@ -129,17 +134,19 @@ function deleteUnusedCategories() {
     yesColor: 'error',
     onConfirm: async () => {
       await categoryStore.deleteUnusedCategories()
+      maindataStore.syncMaindata()
     },
   })
 }
 
 async function clearCategory() {
-  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.startMaindataSync)
+  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.syncMaindata)
 }
 
 async function toggleTag(tag: string) {
   if (hasTag(tag)) await torrentStore.removeTorrentTags(hashes.value, [tag])
   else await torrentStore.addTorrentTags(hashes.value, [tag])
+  maindataStore.syncMaindata()
 }
 
 function copyValue(valueToCopy: string) {
@@ -282,7 +289,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: tagStore.tags.map(tag => ({
       text: tag,
       icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-      action: async () => await toggleTag(tag).then(maindataStore.startMaindataSync),
+      action: () => void toggleTag(tag).then(maindataStore.syncMaindata),
     })),
     slots: {
       top: [
@@ -297,14 +304,13 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           hidden: tagStore.deleteUnusedTags.length === 0,
           action: () => {
             deleteUnusedTags()
-            maindataStore.startMaindataSync()
           },
         },
         {
           text: t('dashboard.right_click.tags.clear_all'),
           icon: 'mdi-playlist-remove',
           hidden: torrent.value?.tags.length === 0,
-          action: () => void clearAllTags().then(maindataStore.startMaindataSync),
+          action: () => void clearAllTags().then(maindataStore.syncMaindata),
         },
       ],
     },
@@ -318,7 +324,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: categoryStore.categories.map(category => ({
       text: category.name,
       icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
-      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.startMaindataSync),
+      action: () => void torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.syncMaindata),
     })),
     slots: {
       top: [
@@ -331,16 +337,13 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           text: t('settings.tagsAndCategories.deleteUnusedCategories'),
           icon: 'mdi-delete',
           hidden: categoryStore.deleteUnusedCategories.length === 0,
-          action: () => {
-            deleteUnusedCategories()
-            maindataStore.startMaindataSync()
-          },
+          action: deleteUnusedCategories,
         },
         {
           text: t('dashboard.right_click.category.clear'),
           icon: 'mdi-backspace-reverse',
           hidden: torrent.value?.category.length === 0,
-          action: () => void clearCategory().then(maindataStore.startMaindataSync),
+          action: () => void clearCategory().then(maindataStore.syncMaindata),
         },
       ],
     },
@@ -484,5 +487,3 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     </RightClickMenu>
   </div>
 </template>
-
-<style scoped></style>

@@ -128,7 +128,8 @@ watch(
   value => {
     if (value) resume()
     else pause()
-  }
+  },
+  { immediate: true }
 )
 
 onBeforeRouteUpdate(() => !addPeersDialog.value)

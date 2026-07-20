@@ -24,7 +24,7 @@ export const useLogStore = defineStore(
       30
     )
 
-    const { perform, pause, resume } = useTimer(fetchLogs, 15000)
+    const { perform: updateLogs, pause: pauseLogSync, resume: startLogSync } = useTimer(fetchLogs, 15000)
 
     async function fetchLogs() {
       const lastId = logs.value.at(-1)?.id
@@ -37,10 +37,13 @@ export const useLogStore = defineStore(
 
     async function cleanAndFetchLogs() {
       if (cleanFetchLock.value) return
-      cleanFetchLock.value = true
-      logs.value = []
-      await fetchLogs()
-      cleanFetchLock.value = false
+      try {
+        cleanFetchLock.value = true
+        logs.value = []
+        await fetchLogs()
+      } finally {
+        cleanFetchLock.value = false
+      }
     }
 
     function extractExternalIpFromLogs(logsToParse: Log[]) {
@@ -59,12 +62,13 @@ export const useLogStore = defineStore(
       paginatedResults,
       currentPage,
       pageCount,
-      updateLogs: perform,
-      pauseLogSync: pause,
-      startLogSync: resume,
+      updateLogs,
+      pauseLogSync,
+      startLogSync,
       cleanAndFetchLogs,
       reverseSort,
       $reset: () => {
+        pauseLogSync()
         logs.value = []
         externalIp.value = undefined
         logTypeFilter.value = [LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL]

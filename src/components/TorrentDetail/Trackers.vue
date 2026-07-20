@@ -142,8 +142,8 @@ function resume() {
 watch(
   () => props.isActive,
   v => {
-    if (v && !timerForcedPause.value) resume()
-    else pause()
+    if (v && !timerForcedPause.value) resumeTimer()
+    else pauseTimer()
   },
   { immediate: true }
 )
