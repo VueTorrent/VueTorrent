@@ -317,7 +317,9 @@
       "reset_form": "Reset form",
       "sequential_download": "Sequential download",
       "submit": "Add torrents",
-      "title": "Add Torrents"
+      "title": "Add Torrents",
+      "use_filename": "Use filename as torrent name",
+      "use_filename_warning": "Warning: Adding multiple torrents at once with this option enabled may cause instability if you upload a very large number of files simultaneously."
     },
     "bulkEditTrackers": {
       "add": "Trackers to add",
