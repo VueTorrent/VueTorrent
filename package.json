@@ -30,7 +30,7 @@
     "@zip.js/zip.js": "^2.8.30",
     "apexcharts": "^5.15.2",
     "array.prototype.tosorted": "1.1.4",
-    "axios": "^1.17.0",
+    "axios": "^1.18.1",
     "dayjs": "^1.11.21",
     "dompurify": "^3.4.12",
     "lodash.debounce": "^4.0.8",
