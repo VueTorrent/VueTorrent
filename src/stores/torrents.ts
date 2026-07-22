@@ -28,20 +28,13 @@ export const useTorrentStore = defineStore(
     ]
 
     const appStore = useAppStore()
-    const { buildFromQbit } = useTorrentBuilder()
+    const torrentBuilder = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
-    const _torrents = shallowRef<Map<string, RawQbitTorrent>>(new Map())
-    const torrents = computed(() =>
-      Array.from(_torrents.value.entries()).map(([hash, v]) =>
-        buildFromQbit({
-          ...v,
-          hash,
-        })
-      )
-    )
+    const _torrents = ref<Map<string, VtTorrent>>(new Map())
+    const torrents = computed(() => Array.from(_torrents.value.values()))
 
-    const filterType = ref(FilterType.CONJUNCTIVE)
+    const filterType = shallowRef(FilterType.CONJUNCTIVE)
 
     const isTextFilterActive = shallowRef(true)
     const textFilter = ref('')
@@ -210,19 +203,19 @@ export const useTorrentStore = defineStore(
       return compareResult
     })
 
-    function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<RawQbitTorrent>][], removed?: string[]) {
+    type FullArgs = [fullUpdate: true, entries: [string, RawQbitTorrent][]]
+    type PartialArgs = [fullUpdate: false, entries: [string, Partial<RawQbitTorrent>][], removed?: string[]]
+
+    function syncFromMaindata(...args: FullArgs | PartialArgs) {
+      const [fullUpdate, entries, removed] = args
       if (fullUpdate) {
-        _torrents.value = new Map(entries as [string, RawQbitTorrent][])
+        _torrents.value = torrentBuilder.buildFromFullUpdate(entries)
         return
       }
 
       for (const [hash, qbitTorrent] of entries) {
-        const torrent = _torrents.value.get(hash)
-        if (torrent) {
-          _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
-        } else {
-          _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
-        }
+        const currentTorrent = _torrents.value.get(hash) ?? ({} as VtTorrent)
+        torrentBuilder.buildFromPartialUpdate(currentTorrent, qbitTorrent)
       }
 
       removed?.forEach(t => _torrents.value.delete(t))

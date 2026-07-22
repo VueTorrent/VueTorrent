@@ -8,11 +8,11 @@ export default interface Torrent {
   availability: number
   available_peers: number
   available_seeds: number
-  get avgDownloadSpeed(): number
-  get avgUploadSpeed(): number
-  get basename_content_path(): string
-  get basename_download_path(): string
-  get basename_save_path(): string
+  avgDownloadSpeed: number
+  avgUploadSpeed: number
+  basename_content_path: string
+  basename_download_path: string
+  basename_save_path: string
   category: string
   comment: string
   completed_on: number
@@ -26,8 +26,8 @@ export default interface Torrent {
   eta: number
   f_l_piece_prio: boolean
   forced: boolean
-  get globalSpeed(): number
-  get globalVolume(): number
+  globalSpeed: number
+  globalVolume: number
   hasMetadata: boolean
   hash: string
   inactive_seeding_time_limit: number
@@ -64,9 +64,9 @@ export default interface Torrent {
   time_active: number
   total_size: number
   tracker: string
-  get trackerDomain(): string
+  trackerDomain: string
   trackers_count: number
-  get truncated_hash(): string
+  truncated_hash: string
   up_limit: number
   uploaded: number
   uploaded_session: number
