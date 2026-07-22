@@ -16,18 +16,17 @@ export default defineConfig(({ mode }) => {
     base: './',
     build: {
       target: 'esnext',
-      minify: 'esbuild',
-      cssMinify: 'lightningcss',
       sourcemap: false,
       outDir: mode === 'demo' ? './vuetorrent-demo' : './vuetorrent/public',
-      rollupOptions: {
+      rolldownOptions: {
         output: {
-          manualChunks: {
-            // apexcharts: ['apexcharts', 'vue3-apexcharts'],
-            vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-persistence-plugin'],
-            vuetify: ['vuetify'],
+          codeSplitting: {
+            groups: [
+              { name: 'vue', test: /[\\/]node_modules[\\/](vue|vue-router|vue-i18n|vue3-toastify|vuedraggable|pinia|pinia-persistence-plugin)[\\/]/ },
+              { name: 'vuetify', test: /[\\/]node_modules[\\/]vuetify[\\/]/ },
+            ],
           },
-        },
+        }
       },
     },
     css: {

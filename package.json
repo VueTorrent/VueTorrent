@@ -72,9 +72,9 @@
     "timezone-mock": "^1.4.3",
     "typescript": "^6.0.3",
     "unplugin-fonts": "^2.0.0",
-    "vite": "^7.3.6",
-    "vite-plugin-pwa": "^1.2.0",
-    "vitest": "^4.0.18",
+    "vite": "^8.1.5",
+    "vite-plugin-pwa": "^1.3.0",
+    "vitest": "^4.1.10",
     "vitest-localstorage-mock": "^0.1.2",
     "vue-tsc": "^3.3.7"
   }
