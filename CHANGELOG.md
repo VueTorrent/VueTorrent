@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.34.2](https://github.com/VueTorrent/VueTorrent/compare/v2.34.1...v2.34.2) (2026-07-22)
+
+
+### Bug Fixes
+
+* Improve network sync reliability ([559919e](https://github.com/VueTorrent/VueTorrent/commit/559919ee66f0d86068ad2526602ff25bb8bf0170))
+
+
+### Improvements
+
+* Pause network requests on tab change ([6a42b7b](https://github.com/VueTorrent/VueTorrent/commit/6a42b7bb587af66571cdbdce626955e13b938fc4))
+
 ## [2.34.1](https://github.com/VueTorrent/VueTorrent/compare/v2.34.0...v2.34.1) (2026-07-12)
 
 
