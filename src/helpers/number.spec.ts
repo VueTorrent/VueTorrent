@@ -32,6 +32,8 @@ describe('helpers/number', () => {
     [1234567, ',', '.', '1,234,567'],
     [0, ',', '.', '0'],
     [-1234567.89, ',', '.', '-1,234,567.89'],
+    [1e21, ',', '.', '1,000,000,000,000,000,000,000'],
+    [1e-7, ',', '.', '0.0000001'],
   ])('formatRawNumber(%s, %s, %s)', (value, thousandsSeparator, decimalSeparator, expected) => {
     expect(formatRawNumber(value, thousandsSeparator, decimalSeparator)).toBe(expected)
   })

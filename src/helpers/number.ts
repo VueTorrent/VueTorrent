@@ -15,9 +15,23 @@ export function toPrecision(value: number, precision: number): string {
   }
 }
 
+function expandScientificNotation(value: string): string {
+  const match = value.match(/^(-?)(\d+)(?:\.(\d+))?e([+-]?\d+)$/i)
+  if (!match) return value
+
+  const [, sign, integerPart, fractionPart = '', exponentText] = match
+  const digits = integerPart + fractionPart
+  const decimalIndex = integerPart.length + Number(exponentText)
+
+  if (decimalIndex <= 0) return `${sign}0.${'0'.repeat(-decimalIndex)}${digits}`
+  if (decimalIndex >= digits.length) return `${sign}${digits}${'0'.repeat(decimalIndex - digits.length)}`
+
+  return `${sign}${digits.slice(0, decimalIndex)}.${digits.slice(decimalIndex)}`
+}
+
 /** Formats a raw number using the provided thousands and decimal separators. */
 export function formatRawNumber(value: number, thousandsSeparator: string, decimalSeparator: string): string {
-  const [integerPart, decimalPart] = value.toString().split('.')
+  const [integerPart, decimalPart] = expandScientificNotation(value.toString()).split('.')
   const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator)
 
   return decimalPart ? `${formattedInteger}${decimalSeparator}${decimalPart}` : formattedInteger

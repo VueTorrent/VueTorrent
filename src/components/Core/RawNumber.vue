@@ -18,7 +18,7 @@ const formattedValue = computed(() => {
 <template>
   <v-tooltip :text="formattedValue" location="top">
     <template #activator="{ props: activatorProps }">
-      <span v-bind="activatorProps" class="raw-number">
+      <span v-bind="activatorProps" class="raw-number" tabindex="0">
         <slot />
       </span>
     </template>
@@ -31,5 +31,10 @@ const formattedValue = computed(() => {
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-underline-offset: 0.2em;
+}
+
+.raw-number:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 </style>
