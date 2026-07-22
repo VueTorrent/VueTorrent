@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import RawNumber from '@/components/Core/RawNumber.vue'
 import { formatDataUnit, formatDataValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
@@ -17,10 +18,12 @@ const val = computed(() => props.value(props.torrent))
       {{ $t(titleKey) }}
     </div>
     <div>
-      {{ formatDataValue(val, useBinarySize) }}
-      <span class="text-caption text-grey">
-        {{ formatDataUnit(val, useBinarySize) }}
-      </span>
+      <RawNumber :value="val">
+        {{ formatDataValue(val, useBinarySize) }}
+        <span class="text-caption text-grey">
+          {{ formatDataUnit(val, useBinarySize) }}
+        </span>
+      </RawNumber>
     </div>
   </div>
 </template>
