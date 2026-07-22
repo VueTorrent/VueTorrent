@@ -15,6 +15,14 @@ export function toPrecision(value: number, precision: number): string {
   }
 }
 
+/** Formats a raw number using the provided thousands and decimal separators. */
+export function formatRawNumber(value: number, thousandsSeparator: string, decimalSeparator: string): string {
+  const [integerPart, decimalPart] = value.toString().split('.')
+  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator)
+
+  return decimalPart ? `${formattedInteger}${decimalSeparator}${decimalPart}` : formattedInteger
+}
+
 /** Formats a percentage value between 0 and 1 */
 export function formatPercent(progress: number): string {
   return `${toPrecision(progress * 100, 3)} %`

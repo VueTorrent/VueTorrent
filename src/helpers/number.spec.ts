@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { formatPercent, toPrecision, safeDiv } from './number'
+import { formatPercent, formatRawNumber, toPrecision, safeDiv } from './number'
 
 describe('helpers/number', () => {
   test('toPrecision', () => {
@@ -23,6 +23,17 @@ describe('helpers/number', () => {
     expect(formatPercent(1)).toBe('100 %')
 
     expect(formatPercent(0.999942870757758)).toBe('99.9 %')
+  })
+
+  test.each([
+    [1234567.89, ',', '.', '1,234,567.89'],
+    [1234567.89, ' ', '.', '1 234 567.89'],
+    [1234567.89, ' ', ',', '1 234 567,89'],
+    [1234567, ',', '.', '1,234,567'],
+    [0, ',', '.', '0'],
+    [-1234567.89, ',', '.', '-1,234,567.89'],
+  ])('formatRawNumber(%s, %s, %s)', (value, thousandsSeparator, decimalSeparator, expected) => {
+    expect(formatRawNumber(value, thousandsSeparator, decimalSeparator)).toBe(expected)
   })
 
   test('safeDiv', () => {
