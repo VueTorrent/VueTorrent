@@ -28,7 +28,11 @@ const values = [
     <v-expansion-panel-text>
       <v-list>
         <v-list-item v-for="ppt in values" :key="ppt.title" :title="$t(`torrent.properties.${ppt.title}`)">
-          <div class="text-caption opacity-70">{{ ppt.getter() || $t('common.none') }}</div>
+          <v-tooltip :text="ppt.getter() || $t('common.none')" location="top">
+            <template #activator="{ props: tooltipProps }">
+              <div v-bind="tooltipProps" class="text-caption opacity-70 text-scrollable">{{ ppt.getter() || $t('common.none') }}</div>
+            </template>
+          </v-tooltip>
         </v-list-item>
 
         <v-list-item :title="$t('torrent.properties.tags')">
