@@ -1,0 +1,1 @@
+var e=function(e){return e.COOKIE=`cookie`,e.SEARCH_ENGINE_QUERY=`searchEngineQuery`,e.TORRENT_PATH=`torrentPath`,e.BULK_RENAME_REGEXP=`bulkRenameRegexp`,e.BULK_RENAME_TARGET=`bulkRenameTarget`,e}({});export{e as t};

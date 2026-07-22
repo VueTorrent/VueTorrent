@@ -1,0 +1,1 @@
+import{l as e,w as t}from"./Geometry-xJRibxsg.js";var n={};function r(e,t,r){let a=2166136261;for(let n=0;n<t;n++)a^=e[n].uid,a=Math.imul(a,16777619),a>>>=0;return n[a]||i(e,t,a,r)}function i(r,i,a,o){let s={},c=0;for(let e=0;e<o;e++){let n=e<i?r[e]:t.EMPTY.source;s[c++]=n.source,s[c++]=n.style}let l=new e(s);return n[a]=l,l}export{r as t};
