@@ -186,7 +186,11 @@ onUnmounted(() => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.download_path') }}:</div>
-              <div>{{ torrent.download_path }}</div>
+              <v-tooltip :text="torrent.download_path" location="top">
+                <template #activator="{ props: tooltipProps }">
+                  <div v-bind="tooltipProps" class="text-scrollable">{{ torrent.download_path }}</div>
+                </template>
+              </v-tooltip>
               <v-btn icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentDialog('dl')" />
             </v-col>
             <v-col cols="6">
@@ -202,12 +206,20 @@ onUnmounted(() => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.save_path') }}:</div>
-              <div>{{ torrent.savePath }}</div>
+              <v-tooltip :text="torrent.savePath" location="top">
+                <template #activator="{ props: tooltipProps }">
+                  <div v-bind="tooltipProps" class="text-scrollable">{{ torrent.savePath }}</div>
+                </template>
+              </v-tooltip>
               <v-btn icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentDialog('save')" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.content_path') }}:</div>
-              <div>{{ torrent.content_path }}</div>
+              <v-tooltip :text="torrent.content_path" location="top">
+                <template #activator="{ props: tooltipProps }">
+                  <div v-bind="tooltipProps" class="text-scrollable">{{ torrent.content_path }}</div>
+                </template>
+              </v-tooltip>
             </v-col>
           </v-row>
         </v-col>
