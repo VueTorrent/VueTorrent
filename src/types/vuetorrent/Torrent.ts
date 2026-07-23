@@ -15,6 +15,8 @@ export default interface Torrent {
   basename_save_path: string
   category: string
   comment: string
+  /* TODO */
+  completed: number
   completed_on: number
   content_path: string
   dl_limit: number
@@ -35,6 +37,12 @@ export default interface Torrent {
   infohash_v2: string
   last_activity: number
   magnet: string
+  /* TODO */
+  max_inactive_seeding_time: number
+  /* TODO */
+  max_ratio: number
+  /* TODO */
+  max_seeding_time: number
   name: string
   num_leechs: number
   num_seeds: number

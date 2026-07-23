@@ -214,8 +214,11 @@ export const useTorrentStore = defineStore(
       }
 
       for (const [hash, qbitTorrent] of entries) {
-        const currentTorrent = _torrents.value.get(hash) ?? ({} as VtTorrent)
-        torrentBuilder.buildFromPartialUpdate(currentTorrent, qbitTorrent)
+        const currentTorrent = _torrents.value.get(hash)
+        const builtTorrent = torrentBuilder.buildFromPartialUpdate(hash, qbitTorrent, currentTorrent)
+        if (!currentTorrent) {
+          _torrents.value.set(hash, builtTorrent)
+        }
       }
 
       removed?.forEach(t => _torrents.value.delete(t))

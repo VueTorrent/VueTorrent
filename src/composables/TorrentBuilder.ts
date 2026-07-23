@@ -40,9 +40,13 @@ export function useTorrentBuilder() {
     torrent.truncated_hash = torrent.hash.slice(0, 8)
   }
 
-  function applyTorrentData(torrent: Torrent, data: QbitTorrent | Partial<RawQbitTorrent>, fullUpdate: boolean): Torrent {
+  function applyTorrentData(fullUpdate: boolean, data: Partial<QbitTorrent>, torrent?: Torrent): Torrent {
     function has<K extends keyof RawQbitTorrent>(key: K) {
       return fullUpdate || Object.prototype.hasOwnProperty.call(data, key)
+    }
+
+    if (!torrent) {
+      torrent = { hash: data.hash } as Torrent
     }
 
     if (has('added_on')) torrent.added_on = data.added_on!
@@ -51,26 +55,31 @@ export function useTorrentBuilder() {
     if (has('availability')) torrent.availability = Math.floor(data.availability! * 100) / 100
     if (has('category')) torrent.category = data.category!
     if (has('comment')) torrent.comment = data.comment!
+    if (has('completed')) torrent.completed = data.completed!
     if (has('completion_on')) torrent.completed_on = data.completion_on!
     if (has('content_path')) torrent.content_path = data.content_path!
     if (has('dl_limit')) torrent.dl_limit = data.dl_limit!
+    if (has('dlspeed')) torrent.dlspeed = data.dlspeed!
     if (has('download_path')) torrent.download_path = data.download_path!
     if (has('downloaded')) torrent.downloaded = data.downloaded!
     if (has('downloaded_session')) torrent.downloaded_session = data.downloaded_session!
     if (has('eta')) torrent.eta = data.eta!
     if (has('f_l_piece_prio')) torrent.f_l_piece_prio = data.f_l_piece_prio!
     if (has('force_start')) torrent.forced = data.force_start!
-    if (fullUpdate || has('has_metadata')) torrent.hasMetadata = data.has_metadata!
+    if (has('has_metadata')) torrent.hasMetadata = data.has_metadata!
     if (has('inactive_seeding_time_limit')) torrent.inactive_seeding_time_limit = data.inactive_seeding_time_limit!
     if (has('infohash_v1')) torrent.infohash_v1 = data.infohash_v1!
     if (has('infohash_v2')) torrent.infohash_v2 = data.infohash_v2!
     if (has('last_activity')) torrent.last_activity = data.last_activity!
     if (has('magnet_uri')) torrent.magnet = data.magnet_uri!
+    if (has('max_inactive_seeding_time')) torrent.max_inactive_seeding_time = data.max_inactive_seeding_time!
+    if (has('max_ratio')) torrent.max_ratio = data.max_ratio!
+    if (has('max_seeding_time')) torrent.max_seeding_time = data.max_seeding_time!
     if (has('name')) torrent.name = data.name!
+    if (has('num_complete')) torrent.available_seeds = data.num_complete!
+    if (has('num_incomplete')) torrent.available_peers = data.num_incomplete!
     if (has('num_leechs')) torrent.num_leechs = data.num_leechs!
     if (has('num_seeds')) torrent.num_seeds = data.num_seeds!
-    if (has('num_incomplete')) torrent.available_peers = data.num_incomplete!
-    if (has('num_complete')) torrent.available_seeds = data.num_complete!
     if (has('popularity')) torrent.popularity = data.popularity
     if (has('priority')) torrent.priority = data.priority!
     if (has('private')) torrent.private = data.private
@@ -106,20 +115,23 @@ export function useTorrentBuilder() {
     return torrent
   }
 
-  function createTorrent(data: QbitTorrent): Torrent {
-    return applyTorrentData({ hash: data.hash } as Torrent, data, true)
+  function createTorrent(data: RawQbitTorrent, hash: string): Torrent {
+    return applyTorrentData(true, { ...data, hash })
   }
 
-  function buildFromFullUpdate(entries: [string, RawQbitTorrent][]): Map<string, Torrent> {
+  function buildFromFullUpdate(entries: [string, RawQbitTorrent][]) {
     const torrents = new Map<string, Torrent>()
     for (const [hash, data] of entries) {
-      torrents.set(hash, createTorrent({ ...data, hash }))
+      torrents.set(hash, createTorrent(data, hash))
     }
     return torrents
   }
 
-  function buildFromPartialUpdate(current: Torrent, data: Partial<RawQbitTorrent>): Torrent {
-    return applyTorrentData(current, data, false)
+  function buildFromPartialUpdate(hash: string, data: Partial<RawQbitTorrent>, current?: Torrent): Torrent {
+    if (!current) {
+      current = { hash } as Torrent
+    }
+    return applyTorrentData(false, data, current)
   }
 
   return { buildFromFullUpdate, buildFromPartialUpdate }
