@@ -28,7 +28,7 @@
     "@vueuse/components": "^14.3.0",
     "@vueuse/core": "^14.3.0",
     "@zip.js/zip.js": "^2.8.30",
-    "apexcharts": "^5.15.2",
+    "apexcharts": "^5.16.0",
     "array.prototype.tosorted": "1.1.4",
     "axios": "^1.18.1",
     "dayjs": "^1.11.21",
