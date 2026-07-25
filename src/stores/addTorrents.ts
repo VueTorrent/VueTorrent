@@ -19,6 +19,7 @@ export const useAddTorrentStore = defineStore(
         firstLastPiecePrio: boolean
         rename: string
         sequentialDownload: boolean
+        useFilenameAsRename: boolean
       }>
     >({})
     const addTorrentParams = reactive<AddTorrentParams>({})
@@ -52,6 +53,7 @@ export const useAddTorrentStore = defineStore(
       form.firstLastPiecePrio = false
       form.rename = undefined
       form.sequentialDownload = false
+      form.useFilenameAsRename = false
 
       addTorrentParams.add_to_top_of_queue = preferenceStore.preferences!.add_to_top_of_queue
       addTorrentParams.category = undefined
