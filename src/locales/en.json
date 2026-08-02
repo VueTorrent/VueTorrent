@@ -1074,6 +1074,7 @@
         },
         "exportDir": "Copy .torrent files to",
         "exportDirFinished": "Copy .torrent files for finished downloads to",
+        "favoriteSavePaths": "Favorite Save Paths",
         "keepIncomplete": "Default Download Path (incomplete torrents)",
         "paramChangedTMMOptions": {
           "relocateTorrent": "Relocate torrent",
