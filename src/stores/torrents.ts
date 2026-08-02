@@ -31,7 +31,7 @@ export const useTorrentStore = defineStore(
     const torrentBuilder = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
-    const _torrents = ref<Map<string, VtTorrent>>(new Map())
+    const _torrents = shallowRef<Map<string, VtTorrent>>(new Map())
     const torrents = computed(() => Array.from(_torrents.value.values()))
 
     const filterType = shallowRef(FilterType.CONJUNCTIVE)
