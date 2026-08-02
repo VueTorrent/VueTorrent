@@ -4,13 +4,14 @@ import { toast } from 'vue3-toastify'
 import { useI18nUtils } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
-import { useAppStore, usePreferenceStore } from '@/stores'
+import { useAppStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 type MonitoredFolder = { monitoredFolderPath: string; saveType: ScanDirs | -1; otherPath: string }
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
+const vueTorrentStore = useVueTorrentStore()
 
 const autoDeleteModeOptions = [
   { title: t('constants.auto_delete_mode.never'), value: AppPreferences.AutoDeleteMode.NEVER },
@@ -76,6 +77,11 @@ const addStoppedEnabled = computed({
     preferenceStore.preferences.add_stopped_enabled = v
     preferenceStore.preferences.start_paused_enabled = v
   },
+})
+
+const favoriteSavePaths = computed({
+  get: () => vueTorrentStore.favoriteSavePaths,
+  set: value => vueTorrentStore.setFavoriteSavePaths(value),
 })
 
 onBeforeMount(() => {
@@ -250,6 +256,17 @@ async function sendTestEmail() {
 
         <v-col cols="12">
           <v-text-field v-model="preferenceStore.preferences!.save_path" hide-details :label="t('settings.downloads.saveManagement.defaultSavePath')" />
+        </v-col>
+
+        <v-col cols="12">
+          <v-combobox
+            v-model="favoriteSavePaths"
+            chips
+            clearable
+            closable-chips
+            hide-details
+            multiple
+            :label="t('settings.downloads.saveManagement.favoriteSavePaths')" />
         </v-col>
 
         <v-col cols="12">
