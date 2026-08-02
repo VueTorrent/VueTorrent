@@ -259,14 +259,7 @@ async function sendTestEmail() {
         </v-col>
 
         <v-col cols="12">
-          <v-combobox
-            v-model="favoriteSavePaths"
-            chips
-            clearable
-            closable-chips
-            hide-details
-            multiple
-            :label="t('settings.downloads.saveManagement.favoriteSavePaths')" />
+          <v-combobox v-model="favoriteSavePaths" chips clearable closable-chips hide-details multiple :label="t('settings.downloads.saveManagement.favoriteSavePaths')" />
         </v-col>
 
         <v-col cols="12">
