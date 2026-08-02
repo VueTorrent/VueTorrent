@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
+import { computed, defineAsyncComponent, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import HistoryField from '@/components/Core/HistoryField.vue'
-import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useI18nUtils, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
@@ -121,7 +120,7 @@ function goHome() {
 }
 
 function openPluginManagerDialog() {
-  dialogStore.createDialog(PluginManagerDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/PluginManagerDialog.vue')))
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {

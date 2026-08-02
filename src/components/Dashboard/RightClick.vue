@@ -1,18 +1,9 @@
 <script setup lang="ts">
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 import RightClickMenu from '@/components/Core/RightClickMenu'
-import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackers/BulkUpdateTrackersDialog.vue'
-import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
-import LegacyCopyDialog from '@/components/Dialogs/LegacyCopyDialog.vue'
-import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
-import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
-import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
-import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { downloadFile } from '@/helpers'
 import { useAppStore, useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
@@ -54,19 +45,31 @@ async function pauseTorrents() {
 }
 
 function deleteTorrents() {
-  dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...dashboardStore.selectedTorrents] })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue')),
+    { hashes: [...dashboardStore.selectedTorrents] }
+  )
 }
 
 function setDownloadPath() {
-  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents], mode: 'dl' })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/MoveTorrentDialog.vue')),
+    { hashes: [...dashboardStore.selectedTorrents], mode: 'dl' }
+  )
 }
 
 function setSavePath() {
-  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents], mode: 'save' })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/MoveTorrentDialog.vue')),
+    { hashes: [...dashboardStore.selectedTorrents], mode: 'save' }
+  )
 }
 
 function renameTorrents() {
-  dialogStore.createDialog(RenameTorrentDialog, { hash: dashboardStore.selectedTorrents[0] })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/RenameTorrentDialog.vue')),
+    { hash: dashboardStore.selectedTorrents[0] }
+  )
 }
 
 async function forceRecheck() {
@@ -99,7 +102,11 @@ function hasTag(tag: string) {
 
 function openNewTagFormDialog() {
   const selectedHashes = hashes.value
-  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, () => void maindataStore.syncMaindata())
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/TagFormDialog.vue')),
+    { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) },
+    () => void maindataStore.syncMaindata()
+  )
 }
 
 function deleteUnusedTags() {
@@ -120,11 +127,14 @@ async function clearAllTags() {
 
 function openNewCategoryFormDialog() {
   const selectedHashes = hashes.value
-  dialogStore.createDialog(CategoryFormDialog, {
-    onSubmit: cat => {
-      void torrentStore.setTorrentCategory(selectedHashes, cat.name).then(maindataStore.syncMaindata)
-    },
-  })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/CategoryFormDialog.vue')),
+    {
+      onSubmit: cat => {
+        void torrentStore.setTorrentCategory(selectedHashes, cat.name).then(maindataStore.syncMaindata)
+      },
+    }
+  )
 }
 
 function deleteUnusedCategories() {
@@ -151,7 +161,10 @@ async function toggleTag(tag: string) {
 
 function copyValue(valueToCopy: string) {
   function openLegacyCopyDialog() {
-    dialogStore.createDialog(LegacyCopyDialog, { value: valueToCopy })
+    dialogStore.createDialog(
+      defineAsyncComponent(() => import('@/components/Dialogs/LegacyCopyDialog.vue')),
+      { value: valueToCopy }
+    )
   }
 
   if (!window.isSecureContext) {
@@ -166,19 +179,31 @@ function copyValue(valueToCopy: string) {
 }
 
 function setDownloadLimit() {
-  dialogStore.createDialog(SpeedLimitDialog, { hashes: hashes.value, mode: 'download' })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/SpeedLimitDialog.vue')),
+    { hashes: hashes.value, mode: 'download' }
+  )
 }
 
 function setUploadLimit() {
-  dialogStore.createDialog(SpeedLimitDialog, { hashes: hashes.value, mode: 'upload' })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/SpeedLimitDialog.vue')),
+    { hashes: hashes.value, mode: 'upload' }
+  )
 }
 
 function setShareLimit() {
-  dialogStore.createDialog(ShareLimitDialog, { hashes: hashes.value })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/ShareLimitDialog.vue')),
+    { hashes: hashes.value }
+  )
 }
 
 function bulkUpdatetrackers() {
-  dialogStore.createDialog(BulkUpdateTrackersDialog, { hashes: hashes.value })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/BulkUpdateTrackers/BulkUpdateTrackersDialog.vue')),
+    { hashes: hashes.value }
+  )
 }
 
 async function exportTorrents() {

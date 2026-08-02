@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, readonly, ref } from 'vue'
+import { computed, readonly, ref , defineAsyncComponent } from 'vue'
 import { toast } from 'vue3-toastify'
-import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions, TorrentDetailTab } from '@/constants/vuetorrent'
 import { downloadFile, openLink } from '@/helpers'
@@ -118,7 +117,7 @@ function downloadSettings() {
 }
 
 function importSettings() {
-  dialogStore.createDialog(ImportSettingsDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/ImportSettingsDialog.vue')))
 }
 
 function registerMagnetHandler() {

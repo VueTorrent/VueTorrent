@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import { VVirtualScroll } from 'vuetify/components/VVirtualScroll'
 import ContentNode from './ContentNode.vue'
-import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
 import { useContentStore, useDialogStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 
@@ -74,7 +73,7 @@ function resume() {
 }
 
 function openFilterDialog() {
-  dialogStore.createDialog(ContentFilterDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/ContentFilterDialog.vue')))
 }
 
 function handleKeyboardInput(e: KeyboardEvent) {
