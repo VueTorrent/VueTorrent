@@ -168,8 +168,10 @@
     },
     "trackerStatus": {
       "disabled": "Deaktiviert",
+      "error": "Tracker-Fehler",
       "not_working": "Funktioniert nicht",
       "not_yet_contacted": "Noch nicht kontaktiert",
+      "unreachable": "Unerreichbar",
       "updating": "Aktualisierend",
       "working": "Funktioniert"
     },
@@ -315,7 +317,9 @@
       "reset_form": "Formular zurücksetzen",
       "sequential_download": "Sequentieller Download",
       "submit": "Torrents hinzufügen",
-      "title": "Torrents hinzufügen"
+      "title": "Torrents hinzufügen",
+      "use_filename": "Torrent mit Dateinamen umbenennen",
+      "use_filename_warning": "Warnung: Das gleichzeitige Hinzufügen mehrerer Torrents mit dieser Option aktiviert kann zu Instabilität führen, wenn eine sehr große Anzahl von Dateien gleichzeitig hochgeladen wird."
     },
     "bulkEditTrackers": {
       "add": "Hinzuzufügende Tracker",
@@ -725,6 +729,7 @@
       },
       "title": "RSS-Artikel"
     },
+    "loading": "RSS-Daten werden abgerufen...",
     "rules": {
       "empty": {
         "action": "RSS-Regel erstellen",
@@ -1440,7 +1445,7 @@
       "dlSpeedAverage": "Durchschnittliche Download-Geschwindigkeit",
       "downloaded": "Heruntergeladen",
       "extract_debug": "Debug-Informationen herunterladen",
-      "fetchingMetadata": "Holen...",
+      "fetchingMetadata": "Wird abgerufen...",
       "fileCount": "Ausgewählte Dateien",
       "piece_canvas_dialog": {
         "piece_states": {
