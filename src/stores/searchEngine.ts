@@ -5,7 +5,7 @@ import { useVueTorrentStore } from './vuetorrent'
 import { SearchEngineColumn } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
-import { SearchData } from '@/types/vuetorrent'
+import { defaultSearchPresetCapture, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
 
 export const useSearchEngineStore = defineStore(
   'searchEngine',
@@ -15,7 +15,7 @@ export const useSearchEngineStore = defineStore(
 
     function createNewTab() {
       const vueTorrentStore = useVueTorrentStore()
-      searchData.value.push({
+      const tab: SearchData = {
         uniqueId: uuidv4(),
         id: 0,
         lastQuery: '',
@@ -32,7 +32,104 @@ export const useSearchEngineStore = defineStore(
           vueTorrentStore.searchEngineDefaultSortBy === SearchEngineColumn.NONE
             ? []
             : [{ key: vueTorrentStore.searchEngineDefaultSortBy, order: vueTorrentStore.searchEngineDefaultSortOrder }],
-      })
+      }
+
+      // A default preset, when set, takes precedence over the single default sort above:
+      // it is the more specific expression of the same intent.
+      const defaultPreset = vueTorrentStore.searchPresets.find(preset => preset.id === vueTorrentStore.searchPresetDefaultId)
+      if (defaultPreset) {
+        applyPresetToTab(tab, defaultPreset)
+      }
+
+      searchData.value.push(tab)
+    }
+
+    /** Copy a preset onto a tab, honouring the preset's own capture flags. */
+    function applyPresetToTab(tab: SearchData, preset: SearchPreset) {
+      if (preset.capture.sortBy) {
+        // Clone: presets are shared state, tabs must not alias them.
+        tab.sortBy = preset.sortBy.map(criteria => ({ ...criteria }))
+      }
+      if (preset.capture.itemsPerPage) {
+        tab.itemsPerPage = preset.itemsPerPage
+      }
+      if (preset.capture.categoryAndPlugin) {
+        tab.filters.category = preset.category
+        tab.filters.plugin = preset.plugin
+      }
+      if (preset.capture.titleFilter) {
+        tab.filters.title = preset.title
+      }
+    }
+
+    /**
+     * Capture the current state of `tab` as a preset. Saving under a name that already
+     * exists overwrites that preset in place, keeping its id so a default survives.
+     * Returns the preset's id, or null if the name is blank.
+     */
+    function saveSearchPreset(tab: SearchData, name: string, capture: SearchPresetCapture = defaultSearchPresetCapture()) {
+      const vueTorrentStore = useVueTorrentStore()
+      const trimmed = name.trim()
+      if (!trimmed) return null
+
+      const existing = vueTorrentStore.searchPresets.find(preset => preset.name === trimmed)
+
+      const preset: SearchPreset = {
+        id: existing?.id ?? uuidv4(),
+        name: trimmed,
+        capture: { ...capture },
+        sortBy: (tab.sortBy ?? []).map(criteria => ({ ...criteria })),
+        itemsPerPage: tab.itemsPerPage,
+        category: tab.filters.category,
+        plugin: tab.filters.plugin,
+        // Only persist the text filter when it was actually opted into.
+        title: capture.titleFilter ? tab.filters.title : '',
+      }
+
+      if (existing) {
+        vueTorrentStore.searchPresets.splice(vueTorrentStore.searchPresets.indexOf(existing), 1, preset)
+      } else {
+        vueTorrentStore.searchPresets.push(preset)
+      }
+
+      return preset.id
+    }
+
+    function loadSearchPreset(tab: SearchData, id: string) {
+      const preset = useVueTorrentStore().searchPresets.find(entry => entry.id === id)
+      if (!preset) return false
+
+      applyPresetToTab(tab, preset)
+
+      return true
+    }
+
+    function deleteSearchPreset(id: string) {
+      const vueTorrentStore = useVueTorrentStore()
+      const index = vueTorrentStore.searchPresets.findIndex(preset => preset.id === id)
+      if (index === -1) return false
+
+      vueTorrentStore.searchPresets.splice(index, 1)
+      // Never leave the default pointing at a deleted preset.
+      if (vueTorrentStore.searchPresetDefaultId === id) {
+        vueTorrentStore.searchPresetDefaultId = null
+      }
+
+      return true
+    }
+
+    /** Pass `null` to clear the default. Referencing an unknown preset is a no-op. */
+    function setDefaultSearchPreset(id: string | null) {
+      const vueTorrentStore = useVueTorrentStore()
+      if (id === null) {
+        vueTorrentStore.searchPresetDefaultId = null
+        return true
+      }
+      if (!vueTorrentStore.searchPresets.some(preset => preset.id === id)) return false
+
+      vueTorrentStore.searchPresetDefaultId = id
+
+      return true
     }
 
     function deleteTab(uniqueId: string) {
@@ -87,6 +184,10 @@ export const useSearchEngineStore = defineStore(
       searchPlugins,
       createNewTab,
       deleteTab,
+      saveSearchPreset,
+      loadSearchPreset,
+      deleteSearchPreset,
+      setDefaultSearchPreset,
       runNewSearch,
       refreshResults,
       stopSearch,
