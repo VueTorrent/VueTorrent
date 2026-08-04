@@ -11,7 +11,6 @@ export type SearchSortBy = { key: string; order: 'asc' | 'desc' }
 export interface SearchData {
   uniqueId: string
   id: number
-  timer: NodeJS.Timeout | null
   lastQuery: string
   query: string
   itemsPerPage: number
