@@ -24,7 +24,7 @@
     "@fontsource/roboto": "^5.2.10",
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
-    "@vueuse/components": "^14.3.0",
+    "@vueuse/components": "^14.4.0",
     "@vueuse/core": "^14.3.0",
     "@zip.js/zip.js": "^2.8.34",
     "apexcharts": "^5.16.0",
