@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
+import SearchPresetDialog from '@/components/Dialogs/SearchPresetDialog.vue'
 import { useI18nUtils, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
@@ -19,7 +20,10 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
-const { useBinarySize, dateFormat } = storeToRefs(useVueTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
+const { useBinarySize, dateFormat } = storeToRefs(vueTorrentStore)
+
+const hasAnyPreset = computed(() => vueTorrentStore.searchPresets.length > 0)
 
 const queryInput = ref<typeof HistoryField>()
 
@@ -124,6 +128,18 @@ function openPluginManagerDialog() {
   dialogStore.createDialog(PluginManagerDialog)
 }
 
+function openSearchPresetDialog() {
+  dialogStore.createDialog(SearchPresetDialog, { tab: selectedTab.value })
+}
+
+function loadPreset(id: string) {
+  searchEngineStore.loadSearchPreset(selectedTab.value, id)
+}
+
+function toggleDefaultPreset(id: string) {
+  searchEngineStore.setDefaultSearchPreset(vueTorrentStore.searchPresetDefaultId === id ? null : id)
+}
+
 function handleKeyboardShortcut(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog || pluginManagerDialogVisible.value) {
     return false
@@ -164,6 +180,41 @@ onBeforeUnmount(() => {
       </div>
       <v-spacer />
       <div class="d-flex justify-end">
+        <v-btn color="accent" icon="mdi-content-save-cog" variant="plain" :title="t('searchEngine.presets.save')" @click="openSearchPresetDialog" />
+        <v-menu>
+          <template #activator="{ props: menuProps }">
+            <v-btn color="accent" icon="mdi-bookmark-multiple" variant="plain" :title="t('searchEngine.presets.load')" v-bind="menuProps" />
+          </template>
+          <v-list>
+            <v-list-item v-if="!hasAnyPreset" disabled>
+              <v-list-item-title>{{ t('searchEngine.presets.empty') }}</v-list-item-title>
+            </v-list-item>
+            <v-list-item v-for="preset in vueTorrentStore.searchPresets" :key="preset.id" @click="loadPreset(preset.id)">
+              <v-list-item-title>
+                {{ preset.name }}
+                <v-chip v-if="vueTorrentStore.searchPresetDefaultId === preset.id" class="ml-2" color="accent" size="x-small">
+                  {{ t('searchEngine.presets.isDefault') }}
+                </v-chip>
+              </v-list-item-title>
+              <template #append>
+                <v-btn
+                  :color="vueTorrentStore.searchPresetDefaultId === preset.id ? 'accent' : undefined"
+                  density="compact"
+                  :icon="vueTorrentStore.searchPresetDefaultId === preset.id ? 'mdi-star' : 'mdi-star-outline'"
+                  :title="vueTorrentStore.searchPresetDefaultId === preset.id ? t('searchEngine.presets.clearDefault') : t('searchEngine.presets.setAsDefault')"
+                  variant="text"
+                  @click.stop="toggleDefaultPreset(preset.id)" />
+                <v-btn
+                  color="error"
+                  density="compact"
+                  icon="mdi-delete"
+                  :title="t('searchEngine.presets.delete')"
+                  variant="text"
+                  @click.stop="searchEngineStore.deleteSearchPreset(preset.id)" />
+              </template>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn color="error" icon="mdi-stop" variant="plain" @click="stopAllSearch" />
         <v-btn color="primary" icon="mdi-toy-brick" variant="plain" @click="openPluginManagerDialog" />
         <v-btn icon="mdi-close" variant="plain" @click="goHome" />
@@ -239,6 +290,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedTab.sortBy"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
@@ -325,6 +377,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-else
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedTab.sortBy"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"

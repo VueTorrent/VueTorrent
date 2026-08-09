@@ -11,12 +11,14 @@ import {
   PropertyData,
   propsData,
   propsMetadata,
+  SearchEngineColumn,
   ThemeMode,
   TitleOptions,
   TorrentDetailTab,
   TorrentProperty,
 } from '@/constants/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
+import type { SearchPreset } from '@/types/vuetorrent'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
@@ -52,6 +54,12 @@ export const useVueTorrentStore = defineStore(
     const reduceMotion = ref(false)
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
+    const searchEngineDefaultSortBy = ref(SearchEngineColumn.NONE)
+    const searchEngineDefaultSortOrder = ref<'asc' | 'desc'>('desc')
+    /** Saved search presets, in creation order. */
+    const searchPresets = ref<SearchPreset[]>([])
+    /** Id of the preset applied automatically to new search tabs, or `null` for none. */
+    const searchPresetDefaultId = ref<string | null>(null)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
     const logoutUrl = ref('')
 
@@ -303,6 +311,10 @@ export const useVueTorrentStore = defineStore(
       reduceMotion,
       keepDefaultTransitions,
       defaultTorrentDetailTab,
+      searchEngineDefaultSortBy,
+      searchEngineDefaultSortOrder,
+      searchPresets,
+      searchPresetDefaultId,
       logoutUrl,
       $reset: () => {
         language.value = 'en'
@@ -332,6 +344,10 @@ export const useVueTorrentStore = defineStore(
         expandContent.value = true
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
+        searchEngineDefaultSortBy.value = SearchEngineColumn.NONE
+        searchEngineDefaultSortOrder.value = 'desc'
+        searchPresets.value = []
+        searchPresetDefaultId.value = null
         tableColumnWidths.value = {}
         logoutUrl.value = ''
 

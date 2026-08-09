@@ -774,6 +774,24 @@
       "pubDate": "Publication Date",
       "siteUrl": "Site URL"
     },
+    "presets": {
+      "captureCategoryPlugin": "Category & plugin",
+      "captureRows": "Rows per page",
+      "captureSort": "Sort order",
+      "captureTitle": "Save with this preset",
+      "captureTitleFilter": "Text filter",
+      "captureTitleFilterHint": "Off by default: the text filter is usually specific to one query",
+      "clearDefault": "Stop applying a preset to new tabs",
+      "delete": "Delete preset",
+      "empty": "No presets saved yet",
+      "isDefault": "Default",
+      "load": "Load search preset",
+      "name": "Preset name",
+      "overwriteHint": "A preset with this name already exists and will be replaced",
+      "save": "Save search preset",
+      "saveTitle": "Save search preset",
+      "setAsDefault": "Apply this preset to new search tabs"
+    },
     "query": "Search query",
     "runSearch": "Search",
     "stopSearch": "Stop",
@@ -1152,6 +1170,7 @@
       "tagsAndCategories": "Tags & Categories",
       "vuetorrent": {
         "general": "General",
+        "searchEngine": "Search Engine",
         "sidebar": "Sidebar",
         "title": "VueTorrent",
         "torrent_card": {
@@ -1215,6 +1234,13 @@
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "useEmojiState": "Prepend torrent states with emojis",
         "vueTorrentTitle": "Tab title"
+      },
+      "searchEngine": {
+        "defaultSortBy": "Default sort column",
+        "defaultSortOrder": "Default sort direction",
+        "sortAsc": "Ascending",
+        "sortDesc": "Descending",
+        "sortNone": "None"
       },
       "sidebar": {
         "ConnectionStats": "Show Connection Stats",
