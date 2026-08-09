@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
 import TopOverflow from './TopOverflow.vue'
-import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useDashboardStore, useDialogStore, useRssStore, useTorrentStore } from '@/stores'
 
@@ -20,7 +18,7 @@ const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
 const hashes = computed(() => (isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents))
 
 function openAddTorrentDialog() {
-  dialogStore.createDialog(AddTorrentDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/AddTorrentDialog.vue')))
 }
 
 async function resumeTorrents() {
@@ -54,7 +52,10 @@ async function pauseTorrents() {
 function deleteTorrents() {
   if (!hashes.value.length) return
 
-  dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...hashes.value] })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue')),
+    { hashes: [...hashes.value] }
+  )
 }
 
 function openSearchEngine() {

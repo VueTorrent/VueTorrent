@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onBeforeUnmount } from 'vue'
+import { computed, defineAsyncComponent, onBeforeMount, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
-import CookieFormDialog from '@/components/Dialogs/CookieFormDialog.vue'
-import CookieImportDialog from '@/components/Dialogs/CookieImportDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { formatTimeSec } from '@/helpers'
 import { useCookieStore, useDialogStore, useVueTorrentStore } from '@/stores'
@@ -35,11 +33,19 @@ const headers = computed(() => [
 ])
 
 function openCookieFormDialog(cookie?: Cookie) {
-  dialogStore.createDialog(CookieFormDialog, { initialCookie: cookie }, () => void cookieStore.cookiesFetchTask.perform())
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/CookieFormDialog.vue')),
+    { initialCookie: cookie },
+    () => void cookieStore.cookiesFetchTask.perform()
+  )
 }
 
 function openCookieImportDialog() {
-  dialogStore.createDialog(CookieImportDialog, {}, () => void cookieStore.cookiesFetchTask.perform())
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/CookieImportDialog.vue')),
+    {},
+    () => void cookieStore.cookiesFetchTask.perform()
+  )
 }
 
 function deleteCookie(cookie: Cookie) {

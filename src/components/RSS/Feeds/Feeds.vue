@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import debounce from 'lodash.debounce'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, defineAsyncComponent } from 'vue'
 import ArticleList from './ArticleList.vue'
 import FeedList from './FeedList.vue'
-import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useRssStore } from '@/stores'
 import { RssArticle, RssFeed } from '@/types/vuetorrent'
@@ -39,7 +38,11 @@ const titleFilter = computed({
 })
 
 function openFeedDialog(initialFeed?: RssFeed) {
-  dialogStore.createDialog(RssFeedDialog, { initialFeed }, () => void rssStore.syncFeeds())
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/RssFeedDialog.vue')),
+    { initialFeed },
+    () => void rssStore.syncFeeds()
+  )
 }
 
 async function refreshFeed(feed: RssFeed) {

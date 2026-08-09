@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import DOMPurify from 'dompurify'
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onBeforeUnmount } from 'vue'
+import { computed, defineAsyncComponent, onBeforeMount, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
-import TorrentCreatorFormDialog from '@/components/Dialogs/TorrentCreatorFormDialog.vue'
 import { useI18nUtils, useTimer } from '@/composables'
 import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
 import { basename, downloadFile, formatData, formatPercent } from '@/helpers'
@@ -70,7 +69,11 @@ const torrentFormatMap: Record<TorrentFormat, string> = {
 }
 
 function openTorrentCreatorFormDialog() {
-  dialogStore.createDialog(TorrentCreatorFormDialog, {}, () => void torrentCreatorStore.fetchTasks())
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/TorrentCreatorFormDialog.vue')),
+    {},
+    () => void torrentCreatorStore.fetchTasks()
+  )
 }
 
 async function downloadTorrent(item: TorrentCreatorTask) {

@@ -1,8 +1,8 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
-import { AllowedComponentProps, Component, computed, shallowRef, triggerRef, VNodeProps } from 'vue'
-import ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
-import ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
+import { AllowedComponentProps, Component, computed, defineAsyncComponent, shallowRef, triggerRef, VNodeProps } from 'vue'
+import type ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
+import type ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 
 type ComponentProps<C extends Component> = C extends new (...args: any) => any ? Omit<InstanceType<C>['$props'], keyof VNodeProps | keyof AllowedComponentProps> : never
 
@@ -41,11 +41,17 @@ export const useDialogStore = defineStore('dialogs', () => {
   }
 
   function confirmAction(props?: Omit<ComponentProps<typeof ConfirmDialog>, 'guid'>) {
-    createDialog(ConfirmDialog, props)
+    createDialog(
+      defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmDialog.vue')),
+      props
+    )
   }
 
   function confirmListAction(props: Omit<ComponentProps<typeof ConfirmListDialog>, 'guid'>) {
-    createDialog(ConfirmListDialog, props)
+    createDialog(
+      defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmListDialog.vue')),
+      props
+    )
   }
 
   return {

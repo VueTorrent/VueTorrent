@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import AddTorrentDialog from './Dialogs/AddTorrentDialog.vue'
+import { defineAsyncComponent } from 'vue'
 import { useAddTorrentStore, useDialogStore } from '@/stores'
 
 const addTorrentStore = useAddTorrentStore()
 const dialogStore = useDialogStore()
 
 function openAddTorrentDialog() {
-  dialogStore.createDialog(AddTorrentDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('./Dialogs/AddTorrentDialog.vue')))
 }
 </script>
 

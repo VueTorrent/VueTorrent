@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
-import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
+import { defineAsyncComponent } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useCategoryStore, useDialogStore, useMaindataStore, useTagStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
@@ -58,11 +57,19 @@ function deleteUnusedCategories() {
 }
 
 function openTagFormDialog(initialTag?: string) {
-  dialogStore.createDialog(TagFormDialog, { initialTag }, maindataStore.startMaindataSync)
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/TagFormDialog.vue')),
+    { initialTag },
+    maindataStore.startMaindataSync
+  )
 }
 
 function openCategoryFormDialog(initialCategory?: Category) {
-  dialogStore.createDialog(CategoryFormDialog, { initialCategory }, maindataStore.startMaindataSync)
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/CategoryFormDialog.vue')),
+    { initialCategory },
+    maindataStore.startMaindataSync
+  )
 }
 </script>
 

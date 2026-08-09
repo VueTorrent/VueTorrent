@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 import PieceCanvas from './PieceCanvas.vue'
 import ColoredChip from '@/components/Core/ColoredChip.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
-import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
-import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
@@ -53,12 +50,15 @@ function extractDebugInfo() {
 }
 
 function openMoveTorrentDialog(mode: 'dl' | 'save') {
-  dialogStore.createDialog(MoveTorrentDialog, { hashes: [props.torrent.hash], mode })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/MoveTorrentDialog.vue')),
+    { hashes: [props.torrent.hash], mode }
+  )
 }
 
 function openMoveTorrentFileDialog() {
   dialogStore.createDialog(
-    MoveTorrentFileDialog,
+    defineAsyncComponent(() => import('@/components/Dialogs/MoveTorrentFileDialog.vue')),
     {
       hash: props.torrent.hash,
       isFolder: false,
@@ -91,7 +91,10 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
   if (e.key === 'Delete') {
     e.preventDefault()
-    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [props.torrent.hash] })
+    dialogStore.createDialog(
+      defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue')),
+      { hashes: [props.torrent.hash] }
+    )
     return true
   }
 }

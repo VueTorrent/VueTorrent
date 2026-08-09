@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { onBeforeMount, onUnmounted } from 'vue'
+import { onBeforeMount, onUnmounted, defineAsyncComponent } from 'vue'
 import Rule from './Rule.vue'
-import RssRuleDialog from '@/components/Dialogs/RssRuleDialog.vue'
 import { useDialogStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
 
@@ -13,7 +12,11 @@ const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
 function openRuleDialog(initialRule?: FeedRule) {
-  dialogStore.createDialog(RssRuleDialog, { initialRule }, () => void rssStore.syncRules())
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/RssRuleDialog.vue')),
+    { initialRule },
+    () => void rssStore.syncRules()
+  )
 }
 
 onBeforeMount(() => {
