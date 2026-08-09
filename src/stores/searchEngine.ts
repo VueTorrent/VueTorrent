@@ -1,3 +1,4 @@
+import { isAxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
@@ -24,7 +25,6 @@ export const useSearchEngineStore = defineStore(
           plugin: 'enabled',
         },
         results: [],
-        timer: null,
       })
     }
 
@@ -40,10 +40,33 @@ export const useSearchEngineStore = defineStore(
     }
 
     async function refreshResults(tab: SearchData) {
-      const response = await qbit.getSearchResults(tab.id, tab.results.length)
-      tab.results.push(...response.results)
+      // The job can be restarted or stopped while this request is in flight. Remember which
+      // job we asked about so a late response can't be applied to a different one.
+      const requestedId = tab.id
 
-      return response.status
+      try {
+        const response = await qbit.getSearchResults(requestedId, tab.results.length)
+        if (tab.id !== requestedId) {
+          // Stale: appending here would corrupt the new job's offset, and reporting a
+          // terminal status would stop a search the user has just started.
+          return 'Running' as const
+        }
+        tab.results.push(...response.results)
+
+        return response.status
+      } catch (error) {
+        if (tab.id !== requestedId) {
+          return 'Running' as const
+        }
+        // 404: the search job no longer exists (qBittorrent keeps them in memory, so a restart drops them).
+        // 409: our offset is beyond the job's result count, so every subsequent poll fails the same way.
+        // Neither can recover by retrying, so report the job as stopped and let the caller stop polling.
+        if (isAxiosError(error) && (error.response?.status === 404 || error.response?.status === 409)) {
+          return 'Stopped' as const
+        }
+
+        throw error
+      }
     }
 
     async function stopSearch(tab: SearchData) {

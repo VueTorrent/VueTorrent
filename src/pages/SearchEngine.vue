@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
-import { useI18nUtils, useSearchQuery } from '@/composables'
+import { useI18nUtils, useSearchQuery, useTimer } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
@@ -93,17 +93,30 @@ function openResultLink(result: SearchResult) {
   openLink(result.descrLink)
 }
 
+// One timer for the page rather than one interval per tab: useTimer drops a run while the
+// previous one is still going, so a response slower than the interval can no longer be raced
+// by the next tick — which is what let two polls read the same offset and push the same
+// results twice, overshooting the server's count and 409-ing every poll after that.
+const { pause: pausePolling, resume: resumePolling } = useTimer(refreshActiveSearches, 1000, { immediate: false })
+
+async function refreshActiveSearches() {
+  const activeTabs = searchData.value.filter(tab => tab.id !== 0)
+  if (activeTabs.length === 0) {
+    pausePolling()
+    return
+  }
+
+  await Promise.allSettled(activeTabs.map(refreshResults))
+}
+
 async function runNewSearch() {
   await searchEngineStore.runNewSearch(selectedTab.value)
-  selectedTab.value.timer = setInterval(() => void refreshResults(selectedTab.value), 1000)
+  resumePolling()
   queryInput.value?.saveValueToHistory()
 }
 
 async function stopSearch(tab: SearchData) {
   await searchEngineStore.stopSearch(tab)
-  if (tab.timer) {
-    clearInterval(tab.timer)
-  }
 }
 
 function stopAllSearch() {
@@ -138,21 +151,16 @@ onBeforeMount(async () => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   if (searchData.value.length === 0) {
     searchEngineStore.createNewTab()
-  } else {
-    searchData.value.forEach((tab: SearchData) => {
-      if (tab.id && tab.id !== 0) {
-        tab.timer = setInterval(() => void searchEngineStore.refreshResults(tab), 1000)
-      }
-    })
+  } else if (searchData.value.some((tab: SearchData) => tab.id !== 0)) {
+    // A tab restored from sessionStorage may still reference a live job. Resume so it keeps
+    // collecting results, and so it stops on its own once the job reports 'Stopped'.
+    resumePolling()
   }
   await searchEngineStore.fetchSearchPlugins()
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
-  searchData.value.forEach((tab: SearchData) => {
-    if (tab.timer) clearInterval(tab.timer)
-  })
 })
 </script>
 
