@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import RawNumberTooltip from '@/components/Core/RawNumberTooltip.vue'
 import { formatData } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
@@ -11,6 +12,8 @@ const { useBinarySize } = storeToRefs(useVueTorrentStore())
 
 <template>
   <td class="text-no-wrap">
-    {{ formatData(value(torrent), useBinarySize) }}
+    <RawNumberTooltip :value="value(torrent)">
+      {{ formatData(value(torrent), useBinarySize) }}
+    </RawNumberTooltip>
   </td>
 </template>
