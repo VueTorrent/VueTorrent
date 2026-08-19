@@ -54,7 +54,7 @@ function clampSchedule() {
   <v-list>
     <v-list-item>
       <v-row :class="$vuetify.display.mobile ? 'flex-column' : 'flex-row'">
-        <v-col cols="12" sm="6" class="pa-0">
+        <v-col cols="12" sm>
           <v-list-subheader>{{ t('settings.speed.subheader.global') }}</v-list-subheader>
 
           <v-row class="mx-1">
@@ -73,9 +73,11 @@ function clampSchedule() {
           </v-list-item>
         </v-col>
 
-        <v-divider :vertical="!$vuetify.display.mobile" />
+        <v-col cols="12" sm="auto" class="d-flex">
+          <v-divider :vertical="!$vuetify.display.mobile" />
+        </v-col>
 
-        <v-col cols="12" sm="6" class="pa-0">
+        <v-col cols="12" sm>
           <v-list-subheader>{{ t('settings.speed.subheader.alternative') }}</v-list-subheader>
 
           <v-row class="mx-1">
@@ -180,5 +182,3 @@ function clampSchedule() {
     </v-list-item>
   </v-list>
 </template>
-
-<style scoped lang="scss"></style>
