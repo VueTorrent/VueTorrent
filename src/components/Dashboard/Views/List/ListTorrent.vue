@@ -71,7 +71,11 @@ const stateColor = computed(() => current.value.colors[getTorrentStateColor(prop
     :color="isTorrentSelected ? `${getTorrentStateColor(torrent.state)}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-body-large text-wrap pt-1 pb-0 px-2 text-truncate">
-      {{ torrent.name }}
+      <v-tooltip :text="torrent.name" location="top">
+        <template #activator="{ props: tooltipProps }">
+          <span v-bind="tooltipProps">{{ torrent.name }}</span>
+        </template>
+      </v-tooltip>
     </v-card-title>
     <v-card-text class="pa-2 pt-0">
       <div class="d-flex flex-gap flex-wrap">
