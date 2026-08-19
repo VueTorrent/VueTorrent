@@ -288,7 +288,7 @@ export default defineConfig(({ mode }) => {
     test: {
       environment: 'jsdom',
       globals: true,
-      setupFiles: [resolve(__dirname, 'tests/setup.ts')],
+      setupFiles: [resolve(import.meta.dirname, 'tests/setup.ts')],
       coverage: {
         reportsDirectory: './tests/unit/coverage',
       },
