@@ -3,10 +3,11 @@ import { storeToRefs } from 'pinia'
 import { computed, defineAsyncComponent, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
+import ButtonLink from '@/components/Core/ButtonLink.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
 import { useI18nUtils, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
+import { comparators, formatData, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
 
@@ -86,10 +87,6 @@ function pushToQueue(result: SearchResult) {
 
 function downloadTorrent(result: SearchResult) {
   void searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!).then(() => (result.downloaded = true))
-}
-
-function openResultLink(result: SearchResult) {
-  openLink(result.descrLink)
 }
 
 async function runNewSearch() {
@@ -308,7 +305,7 @@ onBeforeUnmount(() => {
                 </div>
               </v-col>
               <v-col cols="3" class="item-actions">
-                <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+                <ButtonLink :link="item.descrLink" icon="mdi-open-in-new" variant="flat" density="compact" />
                 <v-btn icon="mdi-plus-box-multiple" variant="text" density="compact" @click="pushToQueue(item)" />
                 <v-btn
                   v-if="appStore.usesQbit5"
@@ -344,7 +341,7 @@ onBeforeUnmount(() => {
           <template #[`item.actions`]="{ item }">
             <v-tooltip :text="t('searchEngine.tooltip.open_link')" location="top">
               <template #activator="{ props }">
-                <v-btn v-bind="props" icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+                <ButtonLink v-bind="props" :link="item.descrLink" icon="mdi-open-in-new" variant="flat" density="compact" />
               </template>
             </v-tooltip>
 

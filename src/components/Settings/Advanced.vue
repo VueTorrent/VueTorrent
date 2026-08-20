@@ -237,7 +237,7 @@ onBeforeMount(async () => {
 
     <v-list-subheader>
       {{ t('settings.advanced.libtorrent.subheader') }} (
-      <a href="https://www.libtorrent.org/reference-Settings.html" target="_blank">
+      <a href="https://www.libtorrent.org/reference-Settings.html" target="_blank" rel="noopener noreferrer">
         {{ t('settings.advanced.openDoc') }}
       </a>
       )
