@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.35.0](https://github.com/VueTorrent/VueTorrent/compare/v2.34.1...v2.35.0) (2026-08-20)
+
+
+### Features
+
+* show raw data values on hover ([#2867](https://github.com/VueTorrent/VueTorrent/issues/2867)) ([e92249f](https://github.com/VueTorrent/VueTorrent/commit/e92249f36ea40e2c71c68439831143a6d9517ae9))
+
+
+### Bug Fixes
+
+* Improve network sync reliability ([559919e](https://github.com/VueTorrent/VueTorrent/commit/559919ee66f0d86068ad2526602ff25bb8bf0170))
+* Repair broken desktop layout ([9e2b435](https://github.com/VueTorrent/VueTorrent/commit/9e2b4352ebc6bc11c668bf761599de0be2706809))
+
+
+### Improvements
+
+* Improve chunking for better app load time ([#2881](https://github.com/VueTorrent/VueTorrent/issues/2881)) ([b0eff6c](https://github.com/VueTorrent/VueTorrent/commit/b0eff6ca3bbea73058d1674616cd04ccda02bb32))
+* Pause network requests on tab change ([6a42b7b](https://github.com/VueTorrent/VueTorrent/commit/6a42b7bb587af66571cdbdce626955e13b938fc4))
+
 ## [2.34.1](https://github.com/VueTorrent/VueTorrent/compare/v2.34.0...v2.34.1) (2026-07-12)
 
 
