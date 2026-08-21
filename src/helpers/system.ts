@@ -16,7 +16,7 @@ export function doesCommand(e: { metaKey: boolean; ctrlKey: boolean }): boolean 
 }
 
 export function openLink(link: string) {
-  window.open(link, '_blank', 'noreferrer')
+  window.open(link, '_blank', 'noopener noreferrer')
 }
 
 export function downloadFile(filename: string, blob: Blob) {

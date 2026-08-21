@@ -54,7 +54,7 @@ const trackerUrlListItems = computed<string[]>(() => {
 
     <v-list-item>
       <v-checkbox v-model="preferenceStore.preferences!.anonymous_mode" hide-details :label="t('settings.bittorrent.privacy.enableAnonymous')" />
-      <a href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode" target="_blank">
+      <a href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode" target="_blank" rel="noopener noreferrer">
         {{ t('settings.bittorrent.privacy.moreInfo') }}
       </a>
     </v-list-item>

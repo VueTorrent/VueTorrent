@@ -302,9 +302,9 @@ function openDurationFormatHelp() {
           <h3>
             {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
-            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
-            <a v-else-if="isStableVersion" target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
-            <a v-else target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/tag/latest_nightly">{{ vueTorrentVersion }}</a>
+            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" rel="noopener noreferrer" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
+            <a v-else-if="isStableVersion" target="_blank" rel="noopener noreferrer" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
+            <a v-else target="_blank" rel="noopener noreferrer" href="https://github.com/VueTorrent/VueTorrent/releases/tag/latest_nightly">{{ vueTorrentVersion }}</a>
           </h3>
         </v-col>
 
@@ -321,7 +321,7 @@ function openDurationFormatHelp() {
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
           <h3>
             {{ t('settings.vuetorrent.general.qbittorrentVersion') }}
-            <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
+            <a target="_blank" rel="noopener noreferrer" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
           </h3>
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">

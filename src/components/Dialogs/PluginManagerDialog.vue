@@ -115,7 +115,7 @@ function closeInstallDialog() {
             <v-checkbox-btn :model-value="item.enabled" @click="onTogglePlugin(item)" />
           </template>
           <template #[`item.url`]="{ item }">
-            <a :href="item.url" :title="item.name">{{ item.url }}</a>
+            <a :href="item.url" :title="item.name" target="_blank" rel="noopener noreferrer">{{ item.url }}</a>
           </template>
           <template #[`item.actions`]="{ item }">
             <v-icon color="red" icon="mdi-delete" @click="uninstallPlugin(item)" />
