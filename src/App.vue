@@ -171,7 +171,7 @@ watchEffect(() => {
 
 <template>
   <v-app class="text-noselect">
-    <component :is="dialog.component" v-for="dialog in dialogStore.dialogs.values()" :key="dialog.guid" v-bind="{ guid: dialog.guid, ...dialog.props }" />
+    <component :is="dialog.component" v-for="dialog in dialogStore.dialogList" :key="dialog.guid" v-bind="{ guid: dialog.guid, ...dialog.props }" />
     <Sidebar v-if="appStore.isAuthenticated" />
     <Navbar v-if="appStore.isAuthenticated" />
     <v-main>
