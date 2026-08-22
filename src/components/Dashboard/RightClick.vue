@@ -2,9 +2,8 @@
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
-import { toast } from 'vue3-toastify'
 import RightClickMenu from '@/components/Core/RightClickMenu'
-import { useI18nUtils } from '@/composables'
+import { useClipboard, useI18nUtils } from '@/composables'
 import { downloadFile } from '@/helpers'
 import { useAppStore, useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType, RightClickProperties } from '@/types/vuetorrent'
@@ -12,6 +11,7 @@ import { RightClickMenuEntryType, RightClickProperties } from '@/types/vuetorren
 const rightClickProperties = defineModel<RightClickProperties>({ required: true })
 
 const { t } = useI18nUtils()
+const { copyOrOpenDialog } = useClipboard()
 const router = useRouter()
 const appStore = useAppStore()
 const categoryStore = useCategoryStore()
@@ -157,25 +157,6 @@ async function toggleTag(tag: string) {
   if (hasTag(tag)) await torrentStore.removeTorrentTags(hashes.value, [tag])
   else await torrentStore.addTorrentTags(hashes.value, [tag])
   maindataStore.syncMaindata()
-}
-
-function copyValue(valueToCopy: string) {
-  function openLegacyCopyDialog() {
-    dialogStore.createDialog(
-      defineAsyncComponent(() => import('@/components/Dialogs/LegacyCopyDialog.vue')),
-      { value: valueToCopy }
-    )
-  }
-
-  if (!window.isSecureContext) {
-    openLegacyCopyDialog()
-    return
-  }
-
-  navigator.clipboard.writeText(valueToCopy).then(
-    () => toast.success(t('toast.copy.success')),
-    () => openLegacyCopyDialog()
-  )
 }
 
 function setDownloadLimit() {
@@ -401,24 +382,24 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       {
         text: t('dashboard.right_click.copy.name'),
         icon: 'mdi-alphabetical-variant',
-        action: () => void copyValue(torrents.value.map(t => t.name).join('\n')),
+        action: () => void copyOrOpenDialog(torrents.value.map(t => t.name).join('\n')),
       },
       {
         text: t('dashboard.right_click.copy.hash'),
         icon: 'mdi-pound',
-        action: () => void copyValue(torrents.value.map(t => t.hash).join('\n')),
+        action: () => void copyOrOpenDialog(torrents.value.map(t => t.hash).join('\n')),
       },
       {
         text: t('dashboard.right_click.copy.magnet'),
         icon: 'mdi-magnet',
-        action: () => void copyValue(torrents.value.map(t => t.magnet).join('\n')),
+        action: () => void copyOrOpenDialog(torrents.value.map(t => t.magnet).join('\n')),
       },
       {
         text: t('dashboard.right_click.copy.comment'),
         icon: 'mdi-comment-text',
         hidden: !appStore.isFeatureAvailable('5.0.0'),
         disabled: !torrent.value?.comment,
-        action: () => void copyValue(torrents.value.map(t => t.comment).join('\n\n')),
+        action: () => void copyOrOpenDialog(torrents.value.map(t => t.comment).join('\n\n')),
       },
     ],
   },
