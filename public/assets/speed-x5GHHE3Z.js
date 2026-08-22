@@ -1,1 +1,0 @@
-import{Bt as e,zt as t}from"./stores-DfxOd0g1.js";function n(t,n){return n&&(t*=8),e(t,!1)}function r(e,n){return n&&(e*=8),`${t(e,!1).slice(0,-1)}${n?`bps`:`B/s`}`}function i(e,t){return`${n(e,t)} ${r(e,t)}`}export{r as n,n as r,i as t};
