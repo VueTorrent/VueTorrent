@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent } from 'vue'
+import { computed } from 'vue'
 import { toast } from 'vue3-toastify'
-import { useI18nUtils } from '@/composables'
+import { useClipboard, useI18nUtils } from '@/composables'
 import qbit from '@/services/qbit'
-import { useDialogStore, usePreferenceStore } from '@/stores'
+import { usePreferenceStore } from '@/stores'
 
 const { t } = useI18nUtils()
-const dialogStore = useDialogStore()
+const { copyOrOpenDialog } = useClipboard()
 const preferenceStore = usePreferenceStore()
 
 const apiKey = computed(() => preferenceStore.preferences?.web_ui_api_key ?? '')
@@ -21,15 +21,7 @@ const maskedKey = computed(() => {
 
 async function copyKey() {
   if (!hasKey.value) return
-  try {
-    await navigator.clipboard.writeText(apiKey.value)
-    toast.success(t('toast.copy.success'))
-  } catch {
-    dialogStore.createDialog(
-      defineAsyncComponent(() => import('@/components/Dialogs/LegacyCopyDialog.vue')),
-      { value: apiKey.value }
-    )
-  }
+  await copyOrOpenDialog(apiKey.value)
 }
 
 async function regenerateKey() {
