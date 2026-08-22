@@ -1,20 +1,21 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
-import { AllowedComponentProps, Component, computed, defineAsyncComponent, shallowRef, triggerRef, VNodeProps } from 'vue'
+import { computed, defineAsyncComponent, shallowRef, triggerRef } from 'vue'
+import type { Component } from 'vue'
+import type { ComponentProps } from 'vue-component-type-helpers'
 import type ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import type ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 
-type ComponentProps<C extends Component> = C extends new (...args: any) => any ? Omit<InstanceType<C>['$props'], keyof VNodeProps | keyof AllowedComponentProps> : never
-
-type DialogTemplate<C extends Component> = {
+type DialogTemplate<C extends Component = any> = {
   component: C
-  props: ComponentProps<C>
+  props: object
   guid: string
   onClose?: () => void
 }
 
 export const useDialogStore = defineStore('dialogs', () => {
-  const dialogs = shallowRef<Map<string, DialogTemplate<any>>>(new Map())
+  const dialogs = shallowRef<Map<string, DialogTemplate>>(new Map())
+  const dialogList = computed(() => Array.from(dialogs.value.values()))
 
   const hasActiveDialog = computed(() => dialogs.value.size > 0)
 
@@ -55,7 +56,7 @@ export const useDialogStore = defineStore('dialogs', () => {
   }
 
   return {
-    dialogs,
+    dialogList,
     hasActiveDialog,
     createDialog,
     deleteDialog,

@@ -1,20 +1,24 @@
 <script setup lang="ts">
 import { vOnLongPress } from '@vueuse/components'
-import { useRssStore } from '@/stores'
+import { computed } from 'vue'
+import ButtonLink from '@/components/Core/ButtonLink.vue'
+import { useRssStore, useVueTorrentStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 
-defineProps<{
+const props = defineProps<{
   article: RssArticle
 }>()
 
 defineEmits<{
   click: []
   markAsRead: []
-  open: []
   download: []
 }>()
 
 const rssStore = useRssStore()
+const vuetorrentStore = useVueTorrentStore()
+
+const articleLink = computed(() => (vuetorrentStore.useIdForRssLinks ? props.article.id : props.article.link))
 </script>
 
 <template>
@@ -50,7 +54,7 @@ const rssStore = useRssStore()
       <v-spacer />
 
       <div class="d-flex flex-column">
-        <v-btn icon="mdi-open-in-new" variant="text" @click.stop="$emit('open')" />
+        <ButtonLink :link="articleLink" icon="mdi-open-in-new" variant="text" />
         <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="$emit('markAsRead')" />
         <v-btn icon="mdi-download" variant="text" @click.stop="$emit('download')" />
       </div>

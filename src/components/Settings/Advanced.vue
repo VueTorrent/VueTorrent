@@ -108,11 +108,11 @@ onBeforeMount(async () => {
 <template>
   <v-list>
     <v-list-subheader>
-      {{ t('settings.advanced.qbittorrent.subheader') }} (<a
-        href="https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent#Advanced"
-        target="_blank"
-        >{{ t('settings.advanced.openDoc') }}</a
-      >)
+      {{ t('settings.advanced.qbittorrent.subheader') }} (
+      <a href="https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent#Advanced" target="_blank" rel="noopener noreferrer">
+        {{ t('settings.advanced.openDoc') }}
+      </a>
+      )
     </v-list-subheader>
 
     <v-list-item>
@@ -237,7 +237,7 @@ onBeforeMount(async () => {
 
     <v-list-subheader>
       {{ t('settings.advanced.libtorrent.subheader') }} (
-      <a href="https://www.libtorrent.org/reference-Settings.html" target="_blank">
+      <a href="https://www.libtorrent.org/reference-Settings.html" target="_blank" rel="noopener noreferrer">
         {{ t('settings.advanced.openDoc') }}
       </a>
       )
