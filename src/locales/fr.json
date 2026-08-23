@@ -1,8 +1,10 @@
 {
   "_comments": "Contenu généré par l'application Tolgee. NE JAMAIS MODIFIER MANUELLEMENT CAR CE SERA ÉCRASÉ",
   "common": {
+    "auto": "Auto",
     "cancel": "Annuler",
     "close": "Fermer",
+    "create": "Créer",
     "delete": "Supprimer",
     "disable": "Désactiver",
     "disabled": "Désactivé",
@@ -20,6 +22,7 @@
     "search": "Rechercher",
     "selectAll": "Tout sélectionner",
     "selectNone": "Tout désélectionner",
+    "submit": "Envoyer",
     "useGlobalSettings": "Utiliser les paramètres globaux",
     "yes": "Oui"
   },
@@ -31,6 +34,7 @@
     },
     "auto_delete_mode": {
       "always": "Toujours",
+      "if_added": "Si ajouté",
       "never": "Jamais"
     },
     "bittorrentProtocols": {
@@ -58,7 +62,8 @@
     "diskIoType": {
       "default": "Par défaut",
       "memoryMappedFiles": "Fichiers mappés en mémoire",
-      "posixCompliant": "Compatible POSIX"
+      "posixCompliant": "Compatible POSIX",
+      "simplePreadPwrite": "pread/pwrite simple"
     },
     "encryption": {
       "forceOff": "Désactiver le chiffrement",
@@ -76,6 +81,20 @@
       "mixed": "Mixte",
       "normal": "Normale",
       "unwanted": "Ignoré"
+    },
+    "file_type": {
+      "archive": "Archives",
+      "audio": "Audio",
+      "book": "Livres",
+      "document": "Documents",
+      "executable": "Exécutables",
+      "image": "Images",
+      "information": "Informations",
+      "no_ext": "(Sans extension)",
+      "script": "Scripts",
+      "subtitle": "Sous-titres",
+      "unknown": "Inconnu",
+      "video": "Vidéo"
     },
     "filter_type": {
       "conjunctive": "Filtrage conjonctif (ET)",
@@ -118,6 +137,7 @@
     "themes": {
       "dark": {
         "legacy": "Ancien",
+        "oled": "OLED",
         "redesigned": "Repensé"
       },
       "light": {
@@ -135,10 +155,23 @@
       "delete": "Supprimer les fichiers définitivement",
       "moveToTrash": "Déplacer les fichiers vers la corbeille (si possible)"
     },
+    "torrentCreatorTaskStatus": {
+      "failed": "Échoué",
+      "finished": "Terminé",
+      "queued": "En file d'attente",
+      "running": "En cours"
+    },
+    "torrentFormat": {
+      "hybrid": "Hybride",
+      "v1": "V1",
+      "v2": "V2"
+    },
     "trackerStatus": {
       "disabled": "Désactivé",
+      "error": "Erreur du tracker",
       "not_working": "Ne fonctionne pas",
       "not_yet_contacted": "Pas encore contacté",
+      "unreachable": "Inaccessible",
       "updating": "Mise à jour...",
       "working": "Fonctionne"
     },
@@ -156,6 +189,22 @@
       "preferTcp": "Préférer TCP"
     }
   },
+  "cookiesManager": {
+    "clear": "Effacer tous les cookies",
+    "create": "Ajouter un nouveau cookie",
+    "empty": {
+      "value": "Aucun cookie enregistré"
+    },
+    "import": "Importer des cookies",
+    "table": {
+      "domain": "Nom de domaine",
+      "expiration_date": "Date d'expiration",
+      "name": "Nom du cookie",
+      "path": "Chemin",
+      "value": "Valeur du cookie"
+    },
+    "title": "Gestionnaire de cookies"
+  },
   "dashboard": {
     "displayMode": {
       "grid": "Grille",
@@ -168,12 +217,14 @@
       "advanced": {
         "auto_tmm": "Gestion de torrent automatique",
         "download_path": "Définir le chemin de téléchargement",
+        "edit_trackers": "Modifier les trackers",
         "f_l_prio": "Priorité aux premiers / derniers",
         "reannounce": "Réannoncer",
         "recheck": "Forcer la revérification",
         "rename": "Renommer le torrent",
         "save_path": "Définir le répertoire de destination",
         "seq_dl": "Téléchargement séquentiel",
+        "super_seeding": "Mode super seeding",
         "title": "Avancé"
       },
       "category": {
@@ -196,6 +247,12 @@
         "increase": "Augmenter la priorité",
         "title": "Définir la priorité",
         "top": "Priorité maximale"
+      },
+      "selection": {
+        "disable_select_mode": "Désactiver le mode sélection",
+        "enable_select_mode": "Activer le mode sélection",
+        "span_selection": "Étendre jusqu'ici",
+        "title": "Sélection"
       },
       "speed_limit": {
         "download": "Définir la limite de téléchargement",
@@ -238,6 +295,7 @@
         "category": "Catégorie",
         "download_limit": "Limite de téléchargement",
         "download_path": "Chemin de téléchargement (incomplet)",
+        "forced": "État forcé",
         "inactive_seeding_time_limit": "Limite du temps de seed inactif",
         "limit_collapse": "Configurer les limites",
         "limit_hint": "-1 pour désactiver, -2 ou vide pour utiliser la valeur globale",
@@ -259,7 +317,26 @@
       "reset_form": "Réinitialiser le formulaire",
       "sequential_download": "Téléchargement séquentiel",
       "submit": "Ajouter des torrents",
-      "title": "Ajouter des torrents"
+      "title": "Ajouter des torrents",
+      "use_filename": "Renommer le torrent avec le nom du fichier",
+      "use_filename_warning": "Attention : l'ajout de plusieurs torrents simultanément avec cette option activée peut provoquer une instabilité si vous téléversez un très grand nombre de fichiers à la fois."
+    },
+    "bulkEditTrackers": {
+      "add": "Trackers à ajouter",
+      "edit": {
+        "result": "{rejected}/{total} requêtes ont échoué\n{reason}",
+        "row": {
+          "add": "Ajouter une ligne",
+          "new_url": "Nouvelle URL du tracker",
+          "old_url": "Ancienne URL du tracker",
+          "rules": {
+            "invalid_url": "URL invalide"
+          }
+        },
+        "title": "Trackers à remplacer"
+      },
+      "remove": "Trackers à supprimer",
+      "title": "Modification groupée des trackers"
     },
     "bulkRenameFiles": {
       "col_origin_name": "Original",
@@ -279,6 +356,8 @@
       "unfold": "Développer"
     },
     "category": {
+      "downloadPath": "Chemin des torrents incomplets",
+      "downloadPathEnabled": "Utiliser un autre chemin pour les torrents incomplets",
       "name": "Nom de la catégorie",
       "nameRequired": "Le nom de la catégorie est requis",
       "oldName": "Ancien nom de la catégorie",
@@ -289,9 +368,23 @@
       },
       "warnEdit": "Modifier le nom de la catégorie va migrer les torrents vers la nouvelle catégorie. Des erreurs peuvent survenir, à utiliser avec précaution."
     },
+    "confirm": {
+      "banPeers": "Voulez-vous vraiment bannir ce pair ?",
+      "clearCookies": "Voulez-vous vraiment effacer tous les cookies ?",
+      "deleteCategory": "Voulez-vous vraiment supprimer cette catégorie ?",
+      "deleteCookie": "Voulez-vous vraiment supprimer ce cookie ?",
+      "deleteFeed": "Voulez-vous vraiment supprimer ce flux RSS ?",
+      "deleteRule": "Voulez-vous vraiment supprimer cette règle RSS ?",
+      "deleteTag": "Voulez-vous vraiment supprimer ce tag ?",
+      "deleteUnusedCategories": "Voulez-vous vraiment supprimer toutes les catégories inutilisées ?",
+      "deleteUnusedTags": "Voulez-vous vraiment supprimer tous les tags inutilisés ?",
+      "startAll": "Voulez-vous vraiment démarrer tous les torrents ?",
+      "stopAll": "Voulez-vous vraiment arrêter tous les torrents ?"
+    },
     "connectionStatus": {
       "dht_nodes": "Nœuds DHT",
       "externalIp": "Adresse IP externe",
+      "fetch_disabled": "La récupération des données IP est désactivée",
       "fetch_geo_failed": "Impossible de récupérer les informations de géolocalisation",
       "fetch_isp_failed": "Impossible de récupérer les informations du FAI",
       "geo_details": "Informations de géolocalisation",
@@ -299,6 +392,27 @@
       "noExternalIp": "Impossible de détecter à partir des logs",
       "status": "Statut de connexion",
       "total_peer_connections": "Connexions entre pairs actives"
+    },
+    "cookiesImport": {
+      "input": "Données du cookie",
+      "title": "Importer des cookies",
+      "type": {
+        "header": "Valeur d'en-tête",
+        "json": "JSON",
+        "label": "Type de données à importer",
+        "netscape": "Netscape"
+      }
+    },
+    "cookiesManager": {
+      "domain": "Nom de domaine",
+      "expiration_date": "Date d'expiration",
+      "name": "Nom du cookie",
+      "path": "Chemin",
+      "rules": {
+        "duplicate": "Ce cookie existe déjà"
+      },
+      "title": "Formulaire de cookie",
+      "value": "Valeur du cookie"
     },
     "delete": {
       "deleteWithFiles": "Supprimer le torrent et son contenu",
@@ -309,6 +423,9 @@
       "required": "Le champ est requis",
       "title": "Importer les paramètres",
       "valid": "Veuillez fournir des paramètres valides"
+    },
+    "legacy_copy": {
+      "title": "Boîte de dialogue de copie héritée"
     },
     "moveTorrent": {
       "dl": {
@@ -363,6 +480,7 @@
         "url": "URL"
       },
       "rule": {
+        "addStopped": "Ajouter à l'arrêt",
         "affectedFeedsSubheader": "Flux affectés",
         "assignedCategory": "Catégorie attribuée",
         "enabled": "Activer la règle",
@@ -412,6 +530,24 @@
       "label": "Limite de vitesse",
       "upload": "Définir la limite de vitesse d'envoi"
     },
+    "stats": {
+      "all_time_download": "Téléchargement total",
+      "all_time_share_ratio": "Ratio de partage total",
+      "all_time_upload": "Envoi total",
+      "average_time_in_queue": "Temps moyen en file d'attente",
+      "cache_statistics": "Statistiques du cache",
+      "connected_peers": "Pairs connectés",
+      "performance_statistics": "Statistiques de performance",
+      "queued_io_jobs": "Tâches d'E/S en file d'attente",
+      "read_cache_hits": "Succès du cache de lecture",
+      "read_cache_overload": "Surcharge du cache de lecture",
+      "session_waste": "Gaspillage de la session",
+      "title": "Statistiques",
+      "total_buffer_size": "Taille totale du tampon",
+      "total_queued_size": "Taille totale en file d'attente",
+      "user_statistics": "Statistiques utilisateur",
+      "write_cache_overload": "Surcharge du cache d'écriture"
+    },
     "tag": {
       "comma": "Le nom ne peut pas contenir de virgule pendant la modification d'un tag",
       "hint": "Conseil: plusieurs étiquettes peuvent être créées en les séparant par une virgule",
@@ -423,11 +559,37 @@
         "rename": "Renommer l'étiquette"
       },
       "warnEdit": "Modifier le nom de l'étiquette va migrer les torrents vers la nouvelle étiquette.\nDes erreurs peuvent survenir, à utiliser avec précaution."
+    },
+    "torrentCreator": {
+      "actions": {
+        "submit": "Lancer la création"
+      },
+      "comment": "Commentaires",
+      "format": "Format du torrent",
+      "optimizeAlignment": "Optimiser l'alignement",
+      "paddedFileSizeLimit": "Aligner sur la limite de pièce pour les fichiers plus grands que",
+      "paddedFileSizeLimitHint": "-1 pour désactiver",
+      "paddedFileSizeLimitRule": "La valeur doit être positive",
+      "pieceSize": "Taille des pièces",
+      "private": "Torrent privé (ne sera pas distribué sur le réseau DHT)",
+      "rules": {
+        "outputFileExtension": "Le chemin de sortie doit se terminer par .torrent",
+        "sourcePathRequired": "Le chemin source doit être renseigné"
+      },
+      "source": "Source",
+      "sourcePath": "Fichiers à inclure dans le torrent",
+      "startSeeding": "Démarrer le partage immédiatement",
+      "title": "Créer une nouvelle tâche",
+      "torrentFilePath": "Destination du fichier torrent créé",
+      "trackers": "URL des trackers",
+      "trackersHint": "Vous pouvez séparer les groupes/niveaux de trackers par une ligne vide",
+      "urlSeeds": "URL des web seeds"
     }
   },
   "login": {
-    "error": "Echec de la connexion !",
+    "error": "Échec de la connexion !",
     "password": "Mot de passe",
+    "pending": "Vérification du statut d'authentification...",
     "submit": "Se connecter",
     "subtitle": "Entrez vos identifiants",
     "success": "Connexion réussie !",
@@ -450,11 +612,22 @@
       "bottom_actions": {
         "alt_speed": "(Dés)activer les vitesses alternatives",
         "conn_status": "Statut de connexion : {status}",
+        "dark_mode": " Mode clair | Mode sombre | Suivre les paramètres système",
+        "dark_mode.dark": "Mode sombre",
+        "dark_mode.light": "Mode clair",
+        "dark_mode.system": "Suivre les paramètres système",
         "logout": "Déconnexion",
-        "shutdown": "Arrêter qBittorrent"
+        "shutdown": "Arrêter qBittorrent",
+        "statistics": "Statistiques"
+      },
+      "connection_stats": {
+        "dht_nodes_connected": "Nœuds DHT",
+        "total_peers_connections": "Connexions de pairs actives"
       },
       "current_speed": {
-        "title": "Vitesse actuelle"
+        "download": "Vitesse de téléchargement",
+        "title": "Vitesse actuelle",
+        "upload": "Vitesse d'envoi"
       },
       "filters": {
         "activeFilter": "{n} filtres actifs",
@@ -475,8 +648,23 @@
         },
         "tracker": {
           "empty": "(Non-tracké)",
+          "not_working": "(Ne fonctionne pas)",
           "title": "Filtrer par tracker"
         }
+      },
+      "free_space": {
+        "free_space_on_disk": "Espace libre pour le chemin de sauvegarde par défaut",
+        "global_ratio": "Ratio global"
+      },
+      "performance_stats": {
+        "average_time_queue": "Temps moyen en file d'attente",
+        "queued_io_jobs": "Tâches d'E/S en file d'attente (Vérification / Déplacement / Renommage)",
+        "read_cache_hits": "Nombre de succès du cache disque en lecture",
+        "read_cache_overload": "Surcharge du cache disque en lecture (= taille de la file de lecture disque / nombre de pairs)",
+        "total_buffers_size": "Taille totale de tous les tampons",
+        "total_queued_size": "Taille totale de la file d'attente",
+        "total_wasted_session": "Données gaspillées durant la session (vérification de pièce échouée, téléchargement en double)",
+        "write_cache_overload": "Surcharge du cache disque en écriture (= taille de la file d'écriture disque / nombre de pairs)"
       },
       "speed_graph": {
         "download_label": "Téléchargement",
@@ -489,17 +677,21 @@
         "free_space": "Espace libre",
         "ratio": "Ratio",
         "uploaded": "Envoyé"
+      },
+      "transfer_stats": {
+        "download": "Données téléchargées (session / total)",
+        "upload": "Données envoyées (session / total)"
       }
     },
     "top": {
       "active_filters": {
-        "category": "Filtre par catégorie: {value}",
+        "category": "Filtre par catégorie : {value}",
         "menu_label": "{n} filtre actifs | {n} filtres actifs",
-        "multiple_category": "Filtre par catégorie: {value} catégories",
-        "multiple_state": "Filtre de statut: {n} statuts",
+        "multiple_category": "Filtre par catégorie : {n} catégories",
+        "multiple_state": "Filtre de statut : {n} statuts",
         "multiple_tag": "Filtre par étiquettes : {n} étiquettes",
         "multiple_tracker": "Filtre de tracker : {n} trackers",
-        "state": "Filtre de statut: {n}",
+        "state": "Filtre de statut : {value}",
         "tag": "Filtre du tag : {value}",
         "text": "Filtre de texte : {value}",
         "tracker": "Filtre de tracker : {value}"
@@ -517,9 +709,10 @@
         "unread": "Montrer uniquement les articles non-lu"
       },
       "item": {
-        "author": "Auteur: {author}",
-        "category": "Categorie : {category}",
-        "feedName": "Nom du flux: {name}"
+        "author": "Auteur : {author}",
+        "category": "Catégorie : {category}",
+        "feedName": "Nom du flux : {name}",
+        "new": "NOUVEAU"
       },
       "markAllAsRead": "Marquer tout comme lu",
       "markAsRead": "Marquer comme lu",
@@ -536,6 +729,7 @@
       },
       "title": "Articles RSS"
     },
+    "loading": "Récupération des données RSS...",
     "rules": {
       "empty": {
         "action": "Créer une règle RSS",
@@ -572,17 +766,24 @@
       }
     },
     "headers": {
+      "engineName": "Nom du moteur",
       "fileName": "Nom de fichier",
       "fileSize": "Taille du fichier",
       "nbLeechers": "Leechers",
       "nbSeeders": "Partageurs",
+      "pubDate": "Date de publication",
       "siteUrl": "URL du site"
     },
     "query": "Requête de recherche",
     "runSearch": "Rechercher",
     "stopSearch": "Arrêter",
     "tabHeaderEmpty": "(Requête vide)",
-    "title": "Moteur de recherche"
+    "title": "Moteur de recherche",
+    "tooltip": {
+      "append_queue": "Ajouter à la file d'attente des torrents",
+      "download": "Télécharger via le plugin",
+      "open_link": "Ouvrir le lien dans un nouvel onglet"
+    }
   },
   "settings": {
     "addons": {
@@ -600,6 +801,8 @@
         "announceAllTrackers": "Toujours annoncer à tous les trackers du même tier",
         "announceIP": "Adresse IP rapportée aux trackers (redémarrage nécessaire)",
         "coalesceReadsWrites": "Fusionner les lectures et écritures (libtorrent < 2.0)",
+        "dhtBootstrapNodes": "Nœuds d'amorçage DHT",
+        "dhtBootstrapNodesHint": "Revient aux valeurs par défaut si vide",
         "disk": {
           "diskCache": "Cache disque (libtorrent < 2.0)",
           "diskCacheExpiry": "Intervalle d'expiration du cache disque (libtorrent < 2.0)",
@@ -608,6 +811,15 @@
           "diskIoWriteMode": "Mode d'écriture des E/S du disque",
           "diskQueueSize": "Taille de la file d'attente du disque",
           "subheader": "Disque"
+        },
+        "i2p": {
+          "inboundLength": "Longueur des tunnels entrants I2P",
+          "inboundQuantity": "Quantité de tunnels entrants I2P",
+          "invalidLength": "Les valeurs de longueur I2P doivent être comprises entre 0 et 7",
+          "invalidQuantity": "Les valeurs de quantité I2P doivent être comprises entre 1 et 16",
+          "outboundLength": "Longueur des tunnels sortants I2P",
+          "outboundQuantity": "Quantité de tunnels sortants I2P",
+          "restartNeeded": "Toute modification de ces paramètres prendra effet lors du prochain établissement de la connexion SAM (en redémarrant I2P ou en changeant l'adresse ou le port I2P)"
         },
         "maxConcurrentHTTPAnnounces": "Annonces HTTP concurrentes max",
         "networking": {
@@ -642,6 +854,10 @@
         "socketSendBufferSize": "Taille de la mémoire tampon d'envoi du socket",
         "socketSendBufferSizeHint": "0 : valeur par défaut du système",
         "ssl": {
+          "disclaimer": "La fonctionnalité \"SSL torrent\" n'est pas standardisée, aucune BEP (BitTorrent Enhancement Proposal) ne lui est associée.\nN'activez cette fonctionnalité que si vous en avez besoin.",
+          "enabled": "Activer les torrents SSL",
+          "listenPort": "Port utilisé pour les connexions SSL",
+          "listenPortHint": "Laisser vide pour une sélection automatique",
           "rule": "Le port doit être compris entre 0 et 65535"
         },
         "stopTrackerTimeout": "Délai d'attente lors de l’arrêt du tracker",
@@ -661,12 +877,14 @@
       "openDoc": "Ouvrir la documentation",
       "qbittorrent": {
         "allocatedRam": "Limite d'utilisation de la mémoire vive (RAM) (libtorrent >= 2.0)",
+        "appInstanceName": "Nom de l'instance de l'application",
         "embeddedTracker": {
           "enable": "Activer le tracker embarqué",
           "port": "Port du tracker embarqué",
           "portForward": "Activer la redirection de port pour le tracker embarqué",
           "title": "Tracker embarqué"
         },
+        "enableMarkOfTheWeb": "Activer le Mark-of-the-Web (MOTW) pour les fichiers téléchargés",
         "enableMarkOfTheWebHint": "Nécessite macOS ou Windows",
         "networking": {
           "ipAddress": {
@@ -681,6 +899,8 @@
           },
           "title": "Réseau"
         },
+        "pythonExecutablePath": "Chemin de l'exécutable Python",
+        "pythonExecutablePathHint": "Détection automatique si vide, redémarrage requis",
         "reannounceOnIpPortChanged": "Annoncer à tous les trackers lorsque l'IP ou le port est modifié",
         "recheckOnCompletion": "Revérifier les torrents à la fin",
         "refreshInterval": "Intervalle de rafraîchissement de l'interface graphique",
@@ -692,6 +912,7 @@
         },
         "saveInterval": "Intervalle de sauvegarde des données de reprise",
         "subheader": "Section qBittorrent",
+        "torrentContentRemovingMode": "Mode de suppression du contenu des torrents",
         "torrentFileSizeLimit": "Limite de taille des fichiers .torrent"
       }
     },
@@ -709,6 +930,7 @@
     },
     "bittorrent": {
       "autoAddTrackers": "Ajouter automatiquement ces trackers aux nouveaux téléchargements",
+      "autoAddTrackersFromUrl": "Ajouter automatiquement les trackers depuis l'URL aux nouveaux téléchargements",
       "autoAddTrackersHint": "Un tracker par ligne",
       "maxActiveCheckingTorrents": "Nombre maximum de torrents en vérification actifs",
       "privacy": {
@@ -736,7 +958,8 @@
         "subheader": "Mise en file d'attente des torrents",
         "torrentInactivityTimer": "Minuterie d'inactivité des torrents",
         "uploadRateLimit": "Seuil du taux de téléchargement"
-      }
+      },
+      "trackersFetchedFromUrl": "Trackers récupérés depuis l'URL"
     },
     "connection": {
       "connectionLimits": {
@@ -747,7 +970,13 @@
         "subheader": "Limites de connexion"
       },
       "i2p": {
-        "port": "Port"
+        "address": "Hôte I2P",
+        "disclaimer": "Si le \"Mode mixte\" est activé, les torrents I2P sont autorisés à obtenir des pairs depuis d'autres sources que le tracker, et à se connecter à des IP classiques, sans fournir d'anonymisation. Cela peut être utile si l'utilisateur n'est pas intéressé par l'anonymisation d'I2P, mais souhaite tout de même pouvoir se connecter à des pairs I2P.",
+        "enabled": "Activer I2P",
+        "mixedMode": "Mode mixte",
+        "port": "Port",
+        "rule": "La valeur du port doit être comprise entre 0 et 65535",
+        "subheader": "I2P (expérimental)"
       },
       "ipFiltering": {
         "applyToTrackers": "Appliquer aux trackers",
@@ -793,7 +1022,9 @@
         "smtpServer": "Serveur SMTP",
         "sslEnabled": "Ce serveur nécessite une connexion sécurisée (SSL)",
         "test": {
-          "label": "Envoyer un email de test"
+          "error": "Échec de la requête d'e-mail\n{message}",
+          "label": "Envoyer un email de test",
+          "success": "Requête d'e-mail envoyée !\nVérifiez votre boîte de réception pour confirmer le succès"
         },
         "to": "Pour",
         "username": "Nom d'utilisateur"
@@ -811,7 +1042,8 @@
       },
       "publicSettings": {
         "appendQBExtension": "Ajouter l'extension .!qB aux fichiers incomplets",
-        "preAllocateDisk": "Pré-allouer l'espace disque pour les fichiers"
+        "preAllocateDisk": "Pré-allouer l'espace disque pour les fichiers",
+        "useUnwantedFolder": "Conserver les fichiers non sélectionnés dans le dossier \".unwanted\""
       },
       "runExternalProgram": {
         "onAddedEnabled": "Exécuter un programme externe à l'ajout d'un torrent",
@@ -851,7 +1083,9 @@
         },
         "savePathChangedTMM": "Lorsque le répertoire de destination par défaut est modifié",
         "subheader": "Gestion de la sauvegarde",
-        "torrentChangedTMM": "Lorsque la catégorie des torrents a changé"
+        "torrentChangedTMM": "Lorsque la catégorie des torrents a changé",
+        "useCategoryPathInManualMode": "Utiliser les chemins de catégorie en mode manuel",
+        "useCategoryPathInManualModeHint": "Résoudre le chemin de sauvegarde relatif par rapport au chemin de la catégorie appropriée plutôt qu'au chemin par défaut"
       },
       "whenAddTorrent": {
         "addToTopOfQueue": "Ajouter en haut de la file d'attente",
@@ -870,6 +1104,7 @@
         "enableProcessing": "Activer la récupération des flux RSS",
         "feedsRefreshInterval": "Intervalle de rafraîchissement des flux",
         "maximumArticlesPerFeed": "Nombre maximum d'articles par flux",
+        "sameHostRequestDelay": "Délai entre requêtes vers le même hôte",
         "subheader": "Lecteur RSS"
       },
       "smartEpisodeFilter": {
@@ -917,6 +1152,7 @@
       "tagsAndCategories": "Étiquettes & Catégories",
       "vuetorrent": {
         "general": "Général",
+        "sidebar": "Barre latérale",
         "title": "VueTorrent",
         "torrent_card": {
           "grid": "Affichage Grille",
@@ -930,6 +1166,8 @@
       "categoriesSubheader": "Catégories disponibles :",
       "createNewCategory": "Créer une nouvelle catégorie",
       "createNewTag": "Créer une nouvelle étiquette",
+      "deleteUnusedCategories": "Supprimer les catégories inutilisées",
+      "deleteUnusedTags": "Supprimer les tags inutilisés",
       "noCategories": "Aucune catégorie pour le moment",
       "noTags": "Aucune étiquette pour le moment",
       "tagsSubheader": "Étiquettes disponibles :"
@@ -942,36 +1180,60 @@
         "customTitle": "Titre personnalisé",
         "darkVariants": "Variante du thème sombre",
         "dateFormat": "Format de la date",
+        "defaultTorrentDetailTab": "Onglet par défaut des détails du torrent",
+        "displayGraphLimits": "Afficher les limites dans le graphique",
         "download": "Exporter les paramètres",
+        "durationFormat": "Format de durée",
         "enableHashColors": "Activer les couleurs générées sur les capsules",
         "enableRatioColors": "Activer les couleurs de ratio",
+        "expandContent": "Développer le contenu par défaut dans la vue Contenu",
+        "exportTooltip": "Exporte les paramètres spécifiques à VueTorrent",
+        "fetchExternalIpInfo": "Récupérer les informations IP externes",
         "fileContentInterval": "Intervalle de rafraîchissement du contenu des torrents",
+        "filterType": "Type d'inclusion des filtres",
         "hideChipIfUnset": "Masquer les capsules si non défini",
         "hideColoredChip": "Utiliser la variante texte pour les puces",
         "historySize": "Taille de l'historique sur les champs éligibles",
         "import": "Importer les paramètres",
         "isShutdownButtonVisible": "Afficher le bouton d'arrêt",
         "language": "Langue",
+        "lastOpenedTab": "Dernier onglet ouvert",
         "lightVariants": "Variante du thème clair",
+        "logoutUrl": "URL de déconnexion (laisser vide pour le comportement par défaut)",
         "paginationSize": {
           "infinite_scroll": "Défilement infini",
           "label": "Taille de la pagination",
           "warning": "L'utilisation de valeurs élevées peut affecter les performances"
         },
         "qbittorrentVersion": "Version de qBittorrent",
+        "reduceMotion": "Réduire les animations",
         "refreshInterval": "Intervalle de rafraîchissement de l'API qBittorrent",
         "registerMagnet": "Enregistrer les liens magnet",
         "resetSettings": "Réinitialiser les paramètres",
         "tip": "Ces paramètres concernent l'interface actuelle",
         "useBinarySize": "Remplacer les tailles de données par des unités binaires (kB -> KiB)",
         "useBitSpeed": "Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)",
+        "useEmojiState": "Préfixer les états des torrents avec des emojis",
         "vueTorrentTitle": "Titre de l'onglet"
       },
       "sidebar": {
+        "ConnectionStats": "Afficher les statistiques de connexion",
         "CurrentSpeed": "Afficher la vitesse actuelle",
+        "Filters": "Afficher les filtres",
         "FreeSpace": "Afficher l'espace libre",
         "isDrawerRight": "Menu latéral à droite",
-        "SpeedGraph": "Afficher le graphique de vitesse"
+        "PerformanceStats": "Afficher les statistiques de performance",
+        "showFilters": {
+          "allFiltersEnabled": "Tous les filtres activés",
+          "category": "Catégorie",
+          "filtersEnabled": "{n} filtres activés",
+          "state": "État",
+          "tag": "Tag",
+          "tracker": "Tracker"
+        },
+        "SpeedGraph": "Afficher le graphique de vitesse",
+        "tip": "Vous pouvez ici changer l'ordre des widgets dans la barre latérale, et masquer ceux que vous n'utilisez pas.",
+        "TransferStats": "Afficher les statistiques de transfert"
       },
       "torrentCard": {
         "grid": {
@@ -988,6 +1250,18 @@
       }
     },
     "webUI": {
+      "apiKey": {
+        "copy": "Copier",
+        "delete": "Supprimer",
+        "deleted": "Clé API supprimée",
+        "deleteError": "Échec de la suppression de la clé API",
+        "empty": "(aucune clé API)",
+        "label": "Clé API Web",
+        "regenerate": "Régénérer",
+        "regenerated": "Clé API régénérée",
+        "regenerateError": "Échec de la régénération de la clé API",
+        "subheader": "Clé API Web"
+      },
       "authentication": {
         "banDuration": "Durée du ban",
         "banDurationHint": "En secondes",
@@ -1052,6 +1326,9 @@
     "copy": {
       "success": "Copié dans le presse-papiers !"
     },
+    "export": {
+      "no_settings": "Aucun paramètre VueTorrent trouvé à exporter."
+    },
     "magnet_handler": {
       "not_supported": "Le contexte actuel n'est pas sécurisé. Impossible d'enregistrer le handler.",
       "registered": "Handler des liens magnets enregistré."
@@ -1066,34 +1343,80 @@
   },
   "topbar": {
     "actions": {
+      "cookies": "Ouvrir le gestionnaire de cookies",
       "delete": "Supprimer les torrents",
       "logs": "Ouvrir les logs",
       "pause": "Pause Torrents",
       "resume": "Reprendre les torrents",
       "rssArticles": "Ouvrir les articles RSS",
       "searchEngine": "Ouvrir le moteur de recherche",
-      "settings": "Ouvrir les paramètres"
+      "settings": "Ouvrir les paramètres",
+      "torrentCreator": "Ouvrir le créateur de torrent"
     },
     "addTorrents": "Ajouter des torrents",
     "overflow": {
+      "cookies": "Gestionnaire de cookies",
       "delete": "Supprimer",
       "logs": "Logs qBittorrent",
       "pause": "Pause",
       "resume": "Reprendre",
       "rssArticles": "Articles RSS",
       "searchEngine": "Moteur de recherche",
-      "settings": "Paramètres"
+      "settings": "Paramètres",
+      "torrentCreator": "Créateur de torrent"
     },
     "searchTorrents": "Rechercher des torrents"
+  },
+  "torrentCreator": {
+    "empty": {
+      "action": "Créer une nouvelle tâche",
+      "value": "Aucune tâche enregistrée"
+    },
+    "table": {
+      "comment": "Commentaire",
+      "create": "Créer une nouvelle tâche",
+      "errorMessage": "Message d'erreur",
+      "format": "Format du torrent",
+      "optimizeAlignment": "Alignement optimisé ?",
+      "pieceSize": "Taille des pièces",
+      "private": "Privé ?",
+      "progress": "Progression",
+      "source": "Source",
+      "sourcePath": "Chemin source",
+      "status": "Statut de la tâche",
+      "taskID": "ID de la tâche",
+      "timeAdded": "Date d'ajout",
+      "timeFinished": "Date d'achèvement",
+      "timeStarted": "Date de démarrage",
+      "trackers": {
+        "activator": "{n} tracker | {n} trackers",
+        "header": "Trackers",
+        "title": "Trackers enregistrés"
+      },
+      "urlSeeds": {
+        "activator": "{n} URL | {n} URL",
+        "header": "Web seeds",
+        "title": "Web seeds enregistrés"
+      }
+    },
+    "title": "Créateur de torrent"
   },
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} fichier | {n} fichiers",
       "filter": {
-        "extensions": "Extension de fichier"
+        "activator": "Sélection groupée",
+        "exclude": "Exclure",
+        "extensions": "Extension de fichier",
+        "include": "Inclure",
+        "preview": "Le filtre correspond à {count}/{total} fichiers ({size})",
+        "priority": "Priorité du fichier",
+        "size": "Taille du fichier",
+        "title": "Sélection groupée de fichiers"
       },
       "filter_placeholder": "Rechercher dans l'arborescence",
       "folderInfo": "{n} dossier | {n} dossiers",
+      "invert_priority": "Inverser la priorité",
       "priority": "Définir la priorité",
       "rename": {
         "bulk": "Renommer en masse",
@@ -1101,6 +1424,11 @@
         "folder": "Renommer le dossier"
       },
       "rootNode": "(Racine)"
+    },
+    "error": {
+      "content": "Le torrent que vous essayez d'accéder n'existe pas.",
+      "headline": "ID de torrent invalide",
+      "title": "Erreur"
     },
     "info": {
       "boolean_values": "Valeurs booléennes",
@@ -1116,8 +1444,19 @@
       "canvasRenderDisabled": "Rendu du canevas désactivé",
       "dlSpeedAverage": "Vitesse de téléchargement moyenne",
       "downloaded": "Téléchargé",
+      "extract_debug": "Télécharger les infos de débogage",
       "fetchingMetadata": "Récupération...",
       "fileCount": "Fichiers sélectionnés",
+      "piece_canvas_dialog": {
+        "piece_states": {
+          "downloaded": "Téléchargée",
+          "downloading": "En téléchargement",
+          "missing": "Manquante"
+        },
+        "piece_tooltip": "Pièce n°{index} ({state})",
+        "split_by_file": "Diviser par fichier",
+        "title": "Aperçu de l'état des pièces"
+      },
       "pieceCount": "{owned} / {total} ({pieceSize})",
       "ratio": "Ratio",
       "selectedFileSize": "Taille des fichiers sélectionnés",
@@ -1169,6 +1508,7 @@
         "oldUrl": "Ancienne URL",
         "title": "Modifier le tracker"
       },
+      "error": "Erreur lors de la récupération des données du tracker",
       "fields": {
         "msg": "Message",
         "num_downloaded": "Téléchargé",
@@ -1217,6 +1557,7 @@
       "global_speed": "Vitesse globale",
       "global_volume": "Volume global",
       "hash": "Hash",
+      "has_metadata": "Possède des métadonnées",
       "inactive_seeding_time_limit": "Limite du temps de seed inactif",
       "infohash_v1": "Infohash v1",
       "infohash_v2": "Infohash v2",
@@ -1229,12 +1570,15 @@
       "num_leechs": "Pairs (connectés)",
       "num_seeds": "Sources (connectées)",
       "peers": "Pairs",
+      "popularity": "Popularité",
       "priority": "Priorité",
+      "private": "Est privé",
       "progress": "Progression",
       "progress_bar": "Barre de progression",
       "ratio": "Ratio",
       "ratio_limit": "Limite du ratio",
       "reannounce": "Prochaine annonce dans",
+      "root_path": "Chemin racine",
       "save_path": "Sauvegarder le chemin",
       "seeding_time": "Temps de seed",
       "seeding_time_limit": "Limite du temps de seed",
