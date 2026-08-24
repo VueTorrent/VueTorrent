@@ -15,14 +15,18 @@ export function useSearchQuery<T>(
 
     let res: T[]
 
-    if (query.startsWith('/') && query.endsWith('/')) {
-      const regex = new RegExp(query.substring(1, query.length - 2))
-      res = searchItems.filter(item => [getter(item)].flat().some(singleItem => regex.test(singleItem ?? '')))
+    if (query.trim()) {
+      if (query.startsWith('/') && query.endsWith('/')) {
+        const regex = new RegExp(query.substring(1, query.length - 2))
+        res = searchItems.filter(item => [getter(item)].flat().some(singleItem => regex.test(singleItem ?? '')))
+      } else {
+        const tokens = tokenize(query)
+        const inclusionTokens = tokens.filter(token => !token.startsWith('-'))
+        const exclusionTokens = tokens.filter(token => token.startsWith('-')).map(token => token.slice(1))
+        res = searchItems.filter(item => handleIncludeTokens(item, inclusionTokens) && handleExcludeTokens(item, exclusionTokens))
+      }
     } else {
-      const tokens = tokenize(query)
-      const inclusionTokens = tokens.filter(token => !token.startsWith('-'))
-      const exclusionTokens = tokens.filter(token => token.startsWith('-')).map(token => token.slice(1))
-      res = searchItems.filter(item => handleIncludeTokens(item, inclusionTokens) && handleExcludeTokens(item, exclusionTokens))
+      res = searchItems.slice()
     }
 
     return postProcess ? postProcess(res) : res
