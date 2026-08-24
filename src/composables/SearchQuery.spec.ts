@@ -99,4 +99,16 @@ describe('composables/SearchQuery', () => {
     const { results } = useSearchQuery(items, '"DAN DA DAN"', item => item)
     expect(results.value).toHaveLength(1)
   })
+
+  test('should not mutate the original array with empty query', () => {
+    const items = ['foo', 'bar', 'baz']
+    const { results } = useSearchQuery(
+      items,
+      '',
+      item => item,
+      items => items.sort()
+    )
+    expect(results.value).toEqual(['bar', 'baz', 'foo'])
+    expect(items).toEqual(['foo', 'bar', 'baz'])
+  })
 })
