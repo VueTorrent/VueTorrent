@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useDropZone } from '@vueuse/core'
-import { defineAsyncComponent, onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
 import { useI18nUtils } from '@/composables'
@@ -77,9 +77,7 @@ function onQueueDrop(files: File[] | null, event: DragEvent) {
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
 
-  if (!dialogStore.hasActiveDialog) {
-    dialogStore.createDialog(defineAsyncComponent(() => import('./Dialogs/AddTorrentDialog.vue')))
-  }
+  dialogStore.initAndOpenAddTorrentDialog()
 }
 
 function onDownloadDrop(files: File[] | null, event: DragEvent) {
@@ -114,8 +112,8 @@ function onPaste(event: ClipboardEvent) {
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
 
-  if ((torrentFiles.length || links.length) && !dialogStore.hasActiveDialog) {
-    dialogStore.createDialog(defineAsyncComponent(() => import('./Dialogs/AddTorrentDialog.vue')))
+  if (torrentFiles.length || links.length) {
+    dialogStore.initAndOpenAddTorrentDialog()
   }
 }
 

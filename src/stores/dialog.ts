@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { computed, defineAsyncComponent, shallowRef, triggerRef } from 'vue'
 import type { Component } from 'vue'
 import type { ComponentProps } from 'vue-component-type-helpers'
+import { useAddTorrentStore } from './addTorrents'
 import type ConfirmDialog from '@/components/Dialogs/Confirm/ConfirmDialog.vue'
 import type ConfirmListDialog from '@/components/Dialogs/Confirm/ConfirmListDialog.vue'
 
@@ -18,6 +19,8 @@ export const useDialogStore = defineStore('dialogs', () => {
   const dialogList = computed(() => Array.from(dialogs.value.values()))
 
   const hasActiveDialog = computed(() => dialogs.value.size > 0)
+
+  const addTorrentStore = useAddTorrentStore()
 
   function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>, onClose?: () => void) {
     const guid = uuidv4()
@@ -55,6 +58,12 @@ export const useDialogStore = defineStore('dialogs', () => {
     )
   }
 
+  function initAndOpenAddTorrentDialog() {
+    if (hasActiveDialog.value || !addTorrentStore.tryInitForm()) return
+
+    createDialog(defineAsyncComponent(() => import('@/components/Dialogs/AddTorrentDialog.vue')))
+  }
+
   return {
     dialogList,
     hasActiveDialog,
@@ -62,6 +71,7 @@ export const useDialogStore = defineStore('dialogs', () => {
     deleteDialog,
     confirmAction,
     confirmListAction,
+    initAndOpenAddTorrentDialog,
     $reset: () => {
       dialogs.value.clear()
       triggerRef(dialogs)

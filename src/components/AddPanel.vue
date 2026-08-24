@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
 import { useAddTorrentStore, useDialogStore } from '@/stores'
 
 const addTorrentStore = useAddTorrentStore()
 const dialogStore = useDialogStore()
-
-function openAddTorrentDialog() {
-  dialogStore.createDialog(defineAsyncComponent(() => import('./Dialogs/AddTorrentDialog.vue')))
-}
 </script>
 
 <template>
-  <v-bottom-navigation v-touch="{ up: openAddTorrentDialog }" :active="addTorrentStore.pendingTorrentsCount > 0" class="cursor-pointer" @click="openAddTorrentDialog">
+  <v-bottom-navigation
+    v-touch="{ up: dialogStore.initAndOpenAddTorrentDialog }"
+    :active="addTorrentStore.pendingTorrentsCount > 0"
+    class="cursor-pointer"
+    @click="dialogStore.initAndOpenAddTorrentDialog">
     <v-list-item :title="$t('navbar.addPanel.torrentsPendingCount', addTorrentStore.pendingTorrentsCount)" />
     <v-spacer />
     <v-list-item>
