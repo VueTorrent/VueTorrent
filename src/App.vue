@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { defineAsyncComponent, onBeforeMount, onMounted, watch, watchEffect, onBeforeUnmount } from 'vue'
+import { onBeforeMount, onMounted, watch, watchEffect, onBeforeUnmount } from 'vue'
 import { toast } from 'vue3-toastify'
 import AddPanel from './components/AddPanel.vue'
 import DnDZone from './components/DnDZone.vue'
@@ -85,9 +85,7 @@ function addLaunchQueueConsumer() {
   }
   win.launchQueue?.setConsumer(launchParams => {
     if (launchParams.files && launchParams.files.length) {
-      void Promise.all(launchParams.files.map(async file => addTorrentStore.pushTorrentToQueue(await file.getFile()))).then(() =>
-        dialogStore.createDialog(defineAsyncComponent(() => import('./components/Dialogs/AddTorrentDialog.vue')))
-      )
+      void Promise.all(launchParams.files.map(async file => addTorrentStore.pushTorrentToQueue(await file.getFile()))).then(dialogStore.initAndOpenAddTorrentDialog)
     }
   })
 }
