@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref } from 'vue'
+import { useTask } from 'vue-concurrency'
 import qbit from '@/services/qbit'
 import AppPreferences from '@/types/qbit/models/AppPreferences'
 import { AppPreferencesPayload } from '@/types/qbit/payloads'
@@ -7,6 +8,10 @@ import { AppPreferencesPayload } from '@/types/qbit/payloads'
 export const usePreferenceStore = defineStore(
   'preferences',
   () => {
+    const task = useTask(function* () {
+      yield fetchPreferences()
+    }).drop()
+
     const preferences = ref<AppPreferences>()
 
     async function fetchPreferences() {
@@ -19,10 +24,10 @@ export const usePreferenceStore = defineStore(
 
     return {
       preferences,
-      fetchPreferences,
+      fetchPreferences: task.perform,
       setPreferences,
       $reset: async () => {
-        await fetchPreferences()
+        await task.perform()
       },
     }
   },
