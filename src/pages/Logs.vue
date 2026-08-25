@@ -2,7 +2,7 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
+import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 import { useI18nUtils } from '@/composables'
@@ -79,7 +79,7 @@ onBeforeMount(async () => {
   await logStore.cleanAndFetchLogs()
   logStore.startLogSync()
 })
-onUnmounted(() => {
+onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
   logStore.pauseLogSync()
 })

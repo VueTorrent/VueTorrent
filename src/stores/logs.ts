@@ -24,9 +24,9 @@ export const useLogStore = defineStore(
       30
     )
 
-    const { perform: updateLogs, pause: pauseLogSync, resume: startLogSync } = useTimer(fetchLogs, 15000)
+    const { perform: updateLogs, pause: pauseLogSync, resume: startLogSync } = useTimer(_fetchLogs, 15000, { immediate: false })
 
-    async function fetchLogs() {
+    async function _fetchLogs() {
       const lastId = logs.value.at(-1)?.id
 
       const newLogs = await qbit.getLogs(lastId)
@@ -40,7 +40,7 @@ export const useLogStore = defineStore(
       try {
         cleanFetchLock.value = true
         logs.value = []
-        await fetchLogs()
+        await updateLogs()
       } finally {
         cleanFetchLock.value = false
       }
