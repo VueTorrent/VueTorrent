@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { onBeforeMount, onMounted, watch, watchEffect, onBeforeUnmount } from 'vue'
+import { onBeforeMount, onMounted, watch, watchEffect, onBeforeUnmount, h } from 'vue'
 import { toast } from 'vue3-toastify'
 import AddPanel from './components/AddPanel.vue'
 import DnDZone from './components/DnDZone.vue'
@@ -68,6 +68,24 @@ async function checkAuthentication() {
   await authStatus.finally(() => clearTimeout(timer))
 }
 
+function handleNetworkError() {
+  if (toast.isActive('network-unknown-error')) return
+
+  toast.error(
+    () =>
+      h('div', { class: 'd-flex flex-column align-center ga-2' }, [
+        h('div', t('toast.network_error.message')),
+        h('button', { type: 'button' }, t('toast.network_error.action')),
+      ]),
+    {
+      onClick: () => window.location.reload(),
+      autoClose: false,
+      closeOnClick: false,
+      toastId: 'network-unknown-error',
+    }
+  )
+}
+
 function blockContextMenu(event: Event) {
   if (!event.target) return
 
@@ -104,10 +122,12 @@ onMounted(() => {
   // Global error handler flag
   sessionStorage.setItem('vuetorrent_mounted', 'true')
 
+  window.addEventListener('vuetorrent:network-unknown-error', handleNetworkError)
   void checkAuthentication()
 })
 
 onBeforeUnmount(() => {
+  window.removeEventListener('vuetorrent:network-unknown-error', handleNetworkError)
   document.removeEventListener('contextmenu', blockContextMenu)
 })
 
