@@ -105,9 +105,13 @@ onBeforeUnmount(() => {
 <template>
   <div class="pa-3 text-select">
     <div class="d-flex align-center">
-      <div class="text-headline-medium ml-2 text-truncate">
-        {{ torrent?.name ?? t('torrentDetail.error.title') }}
-      </div>
+      <v-tooltip :text="torrent?.name ?? t('torrentDetail.error.title')" location="top">
+        <template #activator="{ props }">
+          <div v-bind="props" class="text-headline-medium ml-2 text-truncate">
+            {{ torrent?.name ?? t('torrentDetail.error.title') }}
+          </div>
+        </template>
+      </v-tooltip>
       <v-spacer />
       <div class="d-flex justify-end">
         <v-btn :disabled="isTorrentFilterEmpty || isFirstTorrent" icon="mdi-skip-previous" variant="plain" @click="goToFirstTorrent" />

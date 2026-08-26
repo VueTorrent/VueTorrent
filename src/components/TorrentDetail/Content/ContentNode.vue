@@ -106,10 +106,14 @@ function getNodeDeepCount(node: TreeNode) {
       </div>
 
       <!-- Node content -->
-      <div class="d-flex flex-column overflow-hidden text-no-wrap mr-3">
-        <div :class="`text-${getNodeColor(node)}`">
-          {{ node.name }}
-        </div>
+      <div class="d-flex flex-column text-scrollable mr-3">
+        <v-tooltip :text="node.name" location="top">
+          <template #activator="{ props: tooltipProps }">
+            <div v-bind="tooltipProps" :class="`text-${getNodeColor(node)}`">
+              {{ node.name }}
+            </div>
+          </template>
+        </v-tooltip>
         <div class="text-grey">
           <RawNumberTooltip :value="node.size">
             {{ formatData(node.size, vuetorrentStore.useBinarySize) }}
