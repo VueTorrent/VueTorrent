@@ -10,7 +10,12 @@ export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */
   const _categoryMap = shallowRef<Map<string, Category>>(new Map())
   const categories = useSorted(
-    () => Array.from(_categoryMap.value.values()),
+    () =>
+      Array.from(_categoryMap.value.values()).map(cat => ({
+        ...cat,
+        downloadPathEnabled: cat.download_path !== undefined && cat.download_path !== false,
+        downloadPath: cat.download_path !== undefined && typeof cat.download_path === 'string' ? cat.download_path : '',
+      })),
     (a, b) => comparators.text.asc(a.name, b.name)
   )
 
