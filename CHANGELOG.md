@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.35.1](https://github.com/VueTorrent/VueTorrent/compare/v2.35.0...v2.35.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* **Filters:** Prevent text wrap on navbar filters ([ddadd20](https://github.com/VueTorrent/VueTorrent/commit/ddadd200556d7e63be3d651598e1167e7f6ae40b))
+* **MagnetHandler:** Allow preloading magnets before login ([c67c224](https://github.com/VueTorrent/VueTorrent/commit/c67c224a4760d6115c6a4ba38d8ed4a54aa02654))
+
+
+### Improvements
+
+* deduplicate concurrent preference requests on app init ([6afb966](https://github.com/VueTorrent/VueTorrent/commit/6afb966c0229ea6f81cf5129d3f2c3925a56faaa))
+* Prevent log sync before opening Logs view ([b884d44](https://github.com/VueTorrent/VueTorrent/commit/b884d442278460071322f96b6eacc15f8789bb15))
+* **SearchQuery:** Skip filtering on empty query ([1d5dfb4](https://github.com/VueTorrent/VueTorrent/commit/1d5dfb48aac79aed0469e3838b74a93b3ae17965))
+
 ## [2.35.0](https://github.com/VueTorrent/VueTorrent/compare/v2.34.1...v2.35.0) (2026-08-22)
 
 
