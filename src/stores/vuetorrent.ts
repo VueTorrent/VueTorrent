@@ -11,6 +11,7 @@ import {
   PropertyData,
   propsData,
   propsMetadata,
+  SearchEngineColumn,
   ThemeMode,
   TitleOptions,
   TorrentDetailTab,
@@ -52,6 +53,8 @@ export const useVueTorrentStore = defineStore(
     const reduceMotion = ref(false)
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
+    const searchEngineDefaultSortBy = ref(SearchEngineColumn.NONE)
+    const searchEngineDefaultSortOrder = ref<'asc' | 'desc'>('desc')
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
     const logoutUrl = ref('')
 
@@ -303,6 +306,8 @@ export const useVueTorrentStore = defineStore(
       reduceMotion,
       keepDefaultTransitions,
       defaultTorrentDetailTab,
+      searchEngineDefaultSortBy,
+      searchEngineDefaultSortOrder,
       logoutUrl,
       $reset: () => {
         language.value = 'en'
@@ -332,6 +337,8 @@ export const useVueTorrentStore = defineStore(
         expandContent.value = true
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
+        searchEngineDefaultSortBy.value = SearchEngineColumn.NONE
+        searchEngineDefaultSortOrder.value = 'desc'
         tableColumnWidths.value = {}
         logoutUrl.value = ''
 
