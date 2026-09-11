@@ -7,7 +7,7 @@ import { useVueTorrentStore } from '@/stores/vuetorrent'
 
 export function useNumberFormatter() {
   const { t } = useI18n()
-  const { decimalSeparator, thousandSeparator, useBinarySize, useBitSpeed } = storeToRefs(useVueTorrentStore())
+  const { thousandSeparator, useBinarySize, useBitSpeed } = storeToRefs(useVueTorrentStore())
 
   function getBitPerSecondUnit() {
     return t('units.bit_per_second')
@@ -51,10 +51,10 @@ export function useNumberFormatter() {
     return formatSpeed(speed, isBits, getBitPerSecondUnit(), getBytePerSecondUnit())
   }
 
-  function formatRawNumberWithSettings(options: Partial<{ value: number; unit: string; thoSep: string; decSep: string }> = {}) {
-    const { value = 0, unit, thoSep = thousandSeparator.value, decSep = decimalSeparator.value } = options
+  function formatRawNumberWithSettings(options: Partial<{ value: number; unit: string; thoSep: string }> = {}) {
+    const { value = 0, unit, thoSep = thousandSeparator.value } = options
 
-    return formatRawNumber(value, thoSep, decSep) + (unit ? ` ${unit}` : '')
+    return formatRawNumber(value, thoSep, '.') + (unit ? ` ${unit}` : '')
   }
 
   return {
