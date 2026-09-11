@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import InfoBase from './InfoBase.vue'
 import { formatTimeSec } from '@/helpers'
 import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
@@ -10,13 +11,13 @@ const props = defineProps<{ torrent: Torrent }>()
 const { properties } = storeToRefs(useTorrentDetailStore())
 const { dateFormat } = storeToRefs(useVueTorrentStore())
 
-const torrentValues = [
-  { title: 'added_on', getter: () => props.torrent.added_on },
-  { title: 'completed_on', getter: () => props.torrent.completed_on },
-  { title: 'creation_date', getter: () => properties.value?.creation_date ?? 0 },
-  { title: 'last_activity', getter: () => props.torrent.last_activity },
-  { title: 'seen_complete', getter: () => props.torrent.seen_complete },
-]
+const torrentValues = computed(() => [
+  { title: 'added_on', value: props.torrent.added_on },
+  { title: 'completed_on', value: props.torrent.completed_on },
+  { title: 'creation_date', value: properties.value?.creation_date ?? 0 },
+  { title: 'last_activity', value: props.torrent.last_activity },
+  { title: 'seen_complete', value: props.torrent.seen_complete },
+])
 </script>
 
 <template>
@@ -27,8 +28,8 @@ const torrentValues = [
           <template #title>
             {{ $t(`torrent.properties.${ppt.title}`) }}
           </template>
-          <template v-if="ppt.getter() > 0" #text>
-            {{ formatTimeSec(ppt.getter(), dateFormat) }}
+          <template v-if="ppt.value > 0" #text>
+            {{ formatTimeSec(ppt.value, dateFormat) }}
           </template>
           <template v-else #text>
             {{ $t('dashboard.not_complete') }}

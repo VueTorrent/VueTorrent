@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DurationUnitType } from 'dayjs/plugin/duration'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import InfoBase from './InfoBase.vue'
 import { formatDuration } from '@/helpers'
 import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
@@ -11,13 +12,13 @@ const props = defineProps<{ torrent: Torrent }>()
 const { properties } = storeToRefs(useTorrentDetailStore())
 const { durationFormat } = storeToRefs(useVueTorrentStore())
 
-const torrentValues: { title: string; unit: DurationUnitType; getter: () => number }[] = [
-  { title: 'seeding_time', unit: 's', getter: () => props.torrent.seeding_time },
-  { title: 'seeding_time_limit', unit: 'm', getter: () => props.torrent.seeding_time_limit },
-  { title: 'inactive_seeding_time_limit', unit: 'm', getter: () => props.torrent.inactive_seeding_time_limit },
-  { title: 'time_active', unit: 's', getter: () => props.torrent.time_active },
-  { title: 'reannounce', unit: 's', getter: () => properties.value?.reannounce ?? 0 },
-]
+const torrentValues = computed<{ title: string; unit: DurationUnitType; value: number }[]>(() => [
+  { title: 'seeding_time', unit: 's', value: props.torrent.seeding_time },
+  { title: 'seeding_time_limit', unit: 'm', value: props.torrent.seeding_time_limit },
+  { title: 'inactive_seeding_time_limit', unit: 'm', value: props.torrent.inactive_seeding_time_limit },
+  { title: 'time_active', unit: 's', value: props.torrent.time_active },
+  { title: 'reannounce', unit: 's', value: properties.value?.reannounce ?? 0 },
+])
 </script>
 
 <template>
@@ -28,8 +29,8 @@ const torrentValues: { title: string; unit: DurationUnitType; getter: () => numb
           <template #title>
             {{ $t(`torrent.properties.${ppt.title}`) }}
           </template>
-          <template v-if="ppt.getter() > 0" #text>
-            {{ formatDuration(ppt.getter(), ppt.unit, durationFormat) }}
+          <template v-if="ppt.value > 0" #text>
+            {{ formatDuration(ppt.value, ppt.unit, durationFormat) }}
           </template>
           <template v-else #text>
             {{ $t('common.NA') }}

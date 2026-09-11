@@ -1180,12 +1180,14 @@
         "customTitle": "Custom title",
         "darkVariants": "Dark theme variant",
         "dateFormat": "Date Format",
+        "decimalSeparator": "Decimal separator",
         "defaultTorrentDetailTab": "Default Torrent Detail Tab",
         "displayGraphLimits": "Display limits in graph",
         "download": "Export settings",
         "durationFormat": "Duration format",
         "enableHashColors": "Enable generated chip colors",
         "enableRatioColors": "Enable ratio colors",
+        "enableRawValueTooltips": "Enable raw value tooltips",
         "expandContent": "Expand content by default in Content view",
         "exportTooltip": "Exports VueTorrent-specific settings",
         "fetchExternalIpInfo": "Fetch external IP info",
@@ -1210,6 +1212,7 @@
         "refreshInterval": "qBittorrent API refresh interval",
         "registerMagnet": "Register magnet links",
         "resetSettings": "Reset Settings",
+        "thousandSeparator": "Thousand separator",
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
@@ -1622,6 +1625,10 @@
     }
   },
   "units": {
+    "bit_per_second": "bps",
+    "byte": "byte | bytes",
+    "byte_per_second": "B/s",
+    "byte_short": "B",
     "minutes": "minute | minutes",
     "seconds": "second | seconds"
   }

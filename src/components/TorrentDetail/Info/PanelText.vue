@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import InfoBase from './InfoBase.vue'
 import { useI18nUtils } from '@/composables'
 import { formatEta } from '@/helpers'
@@ -11,22 +12,22 @@ const props = defineProps<{ torrent: Torrent }>()
 const { t, getTorrentStateString } = useI18nUtils()
 const { properties } = storeToRefs(useTorrentDetailStore())
 
-const torrentValues = [
-  { title: 'available_peers', getter: () => props.torrent.available_peers },
-  { title: 'available_seeds', getter: () => props.torrent.available_seeds },
-  { title: 'ratio', getter: () => props.torrent.ratio.toFixed(2) },
-  { title: 'ratio_limit', getter: () => props.torrent.ratio_limit },
-  { title: 'num_leechs', getter: () => props.torrent.num_leechs },
-  { title: 'num_seeds', getter: () => props.torrent.num_seeds },
-  { title: 'availability', getter: () => props.torrent.availability },
-  { title: 'eta', getter: () => formatEta(props.torrent.eta, props.torrent.forced) },
-  { title: 'category', getter: () => props.torrent.category || t('common.NA') },
-  { title: 'state', getter: () => getTorrentStateString(props.torrent.state) },
-  { title: 'trackers_count', getter: () => props.torrent.trackers_count },
-  { title: 'priority', getter: () => props.torrent.priority },
-  { title: 'nb_connections', getter: () => properties.value?.nb_connections ?? 0 },
-  { title: 'nb_connections_limit', getter: () => properties.value?.nb_connections_limit ?? 0 },
-]
+const torrentValues = computed(() => [
+  { title: 'available_peers', value: props.torrent.available_peers },
+  { title: 'available_seeds', value: props.torrent.available_seeds },
+  { title: 'ratio', value: props.torrent.ratio.toFixed(2) },
+  { title: 'ratio_limit', value: props.torrent.ratio_limit },
+  { title: 'num_leechs', value: props.torrent.num_leechs },
+  { title: 'num_seeds', value: props.torrent.num_seeds },
+  { title: 'availability', value: props.torrent.availability },
+  { title: 'eta', value: formatEta(props.torrent.eta, props.torrent.forced) },
+  { title: 'category', value: props.torrent.category || t('common.NA') },
+  { title: 'state', value: getTorrentStateString(props.torrent.state) },
+  { title: 'trackers_count', value: props.torrent.trackers_count },
+  { title: 'priority', value: props.torrent.priority },
+  { title: 'nb_connections', value: properties.value?.nb_connections ?? 0 },
+  { title: 'nb_connections_limit', value: properties.value?.nb_connections_limit ?? 0 },
+])
 </script>
 
 <template>
@@ -38,7 +39,7 @@ const torrentValues = [
             {{ $t(`torrent.properties.${ppt.title}`) }}
           </template>
           <template #text>
-            {{ ppt.getter() }}
+            {{ ppt.value }}
           </template>
         </InfoBase>
       </v-row>

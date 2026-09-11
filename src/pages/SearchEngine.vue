@@ -5,21 +5,23 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import ButtonLink from '@/components/Core/ButtonLink.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
-import { useI18nUtils, useSearchQuery } from '@/composables'
+import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { comparators, formatData, formatTimeSec } from '@/helpers'
+import { comparators, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
 
 const { mobile } = useDisplay()
-const router = useRouter()
 const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
+const router = useRouter()
+
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
-const { useBinarySize, dateFormat } = storeToRefs(useVueTorrentStore())
+const { dateFormat } = storeToRefs(useVueTorrentStore())
 
 const queryInput = ref<typeof HistoryField>()
 
@@ -285,7 +287,7 @@ onBeforeUnmount(() => {
                   {{ t('searchEngine.headers.fileSize') }}
                 </div>
                 <div class="item-value-small">
-                  {{ formatData(item.fileSize, useBinarySize) }}
+                  {{ formatData({ data: item.fileSize }) }}
                 </div>
               </v-col>
               <v-col cols="3" class="item-container">
@@ -333,7 +335,7 @@ onBeforeUnmount(() => {
             </v-row>
           </template>
           <template #[`item.fileSize`]="{ item }">
-            {{ formatData(item.fileSize, useBinarySize) }}
+            {{ formatData({ data: item.fileSize }) }}
           </template>
           <template #[`item.pubDate`]="{ value }">
             {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
-import { formatSpeedUnit, formatSpeedValue } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
+import { useNumberFormatter } from '@/composables'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => number }>()
 
-const { useBitSpeed } = storeToRefs(useVueTorrentStore())
+const { formatSpeedUnit, formatSpeedValue } = useNumberFormatter()
 
 const val = computed(() => props.value(props.torrent))
 </script>
@@ -18,9 +16,9 @@ const val = computed(() => props.value(props.torrent))
       {{ $t(titleKey) }}
     </div>
     <div>
-      {{ formatSpeedValue(val, useBitSpeed) }}
+      {{ formatSpeedValue({ speed: val }) }}
       <span class="text-caption text-grey">
-        {{ formatSpeedUnit(val, useBitSpeed) }}
+        {{ formatSpeedUnit({ speed: val }) }}
       </span>
     </div>
   </div>

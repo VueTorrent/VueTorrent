@@ -1,28 +1,28 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { formatRawNumber } from '@/helpers'
+import { useNumberFormatter } from '@/composables'
+import { useVueTorrentStore } from '@/stores'
 
-const props = defineProps<{ value: number }>()
-const { locale } = useI18n()
+const props = defineProps<{
+  value: number
+  unit?: string
+}>()
 
-const formattedValue = computed(() => {
-  const parts = new Intl.NumberFormat(locale.value).formatToParts(1000.1)
-  const thousandsSeparator = parts.find(part => part.type === 'group')?.value ?? ','
-  const decimalSeparator = parts.find(part => part.type === 'decimal')?.value ?? '.'
+const { formatRawNumber } = useNumberFormatter()
+const { enableRawValueTooltips } = useVueTorrentStore()
 
-  return formatRawNumber(props.value, thousandsSeparator, decimalSeparator)
-})
+const formattedValue = computed(() => formatRawNumber({ value: props.value, unit: props.unit }))
 </script>
 
 <template>
-  <v-tooltip :text="formattedValue" location="top">
+  <v-tooltip v-if="enableRawValueTooltips" :text="formattedValue" location="top">
     <template #activator="{ props: activatorProps }">
       <span v-bind="activatorProps" class="raw-number-tooltip" tabindex="0">
         <slot />
       </span>
     </template>
   </v-tooltip>
+  <slot v-else />
 </template>
 
 <style scoped>
