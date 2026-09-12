@@ -57,6 +57,20 @@ ul.no-bullet {
   background-color: inherit;
 }
 
+.text-scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(var(--v-theme-on-surface), 0.25);
+  }
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

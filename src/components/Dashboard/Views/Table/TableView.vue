@@ -112,7 +112,11 @@ function getTorrentRowColorClass(torrent: TorrentType) {
         </td>
 
         <td>
-          {{ torrent.name }}
+          <v-tooltip :text="torrent.name" location="top">
+            <template #activator="{ props }">
+              <span v-bind="props">{{ torrent.name }}</span>
+            </template>
+          </v-tooltip>
         </td>
         <TableTorrent :torrent="torrent" />
       </tr>
