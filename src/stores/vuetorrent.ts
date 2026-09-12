@@ -53,6 +53,7 @@ export const useVueTorrentStore = defineStore(
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
+    const torrentSortFavourites = ref<string[]>([])
     const logoutUrl = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -228,6 +229,19 @@ export const useVueTorrentStore = defineStore(
       }
     }
 
+    function isTorrentSortFavourite(value: string) {
+      return torrentSortFavourites.value.includes(value)
+    }
+
+    function toggleTorrentSortFavourite(value: string) {
+      const index = torrentSortFavourites.value.indexOf(value)
+      if (index === -1) {
+        torrentSortFavourites.value.push(value)
+      } else {
+        torrentSortFavourites.value.splice(index, 1)
+      }
+    }
+
     function toggleBusyProperty(name: DashboardProperty) {
       _busyProperties.value[name].active = !_busyProperties.value[name].active
     }
@@ -283,6 +297,9 @@ export const useVueTorrentStore = defineStore(
       useEmojiState,
       fetchExternalIpInfo,
       tableColumnWidths,
+      torrentSortFavourites,
+      isTorrentSortFavourite,
+      toggleTorrentSortFavourite,
       setLanguage,
       updateTheme,
       toggleTheme,
@@ -333,6 +350,7 @@ export const useVueTorrentStore = defineStore(
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
         tableColumnWidths.value = {}
+        torrentSortFavourites.value = []
         logoutUrl.value = ''
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
