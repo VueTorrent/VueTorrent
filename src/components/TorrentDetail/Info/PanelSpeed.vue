@@ -1,24 +1,28 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import InfoBase from './InfoBase.vue'
-import { formatSpeed } from '@/helpers'
-import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
+import RawNumberTooltip from '@/components/Core/RawNumberTooltip.vue'
+import { useI18nUtils, useNumberFormatter } from '@/composables'
+import { useTorrentDetailStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent }>()
 
-const { properties } = storeToRefs(useTorrentDetailStore())
-const { useBitSpeed } = storeToRefs(useVueTorrentStore())
+const { t } = useI18nUtils()
+const { formatSpeed } = useNumberFormatter()
 
-const torrentValues = [
-  { title: 'download_limit', getter: () => props.torrent.dl_limit },
-  { title: 'download_speed', getter: () => props.torrent.dlspeed },
-  { title: 'avg_download_speed', getter: () => properties.value?.dl_speed_avg ?? 0 },
-  { title: 'upload_limit', getter: () => props.torrent.up_limit },
-  { title: 'upload_speed', getter: () => props.torrent.upspeed },
-  { title: 'avg_upload_speed', getter: () => properties.value?.up_speed_avg ?? 0 },
-  { title: 'global_speed', getter: () => props.torrent.globalSpeed },
-]
+const { properties } = storeToRefs(useTorrentDetailStore())
+
+const torrentValues = computed(() => [
+  { title: 'download_limit', value: props.torrent.dl_limit },
+  { title: 'download_speed', value: props.torrent.dlspeed },
+  { title: 'avg_download_speed', value: properties.value?.dl_speed_avg ?? 0 },
+  { title: 'upload_limit', value: props.torrent.up_limit },
+  { title: 'upload_speed', value: props.torrent.upspeed },
+  { title: 'avg_upload_speed', value: properties.value?.up_speed_avg ?? 0 },
+  { title: 'global_speed', value: props.torrent.globalSpeed },
+])
 </script>
 
 <template>
@@ -30,7 +34,9 @@ const torrentValues = [
             {{ $t(`torrent.properties.${ppt.title}`) }}
           </template>
           <template #text>
-            {{ formatSpeed(ppt.getter(), useBitSpeed) }}
+            <RawNumberTooltip :value="ppt.value" :unit="t('units.byte_per_second', ppt.value)">
+              {{ formatSpeed({ speed: ppt.value }) }}
+            </RawNumberTooltip>
           </template>
         </InfoBase>
       </v-row>

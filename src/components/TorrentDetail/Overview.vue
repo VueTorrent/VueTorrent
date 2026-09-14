@@ -3,16 +3,17 @@ import { storeToRefs } from 'pinia'
 import { computed, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 import PieceCanvas from './PieceCanvas.vue'
 import ColoredChip from '@/components/Core/ColoredChip.vue'
-import { useI18nUtils } from '@/composables'
+import { useI18nUtils, useNumberFormatter } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { downloadFile, formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
+import { downloadFile, formatPercent, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useTrackerStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t, getTorrentStateString } = useI18nUtils()
+const { formatData, formatSpeed } = useNumberFormatter()
 const contentStore = useContentStore()
 const { cachedFiles } = storeToRefs(contentStore)
 const dialogStore = useDialogStore()
@@ -33,7 +34,7 @@ const torrentPieceCount = computed(() => properties.value?.pieces_num ?? 0)
 const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
 const torrentStateColor = computed(() => getTorrentStateColor(props.torrent.state))
-const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
+const pieceSize = computed(() => formatData({ data: torrentPieceSize.value, isBinary: true, precision: 0 }))
 const isFetchingMetadata = computed(() => [TorrentState.META_DOWNLOAD, TorrentState.FORCED_META_DOWNLOAD].includes(props.torrent.state))
 const ratioColor = computed(() => {
   if (!vuetorrentStore.enableRatioColors) return ''
@@ -178,10 +179,10 @@ onUnmounted(() => {
 
               <div>
                 <v-icon icon="mdi-arrow-down" />
-                {{ formatSpeed(torrent.dlspeed, vuetorrentStore.useBitSpeed) }}
+                {{ formatSpeed({ speed: torrent.dlspeed }) }}
 
                 <v-icon icon="mdi-arrow-up" />
-                {{ formatSpeed(torrent.upspeed, vuetorrentStore.useBitSpeed) }}
+                {{ formatSpeed({ speed: torrent.upspeed }) }}
               </div>
             </v-col>
           </v-row>
@@ -249,8 +250,8 @@ onUnmounted(() => {
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.selectedFileSize') }}:</div>
               <div>
-                {{ formatData(selectedFilesSize, vuetorrentStore.useBinarySize) }} /
-                {{ formatData(torrent.total_size, vuetorrentStore.useBinarySize) }}
+                {{ formatData({ data: selectedFilesSize }) }} /
+                {{ formatData({ data: torrent.total_size }) }}
               </div>
             </v-col>
             <v-col cols="6">
@@ -264,22 +265,22 @@ onUnmounted(() => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.downloaded') }}:</div>
-              <div>{{ formatData(torrent.downloaded, vuetorrentStore.useBinarySize) }}</div>
+              <div>{{ formatData({ data: torrent.downloaded }) }}</div>
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.uploaded') }}:</div>
-              <div>{{ formatData(torrent.uploaded, vuetorrentStore.useBinarySize) }}</div>
+              <div>{{ formatData({ data: torrent.uploaded }) }}</div>
             </v-col>
           </v-row>
 
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.dlSpeedAverage') }}:</div>
-              <div>{{ formatSpeed(downloadSpeedAvg, vuetorrentStore.useBitSpeed) }}</div>
+              <div>{{ formatSpeed({ speed: downloadSpeedAvg }) }}</div>
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.upSpeedAverage') }}:</div>
-              <div>{{ formatSpeed(uploadSpeedAvg, vuetorrentStore.useBitSpeed) }}</div>
+              <div>{{ formatSpeed({ speed: uploadSpeedAvg }) }}</div>
             </v-col>
           </v-row>
         </v-col>

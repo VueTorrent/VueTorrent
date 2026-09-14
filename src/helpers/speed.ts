@@ -5,12 +5,13 @@ export function formatSpeedValue(speed: number, isBits: boolean) {
   return formatDataValue(speed, false)
 }
 
-export function formatSpeedUnit(speed: number, isBits: boolean) {
+export function formatSpeedUnit(speed: number, isBits: boolean, bitUnit: string, byteUnit: string) {
   if (isBits) speed *= 8
-  const unit = formatDataUnit(speed, false).slice(0, -1)
-  return `${unit}${isBits ? 'bps' : 'B/s'}`
+  const baseUnit = isBits ? bitUnit : byteUnit
+  const unit = formatDataUnit(speed, false, baseUnit).slice(0, -baseUnit.length)
+  return `${unit}${baseUnit}`
 }
 
-export function formatSpeed(speed: number, isBits: boolean) {
-  return `${formatSpeedValue(speed, isBits)} ${formatSpeedUnit(speed, isBits)}`
+export function formatSpeed(speed: number, isBits: boolean, bitUnit: string, byteUnit: string) {
+  return `${formatSpeedValue(speed, isBits)} ${formatSpeedUnit(speed, isBits, bitUnit, byteUnit)}`
 }

@@ -1,26 +1,30 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 import InfoBase from './InfoBase.vue'
-import { formatData } from '@/helpers'
-import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
+import RawNumberTooltip from '@/components/Core/RawNumberTooltip.vue'
+import { useI18nUtils, useNumberFormatter } from '@/composables'
+import { useTorrentDetailStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent }>()
 
-const { properties } = storeToRefs(useTorrentDetailStore())
-const { useBinarySize } = storeToRefs(useVueTorrentStore())
+const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
 
-const torrentValues = [
-  { title: 'downloaded', getter: () => props.torrent.downloaded },
-  { title: 'downloaded_session', getter: () => props.torrent.downloaded_session },
-  { title: 'uploaded', getter: () => props.torrent.uploaded },
-  { title: 'uploaded_session', getter: () => props.torrent.uploaded_session },
-  { title: 'size', getter: () => props.torrent.size },
-  { title: 'total_size', getter: () => props.torrent.total_size },
-  { title: 'total_wasted', getter: () => properties.value?.total_wasted ?? 0 },
-  { title: 'amount_left', getter: () => props.torrent.amount_left },
-  { title: 'global_volume', getter: () => props.torrent.globalVolume },
-]
+const { properties } = storeToRefs(useTorrentDetailStore())
+
+const torrentValues = computed(() => [
+  { title: 'downloaded', value: props.torrent.downloaded },
+  { title: 'downloaded_session', value: props.torrent.downloaded_session },
+  { title: 'uploaded', value: props.torrent.uploaded },
+  { title: 'uploaded_session', value: props.torrent.uploaded_session },
+  { title: 'size', value: props.torrent.size },
+  { title: 'total_size', value: props.torrent.total_size },
+  { title: 'total_wasted', value: properties.value?.total_wasted ?? 0 },
+  { title: 'amount_left', value: props.torrent.amount_left },
+  { title: 'global_volume', value: props.torrent.globalVolume },
+])
 </script>
 
 <template>
@@ -32,7 +36,9 @@ const torrentValues = [
             {{ $t(`torrent.properties.${ppt.title}`) }}
           </template>
           <template #text>
-            {{ formatData(ppt.getter(), useBinarySize) }}
+            <RawNumberTooltip :value="ppt.value" :unit="t('units.byte', ppt.value)">
+              {{ formatData({ data: ppt.value }) }}
+            </RawNumberTooltip>
           </template>
         </InfoBase>
       </v-row>
