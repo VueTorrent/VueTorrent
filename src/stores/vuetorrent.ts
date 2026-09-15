@@ -21,6 +21,17 @@ import { DarkLegacy, LightLegacy } from '@/themes'
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
+    function normalizeFavoriteSavePaths(paths: string[]) {
+      const seen = new Set<string>()
+      return paths.reduce<string[]>((acc, path) => {
+        const normalizedPath = path.trim()
+        if (!normalizedPath || seen.has(normalizedPath)) return acc
+        seen.add(normalizedPath)
+        acc.push(normalizedPath)
+        return acc
+      }, [])
+    }
+
     const language = ref('en')
     const theme = reactive({
       mode: ThemeMode.SYSTEM,
@@ -53,6 +64,7 @@ export const useVueTorrentStore = defineStore(
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
+    const favoriteSavePaths = ref<string[]>([])
     const logoutUrl = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -248,6 +260,10 @@ export const useVueTorrentStore = defineStore(
       _tableProperties.value[name].active = !_tableProperties.value[name].active
     }
 
+    function setFavoriteSavePaths(paths: string[]) {
+      favoriteSavePaths.value = normalizeFavoriteSavePaths(paths)
+    }
+
     return {
       theme,
       dateFormat,
@@ -304,6 +320,8 @@ export const useVueTorrentStore = defineStore(
       keepDefaultTransitions,
       defaultTorrentDetailTab,
       logoutUrl,
+      favoriteSavePaths,
+      setFavoriteSavePaths,
       $reset: () => {
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
@@ -334,6 +352,7 @@ export const useVueTorrentStore = defineStore(
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
         tableColumnWidths.value = {}
         logoutUrl.value = ''
+        favoriteSavePaths.value = []
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))
