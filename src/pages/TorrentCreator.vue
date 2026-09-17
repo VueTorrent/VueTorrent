@@ -4,16 +4,18 @@ import { storeToRefs } from 'pinia'
 import { computed, defineAsyncComponent, onBeforeMount, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
-import { useI18nUtils, useTimer } from '@/composables'
+import { useI18nUtils, useNumberFormatter, useTimer } from '@/composables'
 import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
-import { basename, downloadFile, formatData, formatPercent } from '@/helpers'
+import { basename, downloadFile, formatPercent } from '@/helpers'
 import dayjs from '@/plugins/dayjs'
 import { useAppStore, useDialogStore, useTorrentCreatorStore, useVueTorrentStore } from '@/stores'
 import { TorrentCreatorTask } from '@/types/qbit/models'
 
 const { height: deviceHeight } = useDisplay()
-const router = useRouter()
 const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
+const router = useRouter()
+
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const torrentCreatorStore = useTorrentCreatorStore()
@@ -192,7 +194,7 @@ onBeforeUnmount(() => {
             {{ torrentFormatMap[value as TorrentFormat] }}
           </template>
           <template #[`item.pieceSize`]="{ value }">
-            {{ formatData(value, vueTorrentStore.useBinarySize, 0) }}
+            {{ formatData({ data: value, isBinary: true, precision: 0 }) }}
           </template>
           <template #[`item.private`]="{ value }">
             <v-icon v-if="value" color="accent"> mdi-check-bold </v-icon>

@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { useDialog, useI18nUtils } from '@/composables'
+import { useDialog, useI18nUtils, useNumberFormatter } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { FileType } from '@/constants/vuetorrent'
-import { comparators, formatData, getExtType, getTypeIcon, splitExt } from '@/helpers'
-import { useContentStore, useVueTorrentStore } from '@/stores'
+import { comparators, getExtType, getTypeIcon, splitExt } from '@/helpers'
+import { useContentStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
 }>()
 
 const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
 const { isOpened } = useDialog(props.guid)
+
 const contentStore = useContentStore()
-const vuetorrentStore = useVueTorrentStore()
 
 const sizeBoundaries = computed<[number, number]>(() =>
   contentStore.cachedFiles
@@ -159,7 +160,7 @@ function close() {
               hide-details>
               <template #thumb-label="{ modelValue }">
                 <div style="white-space: nowrap">
-                  {{ formatData(modelValue, vuetorrentStore.useBinarySize) }}
+                  {{ formatData({ data: modelValue }) }}
                 </div>
               </template>
               <template #prepend>
@@ -177,7 +178,7 @@ function close() {
               t('torrentDetail.content.filter.preview', {
                 count: filterPreview.length,
                 total: contentStore.cachedFiles.length,
-                size: formatData(filterPreviewSize, vuetorrentStore.useBinarySize),
+                size: formatData({ data: filterPreviewSize }),
               })
             }}
           </v-col>

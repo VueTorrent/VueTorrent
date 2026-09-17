@@ -1622,6 +1622,10 @@
     }
   },
   "units": {
+    "bit_per_second": "bps",
+    "byte": "octet | octets",
+    "byte_per_second": "o/s",
+    "byte_short": "o",
     "minutes": "minute | minute | minutes",
     "seconds": "seconde | seconde | secondes"
   }

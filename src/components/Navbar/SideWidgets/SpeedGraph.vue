@@ -4,13 +4,14 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
 import { useTheme } from 'vuetify'
-import { useI18nUtils } from '@/composables'
-import { formatSpeed } from '@/helpers'
+import { useI18nUtils, useNumberFormatter } from '@/composables'
 import dayjs from '@/plugins/dayjs'
 import { useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 
 const { t } = useI18nUtils()
+const { formatSpeed } = useNumberFormatter()
 const theme = useTheme()
+
 const { serverState } = storeToRefs(useMaindataStore())
 const navbarStore = useNavbarStore()
 const vuetorrentStore = useVueTorrentStore()
@@ -56,7 +57,7 @@ const chartOptions: ApexOptions = {
     },
     y: {
       formatter: (value: number) => {
-        return formatSpeed(value, vuetorrentStore.useBitSpeed)
+        return formatSpeed({ speed: value })
       },
     },
   },

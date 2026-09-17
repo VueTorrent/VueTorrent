@@ -51,6 +51,8 @@ export const useVueTorrentStore = defineStore(
     const fetchExternalIpInfo = ref(false)
     const reduceMotion = ref(false)
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
+    const enableRawValueTooltips = ref(true)
+    const thousandSeparator = ref(' ')
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
     const logoutUrl = ref('')
@@ -256,6 +258,8 @@ export const useVueTorrentStore = defineStore(
       fileContentInterval,
       hideChipIfUnset,
       enableRatioColors,
+      enableRawValueTooltips,
+      thousandSeparator,
       enableHashColors,
       isShutdownButtonVisible,
       language,
@@ -315,6 +319,8 @@ export const useVueTorrentStore = defineStore(
         uiTitleCustom.value = ''
         hideChipIfUnset.value = false
         enableRatioColors.value = true
+        enableRawValueTooltips.value = true
+        thousandSeparator.value = ' '
         enableHashColors.value = true
         paginationSize.value = 15
         dateFormat.value = defaultDateFormat
