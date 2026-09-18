@@ -44,7 +44,7 @@ describe('composables/NumberFormatter', () => {
   })
 
   test('formats raw values using the active locale and optional unit', () => {
-    const formatter = mountFormatter().vm
+    const formatter = mountFormatter({ thousandSeparator: ' ' }).vm
 
     expect(formatter.formatRawNumber({ value: 1234.5, unit: 'B' })).toBe('1 234.5 B')
   })

@@ -1,8 +1,6 @@
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
-import { formatData, formatDataUnit, formatDataValue } from '@/helpers/data'
-import { formatRawNumber } from '@/helpers/number'
-import { formatSpeed, formatSpeedUnit, formatSpeedValue } from '@/helpers/speed'
+import { formatData, formatDataUnit, formatDataValue, formatRawNumber, formatSpeed, formatSpeedUnit, formatSpeedValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 
 export function useNumberFormatter() {

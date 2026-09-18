@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useNumberFormatter } from '@/composables'
 import { useVueTorrentStore } from '@/stores'
@@ -9,7 +10,7 @@ const props = defineProps<{
 }>()
 
 const { formatRawNumber } = useNumberFormatter()
-const { enableRawValueTooltips } = useVueTorrentStore()
+const { enableRawValueTooltips } = storeToRefs(useVueTorrentStore())
 
 const formattedValue = computed(() => formatRawNumber({ value: props.value, unit: props.unit }))
 </script>
