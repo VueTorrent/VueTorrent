@@ -19,7 +19,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@ctrl/tinycolor": "^4.2.0",
+    "@ctrl/tinycolor": "^4.2.1",
     "@flatten-js/interval-tree": "^2.0.3",
     "@fontsource/roboto": "^5.2.10",
     "@mdi/font": "^7.4.47",
@@ -55,7 +55,7 @@
     "@pinia/testing": "^1.0.3",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^25.9.5",
-    "@vitejs/plugin-vue": "^6.0.8",
+    "@vitejs/plugin-vue": "^6.0.9",
     "@vitest/coverage-v8": "^4.1.11",
     "@vue/eslint-config-typescript": "^14.9.0",
     "@vue/test-utils": "^2.4.11",
