@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.35.1](https://github.com/VueTorrent/VueTorrent/compare/v2.35.0...v2.35.1) (2026-09-19)
+
+
+### Bug Fixes
+
+* category form not fetching incomplete torrent path details ([#2912](https://github.com/VueTorrent/VueTorrent/issues/2912)) ([83f435e](https://github.com/VueTorrent/VueTorrent/commit/83f435ef7233965b73a6edad505281f543b3fd3a))
+* **Filters:** Prevent text wrap on navbar filters ([ddadd20](https://github.com/VueTorrent/VueTorrent/commit/ddadd200556d7e63be3d651598e1167e7f6ae40b))
+* **MagnetHandler:** Allow preloading magnets before login ([c67c224](https://github.com/VueTorrent/VueTorrent/commit/c67c224a4760d6115c6a4ba38d8ed4a54aa02654))
+
+
+### Improvements
+
+* deduplicate concurrent preference requests on app init ([6afb966](https://github.com/VueTorrent/VueTorrent/commit/6afb966c0229ea6f81cf5129d3f2c3925a56faaa))
+* **maindata:** Improve performance and memory usage ([#2869](https://github.com/VueTorrent/VueTorrent/issues/2869)) ([00f980f](https://github.com/VueTorrent/VueTorrent/commit/00f980f06786a4089e0b18b977a4aabd0fefe137))
+* Prevent log sync before opening Logs view ([b884d44](https://github.com/VueTorrent/VueTorrent/commit/b884d442278460071322f96b6eacc15f8789bb15))
+* **SearchQuery:** Skip filtering on empty query ([1d5dfb4](https://github.com/VueTorrent/VueTorrent/commit/1d5dfb48aac79aed0469e3838b74a93b3ae17965))
+* Update raw value tooltips ([#2921](https://github.com/VueTorrent/VueTorrent/issues/2921)) ([4fcaf26](https://github.com/VueTorrent/VueTorrent/commit/4fcaf26110d0ad25abe4364c7380a23ee1c1644c))
+
 ## [2.35.0](https://github.com/VueTorrent/VueTorrent/compare/v2.34.1...v2.35.0) (2026-08-22)
 
 
