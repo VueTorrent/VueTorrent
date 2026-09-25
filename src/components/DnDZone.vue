@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { useDropZone } from '@vueuse/core'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
+import { useHotkey } from 'vuetify'
 import { useI18nUtils } from '@/composables'
 import { useAddTorrentStore, useAppStore, useDialogStore, useTorrentStore } from '@/stores'
 
@@ -13,12 +14,14 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 
-const dndZoneRef = ref<HTMLDivElement>()
+const isDragging = ref(false)
 const queueZoneRef = ref<HTMLDivElement>()
 const downloadZoneRef = ref<HTMLDivElement>()
-const { isOverDropZone: isOverDndZone } = useDropZone(dndZoneRef)
+
 const { isOverDropZone: isOverQueueZone } = useDropZone(queueZoneRef, { onDrop: onQueueDrop })
 const { isOverDropZone: isOverDownloadZone } = useDropZone(downloadZoneRef, { onDrop: (files, event) => void onDownloadDrop(files, event) })
+
+const isOverDndZone = computed(() => isDragging.value || isOverQueueZone.value || isOverDownloadZone.value)
 
 function onDragEnter() {
   const routeName = route.name as string
@@ -28,10 +31,13 @@ function onDragEnter() {
     !appStore.isAuthenticated ||
     routeName === 'login' ||
     (routeName === 'settings' && tabParam === 'vuetorrent' && (subtabParam.startsWith('torrentCard') || subtabParam === 'sidebar'))
-  )
+  ) {
     return
-  isOverDndZone.value = true
+  }
+  isDragging.value = true
 }
+
+useHotkey('Escape', cancelDrag)
 
 function checkDropEvent(event: DragEvent) {
   event.preventDefault()
@@ -71,6 +77,7 @@ function extractPasteData(event: ClipboardEvent): [File[], string[]] {
 
 function onQueueDrop(files: File[] | null, event: DragEvent) {
   if (!checkDropEvent(event)) return
+  cancelDrag()
 
   const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
 
@@ -82,6 +89,7 @@ function onQueueDrop(files: File[] | null, event: DragEvent) {
 
 function onDownloadDrop(files: File[] | null, event: DragEvent) {
   if (!checkDropEvent(event)) return
+  cancelDrag()
 
   const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
 
@@ -117,39 +125,37 @@ function onPaste(event: ClipboardEvent) {
   }
 }
 
+function cancelDrag() {
+  isDragging.value = false
+}
+
 onMounted(() => {
   document.addEventListener('paste', onPaste)
   document.addEventListener('dragenter', onDragEnter)
+  document.addEventListener('dragend', cancelDrag)
 })
 onUnmounted(() => {
   document.removeEventListener('paste', onPaste)
   document.removeEventListener('dragenter', onDragEnter)
+  document.removeEventListener('dragend', cancelDrag)
 })
 </script>
 
 <template>
-  <div v-show="isOverDndZone" ref="dndZoneRef" class="position-fixed w-100 h-100" style="z-index: 9999">
-    <v-scale-transition>
-      <div v-show="isOverDndZone" ref="queueZoneRef" :class="['h-50', isOverQueueZone ? 'dnd-bg-active' : 'dnd-bg']">
-        <div class="d-flex align-center justify-center h-100">
-          <div class="d-flex flex-column align-center justify-center dnd-zone-border text-accent">
-            <v-icon size="75"> mdi-cloud-upload </v-icon>
-            <span>{{ $t('dialogs.add.drop_label') }}</span>
-          </div>
-        </div>
+  <div v-show="isOverDndZone" class="position-fixed w-100 h-100" style="z-index: 9999">
+    <div ref="queueZoneRef" :class="['d-flex align-center justify-center h-50', isOverQueueZone ? 'dnd-bg-active' : 'dnd-bg']">
+      <div class="d-flex flex-column align-center justify-center text-accent dnd-zone-border">
+        <v-icon size="75">mdi-cloud-upload</v-icon>
+        <span>{{ $t('dialogs.add.drop_label') }}</span>
       </div>
-    </v-scale-transition>
+    </div>
 
-    <v-scale-transition>
-      <div v-show="isOverDndZone" ref="downloadZoneRef" :class="['h-50', isOverDownloadZone ? 'dnd-bg-active' : 'dnd-bg']">
-        <div class="d-flex align-center justify-center h-100">
-          <div class="d-flex flex-column align-center justify-center dnd-zone-border text-accent">
-            <v-icon size="75"> mdi-download </v-icon>
-            <span>{{ $t('dialogs.add.instant_drop_label') }}</span>
-          </div>
-        </div>
+    <div ref="downloadZoneRef" :class="['d-flex align-center justify-center h-50', isOverDownloadZone ? 'dnd-bg-active' : 'dnd-bg']">
+      <div class="d-flex flex-column align-center justify-center text-accent dnd-zone-border">
+        <v-icon size="75">mdi-download</v-icon>
+        <span>{{ $t('dialogs.add.instant_drop_label') }}</span>
       </div>
-    </v-scale-transition>
+    </div>
   </div>
 </template>
 
