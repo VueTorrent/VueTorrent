@@ -16,7 +16,7 @@ const torrentStore = useTorrentStore()
 
 const DRAG_THRESHOLD = 25
 const isDragging = ref(false)
-const dragStartPosition = ref<{ x: number; y: number } | null>(null)
+const dragStartPosition = ref<{ x: number; y: number }>()
 const queueZoneRef = useTemplateRef('queueZoneRef')
 const downloadZoneRef = useTemplateRef('downloadZoneRef')
 
@@ -59,7 +59,7 @@ function onDragOver(event: DragEvent) {
   onDragUpdate(event)
 }
 
-function checkDropEvent(event: DragEvent) {
+function checkDropEvent(event: DragEvent): event is DragEvent & { readonly dataTransfer: DataTransfer } {
   event.preventDefault()
   return !!event.dataTransfer
 }
@@ -99,7 +99,7 @@ function onQueueDrop(files: File[] | null, event: DragEvent) {
   if (!checkDropEvent(event)) return
   cancelDrag()
 
-  const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
+  const [torrentFiles, links] = extractDropData(files, event.dataTransfer)
 
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
@@ -115,7 +115,7 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
   if (!checkDropEvent(event)) return
   cancelDrag()
 
-  const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
+  const [torrentFiles, links] = extractDropData(files, event.dataTransfer)
 
   const torrentsCount = torrentFiles.length + links.filter(url => url.trim().length).length
   if (torrentsCount === 0) {
@@ -161,7 +161,7 @@ function onDragLeave(event: DragEvent) {
 
 function cancelDrag() {
   isDragging.value = false
-  dragStartPosition.value = null
+  dragStartPosition.value = undefined
 }
 
 useHotkey('Escape', cancelDrag)
