@@ -14,28 +14,52 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 
+const DRAG_THRESHOLD = 25
 const isDragging = ref(false)
+const dragStartPosition = ref<{ x: number; y: number }>()
 const queueZoneRef = useTemplateRef('queueZoneRef')
 const downloadZoneRef = useTemplateRef('downloadZoneRef')
 
 const { isOverDropZone: isOverQueueZone } = useDropZone(queueZoneRef, { onDrop: onQueueDrop })
 const { isOverDropZone: isOverDownloadZone } = useDropZone(downloadZoneRef, { onDrop: (files, event) => void onDownloadDrop(files, event) })
 
-function onDragEnter() {
+function canShowDragOverlay() {
   const routeName = route.name as string
   const tabParam = route.params.tab as string
   const subtabParam = route.params.subtab as string
-  if (
-    !appStore.isAuthenticated ||
-    routeName === 'login' ||
-    (routeName === 'settings' && tabParam === 'vuetorrent' && (subtabParam.startsWith('torrentCard') || subtabParam === 'sidebar'))
-  ) {
+  return (
+    appStore.isAuthenticated &&
+    routeName !== 'login' &&
+    !(routeName === 'settings' && tabParam === 'vuetorrent' && (subtabParam.startsWith('torrentCard') || subtabParam === 'sidebar'))
+  )
+}
+
+function onDragUpdate(event: DragEvent) {
+  if (!canShowDragOverlay()) return
+
+  if (!dragStartPosition.value) {
+    dragStartPosition.value = { x: event.clientX, y: event.clientY }
     return
   }
+
+  const distance = Math.hypot(event.clientX - dragStartPosition.value.x, event.clientY - dragStartPosition.value.y)
+  if (distance < DRAG_THRESHOLD) {
+    return
+  }
+
   isDragging.value = true
 }
 
-function checkDropEvent(event: DragEvent) {
+function onDragEnter(event: DragEvent) {
+  onDragUpdate(event)
+}
+
+function onDragOver(event: DragEvent) {
+  event.preventDefault()
+  onDragUpdate(event)
+}
+
+function checkDropEvent(event: DragEvent): event is DragEvent & { readonly dataTransfer: DataTransfer } {
   event.preventDefault()
   return !!event.dataTransfer
 }
@@ -75,7 +99,7 @@ function onQueueDrop(files: File[] | null, event: DragEvent) {
   if (!checkDropEvent(event)) return
   cancelDrag()
 
-  const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
+  const [torrentFiles, links] = extractDropData(files, event.dataTransfer)
 
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
@@ -91,7 +115,7 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
   if (!checkDropEvent(event)) return
   cancelDrag()
 
-  const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
+  const [torrentFiles, links] = extractDropData(files, event.dataTransfer)
 
   const torrentsCount = torrentFiles.length + links.filter(url => url.trim().length).length
   if (torrentsCount === 0) {
@@ -137,6 +161,7 @@ function onDragLeave(event: DragEvent) {
 
 function cancelDrag() {
   isDragging.value = false
+  dragStartPosition.value = undefined
 }
 
 useHotkey('Escape', cancelDrag)
@@ -144,12 +169,14 @@ useHotkey('Escape', cancelDrag)
 onMounted(() => {
   document.addEventListener('paste', onPaste)
   document.addEventListener('dragenter', onDragEnter)
+  document.addEventListener('dragover', onDragOver)
   document.addEventListener('dragend', cancelDrag)
   document.addEventListener('dragleave', onDragLeave)
 })
 onUnmounted(() => {
   document.removeEventListener('paste', onPaste)
   document.removeEventListener('dragenter', onDragEnter)
+  document.removeEventListener('dragover', onDragOver)
   document.removeEventListener('dragend', cancelDrag)
   document.removeEventListener('dragleave', onDragLeave)
 })
