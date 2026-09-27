@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useDropZone } from '@vueuse/core'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
 import { useHotkey } from 'vuetify'
@@ -15,8 +15,8 @@ const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 
 const isDragging = ref(false)
-const queueZoneRef = ref<HTMLDivElement>()
-const downloadZoneRef = ref<HTMLDivElement>()
+const queueZoneRef = useTemplateRef('queueZoneRef')
+const downloadZoneRef = useTemplateRef('downloadZoneRef')
 
 const { isOverDropZone: isOverQueueZone } = useDropZone(queueZoneRef, { onDrop: onQueueDrop })
 const { isOverDropZone: isOverDownloadZone } = useDropZone(downloadZoneRef, { onDrop: (files, event) => void onDownloadDrop(files, event) })
@@ -34,8 +34,6 @@ function onDragEnter() {
   }
   isDragging.value = true
 }
-
-useHotkey('Escape', cancelDrag)
 
 function checkDropEvent(event: DragEvent) {
   event.preventDefault()
@@ -124,7 +122,6 @@ function onPaste(event: ClipboardEvent) {
 }
 
 function onDragLeave(event: DragEvent) {
-  console.log(event?.clientX, event?.clientY, window.innerWidth, window.innerHeight)
   if (event.clientX <= 0 || event.clientY <= 0 || event.clientX >= window.innerWidth || event.clientY >= window.innerHeight) {
     cancelDrag()
   }
@@ -133,6 +130,8 @@ function onDragLeave(event: DragEvent) {
 function cancelDrag() {
   isDragging.value = false
 }
+
+useHotkey('Escape', cancelDrag)
 
 onMounted(() => {
   document.addEventListener('paste', onPaste)
@@ -149,7 +148,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-show="isDragging" class="position-fixed w-100 h-100" style="z-index: 9999">
+  <div v-show="isDragging" id="dnd-zone" class="position-fixed w-100 h-100" style="z-index: 9999">
     <div ref="queueZoneRef" :class="['d-flex align-center justify-center h-50', isOverQueueZone ? 'dnd-bg-active' : 'dnd-bg']">
       <div class="d-flex flex-column align-center justify-center text-accent dnd-zone-border">
         <v-icon size="75">mdi-cloud-upload</v-icon>
