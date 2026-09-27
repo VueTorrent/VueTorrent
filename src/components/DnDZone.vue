@@ -80,6 +80,10 @@ function onQueueDrop(files: File[] | null, event: DragEvent) {
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
 
+  if (torrentFiles.length + links.length === 0) {
+    return
+  }
+
   dialogStore.initAndOpenAddTorrentDialog()
 }
 
@@ -90,6 +94,10 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
   const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
 
   const torrentsCount = torrentFiles.length + links.filter(url => url.trim().length).length
+  if (torrentsCount === 0) {
+    return
+  }
+
   return toast.promise(
     torrentStore.addTorrents(torrentFiles, links),
     {
