@@ -1186,6 +1186,7 @@
         "durationFormat": "Dauerformat",
         "enableHashColors": "Generierte Chipfarben aktivieren",
         "enableRatioColors": "Verhältnisfarben aktivieren",
+        "enableRawValueTooltips": "Tooltips für Rohwerte aktivieren",
         "expandContent": "Inhalt in der Inhaltsansicht standardmäßig erweitern",
         "exportTooltip": "Exportiert VueTorrent-spezifische Einstellungen",
         "fetchExternalIpInfo": "Externe IP-Informationen abrufen",
@@ -1210,6 +1211,7 @@
         "refreshInterval": "qBittorrent-API-Aktualisierungsintervall",
         "registerMagnet": "Magnet-Links registrieren",
         "resetSettings": "Einstellungen zurücksetzen",
+        "thousandSeparator": "Tausendertrennzeichen",
         "tip": "Diese Einstellungen sind für die benutzerdefinierte WebUI selbst",
         "useBinarySize": "Datenmengen durch Binäreinheiten ersetzen (kB -> KiB)",
         "useBitSpeed": "Geschwindigkeitswerte durch Bits ersetzen (kB/s -> kbps)",
@@ -1539,6 +1541,7 @@
       "basename_save_path": "Speicherpfad (Basisname)",
       "category": "Kategorie",
       "comment": "Kommentar",
+      "completed": "Abgeschlossen",
       "completed_on": "Abgeschlossen am",
       "content_path": "Inhaltspfad",
       "created_by": "Erstellt von",
@@ -1564,6 +1567,9 @@
       "is_private": "Privater Torrent",
       "last_activity": "Zuletzt aktiv",
       "magnet": "Magnet-Link",
+      "max_inactive_seeding_time": "Maximale Zeit für inaktives Seeden",
+      "max_ratio": "Maximales Verhältnis",
+      "max_seeding_time": "Maximale Seeding-Zeit",
       "name": "Torrent-Titel",
       "nb_connections": "Verbindungen insgesamt",
       "nb_connections_limit": "Verbindungslimit",
@@ -1622,6 +1628,10 @@
     }
   },
   "units": {
+    "bit_per_second": "bps",
+    "byte": "Byte | Bytes",
+    "byte_per_second": "B/s",
+    "byte_short": "B",
     "minutes": "Minute | Minuten",
     "seconds": "Sekunde | Sekunden"
   }
