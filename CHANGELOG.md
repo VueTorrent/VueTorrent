@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.36.1](https://github.com/VueTorrent/VueTorrent/compare/v2.36.0...v2.36.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* Revert "perf(maindata): Improve performance and memory usage ([#2869](https://github.com/VueTorrent/VueTorrent/issues/2869))" ([#2937](https://github.com/VueTorrent/VueTorrent/issues/2937)) ([8a40c3f](https://github.com/VueTorrent/VueTorrent/commit/8a40c3f72639d37f2874ebaff2a9593ae9177dad))
+
 ## [2.36.0](https://github.com/VueTorrent/VueTorrent/compare/v2.35.0...v2.36.0) (2026-09-29)
 
 
