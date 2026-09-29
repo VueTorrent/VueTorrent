@@ -28,13 +28,20 @@ export const useTorrentStore = defineStore(
     ]
 
     const appStore = useAppStore()
-    const torrentBuilder = useTorrentBuilder()
+    const { buildFromQbit } = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
-    const _torrents = shallowRef<Map<string, VtTorrent>>(new Map())
-    const torrents = computed(() => Array.from(_torrents.value.values()))
+    const _torrents = shallowRef<Map<string, RawQbitTorrent>>(new Map())
+    const torrents = computed(() =>
+      Array.from(_torrents.value.entries()).map(([hash, v]) =>
+        buildFromQbit({
+          ...v,
+          hash,
+        })
+      )
+    )
 
-    const filterType = shallowRef(FilterType.CONJUNCTIVE)
+    const filterType = ref(FilterType.CONJUNCTIVE)
 
     const isTextFilterActive = shallowRef(true)
     const textFilter = ref('')
@@ -203,21 +210,18 @@ export const useTorrentStore = defineStore(
       return compareResult
     })
 
-    type FullArgs = [fullUpdate: true, entries: [string, RawQbitTorrent][]]
-    type PartialArgs = [fullUpdate: false, entries: [string, Partial<RawQbitTorrent>][], removed?: string[]]
-
-    function syncFromMaindata(...args: FullArgs | PartialArgs) {
-      const [fullUpdate, entries, removed] = args
+    function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<RawQbitTorrent>][], removed?: string[]) {
       if (fullUpdate) {
-        _torrents.value = torrentBuilder.buildFromFullUpdate(entries)
+        _torrents.value = new Map(entries as [string, RawQbitTorrent][])
         return
       }
 
       for (const [hash, qbitTorrent] of entries) {
-        const currentTorrent = _torrents.value.get(hash)
-        const builtTorrent = torrentBuilder.buildFromPartialUpdate(hash, qbitTorrent, currentTorrent)
-        if (!currentTorrent) {
-          _torrents.value.set(hash, builtTorrent)
+        const torrent = _torrents.value.get(hash)
+        if (torrent) {
+          _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
+        } else {
+          _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
         }
       }
 
