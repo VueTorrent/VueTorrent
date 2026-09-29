@@ -3,7 +3,7 @@ import js from '@eslint/js'
 import { configureVueProject, defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
-import importPlugin from 'eslint-plugin-import'
+import { importX } from 'eslint-plugin-import-x'
 import pluginPrettier from 'eslint-plugin-prettier/recommended'
 import pluginVue from 'eslint-plugin-vue'
 import { globalIgnores } from 'eslint/config'
@@ -24,8 +24,8 @@ export default defineConfigWithVueTs(
           project: './tsconfig.json',
         }),
       ],
-      'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
-      'import/resolver': {
+      'import-x/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
+      'import-x/resolver': {
         typescript: {
           alwaysTryTypes: true,
           project: './tsconfig.json',
@@ -34,8 +34,8 @@ export default defineConfigWithVueTs(
     },
   },
   js.configs.recommended,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   importAlias.configs.recommended,
   pluginVue.configs['flat/recommended'],
   vueTsConfigs.recommendedTypeChecked,
@@ -66,11 +66,11 @@ export default defineConfigWithVueTs(
       ],
       '@typescript-eslint/switch-exhaustiveness-check': ['warn', { considerDefaultExhaustiveForUnions: true }],
       'func-style': ['error', 'declaration', { allowArrowFunctions: false, allowTypeAnnotation: false }],
-      'import/extensions': ['error', 'never', { checkTypeImports: true, pattern: { json: 'always' } }],
-      'import/no-named-as-default': 'off',
-      'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
-      'import/no-useless-path-segments': ['error', { noUselessIndex: true }],
-      'import/order': [
+      'import-x/extensions': ['error', 'never', { checkTypeImports: true, pattern: { json: 'always' } }],
+      'import-x/no-named-as-default': 'off',
+      'import-x/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
+      'import-x/no-useless-path-segments': ['error', { noUselessIndex: true }],
+      'import-x/order': [
         'error',
         {
           alphabetize: {
