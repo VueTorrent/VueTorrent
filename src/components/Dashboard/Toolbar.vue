@@ -5,7 +5,7 @@ import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 import { useI18nUtils } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
-import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
+import { useDashboardStore, useNavbarStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const { t } = useI18nUtils()
@@ -15,6 +15,9 @@ const { torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(das
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
 const torrentStore = useTorrentStore()
 const { sortCriterias } = storeToRefs(torrentStore)
+const vuetorrentStore = useVueTorrentStore()
+const { torrentSortFavourites } = storeToRefs(vuetorrentStore)
+const { isTorrentSortFavourite, toggleTorrentSortFavourite } = vuetorrentStore
 
 type SortOption = { title: string; value: keyof Torrent }
 
@@ -76,6 +79,13 @@ const torrentSortOptions: SortOption[] = [
 ]
 torrentSortOptions.sort((a, b) => comparators.text.asc(a.title, b.title))
 
+const displayedSortOptions = computed(() => {
+  const favourites = torrentSortFavourites.value
+  const pinned = torrentSortOptions.filter(option => favourites.includes(option.value))
+  const rest = torrentSortOptions.filter(option => !favourites.includes(option.value))
+  return [...pinned, ...rest]
+})
+
 const sortOption = computed({
   get: () => sortCriterias.value[0],
   set: v => {
@@ -133,13 +143,27 @@ function toggleSelectMode() {
     <div class="d-flex align-center pl-2">
       <v-select
         :model-value="sortOption.value"
-        :items="torrentSortOptions"
+        :items="displayedSortOptions"
         :label="t('dashboard.sortLabel')"
         density="compact"
         hide-details
         variant="solo-filled"
         :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`"
-        @update:model-value="setSortOption" />
+        @update:model-value="setSortOption">
+        <template #item="{ item, props: itemProps }">
+          <v-list-item v-bind="itemProps" :title="item.title">
+            <template #append>
+              <v-btn
+                :icon="isTorrentSortFavourite(item.value) ? 'mdi-star' : 'mdi-star-outline'"
+                :aria-label="t('dashboard.toggleSortFavourite')"
+                density="comfortable"
+                size="small"
+                variant="text"
+                @click.stop="toggleTorrentSortFavourite(item.value)" />
+            </template>
+          </v-list-item>
+        </template>
+      </v-select>
     </div>
 
     <v-spacer />
