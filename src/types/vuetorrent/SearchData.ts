@@ -15,4 +15,5 @@ export interface SearchData {
   itemsPerPage: number
   filters: SearchFilters
   results: SearchResult[]
+  sortBy?: { key: string; order: 'asc' | 'desc' }[]
 }
