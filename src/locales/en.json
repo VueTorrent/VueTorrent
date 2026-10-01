@@ -63,7 +63,8 @@
       "default": "Default",
       "memoryMappedFiles": "Memory mapped files",
       "posixCompliant": "POSIX-compliant",
-      "simplePreadPwrite": "Simple pread/pwrite"
+      "simplePreadPwrite": "Simple pread/pwrite",
+      "preadPwrite": "Pread/pwrite"
     },
     "encryption": {
       "forceOff": "Disable Encryption",

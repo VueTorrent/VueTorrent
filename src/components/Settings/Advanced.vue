@@ -37,12 +37,20 @@ const ipAddressesOptions = ref([
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv4'), value: '0.0.0.0' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv6'), value: '::' },
 ])
-const diskIoTypeOptions = [
-  { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
-  { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
-  { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
-  { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE },
-]
+const diskIoTypeOptions = computed(() => {
+  const options = [
+    { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
+    { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
+    { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
+    { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE },
+  ]
+
+  if (appStore.usesLibtorrent21) {
+    options.push({ title: t('constants.diskIoType.preadPwrite'), value: DiskIOType.PREAD_PWRITE })
+  }
+
+  return options
+})
 const diskIoModeReadOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
   { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },

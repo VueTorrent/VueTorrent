@@ -11,8 +11,9 @@ export const useAppStore = defineStore('app', () => {
   const buildInfo = ref<BuildInfo>()
 
   const usesQbit5 = computed(() => isFeatureAvailable('5'))
-  const usesLibtorrent1 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '1' && !usesLibtorrent2.value)
-  const usesLibtorrent2 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '2')
+  const usesLibtorrent1 = computed(() => compareVersions(buildInfo.value?.libtorrent ?? '0', '2') < 0)
+  const usesLibtorrent2 = computed(() => compareVersions(buildInfo.value?.libtorrent ?? '0', '2') >= 0)
+  const usesLibtorrent21 = computed(() => compareVersions(buildInfo.value?.libtorrent ?? '0', '2.1.0') >= 0)
 
   async function fetchAuthStatus() {
     const ver: string | false = await qbit.getVersion().catch(() => false)
@@ -75,6 +76,7 @@ export const useAppStore = defineStore('app', () => {
     usesQbit5,
     usesLibtorrent1,
     usesLibtorrent2,
+    usesLibtorrent21,
     fetchAuthStatus,
     setAuthStatus,
     isFeatureAvailable,

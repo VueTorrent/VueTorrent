@@ -63,7 +63,8 @@
       "default": "默认",
       "memoryMappedFiles": "文件映射",
       "posixCompliant": "符合 POSIX 标准",
-      "simplePreadPwrite": "简单的 pread/pwrite"
+      "simplePreadPwrite": "简单的 pread/pwrite",
+      "preadPwrite": "pread/pwrite"
     },
     "encryption": {
       "forceOff": "禁用加密",

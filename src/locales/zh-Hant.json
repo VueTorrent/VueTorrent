@@ -61,7 +61,8 @@
       "default": "預設",
       "memoryMappedFiles": "記憶體對映檔案",
       "posixCompliant": "遵循 POSIX",
-      "simplePreadPwrite": "簡單的 pread/pwrite"
+      "simplePreadPwrite": "簡單的 pread/pwrite",
+      "preadPwrite": "pread/pwrite"
     },
     "encryption": {
       "forceOff": "停用加密",
