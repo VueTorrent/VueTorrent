@@ -34,4 +34,12 @@ const torrentTitleFilter = computed({
     @click:clear="resetInput()" />
 </template>
 
-<style scoped></style>
+<style scoped>
+/* Safari fix: Vuetify 4 grid layout needs explicit min-width: 0
+   on the v-text-field to prevent Safari from shrinking the input
+   in flex containers (v-app-bar). This is a known WebKit issue
+   where min-width: 0 isn't properly inherited by grid children. */
+.v-text-field {
+  min-width: 0;
+}
+</style>
