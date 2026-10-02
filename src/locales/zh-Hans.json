@@ -940,6 +940,7 @@
         "subheader": "隐私"
       },
       "seedLimits": {
+        "mode": "模式",
         "subheader": "做种限制",
         "then": "随后",
         "whenInactiveSeedingTimeReaches": "当非活跃做种时长达到",

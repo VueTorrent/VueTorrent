@@ -844,6 +844,7 @@
         "subheader": "隱私"
       },
       "seedLimits": {
+        "mode": "模式",
         "subheader": "做種限制",
         "then": "然後",
         "whenInactiveSeedingTimeReaches": "當閒置做種時間達到",

@@ -951,6 +951,7 @@
         "subheader": "Privacy"
       },
       "seedLimits": {
+        "mode": "Mode",
         "subheader": "Seed Limits",
         "then": "Then",
         "whenInactiveSeedingTimeReaches": "When inactive seeding time reaches",

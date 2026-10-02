@@ -377,6 +377,7 @@ export default class MockProvider implements IProvider {
         send_buffer_low_watermark: 10,
         send_buffer_watermark: 500,
         send_buffer_watermark_factor: 50,
+        share_limits_mode: 'Default',
         slow_torrent_dl_rate_threshold: 2,
         slow_torrent_inactive_timer: 60,
         slow_torrent_ul_rate_threshold: 2,
