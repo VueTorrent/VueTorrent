@@ -2,7 +2,7 @@
 import { computed, onBeforeMount, ref } from 'vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { useAppStore, useMaindataStore, useTorrentStore } from '@/stores'
-import { ShareLimitAction } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitsMode } from '@/types/vuetorrent'
 
 type ShareType = 'global' | 'disabled' | 'enabled'
 const GLOBAL = -2
@@ -33,6 +33,7 @@ const inactiveSeedingTimeLimitEnabled = ref(false)
 const inactiveSeedingTimeLimit = ref(0)
 
 const shareLimitAction = ref<ShareLimitAction>(ShareLimitAction.DEFAULT)
+const shareLimitsMode = ref<ShareLimitsMode>(ShareLimitsMode.DEFAULT)
 
 const isFieldsDisabled = computed(() => shareType.value !== 'enabled')
 
@@ -44,6 +45,12 @@ const shareLimitActions = computed(() => [
   { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING },
 ])
 
+const shareLimitsModes = computed(() => [
+  { title: t('constants.shareLimitsMode.default'), value: ShareLimitsMode.DEFAULT },
+  { title: t('constants.shareLimitsMode.matchAny'), value: ShareLimitsMode.MATCH_ANY },
+  { title: t('constants.shareLimitsMode.matchAll'), value: ShareLimitsMode.MATCH_ALL },
+])
+
 function close() {
   isOpened.value = false
 }
@@ -51,10 +58,10 @@ function close() {
 async function submit() {
   switch (shareType.value) {
     case 'global':
-      await maindataStore.setShareLimit(props.hashes, GLOBAL, GLOBAL, GLOBAL, ShareLimitAction.DEFAULT)
+      await maindataStore.setShareLimit(props.hashes, GLOBAL, GLOBAL, GLOBAL, ShareLimitAction.DEFAULT, ShareLimitsMode.DEFAULT)
       break
     case 'disabled':
-      await maindataStore.setShareLimit(props.hashes, DISABLED, DISABLED, DISABLED, ShareLimitAction.DEFAULT)
+      await maindataStore.setShareLimit(props.hashes, DISABLED, DISABLED, DISABLED, ShareLimitAction.DEFAULT, ShareLimitsMode.DEFAULT)
       break
     case 'enabled':
       await maindataStore.setShareLimit(
@@ -62,7 +69,8 @@ async function submit() {
         ratioLimitEnabled.value ? ratioLimit.value : DISABLED,
         seedingTimeLimitEnabled.value ? seedingTimeLimit.value : DISABLED,
         inactiveSeedingTimeLimitEnabled.value ? inactiveSeedingTimeLimit.value : DISABLED,
-        shareLimitAction.value
+        shareLimitAction.value,
+        shareLimitsMode.value
       )
       break
   }
@@ -79,6 +87,7 @@ onBeforeMount(() => {
   const seeding_time_limit = torrent.seeding_time_limit
   const inactive_seeding_time_limit = torrent.inactive_seeding_time_limit
   shareLimitAction.value = torrent.share_limit_action ?? ShareLimitAction.DEFAULT
+  shareLimitsMode.value = torrent.share_limits_mode ?? ShareLimitsMode.DEFAULT
 
   if (ratio_limit === GLOBAL && seeding_time_limit === GLOBAL && inactive_seeding_time_limit === GLOBAL) {
     shareType.value = 'global'
@@ -131,6 +140,17 @@ onBeforeMount(() => {
                 density="compact"
                 hide-details
                 :label="$t('dialogs.share_limit.inactive_seeding_time_limit')" />
+            </v-col>
+            <v-col v-if="appStore.isWebApiVersionAtLeast('2.15.3')" cols="12">
+              <v-select
+                v-model="shareLimitsMode"
+                :items="shareLimitsModes"
+                item-title="title"
+                item-value="value"
+                :disabled="isFieldsDisabled"
+                density="compact"
+                hide-details
+                :label="$t('dialogs.share_limit.mode')" />
             </v-col>
             <v-col v-if="appStore.isFeatureAvailable('5.2.0')" cols="12">
               <v-select

@@ -129,6 +129,11 @@
       "stopTorrent": "Stop torrent",
       "torrentSuperseeding": "Enable super seeding for torrent"
     },
+    "shareLimitsMode": {
+      "default": "Default",
+      "matchAll": "Match all the limits",
+      "matchAny": "Match any limit"
+    },
     "stopCondition": {
       "filesChecked": "Files Checked",
       "metadataReceived": "Metadata Received",
@@ -516,6 +521,7 @@
       "enabled": "Set share limit to",
       "global": "Use global share limit",
       "inactive_seeding_time_limit": "Inactive minutes",
+      "mode": "Mode",
       "ratio_limit": "Ratio",
       "seeding_time_limit": "Total minutes",
       "title": "Set share ratio limit"

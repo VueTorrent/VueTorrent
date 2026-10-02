@@ -1,7 +1,7 @@
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
 import { QbitTorrent, RawQbitTorrent } from '@/types/qbit/models'
-import { ShareLimitAction, ShareLimitActionString, Torrent } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitActionString, ShareLimitsMode, ShareLimitsModeString, Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {
   function mapShareLimitAction(action: ShareLimitAction | number | ShareLimitActionString | null | undefined): ShareLimitAction {
@@ -25,6 +25,25 @@ export function useTorrentBuilder() {
     }
 
     return ShareLimitAction.DEFAULT
+  }
+
+  function mapShareLimitsMode(mode: ShareLimitsMode | number | ShareLimitsModeString | null | undefined): ShareLimitsMode {
+    if (typeof mode === 'number') return mode
+    if (typeof mode === 'string') {
+      // map qBittorrent >= 5.2 string values to enum
+      switch (mode) {
+        case 'Default':
+          return ShareLimitsMode.DEFAULT
+        case 'MatchAny':
+          return ShareLimitsMode.MATCH_ANY
+        case 'MatchAll':
+          return ShareLimitsMode.MATCH_ALL
+        default:
+          return ShareLimitsMode.DEFAULT
+      }
+    }
+
+    return ShareLimitsMode.DEFAULT
   }
 
   function refreshDerivedFields(torrent: Torrent) {
@@ -87,6 +106,7 @@ export function useTorrentBuilder() {
     if (has('ratio')) torrent.ratio = Math.round(data.ratio! * 100) / 100
     if (has('ratio_limit')) torrent.ratio_limit = data.ratio_limit!
     if (has('share_limit_action')) torrent.share_limit_action = mapShareLimitAction(data.share_limit_action)
+    if (has('share_limits_mode')) torrent.share_limits_mode = mapShareLimitsMode(data.share_limits_mode)
     if (has('reannounce')) torrent.reannounce = data.reannounce!
     if (has('root_path')) torrent.rootPath = data.root_path!
     if (has('save_path')) torrent.savePath = data.save_path!

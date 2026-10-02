@@ -1,4 +1,5 @@
 import { ShareLimitAction } from './ShareLimitAction'
+import { ShareLimitsMode } from './ShareLimitsMode'
 import { TorrentState } from '@/constants/vuetorrent/TorrentState'
 
 export default interface Torrent {
@@ -56,6 +57,8 @@ export default interface Torrent {
   ratio_limit: number
   /** @since 5.2.0 */
   share_limit_action?: ShareLimitAction
+  /** @since 5.2.0 */
+  share_limits_mode?: ShareLimitsMode
   /** @since 5.0.0 */
   reannounce?: number
   /** @since 5.1.0 */

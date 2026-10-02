@@ -129,6 +129,11 @@
       "stopTorrent": "暂停种子",
       "torrentSuperseeding": "启用超级做种模式"
     },
+    "shareLimitsMode": {
+      "default": "默认",
+      "matchAll": "满足所有限制",
+      "matchAny": "满足任一限制"
+    },
     "stopCondition": {
       "filesChecked": "文件校验完成",
       "metadataReceived": "元数据接收完成",
@@ -510,6 +515,7 @@
       "enabled": "设置分享限制为",
       "global": "使用全局分享限制",
       "inactive_seeding_time_limit": "非活跃时长 (分钟)",
+      "mode": "模式",
       "ratio_limit": "分享率",
       "seeding_time_limit": "总做种时长 (分钟)",
       "title": "设置分享率限制"

@@ -1,5 +1,5 @@
 import comparatorMap from './Comparators'
-import { ShareLimitAction , Torrent } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitsMode, Torrent } from '@/types/vuetorrent'
 
 function makeMockTorrent(overrides: Partial<Torrent> = {}): Torrent {
   return {
@@ -49,6 +49,7 @@ function makeMockTorrent(overrides: Partial<Torrent> = {}): Torrent {
     ratio: 1.2,
     ratio_limit: 2.0,
     share_limit_action: ShareLimitAction.DEFAULT,
+    share_limits_mode: ShareLimitsMode.DEFAULT,
     reannounce: 30,
     rootPath: '/root',
     savePath: '/save',
