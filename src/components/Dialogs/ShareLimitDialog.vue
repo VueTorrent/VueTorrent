@@ -46,7 +46,6 @@ const shareLimitActions = computed(() => [
 ])
 
 const shareLimitsModes = computed(() => [
-  { title: t('constants.shareLimitsMode.default'), value: ShareLimitsMode.DEFAULT },
   { title: t('constants.shareLimitsMode.matchAny'), value: ShareLimitsMode.MATCH_ANY },
   { title: t('constants.shareLimitsMode.matchAll'), value: ShareLimitsMode.MATCH_ALL },
 ])

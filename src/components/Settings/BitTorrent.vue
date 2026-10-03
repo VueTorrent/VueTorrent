@@ -22,7 +22,6 @@ const thenTypes = ref([
   { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING },
 ])
 const shareLimitsModes: { title: string; value: ShareLimitsModeString }[] = [
-  { title: t('constants.shareLimitsMode.default'), value: 'Default' },
   { title: t('constants.shareLimitsMode.matchAny'), value: 'MatchAny' },
   { title: t('constants.shareLimitsMode.matchAll'), value: 'MatchAll' },
 ]

@@ -130,7 +130,6 @@
       "torrentSuperseeding": "启用超级做种模式"
     },
     "shareLimitsMode": {
-      "default": "默认",
       "matchAll": "满足所有限制",
       "matchAny": "满足任一限制"
     },

@@ -130,7 +130,6 @@
       "torrentSuperseeding": "Enable super seeding for torrent"
     },
     "shareLimitsMode": {
-      "default": "Default",
       "matchAll": "Match all the limits",
       "matchAny": "Match any limit"
     },

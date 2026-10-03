@@ -128,7 +128,6 @@
       "torrentSuperseeding": "為種子啟用超級做種"
     },
     "shareLimitsMode": {
-      "default": "預設",
       "matchAll": "符合全部限制",
       "matchAny": "符合任一限制"
     },
