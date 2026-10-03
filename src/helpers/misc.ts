@@ -10,7 +10,7 @@ export function compareVersions(a: string, b: string): number {
   for (let i = 0; i < length; i++) {
     const diff = (aParts[i] || 0) - (bParts[i] || 0)
     if (diff !== 0) {
-      return diff > 0 ? 1 : -1
+      return diff
     }
   }
 

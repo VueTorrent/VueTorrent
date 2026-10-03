@@ -145,8 +145,6 @@ onBeforeMount(() => {
               <v-select
                 v-model="shareLimitsMode"
                 :items="shareLimitsModes"
-                item-title="title"
-                item-value="value"
                 :disabled="isFieldsDisabled"
                 density="compact"
                 hide-details
