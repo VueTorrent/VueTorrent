@@ -4,7 +4,7 @@ import ServerPathField from '@/components/Core/ServerPathField.vue'
 import { useI18nUtils } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { useAppStore, useCategoryStore, usePreferenceStore, useTagStore } from '@/stores'
+import { useAppStore, useCategoryStore, usePreferenceStore, useTagStore, useVueTorrentStore } from '@/stores'
 import { AddTorrentParams } from '@/types/qbit/models'
 
 const form = defineModel<AddTorrentParams>({ required: true })
@@ -14,6 +14,7 @@ const appStore = useAppStore()
 const categoryStore = useCategoryStore()
 const preferenceStore = usePreferenceStore()
 const tagStore = useTagStore()
+const vueTorrentStore = useVueTorrentStore()
 
 const contentLayoutOptions = [
   { title: t('common.useGlobalSettings'), value: null },
@@ -187,6 +188,7 @@ defineExpose({ saveFields })
       <ServerPathField
         ref="savePathField"
         v-model="form.save_path"
+        :extra-items="vueTorrentStore.favoriteSavePaths"
         :history-key="HistoryKey.TORRENT_PATH"
         :disabled="form.use_auto_tmm"
         :title="t('dialogs.add.params.save_path')"
