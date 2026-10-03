@@ -616,7 +616,6 @@ export default class QBitProvider implements IProvider {
       [ShareLimitAction.ENABLE_SUPERSEEDING]: 'EnableSuperSeeding',
     }
     const modeMap: Record<ShareLimitsMode, string> = {
-      [ShareLimitsMode.DEFAULT]: 'Default',
       [ShareLimitsMode.MATCH_ANY]: 'MatchAny',
       [ShareLimitsMode.MATCH_ALL]: 'MatchAll',
     }

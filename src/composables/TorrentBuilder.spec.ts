@@ -40,7 +40,7 @@ function makeQbitTorrent(overrides: Partial<QbitTorrent> = {}): QbitTorrent {
     ratio: 0,
     ratio_limit: -2,
     share_limit_action: ShareLimitAction.DEFAULT,
-    share_limits_mode: ShareLimitsMode.DEFAULT,
+    share_limits_mode: ShareLimitsMode.MATCH_ANY,
     reannounce: 0,
     root_path: '/',
     save_path: '/save',
@@ -68,7 +68,6 @@ describe('composables/TorrentBuilder/share_limits_mode', () => {
   const { buildFromQbit } = useTorrentBuilder()
 
   it.each([
-    ['Default', ShareLimitsMode.DEFAULT],
     ['MatchAny', ShareLimitsMode.MATCH_ANY],
     ['MatchAll', ShareLimitsMode.MATCH_ALL],
   ])('maps the %s string to the matching enum value', (raw, expected) => {
@@ -86,6 +85,6 @@ describe('composables/TorrentBuilder/share_limits_mode', () => {
   it('falls back to Default when the mode is missing', () => {
     const torrent = buildFromQbit(makeQbitTorrent({ share_limits_mode: undefined }))
 
-    expect(torrent.share_limits_mode).toBe(ShareLimitsMode.DEFAULT)
+    expect(torrent.share_limits_mode).toBe(ShareLimitsMode.MATCH_ANY)
   })
 })

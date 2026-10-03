@@ -31,22 +31,22 @@ export function useTorrentBuilder() {
 
   function mapShareLimitsMode(mode: ShareLimitsMode | number | string | null | undefined): ShareLimitsMode {
     if (typeof mode === 'number') return mode
-    if (mode == null) return ShareLimitsMode.DEFAULT
+    if (mode == null) return ShareLimitsMode.MATCH_ANY
     if (typeof mode === 'string') {
       // map qBittorrent >= 5.2 string values to enum
       switch (mode) {
         case 'Default':
-          return ShareLimitsMode.DEFAULT
+          return ShareLimitsMode.MATCH_ANY
         case 'MatchAny':
           return ShareLimitsMode.MATCH_ANY
         case 'MatchAll':
           return ShareLimitsMode.MATCH_ALL
         default:
-          return ShareLimitsMode.DEFAULT
+          return ShareLimitsMode.MATCH_ANY
       }
     }
 
-    return ShareLimitsMode.DEFAULT
+    return ShareLimitsMode.MATCH_ANY
   }
 
   function buildFromQbit(data: QbitTorrent): Torrent {
