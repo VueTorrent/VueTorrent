@@ -33,7 +33,7 @@ const inactiveSeedingTimeLimitEnabled = ref(false)
 const inactiveSeedingTimeLimit = ref(0)
 
 const shareLimitAction = ref<ShareLimitAction>(ShareLimitAction.DEFAULT)
-const shareLimitsMode = ref<ShareLimitsMode>(ShareLimitsMode.DEFAULT)
+const shareLimitsMode = ref<ShareLimitsMode>(ShareLimitsMode.MATCH_ANY)
 
 const isFieldsDisabled = computed(() => shareType.value !== 'enabled')
 
@@ -86,7 +86,7 @@ onBeforeMount(() => {
   const seeding_time_limit = torrent.seeding_time_limit
   const inactive_seeding_time_limit = torrent.inactive_seeding_time_limit
   shareLimitAction.value = torrent.share_limit_action ?? ShareLimitAction.DEFAULT
-  shareLimitsMode.value = torrent.share_limits_mode ?? ShareLimitsMode.DEFAULT
+  shareLimitsMode.value = torrent.share_limits_mode ?? ShareLimitsMode.MATCH_ANY
 
   if (ratio_limit === GLOBAL && seeding_time_limit === GLOBAL && inactive_seeding_time_limit === GLOBAL) {
     shareType.value = 'global'
