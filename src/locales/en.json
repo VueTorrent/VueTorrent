@@ -63,7 +63,8 @@
       "default": "Default",
       "memoryMappedFiles": "Memory mapped files",
       "posixCompliant": "POSIX-compliant",
-      "simplePreadPwrite": "Simple pread/pwrite"
+      "simplePreadPwrite": "Simple pread/pwrite",
+      "preadPwrite": "Pread/pwrite"
     },
     "encryption": {
       "forceOff": "Disable Encryption",
@@ -127,6 +128,10 @@
       "removeTorrentAndFiles": "Remove torrent and its files",
       "stopTorrent": "Stop torrent",
       "torrentSuperseeding": "Enable super seeding for torrent"
+    },
+    "shareLimitsMode": {
+      "matchAll": "Match all the limits",
+      "matchAny": "Match any limit"
     },
     "stopCondition": {
       "filesChecked": "Files Checked",
@@ -515,6 +520,7 @@
       "enabled": "Set share limit to",
       "global": "Use global share limit",
       "inactive_seeding_time_limit": "Inactive minutes",
+      "mode": "Mode",
       "ratio_limit": "Ratio",
       "seeding_time_limit": "Total minutes",
       "title": "Set share ratio limit"
@@ -838,6 +844,7 @@
         "requestQueueSize": "Maximum outstanding requests to a single peer",
         "security": {
           "allowMultipleConnectionsFromTheSameIPAddress": "Allow multiple connections from the same IP address",
+          "allowMultipleConnectionsFromTheSamePeerID": "Allow multiple connections from the same Peer ID",
           "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports",
           "idnSupport": "Enable Internationalized Domain Name (IDN) support",
           "mitigateSSRF": "Server-side request forgery (SSRF) mitigation",
@@ -943,6 +950,7 @@
         "subheader": "Privacy"
       },
       "seedLimits": {
+        "mode": "Mode",
         "subheader": "Seed Limits",
         "then": "Then",
         "whenInactiveSeedingTimeReaches": "When inactive seeding time reaches",

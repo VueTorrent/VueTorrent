@@ -20,6 +20,10 @@ const thenTypes = ref([
   { title: t('constants.shareLimitAction.removeTorrentAndFiles'), value: ShareLimitAction.REMOVE_TORRENT_AND_FILES },
   { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING },
 ])
+const shareLimitsModes: { title: string; value: string }[] = [
+  { title: t('constants.shareLimitsMode.matchAny'), value: 'MatchAny' },
+  { title: t('constants.shareLimitsMode.matchAll'), value: 'MatchAll' },
+]
 
 const trackerUrlListItems = computed<string[]>(() => {
   if (preferenceStore.preferences?.add_trackers_url_list) {
@@ -30,6 +34,13 @@ const trackerUrlListItems = computed<string[]>(() => {
   }
   return []
 })
+
+const shareLimitsDisabled = computed<boolean>(
+  () =>
+    !preferenceStore.preferences!.max_ratio_enabled &&
+    !preferenceStore.preferences!.max_seeding_time_enabled &&
+    !preferenceStore.preferences!.max_inactive_seeding_time_enabled,
+)
 </script>
 
 <template>
@@ -200,13 +211,24 @@ const trackerUrlListItems = computed<string[]>(() => {
         <v-col>
           <v-select
             v-model="preferenceStore.preferences!.max_ratio_act"
-            :disabled="
-              !preferenceStore.preferences!.max_ratio_enabled &&
-              !preferenceStore.preferences!.max_seeding_time_enabled &&
-              !preferenceStore.preferences!.max_inactive_seeding_time_enabled
-            "
+            :disabled="shareLimitsDisabled"
             hide-details
             :items="thenTypes" />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-list-item v-if="appStore.isWebApiVersionAtLeast('2.15.3')">
+      <v-row>
+        <v-col>
+          <v-list-subheader>{{ t('settings.bittorrent.seedLimits.mode') }}</v-list-subheader>
+        </v-col>
+        <v-col>
+          <v-select
+            v-model="preferenceStore.preferences!.share_limits_mode"
+            :disabled="shareLimitsDisabled"
+            hide-details
+            :items="shareLimitsModes" />
         </v-col>
       </v-row>
     </v-list-item>

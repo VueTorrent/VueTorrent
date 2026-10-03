@@ -139,6 +139,8 @@ export default interface AppPreferences {
   enable_embedded_tracker: boolean
   /** True allows multiple connections from the same IP address */
   enable_multi_connections_from_same_ip: boolean
+  /** True allows multiple connections from the same Peer ID */
+  enable_multi_connections_from_same_peer_id: boolean
   /** True if the advanced libtorrent option piece_extent_affinity is enabled */
   enable_piece_extent_affinity: boolean
   /** True enables sending of upload piece suggestions */
@@ -345,6 +347,8 @@ export default interface AppPreferences {
   send_buffer_watermark: number
   /** Send buffer watermark factor in percent */
   send_buffer_watermark_factor: number
+  /** Mode used to combine the global share limits (qBittorrent >= 5.2.0) */
+  share_limits_mode: string
   /** Download rate in KiB/s for a torrent to be considered "slow" */
   slow_torrent_dl_rate_threshold: number
   /** Seconds a torrent should be inactive before considered "slow" */

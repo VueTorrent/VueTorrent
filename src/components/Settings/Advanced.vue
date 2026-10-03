@@ -37,12 +37,20 @@ const ipAddressesOptions = ref([
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv4'), value: '0.0.0.0' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv6'), value: '::' },
 ])
-const diskIoTypeOptions = [
-  { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
-  { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
-  { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
-  { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE },
-]
+const diskIoTypeOptions = computed(() => {
+  const options = [
+    { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
+    { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
+    { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
+    { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE },
+  ]
+
+  if (appStore.usesLibtorrent21) {
+    options.push({ title: t('constants.diskIoType.preadPwrite'), value: DiskIOType.PREAD_PWRITE })
+  }
+
+  return options
+})
 const diskIoModeReadOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
   { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },
@@ -405,6 +413,12 @@ onBeforeMount(async () => {
             v-model="pref!.enable_multi_connections_from_same_ip"
             hide-details
             :label="t('settings.advanced.libtorrent.security.allowMultipleConnectionsFromTheSameIPAddress')" />
+        </v-col>
+        <v-col v-if="appStore.isWebApiVersionAtLeast('2.16.0')" cols="12" sm="6">
+          <v-checkbox
+            v-model="pref!.enable_multi_connections_from_same_peer_id"
+            hide-details
+            :label="t('settings.advanced.libtorrent.security.allowMultipleConnectionsFromTheSamePeerID')" />
         </v-col>
 
         <v-col cols="12" sm="4">

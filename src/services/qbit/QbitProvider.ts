@@ -22,11 +22,12 @@ import type {
   TorrentFile,
   TorrentProperties,
   Tracker,
+  WebAPIVersion,
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import { ShareLimitAction } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitsMode } from '@/types/vuetorrent'
 
 type Parameters = Record<string, any>
 
@@ -77,6 +78,10 @@ export default class QBitProvider implements IProvider {
       .get('/app/version')
       .then(res => res.data)
       .then(version => (version.includes('v') ? version.substring(1) : version))
+  }
+
+  async getWebAPIVersion(): Promise<WebAPIVersion> {
+    return this.axios.get('/app/webapiVersion').then(res => res.data)
   }
 
   async getPreferences(): Promise<AppPreferences> {
@@ -595,13 +600,24 @@ export default class QBitProvider implements IProvider {
     return this.axios.get('/torrents/count').then(res => res.data)
   }
 
-  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number, shareLimitAction: ShareLimitAction): Promise<void> {
+  async setShareLimit(
+    hashes: string[],
+    ratioLimit: number,
+    seedingTimeLimit: number,
+    inactiveSeedingTimeLimit: number,
+    shareLimitAction: ShareLimitAction,
+    shareLimitsMode: ShareLimitsMode
+  ): Promise<void> {
     const actionMap: Record<ShareLimitAction, string> = {
       [ShareLimitAction.DEFAULT]: 'Default',
       [ShareLimitAction.STOP_TORRENT]: 'Stop',
       [ShareLimitAction.REMOVE_TORRENT]: 'Remove',
       [ShareLimitAction.REMOVE_TORRENT_AND_FILES]: 'RemoveWithContent',
       [ShareLimitAction.ENABLE_SUPERSEEDING]: 'EnableSuperSeeding',
+    }
+    const modeMap: Record<ShareLimitsMode, string> = {
+      [ShareLimitsMode.MATCH_ANY]: 'MatchAny',
+      [ShareLimitsMode.MATCH_ALL]: 'MatchAll',
     }
 
     return this.post(`/torrents/setShareLimits`, {
@@ -610,6 +626,7 @@ export default class QBitProvider implements IProvider {
       seedingTimeLimit,
       inactiveSeedingTimeLimit,
       shareLimitAction: actionMap[shareLimitAction],
+      shareLimitsMode: modeMap[shareLimitsMode],
     }).then(res => res.data)
   }
 

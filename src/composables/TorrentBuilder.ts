@@ -2,7 +2,7 @@ import { TorrentState } from '@/constants/qbit'
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
 import { QbitTorrent } from '@/types/qbit/models'
-import { ShareLimitAction, ShareLimitActionString, Torrent } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitActionString, ShareLimitsMode, Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {
   function mapShareLimitAction(action: ShareLimitAction | number | ShareLimitActionString | null | undefined): ShareLimitAction {
@@ -27,6 +27,26 @@ export function useTorrentBuilder() {
     }
 
     return ShareLimitAction.DEFAULT
+  }
+
+  function mapShareLimitsMode(mode: ShareLimitsMode | number | string | null | undefined): ShareLimitsMode {
+    if (typeof mode === 'number') return mode
+    if (mode == null) return ShareLimitsMode.MATCH_ANY
+    if (typeof mode === 'string') {
+      // map qBittorrent >= 5.2 string values to enum
+      switch (mode) {
+        case 'Default':
+          return ShareLimitsMode.MATCH_ANY
+        case 'MatchAny':
+          return ShareLimitsMode.MATCH_ANY
+        case 'MatchAll':
+          return ShareLimitsMode.MATCH_ALL
+        default:
+          return ShareLimitsMode.MATCH_ANY
+      }
+    }
+
+    return ShareLimitsMode.MATCH_ANY
   }
 
   function buildFromQbit(data: QbitTorrent): Torrent {
@@ -66,6 +86,7 @@ export function useTorrentBuilder() {
       ratio: Math.round(data.ratio * 100) / 100,
       ratio_limit: data.ratio_limit,
       share_limit_action: mapShareLimitAction(data.share_limit_action),
+      share_limits_mode: mapShareLimitsMode(data.share_limits_mode),
       reannounce: data.reannounce,
       rootPath: data.root_path,
       savePath: data.save_path,
