@@ -4,7 +4,6 @@ import { useI18nUtils } from '@/composables'
 import { Encryption } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
 import { ShareLimitAction } from '@/types/vuetorrent'
-import type { ShareLimitsModeString } from '@/types/vuetorrent'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -21,7 +20,7 @@ const thenTypes = ref([
   { title: t('constants.shareLimitAction.removeTorrentAndFiles'), value: ShareLimitAction.REMOVE_TORRENT_AND_FILES },
   { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING },
 ])
-const shareLimitsModes: { title: string; value: ShareLimitsModeString }[] = [
+const shareLimitsModes: { title: string; value: string }[] = [
   { title: t('constants.shareLimitsMode.matchAny'), value: 'MatchAny' },
   { title: t('constants.shareLimitsMode.matchAll'), value: 'MatchAll' },
 ]
@@ -35,6 +34,13 @@ const trackerUrlListItems = computed<string[]>(() => {
   }
   return []
 })
+
+const shareLimitsDisabled = computed<boolean>(
+  () =>
+    !preferenceStore.preferences!.max_ratio_enabled &&
+    !preferenceStore.preferences!.max_seeding_time_enabled &&
+    !preferenceStore.preferences!.max_inactive_seeding_time_enabled,
+)
 </script>
 
 <template>
@@ -205,11 +211,7 @@ const trackerUrlListItems = computed<string[]>(() => {
         <v-col>
           <v-select
             v-model="preferenceStore.preferences!.max_ratio_act"
-            :disabled="
-              !preferenceStore.preferences!.max_ratio_enabled &&
-              !preferenceStore.preferences!.max_seeding_time_enabled &&
-              !preferenceStore.preferences!.max_inactive_seeding_time_enabled
-            "
+            :disabled="shareLimitsDisabled"
             hide-details
             :items="thenTypes" />
         </v-col>
@@ -224,11 +226,7 @@ const trackerUrlListItems = computed<string[]>(() => {
         <v-col>
           <v-select
             v-model="preferenceStore.preferences!.share_limits_mode"
-            :disabled="
-              !preferenceStore.preferences!.max_ratio_enabled &&
-              !preferenceStore.preferences!.max_seeding_time_enabled &&
-              !preferenceStore.preferences!.max_inactive_seeding_time_enabled
-            "
+            :disabled="shareLimitsDisabled"
             hide-details
             :items="shareLimitsModes" />
         </v-col>

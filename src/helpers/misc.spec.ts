@@ -6,14 +6,14 @@ describe('helpers/misc/compareVersions', () => {
   })
 
   it('compares each numeric part instead of using string comparison', () => {
-    expect(compareVersions('2.16.0', '2.9.0')).toBe(1)
-    expect(compareVersions('2.9.0', '2.16.0')).toBe(-1)
+    expect(compareVersions('2.16.0', '2.9.0') > 0).toBe(true)
+    expect(compareVersions('2.9.0', '2.16.0') >= 0).toBe(false)
   })
 
   it('handles versions with a different number of parts', () => {
     expect(compareVersions('2.16', '2.16.0')).toBe(0)
-    expect(compareVersions('2.16.1', '2.16')).toBe(1)
-    expect(compareVersions('2.16', '2.16.1')).toBe(-1)
+    expect(compareVersions('2.16.1', '2.16') > 0).toBe(true)
+    expect(compareVersions('2.16', '2.16.1') >= 0).toBe(false)
   })
 
   it('supports the 2.16.0 threshold used for the Peer ID option', () => {

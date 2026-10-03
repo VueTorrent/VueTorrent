@@ -14,7 +14,7 @@ import type {
   UtpTcpMixedMode,
 } from '@/constants/qbit/AppPreferences'
 import { AutoDeleteMode, FileLogAgeType, ResumeDataStorageType, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
-import type { ShareLimitAction, ShareLimitsModeString } from '@/types/vuetorrent'
+import type { ShareLimitAction } from '@/types/vuetorrent'
 
 export interface NetworkInterface {
   name: string
@@ -348,7 +348,7 @@ export default interface AppPreferences {
   /** Send buffer watermark factor in percent */
   send_buffer_watermark_factor: number
   /** Mode used to combine the global share limits (qBittorrent >= 5.2.0) */
-  share_limits_mode: ShareLimitsModeString
+  share_limits_mode: string
   /** Download rate in KiB/s for a torrent to be considered "slow" */
   slow_torrent_dl_rate_threshold: number
   /** Seconds a torrent should be inactive before considered "slow" */

@@ -615,7 +615,7 @@ export default class QBitProvider implements IProvider {
       [ShareLimitAction.REMOVE_TORRENT_AND_FILES]: 'RemoveWithContent',
       [ShareLimitAction.ENABLE_SUPERSEEDING]: 'EnableSuperSeeding',
     }
-    const modeMap: Record<ShareLimitsMode, ShareLimitsModeString> = {
+    const modeMap: Record<ShareLimitsMode, string> = {
       [ShareLimitsMode.DEFAULT]: 'Default',
       [ShareLimitsMode.MATCH_ANY]: 'MatchAny',
       [ShareLimitsMode.MATCH_ALL]: 'MatchAll',

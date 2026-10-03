@@ -8,11 +8,10 @@ import type SearchResult from './SearchResult'
 import { ShareLimitAction } from './ShareLimitAction'
 import type { ShareLimitActionString } from './ShareLimitAction'
 import { ShareLimitsMode } from './ShareLimitsMode'
-import type { ShareLimitsModeString } from './ShareLimitsMode'
 import type SidebarWidget from './SidebarWidget'
 import type Torrent from './Torrent'
 import { TreeFile, TreeFolder } from './TreeObjects'
 import type { TreeNode } from './TreeObjects'
 
 export { Cookie, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder }
-export type { RssArticle, RssFeed, SearchData, Torrent, TreeNode, RightClickMenuEntryType, RightClickProperties, SearchResult, SidebarWidget, ShareLimitActionString, ShareLimitsModeString }
+export type { RssArticle, RssFeed, SearchData, Torrent, TreeNode, RightClickMenuEntryType, RightClickProperties, SearchResult, SidebarWidget, ShareLimitActionString }
