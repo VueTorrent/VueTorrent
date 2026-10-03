@@ -45,7 +45,7 @@ function makeMockTorrent(overrides: Partial<Torrent> = {}): Torrent {
     ratio: 1.2,
     ratio_limit: 2.0,
     share_limit_action: ShareLimitAction.DEFAULT,
-    share_limits_mode: ShareLimitsMode.DEFAULT,
+    share_limits_mode: ShareLimitsMode.MATCH_ANY,
     reannounce: 30,
     rootPath: '/root',
     savePath: '/save',
