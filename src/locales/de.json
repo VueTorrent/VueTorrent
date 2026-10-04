@@ -736,10 +736,6 @@
         "value": "Keine RSS-Regeln registriert"
       },
       "title": "RSS-Regeln"
-    },
-    "toggle": {
-      "feeds": "Feeds anzeigen",
-      "rules": "Regeln anzeigen"
     }
   },
   "searchEngine": {

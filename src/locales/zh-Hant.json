@@ -635,10 +635,6 @@
         "value": "未有配置的RSS規則"
       },
       "title": "RSS規則"
-    },
-    "toggle": {
-      "feeds": "顯示訂閱資訊",
-      "rules": "顯示訂閱規則"
     }
   },
   "searchEngine": {

@@ -725,10 +725,6 @@
         "value": "未注册任何 RSS 规则"
       },
       "title": "RSS 规则"
-    },
-    "toggle": {
-      "feeds": "展示订阅消息",
-      "rules": "展示订阅规则"
     }
   },
   "searchEngine": {

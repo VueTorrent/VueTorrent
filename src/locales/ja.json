@@ -532,10 +532,6 @@
         "value": "RSSルールが登録されていません"
       },
       "title": "RSSルール"
-    },
-    "toggle": {
-      "feeds": "フィードを表示",
-      "rules": "ルールを表示"
     }
   },
   "searchEngine": {

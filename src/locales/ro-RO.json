@@ -731,10 +731,6 @@
         "value": "Nu există reguli RSS înregistrate"
       },
       "title": "Reguli RSS"
-    },
-    "toggle": {
-      "feeds": "Arată fluxurile",
-      "rules": "Arată regulile"
     }
   },
   "searchEngine": {
