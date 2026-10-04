@@ -736,10 +736,6 @@
         "value": "Aucune règle RSS enregistrée"
       },
       "title": "Règles RSS"
-    },
-    "toggle": {
-      "feeds": "Afficher les flux",
-      "rules": "Afficher les règles"
     }
   },
   "searchEngine": {
