@@ -1,0 +1,20 @@
+name: Notify Discord webhook of stable releases
+on:
+  release:
+    types:
+    - released
+
+permissions:
+  contents: read
+
+jobs:
+  release-to-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Send release to Discord Webhook
+        uses: VueTorrent/release-to-discord@main
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}

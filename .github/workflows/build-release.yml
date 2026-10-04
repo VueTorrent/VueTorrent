@@ -30,6 +30,7 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          token: ${{ secrets.GH_PAT }}
 
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -46,20 +47,6 @@ jobs:
         run: |
           git tag -f latest_nightly
           git push -f --tags
-
-  notify-release:
-    name: Notify Discord webhook of stable releases
-    needs: setup-release
-    if: needs.setup-release.outputs.release_created
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Send release to Discord Webhook
-        uses: VueTorrent/release-to-discord@main
-        with:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
 
   build-release:
     name: Build VueTorrent
