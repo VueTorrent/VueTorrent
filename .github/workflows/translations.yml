@@ -3,7 +3,6 @@ name: Update Translations
 on:
   workflow_dispatch:
   schedule:
-    # At 00:00 on Sunday.
     - cron: '0 0 * * 0'
 
 permissions:

@@ -8,16 +8,16 @@ on:
     branches:
     - "master"
     paths:
-      - '**/*.js'
-      - '**/*.ts'
-      - '**/*.vue'
+      - "**/*.js"
+      - "**/*.ts"
+      - "**/*.vue"
   schedule:
-    - cron: '24 21 * * 3'
+    - cron: "24 21 * * 3"
 
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     permissions:
       security-events: write
       packages: read

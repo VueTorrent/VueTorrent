@@ -8,6 +8,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   setup-release:
     name: Run Release Please action
@@ -27,7 +30,6 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-          token: ${{ secrets.GH_PAT }}
 
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -44,6 +46,20 @@ jobs:
         run: |
           git tag -f latest_nightly
           git push -f --tags
+
+  notify-release:
+    name: Notify Discord webhook of stable releases
+    needs: setup-release
+    if: needs.setup-release.outputs.release_created
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Send release to Discord Webhook
+        uses: VueTorrent/release-to-discord@main
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
 
   build-release:
     name: Build VueTorrent
@@ -179,13 +195,15 @@ jobs:
         with:
           folder: './vuetorrent-demo'
           repository-name: 'VueTorrent/demo'
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.GH_PAT }}  # Required for cross-repository push
 
   upload-release:
     name: Upload release to GitHub
     needs: [ setup-release, build-release ]
     if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/download-artifact@v8
         with:
@@ -210,6 +228,8 @@ jobs:
     needs: [ setup-release, build-release ]
     if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
