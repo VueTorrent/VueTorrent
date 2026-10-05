@@ -9,7 +9,7 @@ import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
-import { SearchData, SearchResult } from '@/types/vuetorrent'
+import { SearchData, SearchResult, SearchSortBy } from '@/types/vuetorrent'
 
 const { mobile } = useDisplay()
 const { t } = useI18nUtils()
@@ -21,7 +21,8 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
-const { dateFormat } = storeToRefs(useVueTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
+const { dateFormat } = storeToRefs(vueTorrentStore)
 
 const queryInput = ref<typeof HistoryField>()
 
@@ -53,6 +54,11 @@ const categories = [
 ]
   .sort((a, b) => comparators.text.asc(a.title, b.title))
   .toSpliced(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
+
+function updateSortBy(sortBy: SearchSortBy[]) {
+  selectedTab.value.sortBy = sortBy
+  vueTorrentStore.searchEngineSortBy = sortBy
+}
 
 const plugins = computed(() => [
   { title: t('searchEngine.filters.plugins.all'), value: 'all' },
@@ -237,6 +243,8 @@ onBeforeUnmount(() => {
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
+          :sort-by="selectedTab.sortBy ?? []"
+          @update:sort-by="updateSortBy"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
@@ -323,6 +331,8 @@ onBeforeUnmount(() => {
         <v-data-table
           v-else
           v-model:items-per-page="selectedTab.itemsPerPage"
+          :sort-by="selectedTab.sortBy ?? []"
+          @update:sort-by="updateSortBy"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"

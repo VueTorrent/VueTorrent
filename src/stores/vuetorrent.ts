@@ -16,6 +16,7 @@ import {
   TorrentDetailTab,
   TorrentProperty,
 } from '@/constants/vuetorrent'
+import type { SearchSortBy } from '@/types/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
 
 export const useVueTorrentStore = defineStore(
@@ -54,6 +55,7 @@ export const useVueTorrentStore = defineStore(
     const enableRawValueTooltips = ref(true)
     const thousandSeparator = ref(' ')
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
+    const searchEngineSortBy = ref<SearchSortBy[]>([])
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
     const logoutUrl = ref('')
 
@@ -307,6 +309,7 @@ export const useVueTorrentStore = defineStore(
       reduceMotion,
       keepDefaultTransitions,
       defaultTorrentDetailTab,
+      searchEngineSortBy,
       logoutUrl,
       $reset: () => {
         language.value = 'en'
@@ -338,6 +341,7 @@ export const useVueTorrentStore = defineStore(
         expandContent.value = true
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
+        searchEngineSortBy.value = []
         tableColumnWidths.value = {}
         logoutUrl.value = ''
 
