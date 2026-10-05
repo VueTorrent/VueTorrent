@@ -28,6 +28,7 @@ import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import { ShareLimitAction, ShareLimitsMode } from '@/types/vuetorrent'
+import type { ShareLimitsModeString } from '@/types/vuetorrent'
 
 type Parameters = Record<string, any>
 
@@ -615,7 +616,7 @@ export default class QBitProvider implements IProvider {
       [ShareLimitAction.REMOVE_TORRENT_AND_FILES]: 'RemoveWithContent',
       [ShareLimitAction.ENABLE_SUPERSEEDING]: 'EnableSuperSeeding',
     }
-    const modeMap: Record<ShareLimitsMode, string> = {
+    const modeMap: Record<ShareLimitsMode, ShareLimitsModeString> = {
       [ShareLimitsMode.MATCH_ANY]: 'MatchAny',
       [ShareLimitsMode.MATCH_ALL]: 'MatchAll',
     }

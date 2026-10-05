@@ -4,6 +4,7 @@ import { useI18nUtils } from '@/composables'
 import { Encryption } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
 import { ShareLimitAction } from '@/types/vuetorrent'
+import type { ShareLimitsModeString } from '@/types/vuetorrent'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -20,7 +21,7 @@ const thenTypes = ref([
   { title: t('constants.shareLimitAction.removeTorrentAndFiles'), value: ShareLimitAction.REMOVE_TORRENT_AND_FILES },
   { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING },
 ])
-const shareLimitsModes: { title: string; value: string }[] = [
+const shareLimitsModes: { title: string; value: ShareLimitsModeString }[] = [
   { title: t('constants.shareLimitsMode.matchAny'), value: 'MatchAny' },
   { title: t('constants.shareLimitsMode.matchAll'), value: 'MatchAll' },
 ]

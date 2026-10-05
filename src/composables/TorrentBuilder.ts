@@ -2,7 +2,7 @@ import { TorrentState } from '@/constants/qbit'
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
 import { QbitTorrent } from '@/types/qbit/models'
-import { ShareLimitAction, ShareLimitActionString, ShareLimitsMode, Torrent } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitActionString, ShareLimitsMode, ShareLimitsModeString, Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {
   function mapShareLimitAction(action: ShareLimitAction | number | ShareLimitActionString | null | undefined): ShareLimitAction {
@@ -29,7 +29,7 @@ export function useTorrentBuilder() {
     return ShareLimitAction.DEFAULT
   }
 
-  function mapShareLimitsMode(mode: ShareLimitsMode | number | string | null | undefined): ShareLimitsMode {
+  function mapShareLimitsMode(mode: ShareLimitsMode | number | ShareLimitsModeString | null | undefined): ShareLimitsMode {
     if (typeof mode === 'number') return mode
     if (mode == null) return ShareLimitsMode.MATCH_ANY
     if (typeof mode === 'string') {
