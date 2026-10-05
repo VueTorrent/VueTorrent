@@ -1,6 +1,7 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
+import { useVueTorrentStore } from './vuetorrent'
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
@@ -12,6 +13,7 @@ export const useSearchEngineStore = defineStore(
     const searchPlugins = ref<SearchPlugin[]>([])
 
     function createNewTab() {
+      const vueTorrentStore = useVueTorrentStore()
       searchData.value.push({
         uniqueId: uuidv4(),
         id: 0,
@@ -25,6 +27,7 @@ export const useSearchEngineStore = defineStore(
         },
         results: [],
         timer: null,
+        sortBy: [...vueTorrentStore.searchEngineSortBy],
       })
     }
 
