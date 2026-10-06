@@ -57,10 +57,10 @@ function close() {
 async function submit() {
   switch (shareType.value) {
     case 'global':
-      await maindataStore.setShareLimit(props.hashes, GLOBAL, GLOBAL, GLOBAL, ShareLimitAction.DEFAULT, ShareLimitsMode.MATCH_ANY)
+      await maindataStore.setShareLimit(props.hashes, GLOBAL, GLOBAL, GLOBAL, ShareLimitAction.DEFAULT, ShareLimitsMode.DEFAULT)
       break
     case 'disabled':
-      await maindataStore.setShareLimit(props.hashes, DISABLED, DISABLED, DISABLED, ShareLimitAction.DEFAULT, ShareLimitsMode.MATCH_ANY)
+      await maindataStore.setShareLimit(props.hashes, DISABLED, DISABLED, DISABLED, ShareLimitAction.DEFAULT, ShareLimitsMode.DEFAULT)
       break
     case 'enabled':
       await maindataStore.setShareLimit(
