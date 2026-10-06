@@ -23,12 +23,14 @@ import type TorrentProperties from './TorrentProperties'
 import type Tracker from './Tracker'
 
 type ApplicationVersion = string
+type WebAPIVersion = string
 
 export { getEmptyParams }
 
 export type {
   AddTorrentParams,
   ApplicationVersion,
+  WebAPIVersion,
   AppPreferences,
   BuildInfo,
   Category,

@@ -1,4 +1,27 @@
-import { arrayRemove } from './misc'
+import { arrayRemove, compareVersions } from './misc'
+
+describe('helpers/misc/compareVersions', () => {
+  it('returns 0 for equal versions', () => {
+    expect(compareVersions('2.16.0', '2.16.0')).toBe(0)
+  })
+
+  it('compares each numeric part instead of using string comparison', () => {
+    expect(compareVersions('2.16.0', '2.9.0') > 0).toBe(true)
+    expect(compareVersions('2.9.0', '2.16.0') >= 0).toBe(false)
+  })
+
+  it('handles versions with a different number of parts', () => {
+    expect(compareVersions('2.16', '2.16.0')).toBe(0)
+    expect(compareVersions('2.16.1', '2.16') > 0).toBe(true)
+    expect(compareVersions('2.16', '2.16.1') >= 0).toBe(false)
+  })
+
+  it('supports the 2.16.0 threshold used for the Peer ID option', () => {
+    expect(compareVersions('2.16.0', '2.16.0') >= 0).toBe(true)
+    expect(compareVersions('2.16.2', '2.16.0') >= 0).toBe(true)
+    expect(compareVersions('2.15.1', '2.16.0') >= 0).toBe(false)
+  })
+})
 
 describe('helpers/misc/arrayRemove', () => {
   it('removes a single occurrence of a value', () => {

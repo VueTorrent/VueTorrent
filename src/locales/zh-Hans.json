@@ -63,7 +63,8 @@
       "default": "默认",
       "memoryMappedFiles": "文件映射",
       "posixCompliant": "符合 POSIX 标准",
-      "simplePreadPwrite": "简单的 pread/pwrite"
+      "simplePreadPwrite": "简单的 pread/pwrite",
+      "preadPwrite": "pread/pwrite"
     },
     "encryption": {
       "forceOff": "禁用加密",
@@ -127,6 +128,10 @@
       "removeTorrentAndFiles": "移除种子及其文件",
       "stopTorrent": "暂停种子",
       "torrentSuperseeding": "启用超级做种模式"
+    },
+    "shareLimitsMode": {
+      "matchAll": "满足所有限制",
+      "matchAny": "满足任一限制"
     },
     "stopCondition": {
       "filesChecked": "文件校验完成",
@@ -509,6 +514,7 @@
       "enabled": "设置分享限制为",
       "global": "使用全局分享限制",
       "inactive_seeding_time_limit": "非活跃时长 (分钟)",
+      "mode": "模式",
       "ratio_limit": "分享率",
       "seeding_time_limit": "总做种时长 (分钟)",
       "title": "设置分享率限制"
@@ -823,6 +829,7 @@
         "requestQueueSize": "单一 Peer 的最大未完成请求",
         "security": {
           "allowMultipleConnectionsFromTheSameIPAddress": "允许来自同一 IP 地址的多个连接",
+          "allowMultipleConnectionsFromTheSamePeerID": "允许来自同一 Peer ID 的多个连接",
           "blockPeersOnPrivilegedPorts": "禁止连接到特权端口上的 Peer",
           "idnSupport": "启用国际化域名 (IDN) 支持",
           "mitigateSSRF": "服务器端请求伪造 (SSRF) 缓解",
@@ -928,6 +935,7 @@
         "subheader": "隐私"
       },
       "seedLimits": {
+        "mode": "模式",
         "subheader": "做种限制",
         "then": "随后",
         "whenInactiveSeedingTimeReaches": "当非活跃做种时长达到",

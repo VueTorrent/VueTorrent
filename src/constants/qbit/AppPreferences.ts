@@ -97,6 +97,8 @@ export enum DiskIOType {
   MEMORY_MAPPED_FILES = 1,
   POSIX_COMPLIANT = 2,
   SIMPLE_PREAD_PWRITE = 3,
+  // Only available with libtorrent >= 2.1.0
+  PREAD_PWRITE = 4,
 }
 
 export enum DiskIOMode {
