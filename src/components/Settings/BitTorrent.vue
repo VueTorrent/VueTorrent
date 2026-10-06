@@ -37,10 +37,7 @@ const trackerUrlListItems = computed<string[]>(() => {
 })
 
 const shareLimitsDisabled = computed<boolean>(
-  () =>
-    !preferenceStore.preferences!.max_ratio_enabled &&
-    !preferenceStore.preferences!.max_seeding_time_enabled &&
-    !preferenceStore.preferences!.max_inactive_seeding_time_enabled,
+  () => !preferenceStore.preferences!.max_ratio_enabled && !preferenceStore.preferences!.max_seeding_time_enabled && !preferenceStore.preferences!.max_inactive_seeding_time_enabled
 )
 </script>
 
@@ -210,11 +207,7 @@ const shareLimitsDisabled = computed<boolean>(
           <v-list-subheader>{{ t('settings.bittorrent.seedLimits.then') }}</v-list-subheader>
         </v-col>
         <v-col>
-          <v-select
-            v-model="preferenceStore.preferences!.max_ratio_act"
-            :disabled="shareLimitsDisabled"
-            hide-details
-            :items="thenTypes" />
+          <v-select v-model="preferenceStore.preferences!.max_ratio_act" :disabled="shareLimitsDisabled" hide-details :items="thenTypes" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -225,11 +218,7 @@ const shareLimitsDisabled = computed<boolean>(
           <v-list-subheader>{{ t('settings.bittorrent.seedLimits.mode') }}</v-list-subheader>
         </v-col>
         <v-col>
-          <v-select
-            v-model="preferenceStore.preferences!.share_limits_mode"
-            :disabled="shareLimitsDisabled"
-            hide-details
-            :items="shareLimitsModes" />
+          <v-select v-model="preferenceStore.preferences!.share_limits_mode" :disabled="shareLimitsDisabled" hide-details :items="shareLimitsModes" />
         </v-col>
       </v-row>
     </v-list-item>

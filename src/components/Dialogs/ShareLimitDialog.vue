@@ -141,13 +141,7 @@ onBeforeMount(() => {
                 :label="$t('dialogs.share_limit.inactive_seeding_time_limit')" />
             </v-col>
             <v-col v-if="appStore.isWebApiVersionAtLeast('2.15.3')" cols="12">
-              <v-select
-                v-model="shareLimitsMode"
-                :items="shareLimitsModes"
-                :disabled="isFieldsDisabled"
-                density="compact"
-                hide-details
-                :label="$t('dialogs.share_limit.mode')" />
+              <v-select v-model="shareLimitsMode" :items="shareLimitsModes" :disabled="isFieldsDisabled" density="compact" hide-details :label="$t('dialogs.share_limit.mode')" />
             </v-col>
             <v-col v-if="appStore.isFeatureAvailable('5.2.0')" cols="12">
               <v-select
