@@ -275,6 +275,7 @@
     "sortLabel": "排序方式",
     "toggleSearchFilter": "切换搜索过滤器",
     "toggleSelectMode": "切换选择模式",
+    "toggleSortFavourite": "固定/取消固定排序选项",
     "toggleSortOrder": "反转排序",
     "torrentsCount": "无种子 | {n} 个种子 | {n} 个种子"
   },

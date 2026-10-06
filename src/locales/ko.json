@@ -197,6 +197,7 @@
     "sortLabel": "정렬 기준",
     "toggleSearchFilter": "검색 필터 전환",
     "toggleSelectMode": "선택 모드 전환",
+    "toggleSortFavourite": "정렬 옵션 고정/해제",
     "toggleSortOrder": "역순 정렬",
     "torrentsCount": "토렌트 없음 | {n}개의 토렌트 | {n}개의 토렌트"
   },

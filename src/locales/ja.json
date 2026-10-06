@@ -211,6 +211,7 @@
     "sortLabel": "並び替え",
     "toggleSearchFilter": "検索フィルターの切り替え",
     "toggleSelectMode": "選択モードの切り替え",
+    "toggleSortFavourite": "並べ替えオプションを固定/解除",
     "toggleSortOrder": "並び順を変える",
     "torrentsCount": "Torrentなし | {n}個のTorrent | {n}個のTorrent"
   },

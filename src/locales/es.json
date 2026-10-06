@@ -198,6 +198,7 @@
     "sortLabel": "Ordenar por",
     "toggleSearchFilter": "Alternar filtro de búsqueda",
     "toggleSelectMode": "Activar modo de selección",
+    "toggleSortFavourite": "Fijar/desfijar opción de ordenación",
     "toggleSortOrder": "Orden inverso",
     "torrentsCount": "No hay torrents | {n} torrent | {n} torrents"
   },

@@ -277,6 +277,7 @@
     "sortLabel": "Sortieren nach",
     "toggleSearchFilter": "Suchfilter umschalten",
     "toggleSelectMode": "Auswahlmodus umschalten",
+    "toggleSortFavourite": "Sortieroption anheften/lösen",
     "toggleSortOrder": "Umgekehrte Sortierreihenfolge",
     "torrentsCount": "Keine Torrents | {n} Torrent | {n} Torrents"
   },

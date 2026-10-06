@@ -16,5 +16,8 @@
     "connectionStatus": {
       "connected": "Verbonden"
     }
+  },
+  "dashboard": {
+    "toggleSortFavourite": "Sorteeroptie vastmaken/losmaken"
   }
 }

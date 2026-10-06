@@ -53,7 +53,7 @@ export const useVueTorrentStore = defineStore(
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
-    const torrentSortFavourites = ref<string[]>([])
+    const torrentSortFavourites = ref<Set<string>>(new Set())
     const logoutUrl = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -230,15 +230,14 @@ export const useVueTorrentStore = defineStore(
     }
 
     function isTorrentSortFavourite(value: string) {
-      return torrentSortFavourites.value.includes(value)
+      return torrentSortFavourites.value.has(value)
     }
 
     function toggleTorrentSortFavourite(value: string) {
-      const index = torrentSortFavourites.value.indexOf(value)
-      if (index === -1) {
-        torrentSortFavourites.value.push(value)
+      if (torrentSortFavourites.value.has(value)) {
+        torrentSortFavourites.value.delete(value)
       } else {
-        torrentSortFavourites.value.splice(index, 1)
+        torrentSortFavourites.value.add(value)
       }
     }
 
@@ -350,7 +349,7 @@ export const useVueTorrentStore = defineStore(
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
         tableColumnWidths.value = {}
-        torrentSortFavourites.value = []
+        torrentSortFavourites.value = new Set()
         logoutUrl.value = ''
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
@@ -366,7 +365,23 @@ export const useVueTorrentStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, key: 'webuiSettings' }],
+      storageItems: [
+        {
+          storage: localStorage,
+          key: 'webuiSettings',
+          // torrentSortFavourites is a Set, which JSON.stringify would flatten to {}
+          serializer: {
+            serialize: state => JSON.stringify(state, (_key, value) => (value instanceof Set ? [...value] : value)),
+            deserialize: value => {
+              const state = JSON.parse(value)
+              if (Array.isArray(state?.torrentSortFavourites)) {
+                state.torrentSortFavourites = new Set(state.torrentSortFavourites)
+              }
+              return state
+            },
+          },
+        },
+      ],
     },
   }
 )

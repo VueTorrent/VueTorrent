@@ -186,6 +186,7 @@
     "sortLabel": "Ordina per",
     "toggleSearchFilter": "Attiva/disattiva filtro di ricerca",
     "toggleSelectMode": "Attiva/disattiva modalità di selezione",
+    "toggleSortFavourite": "Fissa/rimuovi l'opzione di ordinamento",
     "toggleSortOrder": "Ordinamento Inverso",
     "torrentsCount": "Nessun Torrent | {n} Torrent | {n} Torrent"
   },

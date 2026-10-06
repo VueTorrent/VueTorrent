@@ -197,6 +197,7 @@
     "sortLabel": "Sortuj według",
     "toggleSearchFilter": "Przełącz filtr wyszukiwania",
     "toggleSelectMode": "Przełącz tryb wyboru",
+    "toggleSortFavourite": "Przypnij/odepnij opcję sortowania",
     "toggleSortOrder": "Odwróć kolejność sortowania",
     "torrentsCount": "Brak torrentów | {n} torrent | {n} torrentów"
   },

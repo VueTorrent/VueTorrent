@@ -275,6 +275,7 @@
     "sortLabel": "Sortează după",
     "toggleSearchFilter": "Comută filtrul de căutare",
     "toggleSelectMode": "Comută modul de selecție",
+    "toggleSortFavourite": "Fixare/defixare opțiunea de sortare",
     "toggleSortOrder": "Inversează ordinea de sortare",
     "torrentsCount": "Niciun torrent | {n} torrent | {n} torrente"
   },

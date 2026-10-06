@@ -191,7 +191,8 @@
       }
     },
     "selectAll": "(Od)vybrat vše (Ctrl + A)",
-    "selectedTorrentsCount": "Žádný torrent | {count} z {total} torrentů ({size}) | {count} z {total} torrentů ({size})"
+    "selectedTorrentsCount": "Žádný torrent | {count} z {total} torrentů ({size}) | {count} z {total} torrentů ({size})",
+    "toggleSortFavourite": "Připnout/odepnout možnost řazení"
   },
   "navbar": {
     "side": {

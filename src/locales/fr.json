@@ -277,6 +277,7 @@
     "sortLabel": "Trier par",
     "toggleSearchFilter": "(Dés)activer le filtre de recherche",
     "toggleSelectMode": "(Dés)activer le mode sélection",
+    "toggleSortFavourite": "Épingler/désépingler l'option de tri",
     "toggleSortOrder": "Inverser l'order de tri",
     "torrentsCount": "Aucun torrent | {n} torrent | {n} torrents"
   },

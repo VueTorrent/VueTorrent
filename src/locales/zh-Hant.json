@@ -251,6 +251,7 @@
     "sortLabel": "排序方式",
     "toggleSearchFilter": "切換搜尋過濾器",
     "toggleSelectMode": "切換選擇模式",
+    "toggleSortFavourite": "固定/取消固定排序選項",
     "toggleSortOrder": "反轉排序",
     "torrentsCount": "無種子 | {n} 個種子 | {n} 個種子"
   },
