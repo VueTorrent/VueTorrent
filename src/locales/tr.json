@@ -277,7 +277,6 @@
     "sortLabel": "Sıralama ölçütü",
     "toggleSearchFilter": "Arama filtresini aç/kapat",
     "toggleSelectMode": "Seçim modunu aç/kapat",
-    "toggleSortFavourite": "Sıralama seçeneğini sabitle/kaldır",
     "toggleSortOrder": "Sıralama düzenini tersine çevir",
     "torrentsCount": "Torrent yok | {n} torrent | {n} torrent"
   },

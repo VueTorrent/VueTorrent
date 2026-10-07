@@ -198,7 +198,6 @@
     "sortLabel": "Rendezés",
     "toggleSearchFilter": "Keresési szűrő váltása",
     "toggleSelectMode": "Kiválasztási mód váltása",
-    "toggleSortFavourite": "Rendezési beállítás kitűzése/levétele",
     "toggleSortOrder": "Rendezési sorrend megfordítása",
     "torrentsCount": "Nincs torrent | {n} torrent | {n} torrentek"
   },

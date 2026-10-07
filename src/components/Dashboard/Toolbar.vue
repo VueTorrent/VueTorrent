@@ -153,7 +153,7 @@ function toggleSelectMode() {
             <template #append>
               <v-btn
                 :icon="item.isPinned ? 'mdi-star' : 'mdi-star-outline'"
-                :aria-label="t('dashboard.toggleSortFavourite')"
+                :aria-label="item.isPinned ? t('dashboard.unpinSortFavourite') : t('dashboard.pinSortFavourite')"
                 :aria-pressed="item.isPinned"
                 density="comfortable"
                 size="small"

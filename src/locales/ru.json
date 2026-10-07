@@ -274,7 +274,6 @@
     "sortLabel": "Сортировать по",
     "toggleSearchFilter": "Переключить режим поиска",
     "toggleSelectMode": "Переключить режим выбора",
-    "toggleSortFavourite": "Закрепить/открепить вариант сортировки",
     "toggleSortOrder": "Обратный порядок сортировки",
     "torrentsCount": "Нет торрентов | {n} торрент | {n} торрентов"
   },
