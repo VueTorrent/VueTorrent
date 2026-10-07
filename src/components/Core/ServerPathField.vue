@@ -9,6 +9,7 @@ import { useAppStore, useHistoryStore } from '@/stores'
 const props = defineProps<{
   title: string
   historyKey: HistoryKey
+  extraItems?: string[]
 }>()
 
 const modelValue = defineModel<string | undefined>({ required: true })
@@ -21,15 +22,14 @@ const comboboxRef = ref<HTMLInputElement>()
 const historyItems = computed(() => historyStore.getHistory(props.historyKey))
 
 const allItems = computed(() => {
-  const history = historyItems.value
-  const server = serverItems.value
+  const combined: string[] = []
+  const seen = new Set<string>()
 
-  const combined = [...history]
-  server.forEach(item => {
-    if (!combined.includes(item)) {
-      combined.push(item)
-    }
-  })
+  for (const item of [...(props.extraItems ?? []), ...historyItems.value, ...serverItems.value]) {
+    if (!item || seen.has(item)) continue
+    seen.add(item)
+    combined.push(item)
+  }
 
   return combined
 })
