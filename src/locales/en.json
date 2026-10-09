@@ -63,7 +63,8 @@
       "default": "Default",
       "memoryMappedFiles": "Memory mapped files",
       "posixCompliant": "POSIX-compliant",
-      "simplePreadPwrite": "Simple pread/pwrite"
+      "simplePreadPwrite": "Simple pread/pwrite",
+      "preadPwrite": "Pread/pwrite"
     },
     "encryption": {
       "forceOff": "Disable Encryption",
@@ -127,6 +128,10 @@
       "removeTorrentAndFiles": "Remove torrent and its files",
       "stopTorrent": "Stop torrent",
       "torrentSuperseeding": "Enable super seeding for torrent"
+    },
+    "shareLimitsMode": {
+      "matchAll": "Match all the limits",
+      "matchAny": "Match any limit"
     },
     "stopCondition": {
       "filesChecked": "Files Checked",
@@ -277,6 +282,8 @@
     "sortLabel": "Sort by",
     "toggleSearchFilter": "Toggle search filter",
     "toggleSelectMode": "Toggle select mode",
+    "pinSortFavourite": "Pin sort option",
+    "unpinSortFavourite": "Unpin sort option",
     "toggleSortOrder": "Reverse sort order",
     "torrentsCount": "No torrents | {n} torrent | {n} torrents"
   },
@@ -515,6 +522,7 @@
       "enabled": "Set share limit to",
       "global": "Use global share limit",
       "inactive_seeding_time_limit": "Inactive minutes",
+      "mode": "Mode",
       "ratio_limit": "Ratio",
       "seeding_time_limit": "Total minutes",
       "title": "Set share ratio limit"
@@ -736,10 +744,6 @@
         "value": "No RSS rules registered"
       },
       "title": "RSS Rules"
-    },
-    "toggle": {
-      "feeds": "Show feeds",
-      "rules": "Show rules"
     }
   },
   "searchEngine": {
@@ -838,6 +842,7 @@
         "requestQueueSize": "Maximum outstanding requests to a single peer",
         "security": {
           "allowMultipleConnectionsFromTheSameIPAddress": "Allow multiple connections from the same IP address",
+          "allowMultipleConnectionsFromTheSamePeerID": "Allow multiple connections from the same Peer ID",
           "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports",
           "idnSupport": "Enable Internationalized Domain Name (IDN) support",
           "mitigateSSRF": "Server-side request forgery (SSRF) mitigation",
@@ -943,6 +948,7 @@
         "subheader": "Privacy"
       },
       "seedLimits": {
+        "mode": "Mode",
         "subheader": "Seed Limits",
         "then": "Then",
         "whenInactiveSeedingTimeReaches": "When inactive seeding time reaches",
@@ -1541,6 +1547,7 @@
       "basename_save_path": "Save Path (basename)",
       "category": "Category",
       "comment": "Comment",
+      "completed": "Completed",
       "completed_on": "Completed On",
       "content_path": "Content Path",
       "created_by": "Created by",
@@ -1566,6 +1573,9 @@
       "is_private": "Private Torrent",
       "last_activity": "Last Active",
       "magnet": "Magnet Link",
+      "max_inactive_seeding_time": "Max Inactive Seeding Time",
+      "max_ratio": "Max Ratio",
+      "max_seeding_time": "Max Seeding Time",
       "name": "Torrent Title",
       "nb_connections": "Total Connections",
       "nb_connections_limit": "Connection Limit",

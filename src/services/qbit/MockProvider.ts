@@ -34,12 +34,13 @@ import type {
   TorrentFile,
   TorrentProperties,
   Tracker,
+  WebAPIVersion,
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import { ShareLimitAction } from '@/types/vuetorrent'
+import { ShareLimitAction, ShareLimitsMode } from '@/types/vuetorrent'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
@@ -192,6 +193,10 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({ result: '5.1.0', delay: 50 })
   }
 
+  async getWebAPIVersion(): Promise<WebAPIVersion> {
+    return this.generateResponse({ result: '2.16.0', delay: 50 })
+  }
+
   async getPreferences(): Promise<AppPreferences> {
     return this.generateResponse({
       result: {
@@ -260,6 +265,7 @@ export default class MockProvider implements IProvider {
         enable_coalesce_read_write: false,
         enable_embedded_tracker: false,
         enable_multi_connections_from_same_ip: false,
+        enable_multi_connections_from_same_peer_id: false,
         enable_piece_extent_affinity: false,
         enable_upload_suggestions: false,
         encryption: 0,
@@ -371,6 +377,7 @@ export default class MockProvider implements IProvider {
         send_buffer_low_watermark: 10,
         send_buffer_watermark: 500,
         send_buffer_watermark_factor: 50,
+        share_limits_mode: 'Default',
         slow_torrent_dl_rate_threshold: 2,
         slow_torrent_inactive_timer: 60,
         slow_torrent_ul_rate_threshold: 2,
@@ -1609,7 +1616,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({ result: MockProvider.hashes.length })
   }
 
-  async setShareLimit(_0: string[], _1: number, _2: number, _3: number, _4: ShareLimitAction): Promise<void> {
+  async setShareLimit(_0: string[], _1: number, _2: number, _3: number, _4: ShareLimitAction, _5: ShareLimitsMode): Promise<void> {
     return this.generateResponse()
   }
 

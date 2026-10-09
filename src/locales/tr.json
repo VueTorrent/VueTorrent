@@ -736,10 +736,6 @@
         "value": "Kayıtlı RSS kuralı yok"
       },
       "title": "RSS Kuralları"
-    },
-    "toggle": {
-      "feeds": "Beslemeleri göster",
-      "rules": "Kuralları göster"
     }
   },
   "searchEngine": {
