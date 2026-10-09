@@ -262,10 +262,7 @@ export const useRssStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: sessionStorage, excludePaths: ['isFeedsLoaded', 'isRulesLoaded'] }],
-    },
+    persist: [{ storage: sessionStorage, omit: ['isFeedsLoaded', 'isRulesLoaded'] }],
   }
 )
 

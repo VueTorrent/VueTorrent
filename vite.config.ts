@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
         output: {
           codeSplitting: {
             groups: [
-              { name: 'vue', test: /[\\/]node_modules[\\/](vue|vue-router|vue-i18n|vue3-toastify|vuedraggable|pinia|pinia-persistence-plugin)[\\/]/ },
+              { name: 'vue', test: /[\\/]node_modules[\\/](vue|vue-router|vue-i18n|vue3-toastify|vuedraggable|pinia|pinia-plugin-persistedstate)[\\/]/ },
               { name: 'vuetify', test: /[\\/]node_modules[\\/]vuetify[\\/]/ },
             ],
           },

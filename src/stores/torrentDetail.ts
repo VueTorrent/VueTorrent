@@ -23,10 +23,7 @@ export const useTorrentDetailStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: localStorage, includePaths: ['tab'] }],
-    },
+    persist: [{ storage: localStorage, pick: ['tab'] }],
   }
 )
 
