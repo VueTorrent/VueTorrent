@@ -282,6 +282,8 @@
     "sortLabel": "Sort by",
     "toggleSearchFilter": "Toggle search filter",
     "toggleSelectMode": "Toggle select mode",
+    "pinSortFavourite": "Pin sort option",
+    "unpinSortFavourite": "Unpin sort option",
     "toggleSortOrder": "Reverse sort order",
     "torrentsCount": "No torrents | {n} torrent | {n} torrents"
   },
