@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.37.0](https://github.com/VueTorrent/VueTorrent/compare/v2.36.1...v2.37.0) (2026-10-10)
+
+
+### Features
+
+* pin favourite sort options in the Sort by dropdown ([#2925](https://github.com/VueTorrent/VueTorrent/issues/2925)) ([f62819f](https://github.com/VueTorrent/VueTorrent/commit/f62819fba50a2970de8325ddd0220520947a988c))
+* **Settings/Advanced:** Support "Allow multiple connections from the same Peer ID" option ([#2940](https://github.com/VueTorrent/VueTorrent/issues/2940)) ([9d0a8ec](https://github.com/VueTorrent/VueTorrent/commit/9d0a8ec25941a5e62d6a7a79573b926ff0564c16))
+
 ## [2.36.1](https://github.com/VueTorrent/VueTorrent/compare/v2.36.0...v2.36.1) (2026-09-29)
 
 
