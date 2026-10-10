@@ -369,26 +369,22 @@ export const useVueTorrentStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [
-        {
-          storage: localStorage,
-          key: 'webuiSettings',
-          // torrentSortFavourites is a Set, which JSON.stringify would flatten to {}
-          serializer: {
-            serialize: state => JSON.stringify(state, (_key, value) => (value instanceof Set ? [...value] : value)),
-            deserialize: value => {
-              const state = JSON.parse(value)
-              if (Array.isArray(state?.torrentSortFavourites)) {
-                state.torrentSortFavourites = new Set(state.torrentSortFavourites)
-              }
-              return state
-            },
+    persist: [
+      {
+        storage: localStorage,
+        key: 'webuiSettings',
+        serializer: {
+          serialize: state => JSON.stringify(state, (_key, value) => (value instanceof Set ? [...value] : value)),
+          deserialize: value => {
+            const state = JSON.parse(value)
+            if (Array.isArray(state?.torrentSortFavourites)) {
+              state.torrentSortFavourites = new Set(state.torrentSortFavourites)
+            }
+            return state
           },
         },
-      ],
-    },
+      },
+    ],
   }
 )
 

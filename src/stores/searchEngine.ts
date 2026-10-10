@@ -97,10 +97,7 @@ export const useSearchEngineStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: sessionStorage }],
-    },
+    persist: [{ storage: sessionStorage }],
   }
 )
 

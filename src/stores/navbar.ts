@@ -51,13 +51,10 @@ export const useNavbarStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [
-        { storage: sessionStorage, excludePaths: ['isDrawerOpen'] },
-        { storage: localStorage, includePaths: ['isDrawerOpen'] },
-      ],
-    },
+    persist: [
+      { storage: sessionStorage, omit: ['isDrawerOpen'] },
+      { storage: localStorage, pick: ['isDrawerOpen'] },
+    ],
   }
 )
 

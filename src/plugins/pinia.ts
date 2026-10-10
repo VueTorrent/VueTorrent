@@ -1,13 +1,11 @@
 import { createPinia } from 'pinia'
-import { persistencePlugin } from 'pinia-persistence-plugin'
+import { createPersistedState } from 'pinia-plugin-persistedstate'
 
 const pinia = createPinia()
 pinia.use(
-  persistencePlugin({
-    assertStorage: () => {},
-    storeKeysPrefix: 'vuetorrent',
-    persistenceDefault: false,
-    ensureAsyncStorageUpdateOrder: true,
+  createPersistedState({
+    auto: false,
+    key: storeKey => `vuetorrent_${storeKey}`,
     debug: import.meta.env.DEV,
   })
 )
