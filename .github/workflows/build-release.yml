@@ -4,10 +4,6 @@ on:
     branches:
       - master
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 permissions:
   contents: read
 
@@ -62,6 +58,10 @@ jobs:
           - npm-step: build-demo
             artifact-name: vuetorrent-demo
             artifact-path: ./vuetorrent-demo
+
+    concurrency:
+      group: ${{ matrix.npm-step }}-artifact-${{ needs.setup-release.outputs.release_created == 'true' && 'release' || 'nightly' }}
+      cancel-in-progress: ${{ needs.setup-release.outputs.release_created != 'true' }}
 
     steps:
       - name: Checkout repository
