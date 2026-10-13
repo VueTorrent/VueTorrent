@@ -1,5 +1,5 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
-import axios, { AxiosResponse } from 'axios'
+import axios, { AxiosResponse, isAxiosError } from 'axios'
 import type IProvider from './IProvider'
 import type { FilePriority } from '@/constants/qbit'
 import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
@@ -42,6 +42,13 @@ export default class QBitProvider implements IProvider {
     })
 
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+    this.axios.interceptors.response.use(undefined, error => {
+      if (isAxiosError(error) && error.code === 'ERR_NETWORK' && !error.response && error.config && typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('vuetorrent:network-unknown-error', {}))
+      }
+
+      throw error
+    })
   }
 
   public static getInstance() {

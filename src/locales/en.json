@@ -1347,6 +1347,10 @@
     "version": {
       "latest": "You're on the latest and greatest!",
       "new": "New version available!"
+    },
+    "network_error": {
+      "action": "Reload",
+      "message": "Network error occurred"
     }
   },
   "topbar": {
