@@ -43,7 +43,6 @@ export default class QBitProvider implements IProvider {
 
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
     this.axios.interceptors.response.use(undefined, error => {
-      console.log(error)
       if (isAxiosError(error) && error.code === 'ERR_NETWORK' && !error.response && error.config && typeof window !== 'undefined') {
         window.dispatchEvent(new CustomEvent('vuetorrent:network-unknown-error', {}))
       }
