@@ -73,10 +73,7 @@ function handleNetworkError() {
 
   toast.error(
     () =>
-      h('div', { class: 'd-flex flex-column align-center ga-2' }, [
-        h('div', t('toast.network_error.message')),
-        h('button', { type: 'button' }, t('toast.network_error.action')),
-      ]),
+      h('div', { class: 'd-flex flex-column align-center ga-2' }, [h('div', t('toast.network_error.message')), h('button', { type: 'button' }, t('toast.network_error.action'))]),
     {
       onClick: () => window.location.reload(),
       autoClose: false,
