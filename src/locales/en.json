@@ -63,8 +63,8 @@
       "default": "Default",
       "memoryMappedFiles": "Memory mapped files",
       "posixCompliant": "POSIX-compliant",
-      "simplePreadPwrite": "Simple pread/pwrite",
-      "preadPwrite": "Pread/pwrite"
+      "preadPwrite": "Pread/pwrite",
+      "simplePreadPwrite": "Simple pread/pwrite"
     },
     "encryption": {
       "forceOff": "Disable Encryption",
@@ -218,6 +218,7 @@
       "title": "Display mode"
     },
     "not_complete": "Never seen complete",
+    "pinSortFavourite": "Pin sort option",
     "right_click": {
       "advanced": {
         "auto_tmm": "Automatic Torrent Management",
@@ -282,10 +283,9 @@
     "sortLabel": "Sort by",
     "toggleSearchFilter": "Toggle search filter",
     "toggleSelectMode": "Toggle select mode",
-    "pinSortFavourite": "Pin sort option",
-    "unpinSortFavourite": "Unpin sort option",
     "toggleSortOrder": "Reverse sort order",
-    "torrentsCount": "No torrents | {n} torrent | {n} torrents"
+    "torrentsCount": "No torrents | {n} torrent | {n} torrents",
+    "unpinSortFavourite": "Unpin sort option"
   },
   "dialogs": {
     "add": {
@@ -1340,6 +1340,10 @@
     "magnet_handler": {
       "not_supported": "Current context isn't secure. Unable to register handler.",
       "registered": "Magnet handler registered."
+    },
+    "network_error": {
+      "action": "Reload",
+      "message": "Network error occurred"
     },
     "qbit": {
       "not_supported": "Only available for qbit >= {version}"

@@ -63,6 +63,7 @@
       "default": "Standard",
       "memoryMappedFiles": "Speicherabbild-Dateien",
       "posixCompliant": "POSIX-konform",
+      "preadPwrite": "Pread/pwrite",
       "simplePreadPwrite": "Einfaches pread/pwrite"
     },
     "encryption": {
@@ -127,6 +128,10 @@
       "removeTorrentAndFiles": "Torrent und zugehörige Dateien entfernen",
       "stopTorrent": "Torrent anhalten",
       "torrentSuperseeding": "Super Seeding für Torrent aktivieren"
+    },
+    "shareLimitsMode": {
+      "matchAll": "Alle Limits erfüllen",
+      "matchAny": "Beliebiges Limit erfüllen"
     },
     "stopCondition": {
       "filesChecked": "Dateien überprüft",
@@ -515,6 +520,7 @@
       "enabled": "Anteil-Limit festlegen auf",
       "global": "Globales Freigabelimit verwenden",
       "inactive_seeding_time_limit": "Inaktive Minuten",
+      "mode": "Modus",
       "ratio_limit": "Verhältnis",
       "seeding_time_limit": "Gesamtminuten",
       "title": "Anteil-Verhältnis-Limit festlegen"
@@ -834,6 +840,7 @@
         "requestQueueSize": "Maximale ausstehende Anfragen an einen einzelnen Peer",
         "security": {
           "allowMultipleConnectionsFromTheSameIPAddress": "Erlaube mehrere Verbindungen von derselben IP-Adresse",
+          "allowMultipleConnectionsFromTheSamePeerID": "Erlaube mehrere Verbindungen von derselben Peer-ID",
           "blockPeersOnPrivilegedPorts": "Verbindung zu Peers auf privilegierten Ports nicht zulassen",
           "idnSupport": "Unterstützung für internationalisierte Domainnamen (IDN) aktivieren",
           "mitigateSSRF": "Schutz vor Server-Side Request Forgery (SSRF)",
@@ -939,6 +946,7 @@
         "subheader": "Datenschutz"
       },
       "seedLimits": {
+        "mode": "Modus",
         "subheader": "Seed-Limits",
         "then": "Dann",
         "whenInactiveSeedingTimeReaches": "Wenn die inaktive Seed-Zeit erreicht ist",
