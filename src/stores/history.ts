@@ -45,10 +45,7 @@ export const useHistoryStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: localStorage }],
-    },
+    persist: [{ storage: localStorage }],
   }
 )
 

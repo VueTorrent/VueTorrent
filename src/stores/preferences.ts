@@ -32,10 +32,7 @@ export const usePreferenceStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: sessionStorage }],
-    },
+    persist: [{ storage: sessionStorage }],
   }
 )
 

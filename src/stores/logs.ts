@@ -77,10 +77,7 @@ export const useLogStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: localStorage, includePaths: ['logTypeFilter', 'logMessageFilter', 'reverseSort'] }],
-    },
+    persist: [{ storage: localStorage, pick: ['logTypeFilter', 'logMessageFilter', 'reverseSort'] }],
   }
 )
 

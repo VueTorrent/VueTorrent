@@ -137,10 +137,7 @@ export const useDashboardStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: localStorage, includePaths: ['displayMode'] }],
-    },
+    persist: [{ storage: localStorage, pick: ['displayMode'] }],
   }
 )
 

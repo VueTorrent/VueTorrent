@@ -98,10 +98,7 @@ export const useAddTorrentStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: sessionStorage, excludePaths: ['files'] }],
-    },
+    persist: [{ storage: sessionStorage, omit: ['files'] }],
   }
 )
 
