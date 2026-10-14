@@ -21,7 +21,8 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
-const { dateFormat } = storeToRefs(useVueTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
+const { dateFormat } = storeToRefs(vueTorrentStore)
 
 const queryInput = ref<typeof HistoryField>()
 
@@ -70,6 +71,14 @@ const { results: filteredResults } = useSearchQuery(
   () => selectedTab.value.filters?.title,
   result => result.fileName
 )
+
+const selectedSortBy = computed({
+  get: () => selectedTab.value.sortBy ?? [],
+  set: newValue => {
+    selectedTab.value.sortBy = newValue
+    vueTorrentStore.searchEngineSortBy = newValue
+  },
+})
 
 function createNewTab() {
   searchEngineStore.createNewTab()
@@ -237,6 +246,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedSortBy"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
@@ -323,6 +333,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-else
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedSortBy"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"
