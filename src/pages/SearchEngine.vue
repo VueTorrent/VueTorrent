@@ -55,11 +55,6 @@ const categories = [
   .sort((a, b) => comparators.text.asc(a.title, b.title))
   .toSpliced(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
 
-function updateSortBy(sortBy: SearchSortBy[]) {
-  selectedTab.value.sortBy = sortBy
-  vueTorrentStore.searchEngineSortBy = sortBy
-}
-
 const plugins = computed(() => [
   { title: t('searchEngine.filters.plugins.all'), value: 'all' },
   { title: t('searchEngine.filters.plugins.enabled'), value: 'enabled' },
@@ -76,6 +71,14 @@ const { results: filteredResults } = useSearchQuery(
   () => selectedTab.value.filters?.title,
   result => result.fileName
 )
+
+const selectedSortBy = computed({
+  get: () => selectedTab.value.sortBy ?? [],
+  set: newValue => {
+    selectedTab.value.sortBy = newValue
+    vueTorrentStore.searchEngineSortBy = newValue
+  },
+})
 
 function createNewTab() {
   searchEngineStore.createNewTab()
@@ -243,8 +246,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
-          :sort-by="selectedTab.sortBy ?? []"
-          @update:sort-by="updateSortBy"
+          v-model:sort-by="selectedSortBy"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
@@ -331,8 +333,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-else
           v-model:items-per-page="selectedTab.itemsPerPage"
-          :sort-by="selectedTab.sortBy ?? []"
-          @update:sort-by="updateSortBy"
+          v-model:sort-by="selectedSortBy"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"
