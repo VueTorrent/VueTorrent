@@ -5,7 +5,7 @@ import { useAppStore } from './app'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTrackerStore } from './trackers'
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
-import { comparatorMap, FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
+import { comparatorMap, FilterType, MAX_TORRENT_FILE_SIZE, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
@@ -267,6 +267,11 @@ export const useTorrentStore = defineStore(
     }
 
     async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
+      const oversizedTorrent = torrents.find(torrent => torrent.size > MAX_TORRENT_FILE_SIZE)
+      if (oversizedTorrent) {
+        throw new Error(`"${oversizedTorrent.name}" exceeds the maximum torrent file size of ${MAX_TORRENT_FILE_SIZE} bytes`)
+      }
+
       // Safari can upload disk-backed Files (e.g. dropped on iOS) with an empty body, so send in-memory copies instead
       const torrentCopies = await Promise.all(torrents.map(async torrent => new File([await torrent.arrayBuffer()], torrent.name, { type: torrent.type })))
       const links = Array.isArray(urls) ? urls.join('\n') : urls
