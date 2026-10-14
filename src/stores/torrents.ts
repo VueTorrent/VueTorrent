@@ -267,8 +267,10 @@ export const useTorrentStore = defineStore(
     }
 
     async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
+      // Safari can upload disk-backed Files (e.g. dropped on iOS) with an empty body, so send in-memory copies instead
+      const torrentCopies = await Promise.all(torrents.map(async torrent => new File([await torrent.arrayBuffer()], torrent.name, { type: torrent.type })))
       const links = Array.isArray(urls) ? urls.join('\n') : urls
-      return qbit.addTorrents(torrents, links, payload)
+      return qbit.addTorrents(torrentCopies, links, payload)
     }
 
     async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
