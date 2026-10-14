@@ -9,7 +9,7 @@ import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
-import { SearchData, SearchResult, SearchSortBy } from '@/types/vuetorrent'
+import { SearchData, SearchResult } from '@/types/vuetorrent'
 
 const { mobile } = useDisplay()
 const { t } = useI18nUtils()

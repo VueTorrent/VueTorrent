@@ -16,8 +16,8 @@ import {
   TorrentDetailTab,
   TorrentProperty,
 } from '@/constants/vuetorrent'
-import type { SearchSortBy } from '@/types/vuetorrent'
 import { DarkLegacy, LightLegacy } from '@/themes'
+import type { SearchSortBy } from '@/types/vuetorrent'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
