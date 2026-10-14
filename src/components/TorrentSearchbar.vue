@@ -35,10 +35,16 @@ const torrentTitleFilter = computed({
 </template>
 
 <style scoped>
-/* Safari fix: Vuetify 4 grid layout needs explicit min-width: 0
-   on the v-text-field to prevent Safari from shrinking the input
-   in flex containers (v-app-bar). This is a known WebKit issue
-   where min-width: 0 isn't properly inherited by grid children. */
+/*
+ * Safari workaround: explicitly set min-width: 0 on v-text-field
+ * to allow the input to shrink correctly inside flex containers
+ * such as v-app-bar. Flex and grid items can have a content-based
+ * automatic minimum width; min-width: 0 overrides that minimum.
+ *
+ * References:
+ * https://bugs.webkit.org/show_bug.cgi?id=150024
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/min-width
+ */
 .v-text-field {
   min-width: 0;
 }
