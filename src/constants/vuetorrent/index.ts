@@ -14,7 +14,7 @@ import { TitleOptions } from './TitleOptions'
 import { TorrentDetailTab } from './TorrentDetailTab'
 import { emojiStateMap, stateQbitToVt, stateVtToQbit, TorrentState } from './TorrentState'
 import { TrackerSpecialFilter } from './TrackerSpecialFilter'
-import { defaultDateFormat, defaultDurationFormat, QBIT_MAX_ETA, INFINITY_SYMBOL } from './values'
+import { defaultDateFormat, defaultDurationFormat, QBIT_MAX_ETA, INFINITY_SYMBOL, MAX_TORRENT_FILE_SIZE } from './values'
 
 export {
   comparatorMap,
@@ -44,5 +44,6 @@ export {
   defaultDateFormat,
   defaultDurationFormat,
   QBIT_MAX_ETA,
-  INFINITY_SYMBOL
+  INFINITY_SYMBOL,
+  MAX_TORRENT_FILE_SIZE
 }
