@@ -1,6 +1,6 @@
 import { Store } from 'pinia'
 import { shallowRef } from 'vue'
-import { isObjectEqual } from '@/helpers'
+import { isObjectEqual, jsonDeserialize, jsonSerialize } from '@/helpers'
 import { backend } from '@/services/backend'
 
 export function useBackendSync(store: Store, key: string, config: { blacklist?: string[]; whitelist?: string[] } = {}) {
@@ -23,8 +23,8 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
       return saveState()
     }
 
-    const newState = JSON.parse(data) as Record<string, any>
-    const temp = {} as Record<string, any>
+    const newState: Record<string, any> = jsonDeserialize(data)
+    const temp: Record<string, any> = {}
     Object.entries(newState).forEach(([k, v]) => {
       if (keyMatchesFilter(k)) {
         temp[k] = v
@@ -35,7 +35,7 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
   }
 
   async function saveState() {
-    const state = {} as Record<string, any>
+    const state: Record<string, any> = {}
     Object.entries(store.$state).forEach(([k, v]) => {
       if (keyMatchesFilter(k)) {
         state[k] = v
@@ -43,9 +43,10 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
     })
 
     if (!isObjectEqual(state, _lastState.value)) {
-      const success = await backend.set(key, JSON.stringify(state))
+      const serializedState = jsonSerialize(state)
+      const success = await backend.set(key, serializedState)
       if (success) {
-        _lastState.value = JSON.parse(JSON.stringify(state))
+        _lastState.value = jsonDeserialize(serializedState)
       }
     }
   }
