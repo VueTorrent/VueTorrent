@@ -16,6 +16,7 @@ import {
   TorrentDetailTab,
   TorrentProperty,
 } from '@/constants/vuetorrent'
+import { jsonDeserialize, jsonSerialize } from '@/helpers'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import type { SearchSortBy } from '@/types/vuetorrent'
 
@@ -378,14 +379,8 @@ export const useVueTorrentStore = defineStore(
         storage: localStorage,
         key: 'webuiSettings',
         serializer: {
-          serialize: state => JSON.stringify(state, (_key, value) => (value instanceof Set ? [...value] : value)),
-          deserialize: value => {
-            const state = JSON.parse(value)
-            if (Array.isArray(state?.torrentSortFavourites)) {
-              state.torrentSortFavourites = new Set(state.torrentSortFavourites)
-            }
-            return state
-          },
+          serialize: jsonSerialize,
+          deserialize: jsonDeserialize,
         },
       },
     ],
