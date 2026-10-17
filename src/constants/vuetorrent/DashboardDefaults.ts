@@ -2,6 +2,7 @@ import { DurationUnitType } from 'dayjs/plugin/duration'
 import { storeToRefs } from 'pinia'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
+import { QBIT_MAX_ETA } from './values'
 import { useI18nUtils } from '@/composables'
 import { formatDuration, formatEta, getDomainBody, getRatioColor, getTorrentStateColor } from '@/helpers'
 import { useTrackerStore, useVueTorrentStore } from '@/stores'
@@ -393,7 +394,17 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.ETA]: {
-    props: { titleKey: 'torrent.properties.eta', value: t => formatEta(t.eta, t.forced) },
+    props: {
+      titleKey: 'torrent.properties.eta',
+      value: t => {
+        const { hideZeroStateEta } = storeToRefs(useVueTorrentStore())
+
+        // Hide zero / infinity remaining time when the zero state filter is enabled
+        if (hideZeroStateEta.value && (t.eta === 0 || t.eta >= QBIT_MAX_ETA)) return ''
+
+        return formatEta(t.eta, t.forced)
+      }
+    },
     sortKey: 'eta',
     type: DashboardPropertyType.TEXT
   },
