@@ -6,10 +6,10 @@ export function jsonDeserialize(value: string): Record<string, any> {
   const state = JSON.parse(value)
   for (const [k, v] of Object.entries(state)) {
     if (typeof v === 'object') {
-      switch (v?.type) {
-        case '__special__set':
-          state[k] = new Set(v.value)
-          break
+      if (v?.type === '__special__set' && Array.isArray(v.value)) {
+        state[k] = new Set(v.value)
+      } else {
+        state[k] = v
       }
     }
   }

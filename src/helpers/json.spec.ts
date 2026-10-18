@@ -25,6 +25,12 @@ describe('helpers/json', () => {
       const serialized = jsonSerialize(state)
       expect(serialized).toBe('{"mySet":{"type":"__special__set","value":[1,2]},"myObject":{"a":1},"myArray":[1,2,3]}')
     })
+
+    test('should serialize malformed set special object', () => {
+      const state = { mySet: { type: '__special__set', value: 'not-an-array' } }
+      const serialized = jsonSerialize(state)
+      expect(serialized).toBe('{"mySet":{"type":"__special__set","value":"not-an-array"}}')
+    })
   })
 
   describe('jsonDeserialize', () => {
@@ -45,6 +51,12 @@ describe('helpers/json', () => {
       const serialized = '{"myArray":[1,2,3]}'
       const state = jsonDeserialize(serialized)
       expect(state.myArray).toEqual([1, 2, 3])
+    })
+
+    test('should deserialize malformed set special object', () => {
+      const serialized = '{"mySet":{"type":"__special__set","value":"not-an-array"}}'
+      const state = jsonDeserialize(serialized)
+      expect(state.mySet).toEqual({ type: '__special__set', value: 'not-an-array' })
     })
 
     test('should deserialize mixed types', () => {
