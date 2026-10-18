@@ -16,15 +16,23 @@ export class Comparator<T = any> {
 }
 
 export function isObjectEqual(a: any, b: any) {
+  return _isObjectEqual(a, b, 0)
+}
+
+function _isObjectEqual(a: any, b: any, recurseCount: number = 0) {
   if (typeof a !== 'object' && typeof b !== 'object' && a === b) return true
   if (a === null || b === null || typeof a !== 'object' || typeof b !== 'object') return false
 
   const keysA = Object.keys(a)
   const keysB = Object.keys(b)
   if (keysA.length !== keysB.length) return false
+  if (recurseCount > 25) {
+    console.warn('isObjectEqual: recursion limit reached')
+    return false
+  }
 
   for (const key of keysA) {
-    if (!Object.prototype.hasOwnProperty.call(b, key) || !isObjectEqual(a[key], b[key])) return false
+    if (!Object.prototype.hasOwnProperty.call(b, key) || !_isObjectEqual(a[key], b[key], recurseCount + 1)) return false
   }
 
   return true
