@@ -13,6 +13,7 @@ import RSS from '@/components/Settings/RSS.vue'
 import Speed from '@/components/Settings/Speed.vue'
 import TagsAndCategories from '@/components/Settings/TagsAndCategories.vue'
 import VGeneral from '@/components/Settings/VueTorrent/General.vue'
+import VSearchEngine from '@/components/Settings/VueTorrent/SearchEngine.vue'
 import VSidebar from '@/components/Settings/VueTorrent/Sidebar.vue'
 import VTorrentCardGrid from '@/components/Settings/VueTorrent/TorrentCard/Grid.vue'
 import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.vue'
@@ -46,6 +47,7 @@ const tabsV = [
   { text: t('settings.tabs.vuetorrent.torrent_card.grid'), value: 'torrentCardGrid' },
   { text: t('settings.tabs.vuetorrent.torrent_card.table'), value: 'torrentCardTable' },
   { text: t('settings.tabs.vuetorrent.sidebar'), value: 'sidebar' },
+  { text: t('settings.tabs.vuetorrent.searchEngine'), value: 'searchEngine' },
 ]
 
 const tab = ref('vuetorrent')
@@ -159,6 +161,9 @@ onBeforeUnmount(() => {
           </v-window-item>
           <v-window-item value="sidebar" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
             <VSidebar />
+          </v-window-item>
+          <v-window-item value="searchEngine" :transition="keepDefaultTransitions" :reverse-transition="keepDefaultTransitions">
+            <VSearchEngine />
           </v-window-item>
         </v-window>
       </v-window-item>
