@@ -33,30 +33,23 @@ export const useCategoryStore = defineStore('categories', () => {
     return categories.value.filter(c => !usedCategories.includes(c.name)).map(c => c.name)
   })
 
+  function normalizeCategory(catName: string, qbitCat: Partial<Category>, oldCat?: Category): Category {
+    return {
+      name: qbitCat.name ?? oldCat?.name ?? catName,
+      savePath: qbitCat.savePath ?? oldCat?.savePath ?? '',
+      downloadPathEnabled: qbitCat.download_path !== undefined ? qbitCat.download_path !== false : (oldCat?.downloadPathEnabled ?? false),
+      downloadPath: qbitCat.download_path !== undefined ? (typeof qbitCat.download_path === 'string' ? qbitCat.download_path : '') : (oldCat?.downloadPath ?? ''),
+    }
+  }
+
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {
-      _categoryMap.value = new Map(entries as [string, Category][])
+      _categoryMap.value = new Map(entries.map(([catName, qbitCat]) => [catName, normalizeCategory(catName, qbitCat)]))
       return
     }
 
     for (const [catName, qbitCat] of entries) {
-      const oldCat = _categoryMap.value.get(catName)
-      if (oldCat) {
-        const newCat: Category = {
-          name: qbitCat.name ?? oldCat.name,
-          savePath: qbitCat.savePath ?? oldCat.savePath,
-          downloadPathEnabled: qbitCat.download_path !== undefined ? qbitCat.download_path !== false : oldCat.downloadPathEnabled,
-          downloadPath: qbitCat.download_path !== undefined ? (typeof qbitCat.download_path === 'string' ? qbitCat.download_path : '') : oldCat.downloadPath,
-        }
-        _categoryMap.value.set(catName, newCat)
-      } else {
-        _categoryMap.value.set(catName, {
-          name: qbitCat.name ?? catName,
-          savePath: qbitCat.savePath ?? '',
-          downloadPathEnabled: qbitCat.download_path !== undefined && qbitCat.download_path !== false,
-          downloadPath: typeof qbitCat.download_path === 'string' ? qbitCat.download_path : '',
-        })
-      }
+      _categoryMap.value.set(catName, normalizeCategory(catName, qbitCat, _categoryMap.value.get(catName)))
     }
     removed?.forEach(c => _categoryMap.value.delete(c))
     triggerRef(_categoryMap)

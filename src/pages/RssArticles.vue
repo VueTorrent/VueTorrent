@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import DOMPurify from 'dompurify'
-import { computed, nextTick, onMounted, onUnmounted, reactive, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import Feeds from '@/components/RSS/Feeds/Feeds.vue'
@@ -20,7 +20,8 @@ const rssDescription = reactive({
   content: '',
 })
 
-const feedsView = computed(() => route.params.tab !== 'rules')
+const currentTab = computed(() => (route.params.tab === 'rules' ? 'rules' : 'feeds'))
+const feedsView = computed(() => currentTab.value === 'feeds')
 const height = computed(() => {
   // 64px for the toolbar
   // 12px for the padding (top and bottom)
@@ -48,10 +49,7 @@ function openRssArticle(article: RssArticle) {
   })
 }
 
-function toggleFeedsView() {
-  const tab = route.params.tab === 'rules' ? 'feeds' : 'rules'
-  void router.replace({ name: 'rssArticles', params: { tab } }).then(() => (rssStore.lastView = tab))
-}
+watch(currentTab, tab => (rssStore.lastView = tab), { immediate: true })
 
 function goHome() {
   void router.push({ name: 'dashboard' })
@@ -80,18 +78,11 @@ onUnmounted(() => {
 <template>
   <div class="pa-3">
     <div class="d-flex align-center">
-      <div class="text-headline-medium ml-2">
-        {{ feedsView ? $t('rssArticles.feeds.title') : $t('rssArticles.rules.title') }}
-      </div>
-      <v-spacer />
-      <div class="d-flex justify-end">
-        <v-tooltip :text="$t(feedsView ? 'rssArticles.toggle.rules' : 'rssArticles.toggle.feeds')" location="top">
-          <template #activator="{ props }">
-            <v-btn icon="mdi-auto-download" v-bind="props" variant="plain" @click="toggleFeedsView()" />
-          </template>
-        </v-tooltip>
-        <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
-      </div>
+      <v-tabs :model-value="currentTab" color="accent" grow show-arrows>
+        <v-tab value="feeds" :text="$t('rssArticles.feeds.title')" prepend-icon="mdi-rss" replace :to="{ name: 'rssArticles', params: { tab: 'feeds' } }" />
+        <v-tab value="rules" :text="$t('rssArticles.rules.title')" prepend-icon="mdi-auto-download" replace :to="{ name: 'rssArticles', params: { tab: 'rules' } }" />
+      </v-tabs>
+      <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
     </div>
 
     <Feeds v-if="feedsView" :height="height" :mobile="mobile" @open-article="openRssArticle" />

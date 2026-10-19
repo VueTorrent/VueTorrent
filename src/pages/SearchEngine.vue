@@ -1,25 +1,28 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
+import { computed, defineAsyncComponent, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
+import ButtonLink from '@/components/Core/ButtonLink.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
-import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
-import { useI18nUtils, useSearchQuery, useTimer } from '@/composables'
+import { useI18nUtils, useNumberFormatter, useSearchQuery, useTimer } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
+import { comparators, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
 
 const { mobile } = useDisplay()
-const router = useRouter()
 const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
+const router = useRouter()
+
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
-const { useBinarySize, dateFormat } = storeToRefs(useVueTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
+const { dateFormat } = storeToRefs(vueTorrentStore)
 
 const queryInput = ref<typeof HistoryField>()
 
@@ -69,6 +72,14 @@ const { results: filteredResults } = useSearchQuery(
   result => result.fileName
 )
 
+const selectedSortBy = computed({
+  get: () => selectedTab.value.sortBy ?? [],
+  set: newValue => {
+    selectedTab.value.sortBy = newValue
+    vueTorrentStore.searchEngineSortBy = newValue
+  },
+})
+
 function createNewTab() {
   searchEngineStore.createNewTab()
   tabIndex.value = searchData.value.length - 1
@@ -87,10 +98,6 @@ function pushToQueue(result: SearchResult) {
 
 function downloadTorrent(result: SearchResult) {
   void searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!).then(() => (result.downloaded = true))
-}
-
-function openResultLink(result: SearchResult) {
-  openLink(result.descrLink)
 }
 
 // One timer for the page rather than one interval per tab: useTimer drops a run while the
@@ -134,7 +141,7 @@ function goHome() {
 }
 
 function openPluginManagerDialog() {
-  dialogStore.createDialog(PluginManagerDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/PluginManagerDialog.vue')))
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
@@ -247,6 +254,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedSortBy"
           :mobile="true"
           :headers="headers"
           :items="filteredResults"
@@ -297,7 +305,7 @@ onBeforeUnmount(() => {
                   {{ t('searchEngine.headers.fileSize') }}
                 </div>
                 <div class="item-value-small">
-                  {{ formatData(item.fileSize, useBinarySize) }}
+                  {{ formatData({ data: item.fileSize }) }}
                 </div>
               </v-col>
               <v-col cols="3" class="item-container">
@@ -317,7 +325,7 @@ onBeforeUnmount(() => {
                 </div>
               </v-col>
               <v-col cols="3" class="item-actions">
-                <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+                <ButtonLink :link="item.descrLink" icon="mdi-open-in-new" variant="flat" density="compact" />
                 <v-btn icon="mdi-plus-box-multiple" variant="text" density="compact" @click="pushToQueue(item)" />
                 <v-btn
                   v-if="appStore.usesQbit5"
@@ -333,6 +341,7 @@ onBeforeUnmount(() => {
         <v-data-table
           v-else
           v-model:items-per-page="selectedTab.itemsPerPage"
+          v-model:sort-by="selectedSortBy"
           :mobile="false"
           :headers="headers"
           :items="filteredResults"
@@ -345,7 +354,7 @@ onBeforeUnmount(() => {
             </v-row>
           </template>
           <template #[`item.fileSize`]="{ item }">
-            {{ formatData(item.fileSize, useBinarySize) }}
+            {{ formatData({ data: item.fileSize }) }}
           </template>
           <template #[`item.pubDate`]="{ value }">
             {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}
@@ -353,7 +362,7 @@ onBeforeUnmount(() => {
           <template #[`item.actions`]="{ item }">
             <v-tooltip :text="t('searchEngine.tooltip.open_link')" location="top">
               <template #activator="{ props }">
-                <v-btn v-bind="props" icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+                <ButtonLink v-bind="props" :link="item.descrLink" icon="mdi-open-in-new" variant="flat" density="compact" />
               </template>
             </v-tooltip>
 

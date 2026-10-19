@@ -3,10 +3,11 @@ import { vOnLongPress } from '@vueuse/components'
 import { storeToRefs } from 'pinia'
 import { computed, triggerRef } from 'vue'
 import { useDisplay } from 'vuetify'
-import { useI18nUtils } from '@/composables'
+import RawNumberTooltip from '@/components/Core/RawNumberTooltip.vue'
+import { useI18nUtils, useNumberFormatter } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { doesCommand, formatData, formatPercent, getFileIcon } from '@/helpers'
-import { useContentStore, useVueTorrentStore } from '@/stores'
+import { doesCommand, formatPercent, getFileIcon } from '@/helpers'
+import { useContentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 
 const props = defineProps<{
@@ -19,11 +20,12 @@ defineEmits<{
 
 const folderColor = '#ffe476'
 
-const { t } = useI18nUtils()
 const { mobile } = useDisplay()
+const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
+
 const contentStore = useContentStore()
 const { internalSelection, lastSelected, openedItems } = storeToRefs(contentStore)
-const vuetorrentStore = useVueTorrentStore()
 
 const depth = computed(() => {
   if (props.node.fullName === '') return 0
@@ -69,24 +71,6 @@ function getNodeDeepCount(node: TreeNode) {
 
   return res.join(', ')
 }
-
-function getNodeSubtitle(node: TreeNode) {
-  const size = formatData(node.size, vuetorrentStore.useBinarySize)
-  const selectedSize = formatData(node.selectedSize, vuetorrentStore.useBinarySize)
-
-  let values: string[]
-  if (node.type === 'folder') {
-    let displayedSize = size
-    if (node.selectedSize > 0) {
-      displayedSize += ` (${selectedSize})`
-    }
-    values = [displayedSize, getNodeDeepCount(node)]
-  } else {
-    values = [size]
-  }
-
-  return values.join(' | ')
-}
 </script>
 
 <template>
@@ -128,7 +112,19 @@ function getNodeSubtitle(node: TreeNode) {
           {{ node.name }}
         </div>
         <div class="text-grey">
-          {{ getNodeSubtitle(node) }}
+          <RawNumberTooltip :value="node.size" :unit="t('units.byte', node.size)">
+            {{ formatData({ data: node.size }) }}
+          </RawNumberTooltip>
+          <template v-if="node.type === 'folder' && node.selectedSize > 0">
+            (
+            <RawNumberTooltip :value="node.selectedSize" :unit="t('units.byte', node.selectedSize)">
+              {{ formatData({ data: node.selectedSize }) }}
+            </RawNumberTooltip>
+            )
+          </template>
+          <template v-if="node.type === 'folder'">
+            {{ ` | ${getNodeDeepCount(node)}` }}
+          </template>
         </div>
       </div>
 

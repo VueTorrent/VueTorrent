@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, readonly, ref } from 'vue'
+import { computed, readonly, ref , defineAsyncComponent } from 'vue'
 import { toast } from 'vue3-toastify'
-import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions, TorrentDetailTab } from '@/constants/vuetorrent'
 import { downloadFile, openLink } from '@/helpers'
@@ -54,6 +53,12 @@ const darkVariants = readonly([
   { title: t('constants.themes.dark.oled'), value: DarkOled.id }
 ])
 
+const defaultNumericSeparators = [
+  { title: 'Space (" ")', value: ' ' },
+  { title: 'Dot (.)', value: '.' },
+  { title: 'Comma (,)', value: ',' },
+  { title: 'Apostrophe (\')', value: '\'' }
+]
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
@@ -118,7 +123,7 @@ function downloadSettings() {
 }
 
 function importSettings() {
-  dialogStore.createDialog(ImportSettingsDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/ImportSettingsDialog.vue')))
 }
 
 function registerMagnetHandler() {
@@ -213,6 +218,13 @@ function openDurationFormatHelp() {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.reduceMotion" hide-details density="compact" :label="t('settings.vuetorrent.general.reduceMotion')" />
         </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.enableRawValueTooltips" hide-details density="compact" :label="t('settings.vuetorrent.general.enableRawValueTooltips')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-combobox v-model="vueTorrentStore.thousandSeparator" :items="defaultNumericSeparators" hide-details :return-object="false" density="compact" :label="t('settings.vuetorrent.general.thousandSeparator')" />
+        </v-col>
       </v-row>
     </v-list-item>
 
@@ -303,9 +315,9 @@ function openDurationFormatHelp() {
           <h3>
             {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
-            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
-            <a v-else-if="isStableVersion" target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
-            <a v-else target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/tag/latest_nightly">{{ vueTorrentVersion }}</a>
+            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" rel="noopener noreferrer" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
+            <a v-else-if="isStableVersion" target="_blank" rel="noopener noreferrer" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
+            <a v-else target="_blank" rel="noopener noreferrer" href="https://github.com/VueTorrent/VueTorrent/releases/tag/latest_nightly">{{ vueTorrentVersion }}</a>
           </h3>
         </v-col>
 
@@ -322,7 +334,7 @@ function openDurationFormatHelp() {
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
           <h3>
             {{ t('settings.vuetorrent.general.qbittorrentVersion') }}
-            <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
+            <a target="_blank" rel="noopener noreferrer" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
           </h3>
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">

@@ -108,10 +108,10 @@ function disableFilter(value: T) {
         <v-divider />
       </template>
       <template #selection="{ item, index }">
-        <span v-if="index === 0 && filterCount === 1" class="text-accent">
+        <span v-if="index === 0 && filterCount === 1" class="text-nowrap-hide text-accent">
           {{ item.title }}
         </span>
-        <span v-else-if="index === 0" class="text-accent">
+        <span v-else-if="index === 0" class="text-nowrap-hide text-accent">
           {{ t('navbar.side.filters.activeFilter', filterCount) }}
         </span>
       </template>
@@ -131,3 +131,11 @@ function disableFilter(value: T) {
     </v-autocomplete>
   </v-list-item>
 </template>
+
+<style lang="scss" scoped>
+.text-nowrap-hide {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+</style>

@@ -6,6 +6,8 @@ interface SearchFilters {
   plugin: string
 }
 
+export type SearchSortBy = { key: string; order: 'asc' | 'desc' }
+
 export interface SearchData {
   uniqueId: string
   id: number
@@ -14,4 +16,5 @@ export interface SearchData {
   itemsPerPage: number
   filters: SearchFilters
   results: SearchResult[]
+  sortBy: SearchSortBy[]
 }

@@ -1,5 +1,59 @@
 # Changelog
 
+## [2.36.1](https://github.com/VueTorrent/VueTorrent/compare/v2.36.0...v2.36.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* Revert "perf(maindata): Improve performance and memory usage ([#2869](https://github.com/VueTorrent/VueTorrent/issues/2869))" ([#2937](https://github.com/VueTorrent/VueTorrent/issues/2937)) ([8a40c3f](https://github.com/VueTorrent/VueTorrent/commit/8a40c3f72639d37f2874ebaff2a9593ae9177dad))
+
+## [2.36.0](https://github.com/VueTorrent/VueTorrent/compare/v2.35.0...v2.36.0) (2026-09-29)
+
+
+### Features
+
+* **RSS:** Use tabs to switch between feeds and rules ([#2875](https://github.com/VueTorrent/VueTorrent/issues/2875)) ([d3c05aa](https://github.com/VueTorrent/VueTorrent/commit/d3c05aa6d6308aeb53afcd065b94853fcc89be09))
+
+
+### Bug Fixes
+
+* category form not fetching incomplete torrent path details ([#2912](https://github.com/VueTorrent/VueTorrent/issues/2912)) ([83f435e](https://github.com/VueTorrent/VueTorrent/commit/83f435ef7233965b73a6edad505281f543b3fd3a))
+* **DnDZone:** Add drag threshold to prevent showing overlay with high DPI ([#2935](https://github.com/VueTorrent/VueTorrent/issues/2935)) ([8254d72](https://github.com/VueTorrent/VueTorrent/commit/8254d72b086a19e4d236cf9ba93336e8b5aa6eea))
+* **DnDZone:** Remove animations and add esc key to clear drop zone ([#2932](https://github.com/VueTorrent/VueTorrent/issues/2932)) ([2a8e2ad](https://github.com/VueTorrent/VueTorrent/commit/2a8e2ad62260974eeef3b2e8a3b75c2f7d9706a0))
+* **Filters:** Prevent text wrap on navbar filters ([ddadd20](https://github.com/VueTorrent/VueTorrent/commit/ddadd200556d7e63be3d651598e1167e7f6ae40b))
+* **MagnetHandler:** Allow preloading magnets before login ([c67c224](https://github.com/VueTorrent/VueTorrent/commit/c67c224a4760d6115c6a4ba38d8ed4a54aa02654))
+
+
+### Improvements
+
+* deduplicate concurrent preference requests on app init ([6afb966](https://github.com/VueTorrent/VueTorrent/commit/6afb966c0229ea6f81cf5129d3f2c3925a56faaa))
+* **maindata:** Improve performance and memory usage ([#2869](https://github.com/VueTorrent/VueTorrent/issues/2869)) ([00f980f](https://github.com/VueTorrent/VueTorrent/commit/00f980f06786a4089e0b18b977a4aabd0fefe137))
+* Prevent log sync before opening Logs view ([b884d44](https://github.com/VueTorrent/VueTorrent/commit/b884d442278460071322f96b6eacc15f8789bb15))
+* **SearchQuery:** Skip filtering on empty query ([1d5dfb4](https://github.com/VueTorrent/VueTorrent/commit/1d5dfb48aac79aed0469e3838b74a93b3ae17965))
+* Update raw value tooltips ([#2921](https://github.com/VueTorrent/VueTorrent/issues/2921)) ([4fcaf26](https://github.com/VueTorrent/VueTorrent/commit/4fcaf26110d0ad25abe4364c7380a23ee1c1644c))
+
+## [2.35.0](https://github.com/VueTorrent/VueTorrent/compare/v2.34.1...v2.35.0) (2026-08-22)
+
+
+### Features
+
+* show raw data values on hover ([#2867](https://github.com/VueTorrent/VueTorrent/issues/2867)) ([e92249f](https://github.com/VueTorrent/VueTorrent/commit/e92249f36ea40e2c71c68439831143a6d9517ae9))
+
+
+### Bug Fixes
+
+* capitalize language names in locale switcher ([#2903](https://github.com/VueTorrent/VueTorrent/issues/2903)) ([f47c1d2](https://github.com/VueTorrent/VueTorrent/commit/f47c1d2b9c1f7bef8b71b603a4035fee87617bc3))
+* Improve network sync reliability ([559919e](https://github.com/VueTorrent/VueTorrent/commit/559919ee66f0d86068ad2526602ff25bb8bf0170))
+* Repair broken desktop layout ([9e2b435](https://github.com/VueTorrent/VueTorrent/commit/9e2b4352ebc6bc11c668bf761599de0be2706809))
+* **Settings:** API key copy not working in insecure contexts ([#2880](https://github.com/VueTorrent/VueTorrent/issues/2880)) ([ec39bbd](https://github.com/VueTorrent/VueTorrent/commit/ec39bbd2f2b7b319255f3c5d32ab2cab681959b3))
+
+
+### Improvements
+
+* Improve chunking for better app load time ([#2881](https://github.com/VueTorrent/VueTorrent/issues/2881)) ([b0eff6c](https://github.com/VueTorrent/VueTorrent/commit/b0eff6ca3bbea73058d1674616cd04ccda02bb32))
+* **links:** Add mouse middle click support to open in new tab ([#2902](https://github.com/VueTorrent/VueTorrent/issues/2902)) ([38ca598](https://github.com/VueTorrent/VueTorrent/commit/38ca5980256b02f57798c2352c7f9f18bdd91409))
+* Pause network requests on tab change ([6a42b7b](https://github.com/VueTorrent/VueTorrent/commit/6a42b7bb587af66571cdbdce626955e13b938fc4))
+
 ## [2.34.1](https://github.com/VueTorrent/VueTorrent/compare/v2.34.0...v2.34.1) (2026-07-12)
 
 

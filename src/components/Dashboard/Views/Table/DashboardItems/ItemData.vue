@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import { formatData } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
+import { useNumberFormatter } from '@/composables'
 import { Torrent } from '@/types/vuetorrent'
 
 defineProps<{ torrent: Torrent; value: (t: Torrent) => number }>()
 
-const { useBinarySize } = storeToRefs(useVueTorrentStore())
+const { formatData } = useNumberFormatter()
 </script>
 
 <template>
   <td class="text-no-wrap">
-    {{ formatData(value(torrent), useBinarySize) }}
+    {{ formatData({ data: value(torrent) }) }}
   </td>
 </template>

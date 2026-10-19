@@ -98,7 +98,7 @@ function close() {
 }
 
 onBeforeMount(() => {
-  addTorrentStore.initForm()
+  addTorrentStore.tryInitForm()
 })
 </script>
 

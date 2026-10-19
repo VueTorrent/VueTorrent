@@ -63,6 +63,7 @@
       "default": "Standard",
       "memoryMappedFiles": "Speicherabbild-Dateien",
       "posixCompliant": "POSIX-konform",
+      "preadPwrite": "Pread/pwrite",
       "simplePreadPwrite": "Einfaches pread/pwrite"
     },
     "encryption": {
@@ -127,6 +128,10 @@
       "removeTorrentAndFiles": "Torrent und zugehörige Dateien entfernen",
       "stopTorrent": "Torrent anhalten",
       "torrentSuperseeding": "Super Seeding für Torrent aktivieren"
+    },
+    "shareLimitsMode": {
+      "matchAll": "Alle Limits erfüllen",
+      "matchAny": "Beliebiges Limit erfüllen"
     },
     "stopCondition": {
       "filesChecked": "Dateien überprüft",
@@ -515,6 +520,7 @@
       "enabled": "Anteil-Limit festlegen auf",
       "global": "Globales Freigabelimit verwenden",
       "inactive_seeding_time_limit": "Inaktive Minuten",
+      "mode": "Modus",
       "ratio_limit": "Verhältnis",
       "seeding_time_limit": "Gesamtminuten",
       "title": "Anteil-Verhältnis-Limit festlegen"
@@ -736,10 +742,6 @@
         "value": "Keine RSS-Regeln registriert"
       },
       "title": "RSS-Regeln"
-    },
-    "toggle": {
-      "feeds": "Feeds anzeigen",
-      "rules": "Regeln anzeigen"
     }
   },
   "searchEngine": {
@@ -838,6 +840,7 @@
         "requestQueueSize": "Maximale ausstehende Anfragen an einen einzelnen Peer",
         "security": {
           "allowMultipleConnectionsFromTheSameIPAddress": "Erlaube mehrere Verbindungen von derselben IP-Adresse",
+          "allowMultipleConnectionsFromTheSamePeerID": "Erlaube mehrere Verbindungen von derselben Peer-ID",
           "blockPeersOnPrivilegedPorts": "Verbindung zu Peers auf privilegierten Ports nicht zulassen",
           "idnSupport": "Unterstützung für internationalisierte Domainnamen (IDN) aktivieren",
           "mitigateSSRF": "Schutz vor Server-Side Request Forgery (SSRF)",
@@ -943,6 +946,7 @@
         "subheader": "Datenschutz"
       },
       "seedLimits": {
+        "mode": "Modus",
         "subheader": "Seed-Limits",
         "then": "Dann",
         "whenInactiveSeedingTimeReaches": "Wenn die inaktive Seed-Zeit erreicht ist",
@@ -1186,6 +1190,7 @@
         "durationFormat": "Dauerformat",
         "enableHashColors": "Generierte Chipfarben aktivieren",
         "enableRatioColors": "Verhältnisfarben aktivieren",
+        "enableRawValueTooltips": "Tooltips für Rohwerte aktivieren",
         "expandContent": "Inhalt in der Inhaltsansicht standardmäßig erweitern",
         "exportTooltip": "Exportiert VueTorrent-spezifische Einstellungen",
         "fetchExternalIpInfo": "Externe IP-Informationen abrufen",
@@ -1210,6 +1215,7 @@
         "refreshInterval": "qBittorrent-API-Aktualisierungsintervall",
         "registerMagnet": "Magnet-Links registrieren",
         "resetSettings": "Einstellungen zurücksetzen",
+        "thousandSeparator": "Tausendertrennzeichen",
         "tip": "Diese Einstellungen sind für die benutzerdefinierte WebUI selbst",
         "useBinarySize": "Datenmengen durch Binäreinheiten ersetzen (kB -> KiB)",
         "useBitSpeed": "Geschwindigkeitswerte durch Bits ersetzen (kB/s -> kbps)",
@@ -1539,6 +1545,7 @@
       "basename_save_path": "Speicherpfad (Basisname)",
       "category": "Kategorie",
       "comment": "Kommentar",
+      "completed": "Abgeschlossen",
       "completed_on": "Abgeschlossen am",
       "content_path": "Inhaltspfad",
       "created_by": "Erstellt von",
@@ -1564,6 +1571,9 @@
       "is_private": "Privater Torrent",
       "last_activity": "Zuletzt aktiv",
       "magnet": "Magnet-Link",
+      "max_inactive_seeding_time": "Maximale Zeit für inaktives Seeden",
+      "max_ratio": "Maximales Verhältnis",
+      "max_seeding_time": "Maximale Seeding-Zeit",
       "name": "Torrent-Titel",
       "nb_connections": "Verbindungen insgesamt",
       "nb_connections_limit": "Verbindungslimit",
@@ -1622,6 +1632,10 @@
     }
   },
   "units": {
+    "bit_per_second": "bps",
+    "byte": "Byte | Bytes",
+    "byte_per_second": "B/s",
+    "byte_short": "B",
     "minutes": "Minute | Minuten",
     "seconds": "Sekunde | Sekunden"
   }

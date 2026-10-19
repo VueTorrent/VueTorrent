@@ -16,7 +16,9 @@ import {
   TorrentDetailTab,
   TorrentProperty,
 } from '@/constants/vuetorrent'
+import { jsonDeserialize, jsonSerialize } from '@/helpers'
 import { DarkLegacy, LightLegacy } from '@/themes'
+import type { SearchSortBy } from '@/types/vuetorrent'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
@@ -51,8 +53,12 @@ export const useVueTorrentStore = defineStore(
     const fetchExternalIpInfo = ref(false)
     const reduceMotion = ref(false)
     const keepDefaultTransitions = computed(() => !reduceMotion.value)
+    const enableRawValueTooltips = ref(true)
+    const thousandSeparator = ref(' ')
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
+    const searchEngineSortBy = ref<SearchSortBy[]>([])
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
+    const torrentSortFavourites = ref<Set<string>>(new Set())
     const logoutUrl = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -228,6 +234,18 @@ export const useVueTorrentStore = defineStore(
       }
     }
 
+    function isTorrentSortFavourite(value: string) {
+      return torrentSortFavourites.value.has(value)
+    }
+
+    function toggleTorrentSortFavourite(value: string) {
+      if (torrentSortFavourites.value.has(value)) {
+        torrentSortFavourites.value.delete(value)
+      } else {
+        torrentSortFavourites.value.add(value)
+      }
+    }
+
     function toggleBusyProperty(name: DashboardProperty) {
       _busyProperties.value[name].active = !_busyProperties.value[name].active
     }
@@ -256,6 +274,8 @@ export const useVueTorrentStore = defineStore(
       fileContentInterval,
       hideChipIfUnset,
       enableRatioColors,
+      enableRawValueTooltips,
+      thousandSeparator,
       enableHashColors,
       isShutdownButtonVisible,
       language,
@@ -283,6 +303,9 @@ export const useVueTorrentStore = defineStore(
       useEmojiState,
       fetchExternalIpInfo,
       tableColumnWidths,
+      torrentSortFavourites,
+      isTorrentSortFavourite,
+      toggleTorrentSortFavourite,
       setLanguage,
       updateTheme,
       toggleTheme,
@@ -303,6 +326,7 @@ export const useVueTorrentStore = defineStore(
       reduceMotion,
       keepDefaultTransitions,
       defaultTorrentDetailTab,
+      searchEngineSortBy,
       logoutUrl,
       $reset: () => {
         language.value = 'en'
@@ -315,6 +339,8 @@ export const useVueTorrentStore = defineStore(
         uiTitleCustom.value = ''
         hideChipIfUnset.value = false
         enableRatioColors.value = true
+        enableRawValueTooltips.value = true
+        thousandSeparator.value = ' '
         enableHashColors.value = true
         paginationSize.value = 15
         dateFormat.value = defaultDateFormat
@@ -332,7 +358,9 @@ export const useVueTorrentStore = defineStore(
         expandContent.value = true
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
+        searchEngineSortBy.value = []
         tableColumnWidths.value = {}
+        torrentSortFavourites.value = new Set()
         logoutUrl.value = ''
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
@@ -346,10 +374,16 @@ export const useVueTorrentStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: localStorage, key: 'webuiSettings' }],
-    },
+    persist: [
+      {
+        storage: localStorage,
+        key: 'webuiSettings',
+        serializer: {
+          serialize: jsonSerialize,
+          deserialize: jsonDeserialize,
+        },
+      },
+    ],
   }
 )
 

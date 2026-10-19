@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import TRC from '@/components/Dashboard/RightClick.vue'
@@ -8,7 +8,6 @@ import Toolbar from '@/components/Dashboard/Toolbar.vue'
 import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
@@ -173,7 +172,10 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
     const searchInput = document.getElementById('searchInput')
     if (document.activeElement !== searchInput) {
-      dialogStore.createDialog(ConfirmDeleteDialog, { hashes: selectedTorrents.value })
+      dialogStore.createDialog(
+        defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmDeleteDialog.vue')),
+        { hashes: selectedTorrents.value }
+      )
       e.preventDefault()
     }
     return true

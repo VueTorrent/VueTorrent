@@ -3,8 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Article from './Article.vue'
 import { useArrayPagination } from '@/composables'
-import { openLink } from '@/helpers'
-import { useAddTorrentStore, useRssStore, useVueTorrentStore } from '@/stores'
+import { useAddTorrentStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 
 defineProps<{
@@ -18,7 +17,6 @@ defineEmits<{
 const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
 const rssStore = useRssStore()
-const vuetorrentStore = useVueTorrentStore()
 
 const selectedFeed = computed(() => route.params.feedId as string | undefined)
 
@@ -27,11 +25,6 @@ const articles = computed(() =>
 )
 
 const { paginatedResults, currentPage, pageCount } = useArrayPagination(articles, 15)
-
-function openArticleLink(article: RssArticle) {
-  const url = vuetorrentStore.useIdForRssLinks ? article.id : article.link
-  openLink(url)
-}
 
 function downloadArticle(item: RssArticle) {
   addTorrentStore.pushTorrentToQueue(item.torrentURL)
@@ -51,12 +44,7 @@ async function markAsRead(item: RssArticle) {
     <template v-for="(article, index) in paginatedResults" :key="article.id">
       <v-divider v-if="index > 0" />
 
-      <Article
-        :article="article"
-        @click="$emit('articleClicked', article)"
-        @mark-as-read="markAsRead(article)"
-        @open="openArticleLink(article)"
-        @download="downloadArticle(article)" />
+      <Article :article="article" @click="$emit('articleClicked', article)" @mark-as-read="markAsRead(article)" @download="downloadArticle(article)" />
     </template>
 
     <v-list-item v-if="articles.length === 0">

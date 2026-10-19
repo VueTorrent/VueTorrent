@@ -81,10 +81,7 @@ export const useSidebarStore = defineStore(
     }
   },
   {
-    persistence: {
-      enabled: true,
-      storageItems: [{ storage: localStorage, key: 'sidebarSettings' }],
-    },
+    persist: [{ storage: localStorage, key: 'sidebarSettings' }],
   }
 )
 

@@ -2,16 +2,15 @@
 import { computed, ref } from 'vue'
 import ApiKeyGenerator from './ApiKeyGenerator.vue'
 import AutofillableField from '@/components/Core/AutofillableField.vue'
+import ButtonLink from '@/components/Core/ButtonLink.vue'
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { useI18nUtils } from '@/composables'
-import { openLink } from '@/helpers'
 import { useAppStore, usePreferenceStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
-const dynDnsProvider = ref('https://www.dyndns.com/account/services/hosts/add.html')
 const dynDnsProviderOptions = [
   {
     title: t('settings.webUI.dynDns.providers.dynDns'),
@@ -22,6 +21,7 @@ const dynDnsProviderOptions = [
     value: 'https://www.no-ip.com/services/managed_dns/free_dynamic_dns.html',
   },
 ]
+const dynDnsProviderLink = ref(dynDnsProviderOptions[0].value)
 
 const webUiPassword = computed({
   get: () => preferenceStore.preferences!.web_ui_password || '',
@@ -29,10 +29,6 @@ const webUiPassword = computed({
     preferenceStore.preferences!.web_ui_password = val === '' ? undefined : val
   },
 })
-
-function registerDynDNS() {
-  openLink(dynDnsProvider.value)
-}
 </script>
 
 <template>
@@ -167,7 +163,7 @@ function registerDynDNS() {
     </v-list-item>
 
     <v-list-item>
-      <a href="https://httpd.apache.org/docs/current/ssl/ssl_faq.html#aboutcerts" target="_blank">{{ t('settings.webUI.https.tip') }}</a>
+      <a href="https://httpd.apache.org/docs/current/ssl/ssl_faq.html#aboutcerts" target="_blank" rel="noopener noreferrer">{{ t('settings.webUI.https.tip') }}</a>
     </v-list-item>
 
     <v-divider />
@@ -251,12 +247,10 @@ function registerDynDNS() {
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-select v-model="dynDnsProvider" :disabled="!preferenceStore.preferences!.dyndns_enabled" density="compact" hide-details :items="dynDnsProviderOptions" />
+          <v-select v-model="dynDnsProviderLink" :disabled="!preferenceStore.preferences!.dyndns_enabled" density="compact" hide-details :items="dynDnsProviderOptions" />
         </v-col>
         <v-col cols="4">
-          <v-btn :disabled="!preferenceStore.preferences!.dyndns_enabled" @click="registerDynDNS">
-            {{ $t('settings.webUI.dynDns.registerBtn') }}
-          </v-btn>
+          <ButtonLink :link="dynDnsProviderLink" :disabled="!preferenceStore.preferences!.dyndns_enabled" :text="t('settings.webUI.dynDns.registerBtn')" />
         </v-col>
       </v-row>
     </v-list-item>

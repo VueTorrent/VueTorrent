@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { toast } from 'vue3-toastify'
-import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
-import StatsDialog from '@/components/Dialogs/StatsDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
 import { ThemeMode } from '@/constants/vuetorrent'
@@ -83,11 +81,11 @@ function toggleAltSpeed() {
 }
 
 function openConnectionStatusDialog() {
-  dialogStore.createDialog(ConnectionStatusDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/ConnectionStatusDialog.vue')))
 }
 
 function openStatsDialog() {
-  dialogStore.createDialog(StatsDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/StatsDialog.vue')))
 }
 
 function openConfirmShutdownDialog() {

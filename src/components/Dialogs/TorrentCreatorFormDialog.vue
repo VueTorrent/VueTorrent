@@ -2,10 +2,9 @@
 import { computed, reactive, ref } from 'vue'
 import { VForm } from 'vuetify/components/VForm'
 import ServerPathField from '@/components/Core/ServerPathField.vue'
-import { useDialog, useI18nUtils } from '@/composables'
+import { useDialog, useI18nUtils, useNumberFormatter } from '@/composables'
 import { TorrentFormat } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { formatData } from '@/helpers'
 import { useAppStore, useTorrentCreatorStore } from '@/stores'
 import { TorrentCreatorParams } from '@/types/qbit/models'
 
@@ -15,6 +14,8 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18nUtils()
+const { formatData } = useNumberFormatter()
+
 const appStore = useAppStore()
 const torrentCreatorStore = useTorrentCreatorStore()
 
@@ -47,7 +48,7 @@ const pieceSizeOptions = computed(() => {
   const sizes = [{ title: t('common.auto'), value: 0 }]
 
   for (let i = 16 * 1024; i < 500_000_000; i *= 2) {
-    sizes.push({ title: formatData(i, true, 0), value: i })
+    sizes.push({ title: formatData({ data: i, isBinary: true, precision: 0 }), value: i })
   }
 
   return sizes

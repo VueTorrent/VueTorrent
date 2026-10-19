@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, reactive, ref } from 'vue'
-import { VForm } from 'vuetify/components/VForm'
 import AddTorrentParamsDialog from './AddTorrentParamsDialog.vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { usePreferenceStore, useRssStore } from '@/stores'
@@ -113,7 +112,7 @@ onBeforeMount(async () => {
       <v-card-text>
         <v-form ref="form" v-model="isFormValid" @submit.prevent>
           <v-row>
-            <v-col cols="12" sm="6" class="scrollable-col">
+            <v-col cols="12" sm class="scrollable-col">
               <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
 
               <div class="d-flex">
@@ -162,9 +161,11 @@ onBeforeMount(async () => {
               <v-checkbox v-for="feed in rssStore.feeds" :key="feed.uid" v-model="formData.affectedFeeds" multiple hide-details :label="feed.name" :value="feed.url" />
             </v-col>
 
-            <v-divider :vertical="!$vuetify.display.mobile" />
+            <v-col cols="12" sm="auto" class="d-flex pa-0">
+              <v-divider :vertical="!$vuetify.display.mobile" />
+            </v-col>
 
-            <v-col cols="12" sm="6" class="scrollable-col">
+            <v-col cols="12" sm class="scrollable-col">
               <div class="v-card-title pa-0">
                 {{ $t('dialogs.rss.rule.matchingArticles.title') }}
               </div>

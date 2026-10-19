@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
 import { onBeforeRouteUpdate } from 'vue-router'
-import { useI18nUtils, useTimer } from '@/composables'
-import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
-import { useDialogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { useI18nUtils, useNumberFormatter, useTimer } from '@/composables'
+import { codeToFlag, formatPercent, isWindows } from '@/helpers'
+import { useDialogStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 
@@ -12,10 +12,11 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 type PeerType = Peer & { host: string }
 
 const { t } = useI18nUtils()
+const { formatData, formatSpeed } = useNumberFormatter()
+
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
-const vuetorrentStore = useVueTorrentStore()
 
 const headers = readonly([
   { nowrap: true, key: 'actions', sortable: false },
@@ -187,14 +188,14 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
 
       <template #[`item.dl_speed`]="{ item }">
         <span class="text-download">
-          {{ formatSpeed(item.dl_speed, vuetorrentStore.useBitSpeed) }}
-          ({{ formatData(item.downloaded, vuetorrentStore.useBinarySize) }})
+          {{ formatSpeed({ speed: item.dl_speed }) }}
+          ({{ formatData({ data: item.downloaded }) }})
         </span>
       </template>
       <template #[`item.up_speed`]="{ item }">
         <span class="text-upload">
-          {{ formatSpeed(item.up_speed, vuetorrentStore.useBitSpeed) }}
-          ({{ formatData(item.uploaded, vuetorrentStore.useBinarySize) }})
+          {{ formatSpeed({ speed: item.up_speed }) }}
+          ({{ formatData({ data: item.uploaded }) }})
         </span>
       </template>
 

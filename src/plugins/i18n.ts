@@ -25,7 +25,7 @@ export default createI18n({
       if (!teen && choice % 10 >= 2 && choice % 10 <= 4) {
         return 2
       }
-      return choicesLength < 4 ? 2 : 3
+      return 3
     },
   },
 })

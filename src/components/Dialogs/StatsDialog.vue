@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables'
-import { formatData } from '@/helpers'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDialog, useNumberFormatter } from '@/composables'
+import { useMaindataStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
 }>()
 
 const { isOpened } = useDialog(props.guid)
+const { formatData } = useNumberFormatter()
+
 const maindataStore = useMaindataStore()
-const vueTorrentStore = useVueTorrentStore()
 
 function close() {
   isOpened.value = false
@@ -28,13 +28,13 @@ function close() {
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.all_time_upload') }}</div>
             <div class="ml-2">
-              {{ formatData(maindataStore.serverState?.alltime_ul ?? 0, vueTorrentStore.useBinarySize) }}
+              {{ formatData({ data: maindataStore.serverState?.alltime_ul }) }}
             </div>
           </v-col>
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.all_time_download') }}</div>
             <div class="ml-2">
-              {{ formatData(maindataStore.serverState?.alltime_dl ?? 0, vueTorrentStore.useBinarySize) }}
+              {{ formatData({ data: maindataStore.serverState?.alltime_dl }) }}
             </div>
           </v-col>
           <v-col cols="12" sm="6">
@@ -44,7 +44,7 @@ function close() {
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.session_waste') }}</div>
             <div class="ml-2">
-              {{ formatData(maindataStore.serverState?.total_wasted_session ?? 0, vueTorrentStore.useBinarySize) }}
+              {{ formatData({ data: maindataStore.serverState?.total_wasted_session }) }}
             </div>
           </v-col>
           <v-col cols="12" sm="6">
@@ -66,7 +66,7 @@ function close() {
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.total_buffer_size') }}</div>
             <div class="ml-2">
-              {{ formatData(maindataStore.serverState?.total_buffers_size ?? 0, vueTorrentStore.useBinarySize) }}
+              {{ formatData({ data: maindataStore.serverState?.total_buffers_size }) }}
             </div>
           </v-col>
         </v-row>
@@ -96,7 +96,7 @@ function close() {
           <v-col cols="12" sm="6">
             <div>{{ $t('dialogs.stats.total_queued_size') }}</div>
             <div class="ml-2">
-              {{ formatData(maindataStore.serverState?.total_queued_size ?? 0, vueTorrentStore.useBinarySize) }}
+              {{ formatData({ data: maindataStore.serverState?.total_queued_size }) }}
             </div>
           </v-col>
         </v-row>

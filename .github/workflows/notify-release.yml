@@ -4,14 +4,15 @@ on:
     types:
     - released
 
+permissions:
+  contents: read
+
 jobs:
   release-to-discord:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Send release to Discord Webhook
         uses: VueTorrent/release-to-discord@main

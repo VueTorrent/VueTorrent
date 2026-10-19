@@ -44,6 +44,10 @@ vi.mock('@/services/qbit', () => ({
   },
 }))
 
+vi.mock('./vuetorrent', () => ({
+  useVueTorrentStore: () => ({ searchEngineSortBy: [] }),
+}))
+
 function makeTab(store: ReturnType<typeof useSearchEngineStore>) {
   store.$reset()
   const tab = store.searchData[0]
