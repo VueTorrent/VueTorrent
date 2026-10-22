@@ -381,6 +381,7 @@
       "deleteCategory": "Do you really want to remove this category?",
       "deleteCookie": "Do you really want to remove this cookie?",
       "deleteFeed": "Do you really want to remove this RSS feed?",
+      "deleteFilterPreset": "Do you really want to remove this quick filter?",
       "deleteRule": "Do you really want to remove this RSS rule?",
       "deleteTag": "Do you really want to remove this tag?",
       "deleteUnusedCategories": "Do you really want to remove all unused categories?",
@@ -516,6 +517,11 @@
         },
         "useRegex": "Use Regular Expression"
       }
+    },
+    "saveFilterPreset": {
+      "name": "Name",
+      "required": "Name is required",
+      "title": "Save as quick filter"
     },
     "share_limit": {
       "disabled": "Set no share limit",
@@ -703,6 +709,10 @@
         "tag": "Tag filter: {value}",
         "text": "Text filter: {value}",
         "tracker": "Tracker filter: {value}"
+      },
+      "quick_filters": {
+        "label": "Quick filters",
+        "save": "Save current filters as quick filter"
       }
     }
   },

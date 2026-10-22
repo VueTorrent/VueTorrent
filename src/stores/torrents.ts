@@ -1,5 +1,6 @@
 import { useArrayFilter, useSorted, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
+import { v4 as uuidv4 } from 'uuid'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useAppStore } from './app'
 import { useTorrentDetailStore } from './torrentDetail'
@@ -9,7 +10,7 @@ import { comparatorMap, FilterType, TorrentState, TrackerSpecialFilter } from '@
 import qbit from '@/services/qbit'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent as VtTorrent } from '@/types/vuetorrent'
+import { FilterPreset, Torrent as VtTorrent } from '@/types/vuetorrent'
 
 export const useTorrentStore = defineStore(
   'torrents',
@@ -119,6 +120,104 @@ export const useTorrentStore = defineStore(
     )
 
     const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
+
+    const filterPresets = ref<FilterPreset[]>([])
+
+    function getCurrentFilters(): Omit<FilterPreset, 'id' | 'name'> {
+      return {
+        filterType: filterType.value,
+        textFilter: textFilter.value,
+        statusFilter: [...statusFilter.value],
+        categoryFilter: [...categoryFilter.value],
+        tagFilterInclude: [...tagFilterInclude.value],
+        tagFilterExclude: [...tagFilterExclude.value],
+        tagFilterType: tagFilterType.value,
+        trackerFilterInclude: [...trackerFilterInclude.value],
+        trackerFilterExclude: [...trackerFilterExclude.value],
+        trackerFilterType: trackerFilterType.value,
+      }
+    }
+
+    const hasAnyFilter = computed(
+      () =>
+        textFilter.value.length > 0 ||
+        statusFilter.value.length > 0 ||
+        categoryFilter.value.length > 0 ||
+        tagFilterInclude.value.length + tagFilterExclude.value.length > 0 ||
+        trackerFilterInclude.value.length + trackerFilterExclude.value.length > 0
+    )
+
+    const areAllFiltersEnabled = computed(
+      () => isTextFilterActive.value && isStatusFilterActive.value && isCategoryFilterActive.value && isTagFilterActive.value && isTrackerFilterActive.value
+    )
+
+    function sameItems<T>(a: T[], b: T[]) {
+      return a.length === b.length && a.every(v => b.includes(v)) && b.every(v => a.includes(v))
+    }
+
+    function presetMatchesCurrentFilters(preset: FilterPreset) {
+      return (
+        preset.textFilter === textFilter.value &&
+        sameItems(preset.statusFilter, statusFilter.value) &&
+        sameItems(preset.categoryFilter, categoryFilter.value) &&
+        sameItems(preset.tagFilterInclude, tagFilterInclude.value) &&
+        sameItems(preset.tagFilterExclude, tagFilterExclude.value) &&
+        sameItems(preset.trackerFilterInclude, trackerFilterInclude.value) &&
+        sameItems(preset.trackerFilterExclude, trackerFilterExclude.value) &&
+        // Combination modes only matter when the related filter is used
+        (preset.statusFilter.length + preset.categoryFilter.length === 0 || preset.filterType === filterType.value) &&
+        (preset.tagFilterInclude.length + preset.tagFilterExclude.length === 0 || preset.tagFilterType === tagFilterType.value) &&
+        (preset.trackerFilterInclude.length + preset.trackerFilterExclude.length === 0 || preset.trackerFilterType === trackerFilterType.value)
+      )
+    }
+
+    /** ID of the preset matching exactly the current (enabled) filters, if any */
+    const activeFilterPresetId = computed(() => {
+      if (!hasAnyFilter.value || !areAllFiltersEnabled.value) return null
+      return filterPresets.value.find(presetMatchesCurrentFilters)?.id ?? null
+    })
+
+    function saveFilterPreset(name: string) {
+      const preset: FilterPreset = { id: uuidv4(), name: name.trim(), ...getCurrentFilters() }
+      filterPresets.value = [...filterPresets.value, preset]
+      return preset
+    }
+
+    function applyFilterPreset(id: string) {
+      const preset = filterPresets.value.find(p => p.id === id)
+      if (!preset) return
+
+      filterType.value = preset.filterType
+      textFilter.value = preset.textFilter
+      statusFilter.value = [...preset.statusFilter]
+      categoryFilter.value = [...preset.categoryFilter]
+      tagFilterInclude.value = [...preset.tagFilterInclude]
+      tagFilterExclude.value = [...preset.tagFilterExclude]
+      tagFilterType.value = preset.tagFilterType
+      trackerFilterInclude.value = [...preset.trackerFilterInclude]
+      trackerFilterExclude.value = [...preset.trackerFilterExclude]
+      trackerFilterType.value = preset.trackerFilterType
+
+      isTextFilterActive.value = true
+      isStatusFilterActive.value = true
+      isCategoryFilterActive.value = true
+      isTagFilterActive.value = true
+      isTrackerFilterActive.value = true
+    }
+
+    function clearFilters() {
+      textFilter.value = ''
+      statusFilter.value = []
+      categoryFilter.value = []
+      tagFilterInclude.value = []
+      tagFilterExclude.value = []
+      trackerFilterInclude.value = []
+      trackerFilterExclude.value = []
+    }
+
+    function deleteFilterPreset(id: string) {
+      filterPresets.value = filterPresets.value.filter(p => p.id !== id)
+    }
 
     function matchStatus(t: VtTorrent): boolean {
       return statusFilter.value.includes(t.state)
@@ -363,6 +462,13 @@ export const useTorrentStore = defineStore(
       torrentsByStatus,
       torrentsByTracker,
       sortCriterias,
+      filterPresets,
+      hasAnyFilter,
+      activeFilterPresetId,
+      saveFilterPreset,
+      applyFilterPreset,
+      deleteFilterPreset,
+      clearFilters,
       processedTorrents: filteredAndSortedTorrents,
       syncFromMaindata,
       setTorrentCategory,
