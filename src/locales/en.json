@@ -1200,6 +1200,7 @@
         "filterType": "Filters inclusion type",
         "hideChipIfUnset": "Hide chips if unset",
         "hideColoredChip": "Use text variant for chips",
+        "hideZeroStateEta": "Hide remaining time when it is 0 or infinite",
         "historySize": "History size on eligible fields",
         "import": "Import Settings",
         "isShutdownButtonVisible": "Show shutdown button",

@@ -48,6 +48,7 @@ export const useVueTorrentStore = defineStore(
     const fileContentInterval = ref(5000)
     const useIdForRssLinks = ref(false)
     const hideColoredChip = ref(false)
+    const hideZeroStateEta = ref(false)
     const displayGraphLimits = ref(true)
     const useEmojiState = ref(true)
     const fetchExternalIpInfo = ref(false)
@@ -288,6 +289,7 @@ export const useVueTorrentStore = defineStore(
       useBitSpeed,
       useIdForRssLinks,
       hideColoredChip,
+      hideZeroStateEta,
       _busyProperties,
       busyTorrentProperties,
       _doneProperties,
@@ -352,6 +354,7 @@ export const useVueTorrentStore = defineStore(
         fileContentInterval.value = 5000
         useIdForRssLinks.value = false
         hideColoredChip.value = false
+        hideZeroStateEta.value = false
         displayGraphLimits.value = true
         useEmojiState.value = true
         fetchExternalIpInfo.value = false
