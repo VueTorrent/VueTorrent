@@ -2,6 +2,7 @@
 import { useSorted } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps } from 'vue'
+import QuickFilters from './QuickFilters.vue'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 import { useI18nUtils } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
@@ -164,6 +165,7 @@ function toggleSelectMode() {
         </template>
       </v-select>
     </div>
+    <QuickFilters v-if="$vuetify.display.lgAndUp" class="ml-3" />
 
     <v-spacer />
 
@@ -171,4 +173,5 @@ function toggleSelectMode() {
       {{ torrentCountString }}
     </div>
   </div>
+  <QuickFilters v-if="!$vuetify.display.lgAndUp" class="mb-2" />
 </template>
