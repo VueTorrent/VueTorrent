@@ -1,30 +1,20 @@
 <script lang="ts" setup>
-import { useCategoryStore, useMaindataStore, useTagStore, useTorrentStore } from '@/stores'
+import { useTagCategoryActions } from '@/composables'
+import { useCategoryStore, useTagStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const categoryStore = useCategoryStore()
-const maindataStore = useMaindataStore()
 const tagStore = useTagStore()
-const torrentStore = useTorrentStore()
+const tagCategoryActions = useTagCategoryActions()
 
 async function setCategory(category: string) {
-  if (props.torrent.category === category) {
-    await torrentStore.setTorrentCategory([props.torrent.hash], '')
-  } else {
-    await torrentStore.setTorrentCategory([props.torrent.hash], category)
-  }
-  maindataStore.syncMaindata()
+  await tagCategoryActions.setCategory([props.torrent.hash], props.torrent.category === category ? '' : category)
 }
 
 async function toggleTag(tag: string) {
-  if (props.torrent.tags?.includes(tag)) {
-    await torrentStore.removeTorrentTags([props.torrent.hash], [tag])
-  } else {
-    await torrentStore.addTorrentTags([props.torrent.hash], [tag])
-  }
-  maindataStore.syncMaindata()
+  await tagCategoryActions.toggleTag([props.torrent.hash], tag)
 }
 </script>
 
