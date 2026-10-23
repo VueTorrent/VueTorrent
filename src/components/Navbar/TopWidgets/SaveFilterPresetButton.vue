@@ -9,7 +9,6 @@ const { t } = useI18nUtils()
 const dialogStore = useDialogStore()
 const { hasAnyFilter, activeFilterPresetId } = storeToRefs(useTorrentStore())
 
-/** Allow saving only when there's something to save that isn't already a preset */
 const canSave = computed(() => hasAnyFilter.value && activeFilterPresetId.value === null)
 
 function openSaveDialog() {
@@ -19,6 +18,10 @@ function openSaveDialog() {
 
 <template>
   <v-slide-x-transition>
-    <v-btn v-if="canSave" class="ml-2" icon="mdi-content-save-outline" size="small" variant="text" :title="t('navbar.top.quick_filters.save')" @click="openSaveDialog" />
+    <v-tooltip v-if="canSave" :text="t('navbar.top.quick_filters.save')" location="bottom">
+      <template #activator="{ props }">
+        <v-btn v-bind="props" class="ml-2" icon="mdi-content-save-outline" size="small" variant="text" :aria-label="t('navbar.top.quick_filters.save')" @click="openSaveDialog" />
+      </template>
+    </v-tooltip>
   </v-slide-x-transition>
 </template>

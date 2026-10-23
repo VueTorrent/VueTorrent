@@ -711,6 +711,9 @@
         "tracker": "Tracker filter: {value}"
       },
       "quick_filters": {
+        "apply": "Apply quick filter",
+        "clear": "Clear quick filter",
+        "delete": "Delete quick filter",
         "label": "Quick filters",
         "save": "Save current filters as quick filter"
       }

@@ -165,8 +165,6 @@ function toggleSelectMode() {
         </template>
       </v-select>
     </div>
-
-    <!-- Desktop: quick filters inline, next to the sort selector -->
     <QuickFilters v-if="$vuetify.display.lgAndUp" class="ml-3" />
 
     <v-spacer />
@@ -175,7 +173,5 @@ function toggleSelectMode() {
       {{ torrentCountString }}
     </div>
   </div>
-
-  <!-- Smaller screens: quick filters on their own scrollable row -->
   <QuickFilters v-if="!$vuetify.display.lgAndUp" class="mb-2" />
 </template>
