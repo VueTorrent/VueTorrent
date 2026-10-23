@@ -192,6 +192,10 @@ function openDurationFormatHelp() {
         </v-col>
 
         <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.hideZeroStateEta" hide-details density="compact" :label="t('settings.vuetorrent.general.hideZeroStateEta')" />
+        </v-col>
+
+        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.displayGraphLimits" hide-details density="compact" :label="t('settings.vuetorrent.general.displayGraphLimits')" />
         </v-col>
         <v-col cols="12" sm="6">

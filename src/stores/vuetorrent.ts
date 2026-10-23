@@ -18,7 +18,7 @@ import {
 } from '@/constants/vuetorrent'
 import { jsonDeserialize, jsonSerialize } from '@/helpers'
 import { DarkLegacy, LightLegacy } from '@/themes'
-import type { SearchSortBy } from '@/types/vuetorrent'
+import type { SearchPreset, SearchSortBy } from '@/types/vuetorrent'
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
@@ -48,6 +48,7 @@ export const useVueTorrentStore = defineStore(
     const fileContentInterval = ref(5000)
     const useIdForRssLinks = ref(false)
     const hideColoredChip = ref(false)
+    const hideZeroStateEta = ref(false)
     const displayGraphLimits = ref(true)
     const useEmojiState = ref(true)
     const fetchExternalIpInfo = ref(false)
@@ -57,6 +58,10 @@ export const useVueTorrentStore = defineStore(
     const thousandSeparator = ref(' ')
     const defaultTorrentDetailTab = ref(TorrentDetailTab.LAST_OPENED)
     const searchEngineSortBy = ref<SearchSortBy[]>([])
+    /** Saved search presets, in creation order. */
+    const searchPresets = ref<SearchPreset[]>([])
+    /** Id of the preset applied automatically to new search tabs, or `null` for none. */
+    const searchPresetDefaultId = ref<string | null>(null)
     const tableColumnWidths = ref<Record<string, Record<string, number>>>({})
     const torrentSortFavourites = ref<Set<string>>(new Set())
     const logoutUrl = ref('')
@@ -288,6 +293,7 @@ export const useVueTorrentStore = defineStore(
       useBitSpeed,
       useIdForRssLinks,
       hideColoredChip,
+      hideZeroStateEta,
       _busyProperties,
       busyTorrentProperties,
       _doneProperties,
@@ -327,6 +333,8 @@ export const useVueTorrentStore = defineStore(
       keepDefaultTransitions,
       defaultTorrentDetailTab,
       searchEngineSortBy,
+      searchPresets,
+      searchPresetDefaultId,
       logoutUrl,
       $reset: () => {
         language.value = 'en'
@@ -352,6 +360,7 @@ export const useVueTorrentStore = defineStore(
         fileContentInterval.value = 5000
         useIdForRssLinks.value = false
         hideColoredChip.value = false
+        hideZeroStateEta.value = false
         displayGraphLimits.value = true
         useEmojiState.value = true
         fetchExternalIpInfo.value = false
@@ -359,6 +368,8 @@ export const useVueTorrentStore = defineStore(
         reduceMotion.value = false
         defaultTorrentDetailTab.value = TorrentDetailTab.LAST_OPENED
         searchEngineSortBy.value = []
+        searchPresets.value = []
+        searchPresetDefaultId.value = null
         tableColumnWidths.value = {}
         torrentSortFavourites.value = new Set()
         logoutUrl.value = ''

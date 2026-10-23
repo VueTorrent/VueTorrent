@@ -5,6 +5,8 @@ import type RightClickProperties from './RightClickProperties'
 import type { RssArticle } from './RssArticle'
 import type { RssFeed } from './RssFeed'
 import type { SearchData, SearchSortBy } from './SearchData'
+import { defaultSearchPresetCapture } from './SearchPreset'
+import type { SearchPreset, SearchPresetCapture } from './SearchPreset'
 import type SearchResult from './SearchResult'
 import { ShareLimitAction } from './ShareLimitAction'
 import type { ShareLimitActionString } from './ShareLimitAction'
@@ -15,5 +17,21 @@ import type Torrent from './Torrent'
 import { TreeFile, TreeFolder } from './TreeObjects'
 import type { TreeNode } from './TreeObjects'
 
-export { Cookie, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder }
-export type { FilterPreset, RssArticle, RssFeed, SearchData, SearchSortBy, Torrent, TreeNode, RightClickMenuEntryType, RightClickProperties, SearchResult, SidebarWidget, ShareLimitActionString, ShareLimitsModeString }
+export { Cookie, defaultSearchPresetCapture, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder }
+export type {
+  FilterPreset,
+  RssArticle,
+  RssFeed,
+  SearchData,
+  SearchPreset,
+  SearchPresetCapture,
+  SearchSortBy,
+  Torrent,
+  TreeNode,
+  RightClickMenuEntryType,
+  RightClickProperties,
+  SearchResult,
+  SidebarWidget,
+  ShareLimitActionString,
+  ShareLimitsModeString,
+}
