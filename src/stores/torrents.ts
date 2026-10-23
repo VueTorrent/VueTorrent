@@ -123,62 +123,57 @@ export const useTorrentStore = defineStore(
 
     const filterPresets = ref<FilterPreset[]>([])
 
-    function getCurrentFilters(): Omit<FilterPreset, 'id' | 'name'> {
-      return {
-        filterType: filterType.value,
-        textFilter: textFilter.value,
-        statusFilter: [...statusFilter.value],
-        categoryFilter: [...categoryFilter.value],
-        tagFilterInclude: [...tagFilterInclude.value],
-        tagFilterExclude: [...tagFilterExclude.value],
-        tagFilterType: tagFilterType.value,
-        trackerFilterInclude: [...trackerFilterInclude.value],
-        trackerFilterExclude: [...trackerFilterExclude.value],
-        trackerFilterType: trackerFilterType.value,
-      }
-    }
+    const effectiveFilters = computed<Omit<FilterPreset, 'id' | 'name'>>(() => ({
+      filterType: filterType.value,
+      textFilter: isTextFilterActive.value ? textFilter.value : '',
+      statusFilter: isStatusFilterActive.value ? [...statusFilter.value] : [],
+      categoryFilter: isCategoryFilterActive.value ? [...categoryFilter.value] : [],
+      tagFilterInclude: isTagFilterActive.value ? [...tagFilterInclude.value] : [],
+      tagFilterExclude: isTagFilterActive.value ? [...tagFilterExclude.value] : [],
+      tagFilterType: tagFilterType.value,
+      trackerFilterInclude: isTrackerFilterActive.value ? [...trackerFilterInclude.value] : [],
+      trackerFilterExclude: isTrackerFilterActive.value ? [...trackerFilterExclude.value] : [],
+      trackerFilterType: trackerFilterType.value,
+    }))
 
-    const hasAnyFilter = computed(
-      () =>
-        textFilter.value.length > 0 ||
-        statusFilter.value.length > 0 ||
-        categoryFilter.value.length > 0 ||
-        tagFilterInclude.value.length + tagFilterExclude.value.length > 0 ||
-        trackerFilterInclude.value.length + trackerFilterExclude.value.length > 0
-    )
-
-    const areAllFiltersEnabled = computed(
-      () => isTextFilterActive.value && isStatusFilterActive.value && isCategoryFilterActive.value && isTagFilterActive.value && isTrackerFilterActive.value
-    )
+    const hasAnyFilter = computed(() => {
+      const f = effectiveFilters.value
+      return (
+        f.textFilter.length > 0 ||
+        f.statusFilter.length > 0 ||
+        f.categoryFilter.length > 0 ||
+        f.tagFilterInclude.length + f.tagFilterExclude.length > 0 ||
+        f.trackerFilterInclude.length + f.trackerFilterExclude.length > 0
+      )
+    })
 
     function sameItems<T>(a: T[], b: T[]) {
       return a.length === b.length && a.every(v => b.includes(v)) && b.every(v => a.includes(v))
     }
 
     function presetMatchesCurrentFilters(preset: FilterPreset) {
+      const f = effectiveFilters.value
       return (
-        preset.textFilter === textFilter.value &&
-        sameItems(preset.statusFilter, statusFilter.value) &&
-        sameItems(preset.categoryFilter, categoryFilter.value) &&
-        sameItems(preset.tagFilterInclude, tagFilterInclude.value) &&
-        sameItems(preset.tagFilterExclude, tagFilterExclude.value) &&
-        sameItems(preset.trackerFilterInclude, trackerFilterInclude.value) &&
-        sameItems(preset.trackerFilterExclude, trackerFilterExclude.value) &&
-        // Combination modes only matter when the related filter is used
-        (preset.statusFilter.length + preset.categoryFilter.length === 0 || preset.filterType === filterType.value) &&
-        (preset.tagFilterInclude.length + preset.tagFilterExclude.length === 0 || preset.tagFilterType === tagFilterType.value) &&
-        (preset.trackerFilterInclude.length + preset.trackerFilterExclude.length === 0 || preset.trackerFilterType === trackerFilterType.value)
+        preset.textFilter === f.textFilter &&
+        sameItems(preset.statusFilter, f.statusFilter) &&
+        sameItems(preset.categoryFilter, f.categoryFilter) &&
+        sameItems(preset.tagFilterInclude, f.tagFilterInclude) &&
+        sameItems(preset.tagFilterExclude, f.tagFilterExclude) &&
+        sameItems(preset.trackerFilterInclude, f.trackerFilterInclude) &&
+        sameItems(preset.trackerFilterExclude, f.trackerFilterExclude) &&
+        (preset.statusFilter.length + preset.categoryFilter.length === 0 || preset.filterType === f.filterType) &&
+        (preset.tagFilterInclude.length + preset.tagFilterExclude.length === 0 || preset.tagFilterType === f.tagFilterType) &&
+        (preset.trackerFilterInclude.length + preset.trackerFilterExclude.length === 0 || preset.trackerFilterType === f.trackerFilterType)
       )
     }
 
-    /** ID of the preset matching exactly the current (enabled) filters, if any */
     const activeFilterPresetId = computed(() => {
-      if (!hasAnyFilter.value || !areAllFiltersEnabled.value) return null
+      if (!hasAnyFilter.value) return null
       return filterPresets.value.find(presetMatchesCurrentFilters)?.id ?? null
     })
 
     function saveFilterPreset(name: string) {
-      const preset: FilterPreset = { id: uuidv4(), name: name.trim(), ...getCurrentFilters() }
+      const preset: FilterPreset = { id: uuidv4(), name: name.trim(), ...structuredClone(effectiveFilters.value) }
       filterPresets.value = [...filterPresets.value, preset]
       return preset
     }

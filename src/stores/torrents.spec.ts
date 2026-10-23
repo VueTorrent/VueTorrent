@@ -54,7 +54,6 @@ describe('stores/torrents - filter presets', () => {
     const preset = store.saveFilterPreset('Peaky Blinders')
     expect(store.activeFilterPresetId).toBe(preset.id)
 
-    // Order of selected items doesn't matter
     store.statusFilter = [TorrentState.UL_STALLED, TorrentState.UPLOADING]
     expect(store.activeFilterPresetId).toBe(preset.id)
 
@@ -69,6 +68,30 @@ describe('stores/torrents - filter presets', () => {
 
     store.isStatusFilterActive = false
     expect(store.activeFilterPresetId).toBeNull()
+  })
+
+  test('disabled filters are not saved in a preset', () => {
+    const store = useTorrentStore()
+    setupFilters(store)
+    store.isStatusFilterActive = false
+    store.isTagFilterActive = false
+
+    const preset = store.saveFilterPreset('Without states')
+
+    expect(preset.textFilter).toBe('peaky')
+    expect(preset.categoryFilter).toEqual(['tv'])
+    expect(preset.statusFilter).toEqual([])
+    expect(preset.tagFilterInclude).toEqual([])
+    expect(preset.tagFilterExclude).toEqual([])
+    expect(store.activeFilterPresetId).toBe(preset.id)
+  })
+
+  test('nothing to save when all present filters are disabled', () => {
+    const store = useTorrentStore()
+    store.textFilter = 'peaky'
+    store.isTextFilterActive = false
+
+    expect(store.hasAnyFilter).toBe(false)
   })
 
   test('applies a preset and re-enables disabled filters', () => {
