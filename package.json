@@ -21,7 +21,7 @@
   "dependencies": {
     "@ctrl/tinycolor": "^4.2.1",
     "@flatten-js/interval-tree": "^2.0.3",
-    "@fontsource/roboto": "^5.2.10",
+    "@fontsource/roboto": "^5.3.0",
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
     "@vueuse/components": "^15.0.0",
