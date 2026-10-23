@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.37.0](https://github.com/VueTorrent/VueTorrent/compare/v2.36.1...v2.37.0) (2026-10-23)
+
+
+### Features
+
+* add Zero and Infinty hider ([#2968](https://github.com/VueTorrent/VueTorrent/issues/2968)) ([2c744ac](https://github.com/VueTorrent/VueTorrent/commit/2c744ac71271c8c26faa8f15c38a0ccc43c9c6b3))
+* Detect network error and ask for redirect ([#2960](https://github.com/VueTorrent/VueTorrent/issues/2960)) ([97b7796](https://github.com/VueTorrent/VueTorrent/commit/97b779690c53051f820ef592d5ebffddc71b57c4))
+* pin favourite sort options in the Sort by dropdown ([#2925](https://github.com/VueTorrent/VueTorrent/issues/2925)) ([f62819f](https://github.com/VueTorrent/VueTorrent/commit/f62819fba50a2970de8325ddd0220520947a988c))
+* **search:** add named search presets with a default preset ([#2887](https://github.com/VueTorrent/VueTorrent/issues/2887)) ([98742c7](https://github.com/VueTorrent/VueTorrent/commit/98742c70473950b20dcc415feef2d77e5d3d25e3))
+* **SearchEngine:** remember last-used search result sort ([#2860](https://github.com/VueTorrent/VueTorrent/issues/2860)) ([39dd358](https://github.com/VueTorrent/VueTorrent/commit/39dd35871a62cc33d13948d5cc6574d6d3dff6c5))
+* **Settings/Advanced:** Support "Allow multiple connections from the same Peer ID" option ([#2940](https://github.com/VueTorrent/VueTorrent/issues/2940)) ([9d0a8ec](https://github.com/VueTorrent/VueTorrent/commit/9d0a8ec25941a5e62d6a7a79573b926ff0564c16))
+
+
+### Bug Fixes
+
+* Align backend serialization with store ([#2962](https://github.com/VueTorrent/VueTorrent/issues/2962)) ([7ed660e](https://github.com/VueTorrent/VueTorrent/commit/7ed660e18f74332576fa10da29072aca87d6b608))
+* prevent search field from being cut off on Safari (Vuetify 4 grid layout regression) ([#2882](https://github.com/VueTorrent/VueTorrent/issues/2882)) ([9905e47](https://github.com/VueTorrent/VueTorrent/commit/9905e4744d2390b0adba4f04dcbb6eba24e0c145))
+* torrent drag and drop on iOS ([#2959](https://github.com/VueTorrent/VueTorrent/issues/2959)) ([db08a84](https://github.com/VueTorrent/VueTorrent/commit/db08a840ac69719de9771f18aa4c39946fe39e52))
+
 ## [2.36.1](https://github.com/VueTorrent/VueTorrent/compare/v2.36.0...v2.36.1) (2026-09-29)
 
 
