@@ -65,14 +65,12 @@ function checkDropEvent(event: DragEvent): event is DragEvent & { readonly dataT
 }
 
 function extractDropData(files: File[] | null, dataTransfer: DataTransfer): [File[], string[]] {
-  const torrentFiles = (files || []).filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
-
   const links = dataTransfer
     .getData('text/plain')
     .split('\n')
     .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 
-  return [torrentFiles, links]
+  return [files ?? [], links]
 }
 
 function extractPasteData(event: ClipboardEvent): [File[], string[]] {
