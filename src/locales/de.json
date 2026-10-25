@@ -218,6 +218,7 @@
       "title": "Anzeigemodus"
     },
     "not_complete": "Nie vollständig gesehen",
+    "pinSortFavourite": "Sortieroption anheften",
     "right_click": {
       "advanced": {
         "auto_tmm": "Automatische Torrent-Verwaltung",
@@ -283,7 +284,8 @@
     "toggleSearchFilter": "Suchfilter umschalten",
     "toggleSelectMode": "Auswahlmodus umschalten",
     "toggleSortOrder": "Umgekehrte Sortierreihenfolge",
-    "torrentsCount": "Keine Torrents | {n} Torrent | {n} Torrents"
+    "torrentsCount": "Keine Torrents | {n} Torrent | {n} Torrents",
+    "unpinSortFavourite": "Sortieroption lösen"
   },
   "dialogs": {
     "add": {
@@ -1338,6 +1340,10 @@
     "magnet_handler": {
       "not_supported": "Aktueller Kontext ist nicht sicher. Registrierung des Handlers nicht möglich.",
       "registered": "Magnet-Handler registriert."
+    },
+    "network_error": {
+      "action": "Neu laden",
+      "message": "Es ist ein Netzwerkfehler aufgetreten"
     },
     "qbit": {
       "not_supported": "Nur verfügbar für qbit >= {version}"

@@ -1184,7 +1184,6 @@
         "filterType": "过滤器组合类型",
         "hideChipIfUnset": "未设置时隐藏卡片",
         "hideColoredChip": "为卡片使用文本模式",
-        "hideZeroStateEta": "剩余时间为 0 或无穷大时不显示",
         "historySize": "符合条件字段的历史大小",
         "import": "导入设置",
         "isShutdownButtonVisible": "显示关闭按钮",
