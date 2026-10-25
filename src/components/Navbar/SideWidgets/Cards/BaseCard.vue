@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T">
-import { computed } from 'vue'
+import { computed, useId } from 'vue'
 import { CardProps } from './CardProps'
 
 const { active = false, title, icon, orientation = 'column', color, interactive = false } = defineProps<CardProps<T>>()
@@ -7,6 +7,8 @@ const { active = false, title, icon, orientation = 'column', color, interactive 
 defineEmits<{
   click: [MouseEvent]
 }>()
+
+const contentId = useId()
 
 const cardColor = computed(() => {
   // Selected cards have a lighter background, which needs white text and icons for legibility.
@@ -32,6 +34,7 @@ const contentOrientation = computed(() => {
     :tag="interactive ? 'button' : 'div'"
     :type="interactive ? 'button' : undefined"
     :aria-label="interactive ? title : undefined"
+    :aria-describedby="interactive ? contentId : undefined"
     :aria-pressed="interactive ? active : undefined"
     :class="['flex-grow-1', 'pa-2', interactive ? 'stat-card-button cursor-pointer' : '']"
     :color="active ? 'secondary-lighten-1' : 'secondary'"
@@ -41,7 +44,7 @@ const contentOrientation = computed(() => {
     <div :class="['d-flex', 'align-center', 'justify-space-evenly', contentOrientation, 'ga-1', 'h-100', 'w-100']">
       <v-icon data-testid="card-icon" :color="cardColor">{{ icon }}</v-icon>
 
-      <div data-testid="card-content" :class="['flex-row', 'text-center', 'text-select', 'wrap-anywhere', textColorClass]">
+      <div :id="interactive ? contentId : undefined" data-testid="card-content" :class="['flex-row', 'text-center', 'text-select', 'wrap-anywhere', textColorClass]">
         <template v-if="Array.isArray(value)">
           <template v-for="(val, i) in value" :key="i">
             <v-divider v-if="i > 0" opacity=".75" thickness="2" style="border-top-style: dashed" />

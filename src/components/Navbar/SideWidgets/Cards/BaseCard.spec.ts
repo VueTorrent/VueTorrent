@@ -83,11 +83,14 @@ describe('BaseCard.vue', () => {
   test('renders interactive cards as named toggle buttons', async () => {
     const wrapper = mount(BaseCard, {
       props: {
-        title: 'Clickable Card',
+        title: 'Download',
         icon: 'mdi-clickable',
-        value: 'Click me',
+        value: 2.03,
         interactive: true,
         onClick: () => {},
+      },
+      slots: {
+        default: () => h('span', '2.03 MB/s'),
       },
       global: {
         plugins: [createTestingPinia(), i18n, vuetify],
@@ -97,7 +100,10 @@ describe('BaseCard.vue', () => {
     const button = wrapper.find('button')
     expect(button.exists()).toBe(true)
     expect(button.attributes('type')).toBe('button')
-    expect(button.attributes('aria-label')).toBe('Clickable Card')
+    expect(button.attributes('aria-label')).toBe('Download')
+    const descriptionId = button.attributes('aria-describedby')
+    expect(descriptionId).toBeTruthy()
+    expect(wrapper.find(`[id="${descriptionId}"]`).text()).toBe('2.03 MB/s')
     expect(button.attributes('aria-pressed')).toBe('false')
     expect(button.classes('cursor-pointer')).toBe(true)
 

@@ -19,8 +19,8 @@ const ariaSort = computed(() => (sortCriteria.value?.value === sortKey ? (sortCr
 </script>
 
 <template>
-  <th class="text-no-wrap text-left" :aria-sort="ariaSort">
-    <button type="button" class="sort-button" @click="$emit('onHeaderClick')">
+  <th class="text-no-wrap text-left cursor-pointer" :aria-sort="ariaSort" @click="$emit('onHeaderClick')">
+    <button type="button" class="sort-button">
       <span>{{ title }}</span>
       <v-icon v-if="sortCriteria.value === sortKey" class="ml-2" :icon="sortCriteria.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" aria-hidden="true" />
     </button>

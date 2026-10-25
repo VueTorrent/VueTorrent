@@ -105,6 +105,7 @@ function disableFilter(value: T) {
               class="filter-type-button"
               :aria-label="`${title}: ${t('constants.filter_type.conjunctive')}`"
               :aria-pressed="filterType === FilterType.CONJUNCTIVE"
+              @keydown.enter.stop
               @click.stop="$emit('toggleFilterType')">
               <v-icon :icon="filterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" aria-hidden="true" />
             </button>

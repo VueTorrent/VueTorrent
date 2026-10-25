@@ -1,6 +1,6 @@
 import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import FilterSelectMulti from './FilterSelectMulti.vue'
 import { FilterType } from '@/constants/vuetorrent'
 import i18n from '@/plugins/i18n'
@@ -28,6 +28,13 @@ describe('FilterSelectMulti', () => {
 
     await button.trigger('click')
     expect(wrapper.emitted('toggleFilterType')).toHaveLength(1)
+
+    const bubbledKeydown = vi.fn()
+    wrapper.element.addEventListener('keydown', bubbledKeydown)
+    const enter = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true })
+    button.element.dispatchEvent(enter)
+    expect(bubbledKeydown).not.toHaveBeenCalled()
+    expect(enter.defaultPrevented).toBe(false)
 
     await wrapper.setProps({ filterType: FilterType.DISJUNCTIVE })
     expect(button.attributes('aria-pressed')).toBe('false')

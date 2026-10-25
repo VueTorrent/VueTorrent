@@ -32,5 +32,8 @@ describe('Table Header', () => {
 
     await button.trigger('click')
     expect(wrapper.emitted('onHeaderClick')).toHaveLength(1)
+
+    await wrapper.find('th').trigger('click')
+    expect(wrapper.emitted('onHeaderClick')).toHaveLength(2)
   })
 })
