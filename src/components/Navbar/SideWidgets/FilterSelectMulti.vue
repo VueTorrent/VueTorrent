@@ -99,7 +99,15 @@ function disableFilter(value: T) {
       <template #prepend>
         <v-tooltip location="right" :text="t(filterType === FilterType.CONJUNCTIVE ? 'constants.filter_type.conjunctive' : 'constants.filter_type.disjunctive')">
           <template #activator="{ props: tooltipProps }">
-            <v-icon v-bind="tooltipProps" :icon="filterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" @click="$emit('toggleFilterType')" />
+            <button
+              v-bind="tooltipProps"
+              type="button"
+              class="filter-type-button"
+              :aria-label="`${title}: ${t('constants.filter_type.conjunctive')}`"
+              :aria-pressed="filterType === FilterType.CONJUNCTIVE"
+              @click.stop="$emit('toggleFilterType')">
+              <v-icon :icon="filterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" aria-hidden="true" />
+            </button>
           </template>
         </v-tooltip>
       </template>
@@ -133,6 +141,24 @@ function disableFilter(value: T) {
 </template>
 
 <style lang="scss" scoped>
+.filter-type-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.filter-type-button:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-on-secondary));
+  outline-offset: 2px;
+}
+
 .text-nowrap-hide {
   overflow: hidden;
   white-space: nowrap;
