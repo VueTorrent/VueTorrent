@@ -2,13 +2,13 @@
 import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import { useI18nUtils } from '@/composables'
-import { useDialogStore, useTorrentStore } from '@/stores'
+import { useDialogStore, useFilterPresetStore } from '@/stores'
 import { FilterPreset } from '@/types/vuetorrent'
 
 const { t } = useI18nUtils()
 const dialogStore = useDialogStore()
-const torrentStore = useTorrentStore()
-const { filterPresets, activeFilterPresetId } = storeToRefs(torrentStore)
+const filterPresetStore = useFilterPresetStore()
+const { filterPresets, activeFilterPresetId } = storeToRefs(filterPresetStore)
 
 const hoveredPresetId = ref<string | null>(null)
 const focusedPresetId = ref<string | null>(null)
@@ -52,9 +52,9 @@ function getTooltipText(preset: FilterPreset) {
 
 function togglePreset(preset: FilterPreset) {
   if (activeFilterPresetId.value === preset.id) {
-    torrentStore.clearFilters()
+    filterPresetStore.clearFilters()
   } else {
-    torrentStore.applyFilterPreset(preset.id)
+    filterPresetStore.applyFilterPreset(preset.id)
   }
 }
 
@@ -63,7 +63,7 @@ function deletePreset(preset: FilterPreset) {
     title: t('dialogs.confirm.deleteFilterPreset'),
     text: preset.name,
     yesColor: 'error',
-    onConfirm: () => torrentStore.deleteFilterPreset(preset.id),
+    onConfirm: () => filterPresetStore.deleteFilterPreset(preset.id),
   })
 }
 </script>

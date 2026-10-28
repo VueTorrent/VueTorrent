@@ -3,11 +3,11 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import SaveFilterPresetDialog from '@/components/Dialogs/SaveFilterPresetDialog.vue'
 import { useI18nUtils } from '@/composables'
-import { useDialogStore, useTorrentStore } from '@/stores'
+import { useDialogStore, useFilterPresetStore } from '@/stores'
 
 const { t } = useI18nUtils()
 const dialogStore = useDialogStore()
-const { hasAnyFilter, activeFilterPresetId } = storeToRefs(useTorrentStore())
+const { hasAnyFilter, activeFilterPresetId } = storeToRefs(useFilterPresetStore())
 
 const canSave = computed(() => hasAnyFilter.value && activeFilterPresetId.value === null)
 

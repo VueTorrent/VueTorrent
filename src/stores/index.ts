@@ -6,6 +6,7 @@ import { useCookieStore } from './cookies'
 import { useDashboardStore } from './dashboard'
 import { useDialogStore } from './dialog'
 import { useExternalIpStore } from './externalIp'
+import { useFilterPresetStore } from './filterPresets'
 import { useGlobalStore } from './global'
 import { useHistoryStore } from './history'
 import { useLogStore } from './logs'
@@ -31,6 +32,7 @@ export {
   useDashboardStore,
   useDialogStore,
   useExternalIpStore,
+  useFilterPresetStore,
   useGlobalStore,
   useHistoryStore,
   useLogStore,

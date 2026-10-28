@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { VForm } from 'vuetify/components/VForm'
 import { useDialog, useI18nUtils } from '@/composables'
-import { useTorrentStore } from '@/stores'
+import { useFilterPresetStore, useTorrentStore } from '@/stores'
 
 const props = defineProps<{
   guid: string
@@ -10,6 +10,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18nUtils()
+const filterPresetStore = useFilterPresetStore()
 const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
@@ -22,7 +23,7 @@ async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  torrentStore.saveFilterPreset(name.value)
+  filterPresetStore.saveFilterPreset(name.value)
   close()
 }
 
