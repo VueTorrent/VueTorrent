@@ -120,6 +120,20 @@ describe('stores/filterPresets', () => {
     expect(presets.activeFilterPresetId).toBe(preset.id)
   })
 
+  test('marks the applied preset as active when several presets share the same filters', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    const first = presets.saveFilterPreset('First')
+    const second = presets.saveFilterPreset('Second')
+
+    presets.applyFilterPreset(second.id)
+    expect(presets.activeFilterPresetId).toBe(second.id)
+
+    presets.applyFilterPreset(first.id)
+    expect(presets.activeFilterPresetId).toBe(first.id)
+  })
+
   test('applying a preset does not share arrays with it', () => {
     const torrents = useTorrentStore()
     const presets = useFilterPresetStore()
@@ -151,6 +165,49 @@ describe('stores/filterPresets', () => {
     presets.clearFilters()
 
     expect(presets.hasAnyFilter).toBe(false)
+  })
+
+  test('updates a preset with the current filters', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    const preset = presets.saveFilterPreset('Peaky Blinders')
+
+    torrents.textFilter = 'peaky s06'
+    torrents.statusFilter = [TorrentState.DOWNLOADING]
+    expect(presets.activeFilterPresetId).toBeNull()
+
+    presets.updateFilterPreset(preset.id)
+
+    expect(presets.filterPresets[0].id).toBe(preset.id)
+    expect(presets.filterPresets[0].name).toBe('Peaky Blinders')
+    expect(presets.filterPresets[0].textFilter).toBe('peaky s06')
+    expect(presets.filterPresets[0].statusFilter).toEqual([TorrentState.DOWNLOADING])
+    expect(presets.activeFilterPresetId).toBe(preset.id)
+  })
+
+  test('renames a preset', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    const preset = presets.saveFilterPreset('Peaky')
+
+    presets.renameFilterPreset(preset.id, '  Peaky Blinders  ')
+
+    expect(presets.filterPresets[0].name).toBe('Peaky Blinders')
+    expect(presets.filterPresets[0].textFilter).toBe('peaky')
+    expect(presets.activeFilterPresetId).toBe(preset.id)
+  })
+
+  test('ignores an empty name when renaming', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    const preset = presets.saveFilterPreset('Peaky')
+
+    presets.renameFilterPreset(preset.id, '   ')
+
+    expect(presets.filterPresets[0].name).toBe('Peaky')
   })
 
   test('deletes a preset', () => {

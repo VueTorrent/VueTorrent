@@ -387,7 +387,8 @@
       "deleteUnusedCategories": "Do you really want to remove all unused categories?",
       "deleteUnusedTags": "Do you really want to remove all unused tags?",
       "startAll": "Do you really want to start all torrents?",
-      "stopAll": "Do you really want to stop all torrents?"
+      "stopAll": "Do you really want to stop all torrents?",
+      "updateFilterPreset": "Do you really want to overwrite this quick filter with the current filters?"
     },
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
@@ -715,7 +716,17 @@
         "clear": "Clear quick filter",
         "delete": "Delete quick filter",
         "label": "Quick filters",
-        "save": "Save current filters as quick filter"
+        "manage": "Manage quick filters",
+        "save": "Save current filters as quick filter",
+        "summary": {
+          "category": "Category",
+          "label": "Filter: | Filters:",
+          "state": "State",
+          "tag": "Tag",
+          "text": "Text",
+          "tracker": "Tracker"
+        },
+        "update": "Update with current filters"
       }
     }
   },

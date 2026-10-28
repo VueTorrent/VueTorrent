@@ -32,6 +32,7 @@ export const useFilterPresetStore = defineStore(
     } = storeToRefs(useTorrentStore())
 
     const filterPresets = ref<FilterPreset[]>([])
+    const lastAppliedPresetId = ref<string | null>(null)
 
     const effectiveFilters = computed<FilterPresetValues>(() => ({
       filterType: filterType.value,
@@ -75,6 +76,8 @@ export const useFilterPresetStore = defineStore(
 
     const activeFilterPresetId = computed(() => {
       if (!hasAnyFilter.value) return null
+      const lastApplied = filterPresets.value.find(p => p.id === lastAppliedPresetId.value)
+      if (lastApplied && presetMatchesCurrentFilters(lastApplied)) return lastApplied.id
       return filterPresets.value.find(presetMatchesCurrentFilters)?.id ?? null
     })
 
@@ -88,6 +91,7 @@ export const useFilterPresetStore = defineStore(
       const preset = filterPresets.value.find(p => p.id === id)
       if (!preset) return
 
+      lastAppliedPresetId.value = preset.id
       filterType.value = preset.filterType
       textFilter.value = preset.textFilter
       statusFilter.value = [...preset.statusFilter]
@@ -116,25 +120,39 @@ export const useFilterPresetStore = defineStore(
       trackerFilterExclude.value = []
     }
 
+    function updateFilterPreset(id: string) {
+      filterPresets.value = filterPresets.value.map(p => (p.id === id ? { id: p.id, name: p.name, ...structuredClone(effectiveFilters.value) } : p))
+    }
+
+    function renameFilterPreset(id: string, name: string) {
+      const newName = name.trim()
+      if (!newName) return
+      filterPresets.value = filterPresets.value.map(p => (p.id === id ? { ...p, name: newName } : p))
+    }
+
     function deleteFilterPreset(id: string) {
       filterPresets.value = filterPresets.value.filter(p => p.id !== id)
     }
 
     return {
       filterPresets,
+      lastAppliedPresetId,
       hasAnyFilter,
       activeFilterPresetId,
       saveFilterPreset,
       applyFilterPreset,
       clearFilters,
+      updateFilterPreset,
+      renameFilterPreset,
       deleteFilterPreset,
       $reset: () => {
         filterPresets.value = []
+        lastAppliedPresetId.value = null
       },
     }
   },
   {
-    persist: [{ storage: localStorage }],
+    persist: [{ storage: localStorage, pick: ['filterPresets'] }],
   }
 )
 

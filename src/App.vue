@@ -51,7 +51,9 @@ const backendSyncObjects = [
   useBackendSync(torrentStore, 'vuetorrent_torrents', {
     whitelist: ['sortCriterias'],
   }),
-  useBackendSync(filterPresetStore, 'vuetorrent_filterPresets'),
+  useBackendSync(filterPresetStore, 'vuetorrent_filterPresets', {
+    whitelist: ['filterPresets'],
+  }),
   useBackendSync(sidebarStore, 'vuetorrent_sidebarSettings'),
   useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
     blacklist: ['uiTitleCustom'],

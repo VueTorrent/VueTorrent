@@ -165,7 +165,7 @@ function toggleSelectMode() {
         </template>
       </v-select>
     </div>
-    <QuickFilters v-if="$vuetify.display.lgAndUp" class="ml-3" />
+    <QuickFilters v-if="$vuetify.display.lgAndUp" class="mx-3" />
 
     <v-spacer />
 
