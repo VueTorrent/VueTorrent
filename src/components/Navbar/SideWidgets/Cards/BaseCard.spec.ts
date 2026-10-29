@@ -80,20 +80,51 @@ describe('BaseCard.vue', () => {
     expect(content).toHaveLength(values.length - 1)
   })
 
-  test('Component renders pointer cursor when click event supplied', () => {
+  test('renders interactive cards as named toggle buttons', async () => {
     const wrapper = mount(BaseCard, {
       props: {
-        title: 'Clickable Card',
+        title: 'Download',
         icon: 'mdi-clickable',
-        value: 'Click me',
+        value: 2.03,
+        interactive: true,
         onClick: () => {},
+      },
+      slots: {
+        default: () => h('span', '2.03 MB/s'),
       },
       global: {
         plugins: [createTestingPinia(), i18n, vuetify],
       },
     })
 
-    expect(wrapper.findComponent({ name: 'v-sheet' }).classes('cursor-pointer')).toBe(true)
+    const button = wrapper.find('button')
+    expect(button.exists()).toBe(true)
+    expect(button.attributes('type')).toBe('button')
+    expect(button.attributes('aria-label')).toBe('Download')
+    const descriptionId = button.attributes('aria-describedby')
+    expect(descriptionId).toBeTruthy()
+    expect(wrapper.find(`[id="${descriptionId}"]`).text()).toBe('2.03 MB/s')
+    expect(button.attributes('aria-pressed')).toBe('false')
+    expect(button.classes('cursor-pointer')).toBe(true)
+
+    await wrapper.setProps({ active: true })
+    expect(button.attributes('aria-pressed')).toBe('true')
+  })
+
+  test('keeps passive cards out of the tab order', () => {
+    const wrapper = mount(BaseCard, {
+      props: {
+        title: 'Passive Card',
+        icon: 'mdi-chart-box',
+        value: 'Value',
+      },
+      global: {
+        plugins: [createTestingPinia(), i18n, vuetify],
+      },
+    })
+
+    expect(wrapper.findComponent({ name: 'v-sheet' }).element.tagName).toBe('DIV')
+    expect(wrapper.findComponent({ name: 'v-sheet' }).attributes('aria-pressed')).toBeUndefined()
   })
 
   test('emits click event when card is clicked', async () => {
@@ -102,6 +133,7 @@ describe('BaseCard.vue', () => {
         title: 'Clickable Card',
         icon: 'mdi-click',
         value: 'Click me',
+        interactive: true,
       },
       global: {
         plugins: [createTestingPinia(), i18n, vuetify],

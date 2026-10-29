@@ -10,6 +10,9 @@ export function getVariables(dark: boolean) {
     // Main colors
     accent: '#64CEAA',
     upload: '#00B3FA',
+    'sidebar-download': '#B7EF8D',
+    'sidebar-upload': '#9ADFFF',
+    'sidebar-warning': '#FFD09A',
     ratio: '#00B2F8',
     category: '#04669A',
     tag: '#048B9A',
