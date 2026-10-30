@@ -104,6 +104,7 @@ function updatePreset(preset: FilterPreset) {
   dialogStore.confirmAction({
     title: t('dialogs.confirm.updateFilterPreset'),
     text: preset.name,
+    yesColor: 'error',
     onConfirm: () => filterPresetStore.updateFilterPreset(preset.id),
   })
 }
