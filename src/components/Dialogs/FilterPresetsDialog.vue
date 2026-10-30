@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, reactive } from 'vue'
+import { computed } from 'vue'
 import draggable from 'vuedraggable'
 import { useDisplay } from 'vuetify'
+import FilterPresetNameField from './FilterPresetNameField.vue'
 import SaveFilterPresetDialog from './SaveFilterPresetDialog.vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { TrackerSpecialFilter } from '@/constants/vuetorrent'
@@ -19,21 +20,6 @@ const { mobile } = useDisplay()
 const dialogStore = useDialogStore()
 const filterPresetStore = useFilterPresetStore()
 const { filterPresets, hasAnyFilter, activeFilterPresetId } = storeToRefs(filterPresetStore)
-
-const drafts = reactive<Record<string, string>>({})
-
-const rules = [(v: string) => !!v.trim() || t('dialogs.saveFilterPreset.required')]
-
-function getDraft(preset: FilterPreset) {
-  return drafts[preset.id] ?? preset.name
-}
-
-function commitRename(preset: FilterPreset) {
-  const draft = drafts[preset.id]
-  if (draft === undefined) return
-  filterPresetStore.renameFilterPreset(preset.id, draft)
-  delete drafts[preset.id]
-}
 
 type SummaryValue = { text: string; excluded?: boolean }
 type SummaryItem = { key: string; label: string; color: string; values: SummaryValue[] }
@@ -142,14 +128,7 @@ function close() {
             <div class="d-flex align-start flex-gap-column mb-4">
               <v-icon icon="mdi-drag-vertical" class="dnd-handle mt-4" />
               <div class="flex-grow-1" style="min-width: 0">
-                <v-text-field
-                  :model-value="getDraft(preset)"
-                  :rules="rules"
-                  :label="$t('dialogs.saveFilterPreset.name')"
-                  hide-details="auto"
-                  @update:model-value="drafts[preset.id] = $event"
-                  @blur="commitRename(preset)"
-                  @keydown.enter="commitRename(preset)" />
+                <FilterPresetNameField :preset="preset" />
                 <div class="d-flex flex-wrap align-center ga-1 text-body-small text-medium-emphasis pt-1">
                   <span>{{ $t('navbar.top.quick_filters.summary.label', summaries[preset.id].length) }}</span>
                   <v-menu v-for="item in summaries[preset.id]" :key="item.key" location="bottom">
