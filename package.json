@@ -56,7 +56,7 @@
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^26.5.1",
     "@vitejs/plugin-vue": "^6.0.10",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/coverage-v8": "^5.0.3",
     "@vue/eslint-config-typescript": "^14.9.0",
     "@vue/test-utils": "^2.5.1",
     "eslint": "^10.12.0",
