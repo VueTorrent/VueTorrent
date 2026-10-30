@@ -1348,6 +1348,17 @@
     "qbit": {
       "not_supported": "Only available for qbit >= {version}"
     },
+    "tag_category": {
+      "action_error": "Failed to update tags/categories",
+      "category_cleared": "Category cleared for {n} torrent(s)",
+      "category_set": "Category set to \"{category}\" for {n} torrent(s)",
+      "tags_added": "Added \"{tags}\" to {n} torrent(s)",
+      "tags_cleared": "All tags removed from {n} torrent(s)",
+      "tags_removed": "Removed \"{tags}\" from {n} torrent(s)",
+      "undo": "Undo",
+      "undo_error": "Failed to undo tag/category change",
+      "undo_success": "Tag/category change undone"
+    },
     "version": {
       "latest": "You're on the latest and greatest!",
       "new": "New version available!"

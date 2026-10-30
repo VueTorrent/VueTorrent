@@ -3,6 +3,7 @@ import { storeToRefs } from 'pinia'
 import { onBeforeMount, onMounted, watch, watchEffect, onBeforeUnmount, h } from 'vue'
 import { toast } from 'vue3-toastify'
 import AddPanel from './components/AddPanel.vue'
+import SnackbarNotification from './components/Core/SnackbarNotification.vue'
 import DnDZone from './components/DnDZone.vue'
 import Navbar from './components/Navbar/Navbar.vue'
 import Sidebar from './components/Navbar/Sidebar.vue'
@@ -189,6 +190,7 @@ watchEffect(() => {
 <template>
   <v-app class="text-noselect">
     <component :is="dialog.component" v-for="dialog in dialogStore.dialogList" :key="dialog.guid" v-bind="{ guid: dialog.guid, ...dialog.props }" />
+    <SnackbarNotification />
     <Sidebar v-if="appStore.isAuthenticated" />
     <Navbar v-if="appStore.isAuthenticated" />
     <v-main>
