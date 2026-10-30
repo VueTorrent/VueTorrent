@@ -198,7 +198,7 @@ function deletePreset(preset: FilterPreset) {
         <v-btn
           v-bind="props"
           class="ml-3 flex-shrink-0"
-          icon="mdi-pencil"
+          icon="mdi-filter-cog"
           size="small"
           variant="text"
           :aria-label="t('navbar.top.quick_filters.manage')"
