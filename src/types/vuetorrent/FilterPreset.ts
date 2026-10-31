@@ -1,3 +1,4 @@
+import type Torrent from './Torrent'
 import type { FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 
 export default interface FilterPreset {
@@ -13,4 +14,5 @@ export default interface FilterPreset {
   trackerFilterInclude: (string | TrackerSpecialFilter)[]
   trackerFilterExclude: (string | TrackerSpecialFilter)[]
   trackerFilterType: FilterType
+  sortCriterias?: { value: keyof Torrent; reverse: boolean }[]
 }

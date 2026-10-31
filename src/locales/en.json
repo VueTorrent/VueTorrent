@@ -520,6 +520,7 @@
       }
     },
     "saveFilterPreset": {
+      "includeSort": "Include current sort",
       "name": "Name",
       "required": "Name is required",
       "title": "Save as quick filter"
@@ -721,6 +722,7 @@
         "summary": {
           "category": "Category",
           "label": "Filter: | Filters:",
+          "sort": "Sort",
           "state": "State",
           "tag": "Tag",
           "text": "Text",

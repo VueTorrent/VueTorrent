@@ -19,6 +19,60 @@ function setupFilters(torrents: ReturnType<typeof useTorrentStore>) {
 }
 
 describe('stores/filterPresets', () => {
+  test('saves the current sort only when asked to', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    torrents.sortCriterias = [{ value: 'name', reverse: false }]
+
+    expect(presets.saveFilterPreset('Without sort').sortCriterias).toBeUndefined()
+    expect(presets.saveFilterPreset('With sort', true).sortCriterias).toEqual([{ value: 'name', reverse: false }])
+  })
+
+  test('applies the saved sort and leaves the current sort otherwise', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    torrents.sortCriterias = [{ value: 'name', reverse: false }]
+    const withSort = presets.saveFilterPreset('With sort', true)
+    const withoutSort = presets.saveFilterPreset('Without sort')
+
+    torrents.sortCriterias = [{ value: 'size', reverse: true }]
+    presets.applyFilterPreset(withoutSort.id)
+    expect(torrents.sortCriterias).toEqual([{ value: 'size', reverse: true }])
+
+    presets.applyFilterPreset(withSort.id)
+    expect(torrents.sortCriterias).toEqual([{ value: 'name', reverse: false }])
+  })
+
+  test('changing the sort keeps the preset active and its filters', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    const preset = presets.saveFilterPreset('With sort', true)
+    presets.applyFilterPreset(preset.id)
+
+    torrents.sortCriterias = [{ value: 'size', reverse: true }]
+
+    expect(presets.activeFilterPresetId).toBe(preset.id)
+    expect(torrents.textFilter).toBe('peaky')
+    expect(preset.sortCriterias).toEqual([{ value: 'added_on', reverse: true }])
+  })
+
+  test('updates the saved sort only when asked to', () => {
+    const torrents = useTorrentStore()
+    const presets = useFilterPresetStore()
+    setupFilters(torrents)
+    const { id } = presets.saveFilterPreset('With sort', true)
+    torrents.sortCriterias = [{ value: 'size', reverse: true }]
+
+    presets.updateFilterPreset(id, true)
+    expect(presets.filterPresets[0].sortCriterias).toEqual([{ value: 'size', reverse: true }])
+
+    presets.updateFilterPreset(id)
+    expect(presets.filterPresets[0].sortCriterias).toBeUndefined()
+  })
+
   test('saves the current filters as a named preset', () => {
     const torrents = useTorrentStore()
     const presets = useFilterPresetStore()
