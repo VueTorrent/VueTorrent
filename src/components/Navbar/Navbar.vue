@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import ActiveFilters from './TopWidgets/ActiveFilters.vue'
+import SaveFilterPresetButton from './TopWidgets/SaveFilterPresetButton.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 import { useNavbarStore } from '@/stores'
@@ -27,6 +28,7 @@ function goHome() {
     </div>
 
     <ActiveFilters />
+    <SaveFilterPresetButton />
 
     <TorrentSearchbar v-if="$vuetify.display.lgAndUp" bg-color="background" class="px-6" />
     <v-spacer v-else />
