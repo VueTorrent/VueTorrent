@@ -29,6 +29,7 @@ export const useFilterPresetStore = defineStore(
       trackerFilterInclude,
       trackerFilterExclude,
       trackerFilterType,
+      sortCriterias,
     } = storeToRefs(useTorrentStore())
 
     const filterPresets = ref<FilterPreset[]>([])
@@ -81,8 +82,13 @@ export const useFilterPresetStore = defineStore(
       return filterPresets.value.find(presetMatchesCurrentFilters)?.id ?? null
     })
 
-    function saveFilterPreset(name: string) {
-      const preset: FilterPreset = { id: uuidv4(), name: name.trim(), ...structuredClone(effectiveFilters.value) }
+    function buildPreset(id: string, name: string, includeSort: boolean): FilterPreset {
+      const preset = { id, name, ...structuredClone(effectiveFilters.value) }
+      return includeSort ? { ...preset, sortCriterias: sortCriterias.value.map(c => ({ ...c })) } : preset
+    }
+
+    function saveFilterPreset(name: string, includeSort = false) {
+      const preset = buildPreset(uuidv4(), name.trim(), includeSort)
       filterPresets.value = [...filterPresets.value, preset]
       return preset
     }
@@ -102,6 +108,7 @@ export const useFilterPresetStore = defineStore(
       trackerFilterInclude.value = [...preset.trackerFilterInclude]
       trackerFilterExclude.value = [...preset.trackerFilterExclude]
       trackerFilterType.value = preset.trackerFilterType
+      if (preset.sortCriterias) sortCriterias.value = preset.sortCriterias.map(c => ({ ...c }))
 
       isTextFilterActive.value = true
       isStatusFilterActive.value = true
@@ -120,8 +127,8 @@ export const useFilterPresetStore = defineStore(
       trackerFilterExclude.value = []
     }
 
-    function updateFilterPreset(id: string) {
-      filterPresets.value = filterPresets.value.map(p => (p.id === id ? { id: p.id, name: p.name, ...structuredClone(effectiveFilters.value) } : p))
+    function updateFilterPreset(id: string, includeSort = false) {
+      filterPresets.value = filterPresets.value.map(p => (p.id === id ? buildPreset(p.id, p.name, includeSort) : p))
     }
 
     function renameFilterPreset(id: string, name: string) {

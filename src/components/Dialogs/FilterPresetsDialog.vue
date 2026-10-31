@@ -3,12 +3,13 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import draggable from 'vuedraggable'
 import { useDisplay } from 'vuetify'
+import ConfirmUpdateFilterPresetDialog from './Confirm/ConfirmUpdateFilterPresetDialog.vue'
 import FilterPresetNameField from './FilterPresetNameField.vue'
 import SaveFilterPresetDialog from './SaveFilterPresetDialog.vue'
 import { useDialog, useI18nUtils } from '@/composables'
-import { TrackerSpecialFilter } from '@/constants/vuetorrent'
+import { propsMetadata, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { useDialogStore, useFilterPresetStore } from '@/stores'
-import { FilterPreset } from '@/types/vuetorrent'
+import { FilterPreset, Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{
   guid: string
@@ -21,7 +22,7 @@ const dialogStore = useDialogStore()
 const filterPresetStore = useFilterPresetStore()
 const { filterPresets, hasAnyFilter, activeFilterPresetId } = storeToRefs(filterPresetStore)
 
-type SummaryValue = { text: string; excluded?: boolean }
+type SummaryValue = { text: string; icon?: string }
 type SummaryItem = { key: string; label: string; color: string; values: SummaryValue[] }
 
 function getTagLabel(tag: string | null) {
@@ -32,6 +33,11 @@ function getTrackerLabel(tracker: string | TrackerSpecialFilter) {
   if (tracker === TrackerSpecialFilter.UNTRACKED) return t('navbar.side.filters.tracker.empty')
   if (tracker === TrackerSpecialFilter.NOT_WORKING) return t('navbar.side.filters.tracker.not_working')
   return tracker
+}
+
+function getSortLabel(sortKey: keyof Torrent) {
+  const metadata = Object.values(propsMetadata).find(ppt => ppt.sortKey === sortKey)
+  return t(metadata?.props.titleKey ?? `torrent.properties.${sortKey}`)
 }
 
 function getSummary(preset: FilterPreset) {
@@ -61,8 +67,8 @@ function getSummary(preset: FilterPreset) {
       label: t('navbar.top.quick_filters.summary.tag'),
       color: 'active-tag',
       values: [
-        ...preset.tagFilterInclude.map(tag => ({ text: getTagLabel(tag), excluded: false })),
-        ...preset.tagFilterExclude.map(tag => ({ text: getTagLabel(tag), excluded: true })),
+        ...preset.tagFilterInclude.map(tag => ({ text: getTagLabel(tag), icon: 'mdi-filter-plus' })),
+        ...preset.tagFilterExclude.map(tag => ({ text: getTagLabel(tag), icon: 'mdi-filter-minus' })),
       ],
     })
   }
@@ -72,9 +78,20 @@ function getSummary(preset: FilterPreset) {
       label: t('navbar.top.quick_filters.summary.tracker'),
       color: 'active-tracker',
       values: [
-        ...preset.trackerFilterInclude.map(tracker => ({ text: getTrackerLabel(tracker), excluded: false })),
-        ...preset.trackerFilterExclude.map(tracker => ({ text: getTrackerLabel(tracker), excluded: true })),
+        ...preset.trackerFilterInclude.map(tracker => ({ text: getTrackerLabel(tracker), icon: 'mdi-filter-plus' })),
+        ...preset.trackerFilterExclude.map(tracker => ({ text: getTrackerLabel(tracker), icon: 'mdi-filter-minus' })),
       ],
+    })
+  }
+  if (preset.sortCriterias) {
+    items.push({
+      key: 'sort',
+      label: t('navbar.top.quick_filters.summary.sort'),
+      color: 'accent',
+      values: preset.sortCriterias.map(({ value, reverse }) => ({
+        text: getSortLabel(value),
+        icon: reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending',
+      })),
     })
   }
   return items
@@ -101,12 +118,7 @@ function applyPreset(preset: FilterPreset) {
 }
 
 function updatePreset(preset: FilterPreset) {
-  dialogStore.confirmAction({
-    title: t('dialogs.confirm.updateFilterPreset'),
-    text: preset.name,
-    yesColor: 'error',
-    onConfirm: () => filterPresetStore.updateFilterPreset(preset.id),
-  })
+  dialogStore.createDialog(ConfirmUpdateFilterPresetDialog, { preset })
 }
 
 function close() {
@@ -141,7 +153,7 @@ function close() {
                     <v-card max-width="300">
                       <v-card-text class="text-body-small pa-2">
                         <div v-for="(value, index) in item.values" :key="index" class="d-flex align-center ga-1">
-                          <v-icon v-if="value.excluded !== undefined" size="small" :icon="value.excluded ? 'mdi-filter-minus' : 'mdi-filter-plus'" />
+                          <v-icon v-if="value.icon" size="small" :icon="value.icon" />
                           <span class="text-break">{{ value.text }}</span>
                         </div>
                       </v-card-text>
@@ -169,7 +181,7 @@ function close() {
                       :density="mobile ? 'compact' : 'default'"
                       icon="mdi-content-save-edit-outline"
                       variant="text"
-                      :disabled="!hasAnyFilter || preset.id === activeFilterPresetId"
+                      :disabled="!hasAnyFilter"
                       :aria-label="$t('navbar.top.quick_filters.update')"
                       @click="updatePreset(preset)" />
                   </template>
