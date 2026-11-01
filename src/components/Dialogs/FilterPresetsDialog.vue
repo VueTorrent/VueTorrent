@@ -132,7 +132,7 @@ function close() {
                 <FilterPresetNameField :preset="preset" />
                 <div class="d-flex flex-wrap align-center ga-1 text-body-small text-medium-emphasis pt-1">
                   <span>{{ $t('navbar.top.quick_filters.summary.label', summaries[preset.id].length) }}</span>
-                  <v-menu v-for="item in summaries[preset.id]" :key="item.key" location="bottom" open-on-hover open-on-click>
+                  <v-menu v-for="item in summaries[preset.id]" :key="item.key" location="bottom" open-on-hover :open-delay="200" open-on-click :close-on-content-click="false">
                     <template #activator="{ props: menu }">
                       <v-chip v-bind="menu" :color="item.color" variant="flat" size="x-small" label>
                         {{ item.label }}

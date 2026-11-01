@@ -57,7 +57,7 @@ onUnmounted(() => {
 <template>
   <v-dialog v-model="isOpened" width="auto" max-width="1000">
     <v-card>
-      <v-card-title>{{ title }}</v-card-title>
+      <v-card-title class="text-wrap">{{ title }}</v-card-title>
 
       <v-card-text v-if="$slots.default">
         <slot />
