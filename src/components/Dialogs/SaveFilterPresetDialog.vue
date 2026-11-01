@@ -16,6 +16,7 @@ const torrentStore = useTorrentStore()
 const form = ref<VForm>()
 const isFormValid = ref(false)
 const name = ref(torrentStore.textFilter)
+const includeSort = ref(false)
 
 const rules = [(v: string) => !!v.trim() || t('dialogs.saveFilterPreset.required')]
 
@@ -23,7 +24,7 @@ async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  filterPresetStore.saveFilterPreset(name.value)
+  filterPresetStore.saveFilterPreset(name.value, includeSort.value)
   close()
 }
 
@@ -39,6 +40,7 @@ function close() {
       <v-card-text>
         <v-form ref="form" v-model="isFormValid" @submit.prevent>
           <v-text-field v-model="name" :rules="rules" autofocus :label="$t('dialogs.saveFilterPreset.name')" @keydown.enter="submit" />
+          <v-checkbox v-model="includeSort" density="compact" hide-details :label="$t('dialogs.saveFilterPreset.includeSort')" />
         </v-form>
       </v-card-text>
       <v-card-actions>
