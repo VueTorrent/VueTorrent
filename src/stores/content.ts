@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
+import { computed, defineAsyncComponent, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
@@ -125,20 +125,26 @@ export const useContentStore = defineStore('content', () => {
     await nextTick()
   }
 
-  async function renameNode(node: TreeNode) {
-    const { default: MoveTorrentFileDialog } = await import('@/components/Dialogs/MoveTorrentFileDialog.vue')
+  function renameNode(node: TreeNode) {
     const payload = {
       hash: hash.value,
       isFolder: node.type === 'folder',
       oldName: node.fullName,
     }
-    dialogStore.createDialog(MoveTorrentFileDialog, payload, () => void syncFileTree())
+    dialogStore.createDialog(
+      defineAsyncComponent(() => import('@/components/Dialogs/MoveTorrentFileDialog.vue')),
+      payload,
+      () => void syncFileTree()
+    )
   }
 
-  async function bulkRename(node: TreeFolder) {
-    const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
+  function bulkRename(node: TreeFolder) {
     const payload = { hash: hash.value, node }
-    dialogStore.createDialog(BulkRenameFilesDialog, payload, () => void syncFileTree())
+    dialogStore.createDialog(
+      defineAsyncComponent(() => import('@/components/Dialogs/BulkRenameFilesDialog.vue')),
+      payload,
+      () => void syncFileTree()
+    )
   }
 
   async function invertPrioritySelection() {

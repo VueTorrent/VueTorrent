@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import SaveFilterPresetDialog from '@/components/Dialogs/SaveFilterPresetDialog.vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useFilterPresetStore } from '@/stores'
 
@@ -12,7 +11,7 @@ const { hasAnyFilter, activeFilterPresetId } = storeToRefs(useFilterPresetStore(
 const canSave = computed(() => hasAnyFilter.value && activeFilterPresetId.value === null)
 
 function openSaveDialog() {
-  dialogStore.createDialog(SaveFilterPresetDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/SaveFilterPresetDialog.vue')))
 }
 </script>
 

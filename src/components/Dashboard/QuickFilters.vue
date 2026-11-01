@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useResizeObserver } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { nextTick, onBeforeUnmount, ref, watch } from 'vue'
-import FilterPresetsDialog from '@/components/Dialogs/FilterPresetsDialog.vue'
+import { defineAsyncComponent, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useDialogStore, useFilterPresetStore } from '@/stores'
 import { FilterPreset } from '@/types/vuetorrent'
@@ -78,7 +77,7 @@ useResizeObserver(scrollContainer, updateScrollHints)
 watch(filterPresets, () => nextTick(updateScrollHints), { deep: true })
 
 function openManageDialog() {
-  dialogStore.createDialog(FilterPresetsDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/FilterPresetsDialog.vue')))
 }
 
 function onMouseenter(preset: FilterPreset) {

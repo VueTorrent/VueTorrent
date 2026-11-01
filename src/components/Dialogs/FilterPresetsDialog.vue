@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import draggable from 'vuedraggable'
 import { useDisplay } from 'vuetify'
-import ConfirmUpdateFilterPresetDialog from './Confirm/ConfirmUpdateFilterPresetDialog.vue'
 import FilterPresetNameField from './FilterPresetNameField.vue'
-import SaveFilterPresetDialog from './SaveFilterPresetDialog.vue'
 import { useDialog, useI18nUtils } from '@/composables'
 import { propsMetadata, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { useDialogStore, useFilterPresetStore } from '@/stores'
@@ -109,7 +107,7 @@ function deletePreset(preset: FilterPreset) {
 }
 
 function createPreset() {
-  dialogStore.createDialog(SaveFilterPresetDialog)
+  dialogStore.createDialog(defineAsyncComponent(() => import('@/components/Dialogs/SaveFilterPresetDialog.vue')))
 }
 
 function applyPreset(preset: FilterPreset) {
@@ -118,7 +116,10 @@ function applyPreset(preset: FilterPreset) {
 }
 
 function updatePreset(preset: FilterPreset) {
-  dialogStore.createDialog(ConfirmUpdateFilterPresetDialog, { preset })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/Confirm/ConfirmUpdateFilterPresetDialog.vue')),
+    { preset }
+  )
 }
 
 function close() {
