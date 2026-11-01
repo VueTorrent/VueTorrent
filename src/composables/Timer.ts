@@ -24,6 +24,21 @@ export function useTimer(callback: () => Promise<void> | void, interval: MaybeRe
     _resume()
   }
 
+  async function performAndWait() {
+    while (true) {
+      const instance = task.perform()
+
+      if (!instance.isDropped) {
+        await instance
+        return
+      }
+
+      const running = task._runningInstances[0]
+      if (running === undefined) return
+      await running
+    }
+  }
+
   watch(
     documentVisibility,
     isDocumentVisible => {
@@ -44,6 +59,7 @@ export function useTimer(callback: () => Promise<void> | void, interval: MaybeRe
 
   return {
     perform: task.perform,
+    performAndWait,
     isActive,
     pause,
     resume,

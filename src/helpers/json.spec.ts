@@ -59,6 +59,21 @@ describe('helpers/json', () => {
       expect(state.mySet).toEqual({ type: '__special__set', value: 'not-an-array' })
     })
 
+    test('should deserialize legacy set arrays', () => {
+      const serialized = '{"torrentSortFavourites":["name","size"],"myArray":[1,2,3]}'
+      const state = jsonDeserialize(serialized)
+      expect(state.torrentSortFavourites).toBeInstanceOf(Set)
+      expect([...state.torrentSortFavourites]).toEqual(['name', 'size'])
+      expect(state.myArray).toEqual([1, 2, 3])
+    })
+
+    test('should support additional legacy set keys', () => {
+      const serialized = '{"customSet":["a","b"]}'
+      const state = jsonDeserialize(serialized, ['customSet'])
+      expect(state.customSet).toBeInstanceOf(Set)
+      expect([...state.customSet]).toEqual(['a', 'b'])
+    })
+
     test('should deserialize mixed types', () => {
       const serialized = '{"mySet":{"type":"__special__set","value":[1,2]},"myObject":{"a":1},"myArray":[1,2,3]}'
       const state = jsonDeserialize(serialized)
