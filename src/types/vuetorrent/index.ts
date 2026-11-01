@@ -1,4 +1,5 @@
 import Cookie from './Cookie'
+import type FilterPreset from './FilterPreset'
 import type { RightClickMenuEntryType } from './RightClickMenuEntryType'
 import type RightClickProperties from './RightClickProperties'
 import type { RssArticle } from './RssArticle'
@@ -18,6 +19,7 @@ import type { TreeNode } from './TreeObjects'
 
 export { Cookie, defaultSearchPresetCapture, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder }
 export type {
+  FilterPreset,
   RssArticle,
   RssFeed,
   SearchData,
