@@ -1086,6 +1086,7 @@
         "filterType": "過濾器組合類別",
         "hideChipIfUnset": "未設置時隱藏塊",
         "hideColoredChip": "為卡片使用文本模式",
+        "hideZeroStateEta": "剩餘時間為 0 或無窮大時不顯示",
         "historySize": "符合條件欄位的歷史大小",
         "import": "匯入設定",
         "isShutdownButtonVisible": "顯示結束按鈕",
