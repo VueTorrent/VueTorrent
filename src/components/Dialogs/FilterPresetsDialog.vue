@@ -5,9 +5,9 @@ import draggable from 'vuedraggable'
 import { useDisplay } from 'vuetify'
 import FilterPresetNameField from './FilterPresetNameField.vue'
 import { useDialog, useI18nUtils } from '@/composables'
-import { propsMetadata, TrackerSpecialFilter } from '@/constants/vuetorrent'
+import { TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { useDialogStore, useFilterPresetStore } from '@/stores'
-import { FilterPreset, Torrent } from '@/types/vuetorrent'
+import { FilterPreset } from '@/types/vuetorrent'
 
 const props = defineProps<{
   guid: string
@@ -31,11 +31,6 @@ function getTrackerLabel(tracker: string | TrackerSpecialFilter) {
   if (tracker === TrackerSpecialFilter.UNTRACKED) return t('navbar.side.filters.tracker.empty')
   if (tracker === TrackerSpecialFilter.NOT_WORKING) return t('navbar.side.filters.tracker.not_working')
   return tracker
-}
-
-function getSortLabel(sortKey: keyof Torrent) {
-  const metadata = Object.values(propsMetadata).find(ppt => ppt.sortKey === sortKey)
-  return t(metadata?.props.titleKey ?? `torrent.properties.${sortKey}`)
 }
 
 function getSummary(preset: FilterPreset) {
@@ -87,7 +82,7 @@ function getSummary(preset: FilterPreset) {
       label: t('navbar.top.quick_filters.summary.sort'),
       color: 'accent',
       values: preset.sortCriterias.map(({ value, reverse }) => ({
-        text: getSortLabel(value),
+        text: t(`torrent.properties.${value}`),
         icon: reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending',
       })),
     })
