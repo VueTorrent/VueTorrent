@@ -52,6 +52,7 @@ const uploadValue = computed(() => {
       :title="t('navbar.side.current_speed.download')"
       icon="mdi-arrow-down"
       color="download"
+      interactive
       :value="downloadValue"
       :active="isDownloadingFilterActive"
       @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
@@ -60,6 +61,7 @@ const uploadValue = computed(() => {
       :title="t('navbar.side.current_speed.upload')"
       icon="mdi-arrow-up"
       color="upload"
+      interactive
       :value="uploadValue"
       :active="isUploadingFilterActive"
       @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
