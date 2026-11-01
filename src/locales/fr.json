@@ -63,6 +63,7 @@
       "default": "Par défaut",
       "memoryMappedFiles": "Fichiers mappés en mémoire",
       "posixCompliant": "Compatible POSIX",
+      "preadPwrite": "Pread/pwrite",
       "simplePreadPwrite": "pread/pwrite simple"
     },
     "encryption": {
