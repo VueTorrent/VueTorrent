@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
@@ -9,23 +8,12 @@ const { t } = useI18nUtils()
 const { textFilter, isQueryRegexMatch } = storeToRefs(useTorrentStore())
 
 const searchIcon = computed(() => (isQueryRegexMatch.value ? 'mdi-regex' : 'mdi-magnify'))
-
-function resetInput() {
-  textFilter.value = ''
-}
-
-const torrentTitleFilter = computed({
-  get: () => textFilter.value,
-  set: debounce((newValue: string | null) => {
-    textFilter.value = newValue ?? ''
-  }, 300),
-})
 </script>
 
 <template>
   <v-text-field
     id="searchInput"
-    v-model="torrentTitleFilter"
+    v-model="textFilter"
     :label="t('common.search')"
     clearable
     density="compact"
@@ -34,7 +22,7 @@ const torrentTitleFilter = computed({
     :prepend-inner-icon="searchIcon"
     variant="solo"
     base-color="white"
-    @click:clear="resetInput()" />
+    @click:clear="textFilter = ''" />
 </template>
 
 <style scoped>

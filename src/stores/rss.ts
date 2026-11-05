@@ -1,7 +1,7 @@
-import { useSorted } from '@vueuse/core'
+import { refDebounced, useSorted } from '@vueuse/core'
 import type { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, toRefs } from 'vue'
 import { toast } from 'vue3-toastify'
 import { useI18nUtils, useSearchQuery, useTimer } from '@/composables'
 import { comparators } from '@/helpers'
@@ -25,6 +25,7 @@ export const useRssStore = defineStore(
       title: '',
       unread: false,
     })
+    const { title: titleRef } = toRefs(filters)
 
     const _flatArticles = computed(() => Array.from(_articleMap.values()))
     const unreadArticles = computed(() => _flatArticles.value.filter(article => !article.isRead))
@@ -32,11 +33,8 @@ export const useRssStore = defineStore(
       () => (filters.unread ? unreadArticles.value : _flatArticles.value),
       (a, b) => comparators.date.desc(a.parsedDate, b.parsedDate)
     )
-    const { results: filteredArticles } = useSearchQuery(
-      articles,
-      () => filters.title,
-      item => item.title
-    )
+    const debounedTitleFilter = refDebounced(titleRef, 300)
+    const { results: filteredArticles } = useSearchQuery(articles, debounedTitleFilter, item => item.title)
     const _refreshInterval = computed(() => (feeds.value.some(feed => feed.isLoading) ? 2000 : 60000))
 
     const {

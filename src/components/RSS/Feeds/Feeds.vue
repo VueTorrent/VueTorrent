@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import debounce from 'lodash.debounce'
 import { computed, onMounted, onUnmounted, ref, defineAsyncComponent } from 'vue'
 import ArticleList from './ArticleList.vue'
 import FeedList from './FeedList.vue'
@@ -28,13 +27,6 @@ const rowHeight = computed(() => {
   // 56px for the row
   // 12px for the padding (top and bottom)
   return props.height - 56 - 16 - 56 - 12 * 2
-})
-
-const titleFilter = computed({
-  get: () => rssStore.filters.title,
-  set: debounce((value: string) => {
-    rssStore.filters.title = value ?? ''
-  }, 300),
 })
 
 function openFeedDialog(initialFeed?: RssFeed) {
@@ -86,7 +78,7 @@ onUnmounted(() => {
   </v-card>
 
   <v-card v-else id="rss-articles" class="pa-3" :height="height">
-    <v-text-field v-model="titleFilter" :label="$t('rssArticles.feeds.filters.title')" clearable hide-details />
+    <v-text-field v-model="rssStore.filters.title" :label="$t('rssArticles.feeds.filters.title')" clearable hide-details />
     <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.feeds.filters.unread')" hide-details />
 
     <!-- Mobile layout -->

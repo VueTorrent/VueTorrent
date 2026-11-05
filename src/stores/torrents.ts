@@ -1,4 +1,4 @@
-import { useArrayFilter, useSorted, whenever } from '@vueuse/core'
+import { refDebounced, useArrayFilter, useSorted, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useAppStore } from './app'
@@ -191,9 +191,10 @@ export const useTorrentStore = defineStore(
       }
     })
 
+    const debouncedTextFilter = refDebounced(textFilter, 300)
     const { results: filteredTorrents, isRegexMatch: isQueryRegexMatch } = useSearchQuery(
       torrentsWithNavbarFilters,
-      () => (isTextFilterActive.value ? textFilter.value : null),
+      () => (isTextFilterActive.value ? debouncedTextFilter.value : null),
       torrent => [torrent.name, torrent.hash, torrent.download_path, torrent.savePath]
     )
 
