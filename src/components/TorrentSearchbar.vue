@@ -1,20 +1,23 @@
 <script setup lang="ts">
 import debounce from 'lodash.debounce'
+import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useTorrentStore } from '@/stores'
 
 const { t } = useI18nUtils()
-const torrentStore = useTorrentStore()
+const { textFilter, isQueryRegexMatch } = storeToRefs(useTorrentStore())
+
+const searchIcon = computed(() => (isQueryRegexMatch.value ? 'mdi-regex' : 'mdi-magnify'))
 
 function resetInput() {
-  torrentStore.textFilter = ''
+  textFilter.value = ''
 }
 
 const torrentTitleFilter = computed({
-  get: () => torrentStore.textFilter,
+  get: () => textFilter.value,
   set: debounce((newValue: string | null) => {
-    torrentStore.textFilter = newValue ?? ''
+    textFilter.value = newValue ?? ''
   }, 300),
 })
 </script>
@@ -28,7 +31,7 @@ const torrentTitleFilter = computed({
     density="compact"
     single-line
     hide-details
-    prepend-inner-icon="mdi-magnify"
+    :prepend-inner-icon="searchIcon"
     variant="solo"
     base-color="white"
     @click:clear="resetInput()" />

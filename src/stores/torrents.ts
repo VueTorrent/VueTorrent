@@ -191,7 +191,7 @@ export const useTorrentStore = defineStore(
       }
     })
 
-    const { results: filteredTorrents } = useSearchQuery(
+    const { results: filteredTorrents, isRegexMatch: isQueryRegexMatch } = useSearchQuery(
       torrentsWithNavbarFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
       torrent => [torrent.name, torrent.hash, torrent.download_path, torrent.savePath]
@@ -371,6 +371,7 @@ export const useTorrentStore = defineStore(
       torrentsByTracker,
       sortCriterias,
       processedTorrents: filteredAndSortedTorrents,
+      isQueryRegexMatch,
       syncFromMaindata,
       setTorrentCategory,
       addTorrentTags,
