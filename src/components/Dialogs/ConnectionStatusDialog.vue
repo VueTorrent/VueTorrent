@@ -46,8 +46,8 @@ function close() {
             <div>{{ $t('dialogs.connectionStatus.externalIp') }}</div>
             <div class="ml-2">
               <template v-if="externalIpStore.externalIp || externalIpStore.externalIpV6">
-                <div v-if="externalIpStore.externalIp">{{ externalIpStore.externalIp }}</div>
-                <div v-if="externalIpStore.externalIpV6" class="text-break">{{ externalIpStore.externalIpV6 }}</div>
+                <div v-if="externalIpStore.externalIp" id="external_ip">{{ externalIpStore.externalIp }}</div>
+                <div v-if="externalIpStore.externalIpV6" id="external_ipv6" class="text-break">{{ externalIpStore.externalIpV6 }}</div>
               </template>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.noExternalIp') }}</span>
             </div>
