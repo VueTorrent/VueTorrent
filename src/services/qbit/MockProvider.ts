@@ -64,6 +64,8 @@ export default class MockProvider implements IProvider {
       },
       {} as Record<string, string[]>
     )
+  private readonly externalIpv4 = faker.internet.ipv4()
+  private readonly externalIpv6 = faker.internet.ipv6()
 
   private constructor() {}
 
@@ -1183,6 +1185,8 @@ export default class MockProvider implements IProvider {
       dl_rate_limit,
       free_space_on_disk: faker.number.int({ min: 0, max: 500_000_000_000 }), // [0 B; 500 GB]
       global_ratio: (alltime_ul / alltime_dl).toFixed(2),
+      last_external_address_v4: this.externalIpv4,
+      last_external_address_v6: this.externalIpv6,
       queued_io_jobs: faker.number.int({ min: 0, max: 1500 }),
       queueing: false,
       read_cache_hits: faker.number.int({ min: 0, max: 100 }).toString(),
