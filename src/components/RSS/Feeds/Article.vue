@@ -55,11 +55,23 @@ const articleLink = computed(() => (vuetorrentStore.useIdForRssLinks ? props.art
 
       <div class="d-flex flex-column">
         <ButtonLink :link="articleLink" icon="mdi-open-in-new" variant="text" />
-        <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="$emit('markAsRead')" />
+        <v-btn icon="mdi-email-open" variant="text" @click.stop="$emit('markAsRead')" />
         <v-btn icon="mdi-download" variant="text" @click.stop="$emit('download')" />
       </div>
     </div>
   </v-list-item>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+@use 'sass:color';
+
+.rss-read {
+  &[class*='v-theme--dark-'] {
+    color: color.adjust(darkgrey, $lightness: 5%) !important;
+  }
+
+  &[class*='v-theme--light-'] {
+    color: grey !important;
+  }
+}
+</style>
