@@ -1091,6 +1091,7 @@
         "import": "匯入設定",
         "isShutdownButtonVisible": "顯示結束按鈕",
         "language": "語言",
+        "languageAuto": "自動（跟隨瀏覽器語言）",
         "lightVariants": "淺色界面式樣",
         "paginationSize": {
           "infinite_scroll": "無限滾動",
