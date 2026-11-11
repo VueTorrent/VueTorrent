@@ -23,17 +23,6 @@ import { defaultLocale } from '@/locales'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import type { SearchPreset, SearchSortBy } from '@/types/vuetorrent'
 
-/**
- * Settings persisted before the automatic language was introduced hold an `en` value, the
- * default of that time. It can't be told apart from a deliberate choice, so it's treated as
- * "not set": English browsers keep English, other browsers switch to their language.
- * A language explicitly selected in the settings is kept as-is.
- */
-export function migrateLanguageSetting(language: string): LanguageSetting {
-  // Compared as strings: the value comes from storage, possibly written by an older version
-  return language === `${defaultLocale}` ? AUTO_LANGUAGE : (language as LanguageSetting)
-}
-
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
@@ -408,10 +397,6 @@ export const useVueTorrentStore = defineStore(
         serializer: {
           serialize: jsonSerialize,
           deserialize: jsonDeserialize,
-        },
-        afterHydrate: ({ store }) => {
-          // Settings synced from the server are loaded later, `App.vue` migrates those
-          store.language = migrateLanguageSetting(store.language)
         },
       },
     ],

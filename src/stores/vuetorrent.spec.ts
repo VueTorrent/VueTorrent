@@ -1,6 +1,6 @@
 import { createPinia, setActivePinia } from 'pinia'
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
-import { migrateLanguageSetting, useVueTorrentStore } from './vuetorrent'
+import { useVueTorrentStore } from './vuetorrent'
 import { AUTO_LANGUAGE } from '@/constants/vuetorrent'
 import { Locales } from '@/locales'
 
@@ -75,20 +75,5 @@ describe('stores/vuetorrent - language', () => {
 
     store.setLanguage(store.language)
     expect(locale.value).toBe(Locales.DE)
-  })
-})
-
-describe('stores/vuetorrent - language migration', () => {
-  test('treats the legacy English default as unset', () => {
-    expect(migrateLanguageSetting('en')).toBe(AUTO_LANGUAGE)
-  })
-
-  test('keeps a language explicitly selected in a legacy version', () => {
-    expect(migrateLanguageSetting(Locales.FR)).toBe(Locales.FR)
-    expect(migrateLanguageSetting(Locales.ZH_HANS)).toBe(Locales.ZH_HANS)
-  })
-
-  test('keeps the automatic language', () => {
-    expect(migrateLanguageSetting(AUTO_LANGUAGE)).toBe(AUTO_LANGUAGE)
   })
 })
