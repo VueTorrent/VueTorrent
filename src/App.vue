@@ -11,6 +11,7 @@ import { TitleOptions } from './constants/vuetorrent'
 import { formatPercent } from './helpers'
 import { backend } from './services/backend'
 import {
+  migrateLanguageSetting,
   useAddTorrentStore,
   useAppStore,
   useDashboardStore,
@@ -144,6 +145,8 @@ watch(
       void backend.ping().then(async ok => {
         if (ok) {
           await Promise.allSettled(backendSyncObjects.map(obj => obj.loadState()))
+          // Settings stored by a previous version may need to be migrated, after loading them
+          vuetorrentStore.language = migrateLanguageSetting(vuetorrentStore.language)
           backendSyncObjects.forEach(obj => obj.registerWatcher())
         }
       })

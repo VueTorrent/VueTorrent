@@ -3,13 +3,14 @@ import { storeToRefs } from 'pinia'
 import { computed, readonly, ref , defineAsyncComponent } from 'vue'
 import { toast } from 'vue3-toastify'
 import { useI18nUtils } from '@/composables'
-import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions, TorrentDetailTab } from '@/constants/vuetorrent'
+import { AUTO_LANGUAGE, defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions, TorrentDetailTab } from '@/constants/vuetorrent'
 import { downloadFile, openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { backend } from '@/services/backend'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { DarkLegacy, DarkOled, DarkRedesigned, LightLegacy, LightRedesigned } from '@/themes'
+
 
 const { t } = useI18nUtils()
 const appStore = useAppStore()
@@ -59,6 +60,8 @@ const defaultNumericSeparators = [
   { title: 'Comma (,)', value: ',' },
   { title: 'Apostrophe (\')', value: '\'' }
 ]
+
+const languageOptions = computed(() => [{ title: t('settings.vuetorrent.general.languageAuto'), value: AUTO_LANGUAGE }, ...LOCALES])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
@@ -245,7 +248,7 @@ function openDurationFormatHelp() {
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
+          <v-select v-model="vueTorrentStore.language" flat hide-details :items="languageOptions" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" md="6">
           <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" :label="t('settings.vuetorrent.general.filterType')" />

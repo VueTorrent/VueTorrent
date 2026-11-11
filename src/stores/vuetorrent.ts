@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 import { useI18nUtils } from '@/composables'
 import {
+  AUTO_LANGUAGE,
   DashboardProperty,
   defaultDateFormat,
   defaultDurationFormat,
@@ -15,15 +16,28 @@ import {
   TitleOptions,
   TorrentDetailTab,
   TorrentProperty,
+  type LanguageSetting,
 } from '@/constants/vuetorrent'
-import { jsonDeserialize, jsonSerialize } from '@/helpers'
+import { getBrowserLocale, jsonDeserialize, jsonSerialize } from '@/helpers'
+import { defaultLocale } from '@/locales'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import type { SearchPreset, SearchSortBy } from '@/types/vuetorrent'
+
+/**
+ * Settings persisted before the automatic language was introduced hold an `en` value, the
+ * default of that time. It can't be told apart from a deliberate choice, so it's treated as
+ * "not set": English browsers keep English, other browsers switch to their language.
+ * A language explicitly selected in the settings is kept as-is.
+ */
+export function migrateLanguageSetting(language: string): LanguageSetting {
+  // Compared as strings: the value comes from storage, possibly written by an older version
+  return language === `${defaultLocale}` ? AUTO_LANGUAGE : (language as LanguageSetting)
+}
 
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
-    const language = ref('en')
+    const language = ref<LanguageSetting>(AUTO_LANGUAGE)
     const theme = reactive({
       mode: ThemeMode.SYSTEM,
       light: LightLegacy.id,
@@ -148,8 +162,10 @@ export const useVueTorrentStore = defineStore(
     const mediaQueryPreferDark = useMediaQuery('(prefers-color-scheme: dark)')
     watch(mediaQueryPreferDark, updateTheme)
 
-    function setLanguage(newLang: string) {
-      locale.value = newLang
+    function setLanguage(newLang: LanguageSetting) {
+      locale.value = newLang === AUTO_LANGUAGE ? (getBrowserLocale() ?? defaultLocale) : newLang
+      // Keep the document language in sync, browsers use it to pick fonts and screen readers to pick a voice
+      document.documentElement.lang = locale.value
     }
 
     function updateTheme() {
@@ -337,7 +353,7 @@ export const useVueTorrentStore = defineStore(
       searchPresetDefaultId,
       logoutUrl,
       $reset: () => {
-        language.value = 'en'
+        language.value = AUTO_LANGUAGE
         theme.mode = ThemeMode.SYSTEM
         theme.light = LightLegacy.id
         theme.dark = DarkLegacy.id
@@ -392,6 +408,10 @@ export const useVueTorrentStore = defineStore(
         serializer: {
           serialize: jsonSerialize,
           deserialize: jsonDeserialize,
+        },
+        afterHydrate: ({ store }) => {
+          // Settings synced from the server are loaded later, `App.vue` migrates those
+          store.language = migrateLanguageSetting(store.language)
         },
       },
     ],

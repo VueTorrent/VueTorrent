@@ -21,9 +21,10 @@ import { useTorrentCreatorStore } from './torrentCreator'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
-import { useVueTorrentStore } from './vuetorrent'
+import { migrateLanguageSetting, useVueTorrentStore } from './vuetorrent'
 
 export {
+  migrateLanguageSetting,
   useAddTorrentStore,
   useAppStore,
   useCategoryStore,
