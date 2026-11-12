@@ -381,12 +381,14 @@
       "deleteCategory": "Willst du diese Kategorie wirklich entfernen?",
       "deleteCookie": "Willst du dieses Cookie wirklich entfernen?",
       "deleteFeed": "Willst du diesen RSS-Feed wirklich entfernen?",
+      "deleteFilterPreset": "Willst du diesen Schnellfilter wirklich entfernen?",
       "deleteRule": "Willst du diese RSS-Regel wirklich entfernen?",
       "deleteTag": "Willst du dieses Tag wirklich entfernen?",
       "deleteUnusedCategories": "Willst du wirklich alle ungenutzten Kategorien entfernen?",
       "deleteUnusedTags": "Willst du wirklich alle ungenutzten Tags entfernen?",
       "startAll": "Willst du wirklich alle Torrents starten?",
-      "stopAll": "Willst du wirklich alle Torrents stoppen?"
+      "stopAll": "Willst du wirklich alle Torrents stoppen?",
+      "updateFilterPreset": "Willst du diesen Schnellfilter wirklich mit den aktuellen Filtern überschreiben?"
     },
     "connectionStatus": {
       "dht_nodes": "DHT-Knoten",
@@ -516,6 +518,12 @@
         },
         "useRegex": "Regulären Ausdruck verwenden"
       }
+    },
+    "saveFilterPreset": {
+      "includeSort": "Aktuelle Sortierung einbeziehen",
+      "name": "Name",
+      "required": "Name ist erforderlich",
+      "title": "Als Schnellfilter speichern"
     },
     "share_limit": {
       "disabled": "Kein Anteil-Limit festlegen",
@@ -703,6 +711,24 @@
         "tag": "Tag-Filter: {value}",
         "text": "Text-Filter: {value}",
         "tracker": "Tracker-Filter: {value}"
+      },
+      "quick_filters": {
+        "apply": "Schnellfilter anwenden",
+        "clear": "Schnellfilter löschen",
+        "delete": "Schnellfilter löschen",
+        "label": "Schnellfilter",
+        "manage": "Schnellfilter verwalten",
+        "save": "Aktuelle Filter als Schnellfilter speichern",
+        "summary": {
+          "category": "Kategorie",
+          "label": "Filter: | Filter:",
+          "sort": "Sortieren",
+          "state": "Zustand",
+          "tag": "Tag",
+          "text": "Text",
+          "tracker": "Tracker"
+        },
+        "update": "Mit aktuellen Filtern aktualisieren"
       }
     }
   },
