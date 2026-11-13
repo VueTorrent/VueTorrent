@@ -3,6 +3,7 @@ export { default as comparators, type Comparator, isObjectEqual } from './compar
 export { formatData, formatDataUnit, formatDataValue } from './data'
 export { formatDuration, formatEta, formatTimeMs, formatTimeSec } from './datetime'
 export { jsonDeserialize, jsonSerialize } from './json'
+export { getBrowserLocale, getLocaleFromLanguageTag } from './locale'
 export { arrayRemove, compareVersions } from './misc'
 export { formatPercent, formatRawNumber, toPrecision, safeDiv } from './number'
 export { basename, getExtType, getFileIcon, getTypeIcon, splitExt } from './path'

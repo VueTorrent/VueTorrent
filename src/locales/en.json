@@ -1249,6 +1249,7 @@
         "import": "Import Settings",
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
+        "languageAuto": "Automatic (browser language)",
         "lastOpenedTab": "Last Opened",
         "lightVariants": "Light theme variant",
         "logoutUrl": "Logout URL (leave empty for default behavior)",
