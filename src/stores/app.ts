@@ -2,6 +2,7 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { compareVersions } from '@/helpers'
 import qbit from '@/services/qbit'
+import { isAuthenticationError } from '@/services/qbit/errors'
 import { BuildInfo } from '@/types/qbit/models'
 
 export const useAppStore = defineStore('app', () => {
@@ -16,10 +17,15 @@ export const useAppStore = defineStore('app', () => {
   const usesLibtorrent21 = computed(() => compareVersions(buildInfo.value?.libtorrent ?? '0', '2.1.0') >= 0)
 
   async function fetchAuthStatus() {
-    const ver: string | false = await qbit.getVersion().catch(() => false)
-    const auth_status = ver !== false
-    await setAuthStatus(auth_status, ver || undefined)
-    return auth_status
+    try {
+      const ver = await qbit.getVersion()
+      await setAuthStatus(true, ver)
+      return true
+    } catch (error) {
+      if (!isAuthenticationError(error)) throw error
+      await setAuthStatus(false)
+      return false
+    }
   }
 
   async function setAuthStatus(val: boolean, ver?: string) {
