@@ -2,11 +2,9 @@ import { AxiosError, AxiosHeaders, type AxiosResponse } from 'axios'
 import { createPinia, setActivePinia } from 'pinia'
 import { beforeEach, describe, expect, test, vi } from 'vitest'
 import { useAppStore } from './app'
-import qbit from '@/services/qbit'
 
-vi.mock('@/services/qbit', () => ({
-  default: { getVersion: vi.fn(), getWebAPIVersion: vi.fn(), getBuildInfo: vi.fn() },
-}))
+const qbit = vi.hoisted(() => ({ getVersion: vi.fn(), getWebAPIVersion: vi.fn(), getBuildInfo: vi.fn() }))
+vi.mock('@/services/qbit', () => ({ default: qbit }))
 
 function responseError(status: number) {
   const response: AxiosResponse = {
