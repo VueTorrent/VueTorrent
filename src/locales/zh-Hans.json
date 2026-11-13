@@ -1310,6 +1310,17 @@
     "qbit": {
       "not_supported": "仅适用于 qbit >= {version}"
     },
+    "tag_category": {
+      "action_error": "更新标签/分类失败",
+      "category_cleared": "已清除 {n} 个种子的分类",
+      "category_set": "已将 {n} 个种子的分类设为“{category}”",
+      "tags_added": "已为 {n} 个种子添加标签“{tags}”",
+      "tags_cleared": "已清除 {n} 个种子的所有标签",
+      "tags_removed": "已从 {n} 个种子移除标签“{tags}”",
+      "undo": "撤销",
+      "undo_error": "撤销标签/分类更改失败",
+      "undo_success": "已撤销标签/分类更改"
+    },
     "version": {
       "latest": "你已在使用最新版了!",
       "new": "新版本可用！"
