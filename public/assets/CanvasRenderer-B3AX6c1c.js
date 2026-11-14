@@ -1,1 +1,0 @@
-export{i as CanvasRenderer}from"./TorrentDetail-BxWb7COv.js";
