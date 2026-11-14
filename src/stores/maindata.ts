@@ -10,6 +10,7 @@ import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
 import { useTimer } from '@/composables'
 import qbit from '@/services/qbit'
+import { isAuthenticationError } from '@/services/qbit/errors'
 import type { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 import type { ShareLimitAction, ShareLimitsMode } from '@/types/vuetorrent'
@@ -65,8 +66,8 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       // filter out deleted torrents from selection
       dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => !response.torrents_removed?.includes(hash))
-    } catch (error: any) {
-      if (error?.response?.status === 403) {
+    } catch (error: unknown) {
+      if (isAuthenticationError(error)) {
         console.error('No longer authenticated, logging out...')
         await appStore.setAuthStatus(false)
         await vueTorrentStore.redirectToLogin()

@@ -60,17 +60,34 @@ const backendSyncObjects = [
   }),
 ]
 
+let authRetryTimer: ReturnType<typeof setTimeout> | undefined
+let authChecksActive = true
+
 async function checkAuthentication() {
   const authStatus = appStore.fetchAuthStatus()
   const timer = setTimeout(() => {
     toast.loading(t('login.pending'), {
       toastId: 'login-pending',
       onOpen: () => {
-        void authStatus.finally(() => toast.remove('login-pending'))
+        void authStatus.then(
+          () => toast.remove('login-pending'),
+          () => toast.remove('login-pending')
+        )
       },
     })
   }, 1000)
-  await authStatus.finally(() => clearTimeout(timer))
+  try {
+    await authStatus
+  } catch {
+    if (authChecksActive) authRetryTimer = setTimeout(() => void checkAuthentication(), 3000)
+  } finally {
+    clearTimeout(timer)
+    toast.remove('login-pending')
+  }
+}
+
+function handleNetworkRestored() {
+  toast.remove('network-unknown-error')
 }
 
 function handleNetworkError() {
@@ -125,11 +142,15 @@ onMounted(() => {
   sessionStorage.setItem('vuetorrent_mounted', 'true')
 
   window.addEventListener('vuetorrent:network-unknown-error', handleNetworkError)
+  window.addEventListener('vuetorrent:network-restored', handleNetworkRestored)
   void checkAuthentication()
 })
 
 onBeforeUnmount(() => {
+  authChecksActive = false
+  clearTimeout(authRetryTimer)
   window.removeEventListener('vuetorrent:network-unknown-error', handleNetworkError)
+  window.removeEventListener('vuetorrent:network-restored', handleNetworkRestored)
   document.removeEventListener('contextmenu', blockContextMenu)
 })
 
