@@ -873,7 +873,7 @@
         "networking": {
           "outgoingPortsMax": "Ausgehende Ports (Max) [0: Deaktiviert]",
           "outgoingPortsMin": "Ausgehende Ports (Min) [0: Deaktiviert]",
-          "peerTos": "DSCP-Wert für Verbindungen zu Peers",
+          "peerTos": "Diensttyp (ToS) für Verbindungen zu Peers",
           "subheader": "Netzwerk",
           "upnpLeaseDuration": "UPnP-Lease-Dauer [0: Dauerhafter Lease]",
           "utpTcpMixedModeAlgorithm": "μTP-TCP-Mischmodus-Algorithmus"
