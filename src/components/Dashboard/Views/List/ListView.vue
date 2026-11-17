@@ -32,7 +32,7 @@ const dashboardStore = useDashboardStore()
       data-custom-context-menu
       :class="['pa-0', display.mobile ? 'mb-2' : 'mb-4']"
       style="user-select: none; -webkit-user-select: none"
-      @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
+      @contextmenu.prevent="$emit('onTorrentRightClick', $event, torrent)"
       @dblclick="$emit('onTorrentDblClick', torrent)"
       @touchcancel.passive="$emit('endPress')"
       @touchend.passive="$emit('endPress')"

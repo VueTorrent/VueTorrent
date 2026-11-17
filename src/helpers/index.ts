@@ -9,3 +9,4 @@ export { basename, getExtType, getFileIcon, getTypeIcon, splitExt } from './path
 export { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
 export { doesCommand, downloadFile, isMac, isWindows, openLink } from './system'
 export { capitalize, codeToFlag, extractHostname, getDomainBody, isValidUri, normalize, splitByUrl, titleCase } from './text'
+export { getTouchPoint, type TouchEventLike, type TouchPoint } from './touch'

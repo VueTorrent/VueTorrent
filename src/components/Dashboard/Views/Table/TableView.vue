@@ -89,7 +89,7 @@ function getTorrentRowColorClass(torrent: TorrentType) {
         data-custom-context-menu
         :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         style="user-select: none; -webkit-user-select: none"
-        @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
+        @contextmenu.prevent="$emit('onTorrentRightClick', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)"
         @touchcancel.passive="$emit('endPress')"

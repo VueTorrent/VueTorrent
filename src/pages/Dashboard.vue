@@ -10,7 +10,7 @@ import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import { useI18nUtils } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
-import { doesCommand } from '@/helpers'
+import { doesCommand, getTouchPoint } from '@/helpers'
 import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
 
@@ -96,7 +96,7 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
   }
 }
 
-async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
+async function onTorrentRightClick(e: Pick<MouseEvent, 'pageX' | 'pageY'>, torrent: TorrentType) {
   if (rightClickProperties.value.isVisible) {
     rightClickProperties.value.isVisible = false
     await nextTick()
@@ -119,14 +119,20 @@ async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) 
 const timer = ref<NodeJS.Timeout>()
 
 function startPress(e: TouchEvent, torrent: TorrentType) {
-  const touch = e.touches.item(0)!
+  // The timer fires at roughly the same moment the browser runs its own
+  // long-press detection, which cancels the touch and resets the Touch object.
+  // Copy the position now so the menu opens under the finger instead of at 0,0.
+  const point = getTouchPoint(e)
+  if (!point) return
+
   timer.value = setTimeout(() => {
-    void onTorrentRightClick(touch, torrent)
+    void onTorrentRightClick(point, torrent)
   }, 500)
 }
 
 function endPress() {
   clearTimeout(timer.value)
+  timer.value = undefined
 }
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
