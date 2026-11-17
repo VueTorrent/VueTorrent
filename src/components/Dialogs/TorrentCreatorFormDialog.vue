@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { VForm } from 'vuetify/components/VForm'
+import HistoryField from '@/components/Core/HistoryField.vue'
 import ServerPathField from '@/components/Core/ServerPathField.vue'
 import { useDialog, useI18nUtils, useNumberFormatter } from '@/composables'
 import { TorrentFormat } from '@/constants/qbit'
@@ -43,6 +44,10 @@ const formatOptions = [
 
 const sourcePath = ref<typeof ServerPathField>()
 const torrentFilePath = ref<typeof ServerPathField>()
+const trackersField = ref<typeof HistoryField>()
+const urlSeedsField = ref<typeof HistoryField>()
+const sourceField = ref<typeof HistoryField>()
+const commentField = ref<typeof HistoryField>()
 
 const pieceSizeOptions = computed(() => {
   const sizes = [{ title: t('common.auto'), value: 0 }]
@@ -59,6 +64,10 @@ const paddedLimitRules = [(v: number) => !v || v < -1 || t('dialogs.torrentCreat
 function saveFields() {
   sourcePath.value?.saveValueToHistory()
   torrentFilePath.value?.saveValueToHistory()
+  trackersField.value?.saveValueToHistory()
+  urlSeedsField.value?.saveValueToHistory()
+  sourceField.value?.saveValueToHistory()
+  commentField.value?.saveValueToHistory()
 }
 
 async function submit() {
@@ -137,16 +146,40 @@ function close() {
             <v-divider />
 
             <v-col cols="12">
-              <v-textarea v-model="formData.trackers" :label="t('dialogs.torrentCreator.trackers')" :hint="t('dialogs.torrentCreator.trackersHint')" />
+              <HistoryField
+                ref="trackersField"
+                v-model="formData.trackers"
+                multiline
+                :history-key="HistoryKey.TORRENT_CREATOR_TRACKERS"
+                :label="t('dialogs.torrentCreator.trackers')"
+                :hint="t('dialogs.torrentCreator.trackersHint')" />
             </v-col>
             <v-col cols="12">
-              <v-textarea v-model="formData.urlSeeds" hide-details :label="t('dialogs.torrentCreator.urlSeeds')" />
+              <HistoryField
+                ref="urlSeedsField"
+                v-model="formData.urlSeeds"
+                multiline
+                hide-details
+                :history-key="HistoryKey.TORRENT_CREATOR_URL_SEEDS"
+                :label="t('dialogs.torrentCreator.urlSeeds')" />
             </v-col>
             <v-col v-if="appStore.isFeatureAvailable('5.1.0')" cols="12">
-              <v-textarea v-model="formData.source" hide-details :label="t('dialogs.torrentCreator.source')" />
+              <HistoryField
+                ref="sourceField"
+                v-model="formData.source"
+                multiline
+                hide-details
+                :history-key="HistoryKey.TORRENT_CREATOR_SOURCE"
+                :label="t('dialogs.torrentCreator.source')" />
             </v-col>
             <v-col cols="12">
-              <v-textarea v-model="formData.comment" hide-details :label="t('dialogs.torrentCreator.comment')" />
+              <HistoryField
+                ref="commentField"
+                v-model="formData.comment"
+                multiline
+                hide-details
+                :history-key="HistoryKey.TORRENT_CREATOR_COMMENT"
+                :label="t('dialogs.torrentCreator.comment')" />
             </v-col>
           </v-row>
         </v-form>
