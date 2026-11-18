@@ -1199,6 +1199,17 @@
     "qbit": {
       "not_supported": "僅適用於 qbit >= {version}"
     },
+    "tag_category": {
+      "action_error": "更新標籤/分類失敗",
+      "category_cleared": "已清除 {n} 個種子的分類",
+      "category_set": "已將 {n} 個種子的分類設為「{category}」",
+      "tags_added": "已為 {n} 個種子新增標籤「{tags}」",
+      "tags_cleared": "已清除 {n} 個種子的所有標籤",
+      "tags_removed": "已從 {n} 個種子移除標籤「{tags}」",
+      "undo": "復原",
+      "undo_error": "復原標籤/分類變更失敗",
+      "undo_success": "已復原標籤/分類變更"
+    },
     "version": {
       "latest": "你已經在使用最新版本了!",
       "new": "新版本已發佈!"

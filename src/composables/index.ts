@@ -6,6 +6,7 @@ import { useI18nUtils } from './i18n'
 import { useNumberFormatter } from './NumberFormatter'
 import { useSearchQuery } from './SearchQuery'
 import { useTableResize } from './TableResize'
+import { useTagCategoryActions } from './TagCategoryActions'
 import { useTimer } from './Timer'
 import { useTorrentBuilder } from './TorrentBuilder'
 import { useTreeBuilder } from './TreeBuilder'
@@ -19,6 +20,7 @@ export {
   useNumberFormatter,
   useSearchQuery,
   useTableResize,
+  useTagCategoryActions,
   useTimer,
   useTorrentBuilder,
   useTreeBuilder,

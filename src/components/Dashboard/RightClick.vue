@@ -3,7 +3,7 @@ import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import RightClickMenu from '@/components/Core/RightClickMenu'
-import { useClipboard, useI18nUtils } from '@/composables'
+import { useClipboard, useI18nUtils, useTagCategoryActions } from '@/composables'
 import { downloadFile } from '@/helpers'
 import { useAppStore, useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType, RightClickProperties } from '@/types/vuetorrent'
@@ -12,6 +12,7 @@ const rightClickProperties = defineModel<RightClickProperties>({ required: true 
 
 const { t } = useI18nUtils()
 const { copyOrOpenDialog } = useClipboard()
+const tagCategoryActions = useTagCategoryActions()
 const router = useRouter()
 const appStore = useAppStore()
 const categoryStore = useCategoryStore()
@@ -26,11 +27,16 @@ const isAllTorrentsSelected = computed(() => torrentStore.torrents.length <= das
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
 
 const hashes = computed(() => dashboardStore.selectedTorrents)
-const hash = computed(() => hashes.value[0])
 const targetHash = computed(() => rightClickProperties.value.target)
+const actionHashes = computed(() => {
+  const selected = hashes.value
+  if (selected.length > 0) return [...selected]
+  return targetHash.value ? [targetHash.value] : []
+})
+const hash = computed(() => actionHashes.value[0])
 
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
-const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
+const torrents = computed(() => actionHashes.value.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
 
 async function resumeTorrents() {
   await torrentStore.resumeTorrents(hashes)
@@ -97,15 +103,14 @@ async function toggleAutoTMM() {
 }
 
 function hasTag(tag: string) {
-  return torrents.value.every(torrent => torrent && torrent.tags && torrent.tags.includes(tag))
+  return actionHashes.value.length > 0 && actionHashes.value.every(hash => torrentStore.getTorrentByHash(hash)?.tags.includes(tag))
 }
 
 function openNewTagFormDialog() {
-  const selectedHashes = hashes.value
+  const selectedHashes = actionHashes.value
   dialogStore.createDialog(
     defineAsyncComponent(() => import('@/components/Dialogs/TagFormDialog.vue')),
-    { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) },
-    () => void maindataStore.syncMaindata()
+    { onSubmit: tags => tagCategoryActions.addTags(selectedHashes, tags) }
   )
 }
 
@@ -122,16 +127,16 @@ function deleteUnusedTags() {
 }
 
 async function clearAllTags() {
-  await torrentStore.removeTorrentAllTags(hashes.value)
+  await tagCategoryActions.removeAllTags(actionHashes.value)
 }
 
 function openNewCategoryFormDialog() {
-  const selectedHashes = hashes.value
+  const selectedHashes = actionHashes.value
   dialogStore.createDialog(
     defineAsyncComponent(() => import('@/components/Dialogs/CategoryFormDialog.vue')),
     {
       onSubmit: cat => {
-        void torrentStore.setTorrentCategory(selectedHashes, cat.name).then(maindataStore.syncMaindata)
+        void tagCategoryActions.setCategory(selectedHashes, cat.name)
       },
     }
   )
@@ -150,13 +155,11 @@ function deleteUnusedCategories() {
 }
 
 async function clearCategory() {
-  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.syncMaindata)
+  await tagCategoryActions.setCategory(actionHashes.value, '')
 }
 
 async function toggleTag(tag: string) {
-  if (hasTag(tag)) await torrentStore.removeTorrentTags(hashes.value, [tag])
-  else await torrentStore.addTorrentTags(hashes.value, [tag])
-  maindataStore.syncMaindata()
+  await tagCategoryActions.toggleTag(actionHashes.value, tag)
 }
 
 function setDownloadLimit() {
@@ -295,7 +298,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: tagStore.tags.map(tag => ({
       text: tag,
       icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-      action: () => void toggleTag(tag).then(maindataStore.syncMaindata),
+      action: () => void toggleTag(tag),
     })),
     slots: {
       top: [
@@ -316,7 +319,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           text: t('dashboard.right_click.tags.clear_all'),
           icon: 'mdi-playlist-remove',
           hidden: torrent.value?.tags.length === 0,
-          action: () => void clearAllTags().then(maindataStore.syncMaindata),
+          action: () => void clearAllTags(),
         },
       ],
     },
@@ -330,7 +333,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: categoryStore.categories.map(category => ({
       text: category.name,
       icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
-      action: () => void torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.syncMaindata),
+      action: () => void tagCategoryActions.setCategory(actionHashes.value, category.name),
     })),
     slots: {
       top: [
@@ -349,7 +352,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           text: t('dashboard.right_click.category.clear'),
           icon: 'mdi-backspace-reverse',
           hidden: torrent.value?.category.length === 0,
-          action: () => void clearCategory().then(maindataStore.syncMaindata),
+          action: () => void clearCategory(),
         },
       ],
     },
