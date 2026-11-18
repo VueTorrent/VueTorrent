@@ -9,6 +9,8 @@ import { extMap, FileType, typesMap } from './FileIcon'
 import { FilterState } from './FilterState'
 import { FilterType } from './FilterType'
 import { HistoryKey } from './HistoryKey'
+import { AUTO_LANGUAGE } from './Language'
+import type { LanguageSetting } from './Language'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
 import { TorrentDetailTab } from './TorrentDetailTab'
@@ -17,7 +19,9 @@ import { TrackerSpecialFilter } from './TrackerSpecialFilter'
 import { defaultDateFormat, defaultDurationFormat, QBIT_MAX_ETA, INFINITY_SYMBOL, MAX_TORRENT_FILE_SIZE } from './values'
 
 export {
+  AUTO_LANGUAGE,
   comparatorMap,
+  LanguageSetting,
   TorrentProperty,
   PropertyData,
   PropertyMetadata,

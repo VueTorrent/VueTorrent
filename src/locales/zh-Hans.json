@@ -1189,6 +1189,7 @@
         "import": "导入设置",
         "isShutdownButtonVisible": "显示关闭按钮",
         "language": "语言",
+        "languageAuto": "自动（跟随浏览器语言）",
         "lightVariants": "浅色模式样式",
         "paginationSize": {
           "infinite_scroll": "无限滚动",
