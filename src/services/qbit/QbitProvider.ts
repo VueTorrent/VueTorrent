@@ -385,12 +385,12 @@ export default class QBitProvider implements IProvider {
     return this.axios
       .get('/torrentcreator/torrentFile', {
         params: { taskID },
-        responseType: 'arraybuffer',
+        responseType: 'blob',
         headers: {
           Accept: 'application/x-bittorrent',
         },
       })
-      .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
+      .then(res => res.data)
   }
 
   async deleteTorrentCreatorTask(taskID: string): Promise<boolean> {
@@ -447,6 +447,12 @@ export default class QBitProvider implements IProvider {
          * https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#set-file-priority
          */
       )
+  }
+
+  getDownloadFileUrl(hash: string, file: string): string {
+    const url = new URL('api/v2/torrents/downloadFile', window.location.toString())
+    url.search = new URLSearchParams({ hash, file }).toString()
+    return url.toString()
   }
 
   async getAvailableTags(): Promise<string[]> {
@@ -807,12 +813,12 @@ export default class QBitProvider implements IProvider {
     return this.axios
       .get('/torrents/export', {
         params: { hash },
-        responseType: 'arraybuffer',
+        responseType: 'blob',
         headers: {
           Accept: 'application/x-bittorrent',
         },
       })
-      .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
+      .then(res => res.data)
   }
 
   async SSLParameters(hash: string): Promise<SSLParameters> {

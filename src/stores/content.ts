@@ -1,10 +1,12 @@
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, defineAsyncComponent, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
 import { useRoute } from 'vue-router'
+import { useAppStore } from './app'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
 import { useI18nUtils, useSearchQuery, useTimer, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
+import { downloadFromUrl } from '@/helpers'
 import qbit from '@/services/qbit'
 import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
@@ -12,6 +14,7 @@ import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } f
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
   const route = useRoute()
+  const appStore = useAppStore()
   const dialogStore = useDialogStore()
   const { fileContentInterval, expandContent } = storeToRefs(useVueTorrentStore())
 
@@ -93,6 +96,17 @@ export const useContentStore = defineStore('content', () => {
       text: 'Expand All',
       icon: 'mdi-unfold-more-horizontal',
       action: expandAll,
+    },
+    {
+      text: 'Download',
+      icon: 'mdi-download',
+      hidden:
+        !appStore.isFeatureAvailable('5.3') ||
+        internalSelection.value.size !== 1 ||
+        selectedNode.value?.type !== 'file' ||
+        selectedNode.value.progress < 1 ||
+        selectedNode.value.priority === FilePriority.DO_NOT_DOWNLOAD,
+      action: downloadFile,
     },
   ])
 
@@ -229,6 +243,11 @@ export const useContentStore = defineStore('content', () => {
     } else {
       await setFilePriority(ids, FilePriority.DO_NOT_DOWNLOAD)
     }
+  }
+
+  function downloadFile() {
+    const url = qbit.getDownloadFileUrl(hash.value, selectedNode.value!.fullName)
+    downloadFromUrl(selectedNode.value!.name, url)
   }
 
   return {

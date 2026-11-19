@@ -19,9 +19,13 @@ export function openLink(link: string) {
   window.open(link, '_blank', 'noopener noreferrer')
 }
 
-export function downloadFile(filename: string, blob: Blob) {
+export function downloadBlobData(filename: string, blob: Blob) {
   const href = window.URL.createObjectURL(blob)
-  const el = Object.assign(document.createElement('a'), { href, download: filename, style: { opacity: '0' } })
+  downloadFromUrl(href, filename)
+}
+
+export function downloadFromUrl(filename: string, url: string) {
+  const el = Object.assign(document.createElement('a'), { href: url, download: filename, style: { opacity: '0' } })
   document.body.appendChild(el)
   el.click()
   el.remove()

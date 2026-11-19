@@ -4,7 +4,7 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import RightClickMenu from '@/components/Core/RightClickMenu'
 import { useClipboard, useI18nUtils } from '@/composables'
-import { downloadFile } from '@/helpers'
+import { downloadBlobData } from '@/helpers'
 import { useAppStore, useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType, RightClickProperties } from '@/types/vuetorrent'
 
@@ -192,13 +192,13 @@ async function exportTorrents() {
   if (ts.length === 1) {
     const t = ts[0]
     const blob = await torrentStore.exportTorrent(t.hash)
-    downloadFile(`${t.name}.torrent`, blob)
+    downloadBlobData(`${t.name}.torrent`, blob)
     return
   }
 
   const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
   await Promise.all(ts.map(t => torrentStore.exportTorrent(t.hash).then(blob => zipWriter.add(`${t.name}-${t.truncated_hash}.torrent`, new BlobReader(blob)))))
-  downloadFile('torrents.zip', await zipWriter.close())
+  downloadBlobData('torrents.zip', await zipWriter.close())
 }
 
 const menuData = computed<RightClickMenuEntryType[]>(() => [

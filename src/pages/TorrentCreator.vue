@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import { useI18nUtils, useNumberFormatter, useTimer } from '@/composables'
 import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
-import { basename, downloadFile, formatPercent } from '@/helpers'
+import { basename, downloadBlobData, formatPercent } from '@/helpers'
 import dayjs from '@/plugins/dayjs'
 import { useAppStore, useDialogStore, useTorrentCreatorStore, useVueTorrentStore } from '@/stores'
 import { TorrentCreatorTask } from '@/types/qbit/models'
@@ -90,7 +90,7 @@ async function downloadTorrent(item: TorrentCreatorTask) {
   } else {
     exportedFilename = item.taskID
   }
-  downloadFile(`${exportedFilename}.torrent`, blob)
+  downloadBlobData(`${exportedFilename}.torrent`, blob)
 }
 
 async function deleteTask(item: TorrentCreatorTask) {

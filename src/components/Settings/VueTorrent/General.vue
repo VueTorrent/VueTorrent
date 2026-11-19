@@ -4,7 +4,7 @@ import { computed, readonly, ref , defineAsyncComponent } from 'vue'
 import { toast } from 'vue3-toastify'
 import { useI18nUtils } from '@/composables'
 import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions, TorrentDetailTab } from '@/constants/vuetorrent'
-import { downloadFile, openLink } from '@/helpers'
+import { downloadBlobData, openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { backend } from '@/services/backend'
 import { Github } from '@/services/Github'
@@ -119,7 +119,7 @@ function downloadSettings() {
 
   const currentVersion = vueTorrentVersion.value
   const currentTimestamp = new Date().toISOString()
-  downloadFile(`VueTorrent_${currentVersion}_${currentTimestamp}.json`, blob)
+  downloadBlobData(`VueTorrent_${currentVersion}_${currentTimestamp}.json`, blob)
 }
 
 function importSettings() {
