@@ -139,6 +139,14 @@ watch(
     if (isAuthenticated) {
       maindataStore.startMaindataSync()
       await preferencesStore.fetchPreferences()
+
+      // If the PWA file handler queued torrents before preferences were
+      // ready (cold start race), open the dialog now that the form can
+      // be initialized.
+      if (addTorrentStore.pendingTorrentsCount > 0) {
+        dialogStore.initAndOpenAddTorrentDialog()
+      }
+
       await logStore.cleanAndFetchLogs()
 
       void backend.ping().then(async ok => {
