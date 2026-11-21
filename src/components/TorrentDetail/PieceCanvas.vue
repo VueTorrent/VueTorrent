@@ -38,7 +38,10 @@ async function renderCanvas() {
 
   const requestedHash = props.torrent.hash
   const pieces = await contentStore.fetchPieceState(requestedHash)
-  if (requestedHash !== props.torrent.hash) return
+  if (requestedHash !== props.torrent.hash) {
+    renderCanvasRunning.value = false
+    return
+  }
   cachedPieces.value = pieces
 
   const selectedRanges = new IntervalTree()
@@ -86,6 +89,7 @@ async function renderCanvas() {
   app.value.stage.addChild(graphics)
   if (lastGraphics.value) lastGraphics.value.destroy()
   lastGraphics.value = graphics
+  renderCanvasRunning.value = false
 }
 
 function getPieceStateColor(piece: PieceState) {
@@ -100,9 +104,7 @@ function getPieceStateColor(piece: PieceState) {
 }
 
 function renderWrapper() {
-  renderCanvas()
-    .catch(() => {})
-    .finally(() => (renderCanvasRunning.value = false))
+  renderCanvas().catch(() => {})
 }
 
 const { pause, resume } = useTimer(renderWrapper, fileContentInterval, {
