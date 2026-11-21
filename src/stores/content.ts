@@ -100,12 +100,8 @@ export const useContentStore = defineStore('content', () => {
     {
       text: 'Download',
       icon: 'mdi-download',
-      hidden:
-        !appStore.isFeatureAvailable('5.3') ||
-        internalSelection.value.size !== 1 ||
-        selectedNode.value?.type !== 'file' ||
-        selectedNode.value.progress < 1 ||
-        selectedNode.value.priority === FilePriority.DO_NOT_DOWNLOAD,
+      disabled: selectedNode.value?.type !== 'file' || selectedNode.value.progress < 1 || selectedNode.value.priority === FilePriority.DO_NOT_DOWNLOAD,
+      hidden: !appStore.isFeatureAvailable('5.3') || internalSelection.value.size !== 1 || selectedNode.value?.type !== 'file',
       action: downloadFile,
     },
   ])
