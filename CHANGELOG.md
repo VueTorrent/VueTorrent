@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.38.0](https://github.com/VueTorrent/VueTorrent/compare/v2.37.0...v2.38.0) (2026-11-21)
+
+
+### Features
+
+* **Content:** Add completed file download (qbit 5.3+) ([#3027](https://github.com/VueTorrent/VueTorrent/issues/3027)) ([7fdab99](https://github.com/VueTorrent/VueTorrent/commit/7fdab9951bc50e51e75b722cc4d9bff758c41b17))
+* **TorrentCreator:** Remember trackers and metadata field values ([#2990](https://github.com/VueTorrent/VueTorrent/issues/2990)) ([8da9da2](https://github.com/VueTorrent/VueTorrent/commit/8da9da2213f5f8a9343de320a1e78f71abd078e9))
+
+
+### Bug Fixes
+
+* **Dashboard:** Keep mobile long-press menu under the finger ([#3022](https://github.com/VueTorrent/VueTorrent/issues/3022)) ([90ffa63](https://github.com/VueTorrent/VueTorrent/commit/90ffa63c3bd5f7ccc5c2f9161819e191dcfc79e2))
+
 ## [2.37.0](https://github.com/VueTorrent/VueTorrent/compare/v2.36.1...v2.37.0) (2026-11-12)
 
 
