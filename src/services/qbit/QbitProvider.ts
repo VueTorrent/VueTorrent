@@ -449,9 +449,9 @@ export default class QBitProvider implements IProvider {
       )
   }
 
-  getDownloadFileUrl(hash: string, file: string): string {
+  getDownloadFileUrl(hash: string, fileIndex: number): string {
     const url = new URL('api/v2/torrents/downloadFile', window.location.toString())
-    url.search = new URLSearchParams({ hash, file }).toString()
+    url.search = new URLSearchParams({ hash, file: fileIndex.toString() }).toString()
     return url.toString()
   }
 

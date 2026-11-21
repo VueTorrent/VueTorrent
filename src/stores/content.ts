@@ -9,7 +9,7 @@ import { FilePriority } from '@/constants/qbit'
 import { downloadFromUrl } from '@/helpers'
 import qbit from '@/services/qbit'
 import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
+import { isNodeFile, RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
@@ -246,8 +246,11 @@ export const useContentStore = defineStore('content', () => {
   }
 
   function downloadFile() {
-    const url = qbit.getDownloadFileUrl(hash.value, selectedNode.value!.fullName)
-    downloadFromUrl(selectedNode.value!.name, url)
+    const node = selectedNode.value
+    if (!node || !isNodeFile(node)) return
+
+    const url = qbit.getDownloadFileUrl(hash.value, node.id)
+    downloadFromUrl(node.name, url)
   }
 
   return {

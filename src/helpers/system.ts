@@ -20,8 +20,9 @@ export function openLink(link: string) {
 }
 
 export function downloadBlobData(filename: string, blob: Blob) {
-  const href = window.URL.createObjectURL(blob)
-  downloadFromUrl(href, filename)
+  const href = URL.createObjectURL(blob)
+  downloadFromUrl(filename, href)
+  URL.revokeObjectURL(href)
 }
 
 export function downloadFromUrl(filename: string, url: string) {

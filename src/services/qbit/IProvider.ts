@@ -362,10 +362,10 @@ export default interface IProvider {
   /**
    * Builds URL to download a completed file
    * @param hash Torrent hash
-   * @param file File path inside torrent
+   * @param fileIndex File index inside torrent
    * @since 5.3
    */
-  getDownloadFileUrl(hash: string, file: string): string
+  getDownloadFileUrl(hash: string, fileIndex: number): string
 
   /**
    * Get all the tags
