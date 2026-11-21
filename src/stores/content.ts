@@ -111,19 +111,19 @@ export const useContentStore = defineStore('content', () => {
   ])
 
   const timerForcedPause = shallowRef(false)
+  const generation = shallowRef(0)
   const {
     perform: syncFileTree,
+    clear: clearFileTreeTask,
     isActive: isTimerActive,
     pause: pauseFileTreeTimer,
     resume: resumeFileTreeTimer,
   } = useTimer(
     () => {
-      let prom: Promise<void>
+      let prom: Promise<any> = updateFileTree()
       if (isFirstRun.value) {
-        prom = updateFileTree().then(() => void (expandContent.value && expandAll()))
+        prom = prom.then(() => void (expandContent.value && expandAll()))
         isFirstRun.value = false
-      } else {
-        prom = updateFileTree()
       }
       return prom
     },
@@ -135,8 +135,12 @@ export const useContentStore = defineStore('content', () => {
   )
 
   async function updateFileTree() {
-    cachedFiles.value = await fetchFiles(hash.value)
+    const currentGeneration = generation.value
+    const fetchedFiles = await fetchFiles(hash.value)
+    if (currentGeneration !== generation.value) return false
+    cachedFiles.value = fetchedFiles
     await nextTick()
+    return true
   }
 
   function renameNode(node: TreeNode) {
@@ -278,13 +282,18 @@ export const useContentStore = defineStore('content', () => {
     closeNode,
     toggleFileSelection,
     $reset: () => {
+      generation.value++
       pauseFileTreeTimer()
-      internalSelection.value.clear()
+      clearFileTreeTask()
+      internalSelection.value = new Set()
       lastSelected.value = ''
       filenameFilter.value = ''
       cachedFiles.value = []
       openedItems.value = new Set([''])
       isFirstRun.value = true
+      rightClickProperties.target = ''
+      rightClickProperties.isVisible = false
+      rightClickProperties.offset = [0, 0]
     },
   }
 })
