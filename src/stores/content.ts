@@ -116,9 +116,10 @@ export const useContentStore = defineStore('content', () => {
     resume: resumeFileTreeTimer,
   } = useTimer(
     () => {
+      const currentGeneration = generation.value
       let prom: Promise<any> = updateFileTree()
       if (isFirstRun.value) {
-        prom = prom.then(() => void (expandContent.value && expandAll()))
+        prom = prom.then(() => void (currentGeneration === generation.value && expandContent.value && expandAll()))
         isFirstRun.value = false
       }
       return prom

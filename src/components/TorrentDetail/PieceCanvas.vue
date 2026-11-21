@@ -86,7 +86,6 @@ async function renderCanvas() {
   app.value.stage.addChild(graphics)
   if (lastGraphics.value) lastGraphics.value.destroy()
   lastGraphics.value = graphics
-  renderCanvasRunning.value = false
 }
 
 function getPieceStateColor(piece: PieceState) {
@@ -101,7 +100,9 @@ function getPieceStateColor(piece: PieceState) {
 }
 
 function renderWrapper() {
-  renderCanvas().catch(() => {})
+  renderCanvas()
+    .catch(() => {})
+    .finally(() => (renderCanvasRunning.value = false))
 }
 
 const { pause, resume } = useTimer(renderWrapper, fileContentInterval, {
