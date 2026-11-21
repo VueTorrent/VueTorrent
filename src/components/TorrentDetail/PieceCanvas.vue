@@ -36,7 +36,13 @@ async function renderCanvas() {
 
   renderCanvasRunning.value = true
 
-  cachedPieces.value = await contentStore.fetchPieceState(props.torrent.hash)
+  const requestedHash = props.torrent.hash
+  const pieces = await contentStore.fetchPieceState(requestedHash)
+  if (requestedHash !== props.torrent.hash) {
+    renderCanvasRunning.value = false
+    return
+  }
+  cachedPieces.value = pieces
 
   const selectedRanges = new IntervalTree()
   cachedFiles.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).forEach(file => selectedRanges.insert(file.piece_range, file.name))

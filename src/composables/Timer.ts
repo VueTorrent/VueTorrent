@@ -44,6 +44,7 @@ export function useTimer(callback: () => Promise<void> | void, interval: MaybeRe
 
   return {
     perform: task.perform,
+    clear: () => task.clear(),
     isActive,
     pause,
     resume,

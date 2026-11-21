@@ -147,3 +147,11 @@ export class TreeFolder {
     return selection.has(this.fullName)
   }
 }
+
+export function isNodeFile(node: TreeNode): node is TreeFile {
+  return node.type === 'file'
+}
+
+export function isNodeFolder(node: TreeNode): node is TreeFolder {
+  return node.type === 'folder'
+}

@@ -1491,6 +1491,10 @@ export default class MockProvider implements IProvider {
     })
   }
 
+  getDownloadFileUrl(hash: string, fileIndex: number): string {
+    return `/downloads/${hash}/${fileIndex}`
+  }
+
   async getAvailableTags(): Promise<string[]> {
     return this.generateResponse({ result: this.tags })
   }

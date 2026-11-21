@@ -8,9 +8,13 @@ export const useTorrentDetailStore = defineStore(
   () => {
     const tab = ref('overview')
     const properties = ref<TorrentProperties>()
+    const generation = ref(0)
 
     async function fetchProperties(hash: string) {
-      properties.value = await qbit.getTorrentProperties(hash)
+      const currentGeneration = generation.value
+      const result = await qbit.getTorrentProperties(hash)
+      if (currentGeneration !== generation.value) return
+      properties.value = result
     }
 
     return {
@@ -18,6 +22,7 @@ export const useTorrentDetailStore = defineStore(
       properties,
       fetchProperties,
       $reset: () => {
+        generation.value++
         properties.value = undefined
       },
     }

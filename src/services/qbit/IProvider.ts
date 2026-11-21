@@ -360,6 +360,14 @@ export default interface IProvider {
   getTorrentFiles(hash: string, indexes?: number[]): Promise<TorrentFile[]>
 
   /**
+   * Builds URL to download a completed file
+   * @param hash Torrent hash
+   * @param fileIndex File index inside torrent
+   * @since 5.3
+   */
+  getDownloadFileUrl(hash: string, fileIndex: number): string
+
+  /**
    * Get all the tags
    */
   getAvailableTags(): Promise<string[]>

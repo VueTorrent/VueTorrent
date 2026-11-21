@@ -14,10 +14,10 @@ import { ShareLimitsMode } from './ShareLimitsMode'
 import type { ShareLimitsModeString } from './ShareLimitsMode'
 import type SidebarWidget from './SidebarWidget'
 import type Torrent from './Torrent'
-import { TreeFile, TreeFolder } from './TreeObjects'
+import { TreeFile, TreeFolder, isNodeFile, isNodeFolder } from './TreeObjects'
 import type { TreeNode } from './TreeObjects'
 
-export { Cookie, defaultSearchPresetCapture, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder }
+export { Cookie, defaultSearchPresetCapture, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder, isNodeFile, isNodeFolder }
 export type {
   FilterPreset,
   RssArticle,

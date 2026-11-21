@@ -6,7 +6,7 @@ import ColoredChip from '@/components/Core/ColoredChip.vue'
 import { useI18nUtils, useNumberFormatter } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { downloadFile, formatPercent, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
+import { downloadBlobData, formatPercent, getRatioColor, getTorrentStateColor, splitByUrl } from '@/helpers'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useTrackerStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
@@ -47,7 +47,7 @@ function extractDebugInfo() {
     trackers: trackerStore.torrentTrackers.get(props.torrent.hash),
   }
 
-  downloadFile(`${props.torrent.hash}.json`, new Blob([JSON.stringify(extractedData, null, 2)], { type: 'application/json' }))
+  downloadBlobData(`${props.torrent.hash}.json`, new Blob([JSON.stringify(extractedData, null, 2)], { type: 'application/json' }))
 }
 
 function openMoveTorrentDialog(mode: 'dl' | 'save') {

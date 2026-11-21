@@ -1,17 +1,20 @@
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, defineAsyncComponent, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
 import { useRoute } from 'vue-router'
+import { useAppStore } from './app'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
 import { useI18nUtils, useSearchQuery, useTimer, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
+import { downloadFromUrl } from '@/helpers'
 import qbit from '@/services/qbit'
 import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
+import { isNodeFile, RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
   const route = useRoute()
+  const appStore = useAppStore()
   const dialogStore = useDialogStore()
   const { fileContentInterval, expandContent } = storeToRefs(useVueTorrentStore())
 
@@ -94,22 +97,30 @@ export const useContentStore = defineStore('content', () => {
       icon: 'mdi-unfold-more-horizontal',
       action: expandAll,
     },
+    {
+      text: 'Download',
+      icon: 'mdi-download',
+      disabled: selectedNode.value?.type !== 'file' || selectedNode.value.progress < 1 || selectedNode.value.priority === FilePriority.DO_NOT_DOWNLOAD,
+      hidden: !appStore.isFeatureAvailable('5.3') || internalSelection.value.size !== 1 || selectedNode.value?.type !== 'file',
+      action: downloadFile,
+    },
   ])
 
   const timerForcedPause = shallowRef(false)
+  const generation = shallowRef(0)
   const {
     perform: syncFileTree,
+    clear: clearFileTreeTask,
     isActive: isTimerActive,
     pause: pauseFileTreeTimer,
     resume: resumeFileTreeTimer,
   } = useTimer(
     () => {
-      let prom: Promise<void>
+      const currentGeneration = generation.value
+      let prom: Promise<any> = updateFileTree()
       if (isFirstRun.value) {
-        prom = updateFileTree().then(() => void (expandContent.value && expandAll()))
+        prom = prom.then(() => void (currentGeneration === generation.value && expandContent.value && expandAll()))
         isFirstRun.value = false
-      } else {
-        prom = updateFileTree()
       }
       return prom
     },
@@ -121,8 +132,12 @@ export const useContentStore = defineStore('content', () => {
   )
 
   async function updateFileTree() {
-    cachedFiles.value = await fetchFiles(hash.value)
+    const currentGeneration = generation.value
+    const fetchedFiles = await fetchFiles(hash.value)
+    if (currentGeneration !== generation.value) return false
+    cachedFiles.value = fetchedFiles
     await nextTick()
+    return true
   }
 
   function renameNode(node: TreeNode) {
@@ -231,6 +246,14 @@ export const useContentStore = defineStore('content', () => {
     }
   }
 
+  function downloadFile() {
+    const node = selectedNode.value
+    if (!node || !isNodeFile(node)) return
+
+    const url = qbit.getDownloadFileUrl(hash.value, node.id)
+    downloadFromUrl(node.name, url)
+  }
+
   return {
     rightClickProperties,
     isFirstRun,
@@ -256,13 +279,18 @@ export const useContentStore = defineStore('content', () => {
     closeNode,
     toggleFileSelection,
     $reset: () => {
+      generation.value++
       pauseFileTreeTimer()
-      internalSelection.value.clear()
+      clearFileTreeTask()
+      internalSelection.value = new Set()
       lastSelected.value = ''
       filenameFilter.value = ''
       cachedFiles.value = []
       openedItems.value = new Set([''])
       isFirstRun.value = true
+      rightClickProperties.target = ''
+      rightClickProperties.isVisible = false
+      rightClickProperties.offset = [0, 0]
     },
   }
 })
