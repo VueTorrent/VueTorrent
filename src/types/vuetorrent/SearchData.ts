@@ -1,9 +1,20 @@
+import { ByteUnitExponent } from './ByteUnitExponent'
 import SearchResult from './SearchResult'
 
-interface SearchFilters {
+export interface SearchFilters {
   title: string
   category: string
   plugin: string
+  /** null means 0. */
+  seedsMin: number | null
+  /** null means no upper bound. */
+  seedsMax: number | null
+  /** null means 0. */
+  sizeMin: number | null
+  /** null means no upper bound. */
+  sizeMax: number | null
+  sizeMinUnit: ByteUnitExponent
+  sizeMaxUnit: ByteUnitExponent
 }
 
 export type SearchSortBy = { key: string; order: 'asc' | 'desc' }

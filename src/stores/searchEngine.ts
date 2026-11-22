@@ -4,7 +4,9 @@ import { ref } from 'vue'
 import { useVueTorrentStore } from './vuetorrent'
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
-import { defaultSearchPresetCapture, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
+import { ByteUnitExponent, defaultSearchPresetCapture, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
+
+const DEFAULT_SIZE_UNIT = ByteUnitExponent.MEGA
 
 export const useSearchEngineStore = defineStore(
   'searchEngine',
@@ -25,6 +27,12 @@ export const useSearchEngineStore = defineStore(
           title: '',
           category: 'all',
           plugin: 'enabled',
+          seedsMin: null,
+          seedsMax: null,
+          sizeMin: null,
+          sizeMax: null,
+          sizeMinUnit: DEFAULT_SIZE_UNIT,
+          sizeMaxUnit: DEFAULT_SIZE_UNIT,
         },
         results: [],
         timer: null,
@@ -57,6 +65,16 @@ export const useSearchEngineStore = defineStore(
       if (preset.capture.titleFilter) {
         tab.filters.title = preset.title
       }
+      if (preset.capture.seedsFilter) {
+        tab.filters.seedsMin = preset.seedsMin
+        tab.filters.seedsMax = preset.seedsMax
+      }
+      if (preset.capture.sizeFilter) {
+        tab.filters.sizeMin = preset.sizeMin
+        tab.filters.sizeMax = preset.sizeMax
+        tab.filters.sizeMinUnit = preset.sizeMinUnit
+        tab.filters.sizeMaxUnit = preset.sizeMaxUnit
+      }
     }
 
     /**
@@ -78,8 +96,14 @@ export const useSearchEngineStore = defineStore(
         itemsPerPage: tab.itemsPerPage,
         category: tab.filters.category,
         plugin: tab.filters.plugin,
-        // Only persist the text filter when it was actually opted into.
+        // Only persist the filters when they were actually opted into.
         title: capture.titleFilter ? tab.filters.title : '',
+        seedsMin: capture.seedsFilter ? tab.filters.seedsMin : null,
+        seedsMax: capture.seedsFilter ? tab.filters.seedsMax : null,
+        sizeMin: capture.sizeFilter ? tab.filters.sizeMin : null,
+        sizeMax: capture.sizeFilter ? tab.filters.sizeMax : null,
+        sizeMinUnit: capture.sizeFilter ? tab.filters.sizeMinUnit : DEFAULT_SIZE_UNIT,
+        sizeMaxUnit: capture.sizeFilter ? tab.filters.sizeMaxUnit : DEFAULT_SIZE_UNIT,
       }
 
       if (existing) {

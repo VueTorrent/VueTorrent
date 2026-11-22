@@ -60,6 +60,20 @@ function submit() {
               :hint="t('searchEngine.presets.captureTitleFilterHint')"
               :label="t('searchEngine.presets.captureTitleFilter')"
               persistent-hint />
+            <v-checkbox
+              v-model="capture.seedsFilter"
+              density="compact"
+              hide-details
+              :hint="t('searchEngine.presets.captureSeedsFilterHint')"
+              :label="t('searchEngine.presets.captureSeedsFilter')"
+              persistent-hint />
+            <v-checkbox
+              v-model="capture.sizeFilter"
+              density="compact"
+              hide-details
+              :hint="t('searchEngine.presets.captureSizeFilterHint')"
+              :label="t('searchEngine.presets.captureSizeFilter')"
+              persistent-hint />
           </v-col>
           <v-col cols="12">
             <v-checkbox v-model="setAsDefault" density="compact" hide-details :label="t('searchEngine.presets.setAsDefault')" />

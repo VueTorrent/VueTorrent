@@ -1,3 +1,5 @@
+import { ByteUnitExponent } from './ByteUnitExponent'
+
 /** Which parts of a search tab a preset captures and restores. */
 export interface SearchPresetCapture {
   sortBy: boolean
@@ -8,6 +10,10 @@ export interface SearchPresetCapture {
    * unrelated search is rarely what the user wants.
    */
   titleFilter: boolean
+  /** Same reasoning as titleFilter. */
+  seedsFilter: boolean
+  /** Same reasoning as titleFilter. */
+  sizeFilter: boolean
 }
 
 export interface SearchPreset {
@@ -20,6 +26,12 @@ export interface SearchPreset {
   category: string
   plugin: string
   title: string
+  seedsMin: number | null
+  seedsMax: number | null
+  sizeMin: number | null
+  sizeMax: number | null
+  sizeMinUnit: ByteUnitExponent
+  sizeMaxUnit: ByteUnitExponent
 }
 
 export function defaultSearchPresetCapture(): SearchPresetCapture {
@@ -28,5 +40,7 @@ export function defaultSearchPresetCapture(): SearchPresetCapture {
     itemsPerPage: true,
     categoryAndPlugin: true,
     titleFilter: false,
+    seedsFilter: false,
+    sizeFilter: false,
   }
 }

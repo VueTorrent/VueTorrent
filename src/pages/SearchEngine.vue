@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import ButtonLink from '@/components/Core/ButtonLink.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
+import SearchFilterBar from '@/components/SearchEngine/SearchFilterBar.vue'
 import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatTimeSec } from '@/helpers'
@@ -22,7 +23,7 @@ const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
 const vueTorrentStore = useVueTorrentStore()
-const { dateFormat } = storeToRefs(vueTorrentStore)
+const { dateFormat, useBinarySize } = storeToRefs(vueTorrentStore)
 
 const hasAnyPreset = computed(() => vueTorrentStore.searchPresets.length > 0)
 
@@ -71,8 +72,23 @@ const selectedTab = computed<SearchData>(() => searchData.value[tabIndex.value] 
 const { results: filteredResults } = useSearchQuery(
   () => selectedTab.value.results,
   () => selectedTab.value.filters?.title,
-  result => result.fileName
+  result => result.fileName,
+  results => results.filter(matchesRangeFilters)
 )
+
+function sizeToBytes(value: number, unitExponent: number) {
+  const base = useBinarySize.value ? 1024 : 1000
+  return value * base ** unitExponent
+}
+
+function matchesRangeFilters(result: SearchResult) {
+  const filters = selectedTab.value.filters
+  if (result.nbSeeders < (filters.seedsMin ?? 0)) return false
+  if (filters.seedsMax != null && result.nbSeeders > filters.seedsMax) return false
+  if (result.fileSize < sizeToBytes(filters.sizeMin ?? 0, filters.sizeMinUnit)) return false
+  if (filters.sizeMax != null && result.fileSize > sizeToBytes(filters.sizeMax, filters.sizeMaxUnit)) return false
+  return true
+}
 
 const selectedSortBy = computed({
   get: () => selectedTab.value.sortBy ?? [],
@@ -304,11 +320,7 @@ onBeforeUnmount(() => {
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #top>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
-              </v-col>
-            </v-row>
+            <SearchFilterBar v-model:filters="selectedTab.filters" />
           </template>
           <template #item="{ item, index }">
             <v-divider v-if="index !== 0" />
@@ -391,11 +403,7 @@ onBeforeUnmount(() => {
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #top>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
-              </v-col>
-            </v-row>
+            <SearchFilterBar v-model:filters="selectedTab.filters" />
           </template>
           <template #[`item.fileSize`]="{ item }">
             {{ formatData({ data: item.fileSize }) }}

@@ -105,7 +105,14 @@ describe('stores/searchEngine - presets', () => {
     store.loadSearchPreset(tab, withoutTitle)
     expect(tab.filters.title).toBe('something else')
 
-    const withTitle = store.saveSearchPreset(tab, 'With title', { sortBy: true, itemsPerPage: true, categoryAndPlugin: true, titleFilter: true })!
+    const withTitle = store.saveSearchPreset(tab, 'With title', {
+      sortBy: true,
+      itemsPerPage: true,
+      categoryAndPlugin: true,
+      titleFilter: true,
+      seedsFilter: true,
+      sizeFilter: true,
+    })!
     tab.filters.title = 'changed again'
     store.loadSearchPreset(tab, withTitle)
     expect(tab.filters.title).toBe('something else')
@@ -196,7 +203,14 @@ describe('stores/searchEngine - presets', () => {
     const id = store.saveSearchPreset(tab, 'No title')!
     expect(fakeSettings.searchPresets.find(p => p.id === id)?.title).toBe('')
 
-    const withTitle = store.saveSearchPreset(tab, 'With title', { sortBy: true, itemsPerPage: true, categoryAndPlugin: true, titleFilter: true })!
+    const withTitle = store.saveSearchPreset(tab, 'With title', {
+      sortBy: true,
+      itemsPerPage: true,
+      categoryAndPlugin: true,
+      titleFilter: true,
+      seedsFilter: true,
+      sizeFilter: true,
+    })!
     expect(fakeSettings.searchPresets.find(p => p.id === withTitle)?.title).toBe('1080p')
   })
 })
