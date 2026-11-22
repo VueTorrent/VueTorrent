@@ -72,8 +72,8 @@ export const useSearchEngineStore = defineStore(
       if (preset.capture.sizeFilter) {
         tab.filters.sizeMin = preset.sizeMin
         tab.filters.sizeMax = preset.sizeMax
-        tab.filters.sizeMinUnit = preset.sizeMinUnit
-        tab.filters.sizeMaxUnit = preset.sizeMaxUnit
+        tab.filters.sizeMinUnit = preset.sizeMinUnit ?? DEFAULT_SIZE_UNIT
+        tab.filters.sizeMaxUnit = preset.sizeMaxUnit ?? DEFAULT_SIZE_UNIT
       }
     }
 
