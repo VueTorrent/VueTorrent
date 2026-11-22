@@ -27,6 +27,7 @@ import type {
   RawQbitTorrent,
   SearchJob,
   SearchPlugin,
+  SearchResult,
   SearchStatus,
   SSLParameters,
   TorrentCreatorParams,
@@ -1098,24 +1099,29 @@ export default class MockProvider implements IProvider {
     })
   }
 
+  private readonly searchResultFixtures: Omit<SearchResult, 'descrLink' | 'fileUrl' | 'siteUrl' | 'engineName' | 'pubDate'>[] = [
+    { fileName: 'Sample title 1', fileSize: 100, nbSeeders: 0, nbLeechers: 0 },
+    { fileName: 'Small sample', fileSize: 5_000_000, nbSeeders: 3, nbLeechers: 1 },
+    { fileName: 'Medium sample', fileSize: 50_000_000, nbSeeders: 42, nbLeechers: 7 },
+    { fileName: 'Big sample', fileSize: 300_000_000, nbSeeders: 128, nbLeechers: 15 },
+    { fileName: 'Very big sample', fileSize: 1_000_000_000, nbSeeders: 1, nbLeechers: 0 },
+  ]
+
   async getSearchResults(_0: number, _1?: number, _2?: number): Promise<SearchResultsResponse> {
+    const results: SearchResult[] = this.searchResultFixtures.map(fixture => ({
+      ...fixture,
+      descrLink: 'https://www.example.com/torrent/SDb4v2op8wm',
+      fileUrl: 'https://www.example.com/torrent/SDb4v2op8wm',
+      siteUrl: 'https://www.example.com',
+      engineName: 'Example',
+      pubDate: new Date().getTime() / 1000,
+    }))
+
     return this.generateResponse({
       result: {
-        results: [
-          {
-            descrLink: 'https://www.example.com/torrent/SDb4v2op8wm',
-            fileName: 'Sample title 1',
-            fileSize: 100,
-            fileUrl: 'https://www.example.com/torrent/SDb4v2op8wm',
-            nbLeechers: 0,
-            nbSeeders: 0,
-            siteUrl: 'https://www.example.com',
-            engineName: 'Example',
-            pubDate: new Date().getTime() / 1000,
-          },
-        ],
+        results,
         status: 'Stopped',
-        total: 1,
+        total: results.length,
       },
     })
   }
