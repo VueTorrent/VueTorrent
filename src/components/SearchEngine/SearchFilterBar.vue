@@ -40,22 +40,9 @@ const sizeMaxModel = nonNegative('sizeMax')
 
     <div class="search-filter-group d-flex flex-wrap align-center ga-2">
       <span class="text-body-2 flex-shrink-0">{{ t('searchEngine.filters.seeds.label') }}</span>
-      <v-text-field 
-        v-model="seedsMinModel" 
-        density="compact" 
-        hide-details :label="t('searchEngine.filters.rangeFilters.min')" 
-        min="0" 
-        style="width: 110px" 
-        type="number" />
+      <v-text-field v-model="seedsMinModel" density="compact" hide-details :label="t('searchEngine.filters.rangeFilters.min')" min="0" style="width: 6em" type="number" />
       <span class="text-body-2 flex-shrink-0">{{ t('searchEngine.filters.rangeFilters.to') }}</span>
-      <v-text-field
-        v-model="seedsMaxModel"
-        density="compact"
-        hide-details
-        :label="t('searchEngine.filters.rangeFilters.max')"
-        min="0"
-        style="width: 110px"
-        type="number" />
+      <v-text-field v-model="seedsMaxModel" density="compact" hide-details :label="t('searchEngine.filters.rangeFilters.max')" min="0" style="width: 6em" type="number" />
     </div>
 
     <div class="search-filter-group d-flex flex-wrap align-center ga-2">
