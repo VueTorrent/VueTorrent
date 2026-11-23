@@ -162,6 +162,29 @@ describe('stores/searchEngine - presets', () => {
     expect(tab.filters.sizeMax).toBe(50_000_000_000)
   })
 
+  test('applying a preset marks the ranges it sets as modified, so they stop following new search results', () => {
+    const store = useSearchEngineStore()
+    const tab = seedTab(store)
+
+    tab.filters.seedsMin = 10
+    tab.filters.seedsMax = 100
+    const seedsOnly = store.saveSearchPreset(tab, 'Seeds only', {
+      sortBy: true,
+      itemsPerPage: true,
+      categoryAndPlugin: true,
+      titleFilter: false,
+      seedsFilter: true,
+      sizeFilter: false,
+    })!
+
+    tab.filters.seedsModified = false
+    tab.filters.sizeModified = false
+    store.loadSearchPreset(tab, seedsOnly)
+    expect(tab.filters.seedsModified).toBe(true)
+    // Size was not captured by this preset, so applying it must not touch size's tracking state.
+    expect(tab.filters.sizeModified).toBe(false)
+  })
+
   test('a saved preset is not aliased by the tab that saved it', () => {
     const store = useSearchEngineStore()
     const tab = seedTab(store)

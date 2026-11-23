@@ -14,10 +14,20 @@ export interface SearchFilters {
   plugin: string
   seedsMin: number
   seedsMax: number
+  /**
+   * Disabled automatic updates (with new search results). True once the user
+   * modifies one of the sides or loads a preset.
+   * */
+  seedsModified: boolean
   /** In bytes. */
   sizeMin: number
   /** In bytes. */
   sizeMax: number
+  /**
+   * Disabled automatic updates (with new search results). True once the user
+   * modifies one of the sides or loads a preset.
+   * */
+  sizeModified: boolean
 }
 
 export type SearchSortBy = { key: string; order: 'asc' | 'desc' }

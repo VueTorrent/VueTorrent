@@ -27,8 +27,10 @@ export const useSearchEngineStore = defineStore(
           plugin: 'enabled',
           seedsMin: DEFAULT_SEEDS_MIN,
           seedsMax: DEFAULT_SEEDS_MAX,
+          seedsModified: false,
           sizeMin: 0,
           sizeMax: defaultSizeMax(vueTorrentStore.useBinarySize),
+          sizeModified: false,
         },
         results: [],
         timer: null,
@@ -62,12 +64,16 @@ export const useSearchEngineStore = defineStore(
         tab.filters.title = preset.title
       }
       if (preset.capture.seedsFilter) {
-        tab.filters.seedsMin = preset.seedsMin
-        tab.filters.seedsMax = preset.seedsMax
+        tab.filters.seedsMin = preset.seedsMin ?? DEFAULT_SEEDS_MIN
+        tab.filters.seedsMax = preset.seedsMax ?? DEFAULT_SEEDS_MAX
+        // Do not change automatically when loaded from a preset.
+        tab.filters.seedsModified = true
       }
       if (preset.capture.sizeFilter) {
-        tab.filters.sizeMin = preset.sizeMin
-        tab.filters.sizeMax = preset.sizeMax
+        tab.filters.sizeMin = preset.sizeMin ?? 0
+        tab.filters.sizeMax = preset.sizeMax ?? defaultSizeMax(vueTorrentStore.useBinarySize)
+        // Do not change automatically when loaded from a preset.
+        tab.filters.sizeModified = true
       }
     }
 

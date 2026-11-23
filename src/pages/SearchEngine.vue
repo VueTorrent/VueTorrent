@@ -10,7 +10,7 @@ import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
-import { SearchData, SearchResult } from '@/types/vuetorrent'
+import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSizeMax, SearchData, SearchResult } from '@/types/vuetorrent'
 
 const { mobile } = useDisplay()
 const { t } = useI18nUtils()
@@ -173,6 +173,13 @@ onBeforeMount(async () => {
     searchEngineStore.createNewTab()
   } else {
     searchData.value.forEach((tab: SearchData) => {
+      tab.filters.seedsMin ??= DEFAULT_SEEDS_MIN
+      tab.filters.seedsMax ??= DEFAULT_SEEDS_MAX
+      tab.filters.seedsModified ??= false
+      tab.filters.sizeMin ??= 0
+      tab.filters.sizeMax ??= defaultSizeMax(vueTorrentStore.useBinarySize)
+      tab.filters.sizeModified ??= false
+
       if (tab.id && tab.id !== 0) {
         tab.timer = setInterval(() => void searchEngineStore.refreshResults(tab), 1000)
       }

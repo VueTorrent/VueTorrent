@@ -24,29 +24,28 @@ const sizeBounds = computed<[number, number]>(() => {
   return [Math.min(...sizes), Math.max(...sizes)]
 })
 
-/**
- * Updates the bounds of `v-range-slider` on new search results when min/max
- * values are unchanged by the user (when they are at the edges). Dragging or
- * typing a different value "freezes" it.
- */
-function trackBounds(bounds: () => [number, number], minKey: 'seedsMin' | 'sizeMin', maxKey: 'seedsMax' | 'sizeMax') {
-  watch(bounds, ([newMin, newMax], [oldMin, oldMax]) => {
-    if (newMin === newMax) {
-      filters.value[minKey] = newMin
-      filters.value[maxKey] = newMax
-      return
-    }
-    if (filters.value[minKey] === oldMin) filters.value[minKey] = newMin
-    if (filters.value[maxKey] === oldMax) filters.value[maxKey] = newMax
+/** Keeps a range glued to new search-result bounds until the user explicitly sets it (marking it `modified`). */
+function trackBounds(bounds: () => [number, number], minKey: 'seedsMin' | 'sizeMin', maxKey: 'seedsMax' | 'sizeMax', modifiedKey: 'seedsModified' | 'sizeModified') {
+  watch(bounds, ([newMin, newMax]) => {
+    if (filters.value[modifiedKey]) return
+    filters.value[minKey] = newMin
+    filters.value[maxKey] = newMax
   })
 }
 
-trackBounds(() => seedsBounds.value, 'seedsMin', 'seedsMax')
-trackBounds(() => sizeBounds.value, 'sizeMin', 'sizeMax')
+trackBounds(() => seedsBounds.value, 'seedsMin', 'seedsMax', 'seedsModified')
+trackBounds(() => sizeBounds.value, 'sizeMin', 'sizeMax', 'sizeModified')
+
+function resetToAutomatic(minKey: 'seedsMin' | 'sizeMin', maxKey: 'seedsMax' | 'sizeMax', modifiedKey: 'seedsModified' | 'sizeModified', bounds: [number, number]) {
+  filters.value[modifiedKey] = false
+  filters.value[minKey] = bounds[0]
+  filters.value[maxKey] = bounds[1]
+}
 
 const seedsSlider = computed<[number, number]>({
   get: (): [number, number] => [filters.value.seedsMin, filters.value.seedsMax],
   set: ([newMin, newMax]: [number, number]) => {
+    filters.value.seedsModified = true
     filters.value.seedsMin = newMin
     filters.value.seedsMax = newMax
   },
@@ -55,25 +54,27 @@ const seedsSlider = computed<[number, number]>({
 const sizeSlider = computed<[number, number]>({
   get: (): [number, number] => [filters.value.sizeMin, filters.value.sizeMax],
   set: ([newMin, newMax]: [number, number]) => {
+    filters.value.sizeModified = true
     filters.value.sizeMin = newMin
     filters.value.sizeMax = newMax
   },
 })
 
-function nonNegative(key: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax') {
+function nonNegative(key: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax', modifiedKey: 'seedsModified' | 'sizeModified') {
   return computed<number, string>({
     get: () => filters.value[key],
     set: raw => {
       const parsed = Number(raw)
+      filters.value[modifiedKey] = true
       filters.value[key] = Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
     },
   })
 }
 
-const seedsMinModel = nonNegative('seedsMin')
-const seedsMaxModel = nonNegative('seedsMax')
-const sizeMinModel = nonNegative('sizeMin')
-const sizeMaxModel = nonNegative('sizeMax')
+const seedsMinModel = nonNegative('seedsMin', 'seedsModified')
+const seedsMaxModel = nonNegative('seedsMax', 'seedsModified')
+const sizeMinModel = nonNegative('sizeMin', 'sizeModified')
+const sizeMaxModel = nonNegative('sizeMax', 'sizeModified')
 </script>
 
 <template>
@@ -82,6 +83,14 @@ const sizeMaxModel = nonNegative('sizeMax')
 
     <div class="search-filter-group d-flex flex-wrap align-center ga-2 flex-grow-1">
       <span class="text-body-2 flex-shrink-0">{{ t('searchEngine.filters.seeds.label') }}</span>
+      <v-btn
+        v-if="filters.seedsModified"
+        density="compact"
+        icon="mdi-refresh"
+        size="small"
+        :title="t('searchEngine.filters.rangeFilters.resetToAutomatic')"
+        variant="text"
+        @click="resetToAutomatic('seedsMin', 'seedsMax', 'seedsModified', seedsBounds)" />
       <v-range-slider
         v-model="seedsSlider"
         class="flex-grow-1"
@@ -106,6 +115,14 @@ const sizeMaxModel = nonNegative('sizeMax')
 
     <div class="search-filter-group d-flex flex-wrap align-center ga-2 flex-grow-1">
       <span class="text-body-2 flex-shrink-0">{{ t('searchEngine.filters.size.label') }}</span>
+      <v-btn
+        v-if="filters.sizeModified"
+        density="compact"
+        icon="mdi-refresh"
+        size="small"
+        :title="t('searchEngine.filters.rangeFilters.resetToAutomatic')"
+        variant="text"
+        @click="resetToAutomatic('sizeMin', 'sizeMax', 'sizeModified', sizeBounds)" />
       <v-range-slider
         v-model="sizeSlider"
         class="flex-grow-1"

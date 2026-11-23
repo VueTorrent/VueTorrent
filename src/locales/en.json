@@ -791,6 +791,9 @@
         "enabled": "Enabled",
         "label": "Search plugin"
       },
+      "rangeFilters": {
+        "resetToAutomatic": "Reset to automatic range"
+      },
       "seeds": {
         "label": "Seeders:"
       },
