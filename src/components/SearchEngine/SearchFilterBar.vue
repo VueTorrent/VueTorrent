@@ -42,6 +42,12 @@ function resetToAutomatic(minKey: 'seedsMin' | 'sizeMin', maxKey: 'seedsMax' | '
   filters.value[maxKey] = bounds[1]
 }
 
+function unclampedSliderValue(modelValue: number, bounds: [number, number], realMin: number, realMax: number): number {
+  if (modelValue === bounds[1] && realMax > bounds[1]) return realMax
+  if (modelValue === bounds[0] && realMin < bounds[0]) return realMin
+  return modelValue
+}
+
 const seedsSlider = computed<[number, number]>({
   get: (): [number, number] => [filters.value.seedsMin, filters.value.seedsMax],
   set: ([newMin, newMax]: [number, number]) => {
@@ -104,6 +110,9 @@ const sizeMaxModel = nonNegative('sizeMax', 'sizeModified')
         :step="1"
         style="min-width: 20em"
         thumb-label="always">
+        <template #thumb-label="{ modelValue }">
+          <div style="white-space: nowrap">{{ unclampedSliderValue(modelValue, seedsBounds, filters.seedsMin, filters.seedsMax) }}</div>
+        </template>
         <template #prepend>
           <v-text-field v-model="seedsMinModel" density="compact" hide-details hide-spin-buttons single-line style="width: 6em" type="number" variant="outlined" />
         </template>
@@ -137,7 +146,7 @@ const sizeMaxModel = nonNegative('sizeMax', 'sizeModified')
         style="min-width: 24em"
         thumb-label="always">
         <template #thumb-label="{ modelValue }">
-          <div style="white-space: nowrap">{{ formatData({ data: modelValue }) }}</div>
+          <div style="white-space: nowrap">{{ formatData({ data: unclampedSliderValue(modelValue, sizeBounds, filters.sizeMin, filters.sizeMax) }) }}</div>
         </template>
         <template #prepend>
           <v-text-field v-model="sizeMinModel" density="compact" hide-details hide-spin-buttons single-line style="width: 8em" type="number" variant="outlined" />
