@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.38.0](https://github.com/VueTorrent/VueTorrent/compare/v2.37.0...v2.38.0) (2026-11-23)
+
+
+### Features
+
+* **Content:** Add completed file download (qbit 5.3+) ([#3027](https://github.com/VueTorrent/VueTorrent/issues/3027)) ([7fdab99](https://github.com/VueTorrent/VueTorrent/commit/7fdab9951bc50e51e75b722cc4d9bff758c41b17))
+* **TorrentCreator:** Remember trackers and metadata field values ([#2990](https://github.com/VueTorrent/VueTorrent/issues/2990)) ([8da9da2](https://github.com/VueTorrent/VueTorrent/commit/8da9da2213f5f8a9343de320a1e78f71abd078e9))
+* **TorrentDetail:** Show time inactive in duration ([#3034](https://github.com/VueTorrent/VueTorrent/issues/3034)) ([766974a](https://github.com/VueTorrent/VueTorrent/commit/766974a709d5363e8a777ffb81f45a6f11cb3b03))
+
+
+### Bug Fixes
+
+* **Dashboard:** Keep mobile long-press menu under the finger ([#3022](https://github.com/VueTorrent/VueTorrent/issues/3022)) ([90ffa63](https://github.com/VueTorrent/VueTorrent/commit/90ffa63c3bd5f7ccc5c2f9161819e191dcfc79e2))
+* **DnDZone:** Improve drop payload detection ([19ad842](https://github.com/VueTorrent/VueTorrent/commit/19ad842b4bc8297e8f66aa7d45a53d541182e451))
+* **PWA:** Open AddTorrentDialog on file import ([#3031](https://github.com/VueTorrent/VueTorrent/issues/3031)) ([1ca4571](https://github.com/VueTorrent/VueTorrent/commit/1ca45711ab88c25140f87d7968f31def95f4615c))
+
 ## [2.37.0](https://github.com/VueTorrent/VueTorrent/compare/v2.36.1...v2.37.0) (2026-11-12)
 
 
