@@ -1651,6 +1651,7 @@
       "super_seeding": "Super Seeding Mode",
       "tags": "Tags",
       "time_active": "Time Active",
+      "time_inactive": "Time Inactive",
       "total_size": "Total Size",
       "total_wasted": "Wasted Data",
       "tracker": "Tracker",

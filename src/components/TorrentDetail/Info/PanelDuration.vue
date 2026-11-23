@@ -17,6 +17,7 @@ const torrentValues = computed<{ title: string; unit: DurationUnitType; value: n
   { title: 'seeding_time_limit', unit: 'm', value: props.torrent.seeding_time_limit },
   { title: 'inactive_seeding_time_limit', unit: 'm', value: props.torrent.inactive_seeding_time_limit },
   { title: 'time_active', unit: 's', value: props.torrent.time_active },
+  { title: 'time_inactive', unit: 's', value: props.torrent.last_activity > 0 ? Math.floor(Date.now() / 1000) - props.torrent.last_activity : 0 },
   { title: 'reannounce', unit: 's', value: properties.value?.reannounce ?? 0 },
 ])
 </script>
