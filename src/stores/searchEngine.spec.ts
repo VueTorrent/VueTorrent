@@ -1,7 +1,7 @@
 import { createPinia, setActivePinia } from 'pinia'
 import { beforeEach, describe, expect, test, vi } from 'vitest'
 import { useSearchEngineStore } from './searchEngine'
-import { ByteUnitExponent, SearchData, SearchPreset, SearchSortBy } from '@/types/vuetorrent'
+import { SearchData, SearchPreset, SearchSortBy } from '@/types/vuetorrent'
 
 /**
  * The VueTorrent settings store binds vue-i18n, vue-router and Vuetify's theme at setup
@@ -124,32 +124,24 @@ describe('stores/searchEngine - presets', () => {
 
     tab.filters.seedsMin = 10
     tab.filters.seedsMax = 100
-    tab.filters.sizeMin = 5
-    tab.filters.sizeMinUnit = ByteUnitExponent.KILO
-    tab.filters.sizeMax = 50
-    tab.filters.sizeMaxUnit = ByteUnitExponent.GIGA
+    tab.filters.sizeMin = 5_000
+    tab.filters.sizeMax = 50_000_000_000
     const withoutRanges = store.saveSearchPreset(tab, 'No ranges')!
 
     tab.filters.seedsMin = 1
     tab.filters.seedsMax = 2
     tab.filters.sizeMin = 3
-    tab.filters.sizeMinUnit = ByteUnitExponent.BYTE
     tab.filters.sizeMax = 4
-    tab.filters.sizeMaxUnit = ByteUnitExponent.MEGA
     store.loadSearchPreset(tab, withoutRanges)
     expect(tab.filters.seedsMin).toBe(1)
     expect(tab.filters.seedsMax).toBe(2)
     expect(tab.filters.sizeMin).toBe(3)
-    expect(tab.filters.sizeMinUnit).toBe(ByteUnitExponent.BYTE)
     expect(tab.filters.sizeMax).toBe(4)
-    expect(tab.filters.sizeMaxUnit).toBe(ByteUnitExponent.MEGA)
 
     tab.filters.seedsMin = 10
     tab.filters.seedsMax = 100
-    tab.filters.sizeMin = 5
-    tab.filters.sizeMax = 50
-    tab.filters.sizeMinUnit = ByteUnitExponent.KILO
-    tab.filters.sizeMaxUnit = ByteUnitExponent.GIGA
+    tab.filters.sizeMin = 5_000
+    tab.filters.sizeMax = 50_000_000_000
     const withRanges = store.saveSearchPreset(tab, 'With ranges', {
       sortBy: true,
       itemsPerPage: true,
@@ -163,15 +155,11 @@ describe('stores/searchEngine - presets', () => {
     tab.filters.seedsMax = 2
     tab.filters.sizeMin = 3
     tab.filters.sizeMax = 4
-    tab.filters.sizeMinUnit = ByteUnitExponent.BYTE
-    tab.filters.sizeMaxUnit = ByteUnitExponent.MEGA
     store.loadSearchPreset(tab, withRanges)
     expect(tab.filters.seedsMin).toBe(10)
     expect(tab.filters.seedsMax).toBe(100)
-    expect(tab.filters.sizeMin).toBe(5)
-    expect(tab.filters.sizeMax).toBe(50)
-    expect(tab.filters.sizeMinUnit).toBe(ByteUnitExponent.KILO)
-    expect(tab.filters.sizeMaxUnit).toBe(ByteUnitExponent.GIGA)
+    expect(tab.filters.sizeMin).toBe(5_000)
+    expect(tab.filters.sizeMax).toBe(50_000_000_000)
   })
 
   test('a saved preset is not aliased by the tab that saved it', () => {

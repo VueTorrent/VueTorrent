@@ -23,7 +23,7 @@ const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
 const vueTorrentStore = useVueTorrentStore()
-const { dateFormat, useBinarySize } = storeToRefs(vueTorrentStore)
+const { dateFormat } = storeToRefs(vueTorrentStore)
 
 const hasAnyPreset = computed(() => vueTorrentStore.searchPresets.length > 0)
 
@@ -76,17 +76,10 @@ const { results: filteredResults } = useSearchQuery(
   results => results.filter(matchesRangeFilters)
 )
 
-function sizeToBytes(value: number, unitExponent: number) {
-  const base = useBinarySize.value ? 1024 : 1000
-  return value * base ** unitExponent
-}
-
 function matchesRangeFilters(result: SearchResult) {
   const filters = selectedTab.value.filters
-  if (result.nbSeeders < (filters.seedsMin ?? 0)) return false
-  if (filters.seedsMax != null && result.nbSeeders > filters.seedsMax) return false
-  if (result.fileSize < sizeToBytes(filters.sizeMin ?? 0, filters.sizeMinUnit)) return false
-  if (filters.sizeMax != null && result.fileSize > sizeToBytes(filters.sizeMax, filters.sizeMaxUnit)) return false
+  if (result.nbSeeders < filters.seedsMin || result.nbSeeders > filters.seedsMax) return false
+  if (result.fileSize < filters.sizeMin || result.fileSize > filters.sizeMax) return false
   return true
 }
 
@@ -310,7 +303,7 @@ onBeforeUnmount(() => {
 
       <v-divider class="my-3" />
 
-      <v-list-item class="text-select">
+      <v-list-item class="text-select search-results-item">
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
@@ -320,7 +313,7 @@ onBeforeUnmount(() => {
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #top>
-            <SearchFilterBar v-model:filters="selectedTab.filters" />
+            <SearchFilterBar :key="selectedTab.uniqueId" v-model:filters="selectedTab.filters" :results="selectedTab.results" />
           </template>
           <template #item="{ item, index }">
             <v-divider v-if="index !== 0" />
@@ -403,7 +396,7 @@ onBeforeUnmount(() => {
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #top>
-            <SearchFilterBar v-model:filters="selectedTab.filters" />
+            <SearchFilterBar :key="selectedTab.uniqueId" v-model:filters="selectedTab.filters" :results="selectedTab.results" />
           </template>
           <template #[`item.fileSize`]="{ item }">
             {{ formatData({ data: item.fileSize }) }}
@@ -444,6 +437,12 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped lang="scss">
+// SearchFilterBar's v-range-slider uses bubbles (above the handles), which get
+// clipped by this component's `overflow: hidden`.
+.search-results-item :deep(.v-list-item__content) {
+  overflow: visible;
+}
+
 .v-row.row-mobile {
   & > .v-col {
     padding: 8px 0;

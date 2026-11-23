@@ -1,20 +1,23 @@
-import { ByteUnitExponent } from './ByteUnitExponent'
 import SearchResult from './SearchResult'
+
+export const DEFAULT_SEEDS_MIN = 0
+export const DEFAULT_SEEDS_MAX = 100_000
+
+/** Bytes for 100GB or 100GiB, depending on the settings. */
+export function defaultSizeMax(useBinarySize: boolean): number {
+  return (useBinarySize ? 1024 : 1000) ** 3 * 100
+}
 
 export interface SearchFilters {
   title: string
   category: string
   plugin: string
-  /** null means 0. */
-  seedsMin: number | null
-  /** null means no upper bound. */
-  seedsMax: number | null
-  /** null means 0. */
-  sizeMin: number | null
-  /** null means no upper bound. */
-  sizeMax: number | null
-  sizeMinUnit: ByteUnitExponent
-  sizeMaxUnit: ByteUnitExponent
+  seedsMin: number
+  seedsMax: number
+  /** In bytes. */
+  sizeMin: number
+  /** In bytes. */
+  sizeMax: number
 }
 
 export type SearchSortBy = { key: string; order: 'asc' | 'desc' }

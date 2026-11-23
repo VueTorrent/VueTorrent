@@ -4,9 +4,7 @@ import { ref } from 'vue'
 import { useVueTorrentStore } from './vuetorrent'
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
-import { ByteUnitExponent, defaultSearchPresetCapture, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
-
-const DEFAULT_SIZE_UNIT = ByteUnitExponent.MEGA
+import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSearchPresetCapture, defaultSizeMax, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
 
 export const useSearchEngineStore = defineStore(
   'searchEngine',
@@ -27,12 +25,10 @@ export const useSearchEngineStore = defineStore(
           title: '',
           category: 'all',
           plugin: 'enabled',
-          seedsMin: null,
-          seedsMax: null,
-          sizeMin: null,
-          sizeMax: null,
-          sizeMinUnit: DEFAULT_SIZE_UNIT,
-          sizeMaxUnit: DEFAULT_SIZE_UNIT,
+          seedsMin: DEFAULT_SEEDS_MIN,
+          seedsMax: DEFAULT_SEEDS_MAX,
+          sizeMin: 0,
+          sizeMax: defaultSizeMax(vueTorrentStore.useBinarySize),
         },
         results: [],
         timer: null,
@@ -72,8 +68,6 @@ export const useSearchEngineStore = defineStore(
       if (preset.capture.sizeFilter) {
         tab.filters.sizeMin = preset.sizeMin
         tab.filters.sizeMax = preset.sizeMax
-        tab.filters.sizeMinUnit = preset.sizeMinUnit ?? DEFAULT_SIZE_UNIT
-        tab.filters.sizeMaxUnit = preset.sizeMaxUnit ?? DEFAULT_SIZE_UNIT
       }
     }
 
@@ -98,12 +92,10 @@ export const useSearchEngineStore = defineStore(
         plugin: tab.filters.plugin,
         // Only persist the filters when they were actually opted into.
         title: capture.titleFilter ? tab.filters.title : '',
-        seedsMin: capture.seedsFilter ? tab.filters.seedsMin : null,
-        seedsMax: capture.seedsFilter ? tab.filters.seedsMax : null,
-        sizeMin: capture.sizeFilter ? tab.filters.sizeMin : null,
-        sizeMax: capture.sizeFilter ? tab.filters.sizeMax : null,
-        sizeMinUnit: capture.sizeFilter ? tab.filters.sizeMinUnit : DEFAULT_SIZE_UNIT,
-        sizeMaxUnit: capture.sizeFilter ? tab.filters.sizeMaxUnit : DEFAULT_SIZE_UNIT,
+        seedsMin: capture.seedsFilter ? tab.filters.seedsMin : DEFAULT_SEEDS_MIN,
+        seedsMax: capture.seedsFilter ? tab.filters.seedsMax : DEFAULT_SEEDS_MAX,
+        sizeMin: capture.sizeFilter ? tab.filters.sizeMin : 0,
+        sizeMax: capture.sizeFilter ? tab.filters.sizeMax : defaultSizeMax(vueTorrentStore.useBinarySize),
       }
 
       if (existing) {

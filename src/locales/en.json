@@ -791,12 +791,6 @@
         "enabled": "Enabled",
         "label": "Search plugin"
       },
-      "rangeFilters": {
-        "invertedWarning": "Min is greater than Max: no results can match this range",
-        "max": "Max",
-        "min": "Min",
-        "to": "to"
-      },
       "seeds": {
         "label": "Seeders:"
       },

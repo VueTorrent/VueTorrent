@@ -1,5 +1,3 @@
-import { ByteUnitExponent } from './ByteUnitExponent'
-
 /** Which parts of a search tab a preset captures and restores. */
 export interface SearchPresetCapture {
   sortBy: boolean
@@ -26,12 +24,10 @@ export interface SearchPreset {
   category: string
   plugin: string
   title: string
-  seedsMin: number | null
-  seedsMax: number | null
-  sizeMin: number | null
-  sizeMax: number | null
-  sizeMinUnit: ByteUnitExponent
-  sizeMaxUnit: ByteUnitExponent
+  seedsMin: number
+  seedsMax: number
+  sizeMin: number
+  sizeMax: number
 }
 
 export function defaultSearchPresetCapture(): SearchPresetCapture {
