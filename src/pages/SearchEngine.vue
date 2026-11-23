@@ -78,6 +78,10 @@ const { results: filteredResults } = useSearchQuery(
 
 function matchesRangeFilters(result: SearchResult) {
   const filters = selectedTab.value.filters
+  filters.seedsMin ??= DEFAULT_SEEDS_MIN
+  filters.seedsMax ??= DEFAULT_SEEDS_MAX
+  filters.sizeMin ??= 0
+  filters.sizeMax ??= defaultSizeMax(vueTorrentStore.useBinarySize)
   if (result.nbSeeders < filters.seedsMin || result.nbSeeders > filters.seedsMax) return false
   if (result.fileSize < filters.sizeMin || result.fileSize > filters.sizeMax) return false
   return true
