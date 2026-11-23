@@ -66,21 +66,31 @@ const sizeSlider = computed<[number, number]>({
   },
 })
 
-function nonNegative(key: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax', modifiedKey: 'seedsModified' | 'sizeModified') {
+function rangeSideField(
+  key: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax',
+  siblingKey: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax',
+  modifiedKey: 'seedsModified' | 'sizeModified',
+  isMin: boolean
+) {
   return computed<number, string>({
     get: () => filters.value[key],
     set: raw => {
       const parsed = Number(raw)
+      const value = Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
       filters.value[modifiedKey] = true
-      filters.value[key] = Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
+      filters.value[key] = value
+      const sibling = filters.value[siblingKey]
+      if (isMin ? value > sibling : value < sibling) {
+        filters.value[siblingKey] = value
+      }
     },
   })
 }
 
-const seedsMinModel = nonNegative('seedsMin', 'seedsModified')
-const seedsMaxModel = nonNegative('seedsMax', 'seedsModified')
-const sizeMinModel = nonNegative('sizeMin', 'sizeModified')
-const sizeMaxModel = nonNegative('sizeMax', 'sizeModified')
+const seedsMinModel = rangeSideField('seedsMin', 'seedsMax', 'seedsModified', true)
+const seedsMaxModel = rangeSideField('seedsMax', 'seedsMin', 'seedsModified', false)
+const sizeMinModel = rangeSideField('sizeMin', 'sizeMax', 'sizeModified', true)
+const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
 </script>
 
 <template>
