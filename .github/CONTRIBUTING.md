@@ -38,8 +38,12 @@ Don't hesitate to create your PR in draft mode if you need some feedback
 
 VueTorrent welcomes localization contributions!
 
-We no longer accept PRs for translations as all locale data in this repo is there only for reference and building from source.
-Instead head to our [Discord server](https://discord.gg/KDQP7fR467) or contact us directly [by mail](mailto:vuetorrent@larsluph.dev) to get your invitation link to the [Tolgee](https://tolgee.io) project.
+Translations are managed in [Tolgee](https://app.tolgee.io/projects/4049), not through pull requests to this repository. The project is public, so anyone with a Tolgee account can contribute without an invitation:
+
+1. Sign in to [Tolgee](https://app.tolgee.io/) or create an account.
+2. Open the [VueTorrent project (ID 4049)](https://app.tolgee.io/projects/4049) and suggest translations.
+
+Community translations are automatically approved. For more information, see Tolgee's [Community Translation guide](https://docs.tolgee.io/platform/translation_process/community-translation).
 
 ## Wiki changes
 

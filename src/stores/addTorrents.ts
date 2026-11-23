@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, reactive, ref, shallowRef } from 'vue'
+import { computed, reactive, ref, shallowRef, triggerRef } from 'vue'
 import { usePreferenceStore } from './preferences'
 import { AddTorrentParams } from '@/types/qbit/models'
 
@@ -26,6 +26,7 @@ export const useAddTorrentStore = defineStore(
     function pushTorrentToQueue(torrentDescriptor: File | string) {
       if (torrentDescriptor instanceof File) {
         files.value.push(torrentDescriptor)
+        triggerRef(files)
       } else {
         if (urls.value !== '') {
           urls.value += '\n'

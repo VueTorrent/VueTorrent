@@ -12,8 +12,9 @@ export const useSearchEngineStore = defineStore(
     const searchData = ref<SearchData[]>([])
     const searchPlugins = ref<SearchPlugin[]>([])
 
+    const vueTorrentStore = useVueTorrentStore()
+
     function createNewTab() {
-      const vueTorrentStore = useVueTorrentStore()
       const tab: SearchData = {
         uniqueId: uuidv4(),
         id: 0,
@@ -64,7 +65,6 @@ export const useSearchEngineStore = defineStore(
      * Returns the preset's id, or null if the name is blank.
      */
     function saveSearchPreset(tab: SearchData, name: string, capture: SearchPresetCapture = defaultSearchPresetCapture()) {
-      const vueTorrentStore = useVueTorrentStore()
       const trimmed = name.trim()
       if (!trimmed) return null
 
@@ -92,7 +92,7 @@ export const useSearchEngineStore = defineStore(
     }
 
     function loadSearchPreset(tab: SearchData, id: string) {
-      const preset = useVueTorrentStore().searchPresets.find(entry => entry.id === id)
+      const preset = vueTorrentStore.searchPresets.find(entry => entry.id === id)
       if (!preset) return false
 
       applyPresetToTab(tab, preset)
@@ -101,7 +101,6 @@ export const useSearchEngineStore = defineStore(
     }
 
     function deleteSearchPreset(id: string) {
-      const vueTorrentStore = useVueTorrentStore()
       const index = vueTorrentStore.searchPresets.findIndex(preset => preset.id === id)
       if (index === -1) return false
 
@@ -116,7 +115,6 @@ export const useSearchEngineStore = defineStore(
 
     /** Pass `null` to clear the default. Referencing an unknown preset is a no-op. */
     function setDefaultSearchPreset(id: string | null) {
-      const vueTorrentStore = useVueTorrentStore()
       if (id === null) {
         vueTorrentStore.searchPresetDefaultId = null
         return true

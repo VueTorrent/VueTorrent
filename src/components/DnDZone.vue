@@ -64,13 +64,19 @@ function checkDropEvent(event: DragEvent): event is DragEvent & { readonly dataT
   return !!event.dataTransfer
 }
 
-function extractDropData(files: File[] | null, dataTransfer: DataTransfer): [File[], string[]] {
-  const links = dataTransfer
-    .getData('text/plain')
-    .split('\n')
+function extractLinks(...payloads: string[]): string[] {
+  const links = payloads
+    .flatMap(text => text.split('\n'))
+    .map(link => link.trim())
     .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 
-  return [files ?? [], links]
+  return [...new Set(links)]
+}
+
+function extractDropData(files: File[] | null, dataTransfer: DataTransfer): [File[], string[]] {
+  const links = extractLinks(dataTransfer.getData('text/plain'), dataTransfer.getData('text/uri-list'))
+
+  return links.length > 0 ? [[], links] : [files ?? [], []]
 }
 
 function extractPasteData(event: ClipboardEvent): [File[], string[]] {
@@ -85,10 +91,7 @@ function extractPasteData(event: ClipboardEvent): [File[], string[]] {
     .filter(file => !!file)
     .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
 
-  const links = clipboardData
-    .getData('text/plain')
-    .split('\n')
-    .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
+  const links = extractLinks(clipboardData.getData('text/plain'))
 
   return [files, links]
 }

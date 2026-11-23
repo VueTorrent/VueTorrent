@@ -1,10 +1,10 @@
 import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from './i18n'
 import { formatData, formatDataUnit, formatDataValue, formatRawNumber, formatSpeed, formatSpeedUnit, formatSpeedValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 
 export function useNumberFormatter() {
-  const { t } = useI18n()
+  const { t } = useI18nUtils()
   const { thousandSeparator, useBinarySize, useBitSpeed } = storeToRefs(useVueTorrentStore())
 
   function getBitPerSecondUnit() {

@@ -5,7 +5,6 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import ButtonLink from '@/components/Core/ButtonLink.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
-import SearchPresetDialog from '@/components/Dialogs/SearchPresetDialog.vue'
 import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatTimeSec } from '@/helpers'
@@ -135,7 +134,10 @@ function openPluginManagerDialog() {
 }
 
 function openSearchPresetDialog() {
-  dialogStore.createDialog(SearchPresetDialog, { tab: selectedTab.value })
+  dialogStore.createDialog(
+    defineAsyncComponent(() => import('@/components/Dialogs/SearchPresetDialog.vue')),
+    { tab: selectedTab.value }
+  )
 }
 
 function loadPreset(id: string) {

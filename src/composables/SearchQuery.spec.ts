@@ -1,39 +1,38 @@
 import { describe, expect, test } from 'vitest'
 import { useSearchQuery } from './SearchQuery'
 
+function identity<T>(x: T) {
+  return x
+}
+
 describe('composables/SearchQuery', () => {
   test('should return all items when search query is empty', () => {
-    const { results } = useSearchQuery(['foo', 'bar', 'baz'], '', (item: string) => item)
+    const { results } = useSearchQuery(['foo', 'bar', 'baz'], '', identity)
     expect(results.value).toEqual(['foo', 'bar', 'baz'])
   })
 
   test('should return all items when search query is null', () => {
-    const { results } = useSearchQuery(['foo', 'bar', 'baz'], null, (item: string) => item)
+    const { results } = useSearchQuery(['foo', 'bar', 'baz'], null, identity)
     expect(results.value).toEqual(['foo', 'bar', 'baz'])
   })
 
   test('should return no items when search query does not match any item', () => {
-    const { results } = useSearchQuery(['foo', 'bar', 'baz'], 'qux', (item: string) => item)
+    const { results } = useSearchQuery(['foo', 'bar', 'baz'], 'qux', identity)
     expect(results.value).toEqual([])
   })
 
   test('should return items that match search query partially', () => {
-    const { results } = useSearchQuery(['foobar', 'barfoo', 'baz'], 'foo', (item: string) => item)
+    const { results } = useSearchQuery(['foobar', 'barfoo', 'baz'], 'foo', identity)
     expect(results.value).toEqual(['foobar', 'barfoo'])
   })
 
   test('should return items that match search query with multiple words', () => {
-    const { results } = useSearchQuery(['foo bar', 'bar foo', 'baz'], 'foo bar', (item: string) => item)
+    const { results } = useSearchQuery(['foo bar', 'bar foo', 'baz'], 'foo bar', identity)
     expect(results.value).toEqual(['foo bar', 'bar foo'])
   })
 
   test('should return items that match search query with postProcess applied', () => {
-    const { results } = useSearchQuery(
-      ['foo', 'bar', 'baz'],
-      'foo',
-      (item: string) => item,
-      (items: string[]) => items.map(item => item.toUpperCase())
-    )
+    const { results } = useSearchQuery(['foo', 'bar', 'baz'], 'foo', identity, (items: string[]) => items.map(item => item.toUpperCase()))
     expect(results.value).toEqual(['FOO'])
   })
 
@@ -68,13 +67,13 @@ describe('composables/SearchQuery', () => {
     const AZERTY = 'azerty'
 
     // Query accents with no accents
-    const { results: res1 } = useSearchQuery([ITEM_WITH_MIXED_ACCENTS, AZERTY], ITEM_WITHOUT_ACCENTS, item => item)
+    const { results: res1 } = useSearchQuery([ITEM_WITH_MIXED_ACCENTS, AZERTY], ITEM_WITHOUT_ACCENTS, identity)
     // Query accents with accents
-    const { results: res2 } = useSearchQuery([ITEM_WITH_ACCENTS, AZERTY], ITEM_WITH_ACCENTS, item => item)
+    const { results: res2 } = useSearchQuery([ITEM_WITH_ACCENTS, AZERTY], ITEM_WITH_ACCENTS, identity)
     // Query no accents with accents
-    const { results: res3 } = useSearchQuery([ITEM_WITHOUT_ACCENTS, AZERTY], ITEM_WITH_MIXED_ACCENTS, item => item)
+    const { results: res3 } = useSearchQuery([ITEM_WITHOUT_ACCENTS, AZERTY], ITEM_WITH_MIXED_ACCENTS, identity)
     // Query no accents with no accents
-    const { results: res4 } = useSearchQuery([AZERTY], AZERTY, item => item)
+    const { results: res4 } = useSearchQuery([AZERTY], AZERTY, identity)
 
     expect(res1.value).toEqual([ITEM_WITH_MIXED_ACCENTS])
     expect(res2.value).toEqual([ITEM_WITH_ACCENTS])
@@ -84,30 +83,31 @@ describe('composables/SearchQuery', () => {
 
   test('should test for regex if value enclosed with slashes', () => {
     const items = ['abc123', 'def456']
-    const { results } = useSearchQuery(items, '/\\d+/', item => item)
+    const { results } = useSearchQuery(items, '/\\d{3}/', identity)
     expect(results.value).toEqual(items)
+  })
+
+  test('invalid regex should fallback to text search', () => {
+    const items = ['foo 123', 'foo [123]']
+    const { results } = useSearchQuery(items, '/foo [/', identity)
+    expect(results.value).toEqual(['foo [123]'])
   })
 
   test('should not fail with undefined values', () => {
     const items = ['test1', 'test2', undefined, 'test3']
-    const { results } = useSearchQuery(items, 'test', item => item)
+    const { results } = useSearchQuery(items, 'test', identity)
     expect(results.value).toHaveLength(3)
   })
 
   test('should match entire symbol when using quotes', () => {
     const items = ['DAN DA DAN', 'DANCING']
-    const { results } = useSearchQuery(items, '"DAN DA DAN"', item => item)
+    const { results } = useSearchQuery(items, '"DAN DA DAN"', identity)
     expect(results.value).toHaveLength(1)
   })
 
   test('should not mutate the original array with empty query', () => {
     const items = ['foo', 'bar', 'baz']
-    const { results } = useSearchQuery(
-      items,
-      '',
-      item => item,
-      items => items.sort()
-    )
+    const { results } = useSearchQuery(items, '', identity, items => items.sort())
     expect(results.value).toEqual(['bar', 'baz', 'foo'])
     expect(items).toEqual(['foo', 'bar', 'baz'])
   })

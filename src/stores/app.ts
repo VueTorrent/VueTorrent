@@ -25,15 +25,27 @@ export const useAppStore = defineStore('app', () => {
   async function setAuthStatus(val: boolean, ver?: string) {
     isAuthenticated.value = val
 
-    if (val) {
-      version.value = ver || (await qbit.getVersion())
-      webApiVersion.value = await qbit.getWebAPIVersion().catch(() => '0.0.0')
-      buildInfo.value = await qbit.getBuildInfo()
-    } else {
+    if (!val) {
       version.value = '0.0.0'
       webApiVersion.value = '0.0.0'
       buildInfo.value = undefined
+      return
     }
+
+    const promises: Promise<any>[] = []
+    if (ver) {
+      version.value = ver
+    } else {
+      promises.push(qbit.getVersion().then(v => (version.value = v)))
+    }
+    promises.push(
+      qbit
+        .getWebAPIVersion()
+        .catch(() => '0.0.0')
+        .then(v => (webApiVersion.value = v))
+    )
+    promises.push(qbit.getBuildInfo().then(v => (buildInfo.value = v)))
+    await Promise.all(promises)
   }
 
   function isFeatureAvailable(required_version?: string) {

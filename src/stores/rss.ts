@@ -12,6 +12,8 @@ import type { RssArticle, RssFeed } from '@/types/vuetorrent'
 export const useRssStore = defineStore(
   'rss',
   () => {
+    const { t } = useI18nUtils()
+
     const isFeedsLoaded = ref(false)
     const isRulesLoaded = ref(false)
     const feeds = ref<RssFeed[]>([])
@@ -89,7 +91,6 @@ export const useRssStore = defineStore(
     async function setFeedUrl(feedName: string, feedUrl: string) {
       await qbit.setFeedUrl(feedName, feedUrl).catch((error: AxiosError) => {
         if (error.response?.status === 404) {
-          const { t } = useI18nUtils()
           toast.error(t('toast.qbit.not_supported', { version: '4.6.0' }))
         }
       })
@@ -185,7 +186,6 @@ export const useRssStore = defineStore(
     }
 
     async function markAllAsRead() {
-      const { t } = useI18nUtils()
       const unreadArticlesCount = unreadArticles.value.length
       await toast.promise(
         Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead)),

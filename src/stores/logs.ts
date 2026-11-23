@@ -12,6 +12,7 @@ export const useLogStore = defineStore(
   () => {
     const logs = shallowRef<Log[]>([])
     const externalIp = ref<string>()
+    const externalIpV6 = ref<string>()
     const reverseSort = ref(false)
     const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
     const logMessageFilter = ref('')
@@ -47,16 +48,22 @@ export const useLogStore = defineStore(
     }
 
     function extractExternalIpFromLogs(logsToParse: Log[]) {
-      const log = logsToParse.find(log => log.message.includes('Detected external IP.'))
-      if (!log) return
+      // qBittorrent logs one "Detected external IP" line per address family, so keep the latest of each
+      for (const log of logsToParse) {
+        if (!log.message.includes('Detected external IP.')) continue
 
-      const match = log.message.match(/IP: "(.*)"/)
-      if (match) externalIp.value = match[1]
+        const match = log.message.match(/IP: "(.*)"/)
+        if (!match) continue
+
+        if (match[1].includes(':')) externalIpV6.value = match[1]
+        else externalIp.value = match[1]
+      }
     }
 
     return {
       filteredLogs,
       externalIp,
+      externalIpV6,
       logTypeFilter,
       logMessageFilter,
       paginatedResults,
@@ -71,6 +78,7 @@ export const useLogStore = defineStore(
         pauseLogSync()
         logs.value = []
         externalIp.value = undefined
+        externalIpV6.value = undefined
         logTypeFilter.value = [LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL]
         logMessageFilter.value = ''
       },

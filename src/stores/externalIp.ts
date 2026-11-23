@@ -15,6 +15,10 @@ export const useExternalIpStore = defineStore('externalIP', () => {
     return maindataStore.serverState?.last_external_address_v4 || logStore.externalIp
   })
 
+  const externalIpV6 = computed(() => {
+    return maindataStore.serverState?.last_external_address_v6 || logStore.externalIpV6
+  })
+
   const geoDetails = useStorage<string | null>('externalIp_geoDetails', null)
   const ispDetails = useStorage<string | null>('externalIp_ispDetails', null)
   const lastFetchedIp = useStorage<string | undefined>('externalIp_lastFetchedIp', undefined)
@@ -41,6 +45,7 @@ export const useExternalIpStore = defineStore('externalIP', () => {
 
   return {
     externalIp,
+    externalIpV6,
     geoDetails,
     ispDetails,
     lastFetchedIp,
