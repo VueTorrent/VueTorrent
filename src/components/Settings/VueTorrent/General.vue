@@ -234,14 +234,28 @@ function openDurationFormatHelp() {
 
     <v-list-item class="mt-3">
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field v-model.number="vueTorrentStore.refreshInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.refreshInterval')" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field v-model.number="vueTorrentStore.fileContentInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.fileContentInterval')" />
         </v-col>
-        <v-col cols="12" md="4">
-          <v-text-field v-model.number="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
+
+        <v-col cols="12" md="6">
+          <v-checkbox
+            v-model="historyStore.saveFieldHistory"
+            density="compact"
+            persistent-hint
+            :label="t('settings.vuetorrent.general.saveFieldHistory')"
+            :hint="t('settings.vuetorrent.general.saveFieldHistoryHint')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model.number="historyStore.historySize"
+            :disabled="!historyStore.saveFieldHistory"
+            type="number"
+            hide-details
+            :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
 
         <v-col cols="12" md="6">
