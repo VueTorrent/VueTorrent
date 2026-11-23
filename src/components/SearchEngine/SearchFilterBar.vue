@@ -111,7 +111,6 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         v-model="seedsSlider"
         class="flex-grow-1"
         color="primary"
-        :direction="$vuetify.display.mobile ? 'vertical' : 'horizontal'"
         :disabled="seedsBounds[0] === seedsBounds[1]"
         density="compact"
         hide-details
@@ -146,7 +145,6 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         v-model="sizeSlider"
         class="flex-grow-1"
         color="primary"
-        :direction="$vuetify.display.mobile ? 'vertical' : 'horizontal'"
         :disabled="sizeBounds[0] === sizeBounds[1]"
         density="compact"
         hide-details
