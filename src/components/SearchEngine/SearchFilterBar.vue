@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+import type { Ref } from 'vue'
 import { useI18nUtils, useNumberFormatter } from '@/composables'
 import { useVueTorrentStore } from '@/stores'
 import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSizeMax, SearchFilters, SearchResult } from '@/types/vuetorrent'
@@ -23,6 +24,35 @@ const sizeBounds = computed<[number, number]>(() => {
   const sizes = props.results.map(result => result.fileSize)
   return [Math.min(...sizes), Math.max(...sizes)]
 })
+
+const seedsFocused = ref(false)
+const sizeFocused = ref(false)
+
+/** Disables automatic updates of slider bounds when focused (being interacted with) to avoid stutter. */
+function useDisplayedBounds(bounds: () => [number, number], focused: () => boolean) {
+  const displayed: Ref<[number, number]> = ref(bounds())
+  function sync() {
+    displayed.value = bounds()
+  }
+
+  watch(bounds, newBounds => {
+    if (!focused()) displayed.value = newBounds
+  })
+  watch(focused, isFocused => {
+    if (!isFocused) sync()
+  })
+
+  return { displayed, sync }
+}
+
+const { displayed: displayedSeedsBounds, sync: syncSeedsBounds } = useDisplayedBounds(
+  () => seedsBounds.value,
+  () => seedsFocused.value
+)
+const { displayed: displayedSizeBounds, sync: syncSizeBounds } = useDisplayedBounds(
+  () => sizeBounds.value,
+  () => sizeFocused.value
+)
 
 /** Keeps a range glued to new search-result bounds until the user explicitly sets it (marking it `modified`). */
 function trackBounds(bounds: () => [number, number], minKey: 'seedsMin' | 'sizeMin', maxKey: 'seedsMax' | 'sizeMax', modifiedKey: 'seedsModified' | 'sizeModified') {
@@ -109,18 +139,20 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         @click="resetToAutomatic('seedsMin', 'seedsMax', 'seedsModified', seedsBounds)" />
       <v-range-slider
         v-model="seedsSlider"
+        v-model:focused="seedsFocused"
         class="flex-grow-1"
         color="primary"
         :disabled="seedsBounds[0] === seedsBounds[1]"
         density="compact"
         hide-details
-        :max="seedsBounds[1]"
-        :min="seedsBounds[0]"
+        :max="displayedSeedsBounds[1]"
+        :min="displayedSeedsBounds[0]"
         :step="1"
         style="min-width: 20em"
-        thumb-label="always">
+        thumb-label="always"
+        @end="syncSeedsBounds">
         <template #thumb-label="{ modelValue }">
-          <div style="white-space: nowrap">{{ unclampedSliderValue(modelValue, seedsBounds, filters.seedsMin, filters.seedsMax) }}</div>
+          <div style="white-space: nowrap">{{ unclampedSliderValue(modelValue, displayedSeedsBounds, filters.seedsMin, filters.seedsMax) }}</div>
         </template>
         <template #prepend>
           <v-text-field v-model="seedsMinModel" density="compact" hide-details hide-spin-buttons single-line style="width: 6em" type="number" variant="outlined" />
@@ -143,18 +175,20 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         @click="resetToAutomatic('sizeMin', 'sizeMax', 'sizeModified', sizeBounds)" />
       <v-range-slider
         v-model="sizeSlider"
+        v-model:focused="sizeFocused"
         class="flex-grow-1"
         color="primary"
         :disabled="sizeBounds[0] === sizeBounds[1]"
         density="compact"
         hide-details
-        :max="sizeBounds[1]"
-        :min="sizeBounds[0]"
+        :max="displayedSizeBounds[1]"
+        :min="displayedSizeBounds[0]"
         :step="1"
         style="min-width: 24em"
-        thumb-label="always">
+        thumb-label="always"
+        @end="syncSizeBounds">
         <template #thumb-label="{ modelValue }">
-          <div style="white-space: nowrap">{{ formatData({ data: unclampedSliderValue(modelValue, sizeBounds, filters.sizeMin, filters.sizeMax) }) }}</div>
+          <div style="white-space: nowrap">{{ formatData({ data: unclampedSliderValue(modelValue, displayedSizeBounds, filters.sizeMin, filters.sizeMax) }) }}</div>
         </template>
         <template #prepend>
           <v-text-field v-model="sizeMinModel" density="compact" hide-details hide-spin-buttons single-line style="width: 8em" type="number" variant="outlined" />
