@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import type { Ref } from 'vue'
-import RangeFilterDialog from '@/components/Dialogs/RangeFilterDialog.vue'
+import SearchRangeFilterDialog from '@/components/Dialogs/SearchRangeFilterDialog.vue'
 import { useI18nUtils, useNumberFormatter } from '@/composables'
 import { useVueTorrentStore } from '@/stores'
 import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSizeMax, SearchFilters, SearchResult } from '@/types/vuetorrent'
@@ -129,7 +129,7 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeModified')
         @click="resetToAutomatic('seedsMin', 'seedsMax', 'seedsModified', seedsBounds)" />
       <v-btn density="compact" icon :title="t('searchEngine.filters.rangeFilters.precision')" variant="text">
         <v-icon icon="mdi-dots-vertical" />
-        <RangeFilterDialog v-model:max="seedsMaxModel" v-model:min="seedsMinModel" activator="parent" :title="t('searchEngine.filters.seeds.label')" />
+        <SearchRangeFilterDialog v-model:max="seedsMaxModel" v-model:min="seedsMinModel" activator="parent" :title="t('searchEngine.filters.seeds.label')" />
       </v-btn>
       <v-range-slider
         v-model="seedsSlider"
@@ -162,7 +162,7 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeModified')
         @click="resetToAutomatic('sizeMin', 'sizeMax', 'sizeModified', sizeBounds)" />
       <v-btn density="compact" icon :title="t('searchEngine.filters.rangeFilters.precision')" variant="text">
         <v-icon icon="mdi-dots-vertical" />
-        <RangeFilterDialog
+        <SearchRangeFilterDialog
           v-model:max="sizeMaxModel"
           v-model:min="sizeMinModel"
           activator="parent"
