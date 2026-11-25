@@ -8,6 +8,10 @@ export interface SearchPresetCapture {
    * unrelated search is rarely what the user wants.
    */
   titleFilter: boolean
+  /** Same reasoning as titleFilter. */
+  seedsFilter: boolean
+  /** Same reasoning as titleFilter. */
+  sizeFilter: boolean
 }
 
 export interface SearchPreset {
@@ -20,6 +24,10 @@ export interface SearchPreset {
   category: string
   plugin: string
   title: string
+  seedsMin: number
+  seedsMax: number
+  sizeMin: number
+  sizeMax: number
 }
 
 export function defaultSearchPresetCapture(): SearchPresetCapture {
@@ -28,5 +36,7 @@ export function defaultSearchPresetCapture(): SearchPresetCapture {
     itemsPerPage: true,
     categoryAndPlugin: true,
     titleFilter: false,
+    seedsFilter: false,
+    sizeFilter: false,
   }
 }

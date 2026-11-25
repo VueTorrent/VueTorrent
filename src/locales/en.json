@@ -791,6 +791,18 @@
         "enabled": "Enabled",
         "label": "Search plugin"
       },
+      "rangeFilters": {
+        "max": "Max",
+        "min": "Min",
+        "precision": "Set precise range",
+        "resetToAutomatic": "Reset to automatic range"
+      },
+      "seeds": {
+        "label": "Seeders:"
+      },
+      "size": {
+        "label": "File Size:"
+      },
       "title": {
         "label": "Filter by title"
       }
@@ -807,6 +819,10 @@
     "presets": {
       "captureCategoryPlugin": "Category & plugin",
       "captureRows": "Rows per page",
+      "captureSeedsFilter": "Seeders range filter",
+      "captureSeedsFilterHint": "Off by default",
+      "captureSizeFilter": "File size range filter",
+      "captureSizeFilterHint": "Off by default",
       "captureSort": "Sort order",
       "captureTitle": "Save with this preset",
       "captureTitleFilter": "Text filter",

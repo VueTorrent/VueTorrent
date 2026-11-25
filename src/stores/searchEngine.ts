@@ -4,7 +4,7 @@ import { ref } from 'vue'
 import { useVueTorrentStore } from './vuetorrent'
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
-import { defaultSearchPresetCapture, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
+import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSearchPresetCapture, defaultSizeMax, SearchData, SearchPreset, SearchPresetCapture } from '@/types/vuetorrent'
 
 export const useSearchEngineStore = defineStore(
   'searchEngine',
@@ -25,6 +25,12 @@ export const useSearchEngineStore = defineStore(
           title: '',
           category: 'all',
           plugin: 'enabled',
+          seedsMin: DEFAULT_SEEDS_MIN,
+          seedsMax: DEFAULT_SEEDS_MAX,
+          seedsModified: false,
+          sizeMin: 0,
+          sizeMax: defaultSizeMax(vueTorrentStore.useBinarySize),
+          sizeModified: false,
         },
         results: [],
         timer: null,
@@ -57,6 +63,18 @@ export const useSearchEngineStore = defineStore(
       if (preset.capture.titleFilter) {
         tab.filters.title = preset.title
       }
+      if (preset.capture.seedsFilter) {
+        tab.filters.seedsMin = preset.seedsMin ?? DEFAULT_SEEDS_MIN
+        tab.filters.seedsMax = preset.seedsMax ?? DEFAULT_SEEDS_MAX
+        // Do not change automatically when loaded from a preset.
+        tab.filters.seedsModified = true
+      }
+      if (preset.capture.sizeFilter) {
+        tab.filters.sizeMin = preset.sizeMin ?? 0
+        tab.filters.sizeMax = preset.sizeMax ?? defaultSizeMax(vueTorrentStore.useBinarySize)
+        // Do not change automatically when loaded from a preset.
+        tab.filters.sizeModified = true
+      }
     }
 
     /**
@@ -78,8 +96,12 @@ export const useSearchEngineStore = defineStore(
         itemsPerPage: tab.itemsPerPage,
         category: tab.filters.category,
         plugin: tab.filters.plugin,
-        // Only persist the text filter when it was actually opted into.
+        // Only persist the filters when they were actually opted into.
         title: capture.titleFilter ? tab.filters.title : '',
+        seedsMin: capture.seedsFilter ? tab.filters.seedsMin : DEFAULT_SEEDS_MIN,
+        seedsMax: capture.seedsFilter ? tab.filters.seedsMax : DEFAULT_SEEDS_MAX,
+        sizeMin: capture.sizeFilter ? tab.filters.sizeMin : 0,
+        sizeMax: capture.sizeFilter ? tab.filters.sizeMax : defaultSizeMax(vueTorrentStore.useBinarySize),
       }
 
       if (existing) {

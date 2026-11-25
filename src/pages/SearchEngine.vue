@@ -5,11 +5,12 @@ import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 import ButtonLink from '@/components/Core/ButtonLink.vue'
 import HistoryField from '@/components/Core/HistoryField.vue'
+import SearchFilterBar from '@/components/SearchEngine/SearchFilterBar.vue'
 import { useI18nUtils, useNumberFormatter, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
-import { SearchData, SearchResult } from '@/types/vuetorrent'
+import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSizeMax, SearchData, SearchResult } from '@/types/vuetorrent'
 
 const { mobile } = useDisplay()
 const { t } = useI18nUtils()
@@ -71,8 +72,20 @@ const selectedTab = computed<SearchData>(() => searchData.value[tabIndex.value] 
 const { results: filteredResults } = useSearchQuery(
   () => selectedTab.value.results,
   () => selectedTab.value.filters?.title,
-  result => result.fileName
+  result => result.fileName,
+  results => results.filter(matchesRangeFilters)
 )
+
+function matchesRangeFilters(result: SearchResult) {
+  const filters = selectedTab.value.filters
+  filters.seedsMin ??= DEFAULT_SEEDS_MIN
+  filters.seedsMax ??= DEFAULT_SEEDS_MAX
+  filters.sizeMin ??= 0
+  filters.sizeMax ??= defaultSizeMax(vueTorrentStore.useBinarySize)
+  if (result.nbSeeders < filters.seedsMin || result.nbSeeders > filters.seedsMax) return false
+  if (result.fileSize < filters.sizeMin || result.fileSize > filters.sizeMax) return false
+  return true
+}
 
 const selectedSortBy = computed({
   get: () => selectedTab.value.sortBy ?? [],
@@ -164,6 +177,13 @@ onBeforeMount(async () => {
     searchEngineStore.createNewTab()
   } else {
     searchData.value.forEach((tab: SearchData) => {
+      tab.filters.seedsMin ??= DEFAULT_SEEDS_MIN
+      tab.filters.seedsMax ??= DEFAULT_SEEDS_MAX
+      tab.filters.seedsModified ??= false
+      tab.filters.sizeMin ??= 0
+      tab.filters.sizeMax ??= defaultSizeMax(vueTorrentStore.useBinarySize)
+      tab.filters.sizeModified ??= false
+
       if (tab.id && tab.id !== 0) {
         tab.timer = setInterval(() => void searchEngineStore.refreshResults(tab), 1000)
       }
@@ -294,7 +314,7 @@ onBeforeUnmount(() => {
 
       <v-divider class="my-3" />
 
-      <v-list-item class="text-select">
+      <v-list-item class="text-select search-results-item">
         <v-data-table
           v-if="mobile"
           v-model:items-per-page="selectedTab.itemsPerPage"
@@ -304,11 +324,7 @@ onBeforeUnmount(() => {
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #top>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
-              </v-col>
-            </v-row>
+            <SearchFilterBar :key="selectedTab.uniqueId" v-model:filters="selectedTab.filters" :results="selectedTab.results" />
           </template>
           <template #item="{ item, index }">
             <v-divider v-if="index !== 0" />
@@ -391,11 +407,7 @@ onBeforeUnmount(() => {
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #top>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
-              </v-col>
-            </v-row>
+            <SearchFilterBar :key="selectedTab.uniqueId" v-model:filters="selectedTab.filters" :results="selectedTab.results" />
           </template>
           <template #[`item.fileSize`]="{ item }">
             {{ formatData({ data: item.fileSize }) }}
@@ -436,6 +448,12 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped lang="scss">
+// SearchFilterBar's v-range-slider uses bubbles (above the handles), which get
+// clipped by this component's `overflow: hidden`.
+.search-results-item :deep(.v-list-item__content) {
+  overflow: visible;
+}
+
 .v-row.row-mobile {
   & > .v-col {
     padding: 8px 0;

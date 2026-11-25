@@ -4,7 +4,8 @@ import type { RightClickMenuEntryType } from './RightClickMenuEntryType'
 import type RightClickProperties from './RightClickProperties'
 import type { RssArticle } from './RssArticle'
 import type { RssFeed } from './RssFeed'
-import type { SearchData, SearchSortBy } from './SearchData'
+import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSizeMax } from './SearchData'
+import type { SearchData, SearchFilters, SearchSortBy } from './SearchData'
 import { defaultSearchPresetCapture } from './SearchPreset'
 import type { SearchPreset, SearchPresetCapture } from './SearchPreset'
 import type SearchResult from './SearchResult'
@@ -17,12 +18,25 @@ import type Torrent from './Torrent'
 import { TreeFile, TreeFolder, isNodeFile, isNodeFolder } from './TreeObjects'
 import type { TreeNode } from './TreeObjects'
 
-export { Cookie, defaultSearchPresetCapture, ShareLimitAction, ShareLimitsMode, TreeFile, TreeFolder, isNodeFile, isNodeFolder }
+export {
+  Cookie,
+  DEFAULT_SEEDS_MAX,
+  DEFAULT_SEEDS_MIN,
+  defaultSearchPresetCapture,
+  defaultSizeMax,
+  ShareLimitAction,
+  ShareLimitsMode,
+  TreeFile,
+  TreeFolder,
+  isNodeFile,
+  isNodeFolder,
+}
 export type {
   FilterPreset,
   RssArticle,
   RssFeed,
   SearchData,
+  SearchFilters,
   SearchPreset,
   SearchPresetCapture,
   SearchSortBy,
