@@ -792,6 +792,9 @@
         "label": "Search plugin"
       },
       "rangeFilters": {
+        "max": "Max",
+        "min": "Min",
+        "precision": "Set precise range",
         "resetToAutomatic": "Reset to automatic range"
       },
       "seeds": {

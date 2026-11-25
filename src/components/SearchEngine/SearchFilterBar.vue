@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import type { Ref } from 'vue'
+import RangeFilterDialog from '@/components/Dialogs/RangeFilterDialog.vue'
 import { useI18nUtils, useNumberFormatter } from '@/composables'
 import { useVueTorrentStore } from '@/stores'
 import { DEFAULT_SEEDS_MAX, DEFAULT_SEEDS_MIN, defaultSizeMax, SearchFilters, SearchResult } from '@/types/vuetorrent'
@@ -96,31 +97,21 @@ const sizeSlider = computed<[number, number]>({
   },
 })
 
-function rangeSideField(
-  key: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax',
-  siblingKey: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax',
-  modifiedKey: 'seedsModified' | 'sizeModified',
-  isMin: boolean
-) {
+function rangeSideField(key: 'seedsMin' | 'seedsMax' | 'sizeMin' | 'sizeMax', modifiedKey: 'seedsModified' | 'sizeModified') {
   return computed<number, string>({
     get: () => filters.value[key],
     set: raw => {
       const parsed = Number(raw)
-      const value = Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
       filters.value[modifiedKey] = true
-      filters.value[key] = value
-      const sibling = filters.value[siblingKey]
-      if (isMin ? value > sibling : value < sibling) {
-        filters.value[siblingKey] = value
-      }
+      filters.value[key] = Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
     },
   })
 }
 
-const seedsMinModel = rangeSideField('seedsMin', 'seedsMax', 'seedsModified', true)
-const seedsMaxModel = rangeSideField('seedsMax', 'seedsMin', 'seedsModified', false)
-const sizeMinModel = rangeSideField('sizeMin', 'sizeMax', 'sizeModified', true)
-const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
+const seedsMinModel = rangeSideField('seedsMin', 'seedsModified')
+const seedsMaxModel = rangeSideField('seedsMax', 'seedsModified')
+const sizeMinModel = rangeSideField('sizeMin', 'sizeModified')
+const sizeMaxModel = rangeSideField('sizeMax', 'sizeModified')
 </script>
 
 <template>
@@ -133,10 +124,13 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         v-if="filters.seedsModified"
         density="compact"
         icon="mdi-refresh"
-        size="small"
         :title="t('searchEngine.filters.rangeFilters.resetToAutomatic')"
         variant="text"
         @click="resetToAutomatic('seedsMin', 'seedsMax', 'seedsModified', seedsBounds)" />
+      <v-btn density="compact" icon :title="t('searchEngine.filters.rangeFilters.precision')" variant="text">
+        <v-icon icon="mdi-dots-vertical" />
+        <RangeFilterDialog v-model:max="seedsMaxModel" v-model:min="seedsMinModel" activator="parent" :title="t('searchEngine.filters.seeds.label')" />
+      </v-btn>
       <v-range-slider
         v-model="seedsSlider"
         v-model:focused="seedsFocused"
@@ -148,17 +142,11 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         :max="displayedSeedsBounds[1]"
         :min="displayedSeedsBounds[0]"
         :step="1"
-        style="min-width: 20em"
+        style="min-width: 8em"
         thumb-label="always"
         @end="syncSeedsBounds">
         <template #thumb-label="{ modelValue }">
           <div style="white-space: nowrap">{{ unclampedSliderValue(modelValue, displayedSeedsBounds, filters.seedsMin, filters.seedsMax) }}</div>
-        </template>
-        <template #prepend>
-          <v-text-field v-model="seedsMinModel" density="compact" hide-details hide-spin-buttons single-line style="width: 6em" type="number" variant="outlined" />
-        </template>
-        <template #append>
-          <v-text-field v-model="seedsMaxModel" density="compact" hide-details hide-spin-buttons single-line style="width: 6em" type="number" variant="outlined" />
         </template>
       </v-range-slider>
     </div>
@@ -169,10 +157,18 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         v-if="filters.sizeModified"
         density="compact"
         icon="mdi-refresh"
-        size="small"
         :title="t('searchEngine.filters.rangeFilters.resetToAutomatic')"
         variant="text"
         @click="resetToAutomatic('sizeMin', 'sizeMax', 'sizeModified', sizeBounds)" />
+      <v-btn density="compact" icon :title="t('searchEngine.filters.rangeFilters.precision')" variant="text">
+        <v-icon icon="mdi-dots-vertical" />
+        <RangeFilterDialog
+          v-model:max="sizeMaxModel"
+          v-model:min="sizeMinModel"
+          activator="parent"
+          :format="value => formatData({ data: value })"
+          :title="t('searchEngine.filters.size.label')" />
+      </v-btn>
       <v-range-slider
         v-model="sizeSlider"
         v-model:focused="sizeFocused"
@@ -184,17 +180,11 @@ const sizeMaxModel = rangeSideField('sizeMax', 'sizeMin', 'sizeModified', false)
         :max="displayedSizeBounds[1]"
         :min="displayedSizeBounds[0]"
         :step="1"
-        style="min-width: 24em"
+        style="min-width: 8em"
         thumb-label="always"
         @end="syncSizeBounds">
         <template #thumb-label="{ modelValue }">
           <div style="white-space: nowrap">{{ formatData({ data: unclampedSliderValue(modelValue, displayedSizeBounds, filters.sizeMin, filters.sizeMax) }) }}</div>
-        </template>
-        <template #prepend>
-          <v-text-field v-model="sizeMinModel" density="compact" hide-details hide-spin-buttons single-line style="width: 8em" type="number" variant="outlined" />
-        </template>
-        <template #append>
-          <v-text-field v-model="sizeMaxModel" density="compact" hide-details hide-spin-buttons single-line style="width: 8em" type="number" variant="outlined" />
         </template>
       </v-range-slider>
     </div>
