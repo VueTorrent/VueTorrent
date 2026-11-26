@@ -30,6 +30,7 @@ const stopConditionOptions = [
 
 const downloadPathField = ref<typeof ServerPathField>()
 const savePathField = ref<typeof ServerPathField>()
+const savePathEdited = ref(false)
 
 const tagSearch = ref('')
 
@@ -96,6 +97,8 @@ const inactiveSeedingTimeLimit = computed({
 })
 
 function onCategoryChanged() {
+  if (!form.value.use_auto_tmm && savePathEdited.value) return
+
   const category = categoryStore.getCategoryFromName(form.value.category)
   if (category && category.savePath.length > 0) {
     form.value.save_path = category.savePath
@@ -190,7 +193,8 @@ defineExpose({ saveFields })
         :history-key="HistoryKey.TORRENT_PATH"
         :disabled="form.use_auto_tmm"
         :title="t('dialogs.add.params.save_path')"
-        hide-details>
+        hide-details
+        @update:model-value="savePathEdited = !!$event">
         <template #prepend>
           <v-icon color="accent"> mdi-content-save </v-icon>
         </template>
